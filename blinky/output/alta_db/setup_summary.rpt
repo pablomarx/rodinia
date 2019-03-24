@@ -1,0 +1,62 @@
+Worst 993.641, Best 998.778
+Worst 993.641, Best 998.778
+Coverage report
+  User constraints covered 0 connections out of 118 total, coverage: 0.0%
+  Auto constraints covered 86 connections out of 118 total, coverage: 72.9%
+
+
+Setup 993.641, counter[0] to counter[27], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   9.269, Req 1002.910
+Setup 993.794, counter[0] to counter[26], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   9.116, Req 1002.910
+Setup 993.947, counter[0] to counter[25], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   8.963, Req 1002.910
+Setup 994.100, counter[0] to counter[24], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   8.810, Req 1002.910
+Setup 994.253, counter[0] to counter[23], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   8.657, Req 1002.910
+Setup 994.406, counter[0] to counter[22], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   8.504, Req 1002.910
+Setup 994.559, counter[0] to counter[21], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   8.351, Req 1002.910
+Setup 994.712, counter[0] to counter[20], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   8.198, Req 1002.910
+Setup 994.865, counter[0] to counter[19], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   8.045, Req 1002.910
+Setup 995.018, counter[0] to counter[18], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   7.892, Req 1002.910
+Setup 995.171, counter[0] to counter[17], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   7.739, Req 1002.910
+Setup 995.324, counter[0] to counter[16], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   7.586, Req 1002.910
+Setup 995.477, counter[0] to counter[15], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   7.433, Req 1002.910
+Setup 995.630, counter[0] to counter[14], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   7.280, Req 1002.910
+Setup 995.799, counter[0] to counter[13], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   7.127, Req 1002.926
+Setup 995.952, counter[0] to counter[12], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   6.974, Req 1002.926
+Setup 996.105, counter[0] to counter[11], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   6.821, Req 1002.926
+Setup 996.258, counter[0] to counter[10], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   6.668, Req 1002.926
+Setup 996.411, counter[0] to counter[9], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   6.515, Req 1002.926
+Setup 996.564, counter[0] to counter[8], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   6.362, Req 1002.926
+Setup 996.717, counter[0] to counter[7], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   6.209, Req 1002.926
+Setup 996.870, counter[0] to counter[6], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   6.056, Req 1002.926
+Setup 997.023, counter[0] to counter[5], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   5.903, Req 1002.926
+Setup 997.176, counter[0] to counter[4], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   5.750, Req 1002.926
+Setup 997.329, counter[0] to counter[3], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   5.597, Req 1002.926
+Setup 997.471, counter[0] to counter[2], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   5.455, Req 1002.926
+Setup 998.135, counter[0] to counter[1], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.955
+Setup 998.176, counter[13] to counter[13], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[8] to counter[8], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[26] to counter[26], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[11] to counter[11], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[27] to counter[27], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[10] to counter[10], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[3] to counter[3], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[14] to counter[14], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[7] to counter[7], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[12] to counter[12], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[16] to counter[16], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[4] to counter[4], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[23] to counter[23], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[2] to counter[2], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[17] to counter[17], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[24] to counter[24], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[15] to counter[15], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[6] to counter[6], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[21] to counter[21], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[20] to counter[20], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[9] to counter[9], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[19] to counter[19], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[18] to counter[18], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[22] to counter[22], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[5] to counter[5], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[1] to counter[1], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.176, counter[25] to counter[25], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.820, Req 1002.996
+Setup 998.778, counter[0] to counter[0], clock Internal_generated_clock_Blinky|clk 1000.000, Arr   4.282, Req 1003.060
