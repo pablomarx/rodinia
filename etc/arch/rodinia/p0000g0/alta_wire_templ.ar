@@ -1,0 +1,849 @@
+// Pseudo 
+WIRE T0
+  TIMING
+    FROM  : *:SinkMUXPseudo:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+// Ctrl related
+WIRE T0
+  TIMING
+    FROM  : *:SLICE_CLKENCTRL:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 16;
+    TABLE BEST_WORST
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+
+  TIMING
+    FROM  : *:SLICE_ASYNCCTRL:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 16;
+    TABLE BEST_WORST
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+
+  TIMING
+    FROM  : *:SLICE_SYNCCTRL:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 16;
+    TABLE BEST_WORST
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+// IO related
+WIRE T0
+  TIMING
+    FROM  : *:GclkMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.330 0.330 0.330 0.330;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:GclkDMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.330 0.330 0.330 0.330;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:GateMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:IOMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:ConstMux:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:SLICE_IO:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.100 0.100 0.100 0.100;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:SLICE_IOREG:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.100 0.100 0.100 0.100;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:BufMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.100 0.100 0.100 0.100;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T1
+  TIMING
+    FROM  : *:LoopMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:InputMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T4X
+  TIMING
+    FROM  : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:InputMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T4Y
+  TIMING
+    FROM  : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:InputMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:BufMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+// UFM related
+WIRE T0
+  TIMING
+    FROM  : *:BBMUXE:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:BBMUXN:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (0,0);
+    FROM  : UFM_JTAG:SeamMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.330 0.330 0.330 0.330;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T4X
+  TIMING
+    OFFSET: (1,0);
+    FROM  : UFM_JTAG:SLICE_UFM:-;
+    TO    : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (2,0);
+    FROM  : UFM_JTAG:SLICE_UFM:-;
+    TO    : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (3,0);
+    FROM  : UFM_JTAG:SLICE_UFM:-;
+    TO    : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (4,0);
+    FROM  : UFM_JTAG:SLICE_UFM:-;
+    TO    : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+
+  TIMING
+    OFFSET: (1,0);
+    FROM  : *:RMUX:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (2,0);
+    FROM  : *:RMUX:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (3,0);
+    FROM  : *:RMUX:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (4,0);
+    FROM  : *:RMUX:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T4Y
+  TIMING
+    OFFSET: (0,1);
+    FROM  : UFM_JTAG:SLICE_UFM:-;
+    TO    : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (0,2);
+    FROM  : UFM_JTAG:SLICE_UFM:-;
+    TO    : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (0,3);
+    FROM  : UFM_JTAG:SLICE_UFM:-;
+    TO    : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (0,4);
+    FROM  : UFM_JTAG:SLICE_UFM:-;
+    TO    : *:RMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+
+  TIMING
+    OFFSET: (0,1);
+    FROM  : *:RMUX:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (0,2);
+    FROM  : *:RMUX:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (0,3);
+    FROM  : *:RMUX:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET: (0,4);
+    FROM  : *:RMUX:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T0
+  TIMING
+    FROM  : *:GdrvMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.330 0.330 0.330 0.330;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE TG
+  TIMING
+    FROM  : *:SLICE_IO_GCLK:-;
+    TO    : UFM_JTAG:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.997 1.065 1.048 1.116;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : UFM_JTAG:SLICE_UFM_GDDD:-;
+    TO    : *:GclkMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:GateMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      1.000 1.000 1.000 1.000;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+// PLL related
+WIRE T0
+  TIMING
+    FROM  : PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:*:-;
+    TO    : PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T1
+  TIMING
+    FROM  : PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:*:-;
+    TO    : PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T4X
+  TIMING
+    FROM  : PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:*:-;
+    TO    : PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T4Y
+  TIMING
+    FROM  : PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:*:-;
+    TO    : PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE TG
+  TIMING
+    FROM  : *:SLICE_IO_GCLK:-;
+    TO    : PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.997 1.065 1.048 1.116;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:SLICE_IO:-;
+    TO    : PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : PLL:SLICE_PLL:-;
+    TO    : *:GclkMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : PLL:SLICE_PLL:-;
+    TO    : *:SinkMUXPseudo:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : PLL:SLICE_PLLX:-;
+    TO    : *:GclkMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : PLL:SLICE_PLLX:-;
+    TO    : *:SinkMUXPseudo:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : PLL:SLICE_PLL:-;
+    TO    : *:GclkMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : PLL:SLICE_PLL:-;
+    TO    : *:SinkMUXPseudo:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : BOOT_PLL:SLICE_UFM_GDDD:-;
+    TO    : *:SinkMUXPseudo:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.500 0.500 0.500 0.500;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+// UFM_PLL related
+WIRE T0
+  TIMING
+    FROM  : UFM_PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:*:-;
+    TO    : UFM_PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T1
+  TIMING
+    FROM  : UFM_PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:*:-;
+    TO    : UFM_PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T4X
+  TIMING
+    FROM  : UFM_PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:*:-;
+    TO    : UFM_PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE T4Y
+  TIMING
+    FROM  : BOOT_PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : UFM_PLL:*:-;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:*:-;
+    TO    : UFM_PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+WIRE TG
+  TIMING
+    FROM  : *:SLICE_IO_GCLK:-;
+    TO    : UFM_PLL:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.997 1.065 1.048 1.116;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : UFM_PLL:SLICE_UFM_GDDD:-;
+    TO    : *:GclkMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.997 1.065 1.048 1.116;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : UFM_PLL:SLICE_UFM_GDDD:-;
+    TO    : *:SinkMUXPseudo:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.997 1.065 1.048 1.116;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : PLL:SLICE_PLLX:-;
+    TO    : *:GclkDMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.997 1.065 1.048 1.116;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : BOOT_PLL:SLICE_UFM_GDDD:-;
+    TO    : *:GclkDMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.997 1.065 1.048 1.116;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+// Feedthru
+WIRE FEEDTHRU
+  TIMING
+    FROM  : *:SLICE_IO_GCLK:-1:O:0:I:0;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+    TABLE WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:SLICE_UFM_GDDD:-1:O:0:I:0;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+    TABLE WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:SLICE_UFM_GDDD:-1:O:0:I:0;
+    TO    : *:*:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+    TABLE WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+WIRE TG
+  TIMING
+    FROM  : *:SLICE_IO_GCLK:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      1.051 1.112 1.086 1.151;
+    END_TABLE
+    TABLE WORST
+      1.146 1.210 1.181 1.249;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+// BRAM related
+WIRE T0
+  TIMING
+    FROM  : *:BramClkMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:TileWeRenMUX:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM  : *:SLICE_BRAM:-;
+    SENSE : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST_WORST
+      0.0 0.0 0.0 0.0;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+WIRE T1
+  TIMING
+    FROM  : *:BufMUX:-;
+    SENSE : POSEDGE;
+    MAX_FANOUT : 1;
+    TABLE BEST_WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+END_WIRE
+
+// WIRE_TIMING
+// END_WIRE_TIMING
+

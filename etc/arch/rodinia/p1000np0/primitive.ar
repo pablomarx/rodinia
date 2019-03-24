@@ -1,0 +1,1049 @@
+SLICE cycloneii_lcell_ff
+// SLICE_INFO
+  //TYPE : XFF;
+  CONFIG
+  END_CONFIG
+  PIN regout
+    //TYPE : XFF_REGOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN datain
+    //TYPE : XFF_DATAIN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XFF_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XFF_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sclr
+    //TYPE : XFF_SCLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sload
+    //TYPE : XFF_SLOAD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sdata
+    //TYPE : XFF_SDATA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XFF_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : aclr; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST -0.074 -0.074 -0.074 -0.074;
+    VALUE : WORST -0.096 -0.096 -0.096 -0.096;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : aclr; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.075 0.075 0.075 0.075;
+    VALUE : WORST 0.097 0.097 0.097 0.097;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : clk; TO : regout; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.150 0.150 0.160 0.160;
+    VALUE : WORST 0.197 0.197 0.215 0.215;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : sclr; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST -0.122 -0.122 -0.124 -0.124;
+    VALUE : WORST -0.166 -0.166 -0.165 -0.165;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : sclr; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.123 0.123 0.125 0.125;
+    VALUE : WORST 0.167 0.167 0.166 0.166;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : sload; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST -0.214 -0.214 -0.212 -0.212;
+    VALUE : WORST -0.291 -0.291 -0.285 -0.285;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : sload; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.215 0.215 0.213 0.213;
+    VALUE : WORST 0.292 0.292 0.286 0.286;
+  END_TIMING
+  TIMING
+    TYPE: MIN_PULSE_WIDTH; FROM : clk; TO : clk; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.750 0.750 0.750 0.750;
+    VALUE : WORST 1.000 1.000 1.000 1.000;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : datain; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : datain; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : datain; SENSE : FROM_FALLING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : datain; SENSE : FROM_FALLING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : sdata; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : sdata; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : sdata; SENSE : FROM_FALLING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : sdata; SENSE : FROM_FALLING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_lcell_comb
+// SLICE_INFO
+  //TYPE : XCOMB;
+  CONFIG
+  END_CONFIG
+  PIN combout
+    //TYPE : XCOMB_COMBOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN cout
+    //TYPE : XCOMB_COUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN dataa
+    //TYPE : XCOMB_DATAA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN datab
+    //TYPE : XCOMB_DATAB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN datac
+    //TYPE : XCOMB_DATAC;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN datad
+    //TYPE : XCOMB_DATAD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN cin
+    //TYPE : XCOMB_CIN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+  TIMING
+    TYPE: CELL; FROM : cin; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.253 0.261 0.263 0.294;
+    VALUE : WORST 0.343 0.354 0.365 0.405;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : cin; TO : cout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.042 0.070 0.045 0.074;
+    VALUE : WORST 0.057 0.096 0.055 0.103;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : dataa; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.421 0.484 0.305 0.368;
+    VALUE : WORST 0.543 0.622 0.421 0.499;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : dataa; TO : cout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.440 0.509 0.300 0.367;
+    VALUE : WORST 0.570 0.652 0.411 0.492;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datab; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.421 0.456 0.290 0.342;
+    VALUE : WORST 0.527 0.596 0.399 0.462;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datab; TO : cout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.387 0.432 0.252 0.310;
+    VALUE : WORST 0.487 0.566 0.346 0.413;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datac; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.188 0.200 0.203 0.229;
+    VALUE : WORST 0.249 0.266 0.277 0.312;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datad; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.073 0.081 0.069 0.080;
+    VALUE : WORST 0.093 0.100 0.089 0.101;
+  END_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_io
+// SLICE_INFO
+  //TYPE : XIO;
+  CONFIG
+  END_CONFIG
+  PIN datain
+    //TYPE : XIO_DATAIN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN oe
+    //TYPE : XIO_OE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN inclk
+    //TYPE : XIO_INCLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN outclk
+    //TYPE : XIO_OUTCLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN inclkena
+    //TYPE : XIO_INCLKENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN outclkena
+    //TYPE : XIO_OUTCLKENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XIO_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sreset
+    //TYPE : XIO_SRESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN combout
+    //TYPE : XIO_COMBOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN regout
+    //TYPE : XIO_REGOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN padio
+    //TYPE : XIO_PADIO;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+  TIMING
+    TYPE: CELL; FROM : datain; TO : padio; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 1.668 1.668 1.670 1.670;
+    VALUE : WORST 2.375 2.375 2.386 2.386;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : oe; TO : padio; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 1.459 1.459 1.551 1.551;
+    VALUE : WORST 2.115 2.115 2.226 2.226;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : padio; TO : combout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.453 0.453 0.507 0.507;
+    VALUE : WORST 0.647 0.647 0.704 0.704;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : areset; TO : regout; SENSE : FROM_RISING;
+    CONFIG
+      input_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST 0.224 0.224 0.236 0.236;
+    VALUE : WORST 0.308 0.308 0.320 0.320;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : inclk; TO : padio; SENSE : FROM_RISING;
+    CONFIG
+      input_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST -0.167 -0.167 -0.141 -0.141;
+    VALUE : WORST -0.227 -0.227 -0.192 -0.192;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : inclk; TO : padio; SENSE : FROM_RISING;
+    CONFIG
+      input_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST 0.168 0.168 0.142 0.142;
+    VALUE : WORST 0.228 0.228 0.193 0.193;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : inclk; TO : regout; SENSE : FROM_RISING;
+    CONFIG
+      input_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST 0.245 0.245 0.245 0.245;
+    VALUE : WORST 0.328 0.328 0.328 0.328;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : outclk; TO : oe; SENSE : FROM_RISING;
+    CONFIG
+      oe_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST -0.167 -0.167 -0.141 -0.141;
+    VALUE : WORST -0.227 -0.227 -0.192 -0.192;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : outclk; TO : oe; SENSE : FROM_RISING;
+    CONFIG
+      oe_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST 0.168 0.168 0.142 0.142;
+    VALUE : WORST 0.228 0.228 0.193 0.193;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : outclk; TO : padio; SENSE : FROM_RISING;
+    CONFIG
+      oe_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST 0.245 0.245 0.245 0.245;
+    VALUE : WORST 0.328 0.328 0.328 0.328;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : areset; TO : padio; SENSE : FROM_RISING;
+    CONFIG
+      output_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST 0.224 0.224 0.236 0.236;
+    VALUE : WORST 0.308 0.308 0.320 0.320;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : outclk; TO : datain; SENSE : FROM_RISING;
+    CONFIG
+      output_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST -0.167 -0.167 -0.141 -0.141;
+    VALUE : WORST -0.227 -0.227 -0.192 -0.192;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : outclk; TO : datain; SENSE : FROM_RISING;
+    CONFIG
+      output_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST 0.168 0.168 0.142 0.142;
+    VALUE : WORST 0.228 0.228 0.193 0.193;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : outclk; TO : padio; SENSE : FROM_RISING;
+    CONFIG
+      output_register_mode : 8'bregister;
+    END_CONFIG
+    VALUE : BEST 0.245 0.245 0.245 0.245;
+    VALUE : WORST 0.328 0.328 0.328 0.328;
+  END_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_clkctrl
+// SLICE_INFO
+  //TYPE : XCLKCTRL;
+  CONFIG
+  END_CONFIG
+  PIN inclk
+    //TYPE : XCLKCTRL_INCLK;
+    //SIZE : 4;
+    //DIR  : input;
+  END_PIN
+  PIN clkselect
+    //TYPE : XCLKCTRL_CLKSELECT;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XCLKCTRL_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN outclk
+    //TYPE : XCLKCTRL_OUTCLK;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+  TIMING
+    TYPE: CELL; FROM : inclk; TO : outclk; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_mac_mult
+// SLICE_INFO
+  //TYPE : XMACMULT;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_pll
+// SLICE_INFO
+  //TYPE : XPLL;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_asmiblock
+// SLICE_INFO
+  //TYPE : XASMI;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_crcblock
+// SLICE_INFO
+  //TYPE : XCRC;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_ram_block
+// SLICE_INFO
+  //TYPE : XRAM;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_jtag
+// SLICE_INFO
+  //TYPE : XJTAG;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_mac_out
+// SLICE_INFO
+  //TYPE : XMACOUT;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_clk_delay_ctrl
+// SLICE_INFO
+  //TYPE : XCLKDELAY;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE LPM_LATCH
+// SLICE_INFO
+  //TYPE : X_LATCH;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE XAND2
+// SLICE_INFO
+  //TYPE : X_XAND2;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE XMUX1
+// SLICE_INFO
+  //TYPE : X_XMUX1;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+
+SLICE dffeas
+// SLICE_INFO
+  //TYPE : XDFF4;
+  CONFIG
+  END_CONFIG
+  PIN clk
+    //TYPE : XDFF4_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN d
+    //TYPE : XDFF4_D;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN asdata
+    //TYPE : XDFF4_ASDATA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clrn
+    //TYPE : XDFF4_CLRN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aload
+    //TYPE : XDFF4_ALOAD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sclr
+    //TYPE : XDFF4_SCLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sload
+    //TYPE : XDFF4_SLOAD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XDFF4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN q
+    //TYPE : XDFF4_Q;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+  TIMING
+    TYPE: MIN_PULSE_WIDTH; FROM : clk; TO : clk; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.750 0.750 0.750 0.750;
+    VALUE : WORST 1.000 1.000 1.000 1.000;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : d; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : d; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : d; SENSE : FROM_FALLING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : d; SENSE : FROM_FALLING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : asdata; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : asdata; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : asdata; SENSE : FROM_FALLING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : asdata; SENSE : FROM_FALLING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_latch
+// SLICE_INFO
+  //TYPE : XLATCH4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_pll
+// SLICE_INFO
+  //TYPE : XPLL4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_lcell_comb
+// SLICE_INFO
+  //TYPE : XCOMB4;
+  CONFIG
+  END_CONFIG
+  PIN combout
+    //TYPE : XCOMB4_COMBOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN cout
+    //TYPE : XCOMB4_COUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN dataa
+    //TYPE : XCOMB4_DATAA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN datab
+    //TYPE : XCOMB4_DATAB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN datac
+    //TYPE : XCOMB4_DATAC;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN datad
+    //TYPE : XCOMB4_DATAD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN cin
+    //TYPE : XCOMB4_CIN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_ff
+// SLICE_INFO
+  //TYPE : XFF4;
+  CONFIG
+  END_CONFIG
+  PIN clk
+    //TYPE : XFF4_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN d
+    //TYPE : XFF4_D;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN asdata
+    //TYPE : XFF4_ASDATA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clrn
+    //TYPE : XFF4_CLRN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aload
+    //TYPE : XFF4_ALOAD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sclr
+    //TYPE : XFF4_SCLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sload
+    //TYPE : XFF4_SLOAD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XFF4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN q
+    //TYPE : XFF4_Q;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_ram_block
+// SLICE_INFO
+  //TYPE : XRAM4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_mac_mult
+// SLICE_INFO
+  //TYPE : XMACMULT4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_mac_out
+// SLICE_INFO
+  //TYPE : XMACOUT4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_io_ibuf
+// SLICE_INFO
+  //TYPE : XIOIN4;
+  CONFIG
+  END_CONFIG
+  PIN i
+    //TYPE : XIOIN4_I;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN o
+    //TYPE : XIOIN4_O;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN ibar
+    //TYPE : XIOIN4_IBAR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_io_obuf
+// SLICE_INFO
+  //TYPE : XIOOUT4;
+  CONFIG
+  END_CONFIG
+  PIN i
+    //TYPE : XIOOUT4_I;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN oe
+    //TYPE : XIOOUT4_OE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN o
+    //TYPE : XIOOUT4_O;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN obar
+    //TYPE : XIOOUT4_OBAR;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_ddio_out
+// SLICE_INFO
+  //TYPE : XDDIOOUT;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_ddio_oe
+// SLICE_INFO
+  //TYPE : XDDIOEN;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_clkctrl
+// SLICE_INFO
+  //TYPE : XCLKCTRL4;
+  CONFIG
+  END_CONFIG
+  PIN inclk
+    //TYPE : XCLKCTRL4_INCLK;
+    //SIZE : 4;
+    //DIR  : input;
+  END_PIN
+  PIN clkselect
+    //TYPE : XCLKCTRL4_CLKSELECT;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XCLKCTRL4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN outclk
+    //TYPE : XCLKCTRL4_OUTCLK;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+  TIMING
+    TYPE: CELL; FROM : inclk; TO : outclk; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_rublock
+// SLICE_INFO
+  //TYPE : XRUN4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_termination
+// SLICE_INFO
+  //TYPE : XTERM4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_jtag
+// SLICE_INFO
+  //TYPE : XJTAG4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_crcblock
+// SLICE_INFO
+  //TYPE : XCRC4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_oscillator
+// SLICE_INFO
+  //TYPE : XOSC4;
+  CONFIG
+  END_CONFIG
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+
