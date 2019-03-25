@@ -1,4 +1,7 @@
 set sh_continue_on_error false
+# 
+# Header
+# 
 usb_connect
 if { ! [jtag_device_id] } {
   exit
@@ -11,13 +14,25 @@ runtest -tck 100
 sdr 8 -tdi 00
 sir 10 -tdi 3fa
 runtest -tck 100
+# 
+#  Register header, write address 4
+# 
+# 
+#  Reg data: 00000001
+# 
 sdr 64 \
   -tdi  80000000203f0044 \
   -tdo  0 \
   -mask 0
+# 
+# IdCode
+# 
 sir 10 -tdi 6
 runtest -tck 100
 sdr 32 -tdi 00000000 -tdo 00120010 -mask ffffffff
+# 
+# Erase
+# 
 sir 10 -tdi 3fc
 runtest -tck 100
 sdr 8 -tdi f0
@@ -25,6 +40,9 @@ sir 10 -tdi 3fa
 runtest -tck 100
 sdr 8 -tdi e3
 runtest -sec 0.5
+# 
+# Program
+# 
 sir 10 -tdi 3fc
 runtest -tck 100
 sdr 8 -tdi f0
@@ -88,15 +106,15 @@ sdr 64 -tdi ffffffff36000040
 runtest -sec 0.0002
 sdr 64 -tdi 0c18ffff0e000040
 runtest -sec 0.0002
-sdr 64 -tdi 3060023c2e000040
+sdr 64 -tdi 3060003c2e000040
 runtest -sec 0.0002
-sdr 64 -tdi c18208f21e000040
+sdr 64 -tdi c18200f81e000040
 runtest -sec 0.0002
 sdr 64 -tdi 060403f03e000040
 runtest -sec 0.0002
 sdr 64 -tdi 18100f0301000040
 runtest -sec 0.0002
-sdr 64 -tdi 60043c0c21000040
+sdr 64 -tdi 6080bd0c21000040
 runtest -sec 0.0002
 sdr 64 -tdi f000f03011000040
 runtest -sec 0.0002
@@ -106,13 +124,13 @@ sdr 64 -tdi ffffffff09000040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff29000040
 runtest -sec 0.0002
-sdr 64 -tdi 3d0c18ff19000040
+sdr 64 -tdi 3e0c18ff19000040
 runtest -sec 0.0002
-sdr 64 -tdi f030600139000040
+sdr 64 -tdi f030600039000040
 runtest -sec 0.0002
 sdr 64 -tdi c0c1820005000040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000325000040
+sdr 64 -tdi 0000040325000040
 runtest -sec 0.0002
 sdr 64 -tdi ffff000015000040
 runtest -sec 0.0002
@@ -128,15 +146,15 @@ sdr 64 -tdi ffffffff3d000040
 runtest -sec 0.0002
 sdr 64 -tdi 0c3dffff03000040
 runtest -sec 0.0002
-sdr 64 -tdi 10f4043c23000040
+sdr 64 -tdi 10f5803c23000040
 runtest -sec 0.0002
-sdr 64 -tdi 43d410e813000040
+sdr 64 -tdi 43d400e213000040
 runtest -sec 0.0002
 sdr 64 -tdi 0f42038033000040
 runtest -sec 0.0002
 sdr 64 -tdi 3d080ec10b000040
 runtest -sec 0.0002
-sdr 64 -tdi f4043b042b000040
+sdr 64 -tdi f500ba042b000040
 runtest -sec 0.0002
 sdr 64 -tdi f000f0101b000040
 runtest -sec 0.0002
@@ -146,13 +164,13 @@ sdr 64 -tdi ffffffff07000040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff27000040
 runtest -sec 0.0002
-sdr 64 -tdi ba043dff17000040
+sdr 64 -tdi 39043dff17000040
 runtest -sec 0.0002
 sdr 64 -tdi f030f40037000040
 runtest -sec 0.0002
 sdr 64 -tdi b043d4000f000040
 runtest -sec 0.0002
-sdr 64 -tdi 000000032f000040
+sdr 64 -tdi 000002032f000040
 runtest -sec 0.0002
 sdr 64 -tdi ffff00001f000040
 runtest -sec 0.0002
@@ -166,7 +184,7 @@ sdr 64 -tdi ffffffff10800040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff30800040
 runtest -sec 0.0002
-sdr 64 -tdi 0c19ffff08800040
+sdr 64 -tdi 8c19ffff08800040
 runtest -sec 0.0002
 sdr 64 -tdi 3064003e28800040
 runtest -sec 0.0002
@@ -176,7 +194,7 @@ sdr 64 -tdi 064003c038800040
 runtest -sec 0.0002
 sdr 64 -tdi 19000f0304800040
 runtest -sec 0.0002
-sdr 64 -tdi 64003c8c24800040
+sdr 64 -tdi 64003e8c24800040
 runtest -sec 0.0002
 sdr 64 -tdi f000f03014800040
 runtest -sec 0.0002
@@ -208,7 +226,7 @@ sdr 64 -tdi ffffffff3a800040
 runtest -sec 0.0002
 sdr 64 -tdi 0418ffff06800040
 runtest -sec 0.0002
-sdr 64 -tdi 3060003926800040
+sdr 64 -tdi 3060003826800040
 runtest -sec 0.0002
 sdr 64 -tdi c18000f016800040
 runtest -sec 0.0002
@@ -216,7 +234,7 @@ sdr 64 -tdi 060003c036800040
 runtest -sec 0.0002
 sdr 64 -tdi 18000f030e800040
 runtest -sec 0.0002
-sdr 64 -tdi 60003a042e800040
+sdr 64 -tdi 600038042e800040
 runtest -sec 0.0002
 sdr 64 -tdi f000f0301e800040
 runtest -sec 0.0002
@@ -228,7 +246,7 @@ sdr 64 -tdi ffffffff21800040
 runtest -sec 0.0002
 sdr 64 -tdi 3c0c18ff11800040
 runtest -sec 0.0002
-sdr 64 -tdi ec10600031800040
+sdr 64 -tdi ea10600031800040
 runtest -sec 0.0002
 sdr 64 -tdi c0c1800009800040
 runtest -sec 0.0002
@@ -628,7 +646,7 @@ sdr 64 -tdi ffffffff25200040
 runtest -sec 0.0002
 sdr 64 -tdi 380c1eff15200040
 runtest -sec 0.0002
-sdr 64 -tdi 166561eb00000040
+sdr 64 -tdi 11e4f9eb00000040
 runtest -sec 0.0002
 sdr 64 -tdi e010780035200040
 runtest -sec 0.0002
@@ -728,7 +746,7 @@ sdr 64 -tdi ffffffff16a00040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff36a00040
 runtest -sec 0.0002
-sdr 64 -tdi 8c18ffff0ea00040
+sdr 64 -tdi 0c18ffff0ea00040
 runtest -sec 0.0002
 sdr 64 -tdi 3060003c2ea00040
 runtest -sec 0.0002
@@ -768,7 +786,7 @@ sdr 64 -tdi ffffffff1da00040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff3da00040
 runtest -sec 0.0002
-sdr 64 -tdi 0419ffff03a00040
+sdr 64 -tdi 8419ffff03a00040
 runtest -sec 0.0002
 sdr 64 -tdi 1064003a23a00040
 runtest -sec 0.0002
@@ -810,15 +828,15 @@ sdr 64 -tdi ffffffff30600040
 runtest -sec 0.0002
 sdr 64 -tdi 0c3dffff08600040
 runtest -sec 0.0002
-sdr 64 -tdi 30f4203c28600040
+sdr 64 -tdi 30f4043c28600040
 runtest -sec 0.0002
-sdr 64 -tdi c3d000f018600040
+sdr 64 -tdi c3d400f018600040
 runtest -sec 0.0002
 sdr 64 -tdi 0f4043c038600040
 runtest -sec 0.0002
 sdr 64 -tdi 3d002fc304600040
 runtest -sec 0.0002
-sdr 64 -tdi f4187e0c24600040
+sdr 64 -tdi f4183e0c24600040
 runtest -sec 0.0002
 sdr 64 -tdi f000f03014600040
 runtest -sec 0.0002
@@ -830,11 +848,11 @@ sdr 64 -tdi ffffffff2c600040
 runtest -sec 0.0002
 sdr 64 -tdi 3c0c3dff1c600040
 runtest -sec 0.0002
-sdr 64 -tdi f030f4003c600040
+sdr 64 -tdi f030f4203c600040
 runtest -sec 0.0002
-sdr 64 -tdi e0c3d00202600040
+sdr 64 -tdi f0c3d02002600040
 runtest -sec 0.0002
-sdr 64 -tdi 0000200b22600040
+sdr 64 -tdi 0000000b22600040
 runtest -sec 0.0002
 sdr 64 -tdi ffff000012600040
 runtest -sec 0.0002
@@ -850,15 +868,15 @@ sdr 64 -tdi ffffffff3a600040
 runtest -sec 0.0002
 sdr 64 -tdi 0c18ffff06600040
 runtest -sec 0.0002
-sdr 64 -tdi 3060203c26600040
+sdr 64 -tdi 3060043c26600040
 runtest -sec 0.0002
-sdr 64 -tdi c18000f016600040
+sdr 64 -tdi c18400f016600040
 runtest -sec 0.0002
 sdr 64 -tdi 060043c036600040
 runtest -sec 0.0002
 sdr 64 -tdi 18002e010e600040
 runtest -sec 0.0002
-sdr 64 -tdi 604339042e600040
+sdr 64 -tdi 604239042e600040
 runtest -sec 0.0002
 sdr 64 -tdi f000f0301e600040
 runtest -sec 0.0002
@@ -870,11 +888,11 @@ sdr 64 -tdi ffffffff21600040
 runtest -sec 0.0002
 sdr 64 -tdi 3c0c18ff11600040
 runtest -sec 0.0002
-sdr 64 -tdi f030600031600040
+sdr 64 -tdi f030602031600040
 runtest -sec 0.0002
-sdr 64 -tdi 8841800209600040
+sdr 64 -tdi 8041800809600040
 runtest -sec 0.0002
-sdr 64 -tdi 0000080b29600040
+sdr 64 -tdi 0000000b29600040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000019600040
 runtest -sec 0.0002
@@ -930,7 +948,7 @@ sdr 64 -tdi 000ff0003f600040
 runtest -sec 0.0002
 sdr 64 -tdi 0005800000e00040
 runtest -sec 0.0002
-sdr 64 -tdi 0014000020e00040
+sdr 64 -tdi 0014050020e00040
 runtest -sec 0.0002
 sdr 64 -tdi 0050000010e00040
 runtest -sec 0.0002
@@ -2978,7 +2996,7 @@ sdr 64 -tdi 000000003f680040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000000e80040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000020e80040
+sdr 64 -tdi 0002000020e80040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000010e80040
 runtest -sec 0.0002
@@ -3018,7 +3036,7 @@ sdr 64 -tdi 0140000032e80040
 runtest -sec 0.0002
 sdr 64 -tdi 050000000ae80040
 runtest -sec 0.0002
-sdr 64 -tdi 140000002ae80040
+sdr 64 -tdi 140100002ae80040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001ae80040
 runtest -sec 0.0002
@@ -5578,7 +5596,7 @@ sdr 64 -tdi 0140000032d40040
 runtest -sec 0.0002
 sdr 64 -tdi 050000000ad40040
 runtest -sec 0.0002
-sdr 64 -tdi 140048002ad40040
+sdr 64 -tdi 140000002ad40040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001ad40040
 runtest -sec 0.0002
@@ -6298,7 +6316,7 @@ sdr 64 -tdi 00000000370c0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000000f0c0040
 runtest -sec 0.0002
-sdr 64 -tdi 000000002f0c0040
+sdr 64 -tdi 000048002f0c0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001f0c0040
 runtest -sec 0.0002
@@ -9114,7 +9132,7 @@ sdr 64 -tdi 0000140037620040
 runtest -sec 0.0002
 sdr 64 -tdi 000050000f620040
 runtest -sec 0.0002
-sdr 64 -tdi 000001102f620040
+sdr 64 -tdi 000000002f620040
 runtest -sec 0.0002
 sdr 64 -tdi 000100001f620040
 runtest -sec 0.0002
@@ -9350,7 +9368,7 @@ sdr 64 -tdi 00000ff023120040
 runtest -sec 0.0002
 sdr 64 -tdi 0000008013120040
 runtest -sec 0.0002
-sdr 64 -tdi 0000001133120040
+sdr 64 -tdi 0000000033120040
 runtest -sec 0.0002
 sdr 64 -tdi 000000000b120040
 runtest -sec 0.0002
@@ -9450,7 +9468,7 @@ sdr 64 -tdi 000ff00031920040
 runtest -sec 0.0002
 sdr 64 -tdi 0000800009920040
 runtest -sec 0.0002
-sdr 64 -tdi 0000040029920040
+sdr 64 -tdi 0000000029920040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000019920040
 runtest -sec 0.0002
@@ -9490,7 +9508,7 @@ sdr 64 -tdi 000ff0003b920040
 runtest -sec 0.0002
 sdr 64 -tdi 0000800007920040
 runtest -sec 0.0002
-sdr 64 -tdi 0000010027920040
+sdr 64 -tdi 0000000027920040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000017920040
 runtest -sec 0.0002
@@ -9510,7 +9528,7 @@ sdr 64 -tdi 00000ff020520040
 runtest -sec 0.0002
 sdr 64 -tdi 0000008010520040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000030520040
+sdr 64 -tdi 0000001130520040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000008520040
 runtest -sec 0.0002
@@ -9700,7 +9718,7 @@ sdr 64 -tdi 0000c00401d20040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000021d20040
 runtest -sec 0.0002
-sdr 64 -tdi 000c000011d20040
+sdr 64 -tdi 0000000011d20040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000031d20040
 runtest -sec 0.0002
@@ -9890,7 +9908,7 @@ sdr 64 -tdi 000ff0003f320040
 runtest -sec 0.0002
 sdr 64 -tdi 0005800000b20040
 runtest -sec 0.0002
-sdr 64 -tdi 0014000020b20040
+sdr 64 -tdi 0014009020b20040
 runtest -sec 0.0002
 sdr 64 -tdi 0050000010b20040
 runtest -sec 0.0002
@@ -9900,7 +9918,7 @@ sdr 64 -tdi 0500000008b20040
 runtest -sec 0.0002
 sdr 64 -tdi 1400000028b20040
 runtest -sec 0.0002
-sdr 64 -tdi 0044000018b20040
+sdr 64 -tdi 0000000018b20040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000038b20040
 runtest -sec 0.0002
@@ -10018,7 +10036,7 @@ sdr 64 -tdi 010000003fb20040
 runtest -sec 0.0002
 sdr 64 -tdi 0000400400720040
 runtest -sec 0.0002
-sdr 64 -tdi 0001000020720040
+sdr 64 -tdi 0300000020720040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000010720040
 runtest -sec 0.0002
@@ -10058,9 +10076,9 @@ sdr 64 -tdi 5340000032720040
 runtest -sec 0.0002
 sdr 64 -tdi 050200000a720040
 runtest -sec 0.0002
-sdr 64 -tdi 140400002a720040
+sdr 64 -tdi 140000002a720040
 runtest -sec 0.0002
-sdr 64 -tdi 000000001a720040
+sdr 64 -tdi 004400001a720040
 runtest -sec 0.0002
 sdr 64 -tdi 000000003a720040
 runtest -sec 0.0002
@@ -10496,7 +10514,7 @@ sdr 64 -tdi 000000001d8a0040
 runtest -sec 0.0002
 sdr 64 -tdi 814000003d8a0040
 runtest -sec 0.0002
-sdr 64 -tdi 00004004038a0040
+sdr 64 -tdi 00044004038a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000000238a0040
 runtest -sec 0.0002
@@ -10536,7 +10554,7 @@ sdr 64 -tdi 00500000104a0040
 runtest -sec 0.0002
 sdr 64 -tdi 13400000304a0040
 runtest -sec 0.0002
-sdr 64 -tdi 05040000084a0040
+sdr 64 -tdi 05000000084a0040
 runtest -sec 0.0002
 sdr 64 -tdi 14000000284a0040
 runtest -sec 0.0002
@@ -10576,7 +10594,7 @@ sdr 64 -tdi 000000001a4a0040
 runtest -sec 0.0002
 sdr 64 -tdi 124010003a4a0040
 runtest -sec 0.0002
-sdr 64 -tdi 00044000064a0040
+sdr 64 -tdi 00000000064a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000000264a0040
 runtest -sec 0.0002
@@ -10750,7 +10768,7 @@ sdr 64 -tdi 00000ff02dca0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001dca0040
 runtest -sec 0.0002
-sdr 64 -tdi 000000003dca0040
+sdr 64 -tdi 000000023dca0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000003ca0040
 runtest -sec 0.0002
@@ -10790,9 +10808,9 @@ sdr 64 -tdi 00000ff0202a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000000102a0040
 runtest -sec 0.0002
-sdr 64 -tdi 20000000302a0040
+sdr 64 -tdi 00000001302a0040
 runtest -sec 0.0002
-sdr 64 -tdi 80000002082a0040
+sdr 64 -tdi 80000000082a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000008282a0040
 runtest -sec 0.0002
@@ -10914,7 +10932,7 @@ sdr 64 -tdi 000000003f2a0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000000aa0040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000020aa0040
+sdr 64 -tdi 0000100020aa0040
 runtest -sec 0.0002
 sdr 64 -tdi 0001000010aa0040
 runtest -sec 0.0002
@@ -10954,7 +10972,7 @@ sdr 64 -tdi 0000000032aa0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000000aaa0040
 runtest -sec 0.0002
-sdr 64 -tdi 000000002aaa0040
+sdr 64 -tdi 000020002aaa0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001aaa0040
 runtest -sec 0.0002
@@ -11030,9 +11048,9 @@ sdr 64 -tdi 00000ff027aa0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000058017aa0040
 runtest -sec 0.0002
-sdr 64 -tdi 0000140037aa0040
+sdr 64 -tdi 2000140037aa0040
 runtest -sec 0.0002
-sdr 64 -tdi 000050000faa0040
+sdr 64 -tdi 000050020faa0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000002faa0040
 runtest -sec 0.0002
@@ -11058,7 +11076,7 @@ sdr 64 -tdi 0c400000386a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00002400046a0040
 runtest -sec 0.0002
-sdr 64 -tdi 00004000246a0040
+sdr 64 -tdi 00008000246a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00030000146a0040
 runtest -sec 0.0002
@@ -11098,7 +11116,7 @@ sdr 64 -tdi 0c400000366a0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000000e6a0040
 runtest -sec 0.0002
-sdr 64 -tdi 000080002e6a0040
+sdr 64 -tdi 000020002e6a0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001e6a0040
 runtest -sec 0.0002
@@ -11134,9 +11152,9 @@ sdr 64 -tdi 000000002d6a0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001d6a0040
 runtest -sec 0.0002
-sdr 64 -tdi 010000003d6a0040
+sdr 64 -tdi 014000003d6a0040
 runtest -sec 0.0002
-sdr 64 -tdi 00004005036a0040
+sdr 64 -tdi 00000005036a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000000236a0040
 runtest -sec 0.0002
@@ -11176,7 +11194,7 @@ sdr 64 -tdi 0050000010ea0040
 runtest -sec 0.0002
 sdr 64 -tdi 1340000030ea0040
 runtest -sec 0.0002
-sdr 64 -tdi 0504000008ea0040
+sdr 64 -tdi 0500000008ea0040
 runtest -sec 0.0002
 sdr 64 -tdi 1400000028ea0040
 runtest -sec 0.0002
@@ -11250,7 +11268,7 @@ sdr 64 -tdi 000df00039ea0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000800005ea0040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000025ea0040
+sdr 64 -tdi 0000050025ea0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000015ea0040
 runtest -sec 0.0002
@@ -11330,9 +11348,9 @@ sdr 64 -tdi 000ff0003c1a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00058000021a0040
 runtest -sec 0.0002
-sdr 64 -tdi 00140500221a0040
+sdr 64 -tdi 00140000221a0040
 runtest -sec 0.0002
-sdr 64 -tdi 00502400121a0040
+sdr 64 -tdi 00500000121a0040
 runtest -sec 0.0002
 sdr 64 -tdi 0d400000321a0040
 runtest -sec 0.0002
@@ -11348,7 +11366,7 @@ sdr 64 -tdi 00000000061a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000ff0261a0040
 runtest -sec 0.0002
-sdr 64 -tdi 88000580161a0040
+sdr 64 -tdi 00000580161a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00001400361a0040
 runtest -sec 0.0002
@@ -11376,7 +11394,7 @@ sdr 64 -tdi 00000000191a0040
 runtest -sec 0.0002
 sdr 64 -tdi 0d400000391a0040
 runtest -sec 0.0002
-sdr 64 -tdi 00002000051a0040
+sdr 64 -tdi 00000000051a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000000251a0040
 runtest -sec 0.0002
@@ -11416,7 +11434,7 @@ sdr 64 -tdi 00000000171a0040
 runtest -sec 0.0002
 sdr 64 -tdi 0c400000371a0040
 runtest -sec 0.0002
-sdr 64 -tdi 000002000f1a0040
+sdr 64 -tdi 000000000f1a0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000002f1a0040
 runtest -sec 0.0002
@@ -11492,7 +11510,7 @@ sdr 64 -tdi 00058000019a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00140000219a0040
 runtest -sec 0.0002
-sdr 64 -tdi 00500000119a0040
+sdr 64 -tdi 00502400119a0040
 runtest -sec 0.0002
 sdr 64 -tdi 01400000319a0040
 runtest -sec 0.0002
@@ -11534,7 +11552,7 @@ sdr 64 -tdi 000000002b9a0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001b9a0040
 runtest -sec 0.0002
-sdr 64 -tdi 000000003b9a0040
+sdr 64 -tdi 002310003b9a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000000079a0040
 runtest -sec 0.0002
@@ -11698,7 +11716,7 @@ sdr 64 -tdi 0000000038da0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000004da0040
 runtest -sec 0.0002
-sdr 64 -tdi 0000800024da0040
+sdr 64 -tdi 0000000024da0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000014da0040
 runtest -sec 0.0002
@@ -11738,7 +11756,7 @@ sdr 64 -tdi 0000000036da0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000000eda0040
 runtest -sec 0.0002
-sdr 64 -tdi 000020002eda0040
+sdr 64 -tdi 000000002eda0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001eda0040
 runtest -sec 0.0002
@@ -11896,7 +11914,7 @@ sdr 64 -tdi 00000000153a0040
 runtest -sec 0.0002
 sdr 64 -tdi 00000000353a0040
 runtest -sec 0.0002
-sdr 64 -tdi 000280000d3a0040
+sdr 64 -tdi 000000000d3a0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000002d3a0040
 runtest -sec 0.0002
@@ -12136,7 +12154,7 @@ sdr 64 -tdi 00500000117a0040
 runtest -sec 0.0002
 sdr 64 -tdi 01400000317a0040
 runtest -sec 0.0002
-sdr 64 -tdi 05000000097a0040
+sdr 64 -tdi 05028000097a0040
 runtest -sec 0.0002
 sdr 64 -tdi 14000000297a0040
 runtest -sec 0.0002
@@ -12258,7 +12276,7 @@ sdr 64 -tdi 000000003efa0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000001fa0040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000021fa0040
+sdr 64 -tdi 0000800021fa0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000011fa0040
 runtest -sec 0.0002
@@ -12298,7 +12316,7 @@ sdr 64 -tdi 0140000033fa0040
 runtest -sec 0.0002
 sdr 64 -tdi 050000000bfa0040
 runtest -sec 0.0002
-sdr 64 -tdi 140000002bfa0040
+sdr 64 -tdi 140020002bfa0040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001bfa0040
 runtest -sec 0.0002
@@ -12340,7 +12358,7 @@ sdr 64 -tdi 0000000004060040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000024060040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000014060040
+sdr 64 -tdi 0003000014060040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000034060040
 runtest -sec 0.0002
@@ -12578,7 +12596,7 @@ sdr 64 -tdi 000000003f860040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000000460040
 runtest -sec 0.0002
-sdr 64 -tdi 0000800020460040
+sdr 64 -tdi 0000000020460040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000010460040
 runtest -sec 0.0002
@@ -12618,7 +12636,7 @@ sdr 64 -tdi 0140000032460040
 runtest -sec 0.0002
 sdr 64 -tdi 050000000a460040
 runtest -sec 0.0002
-sdr 64 -tdi 140020002a460040
+sdr 64 -tdi 140000002a460040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001a460040
 runtest -sec 0.0002
@@ -12696,7 +12714,7 @@ sdr 64 -tdi 0000000017460040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000037460040
 runtest -sec 0.0002
-sdr 64 -tdi 000000000f460040
+sdr 64 -tdi 000280000f460040
 runtest -sec 0.0002
 sdr 64 -tdi 000000002f460040
 runtest -sec 0.0002
@@ -12730,7 +12748,7 @@ sdr 64 -tdi 000ff00034c60040
 runtest -sec 0.0002
 sdr 64 -tdi 000000000cc60040
 runtest -sec 0.0002
-sdr 64 -tdi 000004002cc60040
+sdr 64 -tdi 000000002cc60040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001cc60040
 runtest -sec 0.0002
@@ -12770,7 +12788,7 @@ sdr 64 -tdi 000ff0003ec60040
 runtest -sec 0.0002
 sdr 64 -tdi 0005000001c60040
 runtest -sec 0.0002
-sdr 64 -tdi 0014010021c60040
+sdr 64 -tdi 00140a0021c60040
 runtest -sec 0.0002
 sdr 64 -tdi 0050000011c60040
 runtest -sec 0.0002
@@ -12856,7 +12874,7 @@ sdr 64 -tdi 0000000014260040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000034260040
 runtest -sec 0.0002
-sdr 64 -tdi 000280000c260040
+sdr 64 -tdi 000000000c260040
 runtest -sec 0.0002
 sdr 64 -tdi 000000002c260040
 runtest -sec 0.0002
@@ -13028,7 +13046,7 @@ sdr 64 -tdi 0000000001a60040
 runtest -sec 0.0002
 sdr 64 -tdi 00000ff021a60040
 runtest -sec 0.0002
-sdr 64 -tdi 8800000011a60040
+sdr 64 -tdi 0000000011a60040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000031a60040
 runtest -sec 0.0002
@@ -13416,7 +13434,7 @@ sdr 64 -tdi 0050000011160040
 runtest -sec 0.0002
 sdr 64 -tdi 0140000031160040
 runtest -sec 0.0002
-sdr 64 -tdi 0500000009160040
+sdr 64 -tdi 0500140009160040
 runtest -sec 0.0002
 sdr 64 -tdi 1400000029160040
 runtest -sec 0.0002
@@ -13458,7 +13476,7 @@ sdr 64 -tdi 000000003b160040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000007160040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000027160040
+sdr 64 -tdi 0000800027160040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000017160040
 runtest -sec 0.0002
@@ -13498,7 +13516,7 @@ sdr 64 -tdi 0000000034960040
 runtest -sec 0.0002
 sdr 64 -tdi 000000000c960040
 runtest -sec 0.0002
-sdr 64 -tdi 000000002c960040
+sdr 64 -tdi 000020002c960040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001c960040
 runtest -sec 0.0002
@@ -13748,7 +13766,7 @@ sdr 64 -tdi 0000000004d60040
 runtest -sec 0.0002
 sdr 64 -tdi 00000ff024d60040
 runtest -sec 0.0002
-sdr 64 -tdi 0000058014d60040
+sdr 64 -tdi 8800058014d60040
 runtest -sec 0.0002
 sdr 64 -tdi 0000140034d60040
 runtest -sec 0.0002
@@ -14074,7 +14092,7 @@ sdr 64 -tdi 0000140035b60040
 runtest -sec 0.0002
 sdr 64 -tdi 000050000db60040
 runtest -sec 0.0002
-sdr 64 -tdi 000000002db60040
+sdr 64 -tdi 000001102db60040
 runtest -sec 0.0002
 sdr 64 -tdi 000100001db60040
 runtest -sec 0.0002
@@ -14230,7 +14248,7 @@ sdr 64 -tdi 00000ff027760040
 runtest -sec 0.0002
 sdr 64 -tdi 0000058017760040
 runtest -sec 0.0002
-sdr 64 -tdi 0000140037760040
+sdr 64 -tdi 0000162037760040
 runtest -sec 0.0002
 sdr 64 -tdi 000050000f760040
 runtest -sec 0.0002
@@ -14770,7 +14788,7 @@ sdr 64 -tdi 000ff00038ce0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000800004ce0040
 runtest -sec 0.0002
-sdr 64 -tdi 0000000024ce0040
+sdr 64 -tdi 000000a024ce0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000014ce0040
 runtest -sec 0.0002
@@ -16298,7 +16316,7 @@ sdr 64 -tdi 0140000030fe0040
 runtest -sec 0.0002
 sdr 64 -tdi 0500000008fe0040
 runtest -sec 0.0002
-sdr 64 -tdi 1400000028fe0040
+sdr 64 -tdi 140a000028fe0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000018fe0040
 runtest -sec 0.0002
@@ -17418,7 +17436,7 @@ sdr 64 -tdi 0140000033e10040
 runtest -sec 0.0002
 sdr 64 -tdi 050000000be10040
 runtest -sec 0.0002
-sdr 64 -tdi 140060002be10040
+sdr 64 -tdi 140000002be10040
 runtest -sec 0.0002
 sdr 64 -tdi 000000001be10040
 runtest -sec 0.0002
@@ -19216,7 +19234,7 @@ sdr 64 -tdi 000000001ba90040
 runtest -sec 0.0002
 sdr 64 -tdi 000000003ba90040
 runtest -sec 0.0002
-sdr 64 -tdi 0000040007a90040
+sdr 64 -tdi 0000000007a90040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000027a90040
 runtest -sec 0.0002
@@ -19256,7 +19274,7 @@ sdr 64 -tdi 0000000014690040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000034690040
 runtest -sec 0.0002
-sdr 64 -tdi 000020000c690040
+sdr 64 -tdi 000000000c690040
 runtest -sec 0.0002
 sdr 64 -tdi 000000002c690040
 runtest -sec 0.0002
@@ -19370,7 +19388,7 @@ sdr 64 -tdi 000ff00030e90040
 runtest -sec 0.0002
 sdr 64 -tdi 0000800008e90040
 runtest -sec 0.0002
-sdr 64 -tdi 0000040028e90040
+sdr 64 -tdi 0000000028e90040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000018e90040
 runtest -sec 0.0002
@@ -19410,7 +19428,7 @@ sdr 64 -tdi 000df0003ae90040
 runtest -sec 0.0002
 sdr 64 -tdi 0000800006e90040
 runtest -sec 0.0002
-sdr 64 -tdi 0000010026e90040
+sdr 64 -tdi 0000000026e90040
 runtest -sec 0.0002
 sdr 64 -tdi 0000000016e90040
 runtest -sec 0.0002
@@ -19938,9 +19956,9 @@ sdr 64 -tdi 060003c03ed90040
 runtest -sec 0.0002
 sdr 64 -tdi 18514ec101d90040
 runtest -sec 0.0002
-sdr 64 -tdi 6140380421d90040
+sdr 64 -tdi 6040380421d90040
 runtest -sec 0.0002
-sdr 64 -tdi f000e41011d90040
+sdr 64 -tdi f400e41011d90040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff31d90040
 runtest -sec 0.0002
@@ -19948,9 +19966,9 @@ sdr 64 -tdi ffffffff09d90040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff29d90040
 runtest -sec 0.0002
-sdr 64 -tdi 3a8418ff19d90040
+sdr 64 -tdi 3a0418ff19d90040
 runtest -sec 0.0002
-sdr 64 -tdi f030600439d90040
+sdr 64 -tdi f030600039d90040
 runtest -sec 0.0002
 sdr 64 -tdi c0c1800005d90040
 runtest -sec 0.0002
@@ -19978,9 +19996,9 @@ sdr 64 -tdi 0f4003c033d90040
 runtest -sec 0.0002
 sdr 64 -tdi 3d451f030bd90040
 runtest -sec 0.0002
-sdr 64 -tdi f5103f0c2bd90040
+sdr 64 -tdi f41a3f0c2bd90040
 runtest -sec 0.0002
-sdr 64 -tdi f140f8301bd90040
+sdr 64 -tdi f540f8301bd90040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff3bd90040
 runtest -sec 0.0002
@@ -19988,9 +20006,9 @@ sdr 64 -tdi ffffffff07d90040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff27d90040
 runtest -sec 0.0002
-sdr 64 -tdi 7c0c3dff17d90040
+sdr 64 -tdi 3d0c3dff17d90040
 runtest -sec 0.0002
-sdr 64 -tdi f030f40537d90040
+sdr 64 -tdi f030f40037d90040
 runtest -sec 0.0002
 sdr 64 -tdi c0c3d0000fd90040
 runtest -sec 0.0002
@@ -20658,9 +20676,9 @@ sdr 64 -tdi 0f4003c038850040
 runtest -sec 0.0002
 sdr 64 -tdi 3d000e4104850040
 runtest -sec 0.0002
-sdr 64 -tdi f520388424850040
+sdr 64 -tdi f5203a8424850040
 runtest -sec 0.0002
-sdr 64 -tdi f010e81014850040
+sdr 64 -tdi f000e21014850040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff34850040
 runtest -sec 0.0002
@@ -20668,7 +20686,7 @@ sdr 64 -tdi ffffffff0c850040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff2c850040
 runtest -sec 0.0002
-sdr 64 -tdi 3b043dff1c850040
+sdr 64 -tdi b8043dff1c850040
 runtest -sec 0.0002
 sdr 64 -tdi f030f4003c850040
 runtest -sec 0.0002
@@ -20698,9 +20716,9 @@ sdr 64 -tdi 060003c036850040
 runtest -sec 0.0002
 sdr 64 -tdi 18000f830e850040
 runtest -sec 0.0002
-sdr 64 -tdi 60c03e0c2e850040
+sdr 64 -tdi 60c03c0c2e850040
 runtest -sec 0.0002
-sdr 64 -tdi f008f2301e850040
+sdr 64 -tdi f000f8301e850040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff3e850040
 runtest -sec 0.0002
@@ -20708,9 +20726,9 @@ sdr 64 -tdi ffffffff01850040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff21850040
 runtest -sec 0.0002
-sdr 64 -tdi 3c0c18ff11850040
+sdr 64 -tdi 3e8c18ff11850040
 runtest -sec 0.0002
-sdr 64 -tdi f030600031850040
+sdr 64 -tdi f030630131850040
 runtest -sec 0.0002
 sdr 64 -tdi c0c1800009850040
 runtest -sec 0.0002
@@ -22650,7 +22668,7 @@ sdr 64 -tdi ffffffff350d0040
 runtest -sec 0.0002
 sdr 64 -tdi 0c18ffff0d0d0040
 runtest -sec 0.0002
-sdr 64 -tdi fffd003c2d0d0040
+sdr 64 -tdi fffd01bc2d0d0040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff1d0d0040
 runtest -sec 0.0002
@@ -23290,7 +23308,7 @@ sdr 64 -tdi ffffffff35ad0040
 runtest -sec 0.0002
 sdr 64 -tdi 0418ffff0dad0040
 runtest -sec 0.0002
-sdr 64 -tdi fffc00382dad0040
+sdr 64 -tdi fffc003b2dad0040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff1dad0040
 runtest -sec 0.0002
@@ -23330,7 +23348,7 @@ sdr 64 -tdi ffffffff3fad0040
 runtest -sec 0.0002
 sdr 64 -tdi 0c19ffff006d0040
 runtest -sec 0.0002
-sdr 64 -tdi fffc003f206d0040
+sdr 64 -tdi fffc003c206d0040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff106d0040
 runtest -sec 0.0002
@@ -23370,7 +23388,7 @@ sdr 64 -tdi ffffffff326d0040
 runtest -sec 0.0002
 sdr 64 -tdi 0c3dffff0a6d0040
 runtest -sec 0.0002
-sdr 64 -tdi fffc203c2a6d0040
+sdr 64 -tdi fffc003c2a6d0040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff1a6d0040
 runtest -sec 0.0002
@@ -23410,7 +23428,7 @@ sdr 64 -tdi ffffffff396d0040
 runtest -sec 0.0002
 sdr 64 -tdi 0c18ffff056d0040
 runtest -sec 0.0002
-sdr 64 -tdi fffc203c256d0040
+sdr 64 -tdi fffc003c256d0040
 runtest -sec 0.0002
 sdr 64 -tdi ffffffff156d0040
 runtest -sec 0.0002
@@ -23440,13 +23458,16 @@ sdr 64 -tdi 005400001b6d0040
 runtest -sec 0.0002
 sdr 64 -tdi 0000403f3b6d0040
 runtest -sec 0.0002
-sdr 64 -tdi cb40f1f0076d0040
+sdr 64 -tdi 8720f1f0076d0040
 runtest -sec 0.0002
-sdr 64 -tdi 00009e61276d0040
+sdr 64 -tdi 0000e5c8276d0040
 runtest -sec 0.0002
 sir 10 -tdi 3fc
 runtest -tck 100
 sdr 8 -tdi f0
+# 
+# Verify
+# 
 sir 10 -tdi 3fd
 runtest -tck 100
 sdr 64 -tdi 00000000000000c0 -tdo 0000ffff00000000 -mask ffffffff00000000
@@ -23478,19 +23499,19 @@ sdr 64 -tdi 00000000260000c0 -tdo fffffff100000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000160000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000360000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000e0000c0 -tdo 0c18ffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002e0000c0 -tdo 3060023c00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000001e0000c0 -tdo c18208f200000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002e0000c0 -tdo 3060003c00000000 -mask ffffffff00000000
+sdr 64 -tdi 000000001e0000c0 -tdo c18200f800000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003e0000c0 -tdo 060403f000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000010000c0 -tdo 18100f0300000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000210000c0 -tdo 60043c0c00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000210000c0 -tdo 6080bd0c00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000110000c0 -tdo f000f03000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000310000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000090000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000290000c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000190000c0 -tdo 3d0c18ff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000390000c0 -tdo f030600100000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000190000c0 -tdo 3e0c18ff00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000390000c0 -tdo f030600000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000050000c0 -tdo c0c1820000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000250000c0 -tdo 0000000300000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000250000c0 -tdo 0000040300000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000150000c0 -tdo ffff000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000350000c0 -tdo 003c0c3d00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000d0000c0 -tdo 80f030f400000000 -mask ffffffff00000000
@@ -23498,31 +23519,31 @@ sdr 64 -tdi 000000002d0000c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001d0000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003d0000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000030000c0 -tdo 0c3dffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000230000c0 -tdo 10f4043c00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000130000c0 -tdo 43d410e800000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000230000c0 -tdo 10f5803c00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000130000c0 -tdo 43d400e200000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000330000c0 -tdo 0f42038000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000b0000c0 -tdo 3d080ec100000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002b0000c0 -tdo f4043b0400000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002b0000c0 -tdo f500ba0400000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001b0000c0 -tdo f000f01000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003b0000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000070000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000270000c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000170000c0 -tdo ba043dff00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000170000c0 -tdo 39043dff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000370000c0 -tdo f030f40000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000f0000c0 -tdo b043d40000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002f0000c0 -tdo 0000000300000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002f0000c0 -tdo 0000020300000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f0000c0 -tdo ffff000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f0000c0 -tdo 003c0c1900000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000008000c0 -tdo 00fc306400000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000208000c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000108000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000308000c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000088000c0 -tdo 0c19ffff00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000088000c0 -tdo 8c19ffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000288000c0 -tdo 3064003e00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000188000c0 -tdo c19000f000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000388000c0 -tdo 064003c000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000048000c0 -tdo 19000f0300000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000248000c0 -tdo 64003c8c00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000248000c0 -tdo 64003e8c00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000148000c0 -tdo f000f03000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000348000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000c8000c0 -tdo ffffffff00000000 -mask ffffffff00000000
@@ -23538,17 +23559,17 @@ sdr 64 -tdi 000000002a8000c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001a8000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003a8000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000068000c0 -tdo 0418ffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000268000c0 -tdo 3060003900000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000268000c0 -tdo 3060003800000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000168000c0 -tdo c18000f000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000368000c0 -tdo 060003c000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000e8000c0 -tdo 18000f0300000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002e8000c0 -tdo 60003a0400000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002e8000c0 -tdo 6000380400000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001e8000c0 -tdo f000f03000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003e8000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000018000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000218000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000118000c0 -tdo 3c0c18ff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000318000c0 -tdo ec10600000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000318000c0 -tdo ea10600000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000098000c0 -tdo c0c1800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000298000c0 -tdo 0000000300000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000198000c0 -tdo ffff000000000000 -mask ffffffff00000000
@@ -23797,7 +23818,7 @@ sdr 64 -tdi 0000000006a000c0 -tdo 00f0306000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000026a000c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000016a000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000036a000c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000000ea000c0 -tdo 8c18ffff00000000 -mask ffffffff00000000
+sdr 64 -tdi 000000000ea000c0 -tdo 0c18ffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002ea000c0 -tdo 3060003c00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001ea000c0 -tdo c18000fa00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ea000c0 -tdo 060003c000000000 -mask ffffffff00000000
@@ -23817,7 +23838,7 @@ sdr 64 -tdi 000000000da000c0 -tdo 00f0306400000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002da000c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001da000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003da000c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000003a000c0 -tdo 0419ffff00000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000003a000c0 -tdo 8419ffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000023a000c0 -tdo 1064003a00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000013a000c0 -tdo 419000e000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000033a000c0 -tdo 064003a800000000 -mask ffffffff00000000
@@ -23838,19 +23859,19 @@ sdr 64 -tdi 00000000206000c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000106000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000306000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000086000c0 -tdo 0c3dffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000286000c0 -tdo 30f4203c00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000186000c0 -tdo c3d000f000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000286000c0 -tdo 30f4043c00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000186000c0 -tdo c3d400f000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000386000c0 -tdo 0f4043c000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000046000c0 -tdo 3d002fc300000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000246000c0 -tdo f4187e0c00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000246000c0 -tdo f4183e0c00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000146000c0 -tdo f000f03000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000346000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000c6000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002c6000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001c6000c0 -tdo 3c0c3dff00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000003c6000c0 -tdo f030f40000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000026000c0 -tdo e0c3d00200000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000226000c0 -tdo 0000200b00000000 -mask ffffffff00000000
+sdr 64 -tdi 000000003c6000c0 -tdo f030f42000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000026000c0 -tdo f0c3d02000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000226000c0 -tdo 0000000b00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000126000c0 -tdo ffff000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000326000c0 -tdo 003c0c1800000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000a6000c0 -tdo 00f0306000000000 -mask ffffffff00000000
@@ -23858,19 +23879,19 @@ sdr 64 -tdi 000000002a6000c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001a6000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003a6000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000066000c0 -tdo 0c18ffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000266000c0 -tdo 3060203c00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000166000c0 -tdo c18000f000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000266000c0 -tdo 3060043c00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000166000c0 -tdo c18400f000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000366000c0 -tdo 060043c000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000e6000c0 -tdo 18002e0100000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002e6000c0 -tdo 6043390400000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002e6000c0 -tdo 6042390400000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001e6000c0 -tdo f000f03000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003e6000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000016000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000216000c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000116000c0 -tdo 3c0c18ff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000316000c0 -tdo f030600000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000096000c0 -tdo 8841800200000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000296000c0 -tdo 0000080b00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000316000c0 -tdo f030602000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000096000c0 -tdo 8041800800000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000296000c0 -tdo 0000000b00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000196000c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000396000c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000056000c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -23898,7 +23919,7 @@ sdr 64 -tdi 000000002f6000c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f6000c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f6000c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000000e000c0 -tdo 0005800000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000020e000c0 -tdo 0014000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000020e000c0 -tdo 0014050000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000010e000c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000030e000c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000008e000c0 -tdo 0500000000000000 -mask ffffffff00000000
@@ -24922,7 +24943,7 @@ sdr 64 -tdi 000000002f6800c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f6800c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f6800c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000000e800c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000020e800c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000020e800c0 -tdo 0002000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000010e800c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000030e800c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000008e800c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -24942,7 +24963,7 @@ sdr 64 -tdi 0000000022e800c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000012e800c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000032e800c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000ae800c0 -tdo 0500000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002ae800c0 -tdo 1400000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002ae800c0 -tdo 1401000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001ae800c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ae800c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000006e800c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -26222,7 +26243,7 @@ sdr 64 -tdi 0000000022d400c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000012d400c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000032d400c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000ad400c0 -tdo 0500000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002ad400c0 -tdo 1400480000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002ad400c0 -tdo 1400000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001ad400c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ad400c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000006d400c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -26582,7 +26603,7 @@ sdr 64 -tdi 00000000270c00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000170c00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000370c00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000f0c00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002f0c00c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002f0c00c0 -tdo 0000480000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f0c00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f0c00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000008c00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -27990,7 +28011,7 @@ sdr 64 -tdi 00000000276200c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000176200c0 -tdo 0000058000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000376200c0 -tdo 0000140000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000f6200c0 -tdo 0000500000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002f6200c0 -tdo 0000011000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002f6200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f6200c0 -tdo 0001000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f6200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000000e200c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28108,7 +28129,7 @@ sdr 64 -tdi 000000003d1200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000031200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000231200c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000131200c0 -tdo 0000008000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000331200c0 -tdo 0000001100000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000331200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000b1200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002b1200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001b1200c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28158,7 +28179,7 @@ sdr 64 -tdi 00000000219200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000119200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000319200c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000099200c0 -tdo 0000800000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000299200c0 -tdo 0000040000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000299200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000199200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000399200c0 -tdo 1240000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000059200c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28178,7 +28199,7 @@ sdr 64 -tdi 000000002b9200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001b9200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003b9200c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000079200c0 -tdo 0000800000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000279200c0 -tdo 0000010000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000279200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000179200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000379200c0 -tdo 1200000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000f9200c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28188,7 +28209,7 @@ sdr 64 -tdi 000000003f9200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000005200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000205200c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000105200c0 -tdo 0000008000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000305200c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000305200c0 -tdo 0000001100000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000085200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000285200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000185200c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28283,7 +28304,7 @@ sdr 64 -tdi 000000001ed200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ed200c0 -tdo 4100000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000001d200c0 -tdo 0000c00400000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000021d200c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000011d200c0 -tdo 000c000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000011d200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000031d200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000009d200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000029d200c0 -tdo 00000ff000000000 -mask ffffffff00000000
@@ -28378,12 +28399,12 @@ sdr 64 -tdi 000000002f3200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f3200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f3200c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000000b200c0 -tdo 0005800000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000020b200c0 -tdo 0014000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000020b200c0 -tdo 0014009000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000010b200c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000030b200c0 -tdo 5f40010000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000008b200c0 -tdo 0500000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000028b200c0 -tdo 1400000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000018b200c0 -tdo 0044000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000018b200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000038b200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000004b200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000024b200c0 -tdo 00000ff000000000 -mask ffffffff00000000
@@ -28442,7 +28463,7 @@ sdr 64 -tdi 000000002fb200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001fb200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003fb200c0 -tdo 0100000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000007200c0 -tdo 0000400400000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000207200c0 -tdo 0001000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000207200c0 -tdo 0300000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000107200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000307200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000087200c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28462,8 +28483,8 @@ sdr 64 -tdi 00000000227200c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000127200c0 -tdo 0059000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000327200c0 -tdo 5340000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000a7200c0 -tdo 0502000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002a7200c0 -tdo 1404000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000001a7200c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002a7200c0 -tdo 1400000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000001a7200c0 -tdo 0044000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003a7200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000067200c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000267200c0 -tdo 00000ff000000000 -mask ffffffff00000000
@@ -28681,7 +28702,7 @@ sdr 64 -tdi 000000000d8a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002d8a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001d8a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003d8a00c0 -tdo 8140000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000038a00c0 -tdo 0000400400000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000038a00c0 -tdo 0004400400000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000238a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000138a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000338a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28701,7 +28722,7 @@ sdr 64 -tdi 00000000004a00c0 -tdo 0005000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000204a00c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000104a00c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000304a00c0 -tdo 1340000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000084a00c0 -tdo 0504000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000084a00c0 -tdo 0500000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000284a00c0 -tdo 1400000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000184a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000384a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28721,7 +28742,7 @@ sdr 64 -tdi 000000000a4a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002a4a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001a4a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003a4a00c0 -tdo 1240100000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000064a00c0 -tdo 0004400000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000064a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000264a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000164a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000364a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28808,7 +28829,7 @@ sdr 64 -tdi 0000000035ca00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000dca00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002dca00c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001dca00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000003dca00c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000003dca00c0 -tdo 0000000200000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000003ca00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000023ca00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000013ca00c0 -tdo 0001000000000000 -mask ffffffff00000000
@@ -28828,8 +28849,8 @@ sdr 64 -tdi 000000003fca00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000002a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000202a00c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000102a00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000302a00c0 -tdo 2000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000082a00c0 -tdo 8000000200000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000302a00c0 -tdo 0000000100000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000082a00c0 -tdo 8000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000282a00c0 -tdo 0000000800000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000182a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000382a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28890,7 +28911,7 @@ sdr 64 -tdi 000000002f2a00c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f2a00c0 -tdo 0000008000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f2a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000000aa00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000020aa00c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000020aa00c0 -tdo 0000100000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000010aa00c0 -tdo 0001000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000030aa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000008aa00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28910,7 +28931,7 @@ sdr 64 -tdi 0000000022aa00c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000012aa00c0 -tdo 0000008000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000032aa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000aaa00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002aaa00c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002aaa00c0 -tdo 0000200000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001aaa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003aaa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000006aa00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28948,8 +28969,8 @@ sdr 64 -tdi 000000003baa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000007aa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000027aa00c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000017aa00c0 -tdo 0000058000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000037aa00c0 -tdo 0000140000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000000faa00c0 -tdo 0000500000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000037aa00c0 -tdo 2000140000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000000faa00c0 -tdo 0000500200000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002faa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001faa00c0 -tdo 0001000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003faa00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28962,7 +28983,7 @@ sdr 64 -tdi 00000000286a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000186a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000386a00c0 -tdo 0c40000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000046a00c0 -tdo 0000240000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000246a00c0 -tdo 0000400000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000246a00c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000146a00c0 -tdo 0003000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000346a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000c6a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -28982,7 +29003,7 @@ sdr 64 -tdi 00000000266a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000166a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000366a00c0 -tdo 0c40000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000e6a00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002e6a00c0 -tdo 0000800000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002e6a00c0 -tdo 0000200000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001e6a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003e6a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000016a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29000,8 +29021,8 @@ sdr 64 -tdi 00000000356a00c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000d6a00c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002d6a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001d6a00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000003d6a00c0 -tdo 0100000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000036a00c0 -tdo 0000400500000000 -mask ffffffff00000000
+sdr 64 -tdi 000000003d6a00c0 -tdo 0140000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000036a00c0 -tdo 0000000500000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000236a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000136a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000336a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29021,7 +29042,7 @@ sdr 64 -tdi 0000000000ea00c0 -tdo 0005800000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000020ea00c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000010ea00c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000030ea00c0 -tdo 1340000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000008ea00c0 -tdo 0504000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000008ea00c0 -tdo 0500000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000028ea00c0 -tdo 1400000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000018ea00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000038ea00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29058,7 +29079,7 @@ sdr 64 -tdi 0000000029ea00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000019ea00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000039ea00c0 -tdo 000df00000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000005ea00c0 -tdo 0000800000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000025ea00c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000025ea00c0 -tdo 0000050000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000015ea00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000035ea00c0 -tdo 1240000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000dea00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29098,8 +29119,8 @@ sdr 64 -tdi 000000002c1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001c1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003c1a00c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000021a00c0 -tdo 0005800000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000221a00c0 -tdo 0014050000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000121a00c0 -tdo 0050240000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000221a00c0 -tdo 0014000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000121a00c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000321a00c0 -tdo 0d40000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000a1a00c0 -tdo 0500020100000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002a1a00c0 -tdo 1400000000000000 -mask ffffffff00000000
@@ -29107,7 +29128,7 @@ sdr 64 -tdi 000000001a1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003a1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000061a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000261a00c0 -tdo 00000ff000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000161a00c0 -tdo 8800058000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000161a00c0 -tdo 0000058000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000361a00c0 -tdo 0000140000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000e1a00c0 -tdo 0000500000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002e1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29121,7 +29142,7 @@ sdr 64 -tdi 00000000091a00c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000291a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000191a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000391a00c0 -tdo 0d40000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000051a00c0 -tdo 0000200000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000051a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000251a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000151a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000351a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29141,7 +29162,7 @@ sdr 64 -tdi 00000000071a00c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000271a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000171a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000371a00c0 -tdo 0c40000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000000f1a00c0 -tdo 0000020000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000000f1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002f1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f1a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29179,7 +29200,7 @@ sdr 64 -tdi 000000001e9a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003e9a00c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000019a00c0 -tdo 0005800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000219a00c0 -tdo 0014000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000119a00c0 -tdo 0050000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000119a00c0 -tdo 0050240000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000319a00c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000099a00c0 -tdo 0500000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000299a00c0 -tdo 1480000000000000 -mask ffffffff00000000
@@ -29200,7 +29221,7 @@ sdr 64 -tdi 00000000339a00c0 -tdo 000df00000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000b9a00c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002b9a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001b9a00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000003b9a00c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000003b9a00c0 -tdo 0023100000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000079a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000279a00c0 -tdo 0300000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000179a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29282,7 +29303,7 @@ sdr 64 -tdi 0000000028da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000018da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000038da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000004da00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000024da00c0 -tdo 0000800000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000024da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000014da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000034da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000cda00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29302,7 +29323,7 @@ sdr 64 -tdi 0000000026da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000016da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000036da00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000eda00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002eda00c0 -tdo 0000200000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002eda00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001eda00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003eda00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000001da00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29381,7 +29402,7 @@ sdr 64 -tdi 00000000053a00c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000253a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000153a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000353a00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000000d3a00c0 -tdo 0002800000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000000d3a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002d3a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001d3a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003d3a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29501,7 +29522,7 @@ sdr 64 -tdi 00000000017a00c0 -tdo 0005800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000217a00c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000117a00c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000317a00c0 -tdo 0140000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000097a00c0 -tdo 0500000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000097a00c0 -tdo 0502800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000297a00c0 -tdo 1400000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000197a00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000397a00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29562,7 +29583,7 @@ sdr 64 -tdi 000000002efa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001efa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003efa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000001fa00c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000021fa00c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000021fa00c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000011fa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000031fa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000009fa00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29582,7 +29603,7 @@ sdr 64 -tdi 0000000023fa00c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000013fa00c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000033fa00c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000bfa00c0 -tdo 0500000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002bfa00c0 -tdo 1400000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002bfa00c0 -tdo 1400200000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001bfa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003bfa00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000007fa00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29603,7 +29624,7 @@ sdr 64 -tdi 00000000180600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000380600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000040600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000240600c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000140600c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000140600c0 -tdo 0003000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000340600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000c0600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002c0600c0 -tdo 00000df000000000 -mask ffffffff00000000
@@ -29722,7 +29743,7 @@ sdr 64 -tdi 000000002f8600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f8600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f8600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000004600c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000204600c0 -tdo 0000800000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000204600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000104600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000304600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000084600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29742,7 +29763,7 @@ sdr 64 -tdi 00000000224600c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000124600c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000324600c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000a4600c0 -tdo 0500000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002a4600c0 -tdo 1400200000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002a4600c0 -tdo 1400000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001a4600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003a4600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000064600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29781,7 +29802,7 @@ sdr 64 -tdi 00000000074600c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000274600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000174600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000374600c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000000f4600c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000000f4600c0 -tdo 0002800000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002f4600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f4600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003f4600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29798,7 +29819,7 @@ sdr 64 -tdi 0000000024c600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000014c600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000034c600c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000cc600c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002cc600c0 -tdo 0000040000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002cc600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001cc600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003cc600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000002c600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29818,7 +29839,7 @@ sdr 64 -tdi 000000002ec600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001ec600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ec600c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000001c600c0 -tdo 0005000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000021c600c0 -tdo 0014010000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000021c600c0 -tdo 00140a0000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000011c600c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000031c600c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000009c600c0 -tdo 0500000000000000 -mask ffffffff00000000
@@ -29861,7 +29882,7 @@ sdr 64 -tdi 00000000042600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000242600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000142600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000342600c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000000c2600c0 -tdo 0002800000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000000c2600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002c2600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001c2600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003c2600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -29947,7 +29968,7 @@ sdr 64 -tdi 000000001ea600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ea600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000001a600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000021a600c0 -tdo 00000ff000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000011a600c0 -tdo 8800000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000011a600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000031a600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000009a600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000029a600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -30141,7 +30162,7 @@ sdr 64 -tdi 00000000011600c0 -tdo 0005000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000211600c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000111600c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000311600c0 -tdo 0140000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000091600c0 -tdo 0500000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000091600c0 -tdo 0500140000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000291600c0 -tdo 1400000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000191600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000391600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -30162,7 +30183,7 @@ sdr 64 -tdi 000000002b1600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001b1600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003b1600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000071600c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000271600c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000271600c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000171600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000371600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000f1600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -30182,7 +30203,7 @@ sdr 64 -tdi 00000000249600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000149600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000349600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000c9600c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002c9600c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002c9600c0 -tdo 0000200000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001c9600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003c9600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000029600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -30307,7 +30328,7 @@ sdr 64 -tdi 0000000018d600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000038d600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000004d600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000024d600c0 -tdo 00000ff000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000014d600c0 -tdo 0000058000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000014d600c0 -tdo 8800058000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000034d600c0 -tdo 0000140000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000cd600c0 -tdo 0000500000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002cd600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -30470,7 +30491,7 @@ sdr 64 -tdi 0000000025b600c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000015b600c0 -tdo 0000058000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000035b600c0 -tdo 0000140000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000db600c0 -tdo 0000500000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002db600c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002db600c0 -tdo 0000011000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001db600c0 -tdo 0001000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003db600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000003b600c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -30548,7 +30569,7 @@ sdr 64 -tdi 000000003b7600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000077600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000277600c0 -tdo 00000ff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000177600c0 -tdo 0000058000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000377600c0 -tdo 0000140000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000377600c0 -tdo 0000162000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000f7600c0 -tdo 0000500000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002f7600c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001f7600c0 -tdo 0001000000000000 -mask ffffffff00000000
@@ -30818,7 +30839,7 @@ sdr 64 -tdi 0000000028ce00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000018ce00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000038ce00c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000004ce00c0 -tdo 0000800000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000024ce00c0 -tdo 0000000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000024ce00c0 -tdo 000000a000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000014ce00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000034ce00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000cce00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -31582,7 +31603,7 @@ sdr 64 -tdi 0000000020fe00c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000010fe00c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000030fe00c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000008fe00c0 -tdo 0500000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000028fe00c0 -tdo 1400000000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000028fe00c0 -tdo 140a000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000018fe00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000038fe00c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000004fe00c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -32142,7 +32163,7 @@ sdr 64 -tdi 0000000023e100c0 -tdo 0014000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000013e100c0 -tdo 0050000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000033e100c0 -tdo 0140000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000be100c0 -tdo 0500000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002be100c0 -tdo 1400600000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002be100c0 -tdo 1400000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001be100c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003be100c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000007e100c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -33041,7 +33062,7 @@ sdr 64 -tdi 000000000ba900c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002ba900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001ba900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ba900c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000007a900c0 -tdo 0000040000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000007a900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000027a900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000017a900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000037a900c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -33061,7 +33082,7 @@ sdr 64 -tdi 00000000046900c0 -tdo 0000800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000246900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000146900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000346900c0 -tdo 0000000000000000 -mask ffffffff00000000
-sdr 64 -tdi 000000000c6900c0 -tdo 0000200000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000000c6900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002c6900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001c6900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003c6900c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -33118,7 +33139,7 @@ sdr 64 -tdi 0000000020e900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000010e900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000030e900c0 -tdo 000ff00000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000008e900c0 -tdo 0000800000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000028e900c0 -tdo 0000040000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000028e900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000018e900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000038e900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000004e900c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -33138,7 +33159,7 @@ sdr 64 -tdi 000000002ae900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001ae900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ae900c0 -tdo 000df00000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000006e900c0 -tdo 0000800000000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000026e900c0 -tdo 0000010000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000026e900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000016e900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000036e900c0 -tdo 0000000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000ee900c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -33402,13 +33423,13 @@ sdr 64 -tdi 000000002ed900c0 -tdo fffc000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001ed900c0 -tdo c18fffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003ed900c0 -tdo 060003c000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000001d900c0 -tdo 18514ec100000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000021d900c0 -tdo 6140380400000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000011d900c0 -tdo f000e41000000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000021d900c0 -tdo 6040380400000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000011d900c0 -tdo f400e41000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000031d900c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000009d900c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000029d900c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000019d900c0 -tdo 3a8418ff00000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000039d900c0 -tdo f030600400000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000019d900c0 -tdo 3a0418ff00000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000039d900c0 -tdo f030600000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000005d900c0 -tdo c0c1800000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000025d900c0 -tdo 0000000300000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000015d900c0 -tdo 0001000000000000 -mask ffffffff00000000
@@ -33422,13 +33443,13 @@ sdr 64 -tdi 0000000023d900c0 -tdo fffc000000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000013d900c0 -tdo c3dfffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000033d900c0 -tdo 0f4003c000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000bd900c0 -tdo 3d451f0300000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002bd900c0 -tdo f5103f0c00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000001bd900c0 -tdo f140f83000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002bd900c0 -tdo f41a3f0c00000000 -mask ffffffff00000000
+sdr 64 -tdi 000000001bd900c0 -tdo f540f83000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003bd900c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000007d900c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000027d900c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000017d900c0 -tdo 7c0c3dff00000000 -mask ffffffff00000000
-sdr 64 -tdi 0000000037d900c0 -tdo f030f40500000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000017d900c0 -tdo 3d0c3dff00000000 -mask ffffffff00000000
+sdr 64 -tdi 0000000037d900c0 -tdo f030f40000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000fd900c0 -tdo c0c3d00000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002fd900c0 -tdo 0000000300000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001fd900c0 -tdo 0001000000000000 -mask ffffffff00000000
@@ -33762,12 +33783,12 @@ sdr 64 -tdi 00000000288500c0 -tdo 1e1c000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000188500c0 -tdo c3dffffe00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000388500c0 -tdo 0f4003c000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000048500c0 -tdo 3d000e4100000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000248500c0 -tdo f520388400000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000148500c0 -tdo f010e81000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000248500c0 -tdo f5203a8400000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000148500c0 -tdo f000e21000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000348500c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000c8500c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002c8500c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000001c8500c0 -tdo 3b043dff00000000 -mask ffffffff00000000
+sdr 64 -tdi 000000001c8500c0 -tdo b8043dff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003c8500c0 -tdo f030f40000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000028500c0 -tdo c0c3d00000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000228500c0 -tdo 0000000300000000 -mask ffffffff00000000
@@ -33782,13 +33803,13 @@ sdr 64 -tdi 00000000268500c0 -tdo 161c000000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000168500c0 -tdo c18ffff600000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000368500c0 -tdo 060003c000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000e8500c0 -tdo 18000f8300000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002e8500c0 -tdo 60c03e0c00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000001e8500c0 -tdo f008f23000000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002e8500c0 -tdo 60c03c0c00000000 -mask ffffffff00000000
+sdr 64 -tdi 000000001e8500c0 -tdo f000f83000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003e8500c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000018500c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000218500c0 -tdo ffffffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000118500c0 -tdo 3c0c18ff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000318500c0 -tdo f030600000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000118500c0 -tdo 3e8c18ff00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000318500c0 -tdo f030630100000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000098500c0 -tdo c0c1800000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000298500c0 -tdo 0000000300000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000198500c0 -tdo 0000000000000000 -mask ffffffff00000000
@@ -34758,7 +34779,7 @@ sdr 64 -tdi 00000000250d00c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000150d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000350d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000d0d00c0 -tdo 0c18ffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002d0d00c0 -tdo fffd003c00000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002d0d00c0 -tdo fffd01bc00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001d0d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003d0d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000030d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
@@ -35078,7 +35099,7 @@ sdr 64 -tdi 0000000025ad00c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000015ad00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000035ad00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000dad00c0 -tdo 0418ffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002dad00c0 -tdo fffc003800000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002dad00c0 -tdo fffc003b00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001dad00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003dad00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 0000000003ad00c0 -tdo ffffffff00000000 -mask ffffffff00000000
@@ -35098,7 +35119,7 @@ sdr 64 -tdi 000000002fad00c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001fad00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003fad00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000006d00c0 -tdo 0c19ffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000206d00c0 -tdo fffc003f00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000206d00c0 -tdo fffc003c00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000106d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000306d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000086d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
@@ -35118,7 +35139,7 @@ sdr 64 -tdi 00000000226d00c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000126d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000326d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000a6d00c0 -tdo 0c3dffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 000000002a6d00c0 -tdo fffc203c00000000 -mask ffffffff00000000
+sdr 64 -tdi 000000002a6d00c0 -tdo fffc003c00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001a6d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003a6d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000066d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
@@ -35138,7 +35159,7 @@ sdr 64 -tdi 00000000296d00c0 -tdo fffffff000000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000196d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000396d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000056d00c0 -tdo 0c18ffff00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000256d00c0 -tdo fffc203c00000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000256d00c0 -tdo fffc003c00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000156d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 00000000356d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000000d6d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
@@ -35153,8 +35174,11 @@ sdr 64 -tdi 000000000b6d00c0 -tdo ffffffff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000002b6d00c0 -tdo 00003fff00000000 -mask ffffffff00000000
 sdr 64 -tdi 000000001b6d00c0 -tdo 0054000000000000 -mask ffffffff00000000
 sdr 64 -tdi 000000003b6d00c0 -tdo 0000403f00000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000076d00c0 -tdo cb40f1f000000000 -mask ffffffff00000000
-sdr 64 -tdi 00000000276d00c0 -tdo 00009e6100000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000076d00c0 -tdo 8720f1f000000000 -mask ffffffff00000000
+sdr 64 -tdi 00000000276d00c0 -tdo 0000e5c800000000 -mask ffffffff00000000
+# 
+# Footer
+# 
 sir 10 -tdi 3f7
 runtest -tck 100
 usb_close

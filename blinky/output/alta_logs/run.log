@@ -4,7 +4,7 @@ Cmd : /home/swhite/agm/Supra-2019.03.b0/bin/af 2019.03.b0(de4b59ef)
 Args : -X "set QUARTUS_SDC true" -X "set FITTING timing_more" -X "set FITTER hybrid" -X "set EFFORT highest" -X "set HOLDX default" -X "set MODE QUARTUS" -X "set FLOW ALL" -F ./af_run.tcl
 > 
 > date_time
-Sun Mar 24 13:33:28 2019
+Sun Mar 24 18:23:38 2019
 > if { [file exists "./${DESIGN}.pre.asf"] } {
   alta::tcl_highlight "Using pre-ASF file ${DESIGN}.pre.asf.\n"
   source "./${DESIGN}.pre.asf"
@@ -20,7 +20,7 @@ Loading architect libraries...
 ## CPU time: 0:0:0, REAL time: 0:0:0
 ## Memory Usage: 0MB (0MB)
 Loading route table...
-## CPU time: 0:0:1, REAL time: 0:0:2
+## CPU time: 0:0:1, REAL time: 0:0:1
 ## Memory Usage: 63MB (63MB)
 > foreach ip_file $IP_FILES { read_ip $ip_file; }
 > 
@@ -126,7 +126,7 @@ Loading route table...
 }
 Using design verilog file Blinky.vo.
 Preparing design...
-## CPU time: 0:0:0, REAL time: 0:0:0
+## CPU time: 0:0:0, REAL time: 0:0:1
 ## Memory Usage: 80MB (80MB)
 Pseudo pack design...
 Packing Statistics
@@ -416,7 +416,7 @@ Optimization...
 Finishing...
 
 ## CPU time: 0:0:0, REAL time: 0:0:0
-Total wire cost after placement: 0:0:-6.97143e-32(0:0) 62.456(15.888)+199(0)+284.667 75(9.32858)+60.25
+Total wire cost after placement: 0:0:1.41138e+37(0:0) 62.456(15.888)+199(0)+284.667 75(9.32858)+60.25
 
 *** Post Placement Timing Report ***
 === User constraints ===
@@ -452,21 +452,23 @@ Route Design Statistics
 
 Routing...
 ## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 1/1, route#: 34, violation# : 7, overflow# : 7, conflict# : 6, node#: 244
+ iter = 1/1, route#: 34, violation# : 11, overflow# : 11, conflict# : 8, node#: 240
 ## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 2/2, route#: 34, violation# : 0, overflow# : 0, conflict# : 0, node#: 255
+ iter = 2/2, route#: 34, violation# : 2, overflow# : 2, conflict# : 2, node#: 255
 ## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 3/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 255
+ iter = 3/3, route#: 34, violation# : 0, overflow# : 0, conflict# : 0, node#: 259
 ## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 4/2, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 255
+ iter = 4/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 259
 ## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 5/2, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 255
+ iter = 5/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 259
 ## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 6/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 255
-## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 7/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 255
-## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 8/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 255
+ iter = 6/2, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 259
+## CPU time: 0:0:0, REAL time: 0:0:1
+ iter = 7/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 259
+## CPU time: 0:0:0, REAL time: 0:0:1
+ iter = 8/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 259
+## CPU time: 0:0:0, REAL time: 0:0:1
+ iter = 9/1, route#: 2, violation# : 0, overflow# : 0, conflict# : 0, node#: 259
 Optimizing...
 ...
 
@@ -499,7 +501,7 @@ Hold from counter[0] to counter[0], clock Internal_generated_clock_Blinky|clk, c
 
 > 
 > date_time
-Sun Mar 24 13:33:34 2019
+Sun Mar 24 18:23:44 2019
 > if { $FLOW != "CHECK" } {
 if { $FLOW != "PROBE" } {
 #report_timing -verbose 1 -file $::alta_work/timing.rpt.gz
@@ -539,6 +541,9 @@ if { $rt_report_timing_fast } {
 write_routed_design "${RESULT_DIR}/${RESULT}_routed.v"
 }
 
+alta::set_debug_cmd bitgen_debug_stream 1
+alta::set_debug_cmd bitgen_force_config_dump 1
+
 bitgen normal -prg "${RESULT_DIR}/${RESULT}.prg" -bin "${RESULT_DIR}/${RESULT}.bin"
 bitgen sram -prg "${RESULT_DIR}/${RESULT}_sram.prg"
 bitgen download -bin "${RESULT_DIR}/${RESULT}.bin" -svf "${RESULT_DIR}/${RESULT}_download.svf"
@@ -557,7 +562,7 @@ Info: Using config file ./Blinky.bin to generate download file ./Blinky_download
   source "./${DESIGN}.post.asf"
 }
 > date_time
-Sun Mar 24 13:33:35 2019
+Sun Mar 24 18:23:45 2019
 > exit
 
 Total 0 fatals, 0 errors, 1 warnings, 3 infos.

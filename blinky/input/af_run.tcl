@@ -311,6 +311,9 @@ if { $rt_report_timing_fast } {
 write_routed_design "${RESULT_DIR}/${RESULT}_routed.v"
 }
 
+alta::set_debug_cmd bitgen_debug_stream 1
+alta::set_debug_cmd bitgen_force_config_dump 1
+
 bitgen normal -prg "${RESULT_DIR}/${RESULT}.prg" -bin "${RESULT_DIR}/${RESULT}.bin"
 bitgen sram -prg "${RESULT_DIR}/${RESULT}_sram.prg"
 bitgen download -bin "${RESULT_DIR}/${RESULT}.bin" -svf "${RESULT_DIR}/${RESULT}_download.svf"
