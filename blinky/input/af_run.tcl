@@ -312,6 +312,8 @@ write_routed_design "${RESULT_DIR}/${RESULT}_routed.v"
 }
 
 alta::set_debug_cmd bitgen_debug_stream 1
+alta::set_debug_cmd bitgen_debug_flash 1
+alta::set_debug_cmd bitgen_force_config 1
 alta::set_debug_cmd bitgen_force_config_dump 1
 
 bitgen normal -prg "${RESULT_DIR}/${RESULT}.prg" -bin "${RESULT_DIR}/${RESULT}.bin"
