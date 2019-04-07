@@ -180,6 +180,7 @@ if { $LOAD_DB } {
   } else {
     alta::tcl_highlight "Using design SDC file $sdc.\n"
     set ret [read_design_and_pack -top ${TOP_MODULE} $verilog]
+    read_sdc $sdc
   }
   if { !$ret } { exit -1; }
 
