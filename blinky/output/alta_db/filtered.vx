@@ -12,277 +12,153 @@ output	[7:0] bank1;
 output	[7:0] bank2;
 output	[7:0] bank3;
 
-// module Blinky
-// Design Ports Information
-// bank0[0]	=>  Location: PIN_Y1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank0[1]	=>  Location: PIN_V4,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank0[2]	=>  Location: PIN_Y6,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank0[3]	=>  Location: PIN_P3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank0[4]	=>  Location: PIN_T4,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank0[5]	=>  Location: PIN_V2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank0[6]	=>  Location: PIN_R3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank0[7]	=>  Location: PIN_P2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank1[0]	=>  Location: PIN_W1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank1[1]	=>  Location: PIN_AA1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank1[2]	=>  Location: PIN_V5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank1[3]	=>  Location: PIN_U2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank1[4]	=>  Location: PIN_Y4,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank1[5]	=>  Location: PIN_P5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank1[6]	=>  Location: PIN_N6,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank1[7]	=>  Location: PIN_P1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank2[0]	=>  Location: PIN_W2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank2[1]	=>  Location: PIN_V3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank2[2]	=>  Location: PIN_AB3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank2[3]	=>  Location: PIN_P4,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank2[4]	=>  Location: PIN_T5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank2[5]	=>  Location: PIN_U1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank2[6]	=>  Location: PIN_T3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank2[7]	=>  Location: PIN_R2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank3[0]	=>  Location: PIN_Y2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank3[1]	=>  Location: PIN_R5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank3[2]	=>  Location: PIN_AA3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank3[3]	=>  Location: PIN_N5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank3[4]	=>  Location: PIN_Y3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank3[5]	=>  Location: PIN_V1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank3[6]	=>  Location: PIN_R4,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// bank3[7]	=>  Location: PIN_R1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-// clk	=>  Location: PIN_G1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-
-// module hard_block
-// Design Ports Information
-// ~ALTERA_ASDO_DATA1~	=>  Location: PIN_D1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-// ~ALTERA_FLASH_nCE_nCSO~	=>  Location: PIN_E2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-// ~ALTERA_DCLK~	=>  Location: PIN_K2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-// ~ALTERA_DATA0~	=>  Location: PIN_K1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-// ~ALTERA_nCEO~	=>  Location: PIN_K22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
-
-//wire	\auto_generated_inst|gnd ;
-//wire	gnd;
-//wire	\auto_generated_inst|vcc ;
-//wire	vcc;
-//wire	\bank0[0]~output_o ;
-//wire	\bank0[1]~output_o ;
-//wire	\bank0[2]~output_o ;
-//wire	\bank0[3]~output_o ;
-//wire	\bank0[4]~output_o ;
-//wire	\bank0[5]~output_o ;
-//wire	\bank0[6]~output_o ;
-//wire	\bank0[7]~output_o ;
-//wire	\bank1[0]~output_o ;
-//wire	\bank1[1]~output_o ;
-//wire	\bank1[2]~output_o ;
-//wire	\bank1[3]~output_o ;
-//wire	\bank1[4]~output_o ;
-//wire	\bank1[5]~output_o ;
-//wire	\bank1[6]~output_o ;
-//wire	\bank1[7]~output_o ;
-//wire	\bank2[0]~output_o ;
-//wire	\bank2[1]~output_o ;
-//wire	\bank2[2]~output_o ;
-//wire	\bank2[3]~output_o ;
-//wire	\bank2[4]~output_o ;
-//wire	\bank2[5]~output_o ;
-//wire	\bank2[6]~output_o ;
-//wire	\bank2[7]~output_o ;
-//wire	\bank3[0]~output_o ;
-//wire	\bank3[1]~output_o ;
-//wire	\bank3[2]~output_o ;
-//wire	\bank3[3]~output_o ;
-//wire	\bank3[4]~output_o ;
-//wire	\bank3[5]~output_o ;
-//wire	\bank3[6]~output_o ;
-//wire	\bank3[7]~output_o ;
-wire	\clk~input_o ;
-wire	\clk~inputclkctrl_outclk ;
+wire	[31:0] syn__00_;
+//wire	syn__00_[0];
 wire	[31:0] counter;
 //wire	counter[0];
-wire	\counter[0]~81_combout ;
+wire	\counter[0]_inv ;
 //wire	counter[10];
-wire	\counter[10]~45_combout ;
-wire	\counter[10]~46 ;
 //wire	counter[11];
-wire	\counter[11]~47_combout ;
-wire	\counter[11]~48 ;
 //wire	counter[12];
-wire	\counter[12]~49_combout ;
-wire	\counter[12]~50 ;
 //wire	counter[13];
-wire	\counter[13]~51_combout ;
-wire	\counter[13]~52 ;
 //wire	counter[14];
-wire	\counter[14]~53_combout ;
-wire	\counter[14]~54 ;
 //wire	counter[15];
-wire	\counter[15]~55_combout ;
-wire	\counter[15]~56 ;
 //wire	counter[16];
-wire	\counter[16]~57_combout ;
-wire	\counter[16]~58 ;
 //wire	counter[17];
-wire	\counter[17]~59_combout ;
-wire	\counter[17]~60 ;
 //wire	counter[18];
-wire	\counter[18]~61_combout ;
-wire	\counter[18]~62 ;
 //wire	counter[19];
-wire	\counter[19]~63_combout ;
-wire	\counter[19]~64 ;
 //wire	counter[1];
-wire	\counter[1]~27_combout ;
-wire	\counter[1]~28 ;
 //wire	counter[20];
-wire	\counter[20]~65_combout ;
-wire	\counter[20]~66 ;
 //wire	counter[21];
-wire	\counter[21]~67_combout ;
-wire	\counter[21]~68 ;
 //wire	counter[22];
-wire	\counter[22]~69_combout ;
-wire	\counter[22]~70 ;
 //wire	counter[23];
-wire	\counter[23]~71_combout ;
-wire	\counter[23]~72 ;
 //wire	counter[24];
-wire	\counter[24]~73_combout ;
-wire	\counter[24]~74 ;
 //wire	counter[25];
-wire	\counter[25]~75_combout ;
-wire	\counter[25]~76 ;
 //wire	counter[26];
-wire	\counter[26]~77_combout ;
-wire	\counter[26]~78 ;
 //wire	counter[27];
-wire	\counter[27]~79_combout ;
 //wire	counter[28];
 //wire	counter[29];
 //wire	counter[2];
-wire	\counter[2]~29_combout ;
-wire	\counter[2]~30 ;
 //wire	counter[30];
 //wire	counter[31];
 //wire	counter[3];
-wire	\counter[3]~31_combout ;
-wire	\counter[3]~32 ;
 //wire	counter[4];
-wire	\counter[4]~33_combout ;
-wire	\counter[4]~34 ;
 //wire	counter[5];
-wire	\counter[5]~35_combout ;
-wire	\counter[5]~36 ;
 //wire	counter[6];
-wire	\counter[6]~37_combout ;
-wire	\counter[6]~38 ;
 //wire	counter[7];
-wire	\counter[7]~39_combout ;
-wire	\counter[7]~40 ;
 //wire	counter[8];
-wire	\counter[8]~41_combout ;
-wire	\counter[8]~42 ;
 //wire	counter[9];
-wire	\counter[9]~43_combout ;
-wire	\counter[9]~44 ;
-//wire	\auto_generated_inst|devclrn ;
-tri1	devclrn;
-//wire	\auto_generated_inst|devoe ;
-tri1	devoe;
-//wire	\auto_generated_inst|devpor ;
-tri1	devpor;
-wire	unknown;
-wire	\auto_generated_inst|unknown ;
-wire	\auto_generated_inst|~ALTERA_ASDO_DATA1~~ibuf_o ;
-wire	\auto_generated_inst|~ALTERA_ASDO_DATA1~~padout ;
-wire	\auto_generated_inst|~ALTERA_DATA0~~ibuf_o ;
-wire	\auto_generated_inst|~ALTERA_DATA0~~padout ;
-wire	\auto_generated_inst|~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
-wire	\auto_generated_inst|~ALTERA_FLASH_nCE_nCSO~~padout ;
+wire	\gnd~I_int ;
+wire	[17:0] \mem.prom_0_6526DEFE.portDataOutA ;
+//wire	\mem.prom_0_6526DEFE.portDataOutA [0];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [10];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [11];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [12];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [13];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [14];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [15];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [16];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [17];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [1];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [2];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [3];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [4];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [5];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [6];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [7];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [8];
+//wire	\mem.prom_0_6526DEFE.portDataOutA [9];
+wire	[17:0] \mem.prom_0_6526DEFE.portDataOutB ;
+//wire	\mem.prom_0_6526DEFE.portDataOutB [0];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [10];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [11];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [12];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [13];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [14];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [15];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [16];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [17];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [1];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [2];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [3];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [4];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [5];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [6];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [7];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [8];
+//wire	\mem.prom_0_6526DEFE.portDataOutB [9];
+//wire	syn__00_[10];
+//wire	syn__00_[11];
+//wire	syn__00_[12];
+//wire	syn__00_[13];
+//wire	syn__00_[14];
+//wire	syn__00_[15];
+//wire	syn__00_[16];
+//wire	syn__00_[17];
+//wire	syn__00_[18];
+//wire	syn__00_[19];
+//wire	syn__00_[1];
+//wire	syn__00_[20];
+//wire	syn__00_[21];
+//wire	syn__00_[22];
+//wire	syn__00_[23];
+//wire	syn__00_[24];
+//wire	syn__00_[25];
+//wire	syn__00_[26];
+//wire	syn__00_[27];
+//wire	syn__00_[28];
+//wire	syn__00_[29];
+//wire	syn__00_[2];
+//wire	syn__00_[30];
+//wire	syn__00_[31];
+//wire	syn__00_[3];
+//wire	syn__00_[4];
+//wire	syn__00_[5];
+//wire	syn__00_[6];
+//wire	syn__00_[7];
+//wire	syn__00_[8];
+//wire	syn__00_[9];
+wire	syn__01_;
+wire	syn__02_;
 
 assign vcc = 1'b1;
 assign gnd = 1'b0;
 
-// Location: IOOBUF_X0_Y10_N0
-// alta_io_obuf \bank0[1]~output (
-alta_rio \bank0[1]~output (
-	.datain(counter[21]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[1]));
-defparam \bank0[1]~output .CFG_KEEP = 2'b00;
-// defparam \bank0[1]~output .open_drain_output = "false";
+// Location: BBOX_X3_Y3_N0
+alta_bram \mem.prom_0_6526DEFE.ram_inst (
+	.DataInA({\gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int }),
+	.DataInB({\gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int }),
+	.AddressA({counter[6], counter[5], counter[4], counter[3], counter[2], counter[1], counter[0], vcc, vcc, vcc, vcc, vcc}),
+	.AddressB({counter[6], counter[5], counter[4], counter[3], counter[2], counter[1], counter[0], vcc, vcc, vcc, vcc, vcc}),
+	.DataOutA(\mem.prom_0_6526DEFE.portDataOutA ),
+	.DataOutB(\mem.prom_0_6526DEFE.portDataOutB ),
+	.Clk0(syn__02_),
+	.ClkEn0(vcc),
+	.AsyncReset0(gnd),
+	.Clk1(syn__02_),
+	.ClkEn1(vcc),
+	.AsyncReset1(gnd),
+	.WeRenA(gnd),
+	.WeRenB(gnd));
+defparam \mem.prom_0_6526DEFE.ram_inst .CLKMODE = 1'b0;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTA_WIDTH = 4'b0000;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_WIDTH = 4'b0000;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTA_WRITEMODE = 1'b0;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_WRITEMODE = 1'b0;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTA_WRITETHRU = 1'b0;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_WRITETHRU = 1'b0;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTA_OUTREG = 1'b0;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_OUTREG = 1'b0;
+defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_READONLY = 1'b0;
+defparam \mem.prom_0_6526DEFE.ram_inst .INIT_VAL = 4608'hF70A825CA74B2DE9EF0D77A973D13517857AD2B60AC1F6D468A97E57DC84305F5C444CC1AD08FA8CC8EC839A57D6A58F1F49916EA3015C6970698DE2215AC5D1779CCAB6FFF7F630494953941150FA26DA2455DEA0288EE9003ADF11AD2186EA58E16E618610F99D614D5EC815F6DCEB6BC5F2A8C9823B2A0330C325EE1035BF65490321DD7A6F6173FE38204C86B4F2D71E40A4F554AAA572BA8E4A93652DADA229BB1FB959930B2BDBE7950B69234219E233C5B0D99732948C5B810305E7734FC29270768687C32B36A91C631BB73816FE6EE45E1B0CCE6794A2D331FDD83D1F9B491444324E1E7F6B6622AE71383E98427A3E5EE2B411F67C63ECF702CC3631FB44BF046E208D857DC556E717351E1A60BE83CFCBCC509D58F16D8544FA0604EEE66FCC6110350859CC95C86949286A81ADDF3FB88F2BE190DCFBB5343F35ABCF6890EFCF2063D7137324356A0AD23EF44CCE89FD36038BF5FE999DB49B20ED733C4DBE4247D4D83A6ADA678E40D4E0EA12C2837F1D7BAABA2FF2C8C06BD5B13E4395371741FBC08B5B36784D3C180208A68C548F327D219A3A9E6C15D00727B2CD82A6172005FA2C394C2F4F9405D3B42E529713712DFA77620090F69CFD7D309D882CC8921FAFB0E4A4F9F79AC6D04EFB96F8AB5DD1C0D4DE5BC4320518CB3DAE391C977A73E70DDA5F96EC156B9608CFFCD99DAE35E58C8BEE6D3E918A05E386B07C8FC1C1B5C54D6D57908B72A3796DA218F6EF4A48E81FDBBDCA0E721E9F2120301C6EBC4CC51FC6A41A914EEA1476525472A5D9880080747BF85007;
 
-defparam \bank0[1]~output .coord_x = 0;
-defparam \bank0[1]~output .coord_y = 10;
-defparam \bank0[1]~output .coord_z = 0;
-// Location: IOOBUF_X0_Y10_N1
-// alta_io_obuf \bank2[1]~output (
-alta_rio \bank2[1]~output (
-	.datain(counter[21]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[1]));
-defparam \bank2[1]~output .CFG_KEEP = 2'b00;
-// defparam \bank2[1]~output .open_drain_output = "false";
-
-defparam \bank2[1]~output .coord_x = 0;
-defparam \bank2[1]~output .coord_y = 10;
-defparam \bank2[1]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y11_N1
-// alta_io_obuf \bank1[1]~output (
-alta_rio \bank1[1]~output (
-	.datain(counter[21]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[1]));
-defparam \bank1[1]~output .CFG_KEEP = 2'b00;
-// defparam \bank1[1]~output .open_drain_output = "false";
-
-defparam \bank1[1]~output .coord_x = 0;
-defparam \bank1[1]~output .coord_y = 11;
-defparam \bank1[1]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y14_N1
-// alta_io_obuf \bank2[6]~output (
-alta_rio \bank2[6]~output (
-	.datain(counter[26]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[6]));
-defparam \bank2[6]~output .CFG_KEEP = 2'b00;
-// defparam \bank2[6]~output .open_drain_output = "false";
-
-defparam \bank2[6]~output .coord_x = 0;
-defparam \bank2[6]~output .coord_y = 14;
-defparam \bank2[6]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y15_N2
-// alta_io_obuf \bank0[0]~output (
-alta_rio \bank0[0]~output (
-	.datain(counter[20]),
+defparam \mem.prom_0_6526DEFE.ram_inst .coord_x = 3;
+defparam \mem.prom_0_6526DEFE.ram_inst .coord_y = 3;
+defparam \mem.prom_0_6526DEFE.ram_inst .coord_z = 0;
+// Location: PIN_11
+// alta_io_obuf syn__10_(
+alta_rio syn__10_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [0]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -293,16 +169,13 @@ alta_rio \bank0[0]~output (
 	.combout(),
 	.regout(),
 	.padio(bank0[0]));
-defparam \bank0[0]~output .CFG_KEEP = 2'b00;
-// defparam \bank0[0]~output .open_drain_output = "false";
+defparam syn__10_.CFG_KEEP = 2'b00;
+// defparam syn__10_.open_drain_output = "false";
 
-defparam \bank0[0]~output .coord_x = 0;
-defparam \bank0[0]~output .coord_y = 15;
-defparam \bank0[0]~output .coord_z = 2;
-// Location: IOOBUF_X0_Y16_N1
-// alta_io_obuf \bank2[0]~output (
-alta_rio \bank2[0]~output (
-	.datain(counter[20]),
+// Location: PIN_12
+// alta_io_obuf syn__11_(
+alta_rio syn__11_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [1]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -312,537 +185,14 @@ alta_rio \bank2[0]~output (
 	.sreset(gnd),
 	.combout(),
 	.regout(),
-	.padio(bank2[0]));
-defparam \bank2[0]~output .CFG_KEEP = 2'b00;
-// defparam \bank2[0]~output .open_drain_output = "false";
+	.padio(bank0[1]));
+defparam syn__11_.CFG_KEEP = 2'b00;
+// defparam syn__11_.open_drain_output = "false";
 
-defparam \bank2[0]~output .coord_x = 0;
-defparam \bank2[0]~output .coord_y = 16;
-defparam \bank2[0]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y16_N2
-// alta_io_obuf \bank1[0]~output (
-alta_rio \bank1[0]~output (
-	.datain(counter[20]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[0]));
-defparam \bank1[0]~output .CFG_KEEP = 2'b00;
-// defparam \bank1[0]~output .open_drain_output = "false";
-
-defparam \bank1[0]~output .coord_x = 0;
-defparam \bank1[0]~output .coord_y = 16;
-defparam \bank1[0]~output .coord_z = 2;
-// Location: IOOBUF_X0_Y16_N3
-// alta_io_obuf \bank3[0]~output (
-alta_rio \bank3[0]~output (
-	.datain(counter[20]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[0]));
-defparam \bank3[0]~output .CFG_KEEP = 2'b00;
-// defparam \bank3[0]~output .open_drain_output = "false";
-
-defparam \bank3[0]~output .coord_x = 0;
-defparam \bank3[0]~output .coord_y = 16;
-defparam \bank3[0]~output .coord_z = 3;
-// Location: IOOBUF_X0_Y17_N1
-// alta_io_obuf \bank0[6]~output (
-alta_rio \bank0[6]~output (
-	.datain(counter[26]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[6]));
-defparam \bank0[6]~output .CFG_KEEP = 2'b00;
-// defparam \bank0[6]~output .open_drain_output = "false";
-
-defparam \bank0[6]~output .coord_x = 0;
-defparam \bank0[6]~output .coord_y = 17;
-defparam \bank0[6]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y18_N2
-// alta_io_obuf \bank1[6]~output (
-alta_rio \bank1[6]~output (
-	.datain(counter[26]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[6]));
-defparam \bank1[6]~output .CFG_KEEP = 2'b00;
-// defparam \bank1[6]~output .open_drain_output = "false";
-
-defparam \bank1[6]~output .coord_x = 0;
-defparam \bank1[6]~output .coord_y = 18;
-defparam \bank1[6]~output .coord_z = 2;
-// Location: IOOBUF_X0_Y18_N3
-// alta_io_obuf \bank3[6]~output (
-alta_rio \bank3[6]~output (
-	.datain(counter[26]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[6]));
-defparam \bank3[6]~output .CFG_KEEP = 2'b00;
-// defparam \bank3[6]~output .open_drain_output = "false";
-
-defparam \bank3[6]~output .coord_x = 0;
-defparam \bank3[6]~output .coord_y = 18;
-defparam \bank3[6]~output .coord_z = 3;
-// Location: IOOBUF_X0_Y19_N0
-// alta_io_obuf \bank0[5]~output (
-alta_rio \bank0[5]~output (
-	.datain(counter[25]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[5]));
-defparam \bank0[5]~output .CFG_KEEP = 2'b00;
-// defparam \bank0[5]~output .open_drain_output = "false";
-
-defparam \bank0[5]~output .coord_x = 0;
-defparam \bank0[5]~output .coord_y = 19;
-defparam \bank0[5]~output .coord_z = 0;
-// Location: IOOBUF_X0_Y19_N2
-// alta_io_obuf \bank3[5]~output (
-alta_rio \bank3[5]~output (
-	.datain(counter[25]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[5]));
-defparam \bank3[5]~output .CFG_KEEP = 2'b00;
-// defparam \bank3[5]~output .open_drain_output = "false";
-
-defparam \bank3[5]~output .coord_x = 0;
-defparam \bank3[5]~output .coord_y = 19;
-defparam \bank3[5]~output .coord_z = 2;
-// Location: IOOBUF_X0_Y19_N3
-// alta_io_obuf \bank1[5]~output (
-alta_rio \bank1[5]~output (
-	.datain(counter[25]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[5]));
-defparam \bank1[5]~output .CFG_KEEP = 2'b00;
-// defparam \bank1[5]~output .open_drain_output = "false";
-
-defparam \bank1[5]~output .coord_x = 0;
-defparam \bank1[5]~output .coord_y = 19;
-defparam \bank1[5]~output .coord_z = 3;
-// Location: IOOBUF_X0_Y20_N0
-// alta_io_obuf \bank1[3]~output (
-alta_rio \bank1[3]~output (
-	.datain(counter[23]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[3]));
-defparam \bank1[3]~output .CFG_KEEP = 2'b00;
-// defparam \bank1[3]~output .open_drain_output = "false";
-
-defparam \bank1[3]~output .coord_x = 0;
-defparam \bank1[3]~output .coord_y = 20;
-defparam \bank1[3]~output .coord_z = 0;
-// Location: IOOBUF_X0_Y20_N1
-// alta_io_obuf \bank2[5]~output (
-alta_rio \bank2[5]~output (
-	.datain(counter[25]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[5]));
-defparam \bank2[5]~output .CFG_KEEP = 2'b00;
-// defparam \bank2[5]~output .open_drain_output = "false";
-
-defparam \bank2[5]~output .coord_x = 0;
-defparam \bank2[5]~output .coord_y = 20;
-defparam \bank2[5]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y21_N0
-// alta_io_obuf \bank2[3]~output (
-alta_rio \bank2[3]~output (
-	.datain(counter[23]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[3]));
-defparam \bank2[3]~output .CFG_KEEP = 2'b00;
-// defparam \bank2[3]~output .open_drain_output = "false";
-
-defparam \bank2[3]~output .coord_x = 0;
-defparam \bank2[3]~output .coord_y = 21;
-defparam \bank2[3]~output .coord_z = 0;
-// Location: IOOBUF_X0_Y21_N1
-// alta_io_obuf \bank0[3]~output (
-alta_rio \bank0[3]~output (
-	.datain(counter[23]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[3]));
-defparam \bank0[3]~output .CFG_KEEP = 2'b00;
-// defparam \bank0[3]~output .open_drain_output = "false";
-
-defparam \bank0[3]~output .coord_x = 0;
-defparam \bank0[3]~output .coord_y = 21;
-defparam \bank0[3]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y22_N1
-// alta_io_obuf \bank3[3]~output (
-alta_rio \bank3[3]~output (
-	.datain(counter[23]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[3]));
-defparam \bank3[3]~output .CFG_KEEP = 2'b00;
-// defparam \bank3[3]~output .open_drain_output = "false";
-
-defparam \bank3[3]~output .coord_x = 0;
-defparam \bank3[3]~output .coord_y = 22;
-defparam \bank3[3]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y23_N0
-// alta_io_obuf \bank3[7]~output (
-alta_rio \bank3[7]~output (
-	.datain(counter[27]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[7]));
-defparam \bank3[7]~output .CFG_KEEP = 2'b00;
-// defparam \bank3[7]~output .open_drain_output = "false";
-
-defparam \bank3[7]~output .coord_x = 0;
-defparam \bank3[7]~output .coord_y = 23;
-defparam \bank3[7]~output .coord_z = 0;
-// Location: IOOBUF_X0_Y24_N0
-// alta_io_obuf \bank0[7]~output (
-alta_rio \bank0[7]~output (
-	.datain(counter[27]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[7]));
-defparam \bank0[7]~output .CFG_KEEP = 2'b00;
-// defparam \bank0[7]~output .open_drain_output = "false";
-
-defparam \bank0[7]~output .coord_x = 0;
-defparam \bank0[7]~output .coord_y = 24;
-defparam \bank0[7]~output .coord_z = 0;
-// Location: IOOBUF_X0_Y24_N1
-// alta_io_obuf \bank1[7]~output (
-alta_rio \bank1[7]~output (
-	.datain(counter[27]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[7]));
-defparam \bank1[7]~output .CFG_KEEP = 2'b00;
-// defparam \bank1[7]~output .open_drain_output = "false";
-
-defparam \bank1[7]~output .coord_x = 0;
-defparam \bank1[7]~output .coord_y = 24;
-defparam \bank1[7]~output .coord_z = 1;
-// Location: IOOBUF_X0_Y24_N3
-// alta_io_obuf \bank2[7]~output (
-alta_rio \bank2[7]~output (
-	.datain(counter[27]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[7]));
-defparam \bank2[7]~output .CFG_KEEP = 2'b00;
-// defparam \bank2[7]~output .open_drain_output = "false";
-
-defparam \bank2[7]~output .coord_x = 0;
-defparam \bank2[7]~output .coord_y = 24;
-defparam \bank2[7]~output .coord_z = 3;
-// Location: IOIBUF_X0_Y30_N1
-// alta_io_ibuf \clk~input (
-alta_rio \clk~input (
-	.datain(gnd),
-	.oe(gnd),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(\clk~input_o ),
-	.regout(),
-	.padio(clk));
-defparam \clk~input .CFG_KEEP = 2'b00;
-// defparam \clk~input .simulate_z_as = "z";
-
-defparam \clk~input .coord_x = 0;
-defparam \clk~input .coord_y = 30;
-defparam \clk~input .coord_z = 1;
-// Location: IOOBUF_X0_Y4_N2
-// alta_io_obuf \bank2[4]~output (
-alta_rio \bank2[4]~output (
-	.datain(counter[24]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[4]));
-defparam \bank2[4]~output .CFG_KEEP = 2'b00;
-// defparam \bank2[4]~output .open_drain_output = "false";
-
-defparam \bank2[4]~output .coord_x = 0;
-defparam \bank2[4]~output .coord_y = 4;
-defparam \bank2[4]~output .coord_z = 2;
-// Location: IOOBUF_X0_Y5_N2
-// alta_io_obuf \bank0[4]~output (
-alta_rio \bank0[4]~output (
-	.datain(counter[24]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[4]));
-defparam \bank0[4]~output .CFG_KEEP = 2'b00;
-// defparam \bank0[4]~output .open_drain_output = "false";
-
-defparam \bank0[4]~output .coord_x = 0;
-defparam \bank0[4]~output .coord_y = 5;
-defparam \bank0[4]~output .coord_z = 2;
-// Location: IOOBUF_X0_Y7_N0
-// alta_io_obuf \bank3[1]~output (
-alta_rio \bank3[1]~output (
-	.datain(counter[21]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[1]));
-defparam \bank3[1]~output .CFG_KEEP = 2'b00;
-// defparam \bank3[1]~output .open_drain_output = "false";
-
-defparam \bank3[1]~output .coord_x = 0;
-defparam \bank3[1]~output .coord_y = 7;
-defparam \bank3[1]~output .coord_z = 0;
-// Location: IOOBUF_X1_Y0_N2
-// alta_io_obuf \bank1[2]~output (
-alta_rio \bank1[2]~output (
-	.datain(counter[22]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[2]));
-defparam \bank1[2]~output .CFG_KEEP = 2'b00;
-// defparam \bank1[2]~output .open_drain_output = "false";
-
-defparam \bank1[2]~output .coord_x = 1;
-defparam \bank1[2]~output .coord_y = 0;
-defparam \bank1[2]~output .coord_z = 2;
-// Location: IOOBUF_X3_Y0_N0
-// alta_io_obuf \bank3[4]~output (
-alta_rio \bank3[4]~output (
-	.datain(counter[24]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[4]));
-defparam \bank3[4]~output .CFG_KEEP = 2'b00;
-// defparam \bank3[4]~output .open_drain_output = "false";
-
-defparam \bank3[4]~output .coord_x = 3;
-defparam \bank3[4]~output .coord_y = 0;
-defparam \bank3[4]~output .coord_z = 0;
-// Location: IOOBUF_X3_Y0_N1
-// alta_io_obuf \bank1[4]~output (
-alta_rio \bank1[4]~output (
-	.datain(counter[24]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[4]));
-defparam \bank1[4]~output .CFG_KEEP = 2'b00;
-// defparam \bank1[4]~output .open_drain_output = "false";
-
-defparam \bank1[4]~output .coord_x = 3;
-defparam \bank1[4]~output .coord_y = 0;
-defparam \bank1[4]~output .coord_z = 1;
-// Location: IOOBUF_X5_Y0_N0
-// alta_io_obuf \bank2[2]~output (
-alta_rio \bank2[2]~output (
-	.datain(counter[22]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[2]));
-defparam \bank2[2]~output .CFG_KEEP = 2'b00;
-// defparam \bank2[2]~output .open_drain_output = "false";
-
-defparam \bank2[2]~output .coord_x = 5;
-defparam \bank2[2]~output .coord_y = 0;
-defparam \bank2[2]~output .coord_z = 0;
-// Location: IOOBUF_X5_Y0_N1
-// alta_io_obuf \bank3[2]~output (
-alta_rio \bank3[2]~output (
-	.datain(counter[22]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[2]));
-defparam \bank3[2]~output .CFG_KEEP = 2'b00;
-// defparam \bank3[2]~output .open_drain_output = "false";
-
-defparam \bank3[2]~output .coord_x = 5;
-defparam \bank3[2]~output .coord_y = 0;
-defparam \bank3[2]~output .coord_z = 1;
-// Location: IOOBUF_X5_Y0_N2
-// alta_io_obuf \bank0[2]~output (
-alta_rio \bank0[2]~output (
-	.datain(counter[22]),
+// Location: PIN_13
+// alta_io_obuf syn__12_(
+alta_rio syn__12_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [2]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -853,944 +203,818 @@ alta_rio \bank0[2]~output (
 	.combout(),
 	.regout(),
 	.padio(bank0[2]));
-defparam \bank0[2]~output .CFG_KEEP = 2'b00;
-// defparam \bank0[2]~output .open_drain_output = "false";
+defparam syn__12_.CFG_KEEP = 2'b00;
+// defparam syn__12_.open_drain_output = "false";
 
-defparam \bank0[2]~output .coord_x = 5;
-defparam \bank0[2]~output .coord_y = 0;
-defparam \bank0[2]~output .coord_z = 2;
-// Location: CLKCTRL_G2
-alta_io_gclk \clk~inputclkctrl (
-	.inclk (\clk~input_o ),
-	.outclk(\clk~inputclkctrl_outclk ));
-//defparam \clk~inputclkctrl .clock_type = "global clock";
-//defparam \clk~inputclkctrl .ena_register_mode = "none";
+// Location: PIN_14
+// alta_io_obuf syn__13_(
+alta_rio syn__13_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [3]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank0[3]));
+defparam syn__13_.CFG_KEEP = 2'b00;
+// defparam syn__13_.open_drain_output = "false";
 
-// Location: FF_X1_Y16_N0
-// alta_lcell_ff \counter[14] (
-// Location: LCCOMB_X1_Y16_N0
-// alta_lcell_comb \counter[14]~53 (
-alta_slice \counter[14] (
-	.A(vcc),
-	.B(counter[14]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[13]~52 ),
-	.Qin(counter[14]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[14]~53_combout ),
-	.Cout(\counter[14]~54 ),
-	.Q(counter[14]));
-defparam \counter[14] .mask = 16'h3C3F;
-defparam \counter[14] .mode = "ripple";
-defparam \counter[14] .modeMux = 1'b1;
-defparam \counter[14] .FeedbackMux = 1'b0;
-defparam \counter[14] .ShiftMux = 1'b0;
-defparam \counter[14] .BypassEn = 1'b0;
-defparam \counter[14] .CarryEnb = 1'b0;
-defparam \counter[14] .AsyncResetMux = 2'b00;
-defparam \counter[14] .SyncResetMux = 2'bxx;
-defparam \counter[14] .SyncLoadMux = 2'bxx;
-defparam \counter[14] .coord_x = 1;
-defparam \counter[14] .coord_y = 16;
-defparam \counter[14] .coord_z = 0;
-// Location: FF_X1_Y16_N10
-// alta_lcell_ff \counter[19] (
-// Location: LCCOMB_X1_Y16_N10
-// alta_lcell_comb \counter[19]~63 (
-alta_slice \counter[19] (
-	.A(counter[19]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[18]~62 ),
-	.Qin(counter[19]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[19]~63_combout ),
-	.Cout(\counter[19]~64 ),
-	.Q(counter[19]));
-defparam \counter[19] .mask = 16'hA50A;
-defparam \counter[19] .mode = "ripple";
-defparam \counter[19] .modeMux = 1'b1;
-defparam \counter[19] .FeedbackMux = 1'b0;
-defparam \counter[19] .ShiftMux = 1'b0;
-defparam \counter[19] .BypassEn = 1'b0;
-defparam \counter[19] .CarryEnb = 1'b0;
-defparam \counter[19] .AsyncResetMux = 2'b00;
-defparam \counter[19] .SyncResetMux = 2'bxx;
-defparam \counter[19] .SyncLoadMux = 2'bxx;
-defparam \counter[19] .coord_x = 1;
-defparam \counter[19] .coord_y = 16;
-defparam \counter[19] .coord_z = 5;
-// Location: FF_X1_Y16_N12
-// alta_lcell_ff \counter[20] (
-// Location: LCCOMB_X1_Y16_N12
-// alta_lcell_comb \counter[20]~65 (
-alta_slice \counter[20] (
-	.A(counter[20]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[19]~64 ),
-	.Qin(counter[20]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[20]~65_combout ),
-	.Cout(\counter[20]~66 ),
-	.Q(counter[20]));
-defparam \counter[20] .mask = 16'h5A5F;
-defparam \counter[20] .mode = "ripple";
-defparam \counter[20] .modeMux = 1'b1;
-defparam \counter[20] .FeedbackMux = 1'b0;
-defparam \counter[20] .ShiftMux = 1'b0;
-defparam \counter[20] .BypassEn = 1'b0;
-defparam \counter[20] .CarryEnb = 1'b0;
-defparam \counter[20] .AsyncResetMux = 2'b00;
-defparam \counter[20] .SyncResetMux = 2'bxx;
-defparam \counter[20] .SyncLoadMux = 2'bxx;
-defparam \counter[20] .coord_x = 1;
-defparam \counter[20] .coord_y = 16;
-defparam \counter[20] .coord_z = 6;
-// Location: FF_X1_Y16_N14
-// alta_lcell_ff \counter[21] (
-// Location: LCCOMB_X1_Y16_N14
-// alta_lcell_comb \counter[21]~67 (
-alta_slice \counter[21] (
-	.A(vcc),
-	.B(counter[21]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[20]~66 ),
-	.Qin(counter[21]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[21]~67_combout ),
-	.Cout(\counter[21]~68 ),
-	.Q(counter[21]));
-defparam \counter[21] .mask = 16'hC30C;
-defparam \counter[21] .mode = "ripple";
-defparam \counter[21] .modeMux = 1'b1;
-defparam \counter[21] .FeedbackMux = 1'b0;
-defparam \counter[21] .ShiftMux = 1'b0;
-defparam \counter[21] .BypassEn = 1'b0;
-defparam \counter[21] .CarryEnb = 1'b0;
-defparam \counter[21] .AsyncResetMux = 2'b00;
-defparam \counter[21] .SyncResetMux = 2'bxx;
-defparam \counter[21] .SyncLoadMux = 2'bxx;
-defparam \counter[21] .coord_x = 1;
-defparam \counter[21] .coord_y = 16;
-defparam \counter[21] .coord_z = 7;
-// Location: FF_X1_Y16_N16
-// alta_lcell_ff \counter[22] (
-// Location: LCCOMB_X1_Y16_N16
-// alta_lcell_comb \counter[22]~69 (
-alta_slice \counter[22] (
-	.A(vcc),
-	.B(counter[22]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[21]~68 ),
-	.Qin(counter[22]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[22]~69_combout ),
-	.Cout(\counter[22]~70 ),
-	.Q(counter[22]));
-defparam \counter[22] .mask = 16'h3C3F;
-defparam \counter[22] .mode = "ripple";
-defparam \counter[22] .modeMux = 1'b1;
-defparam \counter[22] .FeedbackMux = 1'b0;
-defparam \counter[22] .ShiftMux = 1'b0;
-defparam \counter[22] .BypassEn = 1'b0;
-defparam \counter[22] .CarryEnb = 1'b0;
-defparam \counter[22] .AsyncResetMux = 2'b00;
-defparam \counter[22] .SyncResetMux = 2'bxx;
-defparam \counter[22] .SyncLoadMux = 2'bxx;
-defparam \counter[22] .coord_x = 1;
-defparam \counter[22] .coord_y = 16;
-defparam \counter[22] .coord_z = 8;
-// Location: FF_X1_Y16_N18
-// alta_lcell_ff \counter[23] (
-// Location: LCCOMB_X1_Y16_N18
-// alta_lcell_comb \counter[23]~71 (
-alta_slice \counter[23] (
-	.A(vcc),
-	.B(counter[23]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[22]~70 ),
-	.Qin(counter[23]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[23]~71_combout ),
-	.Cout(\counter[23]~72 ),
-	.Q(counter[23]));
-defparam \counter[23] .mask = 16'hC30C;
-defparam \counter[23] .mode = "ripple";
-defparam \counter[23] .modeMux = 1'b1;
-defparam \counter[23] .FeedbackMux = 1'b0;
-defparam \counter[23] .ShiftMux = 1'b0;
-defparam \counter[23] .BypassEn = 1'b0;
-defparam \counter[23] .CarryEnb = 1'b0;
-defparam \counter[23] .AsyncResetMux = 2'b00;
-defparam \counter[23] .SyncResetMux = 2'bxx;
-defparam \counter[23] .SyncLoadMux = 2'bxx;
-defparam \counter[23] .coord_x = 1;
-defparam \counter[23] .coord_y = 16;
-defparam \counter[23] .coord_z = 9;
-// Location: FF_X1_Y16_N2
-// alta_lcell_ff \counter[15] (
-// Location: LCCOMB_X1_Y16_N2
-// alta_lcell_comb \counter[15]~55 (
-alta_slice \counter[15] (
-	.A(vcc),
-	.B(counter[15]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[14]~54 ),
-	.Qin(counter[15]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[15]~55_combout ),
-	.Cout(\counter[15]~56 ),
-	.Q(counter[15]));
-defparam \counter[15] .mask = 16'hC30C;
-defparam \counter[15] .mode = "ripple";
-defparam \counter[15] .modeMux = 1'b1;
-defparam \counter[15] .FeedbackMux = 1'b0;
-defparam \counter[15] .ShiftMux = 1'b0;
-defparam \counter[15] .BypassEn = 1'b0;
-defparam \counter[15] .CarryEnb = 1'b0;
-defparam \counter[15] .AsyncResetMux = 2'b00;
-defparam \counter[15] .SyncResetMux = 2'bxx;
-defparam \counter[15] .SyncLoadMux = 2'bxx;
-defparam \counter[15] .coord_x = 1;
-defparam \counter[15] .coord_y = 16;
-defparam \counter[15] .coord_z = 1;
-// Location: FF_X1_Y16_N20
-// alta_lcell_ff \counter[24] (
-// Location: LCCOMB_X1_Y16_N20
-// alta_lcell_comb \counter[24]~73 (
-alta_slice \counter[24] (
-	.A(vcc),
-	.B(counter[24]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[23]~72 ),
-	.Qin(counter[24]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[24]~73_combout ),
-	.Cout(\counter[24]~74 ),
-	.Q(counter[24]));
-defparam \counter[24] .mask = 16'h3C3F;
-defparam \counter[24] .mode = "ripple";
-defparam \counter[24] .modeMux = 1'b1;
-defparam \counter[24] .FeedbackMux = 1'b0;
-defparam \counter[24] .ShiftMux = 1'b0;
-defparam \counter[24] .BypassEn = 1'b0;
-defparam \counter[24] .CarryEnb = 1'b0;
-defparam \counter[24] .AsyncResetMux = 2'b00;
-defparam \counter[24] .SyncResetMux = 2'bxx;
-defparam \counter[24] .SyncLoadMux = 2'bxx;
-defparam \counter[24] .coord_x = 1;
-defparam \counter[24] .coord_y = 16;
-defparam \counter[24] .coord_z = 10;
-// Location: FF_X1_Y16_N22
-// alta_lcell_ff \counter[25] (
-// Location: LCCOMB_X1_Y16_N22
-// alta_lcell_comb \counter[25]~75 (
-alta_slice \counter[25] (
-	.A(counter[25]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[24]~74 ),
-	.Qin(counter[25]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[25]~75_combout ),
-	.Cout(\counter[25]~76 ),
-	.Q(counter[25]));
-defparam \counter[25] .mask = 16'hA50A;
-defparam \counter[25] .mode = "ripple";
-defparam \counter[25] .modeMux = 1'b1;
-defparam \counter[25] .FeedbackMux = 1'b0;
-defparam \counter[25] .ShiftMux = 1'b0;
-defparam \counter[25] .BypassEn = 1'b0;
-defparam \counter[25] .CarryEnb = 1'b0;
-defparam \counter[25] .AsyncResetMux = 2'b00;
-defparam \counter[25] .SyncResetMux = 2'bxx;
-defparam \counter[25] .SyncLoadMux = 2'bxx;
-defparam \counter[25] .coord_x = 1;
-defparam \counter[25] .coord_y = 16;
-defparam \counter[25] .coord_z = 11;
-// Location: FF_X1_Y16_N24
-// alta_lcell_ff \counter[26] (
-// Location: LCCOMB_X1_Y16_N24
-// alta_lcell_comb \counter[26]~77 (
-alta_slice \counter[26] (
-	.A(vcc),
-	.B(counter[26]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[25]~76 ),
-	.Qin(counter[26]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[26]~77_combout ),
-	.Cout(\counter[26]~78 ),
-	.Q(counter[26]));
-defparam \counter[26] .mask = 16'h3C3F;
-defparam \counter[26] .mode = "ripple";
-defparam \counter[26] .modeMux = 1'b1;
-defparam \counter[26] .FeedbackMux = 1'b0;
-defparam \counter[26] .ShiftMux = 1'b0;
-defparam \counter[26] .BypassEn = 1'b0;
-defparam \counter[26] .CarryEnb = 1'b0;
-defparam \counter[26] .AsyncResetMux = 2'b00;
-defparam \counter[26] .SyncResetMux = 2'bxx;
-defparam \counter[26] .SyncLoadMux = 2'bxx;
-defparam \counter[26] .coord_x = 1;
-defparam \counter[26] .coord_y = 16;
-defparam \counter[26] .coord_z = 12;
-// Location: FF_X1_Y16_N26
-// alta_lcell_ff \counter[27] (
-// Location: LCCOMB_X1_Y16_N26
-// alta_lcell_comb \counter[27]~79 (
-alta_slice \counter[27] (
-	.A(counter[27]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[26]~78 ),
-	.Qin(counter[27]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[27]~79_combout ),
-	.Cout(),
-	.Q(counter[27]));
-defparam \counter[27] .mask = 16'hA5A5;
-defparam \counter[27] .mode = "ripple";
-defparam \counter[27] .modeMux = 1'b1;
-defparam \counter[27] .FeedbackMux = 1'b0;
-defparam \counter[27] .ShiftMux = 1'b0;
-defparam \counter[27] .BypassEn = 1'b0;
-defparam \counter[27] .CarryEnb = 1'b1;
-defparam \counter[27] .AsyncResetMux = 2'b00;
-defparam \counter[27] .SyncResetMux = 2'bxx;
-defparam \counter[27] .SyncLoadMux = 2'bxx;
-defparam \counter[27] .coord_x = 1;
-defparam \counter[27] .coord_y = 16;
-defparam \counter[27] .coord_z = 13;
-// Location: FF_X1_Y16_N4
-// alta_lcell_ff \counter[16] (
-// Location: LCCOMB_X1_Y16_N4
-// alta_lcell_comb \counter[16]~57 (
-alta_slice \counter[16] (
-	.A(vcc),
-	.B(counter[16]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[15]~56 ),
-	.Qin(counter[16]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[16]~57_combout ),
-	.Cout(\counter[16]~58 ),
-	.Q(counter[16]));
-defparam \counter[16] .mask = 16'h3C3F;
-defparam \counter[16] .mode = "ripple";
-defparam \counter[16] .modeMux = 1'b1;
-defparam \counter[16] .FeedbackMux = 1'b0;
-defparam \counter[16] .ShiftMux = 1'b0;
-defparam \counter[16] .BypassEn = 1'b0;
-defparam \counter[16] .CarryEnb = 1'b0;
-defparam \counter[16] .AsyncResetMux = 2'b00;
-defparam \counter[16] .SyncResetMux = 2'bxx;
-defparam \counter[16] .SyncLoadMux = 2'bxx;
-defparam \counter[16] .coord_x = 1;
-defparam \counter[16] .coord_y = 16;
-defparam \counter[16] .coord_z = 2;
-// Location: FF_X1_Y16_N6
-// alta_lcell_ff \counter[17] (
-// Location: LCCOMB_X1_Y16_N6
-// alta_lcell_comb \counter[17]~59 (
-alta_slice \counter[17] (
-	.A(counter[17]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[16]~58 ),
-	.Qin(counter[17]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[17]~59_combout ),
-	.Cout(\counter[17]~60 ),
-	.Q(counter[17]));
-defparam \counter[17] .mask = 16'hA50A;
-defparam \counter[17] .mode = "ripple";
-defparam \counter[17] .modeMux = 1'b1;
-defparam \counter[17] .FeedbackMux = 1'b0;
-defparam \counter[17] .ShiftMux = 1'b0;
-defparam \counter[17] .BypassEn = 1'b0;
-defparam \counter[17] .CarryEnb = 1'b0;
-defparam \counter[17] .AsyncResetMux = 2'b00;
-defparam \counter[17] .SyncResetMux = 2'bxx;
-defparam \counter[17] .SyncLoadMux = 2'bxx;
-defparam \counter[17] .coord_x = 1;
-defparam \counter[17] .coord_y = 16;
-defparam \counter[17] .coord_z = 3;
-// Location: FF_X1_Y16_N8
-// alta_lcell_ff \counter[18] (
-// Location: LCCOMB_X1_Y16_N8
-// alta_lcell_comb \counter[18]~61 (
-alta_slice \counter[18] (
-	.A(vcc),
-	.B(counter[18]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[17]~60 ),
-	.Qin(counter[18]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y16_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[18]~61_combout ),
-	.Cout(\counter[18]~62 ),
-	.Q(counter[18]));
-defparam \counter[18] .mask = 16'h3C3F;
-defparam \counter[18] .mode = "ripple";
-defparam \counter[18] .modeMux = 1'b1;
-defparam \counter[18] .FeedbackMux = 1'b0;
-defparam \counter[18] .ShiftMux = 1'b0;
-defparam \counter[18] .BypassEn = 1'b0;
-defparam \counter[18] .CarryEnb = 1'b0;
-defparam \counter[18] .AsyncResetMux = 2'b00;
-defparam \counter[18] .SyncResetMux = 2'bxx;
-defparam \counter[18] .SyncLoadMux = 2'bxx;
+// Location: PIN_15
+// alta_io_obuf syn__14_(
+alta_rio syn__14_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [4]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank0[4]));
+defparam syn__14_.CFG_KEEP = 2'b00;
+// defparam syn__14_.open_drain_output = "false";
 
-defparam \counter[18] .coord_x = 1;
-defparam \counter[18] .coord_y = 16;
-defparam \counter[18] .coord_z = 4;
-// Location: CLKENCTRL_X1_Y16_N0
-alta_clkenctrl clken_ctrl_X1_Y16_N0(.ClkIn(\clk~inputclkctrl_outclk ), .ClkEn(), .ClkOut(\clk~inputclkctrl_outclk_X1_Y16_SIG_VCC ));
-defparam clken_ctrl_X1_Y16_N0.ClkMux = 2'b10;
-defparam clken_ctrl_X1_Y16_N0.ClkEnMux = 2'b01;
+// Location: PIN_16
+// alta_io_obuf syn__15_(
+alta_rio syn__15_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [5]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank0[5]));
+defparam syn__15_.CFG_KEEP = 2'b00;
+// defparam syn__15_.open_drain_output = "false";
 
-defparam clken_ctrl_X1_Y16_N0.coord_x = 1;
-defparam clken_ctrl_X1_Y16_N0.coord_y = 16;
-defparam clken_ctrl_X1_Y16_N0.coord_z = 0;
-// Location: ASYNCCTRL_X1_Y16_N0
-alta_asyncctrl asyncreset_ctrl_X1_Y16_N0(.Din(), .Dout(AsyncReset_X1_Y16_GND));
-defparam asyncreset_ctrl_X1_Y16_N0.AsyncCtrlMux = 2'b00;
-defparam asyncreset_ctrl_X1_Y16_N0.coord_x = 1;
-defparam asyncreset_ctrl_X1_Y16_N0.coord_y = 16;
-defparam asyncreset_ctrl_X1_Y16_N0.coord_z = 0;
-// Location: FF_X1_Y17_N10
-// alta_lcell_ff \counter[3] (
-// Location: LCCOMB_X1_Y17_N10
-// alta_lcell_comb \counter[3]~31 (
-alta_slice \counter[3] (
-	.A(counter[3]),
+// Location: PIN_17
+// alta_io_obuf syn__16_(
+alta_rio syn__16_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [6]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank0[6]));
+defparam syn__16_.CFG_KEEP = 2'b00;
+// defparam syn__16_.open_drain_output = "false";
+
+// Location: PIN_18
+// alta_io_obuf syn__17_(
+alta_rio syn__17_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [7]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank0[7]));
+defparam syn__17_.CFG_KEEP = 2'b00;
+// defparam syn__17_.open_drain_output = "false";
+
+// Location: PIN_19
+// alta_io_obuf syn__18_(
+alta_rio syn__18_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [8]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank1[0]));
+defparam syn__18_.CFG_KEEP = 2'b00;
+// defparam syn__18_.open_drain_output = "false";
+
+// Location: PIN_20
+// alta_io_obuf syn__19_(
+alta_rio syn__19_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [9]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank1[1]));
+defparam syn__19_.CFG_KEEP = 2'b00;
+// defparam syn__19_.open_drain_output = "false";
+
+// Location: PIN_21
+// alta_io_obuf syn__20_(
+alta_rio syn__20_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [10]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank1[2]));
+defparam syn__20_.CFG_KEEP = 2'b00;
+// defparam syn__20_.open_drain_output = "false";
+
+// Location: PIN_22
+// alta_io_obuf syn__21_(
+alta_rio syn__21_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [11]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank1[3]));
+defparam syn__21_.CFG_KEEP = 2'b00;
+// defparam syn__21_.open_drain_output = "false";
+
+// Location: PIN_23
+// alta_io_obuf syn__22_(
+alta_rio syn__22_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [12]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank1[4]));
+defparam syn__22_.CFG_KEEP = 2'b00;
+// defparam syn__22_.open_drain_output = "false";
+
+// Location: PIN_24
+// alta_io_obuf syn__23_(
+alta_rio syn__23_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [13]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank1[5]));
+defparam syn__23_.CFG_KEEP = 2'b00;
+// defparam syn__23_.open_drain_output = "false";
+
+// Location: PIN_25
+// alta_io_obuf syn__24_(
+alta_rio syn__24_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [14]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank1[6]));
+defparam syn__24_.CFG_KEEP = 2'b00;
+// defparam syn__24_.open_drain_output = "false";
+
+// Location: PIN_26
+// alta_io_obuf syn__25_(
+alta_rio syn__25_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [15]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank1[7]));
+defparam syn__25_.CFG_KEEP = 2'b00;
+// defparam syn__25_.open_drain_output = "false";
+
+// Location: PIN_27
+// alta_io_obuf syn__26_(
+alta_rio syn__26_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [16]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank2[0]));
+defparam syn__26_.CFG_KEEP = 2'b00;
+// defparam syn__26_.open_drain_output = "false";
+
+// Location: PIN_28
+// alta_io_obuf syn__27_(
+alta_rio syn__27_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutA [17]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank2[1]));
+defparam syn__27_.CFG_KEEP = 2'b00;
+// defparam syn__27_.open_drain_output = "false";
+
+// Location: PIN_29
+// alta_io_obuf syn__28_(
+alta_rio syn__28_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [0]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank2[2]));
+defparam syn__28_.CFG_KEEP = 2'b00;
+// defparam syn__28_.open_drain_output = "false";
+
+// Location: PIN_30
+// alta_io_obuf syn__29_(
+alta_rio syn__29_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [1]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank2[3]));
+defparam syn__29_.CFG_KEEP = 2'b00;
+// defparam syn__29_.open_drain_output = "false";
+
+// Location: PIN_31
+// alta_io_obuf syn__30_(
+alta_rio syn__30_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [2]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank2[4]));
+defparam syn__30_.CFG_KEEP = 2'b00;
+// defparam syn__30_.open_drain_output = "false";
+
+// Location: PIN_32
+// alta_io_obuf syn__31_(
+alta_rio syn__31_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [3]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank2[5]));
+defparam syn__31_.CFG_KEEP = 2'b00;
+// defparam syn__31_.open_drain_output = "false";
+
+// Location: PIN_33
+// alta_io_obuf syn__32_(
+alta_rio syn__32_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [4]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank2[6]));
+defparam syn__32_.CFG_KEEP = 2'b00;
+// defparam syn__32_.open_drain_output = "false";
+
+// Location: PIN_34
+// alta_io_obuf syn__33_(
+alta_rio syn__33_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [5]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank2[7]));
+defparam syn__33_.CFG_KEEP = 2'b00;
+// defparam syn__33_.open_drain_output = "false";
+
+// Location: PIN_35
+// alta_io_obuf syn__34_(
+alta_rio syn__34_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [6]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank3[0]));
+defparam syn__34_.CFG_KEEP = 2'b00;
+// defparam syn__34_.open_drain_output = "false";
+
+// Location: PIN_36
+// alta_io_obuf syn__35_(
+alta_rio syn__35_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [7]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank3[1]));
+defparam syn__35_.CFG_KEEP = 2'b00;
+// defparam syn__35_.open_drain_output = "false";
+
+// Location: PIN_37
+// alta_io_obuf syn__36_(
+alta_rio syn__36_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [8]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank3[2]));
+defparam syn__36_.CFG_KEEP = 2'b00;
+// defparam syn__36_.open_drain_output = "false";
+
+// Location: PIN_38
+// alta_io_obuf syn__37_(
+alta_rio syn__37_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [9]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank3[3]));
+defparam syn__37_.CFG_KEEP = 2'b00;
+// defparam syn__37_.open_drain_output = "false";
+
+// Location: PIN_39
+// alta_io_obuf syn__38_(
+alta_rio syn__38_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [10]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank3[4]));
+defparam syn__38_.CFG_KEEP = 2'b00;
+// defparam syn__38_.open_drain_output = "false";
+
+// Location: PIN_40
+// alta_io_obuf syn__39_(
+alta_rio syn__39_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [11]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank3[5]));
+defparam syn__39_.CFG_KEEP = 2'b00;
+// defparam syn__39_.open_drain_output = "false";
+
+// Location: PIN_41
+// alta_io_obuf syn__40_(
+alta_rio syn__40_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [12]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank3[6]));
+defparam syn__40_.CFG_KEEP = 2'b00;
+// defparam syn__40_.open_drain_output = "false";
+
+// Location: PIN_42
+// alta_io_obuf syn__41_(
+alta_rio syn__41_(
+	.datain(\mem.prom_0_6526DEFE.portDataOutB [13]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(bank3[7]));
+defparam syn__41_.CFG_KEEP = 2'b00;
+// defparam syn__41_.open_drain_output = "false";
+
+// Location: PIN_43
+// alta_io_ibuf syn__42_(
+alta_rio syn__42_(
+	.datain(gnd),
+	.oe(gnd),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(syn__02_),
+	.regout(),
+	.padio(clk));
+defparam syn__42_.CFG_KEEP = 2'b00;
+// defparam syn__42_.differential_mode = "false";
+// defparam syn__42_.simulate_z_as = "Z";
+
+// Location: LCCELL_X1009_Y1001_N0
+// alta_lcell_comb syn__06_(
+// Location: LCCELL_X1009_Y1001_N0
+// alta_lcell_ff syn__47_(
+alta_slice syn__47_(
+	.A(syn__01_),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
-	.Cin(\counter[2]~30 ),
-	.Qin(counter[3]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[3]~31_combout ),
-	.Cout(\counter[3]~32 ),
-	.Q(counter[3]));
-defparam \counter[3] .mask = 16'hA50A;
-defparam \counter[3] .mode = "ripple";
-defparam \counter[3] .modeMux = 1'b1;
-defparam \counter[3] .FeedbackMux = 1'b0;
-defparam \counter[3] .ShiftMux = 1'b0;
-defparam \counter[3] .BypassEn = 1'b0;
-defparam \counter[3] .CarryEnb = 1'b0;
-defparam \counter[3] .AsyncResetMux = 2'b00;
-defparam \counter[3] .SyncResetMux = 2'bxx;
-defparam \counter[3] .SyncLoadMux = 2'bxx;
-defparam \counter[3] .coord_x = 1;
-defparam \counter[3] .coord_y = 17;
-defparam \counter[3] .coord_z = 5;
-// Location: FF_X1_Y17_N12
-// alta_lcell_ff \counter[4] (
-// Location: LCCOMB_X1_Y17_N12
-// alta_lcell_comb \counter[4]~33 (
-alta_slice \counter[4] (
-	.A(counter[4]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[3]~32 ),
+	.Cin(),
 	.Qin(counter[4]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
+	.Clk(syn__02__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(\counter[4]~33_combout ),
-	.Cout(\counter[4]~34 ),
+	.LutOut(syn__00_[4]),
+	.Cout(),
 	.Q(counter[4]));
-defparam \counter[4] .mask = 16'h5A5F;
-defparam \counter[4] .mode = "ripple";
-defparam \counter[4] .modeMux = 1'b1;
-defparam \counter[4] .FeedbackMux = 1'b0;
-defparam \counter[4] .ShiftMux = 1'b0;
-defparam \counter[4] .BypassEn = 1'b0;
-defparam \counter[4] .CarryEnb = 1'b0;
-defparam \counter[4] .AsyncResetMux = 2'b00;
-defparam \counter[4] .SyncResetMux = 2'bxx;
-defparam \counter[4] .SyncLoadMux = 2'bxx;
-defparam \counter[4] .coord_x = 1;
-defparam \counter[4] .coord_y = 17;
-defparam \counter[4] .coord_z = 6;
-// Location: FF_X1_Y17_N14
-// alta_lcell_ff \counter[5] (
-// Location: LCCOMB_X1_Y17_N14
-// alta_lcell_comb \counter[5]~35 (
-alta_slice \counter[5] (
-	.A(vcc),
-	.B(counter[5]),
+defparam syn__47_.mask = 16'h5A5A;
+defparam syn__47_.mode = "logic";
+defparam syn__47_.modeMux = 1'b0;
+defparam syn__47_.FeedbackMux = 1'b1;
+defparam syn__47_.ShiftMux = 1'b0;
+defparam syn__47_.BypassEn = 1'b0;
+defparam syn__47_.CarryEnb = 1'b1;
+defparam syn__47_.AsyncResetMux = 2'b00;
+defparam syn__47_.SyncResetMux = 2'bxx;
+defparam syn__47_.SyncLoadMux = 2'bxx;
+defparam syn__47_.coord_x = 1009;
+defparam syn__47_.coord_y = 1001;
+defparam syn__47_.coord_z = 0;
+// Location: LCCELL_X1009_Y1001_N10
+// alta_lcell_comb \counter[0]_inv~I (
+// Location: LCCELL_X1009_Y1001_N10
+// alta_lcell_ff syn__43_(
+alta_slice syn__43_(
+	.A(),
+	.B(),
+	.C(vcc),
+	.D(),
+	.Cin(),
+	.Qin(counter[0]),
+	.Clk(syn__02__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(\counter[0]_inv ),
+	.Cout(),
+	.Q(counter[0]));
+defparam syn__43_.mask = 16'h0F0F;
+defparam syn__43_.mode = "logic";
+defparam syn__43_.modeMux = 1'b0;
+defparam syn__43_.FeedbackMux = 1'b1;
+defparam syn__43_.ShiftMux = 1'b0;
+defparam syn__43_.BypassEn = 1'b0;
+defparam syn__43_.CarryEnb = 1'b1;
+defparam syn__43_.AsyncResetMux = 2'b00;
+defparam syn__43_.SyncResetMux = 2'bxx;
+defparam syn__43_.SyncLoadMux = 2'bxx;
+defparam syn__43_.coord_x = 1009;
+defparam syn__43_.coord_y = 1001;
+defparam syn__43_.coord_z = 5;
+// Location: LCCELL_X1009_Y1001_N12
+// alta_lcell_comb syn__08_(
+// Location: LCCELL_X1009_Y1001_N12
+// alta_lcell_ff syn__48_(
+alta_slice syn__48_(
+	.A(syn__01_),
+	.B(counter[4]),
 	.C(vcc),
 	.D(vcc),
-	.Cin(\counter[4]~34 ),
+	.Cin(),
 	.Qin(counter[5]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
+	.Clk(syn__02__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(\counter[5]~35_combout ),
-	.Cout(\counter[5]~36 ),
+	.LutOut(syn__00_[5]),
+	.Cout(),
 	.Q(counter[5]));
-defparam \counter[5] .mask = 16'hC30C;
-defparam \counter[5] .mode = "ripple";
-defparam \counter[5] .modeMux = 1'b1;
-defparam \counter[5] .FeedbackMux = 1'b0;
-defparam \counter[5] .ShiftMux = 1'b0;
-defparam \counter[5] .BypassEn = 1'b0;
-defparam \counter[5] .CarryEnb = 1'b0;
-defparam \counter[5] .AsyncResetMux = 2'b00;
-defparam \counter[5] .SyncResetMux = 2'bxx;
-defparam \counter[5] .SyncLoadMux = 2'bxx;
-defparam \counter[5] .coord_x = 1;
-defparam \counter[5] .coord_y = 17;
-defparam \counter[5] .coord_z = 7;
-// Location: FF_X1_Y17_N16
-// alta_lcell_ff \counter[6] (
-// Location: LCCOMB_X1_Y17_N16
-// alta_lcell_comb \counter[6]~37 (
-alta_slice \counter[6] (
-	.A(vcc),
-	.B(counter[6]),
+defparam syn__48_.mask = 16'h7878;
+defparam syn__48_.mode = "logic";
+defparam syn__48_.modeMux = 1'b0;
+defparam syn__48_.FeedbackMux = 1'b1;
+defparam syn__48_.ShiftMux = 1'b0;
+defparam syn__48_.BypassEn = 1'b0;
+defparam syn__48_.CarryEnb = 1'b1;
+defparam syn__48_.AsyncResetMux = 2'b00;
+defparam syn__48_.SyncResetMux = 2'bxx;
+defparam syn__48_.SyncLoadMux = 2'bxx;
+defparam syn__48_.coord_x = 1009;
+defparam syn__48_.coord_y = 1001;
+defparam syn__48_.coord_z = 6;
+// Location: LCCELL_X1009_Y1001_N14
+// alta_lcell_comb syn__09_(
+// Location: LCCELL_X1009_Y1001_N14
+// alta_lcell_ff syn__49_(
+alta_slice syn__49_(
+	.A(syn__01_),
+	.B(counter[4]),
 	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[5]~36 ),
+	.D(counter[5]),
+	.Cin(),
 	.Qin(counter[6]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
+	.Clk(syn__02__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(\counter[6]~37_combout ),
-	.Cout(\counter[6]~38 ),
+	.LutOut(syn__00_[6]),
+	.Cout(),
 	.Q(counter[6]));
-defparam \counter[6] .mask = 16'h3C3F;
-defparam \counter[6] .mode = "ripple";
-defparam \counter[6] .modeMux = 1'b1;
-defparam \counter[6] .FeedbackMux = 1'b0;
-defparam \counter[6] .ShiftMux = 1'b0;
-defparam \counter[6] .BypassEn = 1'b0;
-defparam \counter[6] .CarryEnb = 1'b0;
-defparam \counter[6] .AsyncResetMux = 2'b00;
-defparam \counter[6] .SyncResetMux = 2'bxx;
-defparam \counter[6] .SyncLoadMux = 2'bxx;
-defparam \counter[6] .coord_x = 1;
-defparam \counter[6] .coord_y = 17;
-defparam \counter[6] .coord_z = 8;
-// Location: FF_X1_Y17_N18
-// alta_lcell_ff \counter[7] (
-// Location: LCCOMB_X1_Y17_N18
-// alta_lcell_comb \counter[7]~39 (
-alta_slice \counter[7] (
-	.A(vcc),
-	.B(counter[7]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[6]~38 ),
-	.Qin(counter[7]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[7]~39_combout ),
-	.Cout(\counter[7]~40 ),
-	.Q(counter[7]));
-defparam \counter[7] .mask = 16'hC30C;
-defparam \counter[7] .mode = "ripple";
-defparam \counter[7] .modeMux = 1'b1;
-defparam \counter[7] .FeedbackMux = 1'b0;
-defparam \counter[7] .ShiftMux = 1'b0;
-defparam \counter[7] .BypassEn = 1'b0;
-defparam \counter[7] .CarryEnb = 1'b0;
-defparam \counter[7] .AsyncResetMux = 2'b00;
-defparam \counter[7] .SyncResetMux = 2'bxx;
-defparam \counter[7] .SyncLoadMux = 2'bxx;
-defparam \counter[7] .coord_x = 1;
-defparam \counter[7] .coord_y = 17;
-defparam \counter[7] .coord_z = 9;
-// Location: FF_X1_Y17_N20
-// alta_lcell_ff \counter[8] (
-// Location: LCCOMB_X1_Y17_N20
-// alta_lcell_comb \counter[8]~41 (
-alta_slice \counter[8] (
-	.A(vcc),
-	.B(counter[8]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[7]~40 ),
-	.Qin(counter[8]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[8]~41_combout ),
-	.Cout(\counter[8]~42 ),
-	.Q(counter[8]));
-defparam \counter[8] .mask = 16'h3C3F;
-defparam \counter[8] .mode = "ripple";
-defparam \counter[8] .modeMux = 1'b1;
-defparam \counter[8] .FeedbackMux = 1'b0;
-defparam \counter[8] .ShiftMux = 1'b0;
-defparam \counter[8] .BypassEn = 1'b0;
-defparam \counter[8] .CarryEnb = 1'b0;
-defparam \counter[8] .AsyncResetMux = 2'b00;
-defparam \counter[8] .SyncResetMux = 2'bxx;
-defparam \counter[8] .SyncLoadMux = 2'bxx;
-defparam \counter[8] .coord_x = 1;
-defparam \counter[8] .coord_y = 17;
-defparam \counter[8] .coord_z = 10;
-// Location: FF_X1_Y17_N22
-// alta_lcell_ff \counter[9] (
-// Location: LCCOMB_X1_Y17_N22
-// alta_lcell_comb \counter[9]~43 (
-alta_slice \counter[9] (
-	.A(counter[9]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[8]~42 ),
-	.Qin(counter[9]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[9]~43_combout ),
-	.Cout(\counter[9]~44 ),
-	.Q(counter[9]));
-defparam \counter[9] .mask = 16'hA50A;
-defparam \counter[9] .mode = "ripple";
-defparam \counter[9] .modeMux = 1'b1;
-defparam \counter[9] .FeedbackMux = 1'b0;
-defparam \counter[9] .ShiftMux = 1'b0;
-defparam \counter[9] .BypassEn = 1'b0;
-defparam \counter[9] .CarryEnb = 1'b0;
-defparam \counter[9] .AsyncResetMux = 2'b00;
-defparam \counter[9] .SyncResetMux = 2'bxx;
-defparam \counter[9] .SyncLoadMux = 2'bxx;
-defparam \counter[9] .coord_x = 1;
-defparam \counter[9] .coord_y = 17;
-defparam \counter[9] .coord_z = 11;
-// Location: FF_X1_Y17_N24
-// alta_lcell_ff \counter[10] (
-// Location: LCCOMB_X1_Y17_N24
-// alta_lcell_comb \counter[10]~45 (
-alta_slice \counter[10] (
-	.A(vcc),
-	.B(counter[10]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[9]~44 ),
-	.Qin(counter[10]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[10]~45_combout ),
-	.Cout(\counter[10]~46 ),
-	.Q(counter[10]));
-defparam \counter[10] .mask = 16'h3C3F;
-defparam \counter[10] .mode = "ripple";
-defparam \counter[10] .modeMux = 1'b1;
-defparam \counter[10] .FeedbackMux = 1'b0;
-defparam \counter[10] .ShiftMux = 1'b0;
-defparam \counter[10] .BypassEn = 1'b0;
-defparam \counter[10] .CarryEnb = 1'b0;
-defparam \counter[10] .AsyncResetMux = 2'b00;
-defparam \counter[10] .SyncResetMux = 2'bxx;
-defparam \counter[10] .SyncLoadMux = 2'bxx;
-defparam \counter[10] .coord_x = 1;
-defparam \counter[10] .coord_y = 17;
-defparam \counter[10] .coord_z = 12;
-// Location: FF_X1_Y17_N26
-// alta_lcell_ff \counter[11] (
-// Location: LCCOMB_X1_Y17_N26
-// alta_lcell_comb \counter[11]~47 (
-alta_slice \counter[11] (
-	.A(counter[11]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[10]~46 ),
-	.Qin(counter[11]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[11]~47_combout ),
-	.Cout(\counter[11]~48 ),
-	.Q(counter[11]));
-defparam \counter[11] .mask = 16'hA50A;
-defparam \counter[11] .mode = "ripple";
-defparam \counter[11] .modeMux = 1'b1;
-defparam \counter[11] .FeedbackMux = 1'b0;
-defparam \counter[11] .ShiftMux = 1'b0;
-defparam \counter[11] .BypassEn = 1'b0;
-defparam \counter[11] .CarryEnb = 1'b0;
-defparam \counter[11] .AsyncResetMux = 2'b00;
-defparam \counter[11] .SyncResetMux = 2'bxx;
-defparam \counter[11] .SyncLoadMux = 2'bxx;
-defparam \counter[11] .coord_x = 1;
-defparam \counter[11] .coord_y = 17;
-defparam \counter[11] .coord_z = 13;
-// Location: FF_X1_Y17_N28
-// alta_lcell_ff \counter[12] (
-// Location: LCCOMB_X1_Y17_N28
-// alta_lcell_comb \counter[12]~49 (
-alta_slice \counter[12] (
-	.A(vcc),
-	.B(counter[12]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[11]~48 ),
-	.Qin(counter[12]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[12]~49_combout ),
-	.Cout(\counter[12]~50 ),
-	.Q(counter[12]));
-defparam \counter[12] .mask = 16'h3C3F;
-defparam \counter[12] .mode = "ripple";
-defparam \counter[12] .modeMux = 1'b1;
-defparam \counter[12] .FeedbackMux = 1'b0;
-defparam \counter[12] .ShiftMux = 1'b0;
-defparam \counter[12] .BypassEn = 1'b0;
-defparam \counter[12] .CarryEnb = 1'b0;
-defparam \counter[12] .AsyncResetMux = 2'b00;
-defparam \counter[12] .SyncResetMux = 2'bxx;
-defparam \counter[12] .SyncLoadMux = 2'bxx;
-defparam \counter[12] .coord_x = 1;
-defparam \counter[12] .coord_y = 17;
-defparam \counter[12] .coord_z = 14;
-// Location: FF_X1_Y17_N30
-// alta_lcell_ff \counter[13] (
-// Location: LCCOMB_X1_Y17_N30
-// alta_lcell_comb \counter[13]~51 (
-alta_slice \counter[13] (
-	.A(counter[13]),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(\counter[12]~50 ),
-	.Qin(counter[13]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\counter[13]~51_combout ),
-	.Cout(\counter[13]~52 ),
-	.Q(counter[13]));
-defparam \counter[13] .mask = 16'hA50A;
-defparam \counter[13] .mode = "ripple";
-defparam \counter[13] .modeMux = 1'b1;
-defparam \counter[13] .FeedbackMux = 1'b0;
-defparam \counter[13] .ShiftMux = 1'b0;
-defparam \counter[13] .BypassEn = 1'b0;
-defparam \counter[13] .CarryEnb = 1'b0;
-defparam \counter[13] .AsyncResetMux = 2'b00;
-defparam \counter[13] .SyncResetMux = 2'bxx;
-defparam \counter[13] .SyncLoadMux = 2'bxx;
-defparam \counter[13] .coord_x = 1;
-defparam \counter[13] .coord_y = 17;
-defparam \counter[13] .coord_z = 15;
-// Location: FF_X1_Y17_N4
-// alta_lcell_ff \counter[0] (
-// Location: LCCOMB_X1_Y17_N4
-// alta_lcell_comb \counter[0]~81 (
-alta_slice \counter[0] (
+defparam syn__49_.mask = 16'h78F0;
+defparam syn__49_.mode = "logic";
+defparam syn__49_.modeMux = 1'b0;
+defparam syn__49_.FeedbackMux = 1'b1;
+defparam syn__49_.ShiftMux = 1'b0;
+defparam syn__49_.BypassEn = 1'b0;
+defparam syn__49_.CarryEnb = 1'b1;
+defparam syn__49_.AsyncResetMux = 2'b00;
+defparam syn__49_.SyncResetMux = 2'bxx;
+defparam syn__49_.SyncLoadMux = 2'bxx;
+defparam syn__49_.coord_x = 1009;
+defparam syn__49_.coord_y = 1001;
+defparam syn__49_.coord_z = 7;
+// Location: LCCELL_X1009_Y1001_N16
+// alta_lcell_comb \gnd~I (
+alta_slice \gnd~I (
 	.A(vcc),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(counter[0]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
+	.Qin(),
+	.Clk(),
+	.AsyncReset(),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(\counter[0]~81_combout ),
+	.LutOut(\gnd~I_int ),
 	.Cout(),
-	.Q(counter[0]));
-defparam \counter[0] .mask = 16'h0F0F;
-defparam \counter[0] .mode = "logic";
-defparam \counter[0] .modeMux = 1'b0;
-defparam \counter[0] .FeedbackMux = 1'b1;
-defparam \counter[0] .ShiftMux = 1'b0;
-defparam \counter[0] .BypassEn = 1'b0;
-defparam \counter[0] .CarryEnb = 1'b1;
-defparam \counter[0] .AsyncResetMux = 2'b00;
-defparam \counter[0] .SyncResetMux = 2'bxx;
-defparam \counter[0] .SyncLoadMux = 2'bxx;
-defparam \counter[0] .coord_x = 1;
-defparam \counter[0] .coord_y = 17;
-defparam \counter[0] .coord_z = 2;
-// Location: FF_X1_Y17_N6
-// alta_lcell_ff \counter[1] (
-// Location: LCCOMB_X1_Y17_N6
-// alta_lcell_comb \counter[1]~27 (
-alta_slice \counter[1] (
-	.A(counter[1]),
+	.Q());
+defparam \gnd~I .mask = 16'h0000;
+defparam \gnd~I .mode = "logic";
+defparam \gnd~I .modeMux = 1'b0;
+defparam \gnd~I .FeedbackMux = 1'b0;
+defparam \gnd~I .ShiftMux = 1'b0;
+defparam \gnd~I .BypassEn = 1'b0;
+defparam \gnd~I .CarryEnb = 1'b1;
+defparam \gnd~I .AsyncResetMux = 2'bxx;
+defparam \gnd~I .SyncResetMux = 2'bxx;
+defparam \gnd~I .SyncLoadMux = 2'bxx;
+defparam \gnd~I .coord_x = 1009;
+defparam \gnd~I .coord_y = 1001;
+defparam \gnd~I .coord_z = 8;
+// Location: LCCELL_X1009_Y1001_N2
+// alta_lcell_comb syn__03_(
+// Location: LCCELL_X1009_Y1001_N2
+// alta_lcell_ff syn__44_(
+alta_slice syn__44_(
+	.A(vcc),
 	.B(counter[0]),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
 	.Qin(counter[1]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
+	.Clk(syn__02__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(\counter[1]~27_combout ),
-	.Cout(\counter[1]~28 ),
+	.LutOut(syn__00_[1]),
+	.Cout(),
 	.Q(counter[1]));
-defparam \counter[1] .mask = 16'h6688;
-defparam \counter[1] .mode = "logic";
-defparam \counter[1] .modeMux = 1'b0;
-defparam \counter[1] .FeedbackMux = 1'b0;
-defparam \counter[1] .ShiftMux = 1'b0;
-defparam \counter[1] .BypassEn = 1'b0;
-defparam \counter[1] .CarryEnb = 1'b0;
-defparam \counter[1] .AsyncResetMux = 2'b00;
-defparam \counter[1] .SyncResetMux = 2'bxx;
-defparam \counter[1] .SyncLoadMux = 2'bxx;
-defparam \counter[1] .coord_x = 1;
-defparam \counter[1] .coord_y = 17;
-defparam \counter[1] .coord_z = 3;
-// Location: FF_X1_Y17_N8
-// alta_lcell_ff \counter[2] (
-// Location: LCCOMB_X1_Y17_N8
-// alta_lcell_comb \counter[2]~29 (
-alta_slice \counter[2] (
-	.A(vcc),
-	.B(counter[2]),
+defparam syn__44_.mask = 16'h3C3C;
+defparam syn__44_.mode = "logic";
+defparam syn__44_.modeMux = 1'b0;
+defparam syn__44_.FeedbackMux = 1'b1;
+defparam syn__44_.ShiftMux = 1'b0;
+defparam syn__44_.BypassEn = 1'b0;
+defparam syn__44_.CarryEnb = 1'b1;
+defparam syn__44_.AsyncResetMux = 2'b00;
+defparam syn__44_.SyncResetMux = 2'bxx;
+defparam syn__44_.SyncLoadMux = 2'bxx;
+defparam syn__44_.coord_x = 1009;
+defparam syn__44_.coord_y = 1001;
+defparam syn__44_.coord_z = 1;
+// Location: LCCELL_X1009_Y1001_N4
+// alta_lcell_comb syn__04_(
+// Location: LCCELL_X1009_Y1001_N4
+// alta_lcell_ff syn__45_(
+alta_slice syn__45_(
+	.A(counter[1]),
+	.B(counter[0]),
 	.C(vcc),
 	.D(vcc),
-	.Cin(\counter[1]~28 ),
+	.Cin(),
 	.Qin(counter[2]),
-	.Clk(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ),
-	.AsyncReset(AsyncReset_X1_Y17_GND),
+	.Clk(syn__02__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(\counter[2]~29_combout ),
-	.Cout(\counter[2]~30 ),
+	.LutOut(syn__00_[2]),
+	.Cout(),
 	.Q(counter[2]));
-defparam \counter[2] .mask = 16'h3C3F;
-defparam \counter[2] .mode = "ripple";
-defparam \counter[2] .modeMux = 1'b1;
-defparam \counter[2] .FeedbackMux = 1'b0;
-defparam \counter[2] .ShiftMux = 1'b0;
-defparam \counter[2] .BypassEn = 1'b0;
-defparam \counter[2] .CarryEnb = 1'b0;
-defparam \counter[2] .AsyncResetMux = 2'b00;
-defparam \counter[2] .SyncResetMux = 2'bxx;
-defparam \counter[2] .SyncLoadMux = 2'bxx;
+defparam syn__45_.mask = 16'h7878;
+defparam syn__45_.mode = "logic";
+defparam syn__45_.modeMux = 1'b0;
+defparam syn__45_.FeedbackMux = 1'b1;
+defparam syn__45_.ShiftMux = 1'b0;
+defparam syn__45_.BypassEn = 1'b0;
+defparam syn__45_.CarryEnb = 1'b1;
+defparam syn__45_.AsyncResetMux = 2'b00;
+defparam syn__45_.SyncResetMux = 2'bxx;
+defparam syn__45_.SyncLoadMux = 2'bxx;
+defparam syn__45_.coord_x = 1009;
+defparam syn__45_.coord_y = 1001;
+defparam syn__45_.coord_z = 2;
+// Location: LCCELL_X1009_Y1001_N6
+// alta_lcell_comb syn__05_(
+// Location: LCCELL_X1009_Y1001_N6
+// alta_lcell_ff syn__46_(
+alta_slice syn__46_(
+	.A(counter[1]),
+	.B(counter[0]),
+	.C(vcc),
+	.D(counter[2]),
+	.Cin(),
+	.Qin(counter[3]),
+	.Clk(syn__02__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[3]),
+	.Cout(),
+	.Q(counter[3]));
+defparam syn__46_.mask = 16'h78F0;
+defparam syn__46_.mode = "logic";
+defparam syn__46_.modeMux = 1'b0;
+defparam syn__46_.FeedbackMux = 1'b1;
+defparam syn__46_.ShiftMux = 1'b0;
+defparam syn__46_.BypassEn = 1'b0;
+defparam syn__46_.CarryEnb = 1'b1;
+defparam syn__46_.AsyncResetMux = 2'b00;
+defparam syn__46_.SyncResetMux = 2'bxx;
+defparam syn__46_.SyncLoadMux = 2'bxx;
+defparam syn__46_.coord_x = 1009;
+defparam syn__46_.coord_y = 1001;
+defparam syn__46_.coord_z = 3;
+// Location: LCCELL_X1009_Y1001_N8
+// alta_lcell_comb syn__07_(
+alta_slice syn__07_(
+	.A(counter[1]),
+	.B(counter[0]),
+	.C(counter[2]),
+	.D(counter[3]),
+	.Cin(),
+	.Qin(),
+	.Clk(),
+	.AsyncReset(),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__01_),
+	.Cout(),
+	.Q());
+defparam syn__07_.mask = 16'h8000;
+defparam syn__07_.mode = "logic";
+defparam syn__07_.modeMux = 1'b0;
+defparam syn__07_.FeedbackMux = 1'b0;
+defparam syn__07_.ShiftMux = 1'b0;
+defparam syn__07_.BypassEn = 1'b0;
+defparam syn__07_.CarryEnb = 1'b1;
+defparam syn__07_.AsyncResetMux = 2'bxx;
+defparam syn__07_.SyncResetMux = 2'bxx;
+defparam syn__07_.SyncLoadMux = 2'bxx;
 
-defparam \counter[2] .coord_x = 1;
-defparam \counter[2] .coord_y = 17;
-defparam \counter[2] .coord_z = 4;
-// Location: CLKENCTRL_X1_Y17_N0
-alta_clkenctrl clken_ctrl_X1_Y17_N0(.ClkIn(\clk~inputclkctrl_outclk ), .ClkEn(), .ClkOut(\clk~inputclkctrl_outclk_X1_Y17_SIG_VCC ));
-defparam clken_ctrl_X1_Y17_N0.ClkMux = 2'b10;
-defparam clken_ctrl_X1_Y17_N0.ClkEnMux = 2'b01;
+defparam syn__07_.coord_x = 1009;
+defparam syn__07_.coord_y = 1001;
+defparam syn__07_.coord_z = 4;
+// Location: CLKENCTRL_X1009_Y1001_N0
+alta_clkenctrl clken_ctrl_X1009_Y1001_N0(.ClkIn(syn__02_), .ClkEn(), .ClkOut(syn__02__X1009_Y1001_SIG_VCC));
+defparam clken_ctrl_X1009_Y1001_N0.ClkMux = 2'b10;
+defparam clken_ctrl_X1009_Y1001_N0.ClkEnMux = 2'b01;
 
-defparam clken_ctrl_X1_Y17_N0.coord_x = 1;
-defparam clken_ctrl_X1_Y17_N0.coord_y = 17;
-defparam clken_ctrl_X1_Y17_N0.coord_z = 0;
-// Location: ASYNCCTRL_X1_Y17_N0
-alta_asyncctrl asyncreset_ctrl_X1_Y17_N0(.Din(), .Dout(AsyncReset_X1_Y17_GND));
-defparam asyncreset_ctrl_X1_Y17_N0.AsyncCtrlMux = 2'b00;
-defparam asyncreset_ctrl_X1_Y17_N0.coord_x = 1;
-defparam asyncreset_ctrl_X1_Y17_N0.coord_y = 17;
-defparam asyncreset_ctrl_X1_Y17_N0.coord_z = 0;
+defparam clken_ctrl_X1009_Y1001_N0.coord_x = 1009;
+defparam clken_ctrl_X1009_Y1001_N0.coord_y = 1001;
+defparam clken_ctrl_X1009_Y1001_N0.coord_z = 0;
+// Location: ASYNCCTRL_X1009_Y1001_N0
+alta_asyncctrl asyncreset_ctrl_X1009_Y1001_N0(.Din(), .Dout(AsyncReset_X1009_Y1001_GND));
+defparam asyncreset_ctrl_X1009_Y1001_N0.AsyncCtrlMux = 2'b00;
+defparam asyncreset_ctrl_X1009_Y1001_N0.coord_x = 1009;
+defparam asyncreset_ctrl_X1009_Y1001_N0.coord_y = 1001;
+defparam asyncreset_ctrl_X1009_Y1001_N0.coord_z = 0;
 endmodule
 

@@ -5,1599 +5,763 @@ Clock transfer report:
   Worst  hold:   1.052, with clock Internal_generated_clock_Blinky|clk
 
 Coverage report
-  User constraints covered 0 connections out of 118 total, coverage: 0.0%
-  Auto constraints covered 86 connections out of 118 total, coverage: 72.9%
+  User constraints covered 0 connections out of 79 total, coverage: 0.0%
+  Auto constraints covered 47 connections out of 79 total, coverage: 59.5%
 
 
-Hold from counter[0] to counter[0], clock Internal_generated_clock_Blinky|clk, constraint 0.000
+Hold from syn__46_ to syn__46_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
   Slack:   1.052
-    Arrival Time:    4.110
+    Arrival Time:    2.883
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[0]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__46_|Clk 
       Data Path:
-        4.110    0.312   RF                           counter[0]|Clk =>                             counter[0]|Q D
-        4.110    0.000   FF                             counter[0]|Q =>                           counter[0]|Qin E
-    Required Time:   3.058
+        2.883    0.312   RF                             syn__46_|Clk =>                               syn__46_|Q D
+        2.883    0.000   FF                               syn__46_|Q =>                             syn__46_|Qin E
+    Required Time:   1.831
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[0]|Clk 
-        3.249   -0.740   R                                      Hold
-        3.058   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__46_|Clk 
+        1.839   -0.740   R                                      Hold
+        1.831   -0.008                               Clock Variation
 
-Hold from counter[16] to counter[16], clock Internal_generated_clock_Blinky|clk, constraint 0.000
+Hold from syn__43_ to syn__43_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.052
+    Arrival Time:    2.883
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        2.883    0.000   FF                               syn__43_|Q =>                             syn__43_|Qin E
+    Required Time:   1.831
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
+        1.839   -0.740   R                                      Hold
+        1.831   -0.008                               Clock Variation
+
+Hold from syn__49_ to syn__49_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.052
+    Arrival Time:    2.883
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__49_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__49_|Clk =>                               syn__49_|Q D
+        2.883    0.000   FF                               syn__49_|Q =>                             syn__49_|Qin E
+    Required Time:   1.831
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__49_|Clk 
+        1.839   -0.740   R                                      Hold
+        1.831   -0.008                               Clock Variation
+
+Hold from syn__47_ to syn__47_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.052
+    Arrival Time:    2.883
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__47_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__47_|Clk =>                               syn__47_|Q D
+        2.883    0.000   FF                               syn__47_|Q =>                             syn__47_|Qin E
+    Required Time:   1.831
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__47_|Clk 
+        1.839   -0.740   R                                      Hold
+        1.831   -0.008                               Clock Variation
+
+Hold from syn__45_ to syn__45_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.052
+    Arrival Time:    2.883
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__45_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__45_|Clk =>                               syn__45_|Q D
+        2.883    0.000   FF                               syn__45_|Q =>                             syn__45_|Qin E
+    Required Time:   1.831
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__45_|Clk 
+        1.839   -0.740   R                                      Hold
+        1.831   -0.008                               Clock Variation
+
+Hold from syn__44_ to syn__44_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.052
+    Arrival Time:    2.883
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__44_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__44_|Clk =>                               syn__44_|Q D
+        2.883    0.000   FF                               syn__44_|Q =>                             syn__44_|Qin E
+    Required Time:   1.831
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__44_|Clk 
+        1.839   -0.740   R                                      Hold
+        1.831   -0.008                               Clock Variation
+
+Hold from syn__48_ to syn__48_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.052
+    Arrival Time:    2.883
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__48_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__48_|Clk =>                               syn__48_|Q D
+        2.883    0.000   FF                               syn__48_|Q =>                             syn__48_|Qin E
+    Required Time:   1.831
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__48_|Clk 
+        1.839   -0.740   R                                      Hold
+        1.831   -0.008                               Clock Variation
+
+Hold from syn__47_ to syn__49_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.245
+    Arrival Time:    3.347
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__47_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__47_|Clk =>                               syn__47_|Q D
+        3.347    0.464   FF                               syn__47_|Q =>                               syn__49_|D E
+    Required Time:   2.102
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__49_|Clk 
+        2.110   -0.469   R                                      Hold
+        2.102   -0.008                               Clock Variation
+
+Hold from syn__47_ to syn__48_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.245
+    Arrival Time:    3.347
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__47_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__47_|Clk =>                               syn__47_|Q D
+        3.347    0.464   FF                               syn__47_|Q =>                               syn__48_|D E
+    Required Time:   2.102
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__48_|Clk 
+        2.110   -0.469   R                                      Hold
+        2.102   -0.008                               Clock Variation
+
+Hold from syn__43_ to syn__45_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.246
+    Arrival Time:    3.348
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        3.348    0.465   FF                               syn__43_|Q =>                               syn__45_|D E
+    Required Time:   2.102
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__45_|Clk 
+        2.110   -0.469   R                                      Hold
+        2.102   -0.008                               Clock Variation
+
+Hold from syn__43_ to syn__44_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.246
+    Arrival Time:    3.348
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        3.348    0.465   FF                               syn__43_|Q =>                               syn__44_|D E
+    Required Time:   2.102
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__44_|Clk 
+        2.110   -0.469   R                                      Hold
+        2.102   -0.008                               Clock Variation
+
+Hold from syn__43_ to syn__46_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.246
+    Arrival Time:    3.348
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        3.348    0.465   FF                               syn__43_|Q =>                               syn__46_|D E
+    Required Time:   2.102
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__46_|Clk 
+        2.110   -0.469   R                                      Hold
+        2.102   -0.008                               Clock Variation
+
+Hold from syn__47_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.332
+    Arrival Time:    3.691
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__47_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__47_|Clk =>                               syn__47_|Q D
+        3.691    0.808   FF                               syn__47_|Q => mem.prom_0_6526DEFE.ram_inst|AddressA[9] E
+    Required Time:   2.359
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk0 
+        2.359    0.200   R                                      Hold
+
+Hold from syn__44_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.332
+    Arrival Time:    3.691
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__44_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__44_|Clk =>                               syn__44_|Q D
+        3.691    0.808   FF                               syn__44_|Q => mem.prom_0_6526DEFE.ram_inst|AddressA[6] E
+    Required Time:   2.359
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk0 
+        2.359    0.200   R                                      Hold
+
+Hold from syn__43_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.332
+    Arrival Time:    3.691
+        0.000    0.000   R                         Launch Clock Edge
+      Launch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
+      Data Path:
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        3.691    0.808   FF                               syn__43_|Q => mem.prom_0_6526DEFE.ram_inst|AddressA[5] E
+    Required Time:   2.359
+        0.000    0.000   R                          Latch Clock Edge
+      Latch Clock Path:
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk0 
+        2.359    0.200   R                                      Hold
+
+Hold from syn__48_ to syn__49_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
   Slack:   1.592
-    Arrival Time:    4.573
+    Arrival Time:    3.346
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[16]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__48_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[16]|Clk =>                            counter[16]|Q D
-        4.573    0.463   FF                            counter[16]|Q =>                            counter[16]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__48_|Clk =>                               syn__48_|Q D
+        3.346    0.463   FF                               syn__48_|Q =>                               syn__49_|B E
+    Required Time:   1.754
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[16]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__49_|Clk 
+        1.762   -0.817   R                                      Hold
+        1.754   -0.008                               Clock Variation
 
-Hold from counter[11] to counter[11], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__45_ to syn__46_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.593
+    Arrival Time:    3.347
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[11]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__45_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[11]|Clk =>                            counter[11]|Q D
-        4.573    0.463   FF                            counter[11]|Q =>                            counter[11]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__45_|Clk =>                               syn__45_|Q D
+        3.347    0.464   FF                               syn__45_|Q =>                               syn__46_|B E
+    Required Time:   1.754
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[11]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__46_|Clk 
+        1.762   -0.817   R                                      Hold
+        1.754   -0.008                               Clock Variation
 
-Hold from counter[13] to counter[13], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__44_ to syn__45_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.611
+    Arrival Time:    3.348
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[13]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__44_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[13]|Clk =>                            counter[13]|Q D
-        4.573    0.463   FF                            counter[13]|Q =>                            counter[13]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__44_|Clk =>                               syn__44_|Q D
+        3.348    0.465   FF                               syn__44_|Q =>                               syn__45_|A E
+    Required Time:   1.737
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[13]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__45_|Clk 
+        1.745   -0.834   R                                      Hold
+        1.737   -0.008                               Clock Variation
 
-Hold from counter[26] to counter[26], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__44_ to syn__46_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.611
+    Arrival Time:    3.348
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[26]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__44_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[26]|Clk =>                            counter[26]|Q D
-        4.573    0.463   FF                            counter[26]|Q =>                            counter[26]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__44_|Clk =>                               syn__44_|Q D
+        3.348    0.465   FF                               syn__44_|Q =>                               syn__46_|A E
+    Required Time:   1.737
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[26]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__46_|Clk 
+        1.745   -0.834   R                                      Hold
+        1.737   -0.008                               Clock Variation
 
-Hold from counter[27] to counter[27], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__47_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.703
+    Arrival Time:    4.062
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[27]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__47_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[27]|Clk =>                            counter[27]|Q D
-        4.573    0.463   FF                            counter[27]|Q =>                            counter[27]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__47_|Clk =>                               syn__47_|Q D
+        4.062    1.179   FF                               syn__47_|Q => mem.prom_0_6526DEFE.ram_inst|AddressB[9] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[27]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk1 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[12] to counter[12], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__49_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.761
+    Arrival Time:    4.120
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[12]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__49_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[12]|Clk =>                            counter[12]|Q D
-        4.573    0.463   FF                            counter[12]|Q =>                            counter[12]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__49_|Clk =>                               syn__49_|Q D
+        4.120    1.237   FF                               syn__49_|Q => mem.prom_0_6526DEFE.ram_inst|AddressA[11] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[12]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk0 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[6] to counter[6], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__45_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.761
+    Arrival Time:    4.120
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[6]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__45_|Clk 
       Data Path:
-        4.110    0.312   RF                           counter[6]|Clk =>                             counter[6]|Q D
-        4.573    0.463   FF                             counter[6]|Q =>                             counter[6]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__45_|Clk =>                               syn__45_|Q D
+        4.120    1.237   FF                               syn__45_|Q => mem.prom_0_6526DEFE.ram_inst|AddressA[7] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[6]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk0 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[8] to counter[8], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__48_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.761
+    Arrival Time:    4.120
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[8]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__48_|Clk 
       Data Path:
-        4.110    0.312   RF                           counter[8]|Clk =>                             counter[8]|Q D
-        4.573    0.463   FF                             counter[8]|Q =>                             counter[8]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__48_|Clk =>                               syn__48_|Q D
+        4.120    1.237   FF                               syn__48_|Q => mem.prom_0_6526DEFE.ram_inst|AddressA[10] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[8]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk0 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[25] to counter[25], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__49_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.761
+    Arrival Time:    4.120
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[25]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__49_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[25]|Clk =>                            counter[25]|Q D
-        4.573    0.463   FF                            counter[25]|Q =>                            counter[25]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__49_|Clk =>                               syn__49_|Q D
+        4.120    1.237   FF                               syn__49_|Q => mem.prom_0_6526DEFE.ram_inst|AddressB[11] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[25]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk1 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[4] to counter[4], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__48_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.761
+    Arrival Time:    4.120
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[4]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__48_|Clk 
       Data Path:
-        4.110    0.312   RF                           counter[4]|Clk =>                             counter[4]|Q D
-        4.573    0.463   FF                             counter[4]|Q =>                             counter[4]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__48_|Clk =>                               syn__48_|Q D
+        4.120    1.237   FF                               syn__48_|Q => mem.prom_0_6526DEFE.ram_inst|AddressB[10] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[4]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk1 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[7] to counter[7], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__45_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.761
+    Arrival Time:    4.120
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[7]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__45_|Clk 
       Data Path:
-        4.110    0.312   RF                           counter[7]|Clk =>                             counter[7]|Q D
-        4.573    0.463   FF                             counter[7]|Q =>                             counter[7]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__45_|Clk =>                               syn__45_|Q D
+        4.120    1.237   FF                               syn__45_|Q => mem.prom_0_6526DEFE.ram_inst|AddressB[7] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[7]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk1 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[3] to counter[3], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__43_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.763
+    Arrival Time:    4.122
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[3]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
       Data Path:
-        4.110    0.312   RF                           counter[3]|Clk =>                             counter[3]|Q D
-        4.573    0.463   FF                             counter[3]|Q =>                             counter[3]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        4.122    1.239   FF                               syn__43_|Q => mem.prom_0_6526DEFE.ram_inst|AddressB[5] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[3]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk1 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[15] to counter[15], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__44_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.763
+    Arrival Time:    4.122
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[15]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__44_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[15]|Clk =>                            counter[15]|Q D
-        4.573    0.463   FF                            counter[15]|Q =>                            counter[15]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__44_|Clk =>                               syn__44_|Q D
+        4.122    1.239   FF                               syn__44_|Q => mem.prom_0_6526DEFE.ram_inst|AddressB[6] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[15]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk1 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[21] to counter[21], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__46_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.792
+    Arrival Time:    4.151
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[21]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__46_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[21]|Clk =>                            counter[21]|Q D
-        4.573    0.463   FF                            counter[21]|Q =>                            counter[21]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__46_|Clk =>                               syn__46_|Q D
+        4.151    1.268   FF                               syn__46_|Q => mem.prom_0_6526DEFE.ram_inst|AddressA[8] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[21]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk0 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[10] to counter[10], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__46_ to mem.prom_0_6526DEFE.ram_inst, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   1.792
+    Arrival Time:    4.151
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[10]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__46_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[10]|Clk =>                            counter[10]|Q D
-        4.573    0.463   FF                            counter[10]|Q =>                            counter[10]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__46_|Clk =>                               syn__46_|Q D
+        4.151    1.268   FF                               syn__46_|Q => mem.prom_0_6526DEFE.ram_inst|AddressB[8] E
+    Required Time:   2.359
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[10]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.159    1.512   RR                         syn__42_|combout =>        mem.prom_0_6526DEFE.ram_inst|Clk1 
+        2.359    0.200   R                                      Hold
 
-Hold from counter[5] to counter[5], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__43_ to syn__49_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   2.212
+    Arrival Time:    3.949
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[5]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
       Data Path:
-        4.110    0.312   RF                           counter[5]|Clk =>                             counter[5]|Q D
-        4.573    0.463   FF                             counter[5]|Q =>                             counter[5]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        3.348    0.465   FF                               syn__43_|Q =>                               syn__07_|D 
+        3.484    0.136   FF                               syn__07_|D =>                          syn__07_|LutOut 
+        3.949    0.465   FF                          syn__07_|LutOut =>                               syn__49_|A E
+    Required Time:   1.737
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[5]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__49_|Clk 
+        1.745   -0.834   R                                      Hold
+        1.737   -0.008                               Clock Variation
 
-Hold from counter[24] to counter[24], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__43_ to syn__48_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   2.212
+    Arrival Time:    3.949
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[24]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[24]|Clk =>                            counter[24]|Q D
-        4.573    0.463   FF                            counter[24]|Q =>                            counter[24]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        3.348    0.465   FF                               syn__43_|Q =>                               syn__07_|D 
+        3.484    0.136   FF                               syn__07_|D =>                          syn__07_|LutOut 
+        3.949    0.465   FF                          syn__07_|LutOut =>                               syn__48_|A E
+    Required Time:   1.737
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[24]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__48_|Clk 
+        1.745   -0.834   R                                      Hold
+        1.737   -0.008                               Clock Variation
 
-Hold from counter[23] to counter[23], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
+Hold from syn__43_ to syn__47_, clock Internal_generated_clock_Blinky|clk, constraint 0.000
+  Slack:   2.212
+    Arrival Time:    3.949
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[23]|Clk 
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.224    1.577   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.439    0.215   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.571    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__43_|Clk 
       Data Path:
-        4.110    0.312   RF                          counter[23]|Clk =>                            counter[23]|Q D
-        4.573    0.463   FF                            counter[23]|Q =>                            counter[23]|B E
-    Required Time:   2.981
+        2.883    0.312   RF                             syn__43_|Clk =>                               syn__43_|Q D
+        3.348    0.465   FF                               syn__43_|Q =>                               syn__07_|D 
+        3.484    0.136   FF                               syn__07_|D =>                          syn__07_|LutOut 
+        3.949    0.465   FF                          syn__07_|LutOut =>                               syn__47_|A E
+    Required Time:   1.737
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[23]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[19] to counter[19], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[19]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[19]|Clk =>                            counter[19]|Q D
-        4.573    0.463   FF                            counter[19]|Q =>                            counter[19]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[19]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[1] to counter[1], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[1]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[1]|Clk =>                             counter[1]|Q D
-        4.573    0.463   FF                             counter[1]|Q =>                             counter[1]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[1]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[17] to counter[17], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[17]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[17]|Clk =>                            counter[17]|Q D
-        4.573    0.463   FF                            counter[17]|Q =>                            counter[17]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[17]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[14] to counter[14], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[14]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[14]|Clk =>                            counter[14]|Q D
-        4.573    0.463   FF                            counter[14]|Q =>                            counter[14]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[14]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[18] to counter[18], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[18]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[18]|Clk =>                            counter[18]|Q D
-        4.573    0.463   FF                            counter[18]|Q =>                            counter[18]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[18]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[20] to counter[20], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[20]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[20]|Clk =>                            counter[20]|Q D
-        4.573    0.463   FF                            counter[20]|Q =>                            counter[20]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[20]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[22] to counter[22], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[22]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[22]|Clk =>                            counter[22]|Q D
-        4.573    0.463   FF                            counter[22]|Q =>                            counter[22]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[22]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[2] to counter[2], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[2]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[2]|Clk =>                             counter[2]|Q D
-        4.573    0.463   FF                             counter[2]|Q =>                             counter[2]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[2]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[9] to counter[9], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.592
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[9]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[9]|Clk =>                             counter[9]|Q D
-        4.573    0.463   FF                             counter[9]|Q =>                             counter[9]|B E
-    Required Time:   2.981
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[9]|Clk 
-        3.172   -0.817   R                                      Hold
-        2.981   -0.191                               Clock Variation
-
-Hold from counter[0] to counter[1], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   1.609
-    Arrival Time:    4.573
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[0]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[0]|Clk =>                             counter[0]|Q D
-        4.573    0.463   FF                             counter[0]|Q =>                             counter[1]|A E
-    Required Time:   2.964
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[1]|Clk 
-        3.155   -0.834   R                                      Hold
-        2.964   -0.191                               Clock Variation
-
-Hold from counter[13] to counter[14], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.028
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[13]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[13]|Clk =>                            counter[13]|Q D
-        4.573    0.463   FF                            counter[13]|Q =>                            counter[13]|B E
-        4.973    0.400   FF                            counter[13]|B =>                         counter[13]|Cout 
-        4.973    0.000   FF                         counter[13]|Cout =>                          counter[14]|Cin E
-    Required Time:   2.945
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[14]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.945   -0.175                               Clock Variation
-
-Hold from counter[1] to counter[2], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[1]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[1]|Clk =>                             counter[1]|Q D
-        4.573    0.463   FF                             counter[1]|Q =>                             counter[1]|B E
-        4.973    0.400   FF                             counter[1]|B =>                          counter[1]|Cout 
-        4.973    0.000   FF                          counter[1]|Cout =>                           counter[2]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[2]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[7] to counter[8], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[7]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[7]|Clk =>                             counter[7]|Q D
-        4.573    0.463   FF                             counter[7]|Q =>                             counter[7]|B E
-        4.973    0.400   FF                             counter[7]|B =>                          counter[7]|Cout 
-        4.973    0.000   FF                          counter[7]|Cout =>                           counter[8]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[8]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[5] to counter[6], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[5]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[5]|Clk =>                             counter[5]|Q D
-        4.573    0.463   FF                             counter[5]|Q =>                             counter[5]|B E
-        4.973    0.400   FF                             counter[5]|B =>                          counter[5]|Cout 
-        4.973    0.000   FF                          counter[5]|Cout =>                           counter[6]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[6]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[10] to counter[11], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[10]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[10]|Clk =>                            counter[10]|Q D
-        4.573    0.463   FF                            counter[10]|Q =>                            counter[10]|B E
-        4.973    0.400   FF                            counter[10]|B =>                         counter[10]|Cout 
-        4.973    0.000   FF                         counter[10]|Cout =>                          counter[11]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[11]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[22] to counter[23], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[22]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[22]|Clk =>                            counter[22]|Q D
-        4.573    0.463   FF                            counter[22]|Q =>                            counter[22]|B E
-        4.973    0.400   FF                            counter[22]|B =>                         counter[22]|Cout 
-        4.973    0.000   FF                         counter[22]|Cout =>                          counter[23]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[23]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[6] to counter[7], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[6]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[6]|Clk =>                             counter[6]|Q D
-        4.573    0.463   FF                             counter[6]|Q =>                             counter[6]|B E
-        4.973    0.400   FF                             counter[6]|B =>                          counter[6]|Cout 
-        4.973    0.000   FF                          counter[6]|Cout =>                           counter[7]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[7]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[4] to counter[5], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[4]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[4]|Clk =>                             counter[4]|Q D
-        4.573    0.463   FF                             counter[4]|Q =>                             counter[4]|B E
-        4.973    0.400   FF                             counter[4]|B =>                          counter[4]|Cout 
-        4.973    0.000   FF                          counter[4]|Cout =>                           counter[5]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[5]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[21] to counter[22], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[21]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[21]|Clk =>                            counter[21]|Q D
-        4.573    0.463   FF                            counter[21]|Q =>                            counter[21]|B E
-        4.973    0.400   FF                            counter[21]|B =>                         counter[21]|Cout 
-        4.973    0.000   FF                         counter[21]|Cout =>                          counter[22]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[22]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[20] to counter[21], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[20]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[20]|Clk =>                            counter[20]|Q D
-        4.573    0.463   FF                            counter[20]|Q =>                            counter[20]|B E
-        4.973    0.400   FF                            counter[20]|B =>                         counter[20]|Cout 
-        4.973    0.000   FF                         counter[20]|Cout =>                          counter[21]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[21]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[9] to counter[10], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[9]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[9]|Clk =>                             counter[9]|Q D
-        4.573    0.463   FF                             counter[9]|Q =>                             counter[9]|B E
-        4.973    0.400   FF                             counter[9]|B =>                          counter[9]|Cout 
-        4.973    0.000   FF                          counter[9]|Cout =>                          counter[10]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[10]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[14] to counter[15], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[14]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[14]|Clk =>                            counter[14]|Q D
-        4.573    0.463   FF                            counter[14]|Q =>                            counter[14]|B E
-        4.973    0.400   FF                            counter[14]|B =>                         counter[14]|Cout 
-        4.973    0.000   FF                         counter[14]|Cout =>                          counter[15]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[15]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[12] to counter[13], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[12]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[12]|Clk =>                            counter[12]|Q D
-        4.573    0.463   FF                            counter[12]|Q =>                            counter[12]|B E
-        4.973    0.400   FF                            counter[12]|B =>                         counter[12]|Cout 
-        4.973    0.000   FF                         counter[12]|Cout =>                          counter[13]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[13]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[26] to counter[27], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[26]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[26]|Clk =>                            counter[26]|Q D
-        4.573    0.463   FF                            counter[26]|Q =>                            counter[26]|B E
-        4.973    0.400   FF                            counter[26]|B =>                         counter[26]|Cout 
-        4.973    0.000   FF                         counter[26]|Cout =>                          counter[27]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[27]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[25] to counter[26], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[25]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[25]|Clk =>                            counter[25]|Q D
-        4.573    0.463   FF                            counter[25]|Q =>                            counter[25]|B E
-        4.973    0.400   FF                            counter[25]|B =>                         counter[25]|Cout 
-        4.973    0.000   FF                         counter[25]|Cout =>                          counter[26]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[26]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[2] to counter[3], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[2]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[2]|Clk =>                             counter[2]|Q D
-        4.573    0.463   FF                             counter[2]|Q =>                             counter[2]|B E
-        4.973    0.400   FF                             counter[2]|B =>                          counter[2]|Cout 
-        4.973    0.000   FF                          counter[2]|Cout =>                           counter[3]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[3]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[3] to counter[4], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[3]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[3]|Clk =>                             counter[3]|Q D
-        4.573    0.463   FF                             counter[3]|Q =>                             counter[3]|B E
-        4.973    0.400   FF                             counter[3]|B =>                          counter[3]|Cout 
-        4.973    0.000   FF                          counter[3]|Cout =>                           counter[4]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[4]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[24] to counter[25], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[24]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[24]|Clk =>                            counter[24]|Q D
-        4.573    0.463   FF                            counter[24]|Q =>                            counter[24]|B E
-        4.973    0.400   FF                            counter[24]|B =>                         counter[24]|Cout 
-        4.973    0.000   FF                         counter[24]|Cout =>                          counter[25]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[25]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[23] to counter[24], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[23]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[23]|Clk =>                            counter[23]|Q D
-        4.573    0.463   FF                            counter[23]|Q =>                            counter[23]|B E
-        4.973    0.400   FF                            counter[23]|B =>                         counter[23]|Cout 
-        4.973    0.000   FF                         counter[23]|Cout =>                          counter[24]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[24]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[18] to counter[19], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[18]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[18]|Clk =>                            counter[18]|Q D
-        4.573    0.463   FF                            counter[18]|Q =>                            counter[18]|B E
-        4.973    0.400   FF                            counter[18]|B =>                         counter[18]|Cout 
-        4.973    0.000   FF                         counter[18]|Cout =>                          counter[19]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[19]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[8] to counter[9], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[8]|Clk 
-      Data Path:
-        4.110    0.312   RF                           counter[8]|Clk =>                             counter[8]|Q D
-        4.573    0.463   FF                             counter[8]|Q =>                             counter[8]|B E
-        4.973    0.400   FF                             counter[8]|B =>                          counter[8]|Cout 
-        4.973    0.000   FF                          counter[8]|Cout =>                           counter[9]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                           counter[9]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[15] to counter[16], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[15]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[15]|Clk =>                            counter[15]|Q D
-        4.573    0.463   FF                            counter[15]|Q =>                            counter[15]|B E
-        4.973    0.400   FF                            counter[15]|B =>                         counter[15]|Cout 
-        4.973    0.000   FF                         counter[15]|Cout =>                          counter[16]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[16]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[11] to counter[12], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[11]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[11]|Clk =>                            counter[11]|Q D
-        4.573    0.463   FF                            counter[11]|Q =>                            counter[11]|B E
-        4.973    0.400   FF                            counter[11]|B =>                         counter[11]|Cout 
-        4.973    0.000   FF                         counter[11]|Cout =>                          counter[12]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y17_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y17_N0|ClkIn =>              clken_ctrl_X1_Y17_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y17_N0|ClkOut =>                          counter[12]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[16] to counter[17], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[16]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[16]|Clk =>                            counter[16]|Q D
-        4.573    0.463   FF                            counter[16]|Q =>                            counter[16]|B E
-        4.973    0.400   FF                            counter[16]|B =>                         counter[16]|Cout 
-        4.973    0.000   FF                         counter[16]|Cout =>                          counter[17]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[17]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[17] to counter[18], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[17]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[17]|Clk =>                            counter[17]|Q D
-        4.573    0.463   FF                            counter[17]|Q =>                            counter[17]|B E
-        4.973    0.400   FF                            counter[17]|B =>                         counter[17]|Cout 
-        4.973    0.000   FF                         counter[17]|Cout =>                          counter[18]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[18]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
-
-Hold from counter[19] to counter[20], clock Internal_generated_clock_Blinky|clk, constraint 0.000
-  Slack:   2.044
-    Arrival Time:    4.973
-        0.000    0.000   R                         Launch Clock Edge
-      Launch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.469    0.822   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.469    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.451    1.982   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.666    0.215   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.798    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[19]|Clk 
-      Data Path:
-        4.110    0.312   RF                          counter[19]|Clk =>                            counter[19]|Q D
-        4.573    0.463   FF                            counter[19]|Q =>                            counter[19]|B E
-        4.973    0.400   FF                            counter[19]|B =>                         counter[19]|Cout 
-        4.973    0.000   FF                         counter[19]|Cout =>                          counter[20]|Cin E
-    Required Time:   2.929
-        0.000    0.000   R                          Latch Clock Edge
-      Latch Clock Path:
-        0.000    0.000   RR                               Blinky|clk =>                          clk~input|padio 
-        0.647    0.647   RR                          clk~input|padio =>                        clk~input|combout 
-        1.644    0.997   RR                        clk~input|combout =>                   clk~inputclkctrl|inclk 
-        1.644    0.000   RR                   clk~inputclkctrl|inclk =>                  clk~inputclkctrl|outclk 
-        3.638    1.994   RR                  clk~inputclkctrl|outclk =>               clken_ctrl_X1_Y16_N0|ClkIn 
-        3.857    0.219   RR               clken_ctrl_X1_Y16_N0|ClkIn =>              clken_ctrl_X1_Y16_N0|ClkOut 
-        3.989    0.132   RR              clken_ctrl_X1_Y16_N0|ClkOut =>                          counter[20]|Clk 
-        3.120   -0.869   R                                      Hold
-        2.929   -0.191                               Clock Variation
+        0.000    0.000   RR                               Blinky|clk =>                           syn__42_|padio 
+        0.647    0.647   RR                           syn__42_|padio =>                         syn__42_|combout 
+        2.228    1.581   RR                         syn__42_|combout =>          clken_ctrl_X1009_Y1001_N0|ClkIn 
+        2.447    0.219   RR          clken_ctrl_X1009_Y1001_N0|ClkIn =>         clken_ctrl_X1009_Y1001_N0|ClkOut 
+        2.579    0.132   RR         clken_ctrl_X1009_Y1001_N0|ClkOut =>                             syn__47_|Clk 
+        1.745   -0.834   R                                      Hold
+        1.737   -0.008                               Clock Variation
 
