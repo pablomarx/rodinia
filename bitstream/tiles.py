@@ -29,6 +29,7 @@ class Tile:
     columns = 0
     rows = 0
     values = {}
+    bitmapTable = None
     
     def __init__(self, name, type, columns, rows, values):
         self.name = name
@@ -36,6 +37,25 @@ class Tile:
         self.columns = columns
         self.rows = rows
         self.values = values
+    
+    def buildBitmapTable(self):
+        bitmapTable = [];
+        for bit in range(0, self.columns * self.rows):
+            matched = False
+            for name in self.values:
+                if bit in self.values[name]:
+                    bitmapTable.append((name, self.values[name].index(bit)))
+                    matched = True
+                    break
+            if matched == False:
+                bitmapTable.append(None)
+        self.bitmapTable = bitmapTable
+    
+    def bit_owner(self, bit):
+        if self.bitmapTable is None:
+            self.buildBitmapTable()
+        
+        return self.bitmapTable[bit]
 
 def InstallTile(tile):
     global tiles
