@@ -2,6 +2,7 @@
 Decoded files from AGM's Supra tool
 
 ### Contents
+* [bitstream/agm-unpack.py](bitstream/agm-unpack.py): Python script to unpack a SPI bitstream
 * [agm-decode.py](agm-decode.py): Python script to decode AGM's encoded files
 * [etc](etc): Decoded files from Supra-2019.03.b0
 * [blinky](blinky): Sample input that can be synthesized by executing [blinky/input/synth.sh](blinky/input/synth.sh).  And the resulting output of the `af` tool in [blinky/output](blinky/output). Of which [blinky/output/alta_db/route.tx](blinky/output/alta_db/route.tx) seems particularly interesting. 
