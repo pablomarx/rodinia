@@ -73,6 +73,12 @@ class Chip:
             result = result + self.column_width(column)
         return result
 
+def ChipNamed(name):
+    for chip in chips:
+        if chip.name == name:
+            return chip
+    return None
+
 Chip('AG1KLP', 0x00120010, 10, 14, [
 	None,     None,     None,     None,    None,     None,     None,     None,     None,       'IOS2',   None,    'IOS3',   'IOS3',   None,
 	'IOS0',   'IOS0',   'IOS0',   None,    'IOS1',   'IOS1',   'IOS1',   'IOS1',   'BOOT_PLL', 'LOGIC0', 'BRAM1', 'LOGIC0', 'LOGIC0', 'ROGIC0',
