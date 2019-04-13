@@ -22,7 +22,6 @@
 #
 import sys
 from chips import chips
-from tiles import TileNamed
 from utils import *
 from breader import BinaryReader
 
