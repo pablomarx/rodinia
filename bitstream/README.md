@@ -1,4 +1,4 @@
-* [agm-unpack.py](agm-unpack.py): Python script to unpack a SPI bitstream.  Supply a command line argument containing a SPI bitstream, e.g. 
+* [agm-unpack.py](agm-unpack.py): Python script to unpack a SPI bitstream.  Presently AG1KLP is the only supported device, although other bitstreams (e.g. AG3KLP) look to be structured the same. Supply a command line argument containing a SPI bitstream, e.g. 
 
 ```
 python agm-unpack.py ../blinky/output/Blinky.bin
