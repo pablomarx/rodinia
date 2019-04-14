@@ -9,7 +9,7 @@ module Blinky(
 reg [31:0] counter;
 reg [35:0] data;
 
-prom mem(.Clk0(clk), .ClkEn0(1'b1), .AddressA(counter[6:0]), .DataOutA(data));
+prom mem(.clka(clk), .clkb(1'b0), .addra(counter[6:0]), .addrb(7'b0), .douta(data), .wea(1'b0), .dina({36'b0}));
 
 assign bank0 = data[7:0];
 assign bank1 = data[15:8];
