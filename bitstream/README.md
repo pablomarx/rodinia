@@ -85,7 +85,7 @@ defparam \mem.prom_0_6526DEFE.ram_inst .coord_x = 3;
 defparam \mem.prom_0_6526DEFE.ram_inst .coord_y = 7;
 ```
 
-* [agm-explain.py](agm-explain.py): Python script to explain the output of agm-unpack.  Requires two command line arguments, first being the device type (e.g. AG1KLP) and the second being a file containing the output of agm-unpack.  For the above BramTILE example, it turns that bit output into:
+* [agm-explain.py](agm-explain.py): Python script to explain the output of agm-unpack.  Requires one command line argument: a file containing the output of agm-unpack.  For the above BramTILE example, it turns that bit output into:
 
 ```
 .BramTILE 7 3
