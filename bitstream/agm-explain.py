@@ -22,20 +22,14 @@
 #
 
 import sys
-from chips import ChipNamed, chips
+from chips import ChipWithID, chips
 from utils import bits_to_string
 
-if len(sys.argv) != 3:
-    print("usage: %s <chip name> <agm-unpack.py output>" % sys.argv[0])
+if len(sys.argv) != 2:
+    print("usage: %s <agm-unpack.py output>" % sys.argv[0])
     sys.exit(-1)
 
-chip_name = sys.argv[1]
-chip = ChipNamed(chip_name)
-if chip is None:
-    print("Couldn't find chip named '%s'. Valid chip names are: %s" % (chip_name, ', '.join([chip.name for chip in chips])))
-    sys.exit(-1)
-    
-filename = sys.argv[2]
+filename = sys.argv[1]
 with open(filename, "r") as file:
     lines = file.readlines()
 
@@ -72,13 +66,20 @@ for line in lines:
             
         data = None
         comps = line.split(" ")
+        if len(comps) == 2:
+            if comps[0] == ".device":
+                chip_id = int(comps[1], 16)
+                chip = ChipWithID(chip_id)
+                if chip != None:
+                    print(".device %s" % hex(chip.device_id))
         if len(comps) == 3:
-            y = int(comps[1])
-            x = int(comps[2])
-            if x >= 0 and y >= 0:
-                tile = chip.tile_at(x, y)
-                if tile != None:
-                    data = {'x': x, 'y': y, 'tile': tile, 'bits': []}
+            if chip != None:
+                y = int(comps[1])
+                x = int(comps[2])
+                if x >= 0 and y >= 0:
+                    tile = chip.tile_at(x, y)
+                    if tile != None:
+                        data = {'x': x, 'y': y, 'tile': tile, 'bits': []}
     elif len(line) > 0:
         if data != None:
             for char in line:

@@ -21,7 +21,7 @@
 # DEALINGS IN THE SOFTWARE.
 #
 import sys
-from chips import chips
+from chips import chips, ChipWithID
 from utils import *
 from breader import BinaryReader
 
@@ -45,9 +45,7 @@ def decode_tile_bitstream(bits, length):
     for tile_row in range(chip.rows - 1,-1,-1):
         row_height = chip.max_row_height(tile_row)
         
-        columns = []
-        for tile_col in range(0, chip.columns):
-            columns.append('')
+        columns = [''] * chip.columns
 
         for row in range(0, row_height):
             row_offset = offset
@@ -94,15 +92,13 @@ if spi_mark != 0xffff:
 
 
 device_id = reader.read32()
-for idx in range(0, len(chips)):
-    if device_id == chips[idx].device_id:
-        chip = chips[idx]
-        break
-
+chip = ChipWithID(device_id)
 if chip is None:
     print("Unexpected device id %s at pos %s" % (hex(device_id), pos - 4))
     sys.exit(-1);
 
+
+print(".device %s" % hex(device_id))
 
 # ????
 reader.require32(0x0000FFFF)

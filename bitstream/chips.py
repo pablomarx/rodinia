@@ -78,6 +78,12 @@ def ChipNamed(name):
         if chip.name == name:
             return chip
     return None
+    
+def ChipWithID(id):
+    for chip in chips:
+        if chip.device_id == id:
+            return chip
+    return None
 
 Chip('AG1KLP', 0x00120010, 10, 14, [
 	None,     None,     None,     None,    None,     None,     None,     None,     None,       'IOS2',   None,    'IOS3',   'IOS3',   None,
