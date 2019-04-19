@@ -32,8 +32,9 @@ class Chip:
     columns = 0
     floorplan = []
     aliases = {}
+    packages = {}
     
-    def __init__(self, name, device_id, rows, columns, floorplan, aliases):
+    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages):
         global chips
         self.name = name
         self.device_id = device_id
@@ -41,6 +42,7 @@ class Chip:
         self.columns = columns
         self.floorplan = floorplan
         self.aliases = aliases
+        self.packages = packages
         chips.append(self)
         
     def tile_at(self, x, y): 
@@ -109,4 +111,55 @@ Chip('AG1KLP', 0x00120010, 10, 14, [
 	'ION0':     'AG1200_IOTILE_N4',
 	'ION1':     'AG1200_IOTILE_N4_G1',
 	'ION2':     'AG1200_IOTILE_N4',
+}, {
+    'QFN48': [
+        { 'name': 'PIN_1',    'type': 'IO', 'tile': (2,9),  'index': 0},
+        { 'name': 'PIN_2',    'type': 'IO', 'tile': (1,9),  'index': 3},
+        { 'name': 'PIN_3',    'type': 'IO', 'tile': (0,9),  'index': 2},
+        { 'name': 'PIN_4',    'type': 'IO', 'tile': (0,9),  'index': 0},
+        { 'name': 'PIN_5',    'type': 'IO', 'tile': (1,9),  'index': 1},
+        { 'name': 'PIN_6',    'type': 'IO', 'tile': (6,9),  'index': 2},
+        { 'name': 'VDDC',     'type': 'POWER'},
+        { 'name': 'GND',      'type': 'POWER'},
+        { 'name': 'PIN_9',    'type': 'IO', 'tile': (7,1),  'index': 0},
+        { 'name': 'VDDC',     'type': 'POWER'},
+        { 'name': 'PIN_11',   'type': 'IO', 'tile': (2,1),  'index': 2},
+        { 'name': 'PIN_12',   'type': 'IO', 'tile': (2,1),  'index': 0},
+        { 'name': 'PIN_13',   'type': 'IO', 'tile': (4,1),  'index': 2},
+        { 'name': 'PIN_14',   'type': 'IO', 'tile': (4,1),  'index': 0},
+        { 'name': 'PIN_15',   'type': 'IO', 'tile': (5,1),  'index': 0},
+        { 'name': 'PIN_16',   'type': 'IO', 'tile': (5,1),  'index': 1},
+        { 'name': 'PIN_17',   'type': 'IO', 'tile': (5,1),  'index': 2},
+        { 'name': 'PIN_18',   'type': 'IO', 'tile': (5,1),  'index': 3},
+        { 'name': 'PIN_19',   'type': 'IO', 'tile': (6,1),  'index': 0},
+        { 'name': 'PIN_20',   'type': 'IO', 'tile': (6,1),  'index': 1},
+        { 'name': 'VDDIO2',   'type': 'POWER'},
+        { 'name': 'PIN_22',   'type': 'IO', 'tile': (6,1),  'index': 2},
+        { 'name': 'PIN_23',   'type': 'IO', 'tile': (6,1),  'index': 3},
+        { 'name': 'CDONE',    'type': 'CONFIG'},
+        { 'name': 'PIN_25',   'type': 'IO', 'tile': (9,0),  'index': 1},
+        { 'name': 'PIN_26',   'type': 'IO', 'tile': (9,0),  'index': 3},
+        { 'name': 'PIN_27',   'type': 'IO', 'tile': (11,0), 'index': 1},
+        { 'name': 'VDDSPI',   'type': 'POWER'},
+        { 'name': 'PIN_29',   'type': 'IO', 'tile': (12,0), 'index': 0},
+        { 'name': 'CRESET_B', 'type': 'CONFIG'},
+        { 'name': 'PIN_31',   'type': 'IO', 'tile': (12,0), 'index': 2},
+        { 'name': 'PIN_32',   'type': 'IO', 'tile': (11,0), 'index': 3},
+        { 'name': 'PIN_33',   'type': 'IO', 'tile': (8,9),  'index': 0},
+        { 'name': 'PIN_34',   'type': 'IO', 'tile': (11,9), 'index': 1},
+        { 'name': 'PIN_35',   'type': 'IO', 'tile': (9,9),  'index': 3},
+        { 'name': 'PIN_36',   'type': 'IO', 'tile': (9,9),  'index': 1},
+        { 'name': 'PIN_37',   'type': 'IO', 'tile': (8,9),  'index': 3},
+        { 'name': 'PIN_38',   'type': 'IO', 'tile': (7,9),  'index': 3},
+        { 'name': 'PIN_39',   'type': 'IO', 'tile': (7,9),  'index': 0},
+        { 'name': 'PIN_40',   'type': 'IO', 'tile': (6,9),  'index': 0},
+        { 'name': 'PIN_41',   'type': 'IO', 'tile': (5,9),  'index': 3},
+        { 'name': 'PIN_42',   'type': 'IO', 'tile': (5,9),  'index': 2},
+        { 'name': 'PIN_43',   'type': 'IO', 'tile': (5,9),  'index': 1},
+        { 'name': 'PIN_44',   'type': 'IO', 'tile': (5,9),  'index': 0},
+        { 'name': 'PIN_45',   'type': 'IO', 'tile': (4,9),  'index': 2},
+        { 'name': 'PIN_46',   'type': 'IO', 'tile': (4,9),  'index': 0},
+        { 'name': 'VDDIO',    'type': 'POWER' },
+        { 'name': 'PIN_48',   'type': 'IO', 'tile': (2,9),  'index': 2},
+    ]
 })
