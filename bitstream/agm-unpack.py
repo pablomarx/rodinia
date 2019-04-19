@@ -126,13 +126,11 @@ while reader.endOfFile() == False:
         dest = word & 0xff
         if dest == 0x00:
             decode_tile_bitstream(bits, bit_len)
-        elif dest == 0x21:
-            # PLL CONFIG_CHAIN
-            print(".pll -1 -1")
+        elif dest == 0x20 or dest == 0x21:
+            print(".config_chain %s" % (dest & 0xf))
             print(bits_to_string(bits[:bit_len]))
             print("");
         else: 
-            # dest == 0x20 appears on AG1KLP
             print(".unknown_%s -1 -1" % hex(dest))
             print(bits_to_string(bits[:bit_len]))
             print("");
