@@ -24,6 +24,7 @@
 chips = []
 
 from tiles import TileNamed
+from configchain import *
 
 class Chip:
     name = None
@@ -33,8 +34,9 @@ class Chip:
     floorplan = []
     aliases = {}
     packages = {}
+    configChain = []
     
-    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages):
+    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages, configChainClasses):
         global chips
         self.name = name
         self.device_id = device_id
@@ -43,7 +45,22 @@ class Chip:
         self.floorplan = floorplan
         self.aliases = aliases
         self.packages = packages
+        
+        configChain = []
+        for ccClass in configChainClasses:
+            configChain.append(ccClass(self))
+        self.configChain = configChain
+
         chips.append(self)
+    
+    def pins_in_tile_at(self, x, y):
+        result = []
+        for pin in self.packages['QFN48']:
+            if 'tile' in pin:
+                tile = pin['tile']
+                if tile[0] == x and tile[1] == y:
+                    result.append(pin)
+        return result
         
     def tile_at(self, x, y): 
         index = (y * self.columns) + x
@@ -125,41 +142,43 @@ Chip('AG1KLP', 0x00120010, 10, 14, [
         { 'name': 'VDDC',     'type': 'POWER'},
         { 'name': 'PIN_11',   'type': 'IO', 'tile': (2,1),  'index': 2, 'configChainIndex': 29},
         { 'name': 'PIN_12',   'type': 'IO', 'tile': (2,1),  'index': 0, 'configChainIndex': 30},
-        { 'name': 'PIN_13',   'type': 'IO', 'tile': (4,1),  'index': 2, 'configChainIndex': 31},
+        { 'name': 'PIN_13',   'type': 'IO', 'tile': (4,1),  'index': 2, 'configChainIndex': 31}, # GB
         { 'name': 'PIN_14',   'type': 'IO', 'tile': (4,1),  'index': 0, 'configChainIndex': 32},
-        { 'name': 'PIN_15',   'type': 'IO', 'tile': (5,1),  'index': 0, 'configChainIndex': 33},
+        { 'name': 'PIN_15',   'type': 'IO', 'tile': (5,1),  'index': 0, 'configChainIndex': 33}, # GB
         { 'name': 'PIN_16',   'type': 'IO', 'tile': (5,1),  'index': 1, 'configChainIndex': 34},
         { 'name': 'PIN_17',   'type': 'IO', 'tile': (5,1),  'index': 2, 'configChainIndex': 35},
         { 'name': 'PIN_18',   'type': 'IO', 'tile': (5,1),  'index': 3, 'configChainIndex': 36},
-        { 'name': 'PIN_19',   'type': 'IO', 'tile': (6,1),  'index': 0, 'configChainIndex': 37},
+        { 'name': 'PIN_19',   'type': 'IO', 'tile': (6,1),  'index': 0, 'configChainIndex': 37}, # GB
         { 'name': 'PIN_20',   'type': 'IO', 'tile': (6,1),  'index': 1, 'configChainIndex': 38},
         { 'name': 'VDDIO2',   'type': 'POWER'},
         { 'name': 'PIN_22',   'type': 'IO', 'tile': (6,1),  'index': 2, 'configChainIndex': 39},
         { 'name': 'PIN_23',   'type': 'IO', 'tile': (6,1),  'index': 3, 'configChainIndex': 0},
-        { 'name': 'CDONE',    'type': 'CONFIG'},
+        { 'name': 'CDONE',    'type': 'CONFIG'}, 
         { 'name': 'PIN_25',   'type': 'IO', 'tile': (9,0),  'index': 1, 'configChainIndex': 2},
         { 'name': 'PIN_26',   'type': 'IO', 'tile': (9,0),  'index': 3, 'configChainIndex': 3},
-        { 'name': 'PIN_27',   'type': 'IO', 'tile': (11,0), 'index': 1, 'configChainIndex': 4},
+        { 'name': 'PIN_27',   'type': 'IO', 'tile': (11,0), 'index': 1, 'configChainIndex': 4}, # SPI SDO
         { 'name': 'VDDSPI',   'type': 'POWER'},
-        { 'name': 'PIN_29',   'type': 'IO', 'tile': (12,0), 'index': 0, 'configChainIndex': 6},
+        { 'name': 'PIN_29',   'type': 'IO', 'tile': (12,0), 'index': 0, 'configChainIndex': 6}, # SPI SS
         { 'name': 'CRESET_B', 'type': 'CONFIG'},
-        { 'name': 'PIN_31',   'type': 'IO', 'tile': (12,0), 'index': 2, 'configChainIndex': 7},
-        { 'name': 'PIN_32',   'type': 'IO', 'tile': (11,0), 'index': 3, 'configChainIndex': 5},
+        { 'name': 'PIN_31',   'type': 'IO', 'tile': (12,0), 'index': 2, 'configChainIndex': 7}, # SPI SCK
+        { 'name': 'PIN_32',   'type': 'IO', 'tile': (11,0), 'index': 3, 'configChainIndex': 5}, # SPI SDI
         { 'name': 'PIN_33',   'type': 'IO', 'tile': (8,9),  'index': 0, 'configChainIndex': 12},
         { 'name': 'PIN_34',   'type': 'IO', 'tile': (11,9), 'index': 1, 'configChainIndex': 8},
         { 'name': 'PIN_35',   'type': 'IO', 'tile': (9,9),  'index': 3, 'configChainIndex': 9},
         { 'name': 'PIN_36',   'type': 'IO', 'tile': (9,9),  'index': 1, 'configChainIndex': 10},
         { 'name': 'PIN_37',   'type': 'IO', 'tile': (8,9),  'index': 3, 'configChainIndex': 11},
         { 'name': 'PIN_38',   'type': 'IO', 'tile': (7,9),  'index': 3, 'configChainIndex': 13},
-        { 'name': 'PIN_39',   'type': 'IO', 'tile': (7,9),  'index': 0, 'configChainIndex': 14},
-        { 'name': 'PIN_40',   'type': 'IO', 'tile': (6,9),  'index': 0, 'configChainIndex': 16},
+        { 'name': 'PIN_39',   'type': 'IO', 'tile': (7,9),  'index': 0, 'configChainIndex': 14}, # GB
+        { 'name': 'PIN_40',   'type': 'IO', 'tile': (6,9),  'index': 0, 'configChainIndex': 16}, # GB
         { 'name': 'PIN_41',   'type': 'IO', 'tile': (5,9),  'index': 3, 'configChainIndex': 17},
         { 'name': 'PIN_42',   'type': 'IO', 'tile': (5,9),  'index': 2, 'configChainIndex': 18},
         { 'name': 'PIN_43',   'type': 'IO', 'tile': (5,9),  'index': 1, 'configChainIndex': 19},
-        { 'name': 'PIN_44',   'type': 'IO', 'tile': (5,9),  'index': 0, 'configChainIndex': 20},
+        { 'name': 'PIN_44',   'type': 'IO', 'tile': (5,9),  'index': 0, 'configChainIndex': 20}, # GB
         { 'name': 'PIN_45',   'type': 'IO', 'tile': (4,9),  'index': 2, 'configChainIndex': 21},
-        { 'name': 'PIN_46',   'type': 'IO', 'tile': (4,9),  'index': 0, 'configChainIndex': 22},
+        { 'name': 'PIN_46',   'type': 'IO', 'tile': (4,9),  'index': 0, 'configChainIndex': 22}, # GB
         { 'name': 'VDDIO',    'type': 'POWER' },
         { 'name': 'PIN_48',   'type': 'IO', 'tile': (2,9),  'index': 2, 'configChainIndex': 23}
     ]
-})
+}, [
+    ConfigChainIO, ConfigChainPLL
+])

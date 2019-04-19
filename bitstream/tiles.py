@@ -56,6 +56,20 @@ class Tile:
             self.buildBitmapTable()
         
         return self.bitmapTable[bit]
+        
+    def decode(self, bits):
+        values = { '__NAME': self.name }
+        for idx in range(0, len(bits)):
+            owner = self.bit_owner(idx)
+            if owner != None:
+                name = owner[0]
+                position = owner[1]
+            
+                if name not in values:
+                    values[name] = [None] * len(self.values[name])
+            
+                values[name][position] = bits[idx]
+        return values
 
 def InstallTile(tile):
     global tiles

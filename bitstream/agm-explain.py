@@ -34,24 +34,13 @@ with open(filename, "r") as file:
     lines = file.readlines()
 
 def print_data(data):
-    tile = data['tile']
-    print(".%s %s %s" % (tile.type, data['y'], data['x']))
-    values = { '__NAME': tile.name }
-    bits = data['bits']
-    for idx in range(0, len(bits)):
-        owner = tile.bit_owner(idx)
-        if owner != None:
-            name = owner[0]
-            position = owner[1]
-            
-            if name not in values:
-                values[name] = [None] * len(tile.values[name])
-            
-            values[name][position] = bits[idx]
+    owner = data['owner']
+    values = owner.decode(data['bits'])
     
     keys = values.keys()
     keys.sort()
     
+    print(data['header'])
     for key in keys:
         print("%s: %s" % (key, bits_to_string(values[key])))
 
@@ -72,6 +61,10 @@ for line in lines:
                 chip = ChipWithID(chip_id)
                 if chip != None:
                     print(".device %s" % hex(chip.device_id))
+            elif comps[0] == ".config_chain":
+                chain_id = int(comps[1])
+                chain = chip.configChain[chain_id]
+                data = { 'bits': [], 'owner': chain, 'header': line }
         if len(comps) == 3:
             if chip != None:
                 y = int(comps[1])
@@ -79,7 +72,7 @@ for line in lines:
                 if x >= 0 and y >= 0:
                     tile = chip.tile_at(x, y)
                     if tile != None:
-                        data = {'x': x, 'y': y, 'tile': tile, 'bits': []}
+                        data = {'x': x, 'y': y, 'owner': tile, 'header': line, 'bits': []}
     elif len(line) > 0:
         if data != None:
             for char in line:
