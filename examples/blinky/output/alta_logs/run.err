@@ -1,8 +1,0 @@
-Info: Created tie LOW cell gnd~I
-.
-Info: Auto constraint: create_clock -name Internal_generated_clock_syn__42_|o -period 1000.000 syn__42_|o.
-Info: Auto constraint: create_clock -name Internal_generated_clock_Blinky|clk -period 1000.000 clk.
-Warn: User constraints coverage is too low at 0.0%.
-Info: Using config file ./Blinky.bin to generate download file ./Blinky_download.svf.
-
-Total 0 fatals, 0 errors, 1 warnings, 4 infos.

@@ -48,45 +48,81 @@ wire	\counter[0]_inv ;
 //wire	counter[7];
 //wire	counter[8];
 //wire	counter[9];
+wire	[35:0] data;
+//wire	data[0];
+//wire	data[10];
+//wire	data[11];
+//wire	data[12];
+//wire	data[13];
+//wire	data[14];
+//wire	data[15];
+//wire	data[16];
+//wire	data[17];
+//wire	data[18];
+//wire	data[19];
+//wire	data[1];
+//wire	data[20];
+//wire	data[21];
+//wire	data[22];
+//wire	data[23];
+//wire	data[24];
+//wire	data[25];
+//wire	data[26];
+//wire	data[27];
+//wire	data[28];
+//wire	data[29];
+//wire	data[2];
+//wire	data[30];
+//wire	data[31];
+//wire	data[32];
+//wire	data[33];
+//wire	data[34];
+//wire	data[35];
+//wire	data[3];
+//wire	data[4];
+//wire	data[5];
+//wire	data[6];
+//wire	data[7];
+//wire	data[8];
+//wire	data[9];
 wire	\gnd~I_int ;
-wire	[17:0] \mem.prom_0_6526DEFE.portDataOutA ;
-//wire	\mem.prom_0_6526DEFE.portDataOutA [0];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [10];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [11];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [12];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [13];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [14];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [15];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [16];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [17];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [1];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [2];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [3];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [4];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [5];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [6];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [7];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [8];
-//wire	\mem.prom_0_6526DEFE.portDataOutA [9];
-wire	[17:0] \mem.prom_0_6526DEFE.portDataOutB ;
-//wire	\mem.prom_0_6526DEFE.portDataOutB [0];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [10];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [11];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [12];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [13];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [14];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [15];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [16];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [17];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [1];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [2];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [3];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [4];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [5];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [6];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [7];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [8];
-//wire	\mem.prom_0_6526DEFE.portDataOutB [9];
+wire	[35:0] \mem.doutb ;
+//wire	\mem.doutb [0];
+//wire	\mem.doutb [10];
+//wire	\mem.doutb [11];
+//wire	\mem.doutb [12];
+//wire	\mem.doutb [13];
+//wire	\mem.doutb [14];
+//wire	\mem.doutb [15];
+//wire	\mem.doutb [16];
+//wire	\mem.doutb [17];
+//wire	\mem.doutb [18];
+//wire	\mem.doutb [19];
+//wire	\mem.doutb [1];
+//wire	\mem.doutb [20];
+//wire	\mem.doutb [21];
+//wire	\mem.doutb [22];
+//wire	\mem.doutb [23];
+//wire	\mem.doutb [24];
+//wire	\mem.doutb [25];
+//wire	\mem.doutb [26];
+//wire	\mem.doutb [27];
+//wire	\mem.doutb [28];
+//wire	\mem.doutb [29];
+//wire	\mem.doutb [2];
+//wire	\mem.doutb [30];
+//wire	\mem.doutb [31];
+//wire	\mem.doutb [32];
+//wire	\mem.doutb [33];
+//wire	\mem.doutb [34];
+//wire	\mem.doutb [35];
+//wire	\mem.doutb [3];
+//wire	\mem.doutb [4];
+//wire	\mem.doutb [5];
+//wire	\mem.doutb [6];
+//wire	\mem.doutb [7];
+//wire	\mem.doutb [8];
+//wire	\mem.doutb [9];
 //wire	syn__00_[10];
 //wire	syn__00_[11];
 //wire	syn__00_[12];
@@ -125,40 +161,40 @@ assign vcc = 1'b1;
 assign gnd = 1'b0;
 
 // Location: BBOX_X3_Y3_N0
-alta_bram \mem.prom_0_6526DEFE.ram_inst (
+alta_bram \mem.ram_inst (
 	.DataInA({\gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int }),
-	.DataInB({\gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int }),
-	.AddressA({counter[6], counter[5], counter[4], counter[3], counter[2], counter[1], counter[0], vcc, vcc, vcc, vcc, vcc}),
-	.AddressB({counter[6], counter[5], counter[4], counter[3], counter[2], counter[1], counter[0], vcc, vcc, vcc, vcc, vcc}),
-	.DataOutA(\mem.prom_0_6526DEFE.portDataOutA ),
-	.DataOutB(\mem.prom_0_6526DEFE.portDataOutB ),
+	.DataInB(),
+	.AddressA({counter[6], counter[5], counter[4], counter[3], counter[2], counter[1], counter[0]}),
+	.AddressB({\gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int , \gnd~I_int }),
+	.DataOutA({data[17], data[16], data[15], data[14], data[13], data[12], data[11], data[10], data[9], data[8], data[7], data[6], data[5], data[4], data[3], data[2], data[1], data[0]}),
+	.DataOutB({\mem.doutb [17], \mem.doutb [16], \mem.doutb [15], \mem.doutb [14], \mem.doutb [13], \mem.doutb [12], \mem.doutb [11], \mem.doutb [10], \mem.doutb [9], \mem.doutb [8], \mem.doutb [7], \mem.doutb [6], \mem.doutb [5], \mem.doutb [4], \mem.doutb [3], \mem.doutb [2], \mem.doutb [1], \mem.doutb [0]}),
 	.Clk0(syn__02_),
 	.ClkEn0(vcc),
 	.AsyncReset0(gnd),
-	.Clk1(syn__02_),
+	.Clk1(gnd),
 	.ClkEn1(vcc),
 	.AsyncReset1(gnd),
 	.WeRenA(gnd),
 	.WeRenB(gnd));
-defparam \mem.prom_0_6526DEFE.ram_inst .CLKMODE = 1'b0;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTA_WIDTH = 4'b0000;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_WIDTH = 4'b0000;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTA_WRITEMODE = 1'b0;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_WRITEMODE = 1'b0;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTA_WRITETHRU = 1'b0;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_WRITETHRU = 1'b0;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTA_OUTREG = 1'b0;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_OUTREG = 1'b0;
-defparam \mem.prom_0_6526DEFE.ram_inst .PORTB_READONLY = 1'b0;
-defparam \mem.prom_0_6526DEFE.ram_inst .INIT_VAL = 4608'hF70A825CA74B2DE9EF0D77A973D13517857AD2B60AC1F6D468A97E57DC84305F5C444CC1AD08FA8CC8EC839A57D6A58F1F49916EA3015C6970698DE2215AC5D1779CCAB6FFF7F630494953941150FA26DA2455DEA0288EE9003ADF11AD2186EA58E16E618610F99D614D5EC815F6DCEB6BC5F2A8C9823B2A0330C325EE1035BF65490321DD7A6F6173FE38204C86B4F2D71E40A4F554AAA572BA8E4A93652DADA229BB1FB959930B2BDBE7950B69234219E233C5B0D99732948C5B810305E7734FC29270768687C32B36A91C631BB73816FE6EE45E1B0CCE6794A2D331FDD83D1F9B491444324E1E7F6B6622AE71383E98427A3E5EE2B411F67C63ECF702CC3631FB44BF046E208D857DC556E717351E1A60BE83CFCBCC509D58F16D8544FA0604EEE66FCC6110350859CC95C86949286A81ADDF3FB88F2BE190DCFBB5343F35ABCF6890EFCF2063D7137324356A0AD23EF44CCE89FD36038BF5FE999DB49B20ED733C4DBE4247D4D83A6ADA678E40D4E0EA12C2837F1D7BAABA2FF2C8C06BD5B13E4395371741FBC08B5B36784D3C180208A68C548F327D219A3A9E6C15D00727B2CD82A6172005FA2C394C2F4F9405D3B42E529713712DFA77620090F69CFD7D309D882CC8921FAFB0E4A4F9F79AC6D04EFB96F8AB5DD1C0D4DE5BC4320518CB3DAE391C977A73E70DDA5F96EC156B9608CFFCD99DAE35E58C8BEE6D3E918A05E386B07C8FC1C1B5C54D6D57908B72A3796DA218F6EF4A48E81FDBBDCA0E721E9F2120301C6EBC4CC51FC6A41A914EEA1476525472A5D9880080747BF85007;
+defparam \mem.ram_inst .CLKMODE = 1'b0;
+defparam \mem.ram_inst .PORTA_WIDTH = 4'b0000;
+defparam \mem.ram_inst .PORTB_WIDTH = 4'b0000;
+defparam \mem.ram_inst .PORTA_WRITEMODE = 1'b0;
+defparam \mem.ram_inst .PORTB_WRITEMODE = 1'b0;
+defparam \mem.ram_inst .PORTA_WRITETHRU = 1'b0;
+defparam \mem.ram_inst .PORTB_WRITETHRU = 1'b0;
+defparam \mem.ram_inst .PORTA_OUTREG = 1'b0;
+defparam \mem.ram_inst .PORTB_OUTREG = 1'b0;
+defparam \mem.ram_inst .PORTB_READONLY = 1'b1;
+defparam \mem.ram_inst .INIT_VAL = 4608'hF70A825CA74B2DE9EF0D77A973D13517857AD2B60AC1F6D468A97E57DC84305F5C444CC1AD08FA8CC8EC839A57D6A58F1F49916EA3015C6970698DE2215AC5D1779CCAB6FFF7F630494953941150FA26DA2455DEA0288EE9003ADF11AD2186EA58E16E618610F99D614D5EC815F6DCEB6BC5F2A8C9823B2A0330C325EE1035BF65490321DD7A6F6173FE38204C86B4F2D71E40A4F554AAA572BA8E4A93652DADA229BB1FB959930B2BDBE7950B69234219E233C5B0D99732948C5B810305E7734FC29270768687C32B36A91C631BB73816FE6EE45E1B0CCE6794A2D331FDD83D1F9B491444324E1E7F6B6622AE71383E98427A3E5EE2B411F67C63ECF702CC3631FB44BF046E208D857DC556E717351E1A60BE83CFCBCC509D58F16D8544FA0604EEE66FCC6110350859CC95C86949286A81ADDF3FB88F2BE190DCFBB5343F35ABCF6890EFCF2063D7137324356A0AD23EF44CCE89FD36038BF5FE999DB49B20ED733C4DBE4247D4D83A6ADA678E40D4E0EA12C2837F1D7BAABA2FF2C8C06BD5B13E4395371741FBC08B5B36784D3C180208A68C548F327D219A3A9E6C15D00727B2CD82A6172005FA2C394C2F4F9405D3B42E529713712DFA77620090F69CFD7D309D882CC8921FAFB0E4A4F9F79AC6D04EFB96F8AB5DD1C0D4DE5BC4320518CB3DAE391C977A73E70DDA5F96EC156B9608CFFCD99DAE35E58C8BEE6D3E918A05E386B07C8FC1C1B5C54D6D57908B72A3796DA218F6EF4A48E81FDBBDCA0E721E9F2120301C6EBC4CC51FC6A41A914EEA1476525472A5D9880080747BF85007;
 
-defparam \mem.prom_0_6526DEFE.ram_inst .coord_x = 3;
-defparam \mem.prom_0_6526DEFE.ram_inst .coord_y = 3;
-defparam \mem.prom_0_6526DEFE.ram_inst .coord_z = 0;
+defparam \mem.ram_inst .coord_x = 3;
+defparam \mem.ram_inst .coord_y = 3;
+defparam \mem.ram_inst .coord_z = 0;
 // Location: PIN_11
 // alta_io_obuf syn__10_(
 alta_rio syn__10_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [0]),
+	.datain(data[0]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -175,7 +211,7 @@ defparam syn__10_.CFG_KEEP = 2'b00;
 // Location: PIN_12
 // alta_io_obuf syn__11_(
 alta_rio syn__11_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [1]),
+	.datain(data[1]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -192,7 +228,7 @@ defparam syn__11_.CFG_KEEP = 2'b00;
 // Location: PIN_13
 // alta_io_obuf syn__12_(
 alta_rio syn__12_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [2]),
+	.datain(data[2]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -209,7 +245,7 @@ defparam syn__12_.CFG_KEEP = 2'b00;
 // Location: PIN_14
 // alta_io_obuf syn__13_(
 alta_rio syn__13_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [3]),
+	.datain(data[3]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -226,7 +262,7 @@ defparam syn__13_.CFG_KEEP = 2'b00;
 // Location: PIN_15
 // alta_io_obuf syn__14_(
 alta_rio syn__14_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [4]),
+	.datain(data[4]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -243,7 +279,7 @@ defparam syn__14_.CFG_KEEP = 2'b00;
 // Location: PIN_16
 // alta_io_obuf syn__15_(
 alta_rio syn__15_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [5]),
+	.datain(data[5]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -260,7 +296,7 @@ defparam syn__15_.CFG_KEEP = 2'b00;
 // Location: PIN_17
 // alta_io_obuf syn__16_(
 alta_rio syn__16_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [6]),
+	.datain(data[6]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -277,7 +313,7 @@ defparam syn__16_.CFG_KEEP = 2'b00;
 // Location: PIN_18
 // alta_io_obuf syn__17_(
 alta_rio syn__17_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [7]),
+	.datain(data[7]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -294,7 +330,7 @@ defparam syn__17_.CFG_KEEP = 2'b00;
 // Location: PIN_19
 // alta_io_obuf syn__18_(
 alta_rio syn__18_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [8]),
+	.datain(data[8]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -311,7 +347,7 @@ defparam syn__18_.CFG_KEEP = 2'b00;
 // Location: PIN_20
 // alta_io_obuf syn__19_(
 alta_rio syn__19_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [9]),
+	.datain(data[9]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -328,7 +364,7 @@ defparam syn__19_.CFG_KEEP = 2'b00;
 // Location: PIN_21
 // alta_io_obuf syn__20_(
 alta_rio syn__20_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [10]),
+	.datain(data[10]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -345,7 +381,7 @@ defparam syn__20_.CFG_KEEP = 2'b00;
 // Location: PIN_22
 // alta_io_obuf syn__21_(
 alta_rio syn__21_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [11]),
+	.datain(data[11]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -362,7 +398,7 @@ defparam syn__21_.CFG_KEEP = 2'b00;
 // Location: PIN_23
 // alta_io_obuf syn__22_(
 alta_rio syn__22_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [12]),
+	.datain(data[12]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -379,7 +415,7 @@ defparam syn__22_.CFG_KEEP = 2'b00;
 // Location: PIN_24
 // alta_io_obuf syn__23_(
 alta_rio syn__23_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [13]),
+	.datain(data[13]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -396,7 +432,7 @@ defparam syn__23_.CFG_KEEP = 2'b00;
 // Location: PIN_25
 // alta_io_obuf syn__24_(
 alta_rio syn__24_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [14]),
+	.datain(data[14]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -413,7 +449,7 @@ defparam syn__24_.CFG_KEEP = 2'b00;
 // Location: PIN_26
 // alta_io_obuf syn__25_(
 alta_rio syn__25_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [15]),
+	.datain(data[15]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -430,7 +466,7 @@ defparam syn__25_.CFG_KEEP = 2'b00;
 // Location: PIN_27
 // alta_io_obuf syn__26_(
 alta_rio syn__26_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [16]),
+	.datain(data[16]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -447,7 +483,7 @@ defparam syn__26_.CFG_KEEP = 2'b00;
 // Location: PIN_28
 // alta_io_obuf syn__27_(
 alta_rio syn__27_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutA [17]),
+	.datain(data[17]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -464,7 +500,7 @@ defparam syn__27_.CFG_KEEP = 2'b00;
 // Location: PIN_29
 // alta_io_obuf syn__28_(
 alta_rio syn__28_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [0]),
+	.datain(data[18]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -481,7 +517,7 @@ defparam syn__28_.CFG_KEEP = 2'b00;
 // Location: PIN_30
 // alta_io_obuf syn__29_(
 alta_rio syn__29_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [1]),
+	.datain(data[19]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -498,7 +534,7 @@ defparam syn__29_.CFG_KEEP = 2'b00;
 // Location: PIN_31
 // alta_io_obuf syn__30_(
 alta_rio syn__30_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [2]),
+	.datain(data[20]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -515,7 +551,7 @@ defparam syn__30_.CFG_KEEP = 2'b00;
 // Location: PIN_32
 // alta_io_obuf syn__31_(
 alta_rio syn__31_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [3]),
+	.datain(data[21]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -532,7 +568,7 @@ defparam syn__31_.CFG_KEEP = 2'b00;
 // Location: PIN_33
 // alta_io_obuf syn__32_(
 alta_rio syn__32_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [4]),
+	.datain(data[22]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -549,7 +585,7 @@ defparam syn__32_.CFG_KEEP = 2'b00;
 // Location: PIN_34
 // alta_io_obuf syn__33_(
 alta_rio syn__33_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [5]),
+	.datain(data[23]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -566,7 +602,7 @@ defparam syn__33_.CFG_KEEP = 2'b00;
 // Location: PIN_35
 // alta_io_obuf syn__34_(
 alta_rio syn__34_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [6]),
+	.datain(data[24]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -583,7 +619,7 @@ defparam syn__34_.CFG_KEEP = 2'b00;
 // Location: PIN_36
 // alta_io_obuf syn__35_(
 alta_rio syn__35_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [7]),
+	.datain(data[25]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -600,7 +636,7 @@ defparam syn__35_.CFG_KEEP = 2'b00;
 // Location: PIN_37
 // alta_io_obuf syn__36_(
 alta_rio syn__36_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [8]),
+	.datain(data[26]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -617,7 +653,7 @@ defparam syn__36_.CFG_KEEP = 2'b00;
 // Location: PIN_38
 // alta_io_obuf syn__37_(
 alta_rio syn__37_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [9]),
+	.datain(data[27]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -634,7 +670,7 @@ defparam syn__37_.CFG_KEEP = 2'b00;
 // Location: PIN_39
 // alta_io_obuf syn__38_(
 alta_rio syn__38_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [10]),
+	.datain(data[28]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -651,7 +687,7 @@ defparam syn__38_.CFG_KEEP = 2'b00;
 // Location: PIN_40
 // alta_io_obuf syn__39_(
 alta_rio syn__39_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [11]),
+	.datain(data[29]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -668,7 +704,7 @@ defparam syn__39_.CFG_KEEP = 2'b00;
 // Location: PIN_41
 // alta_io_obuf syn__40_(
 alta_rio syn__40_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [12]),
+	.datain(data[30]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
@@ -685,7 +721,7 @@ defparam syn__40_.CFG_KEEP = 2'b00;
 // Location: PIN_42
 // alta_io_obuf syn__41_(
 alta_rio syn__41_(
-	.datain(\mem.prom_0_6526DEFE.portDataOutB [13]),
+	.datain(data[31]),
 	.oe(vcc),
 	.outclk(gnd),
 	.outclkena(vcc),
