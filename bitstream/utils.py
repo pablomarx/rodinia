@@ -32,8 +32,18 @@ def bytes_to_num(bytes):
 def bits_invert(bits):
     return [int(not bit) for bit in bits]
 
-def bits_to_string(bits):
-    return ''.join([str(x) for x in bits])
+def bits_to_string(bits, spacing=0, prefix=False):
+    r = bits
+    if spacing > 0:
+        r = r[:]
+        num = 0
+        for i in range(spacing, len(bits), spacing):
+            r.insert(i + num, '_')
+            num += 1
+    base = ''
+    if prefix:
+        base = str(len(bits)) + '\'b'
+    return base + ''.join([str(x) for x in r])
 
 def bytes_to_bits(bytes):
     bits = []
