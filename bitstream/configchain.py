@@ -74,6 +74,16 @@ class ConfigChainIO:
         pins = [pin for pin in package if 'configChainIndex' in pin]
         pins = sorted(pins, key=itemgetter('configChainIndex'))
         
+        # CFG_KEEP appers to be direction? After changing bank3 to input:
+        # 33 _CFG_KEEP: 00
+        #  7 _CFG_KEEP: 01
+        #
+        # Verified OPEN DRAIN via adding the following to the sdc file:
+        # set_instance_assignment -name ENABLE_OPEN_DRAIN -to bank3[4] true
+        # before:
+        # < PIN_41_CFG_OPEN_DRAIN: 0
+        # after:
+        # > PIN_41_CFG_OPEN_DRAIN: 1
         base = [ ('CFG_KEEP', 2), ('CFG_PDRCTRL', 2), ('CFG_OPEN_DRAIN', 1)]
         fields = []
         for pin in pins:
