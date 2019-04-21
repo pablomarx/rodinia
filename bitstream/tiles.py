@@ -166,6 +166,9 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', 34, 20, {
 }, {
     'CFG_RMUX[0-9]': lambda x: bits_to_string(x, 6, True),
     'CFG_IOMUX[0-9]': lambda x: bits_to_string(x, 7, True),
+    'CFG_TILECLKMUX': lambda x: bits_to_string(x, 3, True),
+    'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
+    'CFG_CTRLMUX[0-9]': lambda x: bits_to_string(x, 6, True)
 }))
 
 InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', 34, 20, {
@@ -213,6 +216,9 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', 34, 20, {
 }, {
     'CFG_RMUX[0-9]': lambda x: bits_to_string(x, 6, True),
     'CFG_IOMUX[0-9]': lambda x: bits_to_string(x, 7, True),
+    'CFG_TILECLKMUX': lambda x: bits_to_string(x, 3, True),
+    'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
+    'CFG_CTRLMUX[0-9]': lambda x: bits_to_string(x, 6, True)
 }))
 
 InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', 34, 20, {
@@ -260,6 +266,9 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', 34, 20, {
 }, {
     'CFG_RMUX[0-9]': lambda x: bits_to_string(x, 6, True),
     'CFG_IOMUX[0-9]': lambda x: bits_to_string(x, 7, True),
+    'CFG_TILECLKMUX': lambda x: bits_to_string(x, 3, True),
+    'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
+    'CFG_CTRLMUX[0-9]': lambda x: bits_to_string(x, 6, True)
 }))
 
 InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', 34, 20, {
@@ -305,6 +314,9 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', 34, 20, {
 }, {
     'CFG_RMUX[0-9]': lambda x: bits_to_string(x, 6, True),
     'CFG_IOMUX[0-9]': lambda x: bits_to_string(x, 7, True),
+    'CFG_TILECLKMUX': lambda x: bits_to_string(x, 3, True),
+    'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
+    'CFG_CTRLMUX[0-9]': lambda x: bits_to_string(x, 6, True)
 }))
 
 InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', 108, 68, {
@@ -378,6 +390,11 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', 108, 68, {
     'INIT_VAL': lambda bits: "".join([format(bit, '02x') for bit in bits_to_bytes(bits[::-1])]),
     'CFG_RMUX[0-9][0-9]': lambda x: bits_to_string(x, 10, True),
     'CFG_IMUX[0-9][0-9]': lambda x: bits_to_string(x, 12, True),
+    'CFG_CTRLMUX': lambda x: bits_to_string(x, 12, True),
+    'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
+    'CFG_TILEASYNCMUX': lambda x: bits_to_string(x, 4, True),
+    'CFG_TILECLKENMUX': lambda x: bits_to_string(x, 3, True),
+    'CFG_TILEWERENMUX': lambda x: bits_to_string(x, 4, True),
 }))
 
 InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
@@ -565,7 +582,12 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
    '^SLICE_LOGIC[0-9][0-9]_CFG_LUT$': lambda x: '16\'h'+format(bytes_to_num(bits_to_bytes(bits_invert(x[::-1]))), '04x'),
    'CFG_IMUX[0-9][0-9]': lambda x: bits_to_string(x, 12, True),
    'CFG_RMUX[0-9][0-9]': lambda x: bits_to_string(x, 10, True),
-   'CFG_CTRLMUX': lambda x: bits_to_string(x, 12, True)
+   'CFG_CTRLMUX': lambda x: bits_to_string(x, 12, True),
+   'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
+   'CFG_TILEASYNCMUX': lambda x: bits_to_string(x, 4, True),
+   'CFG_TILECLKENMUX': lambda x: bits_to_string(x, 3, True),
+   'CFG_TILECLKMUX': lambda x: bits_to_string(x, 4, True),
+   'CFG_TILESYNCMUX': lambda x: bits_to_string(x, 3, True),
 }))
 
 InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', 16, 68, {
