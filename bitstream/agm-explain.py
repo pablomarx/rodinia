@@ -67,8 +67,8 @@ for line in lines:
                 data = { 'bits': [], 'owner': chain, 'header': line }
         if len(comps) == 3:
             if chip != None:
-                y = int(comps[1])
-                x = int(comps[2])
+                x = int(comps[1])
+                y = int(comps[2])
                 if x >= 0 and y >= 0:
                     tile = chip.tile_at(x, y)
                     if tile != None:

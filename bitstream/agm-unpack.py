@@ -71,7 +71,7 @@ def decode_tile_bitstream(bits, length):
         for tile_col in range(0, chip.columns):
             tile = chip.tile_at(tile_col, tile_row)
             if tile is not None:
-                print(".%s %s %s" % (tile.type, tile_row, tile_col))
+                print(".%s %s %s" % (tile.type, tile_col, tile_row))
                 print(columns[tile_col])
 
 #
