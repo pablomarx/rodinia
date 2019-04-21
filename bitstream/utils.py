@@ -29,6 +29,9 @@ def bytes_to_num(bytes):
         num = (num << 8) | byte
     return num
 
+def bits_invert(bits):
+    return [int(not bit) for bit in bits]
+
 def bits_to_string(bits):
     return ''.join([str(x) for x in bits])
 
