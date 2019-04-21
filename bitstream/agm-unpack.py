@@ -56,7 +56,7 @@ def decode_tile_bitstream(bits, length):
                 if tile is not None and tile.rows > row:
                     col_bits = bits[row_offset:row_offset+col_len]
                     col_bits = col_bits[::-1]
-                    columns[tile_col] = bits_to_string(col_bits) + '\n' + columns[tile_col]
+                    columns[tile_col] += bits_to_string(col_bits) + '\n'
                 row_offset = row_offset + col_len
 
             offset += row_width
