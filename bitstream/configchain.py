@@ -21,6 +21,7 @@
 # DEALINGS IN THE SOFTWARE.
 #
 from operator import itemgetter
+from utils import bits_to_string
 
 class ConfigChainPLL:
     def __init__(self, chip):
@@ -54,6 +55,9 @@ class ConfigChainPLL:
             ('CFG_SELCLK_G3',      3),
             ('CFG_PllClkFbMUX',    1)
         ]
+    
+    def format(self, name, bits):
+        return bits_to_string(bits)
     
     def decode(self, bits):
         result = { '__NAME': 'PLL' }
@@ -92,6 +96,9 @@ class ConfigChainIO:
                 length = value[1]
                 fields.append((pin['name'] + '_' + name, length))
         self.fields = fields
+
+    def format(self, name, bits):
+        return bits_to_string(bits)
 
     def decode(self, bits):
         result = { '__NAME': 'I/O' }

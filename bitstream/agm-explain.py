@@ -23,7 +23,6 @@
 
 import sys
 from chips import ChipWithID, chips
-from utils import bits_to_string
 
 if len(sys.argv) != 2:
     print("usage: %s <agm-unpack.py output>" % sys.argv[0])
@@ -42,7 +41,7 @@ def print_data(data):
     
     print(data['header'])
     for key in keys:
-        print("%s: %s" % (key, bits_to_string(values[key])))
+        print("%s: %s" % (key, owner.format(key, values[key])))
 
     print("")
 
