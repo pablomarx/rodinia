@@ -48,6 +48,7 @@ def bits_to_bytes(bits):
         byte = (byte << 1) | bit
         if i & 7 == 7:
             bytes.append(byte)
+            byte = 0
     if i & 7 != 7:
         bytes.append(byte)
     return bytes
