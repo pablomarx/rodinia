@@ -66,7 +66,14 @@ with open(sys.argv[1], "rb") as input_file:
         entry.append(read_string(input_file))
 
         # Seems like a type.. values are:
-        # 36, 41, 42, 43, 44, 47, 53, 61, 66, 77, 78
+        # BOOT_PLL: 53, 78
+        # BRAM0: 66
+        # ION0_4_0: 44, 47
+        # ION1_4_1: 44, 47, 77
+        # IOS0_4_0: 44, 47
+        # IOS1_4_1: 44, 47, 77
+        # LOGIC0: 36, 41, 42, 43
+        # PLL: 61
         entry.append(read16(input_file))
 
         # First value here ranges from 1 to 15, and then 65535
