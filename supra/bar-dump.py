@@ -36,6 +36,9 @@ def read16(file):
 def read32(file):
     return struct.unpack('I', file.read(4))[0]
 
+def read_float(file):
+    return struct.unpack('f', file.read(4))[0]
+
 def read_string(file):
     len = read16(file)
     return file.read(len)
@@ -96,7 +99,7 @@ with open(sys.argv[1], "rb") as input_file:
 
         # Seems like timing information
         for _ in range(0, 8):
-            entry.append(read32(input_file))
+            entry.append(read_float(input_file))
     
         # number of paths??
         repeat = read16(input_file)
