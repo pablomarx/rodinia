@@ -42,6 +42,22 @@ def read_float(file):
 def read_string(file):
     len = read16(file)
     return file.read(len)
+    
+types = [
+    "RMUX", "LMUX", "TMUX", None, "IMUX", "WMUX", "KMUX", "CtrlMUX", 
+    "SeamMUX", "TileClkEnMUX", "TileClkMUX", "TileSyncMUX", "TileAsyncMUX", "TileWeRenMUX", "BramClkMUX", "ClkMUX", 
+    "AsyncMUX", "LoopMUX", None, "GclkMUX", "GclkDMUX", "GdrvMUX", "BBMUXE", "BBMUXN", 
+    "BBMUXW", "BBMUXS", "ConstMUX", "InputMUX", "PllClkInMUX", "PllClkFbMUX", "PllIntFbMUX", "PllSeamMUX", 
+    "BufMUX", "GateMUX", "IsoMUXPseudo", "SinkMUXPseudo", "SLICE_LOGIC", "SLICE_SRAMCTRL", "SLICE_SRAM", "SLICE_WRAMCTRL", 
+    "SLICE_WRAM", "SLICE_CLKENCTRL", "SLICE_ASYNCCTRL", "SLICE_SYNCCTRL", "SLICE_IO", "SLICE_RIO", "SLICE_DIO", "SLICE_IOREG", 
+    "SLICE_DIOREG", "SLICE_INDEL", "SLICE_UFM", "SLICE_UFMS", "SLICE_UFML", "SLICE_BOOT", "SLICE_OSC", "SLICE_REMOTE", 
+    "SLICE_JTAG", "SLICE_IRDA", "SLICE_MCU", "SLICE_MCU_M3", "SLICE_PLL", "SLICE_PLLX", "SLICE_PLLV", "SLICE_PLLVE", 
+    "SLICE_SARADC", "SLICE_OCT", "SLICE_BRAM", "SLICE_BRAM9K", "SLICE_MULT", "SLICE_MULTM", "SLICE_I2C", "SLICE_SPI", 
+    "SLICE_GCLKSEL", "SLICE_GCLKGEN", "SLICE_GCLKGEN0", "SLICE_GCLKGEN2", "SLICE_DPCLKDEL", "SLICE_IO_GCLK", "SLICE_UFM_GDDD", None, 
+    "OMUXR", "OMUXI", "OMUXL", None, None, "T1", None, None, 
+    "T4X", "T4Y", None, None, None, None, "T0", None, 
+    None, 
+]
 
 with open(sys.argv[1], "rb") as input_file:
     device = read_string(input_file)
@@ -77,7 +93,8 @@ with open(sys.argv[1], "rb") as input_file:
         # IOS1_4_1: 44, 47, 77
         # LOGIC0: 36, 41, 42, 43
         # PLL: 61
-        entry.append(read16(input_file))
+        ttype = read16(input_file)
+        entry.append(types[ttype])
 
         # First value here ranges from 1 to 15, and then 65535
         entry.append(read16(input_file))
@@ -89,7 +106,8 @@ with open(sys.argv[1], "rb") as input_file:
         entry.append(read_string(input_file))
 
         # Type?  Same values as above.
-        entry.append(read16(input_file))
+        ttype = read16(input_file)
+        entry.append(types[ttype])
 
         # Same 1 to 15, 65535
         entry.append(read16(input_file))
