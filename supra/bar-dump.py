@@ -22,10 +22,12 @@
 #
 import struct
 import sys
+import argparse
 
-if len(sys.argv) != 2:
-    print("usage: %s <uncompressed bar file>" % sys.argv[0])
-    sys.exit(-1)
+parser = argparse.ArgumentParser(description='Parse AGM bar files')
+parser.add_argument('-ar_format', action='store_true', help='Display output in textual ar format')
+parser.add_argument('file')
+args = parser.parse_args()
 
 def skip(file, n):
     file.read(n)
@@ -60,64 +62,88 @@ types = [
     'SLICE_GCLKSEL', 'SLICE_GCLKGEN', 'SLICE_GCLKGEN0', 'SLICE_GCLKGEN2', 'SLICE_DPCLKDEL', 'SLICE_IO_GCLK', 'SLICE_UFM_GDDD', None,
     'OMUXR', 'OMUXI', 'OMUXL', None, 
 ]
+
+def print_text_format(fields):
+    print("  ROUTE (%s,%s) %s:%s:%s:O:%s %s:%s:%s:I:%s" % (fields[0], fields[1], fields[2], types[fields[3]], fields[4], fields[5], fields[6], types[fields[7]], fields[8], fields[9]))
+    print("    DELAY : BEST %0.3f %0.3f %0.3f %0.3f" % (fields[10], fields[11], fields[12], fields[13]))
+    print("    DELAY : WORST %0.3f %0.3f %0.3f %0.3f" % (fields[14], fields[15], fields[16], fields[17]))
     
-# Output matches what dump_route_table emits
-# dump_route_table doesn't work in af. 
-# The TCL SWIG wrapper removed the function 
-# call to native code.
-# The native code can exists and works. 
-# First argument needs to be a pointer to the 
-# loaded route table. This can be retrieved at 0x0f87fe0
-with open(sys.argv[1], "rb") as input_file:
+    rows = fields[18]
+    if len(rows) > 0:
+        print("    PATH")
+        for row in rows:
+            print("      (%s,%s) %s:%s:%s" % (row[0], row[1], row[2], types[row[3]], row[4]))
+        print("    END_PATH")
+    print("  END_ROUTE")
+    
+def print_ar_format(fields):
+    line = ""
+    line += "(%s,%s) " % (fields[0], fields[1])
+    line += "%s:%s%02i:O%s " % (fields[2], types[fields[3]], fields[4], fields[5])
+    line += "%s:%s%02i:I%s " % (fields[6], types[fields[7]], fields[8], fields[9])
+    for idx in range(10, 18):
+        line += "%0.3f " % fields[idx]
+    print(line)
+    
+    rows = fields[18]
+    for row in rows:
+        line = "  "
+        line += "(%s,%s) " % (row[0], row[1])
+        line += types[row[3]]
+        line += "%02i" % row[4]
+        print(line)
+    
+ar_format = args.ar_format
+with open(args.file, "rb") as input_file:
     device = read_string(input_file)
-    print("Device: %s" % device)
     skip(input_file, 4)
     skip(input_file, 4)
     entries = read32(input_file)
-    print("Number of entries: %s" % entries)
+    if ar_format is True:
+        print("Device: %s" % device)
+        print("Number of entries: %s" % entries)
+    else:
+        print("ROUTE_TABLE %s" % device)
 
     for i in range(0, entries):
-        line = ""
+        fields = []
         
-        x = read16(input_file)
-        y = read16(input_file)
-        line += "(%s,%s) " % (x, y)
+        fields.append(read16(input_file))
+        fields.append(read16(input_file))
         
-        tile = read_string(input_file)
-        ttype = read16(input_file)
-        idx = read16(input_file)
-        if idx == 0xffff:
-            idx = -1
-        num = read16(input_file)
-        line += "%s:%s%02i:O%s " % (tile, types[ttype], idx, num)
+        fields.append(read_string(input_file))
+        fields.append(read16(input_file))
+        fields.append(read16(input_file))
+        fields.append(read16(input_file))
 
-        tile = read_string(input_file)
-        ttype = read16(input_file)
-        idx = read16(input_file)
-        if idx == 0xffff:
-            idx = -1
-        num = read16(input_file)
-        line += "%s:%s%02i:I%s " % (tile, types[ttype], idx, num)
+        fields.append(read_string(input_file))
+        fields.append(read16(input_file))
+        fields.append(read16(input_file))
+        fields.append(read16(input_file))
 
         for _ in range(0, 8):
-            line += "%0.3f " % read_float(input_file)
+            fields.append(read_float(input_file))
     
-        print(line)
-        
         repeat = read16(input_file)
-
+        rows = []
         for _ in range(0, repeat):
-            line = "  "
-            
-            x = read16(input_file)
-            y = read16(input_file)
-            line += "(%s,%s) " % (x, y)
-            
-            # ignored in dump_route_table output
-            tile = read_string(input_file)
-            
-            ttype = read16(input_file)
-            line += types[ttype]
+            row = []
 
-            line += "%02i" % read16(input_file)
-            print(line)
+            row.append(read16(input_file))
+            row.append(read16(input_file))
+
+            row.append(read_string(input_file))
+            row.append(read16(input_file))
+            row.append(read16(input_file))
+
+            rows.append(row)
+        
+        fields.append(rows)
+        
+        if ar_format is True:
+            print_ar_format(fields)
+        else:
+            print_text_format(fields)
+            
+    if ar_format is not True:
+        print("END_ROUTE_TABLE")
