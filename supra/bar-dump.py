@@ -94,6 +94,8 @@ with open(sys.argv[1], "rb") as input_file:
         tile = read_string(input_file)
         ttype = read16(input_file)
         idx = read16(input_file)
+        if idx == 0xffff:
+            idx = -1
         num = read16(input_file)
         line += "%s:%s%02i:I%s " % (tile, types[ttype], idx, num)
 
