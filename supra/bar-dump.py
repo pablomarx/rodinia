@@ -111,15 +111,14 @@ with open(args.file, "rb") as input_file:
         fields.append(read16(input_file))
         fields.append(read16(input_file))
         
-        fields.append(read_string(input_file))
-        fields.append(read16(input_file))
-        fields.append(read16(input_file))
-        fields.append(read16(input_file))
-
-        fields.append(read_string(input_file))
-        fields.append(read16(input_file))
-        fields.append(read16(input_file))
-        fields.append(read16(input_file))
+        for _ in range(0, 2):
+            fields.append(read_string(input_file))
+            fields.append(read16(input_file))
+            offset = read16(input_file)
+            if offset == 0xffff:
+                offset = -1
+            fields.append(offset)
+            fields.append(read16(input_file))
 
         for _ in range(0, 8):
             fields.append(read_float(input_file))
