@@ -48,9 +48,9 @@ def read_string(file):
 # That in turn was called by the remnants of
 # dump_route_table at 0x008319f0.
 types = [
-    'RMUX', 'LMUX', 'TMUX', '*__DDIOMUX', 'IMUX', 'WMUX', 'KMUX', 'CtrlMUX',
+    'RMUX', 'LMUX', 'TMUX', 'OMUX', 'IMUX', 'WMUX', 'KMUX', 'CtrlMUX',
     'PllSeamMUX', 'TileClkEnMUX', 'TileClkMUX', 'TileSyncMUX', 'TileAsyncMUX', 'TileWeRenMUX', 'BramClkMUX', 'TileClkMUX',
-    'TileAsyncMUX', 'LoopMUX', '*__DDIOMUX', 'GclkMUX', 'GclkDMUX', 'GdrvMUX', 'BBMUXE', 'BBMUXN',
+    'TileAsyncMUX', 'LoopMUX', 'IOMUX', 'GclkMUX', 'GclkDMUX', 'GdrvMUX', 'BBMUXE', 'BBMUXN',
     'BBMUXW', 'BBMUXS', 'ConstMUX', 'InputMUX', 'PllClkInMUX', 'CFG_PllClkFbMUX', 'CFG_PllIntFbMUX', 'PllSeamMUX',
     'BufMUX', 'GateMUX', 'IsoMUXPseudo', 'SinkMUXPseudo', 'SLICE_LOGIC', 'SLICE_SRAMCTRL', 'SLICE_SRAM', 'SLICE_WRAMCTRL',
     'SLICE_WRAM', 'SLICE_CLKENCTRL', 'SLICE_ASYNCCTRL', 'SLICE_SYNCCTRL', 'SLICE_IO', 'SLICE_RIO', 'SLICE_DIO', 'SLICE_IOREG',
@@ -60,7 +60,14 @@ types = [
     'SLICE_GCLKSEL', 'SLICE_GCLKGEN', 'SLICE_GCLKGEN0', 'SLICE_GCLKGEN2', 'SLICE_DPCLKDEL', 'SLICE_IO_GCLK', 'SLICE_UFM_GDDD', None,
     'OMUXR', 'OMUXI', 'OMUXL', None, 
 ]
-
+    
+# Output matches what dump_route_table emits
+# dump_route_table doesn't work in af. 
+# The TCL SWIG wrapper removed the function 
+# call to native code.
+# The native code can exists and works. 
+# First argument needs to be a pointer to the 
+# loaded route table. This can be retrieved at 0x0f87fe0
 with open(sys.argv[1], "rb") as input_file:
     device = read_string(input_file)
     print("Device: %s" % device)
@@ -70,78 +77,45 @@ with open(sys.argv[1], "rb") as input_file:
     print("Number of entries: %s" % entries)
 
     for i in range(0, entries):
-        entry = []
-    
-        # Seems like a tile coordinate.
-        # First value ranges from 0 to 12.
-        # Second ranges from 0 to 9. 
-        # AG1KLP is 10 x 14.  
-        # First value being one short could be 
-        # because the last column on the chip
-        # is all Rogic
-        entry.append(read16(input_file))
-        entry.append(read16(input_file))
-    
-        # Tile name. Seen values:
-        # BOOT_PLL, BRAM0, ION0_4_0, ION1_4_1, IOS0_4_0, IOS1_4_1, LOGIC0, PLL
-        entry.append(read_string(input_file))
-
-        # Seems like a type.. values are:
-        # BOOT_PLL: 53, 78
-        # BRAM0: 66
-        # ION0_4_0: 44, 47
-        # ION1_4_1: 44, 47, 77
-        # IOS0_4_0: 44, 47
-        # IOS1_4_1: 44, 47, 77
-        # LOGIC0: 36, 41, 42, 43
-        # PLL: 61
+        line = ""
+        
+        x = read16(input_file)
+        y = read16(input_file)
+        line += "(%s,%s) " % (x, y)
+        
+        tile = read_string(input_file)
         ttype = read16(input_file)
-        entry.append(types[ttype])
+        idx = read16(input_file)
+        if idx == 0xffff:
+            idx = -1
+        num = read16(input_file)
+        line += "%s:%s%02i:O%s " % (tile, types[ttype], idx, num)
 
-        # First value here ranges from 1 to 15, and then 65535
-        entry.append(read16(input_file))
-
-        # Second value ranges from 1 to 35
-        entry.append(read16(input_file))
-
-        # Tile name. Same values as above
-        entry.append(read_string(input_file))
-
-        # Type?  Same values as above.
+        tile = read_string(input_file)
         ttype = read16(input_file)
-        entry.append(types[ttype])
+        idx = read16(input_file)
+        num = read16(input_file)
+        line += "%s:%s%02i:I%s " % (tile, types[ttype], idx, num)
 
-        # Same 1 to 15, 65535
-        entry.append(read16(input_file))
-
-        # Ranges from 1 to 67
-        entry.append(read16(input_file))
-
-        # Seems like timing information
         for _ in range(0, 8):
-            entry.append(read_float(input_file))
+            line += "%0.3f " % read_float(input_file)
     
-        # number of paths??
+        print(line)
+        
         repeat = read16(input_file)
-        entry.append(repeat)
 
         for _ in range(0, repeat):
-            row = []
-            # Always seems to be 9 or 10
-            row.append(read16(input_file))
+            line = "  "
+            
+            x = read16(input_file)
+            y = read16(input_file)
+            line += "(%s,%s) " % (x, y)
+            
+            # ignored in dump_route_table output
+            tile = read_string(input_file)
+            
+            ttype = read16(input_file)
+            line += types[ttype]
 
-            # Always seems to be 1
-            row.append(read16(input_file))
-
-            # Always seems to be LOGIC0 or BRAM0
-            row.append(read_string(input_file))
-        
-            # Always seems to be 0, 3, 4, 36
-            row.append(read16(input_file))
-
-            # Ranges from 1 to 90
-            row.append(read16(input_file))
-        
-            entry.append(row)
-
-        print(entry)
+            line += "%02i" % read16(input_file)
+            print(line)
