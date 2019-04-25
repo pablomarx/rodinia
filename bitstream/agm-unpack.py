@@ -105,12 +105,17 @@ reader.require32(0x0000FFFF)
 
 while reader.endOfFile() == False:
     word = reader.read32()
-    if word & 0xff000000 == 0x2a000000:
+    if word & 0xff000000 == 0x22000000:
+        # Unknown... Seen in AG10K bitstream
+        value = reader.read32()
+    elif word & 0xff000000 == 0x2a000000:
         # Register header, write address
         dest = reader.read32()
         value = reader.read32()
         if dest == 0x00000F8F: 
             print(".crc %s" % hex(value))
+        else:
+            print(".regwrite %s %s" % (hex(dest), hex(value)))    
     elif word & 0xffffff00 == 0xA2000000:
         # Array header, write group
 
