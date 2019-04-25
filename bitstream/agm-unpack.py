@@ -126,7 +126,7 @@ while reader.endOfFile() == False:
         dest = word & 0xff
         if dest == 0x00:
             decode_tile_bitstream(bits, bit_len)
-        elif dest == 0x20 or dest == 0x21:
+        elif dest & 0xf0 == 0x20:
             print(".config_chain %s" % (dest & 0xf))
             print(bits_to_string(bits[:bit_len]))
             print("");
