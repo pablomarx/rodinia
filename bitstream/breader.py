@@ -26,15 +26,21 @@ class BinaryReader:
     pos = 0
     data = None
     
-    def __init__(self, filename):
-        with open(filename, "rb") as binaryfile:
-           self.data = bytearray(binaryfile.read())
+    def __init__(self, filename, data=None):
+        if filename is not None:
+            with open(filename, "rb") as binaryfile:
+                self.data = bytearray(binaryfile.read())
+        else:
+            self.data = data
 
     def endOfFile(self):
         return (self.pos == len(self.data))
             
     def reset(self):
         self.pos = 0
+        
+    def rest(self):
+        return self.readN(len(self.data) - self.pos)
 
     def skip(self, bytes):
         self.pos = self.pos + bytes
