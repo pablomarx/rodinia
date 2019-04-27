@@ -35,8 +35,9 @@ class Chip:
     aliases = {}
     packages = {}
     configChain = []
+    lzwCompressed = False
     
-    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages, configChainClasses):
+    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages, configChainClasses, lzwCompressed = False):
         global chips
         self.name = name
         self.device_id = device_id
@@ -50,7 +51,7 @@ class Chip:
         for ccClass in configChainClasses:
             configChain.append(ccClass(self))
         self.configChain = configChain
-
+        self.lzwCompressed = lzwCompressed
         chips.append(self)
     
     def pins_in_tile_at(self, x, y):
