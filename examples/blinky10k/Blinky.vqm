@@ -3,23 +3,10 @@
 /* top =  1  */
 /* src = "Blinky.v:1" */
 module Blinky(clk, bank0, bank1, bank2, bank3);
-  /* src = "Blinky.v:21" */
-  wire [31:0] syn__000_;
-  wire syn__001_;
-  wire syn__002_;
-  wire syn__003_;
-  wire syn__004_;
-  wire syn__005_;
-  wire syn__006_;
-  wire syn__007_;
-  wire syn__008_;
-  wire syn__009_;
-  wire syn__010_;
-  wire [7:0] syn__011_;
-  wire [7:0] syn__012_;
-  wire [7:0] syn__013_;
-  wire [7:0] syn__014_;
-  wire syn__015_;
+  /* src = "Blinky.v:19" */
+  wire [31:0] syn__00_;
+  wire syn__01_;
+  wire syn__02_;
   /* src = "Blinky.v:3" */
   output [7:0] bank0;
   /* src = "Blinky.v:4" */
@@ -30,1020 +17,395 @@ module Blinky(clk, bank0, bank1, bank2, bank3);
   output [7:0] bank3;
   /* src = "Blinky.v:2" */
   input clk;
-  rodina_lcell_comb syn__016_ (
-    .combout(syn__000_[1]),
-    .dataa(syn__011_[1]),
-    .datab(syn__011_[0]),
+  /* src = "Blinky.v:9" */
+  wire [31:0] counter;
+  /* src = "Blinky.v:10" */
+  wire [35:0] data;
+  /* src = "prom.v:10" */
+  /* unused_bits = "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35" */
+  wire [35:0] \mem.doutb ;
+  rodina_lcell_comb syn__03_ (
+    .combout(syn__00_[1]),
+    .dataa(counter[1]),
+    .datab(counter[0]),
     .datac(1'b1),
     .datad(1'b1)
   );
-  defparam syn__016_.lut_mask = 16'b0110011001100110;
-  defparam syn__016_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__017_ (
-    .combout(syn__000_[2]),
-    .dataa(syn__011_[1]),
-    .datab(syn__011_[0]),
-    .datac(syn__011_[2]),
+  defparam syn__03_.lut_mask = 16'b0110011001100110;
+  defparam syn__03_.sum_lutc_input = "datac";
+  rodina_lcell_comb syn__04_ (
+    .combout(syn__00_[2]),
+    .dataa(counter[1]),
+    .datab(counter[0]),
+    .datac(counter[2]),
     .datad(1'b1)
   );
-  defparam syn__017_.lut_mask = 16'b0111100001111000;
-  defparam syn__017_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__018_ (
-    .combout(syn__000_[3]),
-    .dataa(syn__011_[1]),
-    .datab(syn__011_[0]),
-    .datac(syn__011_[2]),
-    .datad(syn__011_[3])
+  defparam syn__04_.lut_mask = 16'b0111100001111000;
+  defparam syn__04_.sum_lutc_input = "datac";
+  rodina_lcell_comb syn__05_ (
+    .combout(syn__00_[3]),
+    .dataa(counter[1]),
+    .datab(counter[0]),
+    .datac(counter[2]),
+    .datad(counter[3])
   );
-  defparam syn__018_.lut_mask = 16'b0111111110000000;
-  defparam syn__018_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__019_ (
-    .combout(syn__000_[4]),
-    .dataa(syn__003_),
-    .datab(syn__011_[4]),
+  defparam syn__05_.lut_mask = 16'b0111111110000000;
+  defparam syn__05_.sum_lutc_input = "datac";
+  rodina_lcell_comb syn__06_ (
+    .combout(syn__00_[4]),
+    .dataa(syn__01_),
+    .datab(counter[4]),
     .datac(1'b1),
     .datad(1'b1)
   );
-  defparam syn__019_.lut_mask = 16'b0110011001100110;
-  defparam syn__019_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__020_ (
-    .combout(syn__003_),
-    .dataa(syn__011_[1]),
-    .datab(syn__011_[0]),
-    .datac(syn__011_[2]),
-    .datad(syn__011_[3])
+  defparam syn__06_.lut_mask = 16'b0110011001100110;
+  defparam syn__06_.sum_lutc_input = "datac";
+  rodina_lcell_comb syn__07_ (
+    .combout(syn__01_),
+    .dataa(counter[1]),
+    .datab(counter[0]),
+    .datac(counter[2]),
+    .datad(counter[3])
   );
-  defparam syn__020_.lut_mask = 16'b1000000000000000;
-  defparam syn__020_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__021_ (
-    .combout(syn__000_[5]),
-    .dataa(syn__003_),
-    .datab(syn__011_[4]),
-    .datac(syn__011_[5]),
+  defparam syn__07_.lut_mask = 16'b1000000000000000;
+  defparam syn__07_.sum_lutc_input = "datac";
+  rodina_lcell_comb syn__08_ (
+    .combout(syn__00_[5]),
+    .dataa(syn__01_),
+    .datab(counter[4]),
+    .datac(counter[5]),
     .datad(1'b1)
   );
-  defparam syn__021_.lut_mask = 16'b0111100001111000;
-  defparam syn__021_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__022_ (
-    .combout(syn__000_[6]),
-    .dataa(syn__003_),
-    .datab(syn__011_[4]),
-    .datac(syn__011_[5]),
-    .datad(syn__011_[6])
+  defparam syn__08_.lut_mask = 16'b0111100001111000;
+  defparam syn__08_.sum_lutc_input = "datac";
+  rodina_lcell_comb syn__09_ (
+    .combout(syn__00_[6]),
+    .dataa(syn__01_),
+    .datab(counter[4]),
+    .datac(counter[5]),
+    .datad(counter[6])
   );
-  defparam syn__022_.lut_mask = 16'b0111111110000000;
-  defparam syn__022_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__023_ (
-    .combout(syn__000_[7]),
-    .dataa(syn__004_),
-    .datab(syn__011_[7]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__023_.lut_mask = 16'b0110011001100110;
-  defparam syn__023_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__024_ (
-    .combout(syn__004_),
-    .dataa(syn__003_),
-    .datab(syn__011_[4]),
-    .datac(syn__011_[5]),
-    .datad(syn__011_[6])
-  );
-  defparam syn__024_.lut_mask = 16'b1000000000000000;
-  defparam syn__024_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__025_ (
-    .combout(syn__000_[8]),
-    .dataa(syn__004_),
-    .datab(syn__011_[7]),
-    .datac(syn__012_[0]),
-    .datad(1'b1)
-  );
-  defparam syn__025_.lut_mask = 16'b0111100001111000;
-  defparam syn__025_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__026_ (
-    .combout(syn__000_[9]),
-    .dataa(syn__004_),
-    .datab(syn__011_[7]),
-    .datac(syn__012_[0]),
-    .datad(syn__012_[1])
-  );
-  defparam syn__026_.lut_mask = 16'b0111111110000000;
-  defparam syn__026_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__027_ (
-    .combout(syn__000_[10]),
-    .dataa(syn__005_),
-    .datab(syn__012_[2]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__027_.lut_mask = 16'b0110011001100110;
-  defparam syn__027_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__028_ (
-    .combout(syn__005_),
-    .dataa(syn__004_),
-    .datab(syn__011_[7]),
-    .datac(syn__012_[0]),
-    .datad(syn__012_[1])
-  );
-  defparam syn__028_.lut_mask = 16'b1000000000000000;
-  defparam syn__028_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__029_ (
-    .combout(syn__000_[11]),
-    .dataa(syn__005_),
-    .datab(syn__012_[2]),
-    .datac(syn__012_[3]),
-    .datad(1'b1)
-  );
-  defparam syn__029_.lut_mask = 16'b0111100001111000;
-  defparam syn__029_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__030_ (
-    .combout(syn__000_[12]),
-    .dataa(syn__005_),
-    .datab(syn__012_[2]),
-    .datac(syn__012_[3]),
-    .datad(syn__012_[4])
-  );
-  defparam syn__030_.lut_mask = 16'b0111111110000000;
-  defparam syn__030_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__031_ (
-    .combout(syn__000_[13]),
-    .dataa(syn__006_),
-    .datab(syn__012_[5]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__031_.lut_mask = 16'b0110011001100110;
-  defparam syn__031_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__032_ (
-    .combout(syn__006_),
-    .dataa(syn__005_),
-    .datab(syn__012_[2]),
-    .datac(syn__012_[3]),
-    .datad(syn__012_[4])
-  );
-  defparam syn__032_.lut_mask = 16'b1000000000000000;
-  defparam syn__032_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__033_ (
-    .combout(syn__000_[14]),
-    .dataa(syn__006_),
-    .datab(syn__012_[5]),
-    .datac(syn__012_[6]),
-    .datad(1'b1)
-  );
-  defparam syn__033_.lut_mask = 16'b0111100001111000;
-  defparam syn__033_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__034_ (
-    .combout(syn__000_[15]),
-    .dataa(syn__006_),
-    .datab(syn__012_[5]),
-    .datac(syn__012_[6]),
-    .datad(syn__012_[7])
-  );
-  defparam syn__034_.lut_mask = 16'b0111111110000000;
-  defparam syn__034_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__035_ (
-    .combout(syn__000_[16]),
-    .dataa(syn__007_),
-    .datab(syn__013_[0]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__035_.lut_mask = 16'b0110011001100110;
-  defparam syn__035_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__036_ (
-    .combout(syn__007_),
-    .dataa(syn__006_),
-    .datab(syn__012_[5]),
-    .datac(syn__012_[6]),
-    .datad(syn__012_[7])
-  );
-  defparam syn__036_.lut_mask = 16'b1000000000000000;
-  defparam syn__036_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__037_ (
-    .combout(syn__000_[17]),
-    .dataa(syn__007_),
-    .datab(syn__013_[0]),
-    .datac(syn__013_[1]),
-    .datad(1'b1)
-  );
-  defparam syn__037_.lut_mask = 16'b0111100001111000;
-  defparam syn__037_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__038_ (
-    .combout(syn__000_[18]),
-    .dataa(syn__007_),
-    .datab(syn__013_[0]),
-    .datac(syn__013_[1]),
-    .datad(syn__013_[2])
-  );
-  defparam syn__038_.lut_mask = 16'b0111111110000000;
-  defparam syn__038_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__039_ (
-    .combout(syn__000_[19]),
-    .dataa(syn__008_),
-    .datab(syn__013_[3]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__039_.lut_mask = 16'b0110011001100110;
-  defparam syn__039_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__040_ (
-    .combout(syn__008_),
-    .dataa(syn__007_),
-    .datab(syn__013_[0]),
-    .datac(syn__013_[1]),
-    .datad(syn__013_[2])
-  );
-  defparam syn__040_.lut_mask = 16'b1000000000000000;
-  defparam syn__040_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__041_ (
-    .combout(syn__000_[20]),
-    .dataa(syn__008_),
-    .datab(syn__013_[3]),
-    .datac(syn__013_[4]),
-    .datad(1'b1)
-  );
-  defparam syn__041_.lut_mask = 16'b0111100001111000;
-  defparam syn__041_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__042_ (
-    .combout(syn__000_[21]),
-    .dataa(syn__008_),
-    .datab(syn__013_[3]),
-    .datac(syn__013_[4]),
-    .datad(syn__013_[5])
-  );
-  defparam syn__042_.lut_mask = 16'b0111111110000000;
-  defparam syn__042_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__043_ (
-    .combout(syn__000_[22]),
-    .dataa(syn__009_),
-    .datab(syn__013_[6]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__043_.lut_mask = 16'b0110011001100110;
-  defparam syn__043_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__044_ (
-    .combout(syn__009_),
-    .dataa(syn__008_),
-    .datab(syn__013_[3]),
-    .datac(syn__013_[4]),
-    .datad(syn__013_[5])
-  );
-  defparam syn__044_.lut_mask = 16'b1000000000000000;
-  defparam syn__044_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__045_ (
-    .combout(syn__000_[23]),
-    .dataa(syn__009_),
-    .datab(syn__013_[6]),
-    .datac(syn__013_[7]),
-    .datad(1'b1)
-  );
-  defparam syn__045_.lut_mask = 16'b0111100001111000;
-  defparam syn__045_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__046_ (
-    .combout(syn__000_[24]),
-    .dataa(syn__009_),
-    .datab(syn__013_[6]),
-    .datac(syn__013_[7]),
-    .datad(syn__014_[0])
-  );
-  defparam syn__046_.lut_mask = 16'b0111111110000000;
-  defparam syn__046_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__047_ (
-    .combout(syn__000_[25]),
-    .dataa(syn__010_),
-    .datab(syn__014_[1]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__047_.lut_mask = 16'b0110011001100110;
-  defparam syn__047_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__048_ (
-    .combout(syn__010_),
-    .dataa(syn__009_),
-    .datab(syn__013_[6]),
-    .datac(syn__013_[7]),
-    .datad(syn__014_[0])
-  );
-  defparam syn__048_.lut_mask = 16'b1000000000000000;
-  defparam syn__048_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__049_ (
-    .combout(syn__000_[26]),
-    .dataa(syn__010_),
-    .datab(syn__014_[1]),
-    .datac(syn__014_[2]),
-    .datad(1'b1)
-  );
-  defparam syn__049_.lut_mask = 16'b0111100001111000;
-  defparam syn__049_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__050_ (
-    .combout(syn__000_[27]),
-    .dataa(syn__010_),
-    .datab(syn__014_[1]),
-    .datac(syn__014_[2]),
-    .datad(syn__014_[3])
-  );
-  defparam syn__050_.lut_mask = 16'b0111111110000000;
-  defparam syn__050_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__051_ (
-    .combout(syn__000_[28]),
-    .dataa(syn__001_),
-    .datab(syn__014_[4]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__051_.lut_mask = 16'b0110011001100110;
-  defparam syn__051_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__052_ (
-    .combout(syn__001_),
-    .dataa(syn__010_),
-    .datab(syn__014_[1]),
-    .datac(syn__014_[2]),
-    .datad(syn__014_[3])
-  );
-  defparam syn__052_.lut_mask = 16'b1000000000000000;
-  defparam syn__052_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__053_ (
-    .combout(syn__000_[29]),
-    .dataa(syn__001_),
-    .datab(syn__014_[4]),
-    .datac(syn__014_[5]),
-    .datad(1'b1)
-  );
-  defparam syn__053_.lut_mask = 16'b0111100001111000;
-  defparam syn__053_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__054_ (
-    .combout(syn__000_[30]),
-    .dataa(syn__001_),
-    .datab(syn__014_[4]),
-    .datac(syn__014_[5]),
-    .datad(syn__014_[6])
-  );
-  defparam syn__054_.lut_mask = 16'b0111111110000000;
-  defparam syn__054_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__055_ (
-    .combout(syn__000_[31]),
-    .dataa(syn__002_),
-    .datab(syn__014_[7]),
-    .datac(1'b1),
-    .datad(1'b1)
-  );
-  defparam syn__055_.lut_mask = 16'b0110011001100110;
-  defparam syn__055_.sum_lutc_input = "datac";
-  rodina_lcell_comb syn__056_ (
-    .combout(syn__002_),
-    .dataa(syn__001_),
-    .datab(syn__014_[4]),
-    .datac(syn__014_[5]),
-    .datad(syn__014_[6])
-  );
-  defparam syn__056_.lut_mask = 16'b1000000000000000;
-  defparam syn__056_.sum_lutc_input = "datac";
+  defparam syn__09_.lut_mask = 16'b0111111110000000;
+  defparam syn__09_.sum_lutc_input = "datac";
   /* keep = 1 */
-  rodina_io_obuf syn__057_ (
-    .i(syn__011_[0]),
+  rodina_io_obuf syn__10_ (
+    .i(data[0]),
     .o(bank0[0]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__058_ (
-    .i(syn__011_[1]),
+  rodina_io_obuf syn__11_ (
+    .i(data[1]),
     .o(bank0[1]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__059_ (
-    .i(syn__011_[2]),
+  rodina_io_obuf syn__12_ (
+    .i(data[2]),
     .o(bank0[2]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__060_ (
-    .i(syn__011_[3]),
+  rodina_io_obuf syn__13_ (
+    .i(data[3]),
     .o(bank0[3]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__061_ (
-    .i(syn__011_[4]),
+  rodina_io_obuf syn__14_ (
+    .i(data[4]),
     .o(bank0[4]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__062_ (
-    .i(syn__011_[5]),
+  rodina_io_obuf syn__15_ (
+    .i(data[5]),
     .o(bank0[5]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__063_ (
-    .i(syn__011_[6]),
+  rodina_io_obuf syn__16_ (
+    .i(data[6]),
     .o(bank0[6]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__064_ (
-    .i(syn__011_[7]),
+  rodina_io_obuf syn__17_ (
+    .i(data[7]),
     .o(bank0[7]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__065_ (
-    .i(syn__012_[0]),
+  rodina_io_obuf syn__18_ (
+    .i(data[8]),
     .o(bank1[0]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__066_ (
-    .i(syn__012_[1]),
+  rodina_io_obuf syn__19_ (
+    .i(data[9]),
     .o(bank1[1]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__067_ (
-    .i(syn__012_[2]),
+  rodina_io_obuf syn__20_ (
+    .i(data[10]),
     .o(bank1[2]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__068_ (
-    .i(syn__012_[3]),
+  rodina_io_obuf syn__21_ (
+    .i(data[11]),
     .o(bank1[3]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__069_ (
-    .i(syn__012_[4]),
+  rodina_io_obuf syn__22_ (
+    .i(data[12]),
     .o(bank1[4]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__070_ (
-    .i(syn__012_[5]),
+  rodina_io_obuf syn__23_ (
+    .i(data[13]),
     .o(bank1[5]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__071_ (
-    .i(syn__012_[6]),
+  rodina_io_obuf syn__24_ (
+    .i(data[14]),
     .o(bank1[6]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__072_ (
-    .i(syn__012_[7]),
+  rodina_io_obuf syn__25_ (
+    .i(data[15]),
     .o(bank1[7]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__073_ (
-    .i(syn__013_[0]),
+  rodina_io_obuf syn__26_ (
+    .i(data[16]),
     .o(bank2[0]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__074_ (
-    .i(syn__013_[1]),
+  rodina_io_obuf syn__27_ (
+    .i(data[17]),
     .o(bank2[1]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__075_ (
-    .i(syn__013_[2]),
+  rodina_io_obuf syn__28_ (
+    .i(data[18]),
     .o(bank2[2]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__076_ (
-    .i(syn__013_[3]),
+  rodina_io_obuf syn__29_ (
+    .i(data[19]),
     .o(bank2[3]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__077_ (
-    .i(syn__013_[4]),
+  rodina_io_obuf syn__30_ (
+    .i(data[20]),
     .o(bank2[4]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__078_ (
-    .i(syn__013_[5]),
+  rodina_io_obuf syn__31_ (
+    .i(data[21]),
     .o(bank2[5]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__079_ (
-    .i(syn__013_[6]),
+  rodina_io_obuf syn__32_ (
+    .i(data[22]),
     .o(bank2[6]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__080_ (
-    .i(syn__013_[7]),
+  rodina_io_obuf syn__33_ (
+    .i(data[23]),
     .o(bank2[7]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__081_ (
-    .i(syn__014_[0]),
+  rodina_io_obuf syn__34_ (
+    .i(data[24]),
     .o(bank3[0]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__082_ (
-    .i(syn__014_[1]),
+  rodina_io_obuf syn__35_ (
+    .i(data[25]),
     .o(bank3[1]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__083_ (
-    .i(syn__014_[2]),
+  rodina_io_obuf syn__36_ (
+    .i(data[26]),
     .o(bank3[2]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__084_ (
-    .i(syn__014_[3]),
+  rodina_io_obuf syn__37_ (
+    .i(data[27]),
     .o(bank3[3]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__085_ (
-    .i(syn__014_[4]),
+  rodina_io_obuf syn__38_ (
+    .i(data[28]),
     .o(bank3[4]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__086_ (
-    .i(syn__014_[5]),
+  rodina_io_obuf syn__39_ (
+    .i(data[29]),
     .o(bank3[5]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__087_ (
-    .i(syn__014_[6]),
+  rodina_io_obuf syn__40_ (
+    .i(data[30]),
     .o(bank3[6]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_obuf syn__088_ (
-    .i(syn__014_[7]),
+  rodina_io_obuf syn__41_ (
+    .i(data[31]),
     .o(bank3[7]),
     .oe(1'b1)
   );
   /* keep = 1 */
-  rodina_io_ibuf syn__089_ (
+  rodina_io_ibuf syn__42_ (
     .i(clk),
     .ibar(1'b0),
-    .o(syn__015_)
+    .o(syn__02_)
   );
-  /* src = "Blinky.v:21" */
-  dffeas syn__090_ (
+  /* src = "Blinky.v:19" */
+  dffeas syn__43_ (
     .aload(1'b0),
     .asdata(1'b0),
-    .clk(syn__015_),
+    .clk(syn__02_),
     .clrn(1'b1),
-    .d(syn__000_[0]),
+    .d(syn__00_[0]),
     .ena(1'b1),
     .prn(1'b1),
-    .q(syn__011_[0]),
+    .q(counter[0]),
     .sclr(1'b0),
     .sload(1'b0)
   );
-  defparam syn__090_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__091_ (
+  defparam syn__43_.is_wysiwyg = "TRUE";
+  /* src = "Blinky.v:19" */
+  dffeas syn__44_ (
     .aload(1'b0),
     .asdata(1'b0),
-    .clk(syn__015_),
+    .clk(syn__02_),
     .clrn(1'b1),
-    .d(syn__000_[1]),
+    .d(syn__00_[1]),
     .ena(1'b1),
     .prn(1'b1),
-    .q(syn__011_[1]),
+    .q(counter[1]),
     .sclr(1'b0),
     .sload(1'b0)
   );
-  defparam syn__091_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__092_ (
+  defparam syn__44_.is_wysiwyg = "TRUE";
+  /* src = "Blinky.v:19" */
+  dffeas syn__45_ (
     .aload(1'b0),
     .asdata(1'b0),
-    .clk(syn__015_),
+    .clk(syn__02_),
     .clrn(1'b1),
-    .d(syn__000_[2]),
+    .d(syn__00_[2]),
     .ena(1'b1),
     .prn(1'b1),
-    .q(syn__011_[2]),
+    .q(counter[2]),
     .sclr(1'b0),
     .sload(1'b0)
   );
-  defparam syn__092_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__093_ (
+  defparam syn__45_.is_wysiwyg = "TRUE";
+  /* src = "Blinky.v:19" */
+  dffeas syn__46_ (
     .aload(1'b0),
     .asdata(1'b0),
-    .clk(syn__015_),
+    .clk(syn__02_),
     .clrn(1'b1),
-    .d(syn__000_[3]),
+    .d(syn__00_[3]),
     .ena(1'b1),
     .prn(1'b1),
-    .q(syn__011_[3]),
+    .q(counter[3]),
     .sclr(1'b0),
     .sload(1'b0)
   );
-  defparam syn__093_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__094_ (
+  defparam syn__46_.is_wysiwyg = "TRUE";
+  /* src = "Blinky.v:19" */
+  dffeas syn__47_ (
     .aload(1'b0),
     .asdata(1'b0),
-    .clk(syn__015_),
+    .clk(syn__02_),
     .clrn(1'b1),
-    .d(syn__000_[4]),
+    .d(syn__00_[4]),
     .ena(1'b1),
     .prn(1'b1),
-    .q(syn__011_[4]),
+    .q(counter[4]),
     .sclr(1'b0),
     .sload(1'b0)
   );
-  defparam syn__094_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__095_ (
+  defparam syn__47_.is_wysiwyg = "TRUE";
+  /* src = "Blinky.v:19" */
+  dffeas syn__48_ (
     .aload(1'b0),
     .asdata(1'b0),
-    .clk(syn__015_),
+    .clk(syn__02_),
     .clrn(1'b1),
-    .d(syn__000_[5]),
+    .d(syn__00_[5]),
     .ena(1'b1),
     .prn(1'b1),
-    .q(syn__011_[5]),
+    .q(counter[5]),
     .sclr(1'b0),
     .sload(1'b0)
   );
-  defparam syn__095_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__096_ (
+  defparam syn__48_.is_wysiwyg = "TRUE";
+  /* src = "Blinky.v:19" */
+  dffeas syn__49_ (
     .aload(1'b0),
     .asdata(1'b0),
-    .clk(syn__015_),
+    .clk(syn__02_),
     .clrn(1'b1),
-    .d(syn__000_[6]),
+    .d(syn__00_[6]),
     .ena(1'b1),
     .prn(1'b1),
-    .q(syn__011_[6]),
+    .q(counter[6]),
     .sclr(1'b0),
     .sload(1'b0)
   );
-  defparam syn__096_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__097_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[7]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__011_[7]),
-    .sclr(1'b0),
-    .sload(1'b0)
+  defparam syn__49_.is_wysiwyg = "TRUE";
+  assign syn__00_[0] = ~ counter[0];
+  /* src = "Blinky.v:12" */
+  alta_bram9k \mem.ram_inst  (
+    .AddressA({ { 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 }, counter[6:0] }),
+    .AddressB({ 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 }),
+    .AddressStallA(1'b0),
+    .AddressStallB(1'b0),
+    .AsyncReset0(1'b0),
+    .AsyncReset1(1'b0),
+    .ByteEnA(1'b0),
+    .ByteEnB(1'b0),
+    .Clk0(syn__02_),
+    .Clk1(1'b0),
+    .ClkEn0(1'b1),
+    .ClkEn1(1'b1),
+    .DataInA({ 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 }),
+    .DataInB(),
+    .DataOutA(data),
+    .DataOutB(\mem.doutb ),
+    .ReA(1'b1),
+    .ReB(1'b1),
+    .WeA(1'b0),
+    .WeB(1'b0)
   );
-  defparam syn__097_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__098_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[8]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__012_[0]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__098_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__099_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[9]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__012_[1]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__099_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__100_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[10]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__012_[2]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__100_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__101_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[11]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__012_[3]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__101_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__102_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[12]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__012_[4]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__102_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__103_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[13]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__012_[5]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__103_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__104_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[14]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__012_[6]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__104_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__105_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[15]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__012_[7]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__105_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__106_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[16]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__013_[0]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__106_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__107_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[17]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__013_[1]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__107_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__108_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[18]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__013_[2]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__108_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__109_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[19]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__013_[3]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__109_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__110_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[20]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__013_[4]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__110_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__111_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[21]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__013_[5]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__111_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__112_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[22]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__013_[6]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__112_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__113_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[23]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__013_[7]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__113_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__114_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[24]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__014_[0]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__114_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__115_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[25]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__014_[1]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__115_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__116_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[26]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__014_[2]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__116_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__117_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[27]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__014_[3]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__117_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__118_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[28]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__014_[4]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__118_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__119_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[29]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__014_[5]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__119_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__120_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[30]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__014_[6]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__120_.is_wysiwyg = "TRUE";
-  /* src = "Blinky.v:21" */
-  dffeas syn__121_ (
-    .aload(1'b0),
-    .asdata(1'b0),
-    .clk(syn__015_),
-    .clrn(1'b1),
-    .d(syn__000_[31]),
-    .ena(1'b1),
-    .prn(1'b1),
-    .q(syn__014_[7]),
-    .sclr(1'b0),
-    .sload(1'b0)
-  );
-  defparam syn__121_.is_wysiwyg = "TRUE";
-  assign syn__000_[0] = ~ syn__011_[0];
+  defparam \mem.ram_inst .INIT_VAL = 9216'b100001101101100011000101011000110110101100101110000101100011111001100010101110000111010010100001100001111100101100101001110001110110101011000010000101000100100001010011010110111100010111110010111110010001100001011111101000011001001011000010000011111100110111101101000001010101001010110001111101110101000100001110110011100110111111010001011100011011001100011101111100111001001101110001111101000001110100111010000111000101000011000011100011000001100001111110110110110101100100010100000000011011101001100000110101010011001011000110111110000110001010001001010001010111010110010100000111100001101111010000101010000101000001000011110101000101101110111101110100001000101101111111011000111101011011100001001111110011011010000111110010100110100101100001001000000010100011111110111001001111110100101101011010010110100111110011110010110110011111000110101111001010110010011011111000011000010010100001111001100110011010100111110001011011011100001011100000110000110100111000110010100101010010110001111101110101110110100001000101110000101111000101010011100111001100010001011100001010110101010110000111001001111000100100111111100111011110001110001010000001000001000000110110111010100111111001011111110011101110110100101100100111100101111001101000000000111101100001000110100111001001010111101011001111010100000110101111001000111010010010001010011001001100101000101001110010011110000100101000100000000000001110100001110101110000001111001010011011011011010000011111011101100011001111011000110001111100001110001100001011010111011011111100000101001011010001010000001001100001101000111011011110011010011100000000001010101000000111001100011000010100101010001011001100111101101110111100010011001110111001100100111110110001110100101110001111001000000110101010010100010111101111011000010111101011011011001111111110110001011111101001001011100111011001011110101100010001010100000111101111011010110110100010000001010100100111000000010011011010100110000111010000111010000110110011111101000010000101100010001010100101011101110111001100001010011100001011001001100101000001001110111101100001011001100100001101010000101011111101100011100001100011100001110101101000000001110001101101001001010000000111100001010001111101011011100001100011011100010110101001110011000101001110001000001101100011101000110100010100001011111010011111110011000111111101001100101010110100011011100100111001111101110111101000100001001110110110010111011001011110100010100000010100101110011100011111111101110000110010001101101101101111011011101010110101010011011111111111101001000011111111111001001110011100101010110001100110001000100101010110111010100101110110100000011010000110010011000110010101000001110100101011101001010110010000101101101010011000100010111101011010011011100011001101011111011011011011001101110100001011100100010100001000101000100000001011100101110111000101110100000001001001100011001011110010000100111001011101110111111100111010001101110101101110010000000100010110110001111000101110110000011110100101110100001000010110010101110100000010001011101101101000001010011110110101000000000110111111100100010011011010110111010011001000010100001100101111010101111010111101111111111010100101010011111001001111111110111010001101010100111011001100110011100111110110101000010011111000001000111001011000110110111011100000101001001010001100101111001100110010110001001110001100111001010000111010000011001111110110110010000000001111100100000111001001101001111110010001111010000000111100101101000001100111011000011011101011001011100111000010000111011001000100100100100010110001110100001011010110111100101001001101100111100110001011110001010111100000101000100110110010000000011110110011100001011100000111111111010111001101000000110011001101000111010110111100011011111100101111000101001100010110010001111010001111000011100101101001010110001011110101010001111011010011011011101011110000010000101110111100111110000110110011100010001011011110000101100011101011100000011001001101001110011010110110100110100111101010100011010001110110101110001100110100000000110011110100100110110110110001010011101000001101001111111110101100110000010100010000011011000000000000011011001101101110111100110111000101011110111000001011011110010111011000001000011000111001110101101001111101011101110110110010100010000111000000111111000010000100100111000000000000100010111000101101111100110110011101100000001100001000100000101110111010111111110100001001001110001001010011101111100111101000010011011101010110110001011100010111110111011100110110000010011110111000110100111111110011111011110111100100101101110001001001100010011011010100110000100111100000001010101110001101110101101010000110111110001101101110001111110010101000001000101001101111000011110000101011101001101101110111110100111000010000100011100011011111001101010100110111011001001011110010011000111100111001101101111001011010101000001010010100101010111110110101100110010111101101110010010111011100111011010011011101101010111001000101100011011110100000101011100101011111111001111011001000011101100101100110101010110000001111111010110000100110000111101001011101000010001110010001111111001100000010101011000000010000001101111110101110110001000000010111011111100000111100011011010110100111000101001100101010100110001110011001111011110010101111011011101110100100100011101010000100110001001100100101101000011000010111110010100111011100100001100001001010111111000100101000110111110010111001100101101000000100100011011100011101000011001101100100101011011101010101010100010101010011010001101010100100111001000101110110110010111100001101011100010001001110100100101010110001100010100101111001111011100100111001011000110011100101101100001000001000100101010101010000100100010011010010000011010010111010011100100001001011101101000001000000010100001110101000001100101001000000001000111011111110010101000100101011001011110101000011011110011011110100111011001100010101100101111110011101000111101111001111011100011010101100001111111000001101101001111011110100110100010011011011110100010110000011100100111101101100110010001000111111010111011101000001011001011111111101000001010000010101101111011001001010111111000110001111000100011111111110110110101001110101110101111011100111011111110000011110110001111110011011011100100011001111011000111011000100110100100011101000011000011010001000101010001100011000010011000011110000000111111011011000001010010010101111100100010001011100010110011010110000110001010111101101011011101010100101111001010111111110110100110000000011011101010110001100111101000000011011000101000000001101010110000111011101101101000110001001101001001000001100101000001011010010111101001101001100011100101000111001111000100101000011001100001000101000110000100110010011110001001000001010100111111001000001010010011100111011110111111010000010110101011011110011010011001110001001101111010110100111001001010100010001011000010011011000010101000101100111110111100101000100101101101111011000011110000101111001110110101010110110110101011011010101111100011010100110101101011110111010011000010010011100111001111010001101000011001001010111100111111100111100000110100111100000001001110001111110110010100100001010001010100110011111100001100110111011000010011101011001101010010110010001001010110111001000111001100010100111110011011110101001000110101101101111010011101010110101100001101101111110110000111011101001110100101110111011100001001110000000011111111001001001010001100101000010011110001010101000100111110100001101000110111000100101001010110010000101001110010011110010101000110111100010110101111011110010000100010001001010100001111101101011001100001101110011001100101110101100111011110011100100100010001001111110010100110111111000000010100101110010111100000000010101010000000010110001000110011011111100100000010001101100110011111010011000100001100001101000100100000000001100010011000100001011101101000001100100110010111000001011011111000010010111110101000001111001011111111100010100010011011010110011100111100001101001000000101110010100100110111111010010110001100111101110110111000011101101100100010101010101101101001000110100110101111101010010010000001011110001001111001001001101100000000001011101100010011101011000010000100001100111011101110101010001100100100001111011000011110101000011001010110100010010010010011110001001011010111001110011011100001010110111100001000001101011010100101111101001001111011111101011001101110111011111111110100001000001101110010101001001001011110110101111111010011100001110011100111000110101111010000000111011100011100110111101110110010111011001101011001011001101010110100111001110010110110100000100101000011101011011101000010111101110000000110100110010110011000110100001011011100101011101101010100000100101000101011010110100010010111010101010000010100110101001001011100101000001110110101001101110100011111011011111101110001110101101011111110111000110001100001010110110000111010001111001111111001010000100101110101011111100000101001100011010000100100111100110000000000000000111100010010101111000101011000110101100011010000011111000100000100111111010111001110000001100110111010001010111010110010000001000110000100111011110000101010001101100111111101011101101100110101000111101100001100111000101111100001001000100010010001011100111000010100001010011100010111010000001100011000000000110101100011000000000010110000101011111010110100011;
 endmodule
