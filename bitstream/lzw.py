@@ -74,9 +74,13 @@ class bitslice(object):
 
 def nibbles_to_bytes(nibbles):
     bytes = bytearray()
-    for i in range(0, len(nibbles), 2):
+    num_nibbles = len(nibbles)
+    for i in range(0, num_nibbles, 2):
         nibbleA = nibbles[i]
-        nibbleB = nibbles[i+1]
+        if i + 1 >= num_nibbles:
+            nibbleB = 0
+        else:
+            nibbleB = nibbles[i+1]
         bytes.append((nibbleA << 4) | nibbleB)
     return bytes
 
