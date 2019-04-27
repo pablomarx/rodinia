@@ -1,0 +1,666 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2016  Clifford Wolf <clifford@clifford.at>           |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.7+377 (git sha1 68e2bdf, gcc 5.4.0-6ubuntu1~16.04.4 -O3 -DNDEBUG -fPIC -fno-builtin-malloc -fno-builtin-free -fno-builtin-realloc -fno-builtin-calloc -fno-builtin-cfree -fno-builtin-valloc -fno-builtin-pvalloc -fno-builtin-memalign -fno-builtin-posix_memalign)
+
+
+-- Parsing `Blinky.v' using frontend `verilog' --
+
+1. Executing Verilog-2005 frontend.
+Parsing Verilog input from `Blinky.v' to AST representation.
+Successfully finished Verilog frontend.
+
+-- Running command `synth_agm -top Blinky -vqm Blinky.vqm' --
+Running command synth_agm -top Blinky -vqm Blinky.vqm
+
+2. Executing SYNTH_INTEL pass.
+Running command read_verilog -sv -lib +/agm/rodina/cells_sim.v
+
+2.1. Executing Verilog-2005 frontend.
+Parsing SystemVerilog input from `/opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_sim.v' to AST representation.
+Successfully finished Verilog frontend.
+Running command read_verilog -sv -lib +/agm/common/m9k_bb.v
+
+2.2. Executing Verilog-2005 frontend.
+Parsing SystemVerilog input from `/opt/agm/Supra-2019.03.b0/map/bin/../share/agm/common/m9k_bb.v' to AST representation.
+Successfully finished Verilog frontend.
+Running command read_verilog -sv -lib +/agm/common/altpll_bb.v
+
+2.3. Executing Verilog-2005 frontend.
+Parsing SystemVerilog input from `/opt/agm/Supra-2019.03.b0/map/bin/../share/agm/common/altpll_bb.v' to AST representation.
+Successfully finished Verilog frontend.
+Running command hierarchy -check -top Blinky
+
+2.4. Executing HIERARCHY pass (managing design hierarchy).
+
+2.4.1. Analyzing design hierarchy..
+Top module:  \Blinky
+
+2.4.2. Analyzing design hierarchy..
+Top module:  \Blinky
+Removed 0 unused modules.
+Running command proc
+
+2.5. Executing PROC pass (convert processes to netlists).
+Running command proc_clean
+
+2.5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+Running command proc_rmdead
+
+2.5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+Running command proc_init
+
+2.5.3. Executing PROC_INIT pass (extract init attributes).
+Running command proc_arst
+
+2.5.4. Executing PROC_ARST pass (detect async resets in processes).
+Running command proc_mux
+
+2.5.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Running command proc_dlatch
+
+2.5.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+Running command proc_dff
+
+2.5.7. Executing PROC_DFF pass (convert process syncs to FFs).
+Running command proc_clean
+
+2.5.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `Blinky.$proc$Blinky.v:21$1'.
+Cleaned up 0 empty switches.
+Running command flatten
+
+2.6. Executing FLATTEN pass (flatten design).
+No more expansions possible.
+Running command tribuf -logic
+
+2.7. Executing TRIBUF pass.
+Running command deminout
+
+2.8. Executing DEMINOUT pass (demote inout ports to input or output).
+Running command synth -run coarse
+
+2.9. Executing SYNTH pass.
+Running command proc
+
+2.9.1. Executing PROC pass (convert processes to netlists).
+Running command proc_clean
+
+2.9.1.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+Running command proc_rmdead
+
+2.9.1.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+Running command proc_init
+
+2.9.1.3. Executing PROC_INIT pass (extract init attributes).
+Running command proc_arst
+
+2.9.1.4. Executing PROC_ARST pass (detect async resets in processes).
+Running command proc_mux
+
+2.9.1.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Running command proc_dlatch
+
+2.9.1.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+Running command proc_dff
+
+2.9.1.7. Executing PROC_DFF pass (convert process syncs to FFs).
+Running command proc_clean
+
+2.9.1.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+Running command opt_expr
+
+2.9.2. Executing OPT_EXPR pass (perform const folding).
+Running command opt_clean
+
+2.9.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+  removed 2 unused temporary wires.
+Removed 0 unused cells and 2 unused wires.
+Running command check
+
+2.9.4. Executing CHECK pass (checking for obvious problems).
+checking module Blinky..
+found and reported 0 problems.
+Running command opt
+
+2.9.5. Executing OPT pass (performing simple optimizations).
+Running command opt_expr
+
+2.9.5.1. Executing OPT_EXPR pass (perform const folding).
+Running command opt_merge -nomux
+
+2.9.5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_muxtree
+
+2.9.5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Blinky..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+Running command opt_reduce
+
+2.9.5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Blinky.
+Performed a total of 0 changes.
+Running command opt_merge
+
+2.9.5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.9.5.6. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.9.5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+Running command opt_expr
+
+2.9.5.8. Executing OPT_EXPR pass (perform const folding).
+
+2.9.5.9. Finished OPT passes. (There is nothing left to do.)
+Running command wreduce
+
+2.9.6. Executing WREDUCE pass (reducing word size of cells).
+Running command alumacc
+
+2.9.7. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module Blinky:
+  created 1 $alu and 0 $macc cells.
+Running command share
+
+2.9.8. Executing SHARE pass (SAT-based resource sharing).
+Terminal cells by cell
+Running command opt
+
+2.9.9. Executing OPT pass (performing simple optimizations).
+Running command opt_expr
+
+2.9.9.1. Executing OPT_EXPR pass (perform const folding).
+Running command opt_merge -nomux
+
+2.9.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_muxtree
+
+2.9.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Blinky..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+Running command opt_reduce
+
+2.9.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Blinky.
+Performed a total of 0 changes.
+Running command opt_merge
+
+2.9.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.9.9.6. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.9.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+Running command opt_expr
+
+2.9.9.8. Executing OPT_EXPR pass (perform const folding).
+
+2.9.9.9. Finished OPT passes. (There is nothing left to do.)
+Running command fsm
+
+2.9.10. Executing FSM pass (extract and optimize FSM).
+Running command fsm_detect
+
+2.9.10.1. Executing FSM_DETECT pass (finding FSMs in design).
+Running command fsm_extract
+
+2.9.10.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Running command fsm_opt
+
+2.9.10.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Running command opt_clean
+
+2.9.10.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+Running command fsm_opt
+
+2.9.10.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Running command fsm_recode
+
+2.9.10.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Running command fsm_info
+
+2.9.10.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+Running command fsm_map
+
+2.9.10.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Running command opt -fast
+
+2.9.11. Executing OPT pass (performing simple optimizations).
+Running command opt_expr
+
+2.9.11.1. Executing OPT_EXPR pass (perform const folding).
+Running command opt_merge
+
+2.9.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.9.11.3. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.9.11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+
+2.9.11.5. Finished fast OPT passes.
+Running command memory -nomap
+
+2.9.12. Executing MEMORY pass.
+Running command memory_dff
+
+2.9.12.1. Executing MEMORY_DFF pass (merging $dff cells to $memrd and $memwr).
+Running command opt_clean
+
+2.9.12.2. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+Running command memory_share
+
+2.9.12.3. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Running command opt_clean
+
+2.9.12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+Running command memory_collect
+
+2.9.12.5. Executing MEMORY_COLLECT pass (generating $mem cells).
+Running command opt_clean
+
+2.9.13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+Running command memory_bram -rules +/agm/common/brams.txt
+
+2.10. Executing MEMORY_BRAM pass (mapping $mem cells to block memories).
+Running command techmap -map +/agm/common/brams_map.v
+
+2.11. Executing TECHMAP pass (map to technology primitives).
+
+2.11.1. Executing Verilog-2005 frontend.
+Parsing Verilog input from `/opt/agm/Supra-2019.03.b0/map/bin/../share/agm/common/brams_map.v' to AST representation.
+Successfully finished Verilog frontend.
+No more expansions possible.
+Running command opt -fast -mux_undef -undriven -fine -full
+
+2.12. Executing OPT pass (performing simple optimizations).
+Running command opt_expr -mux_undef -undriven -fine -full
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Running command opt_merge
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.12.3. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+
+2.12.5. Finished fast OPT passes.
+Running command memory_map
+
+2.13. Executing MEMORY_MAP pass (converting $mem cells to logic and flip-flops).
+Running command opt -undriven -fine
+
+2.14. Executing OPT pass (performing simple optimizations).
+Running command opt_expr -undriven -fine
+
+2.14.1. Executing OPT_EXPR pass (perform const folding).
+Running command opt_merge -nomux
+
+2.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_muxtree
+
+2.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Blinky..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+Running command opt_reduce -fine
+
+2.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Blinky.
+Performed a total of 0 changes.
+Running command opt_merge
+
+2.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.14.6. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+Running command opt_expr -undriven -fine
+
+2.14.8. Executing OPT_EXPR pass (perform const folding).
+
+2.14.9. Finished OPT passes. (There is nothing left to do.)
+Running command dffsr2dff
+
+2.15. Executing DFFSR2DFF pass (mapping DFFSR cells to simpler FFs).
+Running command dff2dffe -direct-match $_DFF_*
+
+2.16. Executing DFF2DFFE pass (transform $dff to $dffe where applicable).
+Running command opt -fine
+
+2.17. Executing OPT pass (performing simple optimizations).
+Running command opt_expr -fine
+
+2.17.1. Executing OPT_EXPR pass (perform const folding).
+Running command opt_merge -nomux
+
+2.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_muxtree
+
+2.17.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Blinky..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+Running command opt_reduce -fine
+
+2.17.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Blinky.
+Performed a total of 0 changes.
+Running command opt_merge
+
+2.17.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.17.6. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.17.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 0 unused cells and 2 unused wires.
+Running command opt_expr -fine
+
+2.17.8. Executing OPT_EXPR pass (perform const folding).
+
+2.17.9. Finished OPT passes. (There is nothing left to do.)
+Running command techmap -map +/techmap.v
+
+2.18. Executing TECHMAP pass (map to technology primitives).
+
+2.18.1. Executing Verilog-2005 frontend.
+Parsing Verilog input from `/opt/agm/Supra-2019.03.b0/map/bin/../share/techmap.v' to AST representation.
+Successfully finished Verilog frontend.
+Running command proc; opt -fast
+
+2.18.2. Executing PROC pass (convert processes to netlists).
+Running command proc_clean
+
+2.18.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+Running command proc_rmdead
+
+2.18.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+Running command proc_init
+
+2.18.2.3. Executing PROC_INIT pass (extract init attributes).
+Running command proc_arst
+
+2.18.2.4. Executing PROC_ARST pass (detect async resets in processes).
+Running command proc_mux
+
+2.18.2.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Running command proc_dlatch
+
+2.18.2.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\_90_lcu\WIDTH=32.\p' from process `$paramod\_90_lcu\WIDTH=32.$proc$/opt/agm/Supra-2019.03.b0/map/bin/../share/techmap.v:207$255'.
+No latch inferred for signal `$paramod\_90_lcu\WIDTH=32.\g' from process `$paramod\_90_lcu\WIDTH=32.$proc$/opt/agm/Supra-2019.03.b0/map/bin/../share/techmap.v:207$255'.
+Running command proc_dff
+
+2.18.2.7. Executing PROC_DFF pass (convert process syncs to FFs).
+Running command proc_clean
+
+2.18.2.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod\_90_lcu\WIDTH=32.$proc$/opt/agm/Supra-2019.03.b0/map/bin/../share/techmap.v:207$255'.
+Cleaned up 0 empty switches.
+
+2.18.3. Executing OPT pass (performing simple optimizations).
+Running command opt_expr
+
+2.18.3.1. Executing OPT_EXPR pass (perform const folding).
+Running command opt_merge
+
+2.18.3.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\_90_lcu\WIDTH=32'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.18.3.3. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.18.3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\_90_lcu\WIDTH=32..
+  removed 67 unused temporary wires.
+Removed 31 unused cells and 69 unused wires.
+
+2.18.3.5. Finished fast OPT passes.
+No more expansions possible.
+Running command opt -full
+
+2.19. Executing OPT pass (performing simple optimizations).
+Running command opt_expr -full
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Running command opt_merge -nomux
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_muxtree
+
+2.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Blinky..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+Running command opt_reduce -full
+
+2.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Blinky.
+Performed a total of 0 changes.
+Running command opt_merge
+
+2.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.19.6. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.19.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+  removed 112 unused temporary wires.
+Removed 68 unused cells and 181 unused wires.
+Running command opt_expr -full
+
+2.19.8. Executing OPT_EXPR pass (perform const folding).
+
+2.19.9. Rerunning OPT passes. (Maybe there is more to do..)
+Running command opt_muxtree
+
+2.19.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Blinky..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+Running command opt_reduce -full
+
+2.19.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Blinky.
+Performed a total of 0 changes.
+Running command opt_merge
+
+2.19.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Blinky'.
+Removed a total of 0 cells.
+Running command opt_rmdff
+
+2.19.13. Executing OPT_RMDFF pass (remove dff with constant values).
+Running command opt_clean
+
+2.19.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Blinky..
+Removed 68 unused cells and 181 unused wires.
+Running command opt_expr -full
+
+2.19.15. Executing OPT_EXPR pass (perform const folding).
+
+2.19.16. Finished OPT passes. (There is nothing left to do.)
+Running command clean -purge
+Removed 0 unused cells and 1 unused wires.
+Running command setundef -undriven -zero
+
+2.20. Executing SETUNDEF pass (replace undef values with defined constants).
+Running command abc -lut 4
+
+2.21. Executing ABC pass (technology mapping using ABC).
+
+2.21.1. Extracting gate netlist of module `\Blinky' to `<abc-temp-dir>/input.blif'..
+Extracted 84 gates and 117 wires to a netlist network with 32 inputs and 32 outputs.
+
+2.21.1.1. Executing ABC.
+Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+
+2.21.1.2. Re-integrating ABC results.
+ABC RESULTS:              $lut cells:       84
+ABC RESULTS:        internal signals:       53
+ABC RESULTS:           input signals:       32
+ABC RESULTS:          output signals:       32
+Running command clean
+Removed 0 unused cells and 87 unused wires.
+Running command iopadmap -bits -outpad $__outpad I:O -inpad $__inpad O:I
+
+2.22. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Running command techmap -map +/agm/rodina/cells_map.v
+
+2.23. Executing TECHMAP pass (map to technology primitives).
+
+2.23.1. Executing Verilog-2005 frontend.
+Parsing Verilog input from `/opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v' to AST representation.
+Warning: Identifier `\Q_i' is implicitly declared at /opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v:52.
+Warning: Identifier `\Q_i' is implicitly declared at /opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v:58.
+Warning: Identifier `\Q_i' is implicitly declared at /opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v:64.
+Warning: Identifier `\Q_i' is implicitly declared at /opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v:70.
+Warning: Identifier `\Q_i' is implicitly declared at /opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v:116.
+Warning: Identifier `\Q_i' is implicitly declared at /opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v:122.
+Warning: Identifier `\Q_i' is implicitly declared at /opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v:128.
+Warning: Identifier `\Q_i' is implicitly declared at /opt/agm/Supra-2019.03.b0/map/bin/../share/agm/rodina/cells_map.v:134.
+Successfully finished Verilog frontend.
+No more expansions possible.
+Running command dffinit -ff dffeas Q INIT
+
+2.24. Executing DFFINIT pass (set INIT param on FF cells).
+Running command clean -purge
+Removed 0 unused cells and 247 unused wires.
+Running command hierarchy -check
+
+2.25. Executing HIERARCHY pass (managing design hierarchy).
+
+2.25.1. Analyzing design hierarchy..
+Top module:  \Blinky
+
+2.25.2. Analyzing design hierarchy..
+Top module:  \Blinky
+Removed 0 unused modules.
+Running command stat
+
+2.26. Printing statistics.
+
+=== Blinky ===
+
+   Number of wires:                 21
+   Number of wire bits:            108
+   Number of public wires:           5
+   Number of public wire bits:      33
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                107
+     $not                            1
+     dffeas                         32
+     rodina_io_ibuf                  1
+     rodina_io_obuf                 32
+     rodina_lcell_comb              41
+
+Running command check -noinit
+
+2.27. Executing CHECK pass (checking for obvious problems).
+checking module Blinky..
+found and reported 0 problems.
+Running command write_verilog -attr2comment -defparam -nohex -decimal -bitblasted -renameprefix syn_ Blinky.vqm
+
+2.28. Executing Verilog backend.
+Dumping module `\Blinky'.
+
+End of script. Logfile hash: 1414423ef2
+CPU: user 0.14s system 0.01s, MEM: 39.79 MB total, 19.33 MB resident
+Yosys 0.7+377 (git sha1 68e2bdf, gcc 5.4.0-6ubuntu1~16.04.4 -O3 -DNDEBUG -fPIC -fno-builtin-malloc -fno-builtin-free -fno-builtin-realloc -fno-builtin-calloc -fno-builtin-cfree -fno-builtin-valloc -fno-builtin-pvalloc -fno-builtin-memalign -fno-builtin-posix_memalign)
+Time spent: 19% 3x techmap (0 sec), 16% 15x opt_expr (0 sec), ...
