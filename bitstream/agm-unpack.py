@@ -24,6 +24,7 @@ import sys
 from chips import chips, ChipWithID
 from utils import *
 from breader import BinaryReader
+from lzw import lzw_decode
 
 chip = None
 
@@ -102,6 +103,23 @@ print(".device %s" % hex(device_id))
 
 # ????
 reader.require32(0x0000FFFF)
+
+
+if chip.lzwCompressed is True:
+    pos = reader.pos
+    word = reader.read32()
+    # Not sure the meaning of 0x55030000,
+    # Just that it exists here for lzw compressed
+    # bitstreams
+    if word != 0x55030000:
+        reader.reset()
+        reader.skip(pos)
+    else:
+        reader.skip(20)
+        lzw_data = reader.rest()
+        bitstream_bytes = lzw_decode(lzw_data)
+        reader = BinaryReader(None, bitstream_bytes)
+
 
 while reader.endOfFile() == False:
     word = reader.read32()
