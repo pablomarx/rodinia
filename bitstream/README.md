@@ -85,6 +85,16 @@ defparam \mem.ram_inst .coord_x = 3;
 defparam \mem.ram_inst .coord_y = 2;
 ```
 
+* [agm-pack.py](agm-pack.py): Python script to turn the output from agm-unpack back into a binary:
+
+```
+$ python agm-unpack.py ../examples/tinycomp/output/TinyComp.bin > TinyComp.asc
+$ python agm-pack.py TinyComp.asc > TinyComp.bin
+$ md5sum TinyComp.bin ../examples/tinycomp/output/TinyComp.bin 
+f5d18621fe7f8f3cb0585fbc6230595e  TinyComp.bin
+f5d18621fe7f8f3cb0585fbc6230595e  ../examples/tinycomp/output/TinyComp.bin
+```
+
 * [agm-explain.py](agm-explain.py): Python script to explain the output of agm-unpack.  Requires one command line argument: a file containing the output of agm-unpack.  For the above BramTILE example, it turns that bit output into:
 
 ```
