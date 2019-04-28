@@ -31,7 +31,7 @@ chip = None
 #
 # Tile bitstream
 #
-def decode_tile_bitstream(bits, length):
+def decode_tile_bitstream(bits, length, bitstream_num):
     row_width = round_up(chip.max_row_width(), 8)
     expected_size = 0
     for tile_row in range(chip.rows - 1,-1,-1):
@@ -147,8 +147,8 @@ while reader.endOfFile() == False:
         bits = bytes_to_bits(bytes)
     
         dest = word & 0xff
-        if dest == 0x00:
-            decode_tile_bitstream(bits, bit_len)
+        if dest & 0xf0 == 0x00:
+            decode_tile_bitstream(bits, bit_len, (dest & 0xf))
         elif dest & 0xf0 == 0x20:
             print(".config_chain %s" % (dest & 0xf))
             print(bits_to_string(bits[:bit_len]))
