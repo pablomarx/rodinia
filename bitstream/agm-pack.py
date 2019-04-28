@@ -94,6 +94,11 @@ writer = BinaryWriter()
 writer.write32(chip.device_id)
 writer.write32(0x0000FFFF)
 
+def write_register_data(reg, len, data):
+    writer.write32(0xA2000000 | reg)
+    writer.write32(((len - 1) << 8) | 0x20)
+    writer.writeBits(data)
+
 #
 # Enumerate config chains
 #
@@ -104,22 +109,12 @@ for chain_id in range(0, len(chip.configChain)):
 
     num_padding_bits = round_up(chain_len, 32) - chain_len
 
-    writer.write32(0xA2000020 | chain_id)
-    writer.write32(((chain_len - 1) << 8) | 0x20)
-    writer.writeBits(chain_bits + ([0] * num_padding_bits))
+    write_register_data(0x20 | chain_id, chain_len, chain_bits + ([0] * num_padding_bits))
 
 #
 # Write the bitstream
 #
-writer.write32(0xA2000000)
-row_width = round_up(chip.max_row_width(), 8)
-bitstream_size = 0
-for tile_row in range(0, chip.rows):
-    row_height = chip.max_row_height(tile_row)
-    bitstream_size += (row_width + 32) * row_height
-    
-writer.write32(((bitstream_size - 1) << 8) | 0x20)
-
+bitstream = []
 for tile_row in range(chip.rows - 1,-1,-1):
     row_height = chip.max_row_height(tile_row)
     
@@ -139,9 +134,11 @@ for tile_row in range(chip.rows - 1,-1,-1):
             row_bits += bits[::-1]
         
         num_padding_bits = round_up(len(row_bits), 8) - len(row_bits)
+        num_padding_bits += 32
         row_bits += [0] * num_padding_bits
-        writer.writeBits(row_bits)
-        writer.write32(0)
+        bitstream += row_bits
+
+write_register_data(0x00, len(bitstream), bitstream)
 
 #
 # Write the checksum
