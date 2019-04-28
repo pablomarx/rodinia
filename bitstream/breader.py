@@ -34,7 +34,7 @@ class BinaryReader:
             self.data = data
 
     def endOfFile(self):
-        return (self.pos == len(self.data))
+        return (self.pos >= len(self.data))
             
     def reset(self):
         self.pos = 0
