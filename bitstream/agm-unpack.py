@@ -34,7 +34,7 @@ chip = None
 def decode_tile_bitstream(bits, length, bitstream_num):
     row_width = round_up(chip.max_row_width(), 8)
     expected_size = 0
-    for tile_row in range(chip.rows - 1,-1,-1):
+    for tile_row in range(0, chip.rows):
         row_height = chip.max_row_height(tile_row)
         expected_size += (row_width + 32) * row_height
 
