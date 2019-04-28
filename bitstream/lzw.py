@@ -21,6 +21,8 @@
 # DEALINGS IN THE SOFTWARE.
 #
 
+import sys
+
 class bitstream(object):
     def __init__(self, bytes):
         self.bytes = bytes
@@ -130,3 +132,12 @@ def lzw_decode(bytes):
         prev = cur
 
     return nibbles_to_bytes(result)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("usage: %s <spi binary>" % sys.argv[0])
+        sys.exit(-1)
+
+    with open(sys.argv[1], "rb") as binaryfile:
+        data = bytearray(binaryfile.read())
+        print(lzw_decode(data[32:]))
