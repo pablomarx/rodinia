@@ -13,6 +13,12 @@ set sdc "Blinky.sdc"
 # alta::set_debug_cmd ar_slice_ram 1
 # alta::set_debug_cmd ar_toptile 1
 
+# Dumps 415,099 lines of output (every wire?)
+# alta::set_debug_cmd rt_est_delay 1
+
+# Dumps all the routed nets
+# alta::set_debug_cmd rt_route_path 1
+
 load_architect -type ${DEVICE} 1 1 1000 1000
 
 read_design_and_pack -top ${TOP_MODULE} $verilog
