@@ -33,9 +33,10 @@ class Tile:
     rows = 0
     values = {}
     formatters = {}
+    annotations = {}
     bitmapTable = None
     
-    def __init__(self, name, type, columns, rows, values, formatters={}):
+    def __init__(self, name, type, columns, rows, values, formatters={}, annotations={}):
         self.name = name
         self.type = type
         self.columns = columns
@@ -43,6 +44,7 @@ class Tile:
         self.values = values
         self.formatters = formatters
         self.formatters['__NAME'] = lambda x: x
+        self.annotations = annotations
     
     def buildBitmapTable(self):
         bitmapTable = [];
@@ -63,13 +65,19 @@ class Tile:
         
         return self.bitmapTable[bit]
     
-    def format(self, name, bits):
+    def bit_format(self, name, bits):
         if name in self.formatters:
             return self.formatters[name](bits)
         for pattern in self.formatters:
             if re.match(pattern, name):
                 return self.formatters[pattern](bits)
         return bits_to_string(bits, 0, True)
+    
+    def format(self, name, bits):
+        result = self.bit_format(name, bits)
+        if name in self.annotations:
+            result += "\t; "+self.annotations[name]
+        return result
         
     def decode(self, bits):
         values = { '__NAME': self.name }
@@ -557,6 +565,39 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', 108, 68, {
 	'CFG_TILEASYNCMUX': lambda x: bits_to_string(x, 4, True),
 	'CFG_TILECLKENMUX': lambda x: bits_to_string(x, 3, True),
 	'CFG_TILEWERENMUX': lambda x: bits_to_string(x, 4, True),
+}, {
+    'CFG_IMUX00': 'AddressA[0]',
+    'CFG_IMUX01': 'AddressA[1]',
+    'CFG_IMUX02': 'AddressA[2]',
+    'CFG_IMUX03': 'AddressA[3]',
+    'CFG_IMUX04': 'AddressA[4]',
+    'CFG_IMUX05': 'AddressA[5]',
+    'CFG_IMUX06': 'AddressA[6]',
+    'CFG_IMUX12': 'DataInA[0]',
+    'CFG_IMUX13': 'DataInA[1]',
+    'CFG_IMUX14': 'DataInA[2]',
+    'CFG_IMUX15': 'DataInA[3]',
+    'CFG_IMUX16': 'DataInA[4]',
+    'CFG_IMUX17': 'DataInA[5]',
+    'CFG_IMUX18': 'DataInA[6]',
+    'CFG_IMUX19': 'DataInA[7]',
+    'CFG_IMUX20': 'DataInA[8]',
+    'CFG_IMUX21': 'DataInA[9]',
+    'CFG_IMUX22': 'DataInA[10]',
+    'CFG_IMUX23': 'DataInA[11]',
+    'CFG_IMUX24': 'DataInA[12]',
+    'CFG_IMUX25': 'DataInA[13]',
+    'CFG_IMUX26': 'DataInA[14]',
+    'CFG_IMUX27': 'DataInA[15]',
+    'CFG_IMUX28': 'DataInA[16]',
+    'CFG_IMUX29': 'DataInA[17]',
+    'CFG_IMUX57': 'AddressB[6]',
+    'CFG_IMUX58': 'AddressB[5]',
+    'CFG_IMUX59': 'AddressB[4]',
+    'CFG_IMUX60': 'AddressB[3]',
+    'CFG_IMUX61': 'AddressB[2]',
+    'CFG_IMUX62': 'AddressB[1]',
+    'CFG_IMUX63': 'AddressB[0]',
 }))
 
 InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
