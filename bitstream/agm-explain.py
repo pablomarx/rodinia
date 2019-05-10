@@ -22,15 +22,20 @@
 #
 
 import sys
+from routefile import RouteFile
 from chips import ChipWithID, chips
 
-if len(sys.argv) != 2:
-    print("usage: %s <agm-unpack.py output>" % sys.argv[0])
+if len(sys.argv) != 2 and len(sys.argv) != 3:
+    print("usage: %s <agm-unpack.py output> [route.tx file]" % sys.argv[0])
     sys.exit(-1)
 
 filename = sys.argv[1]
 with open(filename, "r") as file:
     lines = file.readlines()
+    
+routing = None
+if len(sys.argv) == 3:
+    routing = RouteFile(sys.argv[2])
 
 def print_data(data):
     owner = data['owner']
@@ -39,9 +44,22 @@ def print_data(data):
     keys = values.keys()
     keys.sort()
     
+    x = None
+    y = None
+    if 'x' in data:
+        x = data['x']
+        y = data['y']
+    
     print(data['header'])
     for key in keys:
-        print("%s: %s" % (key, owner.format(key, values[key])))
+        net = None
+        if routing != None and x != None and y != None:
+            net = routing.net_for_tile_config(x, y, key)
+        if net is None:
+            net = ''
+        else:
+            net = '\t; ' + net
+        print("%s: %s%s" % (key, owner.format(key, values[key]), net))
 
     print("")
 
