@@ -41,14 +41,16 @@ class RouteFile:
                     net = line.split('"')[1]
                 elif line.startswith("  path : "):
                     num_paths = int(line[9:])
-                    paths = []
-                    self.nets_by_name[net] = paths
+                    if num_paths > 0:
+                        paths = []
+                        self.nets_by_name[net] = paths
                 elif net is not None and num_paths > 0:
                     num_paths -= 1
                     path = line.split('"')[1]
+                    paths.append(path)
+                    
                     comps = tilepat.search(path)
                     data = {'type': comps.group(1), 'x': comps.group(2), 'y': comps.group(3), 'config':comps.group(4)}
-                    paths.append(data)
             
                     if data['x'] not in self.nets_by_tile:
                         self.nets_by_tile[data['x']] = {}
@@ -60,7 +62,10 @@ class RouteFile:
                     y = x[data['y']]
                     if data['config'] not in y:
                         y[data['config']] = net
-            
+
+    def path_for_net(self, net):
+        return self.nets_by_name[net]
+        
     def nets_for_tile(self, tile_x, tile_y):
         tile_x = str(tile_x)
         tile_y = str(tile_y)
