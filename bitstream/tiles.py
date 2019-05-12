@@ -22,6 +22,7 @@
 #
 
 from utils import bits_to_string, bits_to_bytes, bytes_to_num, bits_invert
+from math import log
 import re
 
 tiles = {}
@@ -92,6 +93,21 @@ class Tile:
             
                 values[name][position] = bits[idx]
         return values
+
+def mux_decode(bits, length, type):
+    strval = bits_to_string(bits)
+    val = int(strval, 2)
+    if val == 0:
+        index = -1
+    else:
+        top = val >> 3
+        bottom = val & 7
+        index = ((length-1) - log(top, 2)) + (length * (2 - log(bottom, 2)))
+
+    return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
+
+def imux12_decode(bits):
+    return mux_decode(bits, 9, 'I')
 
 def InstallTile(tile):
     global tiles
@@ -780,7 +796,7 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', 108, 68, {
 }, {
 	'INIT_VAL': lambda bits: "".join([format(bit, '02x') for bit in bits_to_bytes(bits[::-1])]),
 	'CFG_RMUX[0-9][0-9]': lambda x: bits_to_string(x, 5, True),
-	'CFG_IMUX[0-9][0-9]': lambda x: bits_to_string(x, 4, True),
+	'CFG_IMUX[0-9][0-9]': lambda x: imux12_decode(x),
 	'CFG_CTRLMUX': lambda x: bits_to_string(x, 12, True),
 	'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
 	'CFG_TILEASYNCMUX': lambda x: bits_to_string(x, 4, True),
@@ -1201,7 +1217,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
 	'SLICE_LOGIC16_OMUX_47':[2311],
 }, {
 	'^SLICE_LOGIC[0-9][0-9]_CFG_LUT$': lambda x: '16\'h'+format(bytes_to_num(bits_to_bytes(bits_invert(x[::-1]))), '04x'),
-	'CFG_IMUX[0-9][0-9]': lambda x: bits_to_string(x, 12, True),
+	'SLICE_LOGIC[0-9][0-9]_IMUX[0-9][0-9]': lambda x: imux12_decode(x),
 	'CFG_RMUX[0-9][0-9]': lambda x: bits_to_string(x, 10, True),
 	'CFG_CTRLMUX': lambda x: bits_to_string(x, 12, True),
 	'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
