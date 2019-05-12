@@ -102,7 +102,10 @@ def mux_decode(bits, length, type):
     else:
         top = val >> 3
         bottom = val & 7
-        index = ((length-1) - log(top, 2)) + (length * (2 - log(bottom, 2)))
+        if top == 0 or bottom == 0:
+            index = -1
+        else:
+            index = ((length-1) - log(top, 2)) + (length * (2 - log(bottom, 2)))
     
     return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
 
@@ -114,6 +117,9 @@ def rmux10_decode(bits):
 
 def rmux6_decode(bits):
     return mux_decode(bits, 3, 'I')
+
+def iomux7_decode(bits):
+    return mux_decode(bits, 4, 'I')
 
 def InstallTile(tile):
     global tiles
@@ -256,7 +262,7 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', 34, 20, {
 	'CFG_TILECLKMUX7':[372,373,441],
 }, {
 	'CFG_RMUX[0-9]': lambda x: rmux6_decode(x),
-	'CFG_IOMUX[0-9]': lambda x: bits_to_string(x, 7, True),
+	'CFG_IOMUX[0-9]': lambda x: iomux7_decode(x),
 	'CFG_TILECLKMUX': lambda x: bits_to_string(x, 3, True),
 	'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
 	'CFG_CTRLMUX[0-9]': lambda x: bits_to_string(x, 6, True)
@@ -369,7 +375,7 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', 34, 20, {
 
 }, {
 	'CFG_RMUX[0-9]': lambda x: rmux6_decode(x),
-	'CFG_IOMUX[0-9]': lambda x: bits_to_string(x, 7, True),
+	'CFG_IOMUX[0-9]': lambda x: iomux7_decode(x),
 	'CFG_TILECLKMUX': lambda x: bits_to_string(x, 3, True),
 	'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
 	'CFG_CTRLMUX[0-9]': lambda x: bits_to_string(x, 6, True)
@@ -484,7 +490,7 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', 34, 20, {
 
 }, {
 	'CFG_RMUX[0-9]': lambda x: rmux6_decode(x),
-	'CFG_IOMUX[0-9]': lambda x: bits_to_string(x, 7, True),
+	'CFG_IOMUX[0-9]': lambda x: iomux7_decode(x),
 	'CFG_TILECLKMUX': lambda x: bits_to_string(x, 3, True),
 	'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
 	'CFG_CTRLMUX[0-9]': lambda x: bits_to_string(x, 6, True)
@@ -596,7 +602,7 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', 34, 20, {
 	'CFG_TILECLKMUX7':[338,339,271],
 }, {
 	'CFG_RMUX[0-9]': lambda x: rmux6_decode(x),
-	'CFG_IOMUX[0-9]': lambda x: bits_to_string(x, 7, True),
+	'CFG_IOMUX[0-9]': lambda x: iomux7_decode(x),
 	'CFG_TILECLKMUX': lambda x: bits_to_string(x, 3, True),
 	'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
 	'CFG_CTRLMUX[0-9]': lambda x: bits_to_string(x, 6, True)
