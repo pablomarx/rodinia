@@ -103,11 +103,14 @@ def mux_decode(bits, length, type):
         top = val >> 3
         bottom = val & 7
         index = ((length-1) - log(top, 2)) + (length * (2 - log(bottom, 2)))
-
+    
     return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
 
 def imux12_decode(bits):
     return mux_decode(bits, 9, 'I')
+
+def rmux10_decode(bits):
+    return mux_decode(bits, 7, 'I')
 
 def InstallTile(tile):
     global tiles
@@ -1218,7 +1221,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
 }, {
 	'^SLICE_LOGIC[0-9][0-9]_CFG_LUT$': lambda x: '16\'h'+format(bytes_to_num(bits_to_bytes(bits_invert(x[::-1]))), '04x'),
 	'SLICE_LOGIC[0-9][0-9]_IMUX[0-9][0-9]': lambda x: imux12_decode(x),
-	'CFG_RMUX[0-9][0-9]': lambda x: bits_to_string(x, 10, True),
+	'CFG_RMUX[0-9][0-9]': lambda x: rmux10_decode(x),
 	'CFG_CTRLMUX': lambda x: bits_to_string(x, 12, True),
 	'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True),
 	'CFG_TILEASYNCMUX': lambda x: bits_to_string(x, 4, True),
@@ -1410,6 +1413,6 @@ InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', 16, 68, {
 	# SEAMMUX contains 4 entries of 8 bits each
 	'CFG_SEAMMUX': [ 512, 513, 514, 515, 516, 517, 518, 519, 560, 561, 562, 563, 564, 565, 566, 567, 520, 521, 541, 522, 523, 524, 525, 526, 568, 569, 557, 570, 571, 572, 573, 574 ],
 }, {
-	'CFG_RMUX[0-9][0-9]': lambda x: bits_to_string(x, 10, True),
+	'CFG_RMUX[0-9][0-9]': lambda x: rmux10_decode(x),
 	'CFG_SEAMMUX': lambda x: bits_to_string(x, 8, True)
 }))
