@@ -41,25 +41,14 @@ def print_data(data):
     owner = data['owner']
     values = owner.decode(data['bits'])
     
+    args = data['args']
+    
     keys = values.keys()
     keys.sort()
     
-    x = None
-    y = None
-    if 'x' in data:
-        x = data['x']
-        y = data['y']
-    
     print(data['header'])
     for key in keys:
-        net = None
-        if routing != None and x != None and y != None:
-            net = routing.net_for_tile_config(x, y, key)
-        if net is None:
-            net = ''
-        else:
-            net = '\t; ' + net
-        print("%s: %s%s" % (key, owner.format(key, values[key]), net))
+        print("%s: %s" % (key, owner.format(key, values[key], **args)))
 
     print("")
 
@@ -81,7 +70,7 @@ for line in lines:
             elif comps[0] == ".config_chain":
                 chain_id = int(comps[1])
                 chain = chip.configChain[chain_id]
-                data = { 'bits': [], 'owner': chain, 'header': line }
+                data = { 'bits': [], 'owner': chain, 'header': line, 'args': {} }
         if len(comps) == 3:
             if chip != None:
                 x = int(comps[1])
@@ -89,7 +78,7 @@ for line in lines:
                 if x >= 0 and y >= 0:
                     tile = chip.tile_at(x, y)
                     if tile != None:
-                        data = {'x': x, 'y': y, 'owner': tile, 'header': line, 'bits': []}
+                        data = {'owner': tile, 'header': line, 'bits': [], 'args': {'x': x, 'y': y, 'routing': routing }}
     elif len(line) > 0:
         if data != None:
             for char in line:

@@ -22,6 +22,7 @@
 #
 
 from utils import bits_to_string, bits_to_bytes, bytes_to_num, bits_invert
+import wires
 from math import log
 import re
 
@@ -74,10 +75,21 @@ class Tile:
                 return self.formatters[pattern](bits)
         return bits_to_string(bits, 0, True)
     
-    def format(self, name, bits):
+    def format(self, name, bits, x, y, routing):
         result = self.bit_format(name, bits)
         if name in self.annotations:
             result += "\t; "+self.annotations[name]
+            
+        if name.lower().find("mux") != -1:
+            value = mux_value(bits)
+            if value != -1:
+                wire = wires.input_for_tile_config(self.type, x, y, name, value)
+                if wire is not None:
+                    result += "\t; <= " + wire['source']
+        if routing != None:
+            net = routing.net_for_tile_config(x, y, name)
+            if net is not None:
+                result += '\t; ' + net
         return result
         
     def decode(self, bits):
@@ -94,32 +106,37 @@ class Tile:
                 values[name][position] = bits[idx]
         return values
 
-def mux_decode(bits, length, type):
+def mux_value(bits, length=None):
+    if length is None:
+        length = len(bits) - 3
+    
     strval = bits_to_string(bits)
     val = int(strval, 2)
     if val == 0:
-        index = -1
-    else:
-        top = val >> 3
-        bottom = val & 7
-        if top == 0 or bottom == 0:
-            index = -1
-        else:
-            index = ((length-1) - log(top, 2)) + (length * (2 - log(bottom, 2)))
+        return -1
     
+    top = val >> 3
+    bottom = val & 7
+    if top == 0 or bottom == 0:
+        return -1
+
+    return int(((length-1) - log(top, 2)) + (length * (2 - log(bottom, 2))))
+    
+def mux_format(bits, length, type):
+    index = mux_value(bits, length)
     return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
 
 def imux12_decode(bits):
-    return mux_decode(bits, 9, 'I')
+    return mux_format(bits, 9, 'I')
 
 def rmux10_decode(bits):
-    return mux_decode(bits, 7, 'I')
+    return mux_format(bits, 7, 'I')
 
 def rmux6_decode(bits):
-    return mux_decode(bits, 3, 'I')
+    return mux_format(bits, 3, 'I')
 
 def iomux7_decode(bits):
-    return mux_decode(bits, 4, 'I')
+    return mux_format(bits, 4, 'I')
 
 def InstallTile(tile):
     global tiles
