@@ -85,7 +85,8 @@ class Tile:
             if value != -1:
                 wire = wires.input_for_tile_config(self.type, x, y, name, value)
                 if wire is not None:
-                    result += "\t; <= " + wire['source']
+                    source = "%s(%s,%s):%s:%s %s %s" % (wire['tile'], wire['x'], wire['y'], wire['config'], wire['index'], wire['wire'], wire['timing'])
+                    result += "\t; <= " + source
         if routing != None:
             net = routing.net_for_tile_config(x, y, name)
             if net is not None:
