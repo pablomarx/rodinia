@@ -127,6 +127,13 @@ def mux_format(bits, length, type):
     index = mux_value(bits, length)
     return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
 
+def slice_omux_format(bits):
+    if bits[0] is 0:
+        name = 'LutOut'
+    else:
+        name = 'Q'
+    return '1\'b%s\t; %s' % (bits[0], name)
+
 def InstallTile(tile):
     global tiles
     tiles[tile.name] = tile
@@ -1275,6 +1282,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
 }, {
 	'^alta_slice[0-9][0-9]_LUT$': lambda x: '16\'h'+format(bytes_to_num(bits_to_bytes(bits_invert(x[::-1]))), '04x'),
 	'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda x: mux_format(x, 9, 'I'),
+	'alta_slice[0-9][0-9]_OMUX[0-9][0-9]': lambda x: slice_omux_format(x), 
 	'RMUX[0-9][0-9]': lambda x: mux_format(x, 7, 'I'),
 	'CtrlMUX[0-9][0-9]': lambda x: mux_format(x, 9, 'I'),
 	'TileAsyncMUX0[01]': lambda x: bits_to_string(x, 4, True),
