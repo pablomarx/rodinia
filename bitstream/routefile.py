@@ -84,26 +84,14 @@ class RouteFile:
         if nets is None:
             return None
 
-        if config.startswith("SLICE_LOGIC"):
-            config = config[14:]
-            if config.startswith("OMUX_") or config.startswith("IMUX_"):
-                config = config[0:4] + config[5:]
-
-        if config.startswith("CFG_"):
-            config = config[4:]
+        if config.startswith("alta_slice"):
+            config = config[13:]
 
         # how to map?:
         # iotile alta_ioreg
         # bramtile bufmux
         # logictile bufmux
         if config not in nets:
-            matched = False
-            for key in nets.keys():
-                if key.lower() == config.lower():
-                    config = key
-                    matched = True
-                    break
-            if matched is False:
-                return None
+            return None
 
         return nets[config]

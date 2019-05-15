@@ -39,24 +39,12 @@ def input_for_tile_config(tile, x, y, config, value):
     if tile not in wires_by_tile:
         return None
     
-    if config.startswith("CFG_"):
-        config = config[4:]
-
-    if config.startswith("SLICE_LOGIC"):
-        config = config[14:]
-        if config.startswith("OMUX_") or config.startswith("IMUX_"):
-            config = config[0:4] + config[5:]
+    if config.startswith("alta_slice"):
+        config = config[13:]
     
     configs = wires_by_tile[tile]
     if config not in configs:
-        matched = False
-        for key in configs.keys():
-            if key.lower() == config.lower():
-                config = key
-                matched = True
-                break
-        if matched is False:
-            return None
+        return None
         
     values = configs[config]
     val_str = 'I%s' % value

@@ -26,34 +26,34 @@ from utils import bits_to_string
 class ConfigChainPLL:
     def __init__(self, chip):
         self.fields = [
-            ('CFG_PLL_EN_FLAG',    1),
-            ('CFG_RLPF',           2),
-            ('CFG_PllClkInMUX',    2),
-            ('CFG_RVI',            2),
-            ('CFG_RREF',           2),
-            ('CFG_CP',             3),
-            ('CFG_SELCLK_G1',      3),
-            ('CFG_SELCLK_G2',      3),
-            ('CFG_PllIntFbMUX',    2),
-            ('CFG_DLYNUM_G2',      6),
-            ('CFG_PllSeamMUX0',    3),
-            ('CFG_PllSeamMUX1',    3),
-            ('CFG_M_N',            6),
-            ('CFG_M_M',            6),
-            ('CFG_M_G1',           6),
-            ('CFG_CLK_EN1',        1),
-            ('CFG_M_G2',           6),
-            ('CFG_CLK_EN2',        1),
-            ('CFG_DLYNUM_G1',      6),
-            ('CFG_DLYNUM_G4',      6),
-            ('CFG_DLYNUM_G3',      6),
-            ('CFG_M_G4',           6),
-            ('CFG_CLK_EN4',        1),
-            ('CFG_M_G3',           6),
-            ('CFG_CLK_EN3',        1),
-            ('CFG_SELCLK_G4',      3),
-            ('CFG_SELCLK_G3',      3),
-            ('CFG_PllClkFbMUX',    1)
+            ('PLL_EN_FLAG',    1),
+            ('RLPF',           2),
+            ('PllClkInMUX',    2),
+            ('RVI',            2),
+            ('RREF',           2),
+            ('CP',             3),
+            ('SELCLK_G1',      3),
+            ('SELCLK_G2',      3),
+            ('PllIntFbMUX',    2),
+            ('DLYNUM_G2',      6),
+            ('PllSeamMUX0',    3),
+            ('PllSeamMUX1',    3),
+            ('M_N',            6),
+            ('M_M',            6),
+            ('M_G1',           6),
+            ('CLK_EN1',        1),
+            ('M_G2',           6),
+            ('CLK_EN2',        1),
+            ('DLYNUM_G1',      6),
+            ('DLYNUM_G4',      6),
+            ('DLYNUM_G3',      6),
+            ('M_G4',           6),
+            ('CLK_EN4',        1),
+            ('M_G3',           6),
+            ('CLK_EN3',        1),
+            ('SELCLK_G4',      3),
+            ('SELCLK_G3',      3),
+            ('PllClkFbMUX',    1)
         ]
     
     def format(self, name, bits):
@@ -88,7 +88,7 @@ class ConfigChainIO:
         # < PIN_41_CFG_OPEN_DRAIN: 0
         # after:
         # > PIN_41_CFG_OPEN_DRAIN: 1
-        base = [ ('CFG_KEEP', 2), ('CFG_PDRCTRL', 2), ('CFG_OPEN_DRAIN', 1)]
+        base = [ ('KEEP', 2), ('PDRCTRL', 2), ('OPEN_DRAIN', 1)]
         fields = []
         for pin in pins:
             for value in base:
