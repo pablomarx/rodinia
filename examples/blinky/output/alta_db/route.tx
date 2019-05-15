@@ -366,7 +366,7 @@ Nets : 175
    8:4:#912 "LogicTILE(2,2):IMUX16"
    8:4:#909 "LogicTILE(2,2):IMUX13"
    8:3:#678 "LogicTILE(2,2):OMUX06"
-   7:0:#0 "BramTILE(3,2):RMUX00"
+   7:0:#6 "BramTILE(3,2):RMUX06"
    7:4:#2 "BramTILE(3,2):IMUX02"
   steiner : 3
    8:36:#226 "LogicTILE(2,2):alta_slice02"
@@ -395,7 +395,7 @@ Nets : 175
    8:3:#682 "LogicTILE(2,2):OMUX10"
    8:4:#913 "LogicTILE(2,2):IMUX17"
    8:3:#681 "LogicTILE(2,2):OMUX09"
-   7:0:#17 "BramTILE(3,2):RMUX17"
+   7:0:#23 "BramTILE(3,2):RMUX23"
    7:4:#3 "BramTILE(3,2):IMUX03"
   steiner : 2
    8:36:#227 "LogicTILE(2,2):alta_slice03"
@@ -412,7 +412,7 @@ Nets : 175
    8:4:#951 "LogicTILE(2,2):IMUX55"
    8:4:#931 "LogicTILE(2,2):IMUX35"
    8:3:#675 "LogicTILE(2,2):OMUX03"
-   7:0:#22 "BramTILE(3,2):RMUX22"
+   7:0:#16 "BramTILE(3,2):RMUX16"
    7:4:#4 "BramTILE(3,2):IMUX04"
   steiner : 3
    8:36:#225 "LogicTILE(2,2):alta_slice01"
@@ -567,17 +567,17 @@ Nets : 175
   path : 7
    7:32:#15 "BramTILE(3,2):BufMUX15"
    8:0:#2109 "LogicTILE(4,2):RMUX93"
-   7:0:#86 "BramTILE(3,2):RMUX86"
-   8:0:#1395 "LogicTILE(2,2):RMUX51"
-   8:0:#3374 "LogicTILE(6,2):RMUX14"
-   3:0:#80 "IOTILE(6,1):RMUX16"
+   7:0:#92 "BramTILE(3,2):RMUX92"
+   7:0:#177 "BramTILE(3,3):RMUX81"
+   8:0:#3500 "LogicTILE(6,3):RMUX44"
+   3:0:#88 "IOTILE(6,1):RMUX24"
    3:18:#50 "IOTILE(6,1):IOMUX02"
   steiner : 1
    7:66:#0 "BramTILE(3,2):alta_bram00"
   segment : 1
    7
   reached : 1
-   3:18:#50 "IOTILE(6,1):IOMUX02" 3.066
+   3:18:#50 "IOTILE(6,1):IOMUX02" 3.191
  net : #75 - "data[17]"
   path : 5
    7:32:#33 "BramTILE(3,2):BufMUX33"
@@ -810,7 +810,7 @@ Nets : 175
   path : 28
    8:3:#693 "LogicTILE(2,2):OMUX21"
    7:4:#63 "BramTILE(3,2):IMUX63"
-   7:0:#28 "BramTILE(3,2):RMUX28"
+   7:0:#34 "BramTILE(3,2):RMUX34"
    7:4:#62 "BramTILE(3,2):IMUX62"
    7:4:#61 "BramTILE(3,2):IMUX61"
    7:4:#60 "BramTILE(3,2):IMUX60"
@@ -819,7 +819,7 @@ Nets : 175
    7:4:#57 "BramTILE(3,2):IMUX57"
    7:4:#12 "BramTILE(3,2):IMUX12"
    7:4:#22 "BramTILE(3,2):IMUX22"
-   7:0:#47 "BramTILE(3,2):RMUX47"
+   7:0:#41 "BramTILE(3,2):RMUX41"
    7:4:#23 "BramTILE(3,2):IMUX23"
    7:4:#24 "BramTILE(3,2):IMUX24"
    7:4:#25 "BramTILE(3,2):IMUX25"
@@ -840,28 +840,28 @@ Nets : 175
    8:36:#231 "LogicTILE(2,2):alta_slice07"
    8:3:#693 "LogicTILE(2,2):OMUX21"
    8:3:#693 "LogicTILE(2,2):OMUX21"
-   7:0:#28 "BramTILE(3,2):RMUX28"
+   7:0:#34 "BramTILE(3,2):RMUX34"
    8:3:#693 "LogicTILE(2,2):OMUX21"
-   7:0:#28 "BramTILE(3,2):RMUX28"
+   7:0:#34 "BramTILE(3,2):RMUX34"
    8:3:#693 "LogicTILE(2,2):OMUX21"
-   7:0:#28 "BramTILE(3,2):RMUX28"
-   7:0:#28 "BramTILE(3,2):RMUX28"
+   7:0:#34 "BramTILE(3,2):RMUX34"
+   7:0:#34 "BramTILE(3,2):RMUX34"
    8:3:#693 "LogicTILE(2,2):OMUX21"
-   7:0:#28 "BramTILE(3,2):RMUX28"
-   7:0:#47 "BramTILE(3,2):RMUX47"
-   7:0:#28 "BramTILE(3,2):RMUX28"
-   7:0:#47 "BramTILE(3,2):RMUX47"
-   7:0:#28 "BramTILE(3,2):RMUX28"
-   7:0:#47 "BramTILE(3,2):RMUX47"
-   7:0:#47 "BramTILE(3,2):RMUX47"
-   7:0:#28 "BramTILE(3,2):RMUX28"
-   7:0:#47 "BramTILE(3,2):RMUX47"
-   7:0:#28 "BramTILE(3,2):RMUX28"
-   7:0:#47 "BramTILE(3,2):RMUX47"
-   7:0:#28 "BramTILE(3,2):RMUX28"
-   7:0:#47 "BramTILE(3,2):RMUX47"
-   7:0:#28 "BramTILE(3,2):RMUX28"
-   7:0:#47 "BramTILE(3,2):RMUX47"
+   7:0:#34 "BramTILE(3,2):RMUX34"
+   7:0:#41 "BramTILE(3,2):RMUX41"
+   7:0:#34 "BramTILE(3,2):RMUX34"
+   7:0:#41 "BramTILE(3,2):RMUX41"
+   7:0:#34 "BramTILE(3,2):RMUX34"
+   7:0:#41 "BramTILE(3,2):RMUX41"
+   7:0:#41 "BramTILE(3,2):RMUX41"
+   7:0:#34 "BramTILE(3,2):RMUX34"
+   7:0:#41 "BramTILE(3,2):RMUX41"
+   7:0:#34 "BramTILE(3,2):RMUX34"
+   7:0:#41 "BramTILE(3,2):RMUX41"
+   7:0:#34 "BramTILE(3,2):RMUX34"
+   7:0:#41 "BramTILE(3,2):RMUX41"
+   7:0:#34 "BramTILE(3,2):RMUX34"
+   7:0:#41 "BramTILE(3,2):RMUX41"
   segment : 25
    2
    2
@@ -1278,8 +1278,8 @@ Nets : 175
    1:27:#1 "IOTILE(4,9):InputMUX01"
    8:0:#2403 "LogicTILE(4,6):RMUX03"
    8:0:#1749 "LogicTILE(2,6):RMUX21"
-   8:0:#1420 "LogicTILE(2,2):RMUX76"
-   8:7:#56 "LogicTILE(2,2):CtrlMUX00"
+   8:0:#1427 "LogicTILE(2,2):RMUX83"
+   8:7:#57 "LogicTILE(2,2):CtrlMUX01"
    8:10:#28 "LogicTILE(2,2):TileClkMUX00"
    1:27:#0 "IOTILE(4,9):InputMUX00"
    8:0:#2407 "LogicTILE(4,6):RMUX07"
@@ -3276,7 +3276,7 @@ Nodes : 32197
    3:0:#77 "IOTILE(6,1):RMUX13"  : 0 - 0 1 1
    3:0:#78 "IOTILE(6,1):RMUX14"  : 0 - 0 1 1
    3:0:#79 "IOTILE(6,1):RMUX15"  : 0 - 0 1 1
-   3:0:#80 "IOTILE(6,1):RMUX16"  : 0 - 1 2.44421 1
+   3:0:#80 "IOTILE(6,1):RMUX16"  : 0 - 0 1 1
    3:0:#81 "IOTILE(6,1):RMUX17"  : 0 - 0 1 1
    3:0:#82 "IOTILE(6,1):RMUX18"  : 0 - 0 1 1
    3:0:#83 "IOTILE(6,1):RMUX19"  : 0 - 0 1 1
@@ -3284,7 +3284,7 @@ Nodes : 32197
    3:0:#85 "IOTILE(6,1):RMUX21"  : 0 - 0 1 1
    3:0:#86 "IOTILE(6,1):RMUX22"  : 0 - 0 1 1
    3:0:#87 "IOTILE(6,1):RMUX23"  : 0 - 0 1 1
-   3:0:#88 "IOTILE(6,1):RMUX24"  : 0 - 0 1 1
+   3:0:#88 "IOTILE(6,1):RMUX24"  : 0 - 1 2.44421 1
    3:0:#89 "IOTILE(6,1):RMUX25"  : 0 - 0 1 1
    3:0:#90 "IOTILE(6,1):RMUX26"  : 0 - 0 1 1
    3:0:#91 "IOTILE(6,1):RMUX27"  : 0 - 0 1 1
@@ -3715,13 +3715,13 @@ Nodes : 32197
    5:35:#4 "PLLTILE(1,0):SinkMUXPseudo04"  : 96 - 0 1 1
    5:35:#5 "PLLTILE(1,0):SinkMUXPseudo05"  : 96 - 0 1 1
    5:61:#0 "PLLTILE(1,0):alta_pllx00"  : 80 - 0 1 1
-   7:0:#0 "BramTILE(3,2):RMUX00"  : 0 - 1 2.44548 1
+   7:0:#0 "BramTILE(3,2):RMUX00"  : 0 - 0 1 1
    7:0:#1 "BramTILE(3,2):RMUX01"  : 0 - 1 2.38389 1
    7:0:#2 "BramTILE(3,2):RMUX02"  : 0 - 0 1 1
    7:0:#3 "BramTILE(3,2):RMUX03"  : 0 - 1 2.41392 1
    7:0:#4 "BramTILE(3,2):RMUX04"  : 0 - 0 1 1
    7:0:#5 "BramTILE(3,2):RMUX05"  : 0 - 0 1 1
-   7:0:#6 "BramTILE(3,2):RMUX06"  : 0 - 0 1 1
+   7:0:#6 "BramTILE(3,2):RMUX06"  : 0 - 1 2.44548 1
    7:0:#7 "BramTILE(3,2):RMUX07"  : 0 - 0 1 1
    7:0:#8 "BramTILE(3,2):RMUX08"  : 0 - 0 1 1
    7:0:#9 "BramTILE(3,2):RMUX09"  : 0 - 0 1 1
@@ -3731,38 +3731,38 @@ Nodes : 32197
    7:0:#13 "BramTILE(3,2):RMUX13"  : 0 - 0 1 1
    7:0:#14 "BramTILE(3,2):RMUX14"  : 0 - 0 1 1
    7:0:#15 "BramTILE(3,2):RMUX15"  : 0 - 0 1 1
-   7:0:#16 "BramTILE(3,2):RMUX16"  : 0 - 0 1 1
-   7:0:#17 "BramTILE(3,2):RMUX17"  : 0 - 1 2.0575 1
+   7:0:#16 "BramTILE(3,2):RMUX16"  : 0 - 1 2.45528 1
+   7:0:#17 "BramTILE(3,2):RMUX17"  : 0 - 0 1 1
    7:0:#18 "BramTILE(3,2):RMUX18"  : 0 - 1 2.28835 1
    7:0:#19 "BramTILE(3,2):RMUX19"  : 0 - 0 1 1
    7:0:#20 "BramTILE(3,2):RMUX20"  : 0 - 0 1 1
    7:0:#21 "BramTILE(3,2):RMUX21"  : 0 - 0 1 1
-   7:0:#22 "BramTILE(3,2):RMUX22"  : 0 - 1 2.45528 1
-   7:0:#23 "BramTILE(3,2):RMUX23"  : 0 - 0 1 1
+   7:0:#22 "BramTILE(3,2):RMUX22"  : 0 - 0 1 1
+   7:0:#23 "BramTILE(3,2):RMUX23"  : 0 - 1 2.0575 1
    7:0:#24 "BramTILE(3,2):RMUX24"  : 0 - 0 1 1
    7:0:#25 "BramTILE(3,2):RMUX25"  : 0 - 0 1 1
    7:0:#26 "BramTILE(3,2):RMUX26"  : 0 - 1 2.28468 1
    7:0:#27 "BramTILE(3,2):RMUX27"  : 0 - 0 1 1
-   7:0:#28 "BramTILE(3,2):RMUX28"  : 0 - 1 2.20405 1
+   7:0:#28 "BramTILE(3,2):RMUX28"  : 0 - 0 1 1
    7:0:#29 "BramTILE(3,2):RMUX29"  : 0 - 0 1 1
    7:0:#30 "BramTILE(3,2):RMUX30"  : 0 - 0 1 1
    7:0:#31 "BramTILE(3,2):RMUX31"  : 0 - 0 1 1
    7:0:#32 "BramTILE(3,2):RMUX32"  : 0 - 0 1 1
    7:0:#33 "BramTILE(3,2):RMUX33"  : 0 - 0 1 1
-   7:0:#34 "BramTILE(3,2):RMUX34"  : 0 - 0 1 1
+   7:0:#34 "BramTILE(3,2):RMUX34"  : 0 - 1 2.20405 1
    7:0:#35 "BramTILE(3,2):RMUX35"  : 0 - 0 1 1
    7:0:#36 "BramTILE(3,2):RMUX36"  : 0 - 0 1 1
    7:0:#37 "BramTILE(3,2):RMUX37"  : 0 - 0 1 1
    7:0:#38 "BramTILE(3,2):RMUX38"  : 0 - 0 1 1
    7:0:#39 "BramTILE(3,2):RMUX39"  : 0 - 0 1 1
    7:0:#40 "BramTILE(3,2):RMUX40"  : 0 - 1 2.39843 1
-   7:0:#41 "BramTILE(3,2):RMUX41"  : 0 - 0 1 1
+   7:0:#41 "BramTILE(3,2):RMUX41"  : 0 - 1 2.16605 1
    7:0:#42 "BramTILE(3,2):RMUX42"  : 0 - 0 1 1
    7:0:#43 "BramTILE(3,2):RMUX43"  : 0 - 0 1 1
    7:0:#44 "BramTILE(3,2):RMUX44"  : 0 - 0 1 1
    7:0:#45 "BramTILE(3,2):RMUX45"  : 0 - 1 2.47507 1
    7:0:#46 "BramTILE(3,2):RMUX46"  : 0 - 0 1 1
-   7:0:#47 "BramTILE(3,2):RMUX47"  : 0 - 1 2.16605 1
+   7:0:#47 "BramTILE(3,2):RMUX47"  : 0 - 0 1 1
    7:0:#48 "BramTILE(3,2):RMUX48"  : 0 - 0 1 1
    7:0:#49 "BramTILE(3,2):RMUX49"  : 0 - 0 1 1
    7:0:#50 "BramTILE(3,2):RMUX50"  : 0 - 0 1 1
@@ -3801,13 +3801,13 @@ Nodes : 32197
    7:0:#83 "BramTILE(3,2):RMUX83"  : 0 - 0 1 1
    7:0:#84 "BramTILE(3,2):RMUX84"  : 0 - 0 1 1
    7:0:#85 "BramTILE(3,2):RMUX85"  : 0 - 0 1 1
-   7:0:#86 "BramTILE(3,2):RMUX86"  : 0 - 1 2.43341 1
+   7:0:#86 "BramTILE(3,2):RMUX86"  : 0 - 0 1 1
    7:0:#87 "BramTILE(3,2):RMUX87"  : 0 - 0 1 1
    7:0:#88 "BramTILE(3,2):RMUX88"  : 0 - 0 1 1
    7:0:#89 "BramTILE(3,2):RMUX89"  : 0 - 0 1 1
    7:0:#90 "BramTILE(3,2):RMUX90"  : 0 - 0 1 1
    7:0:#91 "BramTILE(3,2):RMUX91"  : 0 - 0 1 1
-   7:0:#92 "BramTILE(3,2):RMUX92"  : 0 - 0 1 1
+   7:0:#92 "BramTILE(3,2):RMUX92"  : 0 - 1 2.43341 1
    7:0:#93 "BramTILE(3,2):RMUX93"  : 0 - 0 1 1
    7:0:#94 "BramTILE(3,2):RMUX94"  : 0 - 0 1 1
    7:0:#95 "BramTILE(3,2):RMUX95"  : 0 - 0 1 1
@@ -3892,7 +3892,7 @@ Nodes : 32197
    7:0:#174 "BramTILE(3,3):RMUX78"  : 0 - 0 1 1
    7:0:#175 "BramTILE(3,3):RMUX79"  : 0 - 0 1 1
    7:0:#176 "BramTILE(3,3):RMUX80"  : 0 - 0 1 1
-   7:0:#177 "BramTILE(3,3):RMUX81"  : 0 - 0 1 1
+   7:0:#177 "BramTILE(3,3):RMUX81"  : 0 - 1 2.4601 1
    7:0:#178 "BramTILE(3,3):RMUX82"  : 0 - 0 1 1
    7:0:#179 "BramTILE(3,3):RMUX83"  : 0 - 0 1 1
    7:0:#180 "BramTILE(3,3):RMUX84"  : 0 - 0 1 1
@@ -8395,7 +8395,7 @@ Nodes : 32197
    8:0:#1392 "LogicTILE(2,2):RMUX48"  : 0 - 0 1 1
    8:0:#1393 "LogicTILE(2,2):RMUX49"  : 0 - 0 1 1
    8:0:#1394 "LogicTILE(2,2):RMUX50"  : 0 - 0 1 1
-   8:0:#1395 "LogicTILE(2,2):RMUX51"  : 0 - 1 2.4601 1
+   8:0:#1395 "LogicTILE(2,2):RMUX51"  : 0 - 0 1 1
    8:0:#1396 "LogicTILE(2,2):RMUX52"  : 0 - 0 1 1
    8:0:#1397 "LogicTILE(2,2):RMUX53"  : 0 - 0 1 1
    8:0:#1398 "LogicTILE(2,2):RMUX54"  : 0 - 0 1 1
@@ -8420,14 +8420,14 @@ Nodes : 32197
    8:0:#1417 "LogicTILE(2,2):RMUX73"  : 0 - 0 1 2
    8:0:#1418 "LogicTILE(2,2):RMUX74"  : 0 - 0 1 1
    8:0:#1419 "LogicTILE(2,2):RMUX75"  : 0 - 0 1 1
-   8:0:#1420 "LogicTILE(2,2):RMUX76"  : 0 - 1 2.33497 1
+   8:0:#1420 "LogicTILE(2,2):RMUX76"  : 0 - 0 1 1
    8:0:#1421 "LogicTILE(2,2):RMUX77"  : 0 - 0 1 1
    8:0:#1422 "LogicTILE(2,2):RMUX78"  : 0 - 0 1 1
    8:0:#1423 "LogicTILE(2,2):RMUX79"  : 0 - 0 1 1
    8:0:#1424 "LogicTILE(2,2):RMUX80"  : 0 - 0 1 1
    8:0:#1425 "LogicTILE(2,2):RMUX81"  : 0 - 0 1 1
    8:0:#1426 "LogicTILE(2,2):RMUX82"  : 0 - 0 1 1
-   8:0:#1427 "LogicTILE(2,2):RMUX83"  : 0 - 0 1 1
+   8:0:#1427 "LogicTILE(2,2):RMUX83"  : 0 - 1 2.33497 1
    8:0:#1428 "LogicTILE(2,2):RMUX84"  : 0 - 0 1 1
    8:0:#1429 "LogicTILE(2,2):RMUX85"  : 0 - 1 2.4557 1
    8:0:#1430 "LogicTILE(2,2):RMUX86"  : 0 - 0 1 1
@@ -10374,7 +10374,7 @@ Nodes : 32197
    8:0:#3371 "LogicTILE(6,2):RMUX11"  : 0 - 0 1 1
    8:0:#3372 "LogicTILE(6,2):RMUX12"  : 0 - 0 1 1
    8:0:#3373 "LogicTILE(6,2):RMUX13"  : 0 - 0 1 1
-   8:0:#3374 "LogicTILE(6,2):RMUX14"  : 0 - 1 2.35539 1
+   8:0:#3374 "LogicTILE(6,2):RMUX14"  : 0 - 0 1 1
    8:0:#3375 "LogicTILE(6,2):RMUX15"  : 0 - 0 1 1
    8:0:#3376 "LogicTILE(6,2):RMUX16"  : 0 - 0 1 1
    8:0:#3377 "LogicTILE(6,2):RMUX17"  : 0 - 0 1 1
@@ -10500,7 +10500,7 @@ Nodes : 32197
    8:0:#3497 "LogicTILE(6,3):RMUX41"  : 0 - 0 1 1
    8:0:#3498 "LogicTILE(6,3):RMUX42"  : 0 - 0 1 1
    8:0:#3499 "LogicTILE(6,3):RMUX43"  : 0 - 0 1 1
-   8:0:#3500 "LogicTILE(6,3):RMUX44"  : 0 - 0 1 1
+   8:0:#3500 "LogicTILE(6,3):RMUX44"  : 0 - 1 2.35539 1
    8:0:#3501 "LogicTILE(6,3):RMUX45"  : 0 - 0 1 1
    8:0:#3502 "LogicTILE(6,3):RMUX46"  : 0 - 0 1 1
    8:0:#3503 "LogicTILE(6,3):RMUX47"  : 0 - 0 1 1
@@ -23696,8 +23696,8 @@ Nodes : 32197
    8:7:#53 "LogicTILE(1,8):CtrlMUX01"  : 64 - 0 1 1
    8:7:#54 "LogicTILE(1,8):CtrlMUX02"  : 64 - 0 1 1
    8:7:#55 "LogicTILE(1,8):CtrlMUX03"  : 64 - 0 1 1
-   8:7:#56 "LogicTILE(2,2):CtrlMUX00"  : 64 - 1 2.13874 1
-   8:7:#57 "LogicTILE(2,2):CtrlMUX01"  : 64 - 0 1 1
+   8:7:#56 "LogicTILE(2,2):CtrlMUX00"  : 64 - 0 1 1
+   8:7:#57 "LogicTILE(2,2):CtrlMUX01"  : 64 - 1 2.13874 1
    8:7:#58 "LogicTILE(2,2):CtrlMUX02"  : 64 - 0 1 1
    8:7:#59 "LogicTILE(2,2):CtrlMUX03"  : 64 - 0 1 1
    8:7:#60 "LogicTILE(2,3):CtrlMUX00"  : 64 - 0 1 1
