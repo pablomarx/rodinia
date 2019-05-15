@@ -611,7 +611,7 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', 34, 20, {
 	'TileClkMUX07':[338,339,271],
 }, {
 	'RMUX[0-9][0-9]': lambda x: mux_format(x, 3, 'I'),
-	'IOMUX[0-9][0-9]': lambda x: bits_to_string(x, 7, True),
+	'IOMUX[0-9][0-9]': lambda x: mux_format(x, 4, 'I'),
 	'TileClkMUX[0-9][0-9]': lambda x: bits_to_string(x, 3, True),
 	'SeamMUX[0-9][0-9]': lambda x: bits_to_string(x, 8, True),
 	'CtrlMUX[0-9][0-9]': lambda x: bits_to_string(x, 6, True)
