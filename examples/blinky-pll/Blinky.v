@@ -10,6 +10,7 @@ PLL40 pll(
 	.clkin(clk),
 	.clkout0en(1'b1),
 	.clkout0(clk40),
+	.resetn(1'b1)
 );
 
 assign bank0 = counter[27:20];

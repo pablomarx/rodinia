@@ -39,8 +39,26 @@ defparam PLL40_AD8D879E.CLKOUT3_PHASE = 3'h0;
 defparam PLL40_AD8D879E.FEEDBACK_MODE = 1'b0;
 defparam PLL40_AD8D879E.FEEDBACK_CLOCK = 2'b00;
 
-assign clkout0 = PLL40_clkout0;
 assign lock = PLL40_lock;
+
+cycloneive_clkctrl control(
+        .inclk({1'b0, 1'b0, 1'b0, PLL40_clkout0}),
+        .clkselect({1'b1, 1'b1}),
+        .ena(1'b1),
+        .devpor(),
+        .devclrn(),
+        .outclk(clkout0));
 
 endmodule
 
+(* blackbox *)
+module cycloneive_clkctrl(
+  input [3:0] inclk,
+  input [1:0] clkselect,
+  input ena,
+  input devpor,
+  input devclrn,
+  output outclk,
+);
+
+endmodule
