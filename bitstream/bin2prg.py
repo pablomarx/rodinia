@@ -20,7 +20,7 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 #
-from utils import bytes_to_bits, bits_to_bytes
+from utils import bytes_to_bits, bits_to_bytes, bytes_to_num
 import sys
 
 if len(sys.argv) != 2:
@@ -29,11 +29,14 @@ if len(sys.argv) != 2:
 
 count = 0
 chunk_size = 256
+dev_type = 0
 
 print("# ")
 print("# Program")
 print("# ")
 def emit_prefix(wait, other): 
+    if dev_type == 0x120010:
+        return
     print("sir 10 -tdi 3fc")
     print("runtest -tck 100")
     print("sdr 8 -tdi f0")
@@ -46,10 +49,13 @@ def emit_prefix(wait, other):
         print("runtest -tck 100")
 
 def emit_trailer():
-    print("sir 10 -tdi 3f9")
-    print("runtest -tck 100")
-    print("sir 10 -tdi 3f8")
-    print("runtest -tck 100")
+    if dev_type == 0x120010:
+        print("runtest -sec 0.0002")
+    else:
+        print("sir 10 -tdi 3f9")
+        print("runtest -tck 100")
+        print("sir 10 -tdi 3f8")
+        print("runtest -tck 100")
     
 def emit_body(bit_len, str):
     print("sdr %i \\" % bit_len)
@@ -60,6 +66,10 @@ def emit_body(bit_len, str):
 
 with open(sys.argv[1], "rb") as binaryfile:
     data = bytearray(binaryfile.read())
+    dev_type = bytes_to_num(data[0:4])
+    if dev_type == 0x120010:
+        chunk_size = 4
+    
     for offset in range(0, len(data), chunk_size):
         chunk = data[offset:offset+chunk_size]
         
