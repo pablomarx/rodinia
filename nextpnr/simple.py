@@ -68,8 +68,8 @@ def createIOTileBEL(chip, tile, row, col):
     # XXX: Figure out how many pins this tile has...
     # seems like a max of 4?
     for z in range(0, 4):
-        # None of this is remotely correct
-        belname = "IOTILE(%02i,%02i,%02i)" % (row, col, z)
+        wire_prefix = "IOTILE(%02i,%02i)" % (row, col)
+        belname = "%s:alta_rio%02i" % (wire_prefix, z)
         
         # XXX: How to figure out gb? Need to consult chip package??
         ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=False)
@@ -81,7 +81,6 @@ def createIOTileBEL(chip, tile, row, col):
         
         # led pin on blinky
         # IOMUX00: 7'b0010_100	; I:2	; <= IOTILE(2,9):RMUX08:O0 T0 0.877	; syn__011_[0]
-        wire_prefix = "IOTILE(%02i,%02i)" % (row, col)
         oname = "%s:InputMUX%02i" % (wire_prefix, z)
         iname = "%s:IOMUX%02i" % (wire_prefix, z)
         oename = "%s:oe%02i" % (wire_prefix, z)
