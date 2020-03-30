@@ -25,17 +25,14 @@ import os
 import gzip
 import json
 
-wires_by_tile = None
+filename = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(filename, "ag1k-wires.json.gz")
+with gzip.open(filename, 'rb') as file:
+	wires_by_tile = json.loads(file.read())
 
 def input_for_tile_config(tile, x, y, config, value):
     global wires_by_tile
 
-    if wires_by_tile is None:
-        filename = os.path.dirname(os.path.abspath(__file__))
-        filename = os.path.join(filename, "ag1k-wires.json.gz")
-        with gzip.open(filename, 'rb') as file:
-            wires_by_tile = json.loads(file.read())
-        
     if tile not in wires_by_tile:
         return None
     
