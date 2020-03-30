@@ -34,7 +34,7 @@ def createLogicTileBEL(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
     # XXX: Figure out how many slices per tile
-    tile_name = "LogicTILE(%02i,%02i)" % (col, row)
+    tile_name = "LogicTILE(%02i,%02i)" % (row, col)
     #print("Creating %s" % (tile_name))
     for z in range(0, 16):
         slice_name = "alta_slice%02i" % z
