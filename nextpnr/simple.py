@@ -31,6 +31,8 @@ chip = ChipWithID(0x00120010)
 
 # This would be an alta_slice in AGM speak
 def createLogicTileBEL(chip, tile, row, col):
+    assert row < chip.rows
+    assert col < chip.columns 
     # XXX: Figure out how many slices per tile
     tile_name = "LogicTILE(%02i,%02i)" % (col, row)
     #print("Creating %s" % (tile_name))
@@ -57,6 +59,8 @@ def createLogicTileBEL(chip, tile, row, col):
 
 # This would be an alta_rio in AGM speak
 def createIOTileBEL(chip, tile, row, col):
+    assert row < chip.rows
+    assert col < chip.columns 
     # XXX: Figure out how many pins this tile has...
     # seems like a max of 4?
     for z in range(0, 4):
@@ -79,16 +83,22 @@ def createIOTileBEL(chip, tile, row, col):
         ctx.addBelOutput(bel=belname, name="O", wire=oname)
 
 def createRogicTileBEL(chip, tile, row, col):
+    assert row < chip.rows
+    assert col < chip.columns 
     belname = "RogicTILE(%02i,%02i)" % (col, row)
     #print("Creating %s" % (belname))
     ctx.addBel(name=belname, type="GENERIC_ROUTE", loc=Loc(col, row, 0), gb=False)
 
 def createBRAMTileBEL(chip, tile, row, col):
+    assert row < chip.rows
+    assert col < chip.columns 
     belname = "BramTILE(%02i,%02i)" % (col, row)
     #print("Creating %s" % (belname))
     ctx.addBel(name=belname, type="GENERIC_BRAM", loc=Loc(col, row, 0), gb=False)
 
 def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
+    assert row < chip.rows
+    assert col < chip.columns 
     #print("createPIP(%s, %s, %s, %s, %s, %s, %s)" % (pip_name, pip_type, wire_src, wire_dest, delay, row, col))
     try:
         ctx.addPip(
@@ -103,6 +113,8 @@ def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
 
 def addWire(row, col, name, typ=""):
     #print("addWire(%s, %s, %s, %s)" % (row, col, name, typ))
+    assert row < chip.rows
+    assert col < chip.columns 
     #print("wire", gname)
     try:
         ctx.addWire(name=name, type=typ, y=row, x=col)
@@ -116,6 +128,8 @@ def shouldProcessTileNamed(tile_name):
     return None
 
 def nameForWire(tile, col, row, config):
+    assert row < chip.rows
+    assert col < chip.columns 
     if tile == "IOTILE": 
         if config.startswith("alta_"):
             slice = int(config[-2:])
