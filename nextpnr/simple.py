@@ -40,21 +40,22 @@ def createLogicTileBEL(chip, tile, row, col):
         slice_name = "alta_slice%02i" % z
         
         belname = tile_name + ":" + slice_name
-        clkname = "%s:ClkMUX%02i" % (tile_name, z)
+        clkinstance = "ClkMUX%02i" % (z)
+        clkname = tile_name + ":" + clkinstance
         fname = belname + ":LutOut"
         qname = belname + ":Q"
 
         ctx.addBel(name=belname, type="GENERIC_SLICE", loc=Loc(col, row, z), gb=False)
-        addWire(row, col, clkname)
+        addWire(row, col, clkname, clkinstance)
         ctx.addBelInput(bel=belname, name="CLK", wire=clkname)
         for k, n in [('A', 'I[0]'), ('B', 'I[1]'),
                        ('C', 'I[2]'), ('D', 'I[3]')]:
             inpname = "%s:%s" % (belname, k)
-            addWire(row, col, inpname)
+            addWire(row, col, inpname, k)
             ctx.addBelInput(bel=belname, name=n, wire=inpname)
-        addWire(row, col, qname)
+        addWire(row, col, qname, "Q")
         ctx.addBelOutput(bel=belname, name="Q", wire=qname)
-        addWire(row, col, fname)
+        addWire(row, col, fname, "LutOut")
         ctx.addBelOutput(bel=belname, name="F", wire=fname)
 
 # This would be an alta_rio in AGM speak
