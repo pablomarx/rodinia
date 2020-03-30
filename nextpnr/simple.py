@@ -128,7 +128,7 @@ def shouldProcessTileNamed(tile_name):
         return True
     return None
 
-def nameForWire(tile, row, col, config):
+def nameForWire(tile, row, col, config, bits=None):
     assert row < chip.rows
     assert col < chip.columns 
     if tile == "IOTILE": 
@@ -137,6 +137,9 @@ def nameForWire(tile, row, col, config):
             result = "%s(%02i,%02i,%02i):%s" % (tile, row, col, slice, config)
             # print("Rewrote using slice:%s => %s" % (slice, result))
             return result
+    elif tile == "LogicTILE":
+        if config.startswith("alta_"):
+            return "%s(%02i,%02i):%s:%s" % (tile, row, col, config, bits)
     
     return "%s(%02i,%02i):%s" % (tile, row, col, config)
 
@@ -202,8 +205,8 @@ for dest_tile in wires_by_tile:
                                 wire_type = connection[4]
                                 delay = connection[5]
                                 
-                                dest_name = nameForWire(dest_tile, dest_row, dest_col, dest_config)
-                                src_name = nameForWire(src_tile, src_row, src_col, src_config)
+                                dest_name = nameForWire(dest_tile, dest_row, dest_col, dest_config, dest_bit)
+                                src_name = nameForWire(src_tile, src_row, src_col, src_config, src_bit)
                                 
                                 pip_name = "%s:%s <= %s:%s" % (dest_name, dest_bit, src_name, src_bit)
                                 #print(pip_name)
