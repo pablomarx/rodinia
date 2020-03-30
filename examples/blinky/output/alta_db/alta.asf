@@ -1,5 +1,3 @@
-set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__055_ false
-set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__056_ false
 set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__057_ false
 set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__058_ false
 set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__059_ false
@@ -30,3 +28,5 @@ set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__083_ false
 set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__084_ false
 set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__085_ false
 set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__086_ false
+set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__087_ false
+set_instance_assignment -name ENABLE_OPEN_DRAIN -to syn__088_ false
