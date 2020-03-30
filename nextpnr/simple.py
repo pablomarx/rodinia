@@ -72,9 +72,11 @@ def createIOTileBEL(chip, tile, row, col):
         ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=False)
         
         #print("Creating bel: %s" % belname)
-        iname = "%s:alta_io%02i" % (belname, z)
-        oname = "%s:alta_ioreg%02i" % (belname, z)
-        oename = "%s:oe%02i" % (belname, z)
+        
+        wire_prefix = "IOTILE(%02i,%02i)" % (row, col)
+        iname = "%s:IOMUX%02i" % (wire_prefix, z * 2)
+        oname = "%s:IOMUX%02i" % (wire_prefix, (z * 2) + 1)
+        oename = "%s:oe%02i" % (wire_prefix, z)
         
         addWire(row, col, iname)
         addWire(row, col, oename)
@@ -131,13 +133,7 @@ def shouldProcessTileNamed(tile_name):
 def nameForWire(tile, row, col, config, bits=None):
     assert row < chip.rows
     assert col < chip.columns 
-    if tile == "IOTILE": 
-        if config.startswith("alta_"):
-            slice = int(config[-2:])
-            result = "%s(%02i,%02i,%02i):%s" % (tile, row, col, slice, config)
-            # print("Rewrote using slice:%s => %s" % (slice, result))
-            return result
-    elif tile == "LogicTILE":
+    if tile == "LogicTILE":
         if config.startswith("alta_"):
             return "%s(%02i,%02i):%s:%s" % (tile, row, col, config, bits)
     
