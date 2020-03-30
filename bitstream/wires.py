@@ -25,10 +25,89 @@ import os
 import gzip
 import json
 
+class WireEnd:
+    tile = None
+    row = None
+    col = None
+    config = None
+    bit = None
+    name = None
+    def __init__(self, tile, row, col, config, bit):
+        self.tile = tile
+        self.row = row
+        self.col = col
+        self.config = config
+        self.bit = bit
+        if tile == "LogicTILE" and config.startswith("alta_"):
+            self.name = "%s(%02i,%02i):%s:%s" % (tile, row, col, config, bit)
+        else:
+             self.name = "%s(%02i,%02i):%s" % (tile, row, col, config)
+
+class Wire:
+    source = None
+    dest = None
+    wire_type = None
+    delay = None
+    name = None
+    def __init__(self, source, dest, wire_type, delay):
+        self.source = source
+        self.dest = dest
+        self.wire_type = wire_type
+        self.delay = delay
+        
+        if dest.name.endswith(":" + dest.bit):
+            name = dest.name
+        else:
+            name = "%s:%s" % (dest.name, dest.bit)
+    
+        name = name + " <= "
+    
+        if source.name.endswith(":" + source.bit):
+            name = name + source.name
+        else:
+            name = "%s%s:%s" % (name, source.name, source.bit)
+        
+        self.name = name
+
 filename = os.path.dirname(os.path.abspath(__file__))
 filename = os.path.join(filename, "ag1k-wires.json.gz")
 with gzip.open(filename, 'rb') as file:
 	wires_by_tile = json.loads(file.read())
+
+def enumerate_all_wires(callback):
+    global wires_by_tile
+    # e.g. LogicTILE, IOTILE
+    for dest_tile in wires_by_tile:
+        dest_configs = wires_by_tile[dest_tile]
+        # e.g. IMUX34, IMUX35
+        for dest_config in dest_configs:           
+            dest_bits = dest_configs[dest_config]
+            # e.g. I0, I1, I2
+            for dest_bit in dest_bits:        
+                src_tiles = dest_bits[dest_bit]
+                # e.g. LogicTILE, IOTILE
+                for src_tile in src_tiles:     
+                    src_configs = src_tiles[src_tile]
+                    # e.g. OMUX01, OMX07
+                    for src_config in src_configs:
+                        src_bits = src_configs[src_config]
+                        # e.g. O0, O1
+                        for src_bit in src_bits:
+                            connections = src_bits[src_bit]
+                            # e.g. [9, 1, 9, 1, "T0", 0.867]
+                            for connection in connections: 
+                                dest_col = connection[0]
+                                dest_row = connection[1]
+                                src_col = connection[2]
+                                src_row = connection[3]
+                                wire_type = connection[4]
+                                delay = connection[5]
+                                
+                                dest = WireEnd(dest_tile, dest_row, dest_col, dest_config, dest_bit)
+                                source = WireEnd(src_tile, src_row, src_col, src_config, src_bit)
+                                wire = Wire(source, dest, wire_type, delay)
+                                callback(wire)
+
 
 def input_for_tile_config(tile, x, y, config, value):
     global wires_by_tile

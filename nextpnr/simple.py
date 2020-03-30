@@ -25,7 +25,7 @@ import os
 sys.path.append(os.path.join(os.path.join(sys.path[0], '..'), 'bitstream'))
 
 from chips import ChipWithID
-from wires import wires_by_tile
+from wires import enumerate_all_wires
 
 chip = ChipWithID(0x00120010)
 
@@ -138,15 +138,6 @@ def shouldProcessTileNamed(tile_name):
         return True
     return None
 
-def nameForWire(tile, row, col, config, bits=None):
-    assert row < chip.rows
-    assert col < chip.columns 
-    if tile == "LogicTILE":
-        if config.startswith("alta_"):
-            return "%s(%02i,%02i):%s:%s" % (tile, row, col, config, bits)
-    
-    return "%s(%02i,%02i):%s" % (tile, row, col, config)
-
 #
 # Create Basic Elements
 #
@@ -177,57 +168,22 @@ for row in range(0, chip.rows):
 # Pip: Programmable Interconnect Point, a configurable connection in one direction between two wires
 #
 
-# e.g. LogicTILE, IOTILE
-for dest_tile in wires_by_tile:
-    if not shouldProcessTileNamed(dest_tile):
-        continue
-    print("Creating PIPs and Wires for %s" % dest_tile)
-    count = 0
-    dest_configs = wires_by_tile[dest_tile]
-    # e.g. IMUX34, IMUX35
-    for dest_config in dest_configs:           
-        dest_bits = dest_configs[dest_config]
-        # e.g. I0, I1, I2
-        for dest_bit in dest_bits:        
-            src_tiles = dest_bits[dest_bit]
-            # e.g. LogicTILE, IOTILE
-            for src_tile in src_tiles:     
-                if shouldProcessTileNamed(src_tile):
-                    src_configs = src_tiles[src_tile]
-                    # e.g. OMUX01, OMX07
-                    for src_config in src_configs:
-                        src_bits = src_configs[src_config]
-                        # e.g. O0, O1
-                        for src_bit in src_bits:
-                            connections = src_bits[src_bit]
-                            # e.g. [9, 1, 9, 1, "T0", 0.867]
-                            for connection in connections: 
-                                dest_col = connection[0]
-                                dest_row = connection[1]
-                                src_col = connection[2]
-                                src_row = connection[3]
-                                wire_type = connection[4]
-                                delay = connection[5]
+print("Creating wires and PIPs")
+def wire_enumerator(wire):
+    source = wire.source
+    dest = wire.dest
+    if not shouldProcessTileNamed(source.tile):
+        return
+    if not shouldProcessTileNamed(dest.tile):
+        return
+
+    assert source.row < chip.rows
+    assert dest.row < chip.rows
+    assert source.col < chip.columns
+    assert dest.col < chip.columns
+    
+    addWire(dest.row, dest.col, dest.name, dest.config)
+    addWire(source.row, source.col, source.name, source.config)
+    createPIP(wire.name, wire.wire_type, source.name, dest.name, wire.delay, dest.row, dest.col)
                                 
-                                dest_name = nameForWire(dest_tile, dest_row, dest_col, dest_config, dest_bit)
-                                src_name = nameForWire(src_tile, src_row, src_col, src_config, src_bit)
-                                
-                                if dest_name.endswith(":" + dest_bit):
-                                    pip_name = dest_name
-                                else:
-                                    pip_name = "%s:%s" % (dest_name, dest_bit)
-                                
-                                pip_name = pip_name + " <= "
-                                
-                                if src_name.endswith(":" + src_bit):
-                                    pip_name = pip_name + src_name
-                                else:
-                                    pip_name = "%s%s:%s" % (pip_name, src_name, src_bit)
-                                
-                                #print(pip_name)
-                                
-                                addWire(dest_row, dest_col, dest_name, dest_config)
-                                addWire(src_row, src_col, src_name, src_config)
-                                createPIP(pip_name, wire_type, src_name, dest_name, delay, dest_row, dest_col)
-                                count += 1
-    print("... created %i PIPs" % count)
+enumerate_all_wires(wire_enumerator)
