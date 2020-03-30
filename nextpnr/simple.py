@@ -40,10 +40,13 @@ def createLogicTileBEL(chip, tile, row, col):
         slice_name = "alta_slice%02i" % z
         
         belname = tile_name + ":" + slice_name
-        clkinstance = "ClkMUX%02i" % (z)
-        clkname = tile_name + ":" + clkinstance
         fname = belname + ":LutOut"
         qname = belname + ":Q"
+
+        # can't route to ClkMUX##
+        # clk input seems to go to TileClkMUX##, CtrlMUX##
+        clkinstance = "CtrlMUX%02i" % (0)
+        clkname = tile_name + ":" + clkinstance
 
         ctx.addBel(name=belname, type="GENERIC_SLICE", loc=Loc(col, row, z), gb=False)
         addWire(row, col, clkname, clkinstance)
@@ -73,9 +76,14 @@ def createIOTileBEL(chip, tile, row, col):
         
         #print("Creating bel: %s" % belname)
         
+        # clk on blinky
+        # InputMUX00: 1'b0	; syn__015_
+        
+        # led pin on blinky
+        # IOMUX00: 7'b0010_100	; I:2	; <= IOTILE(2,9):RMUX08:O0 T0 0.877	; syn__011_[0]
         wire_prefix = "IOTILE(%02i,%02i)" % (row, col)
-        iname = "%s:IOMUX%02i" % (wire_prefix, z * 2)
-        oname = "%s:IOMUX%02i" % (wire_prefix, (z * 2) + 1)
+        oname = "%s:InputMUX%02i" % (wire_prefix, z)
+        iname = "%s:IOMUX%02i" % (wire_prefix, z)
         oename = "%s:oe%02i" % (wire_prefix, z)
         
         addWire(row, col, iname)
@@ -204,7 +212,18 @@ for dest_tile in wires_by_tile:
                                 dest_name = nameForWire(dest_tile, dest_row, dest_col, dest_config, dest_bit)
                                 src_name = nameForWire(src_tile, src_row, src_col, src_config, src_bit)
                                 
-                                pip_name = "%s:%s <= %s:%s" % (dest_name, dest_bit, src_name, src_bit)
+                                if dest_name.endswith(":" + dest_bit):
+                                    pip_name = dest_name
+                                else:
+                                    pip_name = "%s:%s" % (dest_name, dest_bit)
+                                
+                                pip_name = pip_name + " <= "
+                                
+                                if src_name.endswith(":" + src_bit):
+                                    pip_name = pip_name + src_name
+                                else:
+                                    pip_name = "%s%s:%s" % (pip_name, src_name, src_bit)
+                                
                                 #print(pip_name)
                                 
                                 addWire(dest_row, dest_col, dest_name, dest_config)
