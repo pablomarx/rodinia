@@ -1,0 +1,585 @@
+# Net $PACKER_GND_NET
+
+# Net $PACKER_VCC_NET
+
+# Net $abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[21]_new_
+LogicTILE(02,04):IMUX04:I0 <= LogicTILE(02,04):OMUX01:O0
+LogicTILE(02,02):IMUX28:I22 <= LogicTILE(02,02):RMUX70:O0
+BramTILE(02,03):RMUX48:I5 <= LogicTILE(02,04):RMUX13:O0
+LogicTILE(02,04):alta_slice01:A <= LogicTILE(02,04):IMUX04:O0
+LogicTILE(02,04):IMUX20:I0 <= LogicTILE(02,04):OMUX01:O0
+LogicTILE(02,02):alta_slice14:A <= LogicTILE(02,02):IMUX56:O0
+LogicTILE(02,02):IMUX56:I10 <= BramTILE(02,03):RMUX48:O0
+LogicTILE(02,04):OMUX02:I0 <= LogicTILE(02,04):alta_slice00:LutOut
+LogicTILE(02,02):RMUX70:I6 <= LogicTILE(02,04):RMUX13:O0
+LogicTILE(02,04):OMUX01:I0 <= LogicTILE(02,04):alta_slice00:LutOut
+LogicTILE(02,02):alta_slice07:A <= LogicTILE(02,02):IMUX28:O0
+LogicTILE(02,04):RMUX13:I0 <= LogicTILE(02,04):OMUX02:O0
+LogicTILE(02,04):alta_slice05:A <= LogicTILE(02,04):IMUX20:O0
+
+# Net $abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[24]_new_
+LogicTILE(02,02):OMUX23:I0 <= LogicTILE(02,02):alta_slice07:LutOut
+LogicTILE(02,02):RMUX46:I3 <= LogicTILE(02,02):OMUX23:O0
+LogicTILE(02,02):IMUX12:I18 <= LogicTILE(02,02):RMUX46:O0
+LogicTILE(02,02):alta_slice03:A <= LogicTILE(02,02):IMUX12:O0
+
+# Net $abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[3]_new_
+LogicTILE(02,00):IMUX40:I24 <= LogicTILE(02,00):RMUX82:O0
+LogicTILE(02,00):alta_slice10:A <= LogicTILE(02,00):IMUX40:O0
+LogicTILE(02,00):IMUX04:I24 <= LogicTILE(02,00):RMUX82:O0
+LogicTILE(02,00):alta_slice01:A <= LogicTILE(02,00):IMUX04:O0
+LogicTILE(02,00):alta_slice06:A <= LogicTILE(02,00):IMUX24:O0
+LogicTILE(02,00):OMUX41:I0 <= LogicTILE(02,00):alta_slice13:LutOut
+LogicTILE(02,00):alta_slice08:A <= LogicTILE(02,00):IMUX32:O0
+LogicTILE(02,00):IMUX32:I24 <= LogicTILE(02,00):RMUX82:O0
+LogicTILE(02,00):IMUX24:I24 <= LogicTILE(02,00):RMUX82:O0
+LogicTILE(02,00):RMUX82:I1 <= LogicTILE(02,00):OMUX41:O0
+
+# Net $abc$510$new_n55_
+LogicTILE(02,02):OMUX35:I0 <= LogicTILE(02,02):alta_slice11:LutOut
+LogicTILE(02,02):IMUX32:I21 <= LogicTILE(02,02):RMUX64:O0
+LogicTILE(02,04):IMUX36:I21 <= LogicTILE(02,04):RMUX64:O0
+LogicTILE(02,04):IMUX00:I21 <= LogicTILE(02,04):RMUX64:O0
+LogicTILE(02,02):alta_slice08:A <= LogicTILE(02,02):IMUX32:O0
+LogicTILE(02,04):alta_slice09:A <= LogicTILE(02,04):IMUX36:O0
+LogicTILE(02,02):RMUX64:I3 <= LogicTILE(02,02):OMUX35:O0
+LogicTILE(02,04):alta_slice14:A <= LogicTILE(02,04):IMUX56:O0
+LogicTILE(02,02):OMUX33:I0 <= LogicTILE(02,02):alta_slice11:LutOut
+BramTILE(02,03):RMUX61:I3 <= LogicTILE(02,02):OMUX33:O0
+LogicTILE(02,04):IMUX56:I21 <= LogicTILE(02,04):RMUX64:O0
+LogicTILE(02,04):alta_slice00:A <= LogicTILE(02,04):IMUX00:O0
+LogicTILE(02,04):RMUX64:I9 <= BramTILE(02,03):RMUX61:O0
+
+# Net $abc$510$new_n56_
+LogicTILE(02,02):IMUX08:I17 <= LogicTILE(02,02):RMUX40:O0
+LogicTILE(02,02):alta_slice02:A <= LogicTILE(02,02):IMUX08:O0
+LogicTILE(02,02):IMUX44:I17 <= LogicTILE(02,02):RMUX40:O0
+LogicTILE(02,02):IMUX24:I17 <= LogicTILE(02,02):RMUX40:O0
+LogicTILE(02,02):alta_slice06:A <= LogicTILE(02,02):IMUX24:O0
+LogicTILE(02,02):alta_slice10:A <= LogicTILE(02,02):IMUX40:O0
+LogicTILE(02,01):OMUX12:I0 <= LogicTILE(02,01):alta_slice04:LutOut
+LogicTILE(02,02):alta_slice11:A <= LogicTILE(02,02):IMUX44:O0
+LogicTILE(02,02):RMUX40:I0 <= LogicTILE(02,01):OMUX12:O0
+LogicTILE(02,02):IMUX40:I17 <= LogicTILE(02,02):RMUX40:O0
+
+# Net $abc$510$new_n57_
+LogicTILE(02,01):IMUX16:I4 <= LogicTILE(02,01):OMUX19:O0
+LogicTILE(02,01):IMUX40:I3 <= LogicTILE(02,01):OMUX19:O0
+LogicTILE(02,01):alta_slice10:A <= LogicTILE(02,01):IMUX40:O0
+LogicTILE(02,01):alta_slice02:A <= LogicTILE(02,01):IMUX08:O0
+LogicTILE(02,01):alta_slice04:A <= LogicTILE(02,01):IMUX16:O0
+LogicTILE(02,01):OMUX19:I0 <= LogicTILE(02,01):alta_slice06:LutOut
+LogicTILE(02,01):IMUX36:I3 <= LogicTILE(02,01):OMUX19:O0
+LogicTILE(02,01):IMUX08:I4 <= LogicTILE(02,01):OMUX19:O0
+LogicTILE(02,01):alta_slice09:A <= LogicTILE(02,01):IMUX36:O0
+
+# Net $abc$510$new_n58_
+LogicTILE(02,01):IMUX56:I16 <= LogicTILE(02,01):RMUX34:O0
+LogicTILE(02,01):IMUX20:I16 <= LogicTILE(02,01):RMUX34:O0
+LogicTILE(02,01):alta_slice05:A <= LogicTILE(02,01):IMUX20:O0
+LogicTILE(02,00):OMUX21:I0 <= LogicTILE(02,00):alta_slice07:LutOut
+LogicTILE(02,01):alta_slice15:A <= LogicTILE(02,01):IMUX60:O0
+LogicTILE(02,01):RMUX34:I3 <= LogicTILE(02,00):OMUX21:O0
+LogicTILE(02,01):alta_slice14:A <= LogicTILE(02,01):IMUX56:O0
+LogicTILE(02,01):IMUX24:I16 <= LogicTILE(02,01):RMUX34:O0
+LogicTILE(02,01):IMUX60:I16 <= LogicTILE(02,01):RMUX34:O0
+LogicTILE(02,01):alta_slice06:A <= LogicTILE(02,01):IMUX24:O0
+
+# Net $abc$510$new_n59_
+LogicTILE(02,00):IMUX44:I5 <= LogicTILE(02,00):OMUX31:O0
+LogicTILE(02,00):alta_slice05:A <= LogicTILE(02,00):IMUX20:O0
+LogicTILE(02,00):IMUX56:I5 <= LogicTILE(02,00):OMUX31:O0
+LogicTILE(02,00):alta_slice14:A <= LogicTILE(02,00):IMUX56:O0
+LogicTILE(02,00):alta_slice11:A <= LogicTILE(02,00):IMUX44:O0
+LogicTILE(02,00):OMUX31:I0 <= LogicTILE(02,00):alta_slice10:LutOut
+LogicTILE(02,00):IMUX28:I6 <= LogicTILE(02,00):OMUX31:O0
+LogicTILE(02,00):IMUX20:I6 <= LogicTILE(02,00):OMUX31:O0
+LogicTILE(02,00):alta_slice07:A <= LogicTILE(02,00):IMUX28:O0
+
+# Net clk
+LogicTILE(02,02):RMUX36:I8 <= LogicTILE(02,06):RMUX56:O0
+LogicTILE(02,01):CtrlMUX00:I11 <= LogicTILE(02,02):RMUX36:O0
+BramTILE(02,10):BufMUX25:I0 <= BramTILE(02,10):alta_bram00:DataOutB
+LogicTILE(02,02):RMUX28:I8 <= LogicTILE(02,06):RMUX33:O0
+LogicTILE(02,02):CtrlMUX00:I20 <= LogicTILE(02,02):RMUX28:O0
+LogicTILE(02,05):RMUX36:I5 <= LogicTILE(02,06):RMUX56:O0
+LogicTILE(02,01):RMUX72:I5 <= LogicTILE(02,02):RMUX43:O0
+LogicTILE(02,07):RMUX01:I13 <= IOTILE(01,07):InputMUX00:O0
+BramTILE(02,10):RMUX23:I11 <= LogicTILE(02,07):RMUX01:O0
+LogicTILE(02,04):CtrlMUX00:I11 <= LogicTILE(02,05):RMUX36:O0
+BramTILE(02,10):IMUX53:I11 <= BramTILE(02,10):RMUX23:O0
+BramTILE(02,10):alta_bram00:AddressB <= BramTILE(02,10):IMUX53:O0
+LogicTILE(02,00):CtrlMUX00:I14 <= LogicTILE(02,01):RMUX72:O0
+BramTILE(02,10):BufMUX31:I0 <= BramTILE(02,10):alta_bram00:DataOutB
+LogicTILE(02,02):RMUX43:I8 <= LogicTILE(02,06):RMUX56:O0
+BramTILE(02,10):RMUX56:I1 <= BramTILE(02,10):BufMUX25:O0
+BramTILE(02,10):RMUX86:I3 <= BramTILE(02,10):BufMUX31:O0
+LogicTILE(02,06):RMUX33:I8 <= BramTILE(02,10):RMUX56:O0
+LogicTILE(02,06):RMUX56:I8 <= BramTILE(02,10):RMUX86:O0
+
+# Net ctr[0]
+LogicTILE(02,00):IMUX48:I14 <= LogicTILE(02,00):RMUX22:O0
+LogicTILE(02,00):alta_slice12:A <= LogicTILE(02,00):IMUX48:O0
+LogicTILE(02,00):IMUX12:I2 <= LogicTILE(02,00):OMUX10:O0
+LogicTILE(02,00):OMUX11:I1 <= LogicTILE(02,00):alta_slice03:Q
+LogicTILE(02,00):RMUX22:I3 <= LogicTILE(02,00):OMUX11:O0
+LogicTILE(02,00):alta_slice03:A <= LogicTILE(02,00):IMUX12:O0
+LogicTILE(02,00):alta_slice13:A <= LogicTILE(02,00):IMUX52:O0
+LogicTILE(02,00):alta_slice02:A <= LogicTILE(02,00):IMUX08:O0
+LogicTILE(02,00):IMUX36:I14 <= LogicTILE(02,00):RMUX22:O0
+LogicTILE(02,00):alta_slice09:A <= LogicTILE(02,00):IMUX36:O0
+LogicTILE(02,00):OMUX10:I1 <= LogicTILE(02,00):alta_slice03:Q
+LogicTILE(02,00):IMUX52:I14 <= LogicTILE(02,00):RMUX22:O0
+LogicTILE(02,00):IMUX08:I2 <= LogicTILE(02,00):OMUX10:O0
+
+# Net ctr[10]
+LogicTILE(02,01):IMUX26:I26 <= LogicTILE(02,01):RMUX94:O0
+LogicTILE(02,01):alta_slice06:C <= LogicTILE(02,01):IMUX26:O0
+LogicTILE(02,01):alta_slice14:B <= LogicTILE(02,01):IMUX57:O0
+LogicTILE(02,01):OMUX47:I1 <= LogicTILE(02,01):alta_slice15:Q
+LogicTILE(02,01):alta_slice15:B <= LogicTILE(02,01):IMUX61:O0
+LogicTILE(02,01):alta_slice05:C <= LogicTILE(02,01):IMUX22:O0
+LogicTILE(02,01):IMUX57:I8 <= LogicTILE(02,01):OMUX46:O0
+LogicTILE(02,01):OMUX46:I1 <= LogicTILE(02,01):alta_slice15:Q
+LogicTILE(02,01):IMUX61:I8 <= LogicTILE(02,01):OMUX46:O0
+LogicTILE(02,01):RMUX94:I3 <= LogicTILE(02,01):OMUX47:O0
+LogicTILE(02,01):IMUX22:I26 <= LogicTILE(02,01):RMUX94:O0
+
+# Net ctr[11]
+LogicTILE(02,01):OMUX43:I1 <= LogicTILE(02,01):alta_slice14:Q
+LogicTILE(02,01):alta_slice14:C <= LogicTILE(02,01):IMUX58:O0
+LogicTILE(02,01):IMUX58:I7 <= LogicTILE(02,01):OMUX43:O0
+LogicTILE(02,01):IMUX25:I24 <= LogicTILE(02,01):RMUX83:O0
+LogicTILE(02,01):alta_slice06:B <= LogicTILE(02,01):IMUX25:O0
+LogicTILE(02,01):alta_slice05:B <= LogicTILE(02,01):IMUX21:O0
+LogicTILE(02,01):OMUX44:I1 <= LogicTILE(02,01):alta_slice14:Q
+LogicTILE(02,01):RMUX83:I2 <= LogicTILE(02,01):OMUX44:O0
+LogicTILE(02,01):IMUX21:I24 <= LogicTILE(02,01):RMUX83:O0
+
+# Net ctr[12]
+LogicTILE(02,01):IMUX23:I3 <= LogicTILE(02,01):OMUX16:O0
+LogicTILE(02,01):alta_slice05:D <= LogicTILE(02,01):IMUX23:O0
+LogicTILE(02,01):OMUX16:I1 <= LogicTILE(02,01):alta_slice05:Q
+LogicTILE(02,01):IMUX27:I2 <= LogicTILE(02,01):OMUX16:O0
+LogicTILE(02,01):alta_slice06:D <= LogicTILE(02,01):IMUX27:O0
+
+# Net ctr[13]
+LogicTILE(02,01):IMUX41:I4 <= LogicTILE(02,01):OMUX28:O0
+LogicTILE(02,01):IMUX09:I5 <= LogicTILE(02,01):OMUX28:O0
+LogicTILE(02,01):alta_slice02:B <= LogicTILE(02,01):IMUX09:O0
+LogicTILE(02,01):alta_slice10:B <= LogicTILE(02,01):IMUX41:O0
+LogicTILE(02,01):IMUX17:I5 <= LogicTILE(02,01):OMUX28:O0
+LogicTILE(02,01):alta_slice09:B <= LogicTILE(02,01):IMUX37:O0
+LogicTILE(02,01):OMUX28:I1 <= LogicTILE(02,01):alta_slice09:Q
+LogicTILE(02,01):IMUX37:I5 <= LogicTILE(02,01):OMUX28:O0
+LogicTILE(02,01):alta_slice04:B <= LogicTILE(02,01):IMUX17:O0
+
+# Net ctr[14]
+LogicTILE(02,01):IMUX10:I6 <= LogicTILE(02,01):OMUX31:O0
+LogicTILE(02,01):alta_slice02:C <= LogicTILE(02,01):IMUX10:O0
+LogicTILE(02,01):OMUX31:I1 <= LogicTILE(02,01):alta_slice10:Q
+LogicTILE(02,01):IMUX42:I5 <= LogicTILE(02,01):OMUX31:O0
+LogicTILE(02,01):alta_slice10:C <= LogicTILE(02,01):IMUX42:O0
+LogicTILE(02,01):IMUX19:I20 <= LogicTILE(02,01):RMUX59:O0
+LogicTILE(02,01):alta_slice04:D <= LogicTILE(02,01):IMUX19:O0
+LogicTILE(02,01):OMUX32:I1 <= LogicTILE(02,01):alta_slice10:Q
+LogicTILE(02,01):RMUX59:I2 <= LogicTILE(02,01):OMUX32:O0
+
+# Net ctr[15]
+LogicTILE(02,01):alta_slice02:D <= LogicTILE(02,01):IMUX11:O0
+LogicTILE(02,01):OMUX07:I1 <= LogicTILE(02,01):alta_slice02:Q
+LogicTILE(02,01):IMUX11:I1 <= LogicTILE(02,01):OMUX07:O0
+LogicTILE(02,01):IMUX18:I1 <= LogicTILE(02,01):OMUX07:O0
+LogicTILE(02,01):alta_slice04:C <= LogicTILE(02,01):IMUX18:O0
+
+# Net ctr[16]
+LogicTILE(02,02):OMUX20:I1 <= LogicTILE(02,02):alta_slice06:Q
+LogicTILE(02,02):RMUX35:I2 <= LogicTILE(02,02):OMUX20:O0
+LogicTILE(02,02):alta_slice02:B <= LogicTILE(02,02):IMUX09:O0
+LogicTILE(02,02):IMUX46:I3 <= LogicTILE(02,02):OMUX19:O0
+LogicTILE(02,02):IMUX09:I16 <= LogicTILE(02,02):RMUX35:O0
+LogicTILE(02,02):alta_slice06:B <= LogicTILE(02,02):IMUX25:O0
+LogicTILE(02,02):alta_slice11:C <= LogicTILE(02,02):IMUX46:O0
+LogicTILE(02,02):alta_slice10:C <= LogicTILE(02,02):IMUX42:O0
+LogicTILE(02,02):IMUX25:I3 <= LogicTILE(02,02):OMUX19:O0
+LogicTILE(02,02):OMUX19:I1 <= LogicTILE(02,02):alta_slice06:Q
+LogicTILE(02,02):IMUX42:I3 <= LogicTILE(02,02):OMUX19:O0
+
+# Net ctr[17]
+LogicTILE(02,02):IMUX10:I1 <= LogicTILE(02,02):OMUX07:O0
+LogicTILE(02,02):IMUX45:I11 <= LogicTILE(02,02):RMUX05:O0
+LogicTILE(02,02):alta_slice11:B <= LogicTILE(02,02):IMUX45:O0
+LogicTILE(02,02):RMUX05:I2 <= LogicTILE(02,02):OMUX08:O0
+LogicTILE(02,02):IMUX41:I11 <= LogicTILE(02,02):RMUX05:O0
+LogicTILE(02,02):OMUX08:I1 <= LogicTILE(02,02):alta_slice02:Q
+LogicTILE(02,02):OMUX07:I1 <= LogicTILE(02,02):alta_slice02:Q
+LogicTILE(02,02):alta_slice02:C <= LogicTILE(02,02):IMUX10:O0
+LogicTILE(02,02):alta_slice10:B <= LogicTILE(02,02):IMUX41:O0
+
+# Net ctr[18]
+LogicTILE(02,02):RMUX51:I2 <= LogicTILE(02,02):OMUX32:O0
+LogicTILE(02,05):RMUX14:I11 <= LogicTILE(02,02):RMUX51:O0
+IOTILE(01,05):RMUX16:I4 <= LogicTILE(02,05):RMUX14:O0
+IOTILE(01,05):IOMUX03:I4 <= IOTILE(01,05):RMUX16:O0
+LogicTILE(02,02):IMUX47:I5 <= LogicTILE(02,02):OMUX31:O0
+LogicTILE(02,02):alta_slice11:D <= LogicTILE(02,02):IMUX47:O0
+LogicTILE(02,02):OMUX32:I1 <= LogicTILE(02,02):alta_slice10:Q
+LogicTILE(02,02):OMUX31:I1 <= LogicTILE(02,02):alta_slice10:Q
+LogicTILE(02,02):IMUX43:I5 <= LogicTILE(02,02):OMUX31:O0
+LogicTILE(02,02):alta_slice10:D <= LogicTILE(02,02):IMUX43:O0
+
+# Net ctr[19]
+LogicTILE(02,04):RMUX79:I2 <= LogicTILE(02,04):OMUX44:O0
+LogicTILE(02,02):RMUX47:I6 <= LogicTILE(02,04):RMUX79:O0
+LogicTILE(02,02):alta_slice08:B <= LogicTILE(02,02):IMUX33:O0
+LogicTILE(02,02):IMUX33:I18 <= LogicTILE(02,02):RMUX47:O0
+LogicTILE(02,04):alta_slice14:B <= LogicTILE(02,04):IMUX57:O0
+LogicTILE(02,04):OMUX44:I1 <= LogicTILE(02,04):alta_slice14:Q
+IOTILE(01,05):RMUX08:I4 <= LogicTILE(02,05):RMUX80:O0
+IOTILE(01,05):IOMUX02:I2 <= IOTILE(01,05):RMUX08:O0
+LogicTILE(02,04):OMUX43:I1 <= LogicTILE(02,04):alta_slice14:Q
+LogicTILE(02,05):RMUX80:I2 <= LogicTILE(02,04):OMUX42:O0
+LogicTILE(02,04):IMUX37:I24 <= LogicTILE(02,04):RMUX83:O0
+LogicTILE(02,04):IMUX57:I7 <= LogicTILE(02,04):OMUX43:O0
+LogicTILE(02,04):alta_slice09:B <= LogicTILE(02,04):IMUX37:O0
+LogicTILE(02,04):IMUX01:I24 <= LogicTILE(02,04):RMUX83:O0
+LogicTILE(02,04):OMUX42:I1 <= LogicTILE(02,04):alta_slice14:Q
+LogicTILE(02,04):RMUX83:I2 <= LogicTILE(02,04):OMUX44:O0
+LogicTILE(02,04):alta_slice00:B <= LogicTILE(02,04):IMUX01:O0
+
+# Net ctr[1]
+LogicTILE(02,00):IMUX53:I4 <= LogicTILE(02,00):OMUX28:O0
+LogicTILE(02,00):IMUX09:I5 <= LogicTILE(02,00):OMUX28:O0
+LogicTILE(02,00):alta_slice13:B <= LogicTILE(02,00):IMUX53:O0
+LogicTILE(02,00):alta_slice02:B <= LogicTILE(02,00):IMUX09:O0
+LogicTILE(02,00):IMUX37:I5 <= LogicTILE(02,00):OMUX28:O0
+LogicTILE(02,00):IMUX49:I4 <= LogicTILE(02,00):OMUX28:O0
+LogicTILE(02,00):OMUX28:I1 <= LogicTILE(02,00):alta_slice09:Q
+LogicTILE(02,00):alta_slice09:B <= LogicTILE(02,00):IMUX37:O0
+LogicTILE(02,00):alta_slice12:B <= LogicTILE(02,00):IMUX49:O0
+
+# Net ctr[20]
+LogicTILE(02,02):OMUX25:I1 <= LogicTILE(02,02):alta_slice08:Q
+LogicTILE(02,02):IMUX34:I4 <= LogicTILE(02,02):OMUX25:O0
+LogicTILE(02,04):RMUX10:I9 <= BramTILE(02,03):RMUX51:O0
+LogicTILE(02,05):RMUX21:I10 <= BramTILE(02,03):RMUX51:O0
+LogicTILE(02,04):alta_slice00:C <= LogicTILE(02,04):IMUX02:O0
+IOTILE(01,05):IOMUX01:I7 <= IOTILE(01,05):RMUX28:O0
+LogicTILE(02,04):IMUX02:I12 <= LogicTILE(02,04):RMUX10:O0
+LogicTILE(02,04):IMUX38:I12 <= LogicTILE(02,04):RMUX10:O0
+LogicTILE(02,02):alta_slice08:C <= LogicTILE(02,02):IMUX34:O0
+LogicTILE(02,02):OMUX24:I1 <= LogicTILE(02,02):alta_slice08:Q
+BramTILE(02,03):RMUX51:I0 <= LogicTILE(02,02):OMUX24:O0
+IOTILE(01,05):RMUX28:I2 <= LogicTILE(02,05):RMUX21:O0
+LogicTILE(02,04):alta_slice09:C <= LogicTILE(02,04):IMUX38:O0
+
+# Net ctr[21]
+IOTILE(01,05):IOMUX00:I3 <= IOTILE(01,05):RMUX12:O0
+LogicTILE(02,04):OMUX27:I1 <= LogicTILE(02,04):alta_slice09:Q
+LogicTILE(02,04):IMUX03:I5 <= LogicTILE(02,04):OMUX28:O0
+LogicTILE(02,04):alta_slice00:D <= LogicTILE(02,04):IMUX03:O0
+LogicTILE(02,04):OMUX28:I1 <= LogicTILE(02,04):alta_slice09:Q
+LogicTILE(02,05):RMUX57:I1 <= LogicTILE(02,04):OMUX27:O0
+IOTILE(01,05):RMUX12:I2 <= LogicTILE(02,05):RMUX57:O0
+LogicTILE(02,04):IMUX39:I5 <= LogicTILE(02,04):OMUX28:O0
+LogicTILE(02,04):alta_slice09:D <= LogicTILE(02,04):IMUX39:O0
+
+# Net ctr[22]
+LogicTILE(02,04):RMUX21:I1 <= LogicTILE(02,04):OMUX05:O0
+IOTILE(01,04):IOMUX01:I7 <= IOTILE(01,04):RMUX28:O0
+LogicTILE(02,04):IMUX05:I1 <= LogicTILE(02,04):OMUX04:O0
+LogicTILE(02,04):OMUX04:I1 <= LogicTILE(02,04):alta_slice01:Q
+LogicTILE(02,04):alta_slice05:B <= LogicTILE(02,04):IMUX21:O0
+LogicTILE(02,05):RMUX03:I1 <= LogicTILE(02,04):OMUX03:O0
+LogicTILE(02,04):OMUX03:I1 <= LogicTILE(02,04):alta_slice01:Q
+LogicTILE(02,02):RMUX11:I7 <= LogicTILE(02,05):RMUX03:O0
+LogicTILE(02,02):alta_slice07:B <= LogicTILE(02,02):IMUX29:O0
+LogicTILE(02,02):alta_slice14:B <= LogicTILE(02,02):IMUX57:O0
+LogicTILE(02,04):alta_slice01:B <= LogicTILE(02,04):IMUX05:O0
+LogicTILE(02,04):OMUX05:I1 <= LogicTILE(02,04):alta_slice01:Q
+IOTILE(01,04):RMUX28:I2 <= LogicTILE(02,04):RMUX21:O0
+LogicTILE(02,02):IMUX57:I12 <= LogicTILE(02,02):RMUX11:O0
+LogicTILE(02,04):IMUX21:I0 <= LogicTILE(02,04):OMUX04:O0
+LogicTILE(02,02):IMUX29:I12 <= LogicTILE(02,02):RMUX11:O0
+
+# Net ctr[23]
+IOTILE(01,04):RMUX16:I0 <= LogicTILE(02,04):RMUX37:O0
+LogicTILE(02,04):RMUX37:I1 <= LogicTILE(02,04):OMUX17:O0
+LogicTILE(02,04):OMUX16:I1 <= LogicTILE(02,04):alta_slice05:Q
+LogicTILE(02,04):alta_slice05:C <= LogicTILE(02,04):IMUX22:O0
+LogicTILE(02,04):IMUX22:I3 <= LogicTILE(02,04):OMUX16:O0
+LogicTILE(02,02):IMUX58:I9 <= BramTILE(02,03):RMUX12:O0
+LogicTILE(02,02):RMUX88:I6 <= LogicTILE(02,04):RMUX43:O0
+LogicTILE(02,02):IMUX30:I25 <= LogicTILE(02,02):RMUX88:O0
+LogicTILE(02,02):alta_slice07:C <= LogicTILE(02,02):IMUX30:O0
+LogicTILE(02,02):alta_slice14:C <= LogicTILE(02,02):IMUX58:O0
+LogicTILE(02,04):OMUX17:I1 <= LogicTILE(02,04):alta_slice05:Q
+IOTILE(01,04):IOMUX00:I4 <= IOTILE(01,04):RMUX16:O0
+LogicTILE(02,04):RMUX43:I1 <= LogicTILE(02,04):OMUX17:O0
+BramTILE(02,03):RMUX12:I5 <= LogicTILE(02,04):RMUX26:O0
+LogicTILE(02,04):RMUX26:I1 <= LogicTILE(02,04):OMUX17:O0
+
+# Net ctr[24]
+LogicTILE(02,02):OMUX43:I1 <= LogicTILE(02,02):alta_slice14:Q
+LogicTILE(02,02):IMUX59:I7 <= LogicTILE(02,02):OMUX43:O0
+LogicTILE(02,02):alta_slice14:D <= LogicTILE(02,02):IMUX59:O0
+LogicTILE(02,02):IMUX31:I23 <= LogicTILE(02,02):RMUX77:O0
+LogicTILE(02,02):alta_slice07:D <= LogicTILE(02,02):IMUX31:O0
+IOTILE(01,02):IOMUX01:I0 <= IOTILE(01,02):RMUX00:O0
+IOTILE(01,02):RMUX00:I0 <= LogicTILE(02,02):RMUX73:O0
+LogicTILE(02,02):OMUX44:I1 <= LogicTILE(02,02):alta_slice14:Q
+LogicTILE(02,02):RMUX77:I2 <= LogicTILE(02,02):OMUX44:O0
+LogicTILE(02,02):RMUX73:I2 <= LogicTILE(02,02):OMUX44:O0
+
+# Net ctr[25]
+LogicTILE(02,02):OMUX11:I1 <= LogicTILE(02,02):alta_slice03:Q
+LogicTILE(02,02):RMUX14:I3 <= LogicTILE(02,02):OMUX11:O0
+IOTILE(01,02):IOMUX00:I4 <= IOTILE(01,02):RMUX16:O0
+IOTILE(01,02):RMUX16:I4 <= LogicTILE(02,02):RMUX14:O0
+LogicTILE(02,02):alta_slice03:B <= LogicTILE(02,02):IMUX13:O0
+LogicTILE(02,02):OMUX10:I1 <= LogicTILE(02,02):alta_slice03:Q
+LogicTILE(02,02):IMUX13:I2 <= LogicTILE(02,02):OMUX10:O0
+
+# Net ctr[2]
+LogicTILE(02,00):alta_slice12:C <= LogicTILE(02,00):IMUX50:O0
+LogicTILE(02,00):IMUX10:I1 <= LogicTILE(02,00):OMUX07:O0
+LogicTILE(02,00):alta_slice02:C <= LogicTILE(02,00):IMUX10:O0
+LogicTILE(02,00):OMUX08:I1 <= LogicTILE(02,00):alta_slice02:Q
+LogicTILE(02,00):OMUX07:I1 <= LogicTILE(02,00):alta_slice02:Q
+LogicTILE(02,00):RMUX11:I2 <= LogicTILE(02,00):OMUX08:O0
+LogicTILE(02,00):IMUX55:I12 <= LogicTILE(02,00):RMUX11:O0
+LogicTILE(02,00):IMUX50:I1 <= LogicTILE(02,00):OMUX07:O0
+LogicTILE(02,00):alta_slice13:D <= LogicTILE(02,00):IMUX55:O0
+
+# Net ctr[3]
+LogicTILE(02,00):IMUX51:I6 <= LogicTILE(02,00):OMUX37:O0
+LogicTILE(02,00):alta_slice12:D <= LogicTILE(02,00):IMUX51:O0
+LogicTILE(02,00):OMUX37:I1 <= LogicTILE(02,00):alta_slice12:Q
+LogicTILE(02,00):IMUX54:I6 <= LogicTILE(02,00):OMUX37:O0
+LogicTILE(02,00):alta_slice13:C <= LogicTILE(02,00):IMUX54:O0
+
+# Net ctr[4]
+LogicTILE(02,00):alta_slice08:B <= LogicTILE(02,00):IMUX33:O0
+LogicTILE(02,00):alta_slice10:C <= LogicTILE(02,00):IMUX42:O0
+LogicTILE(02,00):OMUX26:I1 <= LogicTILE(02,00):alta_slice08:Q
+LogicTILE(02,00):RMUX65:I0 <= LogicTILE(02,00):OMUX26:O0
+LogicTILE(02,00):IMUX05:I21 <= LogicTILE(02,00):RMUX65:O0
+LogicTILE(02,00):IMUX42:I4 <= LogicTILE(02,00):OMUX25:O0
+LogicTILE(02,00):alta_slice01:B <= LogicTILE(02,00):IMUX05:O0
+LogicTILE(02,00):OMUX25:I1 <= LogicTILE(02,00):alta_slice08:Q
+LogicTILE(02,00):IMUX26:I5 <= LogicTILE(02,00):OMUX25:O0
+LogicTILE(02,00):IMUX33:I4 <= LogicTILE(02,00):OMUX25:O0
+LogicTILE(02,00):alta_slice06:C <= LogicTILE(02,00):IMUX26:O0
+
+# Net ctr[5]
+LogicTILE(02,00):alta_slice06:B <= LogicTILE(02,00):IMUX25:O0
+LogicTILE(02,00):alta_slice10:B <= LogicTILE(02,00):IMUX41:O0
+LogicTILE(02,00):IMUX25:I0 <= LogicTILE(02,00):OMUX04:O0
+LogicTILE(02,00):OMUX04:I1 <= LogicTILE(02,00):alta_slice01:Q
+LogicTILE(02,00):IMUX06:I1 <= LogicTILE(02,00):OMUX04:O0
+LogicTILE(02,00):IMUX41:I0 <= LogicTILE(02,00):OMUX04:O0
+LogicTILE(02,00):alta_slice01:C <= LogicTILE(02,00):IMUX06:O0
+
+# Net ctr[6]
+LogicTILE(02,00):OMUX19:I1 <= LogicTILE(02,00):alta_slice06:Q
+LogicTILE(02,00):alta_slice10:D <= LogicTILE(02,00):IMUX43:O0
+LogicTILE(02,00):RMUX29:I2 <= LogicTILE(02,00):OMUX20:O0
+LogicTILE(02,00):alta_slice06:D <= LogicTILE(02,00):IMUX27:O0
+LogicTILE(02,00):IMUX43:I15 <= LogicTILE(02,00):RMUX29:O0
+LogicTILE(02,00):IMUX27:I3 <= LogicTILE(02,00):OMUX19:O0
+LogicTILE(02,00):OMUX20:I1 <= LogicTILE(02,00):alta_slice06:Q
+
+# Net ctr[7]
+LogicTILE(02,00):IMUX45:I23 <= LogicTILE(02,00):RMUX77:O0
+LogicTILE(02,00):alta_slice11:B <= LogicTILE(02,00):IMUX45:O0
+LogicTILE(02,00):IMUX21:I23 <= LogicTILE(02,00):RMUX77:O0
+LogicTILE(02,00):OMUX43:I1 <= LogicTILE(02,00):alta_slice14:Q
+LogicTILE(02,00):alta_slice05:B <= LogicTILE(02,00):IMUX21:O0
+LogicTILE(02,00):OMUX44:I1 <= LogicTILE(02,00):alta_slice14:Q
+LogicTILE(02,00):IMUX57:I7 <= LogicTILE(02,00):OMUX43:O0
+LogicTILE(02,00):alta_slice14:B <= LogicTILE(02,00):IMUX57:O0
+LogicTILE(02,00):RMUX77:I2 <= LogicTILE(02,00):OMUX44:O0
+LogicTILE(02,00):IMUX29:I23 <= LogicTILE(02,00):RMUX77:O0
+LogicTILE(02,00):alta_slice07:B <= LogicTILE(02,00):IMUX29:O0
+
+# Net ctr[8]
+LogicTILE(02,00):IMUX46:I6 <= LogicTILE(02,00):OMUX34:O0
+LogicTILE(02,00):alta_slice11:C <= LogicTILE(02,00):IMUX46:O0
+LogicTILE(02,00):OMUX34:I1 <= LogicTILE(02,00):alta_slice11:Q
+LogicTILE(02,00):IMUX31:I6 <= LogicTILE(02,00):OMUX34:O0
+LogicTILE(02,00):OMUX35:I1 <= LogicTILE(02,00):alta_slice11:Q
+LogicTILE(02,00):alta_slice05:C <= LogicTILE(02,00):IMUX22:O0
+LogicTILE(02,00):RMUX64:I3 <= LogicTILE(02,00):OMUX35:O0
+LogicTILE(02,00):alta_slice07:D <= LogicTILE(02,00):IMUX31:O0
+LogicTILE(02,00):IMUX22:I21 <= LogicTILE(02,00):RMUX64:O0
+
+# Net ctr[9]
+LogicTILE(02,00):OMUX17:I1 <= LogicTILE(02,00):alta_slice05:Q
+LogicTILE(02,00):IMUX30:I15 <= LogicTILE(02,00):RMUX28:O0
+LogicTILE(02,00):alta_slice07:C <= LogicTILE(02,00):IMUX30:O0
+LogicTILE(02,00):RMUX28:I1 <= LogicTILE(02,00):OMUX17:O0
+LogicTILE(02,00):OMUX16:I1 <= LogicTILE(02,00):alta_slice05:Q
+LogicTILE(02,00):IMUX23:I3 <= LogicTILE(02,00):OMUX16:O0
+LogicTILE(02,00):alta_slice05:D <= LogicTILE(02,00):IMUX23:O0
+
+# Cell $PACKER_GND at LogicTILE(03,09):alta_slice09
+LogicTILE(03,09):alta_slice09.INIT[15:0] = 16'b0000000000000000
+
+# Cell $PACKER_VCC at LogicTILE(08,08):alta_slice12
+LogicTILE(08,08):alta_slice12.INIT[15:0] = 16'b1111111111111111
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$511_LC at LogicTILE(02,04):alta_slice14
+LogicTILE(02,04):alta_slice14.INIT[15:0] = 16'b0110
+LogicTILE(02,04):alta_slice14.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$512_LC at LogicTILE(02,02):alta_slice11
+LogicTILE(02,02):alta_slice11.INIT[15:0] = 16'b1000000000000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$513_LC at LogicTILE(02,01):alta_slice04
+LogicTILE(02,01):alta_slice04.INIT[15:0] = 16'b1000000000000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$514_LC at LogicTILE(02,01):alta_slice06
+LogicTILE(02,01):alta_slice06.INIT[15:0] = 16'b1000000000000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$515_LC at LogicTILE(02,00):alta_slice07
+LogicTILE(02,00):alta_slice07.INIT[15:0] = 16'b1000000000000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$516_LC at LogicTILE(02,00):alta_slice10
+LogicTILE(02,00):alta_slice10.INIT[15:0] = 16'b1000000000000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$517_LC at LogicTILE(02,00):alta_slice13
+LogicTILE(02,00):alta_slice13.INIT[15:0] = 16'b1000000000000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$518_LC at LogicTILE(02,02):alta_slice08
+LogicTILE(02,02):alta_slice08.INIT[15:0] = 16'b01111000
+LogicTILE(02,02):alta_slice08.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$519_LC at LogicTILE(02,04):alta_slice09
+LogicTILE(02,04):alta_slice09.INIT[15:0] = 16'b0111111110000000
+LogicTILE(02,04):alta_slice09.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$520_LC at LogicTILE(02,04):alta_slice01
+LogicTILE(02,04):alta_slice01.INIT[15:0] = 16'b0110
+LogicTILE(02,04):alta_slice01.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$521_LC at LogicTILE(02,04):alta_slice00
+LogicTILE(02,04):alta_slice00.INIT[15:0] = 16'b1000000000000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$522_LC at LogicTILE(02,04):alta_slice05
+LogicTILE(02,04):alta_slice05.INIT[15:0] = 16'b01111000
+LogicTILE(02,04):alta_slice05.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$523_LC at LogicTILE(02,02):alta_slice14
+LogicTILE(02,02):alta_slice14.INIT[15:0] = 16'b0111111110000000
+LogicTILE(02,02):alta_slice14.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$524_LC at LogicTILE(02,02):alta_slice03
+LogicTILE(02,02):alta_slice03.INIT[15:0] = 16'b0110
+LogicTILE(02,02):alta_slice03.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$525_LC at LogicTILE(02,02):alta_slice07
+LogicTILE(02,02):alta_slice07.INIT[15:0] = 16'b1000000000000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$526_LC at LogicTILE(02,00):alta_slice09
+LogicTILE(02,00):alta_slice09.FF_USED
+LogicTILE(02,00):alta_slice09.INIT[15:0] = 16'b0110
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$527_LC at LogicTILE(02,00):alta_slice02
+LogicTILE(02,00):alta_slice02.FF_USED
+LogicTILE(02,00):alta_slice02.INIT[15:0] = 16'b01111000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$528_LC at LogicTILE(02,00):alta_slice12
+LogicTILE(02,00):alta_slice12.FF_USED
+LogicTILE(02,00):alta_slice12.INIT[15:0] = 16'b0111111110000000
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$529_LC at LogicTILE(02,00):alta_slice08
+LogicTILE(02,00):alta_slice08.FF_USED
+LogicTILE(02,00):alta_slice08.INIT[15:0] = 16'b0110
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$530_LC at LogicTILE(02,00):alta_slice01
+LogicTILE(02,00):alta_slice01.INIT[15:0] = 16'b01111000
+LogicTILE(02,00):alta_slice01.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$531_LC at LogicTILE(02,00):alta_slice06
+LogicTILE(02,00):alta_slice06.INIT[15:0] = 16'b0111111110000000
+LogicTILE(02,00):alta_slice06.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$532_LC at LogicTILE(02,00):alta_slice14
+LogicTILE(02,00):alta_slice14.INIT[15:0] = 16'b0110
+LogicTILE(02,00):alta_slice14.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$533_LC at LogicTILE(02,00):alta_slice11
+LogicTILE(02,00):alta_slice11.INIT[15:0] = 16'b01111000
+LogicTILE(02,00):alta_slice11.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$534_LC at LogicTILE(02,00):alta_slice05
+LogicTILE(02,00):alta_slice05.INIT[15:0] = 16'b0111111110000000
+LogicTILE(02,00):alta_slice05.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$535_LC at LogicTILE(02,01):alta_slice15
+LogicTILE(02,01):alta_slice15.INIT[15:0] = 16'b0110
+LogicTILE(02,01):alta_slice15.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$536_LC at LogicTILE(02,01):alta_slice14
+LogicTILE(02,01):alta_slice14.INIT[15:0] = 16'b01111000
+LogicTILE(02,01):alta_slice14.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$537_LC at LogicTILE(02,01):alta_slice05
+LogicTILE(02,01):alta_slice05.INIT[15:0] = 16'b0111111110000000
+LogicTILE(02,01):alta_slice05.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$538_LC at LogicTILE(02,01):alta_slice09
+LogicTILE(02,01):alta_slice09.INIT[15:0] = 16'b0110
+LogicTILE(02,01):alta_slice09.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$539_LC at LogicTILE(02,01):alta_slice10
+LogicTILE(02,01):alta_slice10.INIT[15:0] = 16'b01111000
+LogicTILE(02,01):alta_slice10.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$540_LC at LogicTILE(02,01):alta_slice02
+LogicTILE(02,01):alta_slice02.INIT[15:0] = 16'b0111111110000000
+LogicTILE(02,01):alta_slice02.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$541_LC at LogicTILE(02,02):alta_slice06
+LogicTILE(02,02):alta_slice06.INIT[15:0] = 16'b0110
+LogicTILE(02,02):alta_slice06.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$542_LC at LogicTILE(02,02):alta_slice02
+LogicTILE(02,02):alta_slice02.INIT[15:0] = 16'b01111000
+LogicTILE(02,02):alta_slice02.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$543_LC at LogicTILE(02,02):alta_slice10
+LogicTILE(02,02):alta_slice10.INIT[15:0] = 16'b0111111110000000
+LogicTILE(02,02):alta_slice10.FF_USED
+
+# Cell $abc$510$auto$blifparse.cc:498:parse_blif$544_LC at LogicTILE(02,00):alta_slice03
+LogicTILE(02,00):alta_slice03.INIT[15:0] = 16'b01
+LogicTILE(02,00):alta_slice03.FF_USED
+
+# Cell clk_ibuf at IOTILE(01,07):alta_rio00
+IOTILE(01,07):alta_rio00.INPUT_USED
+
+# Cell led0_obuf at IOTILE(01,05):alta_rio03
+IOTILE(01,05):alta_rio03.OUTPUT_USED
+
+# Cell led1_obuf at IOTILE(01,05):alta_rio02
+IOTILE(01,05):alta_rio02.OUTPUT_USED
+
+# Cell led2_obuf at IOTILE(01,05):alta_rio01
+IOTILE(01,05):alta_rio01.OUTPUT_USED
+
+# Cell led3_obuf at IOTILE(01,05):alta_rio00
+IOTILE(01,05):alta_rio00.OUTPUT_USED
+
+# Cell led4_obuf at IOTILE(01,04):alta_rio01
+IOTILE(01,04):alta_rio01.OUTPUT_USED
+
+# Cell led5_obuf at IOTILE(01,04):alta_rio00
+IOTILE(01,04):alta_rio00.OUTPUT_USED
+
+# Cell led6_obuf at IOTILE(01,02):alta_rio01
+IOTILE(01,02):alta_rio01.OUTPUT_USED
+
+# Cell led7_obuf at IOTILE(01,02):alta_rio00
+IOTILE(01,02):alta_rio00.OUTPUT_USED
+
