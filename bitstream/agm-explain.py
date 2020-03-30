@@ -43,7 +43,7 @@ def print_data(data):
     
     args = data['args']
     
-    keys = values.keys()
+    keys = list(values)
     keys.sort()
     
     print(data['header'])

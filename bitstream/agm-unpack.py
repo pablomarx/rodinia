@@ -143,7 +143,7 @@ while reader.endOfFile() == False:
         bit_len = (size_group >> 8) + 1
         aligned_len = round_up(bit_len, 32)
 
-        bytes = reader.readN(aligned_len / 8)
+        bytes = reader.readN(int(aligned_len / 8))
         bits = bytes_to_bits(bytes)
     
         dest = word & 0xff
