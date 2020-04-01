@@ -28,7 +28,7 @@ def crc(bytes):
     for byte in bytes:
         csum = (byte << 24) ^ csum
         i = 0
-        while i <> 8:
+        while i != 8:
             while csum < 0x7fffffff:
                 i += 1
                 csum = (csum * 2) & 0xffffffff
