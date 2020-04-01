@@ -106,6 +106,14 @@ class Tile:
             
                 values[name][position] = bits[idx]
         return values
+        
+    def empty_bits(self):
+        bits = [1] * (self.columns * self.rows)
+        for key in self.values:
+            for bit_idx in self.values[key]:
+                bits[bit_idx] = 0
+        return bits
+
 
 def mux_value(bits, length=None):
     if length is None:
