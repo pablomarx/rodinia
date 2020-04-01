@@ -49,6 +49,9 @@ for col in range(0, chip.columns):
             col_bits.append(tile.empty_bits())
     bits_by_tile.append(col_bits)
 
+bits_by_config = []
+for chain in chip.configChain:
+    bits_by_config.append(chain.empty_bits())
 
 #
 # Read the fasm file
@@ -96,8 +99,15 @@ for line in lines:
     bits = bits_by_tile[col][row]
     success = tile.encode(key, value, bits) 
     if not success:
-        print("Did not enocde key:%s line:%s" % (key, line))
-        # XXX: Try to populate the config chain
+        chain_idx = 0
+        for chain in chip.configChain:
+            success = chain.encode(chip, tile.type, row, col, key, value, bits_by_config[chain_idx])
+            if success:
+                break
+            chain_idx += 1
+        
+        if not success:
+            print("Did not enocde key:%s line:%s" % (key, line))
 
 
 #
@@ -106,11 +116,10 @@ for line in lines:
 asc = open(sys.argv[2], 'w')
 asc.write(".device 0x%x\n\n" % chip.device_id)
 
-# XXX: Temporary kludge to make agm-pack.py happy
 chain_idx = 0
-for chain in chip.configChain:
+for chain in bits_by_config:
     asc.write(".config_chain %i\n" % (chain_idx))
-    asc.write(bits_to_string(chain.empty_bits()))
+    asc.write(bits_to_string(bits_by_config[chain_idx]))
     asc.write("\n\n")
     chain_idx += 1
 
