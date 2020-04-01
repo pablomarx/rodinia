@@ -92,6 +92,20 @@ class Chip:
         for column in range(0, self.columns):
             result = result + self.column_width(column)
         return result
+        
+    def pin_at(self, row, col, slice):
+        # XXX: Need to support packages...
+        for pkg_name in self.packages:
+            pins = self.packages[pkg_name]
+            for pin in pins:
+                if not "tile" in pin:
+                    continue
+                tile = pin['tile']
+                if tile != (col, row):
+                    continue
+                if pin['index'] == slice:
+                    return pin
+        return None
 
 def ChipNamed(name):
     for chip in chips:
