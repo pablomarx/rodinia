@@ -56,6 +56,12 @@ class ConfigChainPLL:
             ('PllClkFbMUX',    1)
         ]
     
+    def empty_bits(self):
+        length = 0
+        for field in self.fields:
+            length += field[1]
+        return [0] * length
+    
     def format(self, name, bits):
         return bits_to_string(bits)
     
@@ -96,6 +102,9 @@ class ConfigChainIO:
                 length = value[1]
                 fields.append((pin['name'] + '_' + name, length))
         self.fields = fields
+        
+    def empty_bits(self):
+        return [0] * len(self.fields)
 
     def format(self, name, bits):
         return bits_to_string(bits)
