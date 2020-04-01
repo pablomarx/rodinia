@@ -104,8 +104,12 @@ class ConfigChainIO:
         self.fields = fields
         
     def empty_bits(self):
-        return [0] * len(self.fields)
-
+        length = 0
+        for field in self.fields:
+            length += field[1]
+            
+        return [0] * length
+        
     def format(self, name, bits):
         return bits_to_string(bits)
 
