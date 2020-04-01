@@ -45,6 +45,7 @@ def string_to_bits(str):
             bits.append(1 if char == '1' else 0)
     elif radix == 'd':
         val = int(str)
+        size = 1
         while val > 0:
             bits.append(val & 1)
             val = val >> 1

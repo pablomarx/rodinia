@@ -1,0 +1,119 @@
+#!/usr/bin/python
+#
+# Copyright 2020 Steve White
+#
+# Permission is hereby granted, free of charge, to any person obtaining 
+# a copy of this software and associated documentation files (the 'Software'), 
+# to deal in the Software without restriction, including without limitation 
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+# and/or sell copies of the Software, and to permit persons to whom the 
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included 
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+# DEALINGS IN THE SOFTWARE.
+#
+import sys
+import os
+import re
+
+sys.path.append(os.path.join(os.path.join(sys.path[0], '..'), 'bitstream'))
+from chips import ChipWithID
+from utils import string_to_bits
+
+if len(sys.argv) != 2:
+    print("usage: %s <fasm file>" % sys.argv[0])
+    sys.exit(-1)
+        
+def print_bits():
+    print(".device 0x%x" % chip.device_id)
+    for tile_col in range(0, chip.columns):
+        for tile_row in range(0, chip.rows):
+            tile = chip.tile_at(tile_col, tile_row)
+            if tile is None:
+                continue
+            print(".%s %i %i" % (tile.type, tile_col, tile_row))
+            bits = bits_by_tile[tile_col][tile_row]
+            bit_idx = 0
+            for bit_row in range(0, tile.rows):
+                row_str = ""
+                for bit_col in range(0, tile.columns):
+                    row_str += str(bits[bit_idx])
+                    bit_idx += 1
+                print(row_str)
+            print("")
+
+#
+# Create bits for the bitstream
+#
+chip = ChipWithID(0x00120010)
+
+bits_by_tile = []
+for col in range(0, chip.columns):
+    col_bits = []
+    for row in range(0, chip.rows):
+        tile = chip.tile_at(col, row)
+        if tile is None:
+            col_bits.append([])
+        else:
+            col_bits.append(tile.empty_bits())
+    bits_by_tile.append(col_bits)
+
+
+#
+# Read the fasm file
+#
+filename = sys.argv[1]
+with open(filename, "r") as file:
+    lines = file.readlines()
+    
+for line in lines:
+    line = line.strip()
+    if len(line) == 0:
+        continue
+    if line[0] == "#":
+        continue
+        
+    match = re.match("^([^_]*)_([XY][0-9]*)([XY][0-9]*).(.*)$", line)
+    assert match is not None
+    
+    comps = match.groups()
+    assert len(comps) == 4
+    
+    row = None
+    col = None
+    for comp_index in range(1,3):
+        coordinate = comps[comp_index]
+        if coordinate[0] == 'X':
+            col = int(coordinate[1:])
+        elif coordinate[0] == 'Y':
+            row = int(coordinate[1:])
+    
+    assert row is not None
+    assert col is not None
+    
+    tile = chip.tile_at(col, row)
+    assert tile is not None
+    assert tile.type[0] == comps[0]
+    
+    setting = comps[3].split("=")
+    if len(setting) == 1:
+        setting.append("1")
+    
+    key = setting[0].strip()
+    value = string_to_bits(setting[1].strip())
+    
+    bits = bits_by_tile[col][row]
+    success = tile.encode(key, value, bits) 
+    if not success:
+        print("Did not enocde key:%s line:%s" % (key, line))
+        # XXX: Try to populate the config chain
+
+print_bits()
