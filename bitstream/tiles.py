@@ -81,7 +81,7 @@ class Tile:
             result += "\t; "+self.annotations[name]
             
         if name.lower().find("mux") != -1:
-            value = mux_value(bits)
+            value = mux_decode(bits)
             if value != -1:
                 wire = wires.input_for_tile_config(self.type, x, y, name, value)
                 if wire is not None:
@@ -115,7 +115,7 @@ class Tile:
         return bits
 
 
-def mux_value(bits, length=None):
+def mux_decode(bits, length=None):
     if length is None:
         length = len(bits) - 3
     
@@ -132,7 +132,7 @@ def mux_value(bits, length=None):
     return int(((length-1) - log(top, 2)) + (length * (2 - log(bottom, 2))))
     
 def mux_format(bits, length, type):
-    index = mux_value(bits, length)
+    index = mux_decode(bits, length)
     return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
 
 def slice_omux_format(bits):
