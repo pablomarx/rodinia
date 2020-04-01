@@ -21,6 +21,7 @@
 # DEALINGS IN THE SOFTWARE.
 #
 from operator import itemgetter
+import re
 from utils import bits_to_string
 
 class ConfigChainPLL:
@@ -65,6 +66,9 @@ class ConfigChainPLL:
     def format(self, name, bits):
         return bits_to_string(bits)
     
+    def encode(self, chip, tile, row, col, key, value, bits):
+        return None
+
     def decode(self, bits):
         result = { '__NAME': 'PLL' }
         idx = 0
@@ -112,7 +116,38 @@ class ConfigChainIO:
         
     def format(self, name, bits):
         return bits_to_string(bits)
+        
+    def offset_for_field_named(self, name):
+        offset = 0
+        for field in self.fields:
+            if field[0] == name:
+                return offset
+            offset += field[1]
+        return offset
+    
+    def encode(self, chip, tile, row, col, key, value, bits):
+        match = re.match("^alta_rio([0-9]*)\.(INPUT|OUTPUT)_USED$", key)
+        if not match:
+            return None
+        
+        comps = match.groups()
+        slice = int(comps[0])
+        output = (comps[1] == "OUTPUT")
+        pin = chip.pin_at(row, col, slice)
+        if not pin:
+            print("What pin corresponds to tile:%s row:%i col:%i slice:%i ??" % (tile, row, col, slice))
+            return None
 
+        offset = self.offset_for_field_named(pin["name"] + "_KEEP")
+        if output:
+            bits[offset] = 1
+            bits[offset+1] = 1
+        else:
+            bits[offset] = 0
+            bits[offset+1] = 1
+                
+        return True
+    
     def decode(self, bits):
         result = { '__NAME': 'I/O' }
         idx = 0
