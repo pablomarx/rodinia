@@ -27,8 +27,8 @@ from crc import crc
 from chips import ChipWithID, chips
 from utils import round_up
 
-if len(sys.argv) != 2:
-    print("usage: %s <agm-unpack.py output>" % sys.argv[0])
+if len(sys.argv) != 3:
+    print("usage: %s <asc file input> <bin file output>" % sys.argv[0])
     sys.exit(-1)
 
 filename = sys.argv[1]
@@ -147,4 +147,6 @@ writer.write32(0x2A00FC02)
 writer.write32(0x00000F8F)
 writer.write32(crc(writer.getBytes()))
 
-sys.stdout.write(writer.getBytes())
+binfile = open(sys.argv[2], 'wb')
+binfile.write(writer.getBytes())
+binfile.close()
