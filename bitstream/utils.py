@@ -20,8 +20,44 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 #
+
+import re
+
 def round_up(a, b):
     return (((a) + ((b)-1)) & ~((b)-1))
+
+def string_to_bits(str):
+    bits = []
+    match = re.match("^([0-9]*)'([BbHhOoDd])([0-9a-fA-F]*)$", str)
+    
+    if match is None:
+        radix = 'd'
+        size = 0
+    else:
+        comps = match.groups()
+        size = int(comps[0])
+        radix = comps[1].lower()
+        str = comps[2]
+        assert radix in ["b","d","h"]
+    
+    if radix == 'b':
+        for char in str:
+            bits.append(1 if char == '1' else 0)
+    elif radix == 'd':
+        val = int(str)
+        while val > 0:
+            bits.append(val & 1)
+            val = val >> 1
+        bits = bits[::-1]
+    elif radix == 'h':
+        for char in str:
+            nibble = int(char, 16)
+            for idx in range(0, 4):
+                bits.append((nibble >> (3-idx)) & 1)
+    
+    while len(bits) < size:
+        bits.insert(0, 0)
+    return bits
 
 def num_to_bits(num, length):
     bits = []
@@ -37,6 +73,12 @@ def bytes_to_num(bytes):
 
 def bits_invert(bits):
     return [int(not bit) for bit in bits]
+
+def bits_to_num(bits):
+    result = 0
+    for bit in bits:
+        result = (result << 1) | bit
+    return result
 
 def bits_to_string(bits, spacing=0, prefix=False):
     r = bits
