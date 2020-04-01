@@ -26,29 +26,12 @@ import re
 
 sys.path.append(os.path.join(os.path.join(sys.path[0], '..'), 'bitstream'))
 from chips import ChipWithID
-from utils import string_to_bits
+from utils import string_to_bits, bits_to_string
 
-if len(sys.argv) != 2:
-    print("usage: %s <fasm file>" % sys.argv[0])
+if len(sys.argv) != 3:
+    print("usage: %s <input fasm file> <output asc file>" % sys.argv[0])
     sys.exit(-1)
         
-def print_bits():
-    print(".device 0x%x" % chip.device_id)
-    for tile_col in range(0, chip.columns):
-        for tile_row in range(0, chip.rows):
-            tile = chip.tile_at(tile_col, tile_row)
-            if tile is None:
-                continue
-            print(".%s %i %i" % (tile.type, tile_col, tile_row))
-            bits = bits_by_tile[tile_col][tile_row]
-            bit_idx = 0
-            for bit_row in range(0, tile.rows):
-                row_str = ""
-                for bit_col in range(0, tile.columns):
-                    row_str += str(bits[bit_idx])
-                    bit_idx += 1
-                print(row_str)
-            print("")
 
 #
 # Create bits for the bitstream
@@ -116,4 +99,35 @@ for line in lines:
         print("Did not enocde key:%s line:%s" % (key, line))
         # XXX: Try to populate the config chain
 
-print_bits()
+
+#
+# Write the ASC file
+#
+asc = open(sys.argv[2], 'w')
+asc.write(".device 0x%x\n\n" % chip.device_id)
+
+# XXX: Temporary kludge to make agm-pack.py happy
+chain_idx = 0
+for chain in chip.configChain:
+    asc.write(".config_chain %i\n" % (chain_idx))
+    asc.write(bits_to_string(chain.empty_bits()))
+    asc.write("\n\n")
+    chain_idx += 1
+
+for tile_col in range(0, chip.columns):
+    for tile_row in range(0, chip.rows):
+        tile = chip.tile_at(tile_col, tile_row)
+        if tile is None:
+            continue
+        asc.write(".%s %i %i\n" % (tile.type, tile_col, tile_row))
+        bits = bits_by_tile[tile_col][tile_row]
+        bit_idx = 0
+        for bit_row in range(0, tile.rows):
+            row_str = ""
+            for bit_col in range(0, tile.columns):
+                row_str += str(bits[bit_idx])
+                bit_idx += 1
+            asc.write(row_str)
+            asc.write("\n")
+        asc.write("\n")
+asc.close()
