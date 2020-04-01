@@ -23,6 +23,12 @@
 def round_up(a, b):
     return (((a) + ((b)-1)) & ~((b)-1))
 
+def num_to_bits(num, length):
+    bits = []
+    for idx in range(length-1, -1, -1):
+        bits.append((num >> idx) & 1)
+    return bits
+
 def bytes_to_num(bytes):
     num = 0
     for byte in bytes:

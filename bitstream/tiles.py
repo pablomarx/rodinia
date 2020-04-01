@@ -21,7 +21,7 @@
 # DEALINGS IN THE SOFTWARE.
 #
 
-from utils import bits_to_string, bits_to_bytes, bytes_to_num, bits_invert
+from utils import bits_to_string, bits_to_bytes, bytes_to_num, bits_invert, num_to_bits
 import wires
 from math import log
 import re
@@ -114,6 +114,10 @@ class Tile:
                 bits[bit_idx] = 0
         return bits
 
+def mux_encode(val, length):
+    bottom = 1 << (2 - int(val / length))
+    top = 1 << (length - 1 - (val % length))
+    return num_to_bits((top << 3) | bottom, length + 3)
 
 def mux_decode(bits, length=None):
     if length is None:
