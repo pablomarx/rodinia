@@ -114,22 +114,21 @@ def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
             name=pip_name, type=pip_type, srcWire=wire_src, dstWire=wire_dest,
             delay=ctx.getDelayFromNS(delay), loc=Loc(col, row, 0))
     except IndexError:
+        print("createPIP: Wire not found", wire_src, wire_dest)
         pass
-        #print("Wire not found", gsrcname, gdestname)
     except AssertionError:
+        #print("createPIP: Wire already exists", wire_src, wire_dest)
         pass
-        #print("Wire already exists", gsrcname, gdestname)
 
 def addWire(row, col, name, typ=""):
     #print("addWire(%s, %s, %s, %s)" % (row, col, name, typ))
     assert row < chip.rows
     assert col < chip.columns 
-    #print("wire", gname)
     try:
         ctx.addWire(name=name, type=typ, y=row, x=col)
     except AssertionError:
+        #print("addWire: duplicate wire name=%s, type=%s, y=%i, x=%i" % (name, typ, row, col))
         pass
-        #print("duplicate wire")
 
 def shouldProcessTileNamed(tile_name):
     if tile_name == "LogicTILE" or tile_name == "IOTILE" or tile_name == "RogicTILE" or tile_name == "BramTILE":
