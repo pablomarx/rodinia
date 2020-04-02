@@ -29,11 +29,14 @@ from wires import enumerate_all_wires
 
 chip = ChipWithID(0x00120010)
 
+def nameForTile(tile, row, col):
+    return "%s(%02i,%02i)" % (tile.type, col, row)
+
 # This would be an alta_slice in AGM speak
 def createLogicTileBEL(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
-    tile_name = "LogicTILE(%02i,%02i)" % (row, col)
+    tile_name = nameForTile(tile, row, col)
     #print("Creating %s" % (tile_name))
     for z in range(0, tile.slices):
         slice_name = "alta_slice%02i" % z
@@ -69,7 +72,7 @@ def createIOTileBEL(chip, tile, row, col):
         if not pin:
             continue
         
-        wire_prefix = "IOTILE(%02i,%02i)" % (row, col)
+        wire_prefix = nameForTile(tile, row, col)
         belname = "%s:alta_rio%02i" % (wire_prefix, z)
         
         gb = 'globalBuffer' in pin
@@ -91,14 +94,14 @@ def createIOTileBEL(chip, tile, row, col):
 def createRogicTileBEL(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
-    belname = "RogicTILE(%02i,%02i)" % (col, row)
+    belname = nameForTile(tile, row, col)
     #print("Creating %s" % (belname))
     ctx.addBel(name=belname, type="GENERIC_ROUTE", loc=Loc(col, row, 0), gb=False)
 
 def createBRAMTileBEL(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
-    belname = "BramTILE(%02i,%02i)" % (col, row)
+    belname = nameForTile(tile, row, col)
     #print("Creating %s" % (belname))
     ctx.addBel(name=belname, type="GENERIC_BRAM", loc=Loc(col, row, 0), gb=False)
 

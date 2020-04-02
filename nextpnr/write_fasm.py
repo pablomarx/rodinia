@@ -25,7 +25,7 @@ def bel_transform(input):
     comps = match.groups()
     assert len(comps) is 4
     
-    return "%s_Y%sX%s.%s" % (comps[0][0], comps[1], comps[2], comps[3])
+    return "%s_Y%sX%s.%s" % (comps[0][0], comps[2], comps[1], comps[3])
 
 def pip_transform(input):
     match = re.match("^(.*):([^ ]*) <=.*$", input)
