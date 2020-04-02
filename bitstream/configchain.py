@@ -108,11 +108,13 @@ class ConfigChainIO:
         self.fields = fields
         
     def empty_bits(self):
-        length = 0
+        bits = []
         for field in self.fields:
-            length += field[1]
-            
-        return [0] * length
+            length = field[1]
+            bits += [0] * length
+            if not field[0].endswith("OPEN_DRAIN"):
+                bits[-1] = 1
+        return bits
         
     def format(self, name, bits):
         return bits_to_string(bits)
