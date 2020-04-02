@@ -1362,6 +1362,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
     'alta_slice[0-9][0-9].INIT\[[^\]]*]': lambda x: re.sub('(alta_slice[0-9][0-9]).INIT\[[^\]]*]', lambda x: x.groups()[0] + "_LUT", x),
 }, encoders={
     'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9),
+    'alta_slice[0-9][0-9]_LUT$': lambda x: [1 if a == 0 else 0 for a in x[::-1]],
     'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 7),
     'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9),
 }, annotations={
