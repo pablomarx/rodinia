@@ -141,12 +141,8 @@ class ConfigChainIO:
             return None
 
         offset = self.offset_for_field_named(pin["name"] + "_KEEP")
-        if output:
-            bits[offset] = 1
-            bits[offset+1] = 1
-        else:
-            bits[offset] = 0
-            bits[offset+1] = 1
+        bits[offset] = 0
+        bits[offset+1] = 0
                 
         return True
     
