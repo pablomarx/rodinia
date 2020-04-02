@@ -95,6 +95,7 @@ def enumerate_all_wires(callback):
                         for src_bit in src_bits:
                             connections = src_bits[src_bit]
                             # e.g. [9, 1, 9, 1, "T0", 0.867]
+                            last = []
                             for connection in connections: 
                                 dest_col = connection[0]
                                 dest_row = connection[1]
@@ -102,6 +103,12 @@ def enumerate_all_wires(callback):
                                 src_row = connection[3]
                                 wire_type = connection[4]
                                 delay = connection[5]
+                                
+                                # There seems to be ~ 4222 duplicates in the json
+                                if last == connection[0:4]:
+                                    continue
+                                    
+                                last = connection[0:4]
                                 
                                 dest = WireEnd(dest_tile, dest_row, dest_col, dest_config, dest_bit)
                                 source = WireEnd(src_tile, src_row, src_col, src_config, src_bit)
