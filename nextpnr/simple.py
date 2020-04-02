@@ -66,21 +66,17 @@ def createIOTileBEL(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
     # XXX: Figure out how many pins this tile has...
-    # seems like a max of 4?
+    # Seems like the tile supports 8, ag1k uses max 4?
     for z in range(0, 4):
         wire_prefix = "IOTILE(%02i,%02i)" % (row, col)
         belname = "%s:alta_rio%02i" % (wire_prefix, z)
         
-        # XXX: How to figure out gb? Need to consult chip package??
-        ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=False)
+        pin = chip.pin_at(row, col, z)
+        gb = pin and 'globalBuffer' in pin
+        
+        ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=gb)
         
         #print("Creating bel: %s" % belname)
-        
-        # clk on blinky
-        # InputMUX00: 1'b0	; syn__015_
-        
-        # led pin on blinky
-        # IOMUX00: 7'b0010_100	; I:2	; <= IOTILE(2,9):RMUX08:O0 T0 0.877	; syn__011_[0]
         oname = "%s:InputMUX%02i" % (wire_prefix, z)
         iname = "%s:IOMUX%02i" % (wire_prefix, z)
         oename = "%s:oe%02i" % (wire_prefix, z)
