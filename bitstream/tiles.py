@@ -38,9 +38,10 @@ class Tile:
     annotations = {}
     encoders = {}
     key_transformers = {}
+    defaults = {}
     bitmapTable = None
     
-    def __init__(self, name, type, columns, rows, values, formatters={}, annotations={}, encoders={}, key_transformers={}):
+    def __init__(self, name, type, columns, rows, values, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
         self.name = name
         self.type = type
         self.columns = columns
@@ -51,6 +52,7 @@ class Tile:
         self.annotations = annotations
         self.encoders = encoders
         self.key_transformers = key_transformers
+        self.defaults = defaults
     
     def buildBitmapTable(self):
         bitmapTable = [];
@@ -143,6 +145,14 @@ class Tile:
         for key in self.values:
             for bit_idx in self.values[key]:
                 bits[bit_idx] = 0
+            for pattern in self.defaults:
+                if re.match(pattern, key):
+                    values = self.defaults[pattern]
+                    src_idx = 0
+                    for dst_idx in self.values[key]:
+                        bits[dst_idx] = values[src_idx]
+                        src_idx += 1
+                    break
         return bits
 
 def mux_encode(val, length):
@@ -332,6 +342,8 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', 34, 20, {
 }, encoders={
 	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
 	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4),
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
 InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', 34, 20, {
@@ -448,6 +460,8 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', 34, 20, {
 }, encoders={
 	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
 	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4),
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
 InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', 34, 20, {
@@ -567,6 +581,8 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', 34, 20, {
 }, encoders={
 	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
 	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4),
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
 InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', 34, 20, {
@@ -684,6 +700,8 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', 34, 20, {
 }, encoders={
 	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
 	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4),
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
 InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', 108, 68, {
