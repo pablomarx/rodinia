@@ -33,6 +33,7 @@ class Tile:
     type = None
     columns = 0
     rows = 0
+    slices = 0
     values = {}
     formatters = {}
     annotations = {}
@@ -41,11 +42,12 @@ class Tile:
     defaults = {}
     bitmapTable = None
     
-    def __init__(self, name, type, columns, rows, values, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
+    def __init__(self, name, type, columns, rows, slices, values, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
         self.name = name
         self.type = type
         self.columns = columns
         self.rows = rows
+        self.slices = slices
         self.values = values
         self.formatters = formatters
         self.formatters['__NAME'] = lambda x: x
@@ -195,7 +197,7 @@ def TileNamed(name):
     global tiles
     return tiles[name]
 
-InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', 34, 20, {
+InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', columns=34, rows=20, slices=0, values={
 	# Each BBMUXE0 contains 1 entry of 9 bits each
 	'BBMUXE00': [ 498, 532, 497, 531, 496, 530, 495, 529, 526 ],
 	'BBMUXE01': [ 506, 540, 505, 539, 504, 538, 503, 537, 534 ],
@@ -224,7 +226,7 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', 34, 20, {
 	'SeamMUX09':[295,296,297,298,299,300,301,302],
 }))
 
-InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', 34, 20, {
+InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=8, values={
 	# Tile is identical to AG1200_IOTILE_N4, with the addition of CFG_GclkDMUX00
 
 	# Each CtrlMUX contains 2 entries of 6 bits each
@@ -346,7 +348,7 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', 34, 20, {
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
-InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', 34, 20, {
+InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=8, values={
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 274, 308, 273, 307, 272, 306, 342, 376, 341, 375, 340, 374 ],
 	'CtrlMUX01': [ 280, 314, 279, 313, 278, 312, 348, 382, 347, 381, 346, 380 ],
@@ -464,7 +466,7 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', 34, 20, {
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
-InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', 34, 20, {
+InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=8, values={
 	# Tile is identical to AG1200_TILE_S4, with the addition of CFG_GclkDMUX00
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340, 308, 274, 307, 273, 306, 272 ],
@@ -585,7 +587,7 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', 34, 20, {
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
-InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', 34, 20, {
+InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', columns=34, rows=20, slices=8, values={
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340, 308, 274, 307, 273, 306, 272 ],
 	'CtrlMUX01': [ 382, 348, 381, 347, 380, 346, 314, 280, 313, 279, 312, 278 ],
@@ -704,7 +706,7 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', 34, 20, {
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
-InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', 108, 68, {
+InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, values={
 	'BramClkMUX00': [ 3489, 3490, 3491, 3488 ], # alta_bram00:Clk0
 	'BramClkMUX01': [ 3813, 3814, 3815, 3812 ], # alta_bram00:Clk1
 
@@ -988,7 +990,7 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', 108, 68, {
 	'TileWeRenMUX01':'WeRenB',
 }))
 
-InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
+InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices=16, values={
 	# 16 slices per tile
 
 	'AsyncMUX00':[32],
@@ -1450,7 +1452,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', 34, 68, {
 	'alta_slice15_IMUX63':'D',
 }))
 
-InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', 16, 68, {
+InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', columns=16, rows=68, slices=0, values={
 	'OMUX00': [ 15 ],
 	'OMUX01': [ 79 ],
 	'OMUX02': [ 143 ],

@@ -33,10 +33,9 @@ chip = ChipWithID(0x00120010)
 def createLogicTileBEL(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
-    # XXX: Figure out how many slices per tile
     tile_name = "LogicTILE(%02i,%02i)" % (row, col)
     #print("Creating %s" % (tile_name))
-    for z in range(0, 16):
+    for z in range(0, tile.slices):
         slice_name = "alta_slice%02i" % z
         
         belname = tile_name + ":" + slice_name
@@ -65,14 +64,15 @@ def createLogicTileBEL(chip, tile, row, col):
 def createIOTileBEL(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
-    # XXX: Figure out how many pins this tile has...
-    # Seems like the tile supports 8, ag1k uses max 4?
-    for z in range(0, 4):
+    for z in range(0, tile.slices):
+        pin = chip.pin_at(row, col, z)
+        if not pin:
+            continue
+        
         wire_prefix = "IOTILE(%02i,%02i)" % (row, col)
         belname = "%s:alta_rio%02i" % (wire_prefix, z)
         
-        pin = chip.pin_at(row, col, z)
-        gb = pin and 'globalBuffer' in pin
+        gb = 'globalBuffer' in pin
         
         ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=gb)
         
