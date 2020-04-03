@@ -179,6 +179,10 @@ def wire_enumerator(wire):
     assert source.col < chip.columns
     assert dest.col < chip.columns
     
+    if source.row == dest.row and source.col == dest.col and source.tile == "BramTILE":
+        if not source.config.startswith("RMUX") or not dest.config.startswith("RMUX"):
+            return
+    
     addWire(dest.row, dest.col, dest.name, dest.config)
     addWire(source.row, source.col, source.name, source.config)
     createPIP(wire.name, wire.wire_type, source.name, dest.name, wire.delay, dest.row, dest.col)
