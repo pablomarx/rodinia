@@ -1383,7 +1383,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 	'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda x: mux_format(x, 9, 'I'),
 	'alta_slice[0-9][0-9]_OMUX[0-9][0-9]': lambda x: slice_omux_format(x), 
 	'RMUX[0-9][0-9]': lambda x: mux_format(x, 7, 'I'),
-	'CtrlMUX[0-9][0-9]': lambda x: mux_format(x, 9, 'I'),
+	'CtrlMUX[0-9][0-9]': lambda x: mux_format(x, 8, 'I'),
 	'TileAsyncMUX0[01]': lambda x: bits_to_string(x, 4, True),
 	'TileClkEnMUX0[01]': lambda x: bits_to_string(x, 3, True),
 	'TileClkMUX0[01]': lambda x: bits_to_string(x, 4, True),
@@ -1391,14 +1391,14 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 }, key_transformers={
     'IMUX[0-9][0-9]': lambda x: "alta_slice%02i_%s" % (int(int(x[4:]) / 4), x),
     'OMUX[0-9][0-9]': lambda x: "alta_slice%02i_%s" % (int(int(x[4:]) / 3), x),
+    'TileClkMUX[0-9][0-9]': lambda x: True,  # af doesn't have these set...
     'alta_slice[0-9][0-9].FF_USED': lambda x: True,
     'alta_slice[0-9][0-9].INIT\[[^\]]*]': lambda x: re.sub('(alta_slice[0-9][0-9]).INIT\[[^\]]*]', lambda x: x.groups()[0] + "_LUT", x),
 }, encoders={
     'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9, 3),
     'alta_slice[0-9][0-9]_LUT$': lambda x: [1 if a == 0 else 0 for a in x[::-1]],
     'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 7, 3),
-    'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9, 3),
-    'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 2, 2),
+    'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 8, 4),
 }, annotations={
 	'alta_slice00_IMUX00':'A',
 	'alta_slice00_IMUX01':'B',
