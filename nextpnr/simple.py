@@ -38,6 +38,17 @@ def createLogicTileBEL(chip, tile, row, col):
     assert col < chip.columns 
     tile_name = nameForTile(tile, row, col)
     #print("Creating %s" % (tile_name))
+
+    for z in [0,1]:
+        inname = "alta_clkenctrl%02i:ClkIn" % (z)
+        src = tile_name+":"+inname
+        addWire(row, col, src, inname)
+        
+        outname = "alta_clkenctrl%02i:ClkOut" % (z)
+        dest = tile_name+":"+outname
+        addWire(row, col, dest, outname)
+        createPIP("%s <= %s" % (src, dest), "???", src, dest, 0, row, col)
+    
     for z in range(0, tile.slices):
         slice_name = "alta_slice%02i" % z
         
@@ -45,9 +56,7 @@ def createLogicTileBEL(chip, tile, row, col):
         fname = belname + ":LutOut"
         qname = belname + ":Q"
 
-        # can't route to ClkMUX##
-        # clk input seems to go to TileClkMUX##, CtrlMUX##
-        clkinstance = "CtrlMUX%02i" % (0)
+        clkinstance = "ClkMUX%02i" % (z)
         clkname = tile_name + ":" + clkinstance
 
         ctx.addBel(name=belname, type="GENERIC_SLICE", loc=Loc(col, row, z), gb=False)
