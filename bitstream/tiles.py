@@ -158,13 +158,18 @@ class Tile:
         return bits
 
 def mux_encode(val, bit_len, val_len):
-    length = bit_len * val_len
-    assert(val <= length)
-    bottom = 1 << (val_len - 1 - int(val / bit_len))
-    top = 1 << (bit_len - 1 - (val % bit_len))
+    if val_len > 0:
+        length = bit_len * val_len
+        assert(val <= length)
+        bottom = 1 << (val_len - 1 - int(val / bit_len))
+        top = 1 << (bit_len - 1 - (val % bit_len))
+        result = num_to_bits((top << val_len) | bottom, bit_len + val_len)
+        assert val == mux_decode(result, bit_len)
+    else:
+        length = bit_len
+        assert(val <= length)
+        result = num_to_bits(1 << (bit_len-1-val), bit_len)
     
-    result = num_to_bits((top << val_len) | bottom, bit_len + val_len)
-    assert val == mux_decode(result, bit_len)
     return result
 
 def mux_decode(bits, length=None):
@@ -1391,7 +1396,6 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 }, key_transformers={
     'IMUX[0-9][0-9]': lambda x: "alta_slice%02i_%s" % (int(int(x[4:]) / 4), x),
     'OMUX[0-9][0-9]': lambda x: "alta_slice%02i_%s" % (int(int(x[4:]) / 3), x),
-    'TileClkMUX[0-9][0-9]': lambda x: True,  # af doesn't have these set...
     'alta_slice[0-9][0-9].FF_USED': lambda x: True,
     'alta_slice[0-9][0-9].INIT\[[^\]]*]': lambda x: re.sub('(alta_slice[0-9][0-9]).INIT\[[^\]]*]', lambda x: x.groups()[0] + "_LUT", x),
 }, encoders={
@@ -1399,6 +1403,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
     'alta_slice[0-9][0-9]_LUT$': lambda x: [1 if a == 0 else 0 for a in x[::-1]],
     'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 7, 3),
     'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 8, 4),
+	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4, 0),
 }, annotations={
 	'alta_slice00_IMUX00':'A',
 	'alta_slice00_IMUX01':'B',
