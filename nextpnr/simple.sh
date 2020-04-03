@@ -6,3 +6,5 @@ nextpnr-generic --pre-pack simple.py --post-route bitstream.py --json blinky.jso
 yosys -p "read_verilog -lib synth/prims.v; read_json pnrblinky.json; dump -o blinky.il; show -format png -prefix blinky"
 python3 fasm_pack.py blinky.fasm blinky.asc
 python3 ../bitstream/agm-pack.py blinky.asc blinky.bin
+python3 ../bitstream/agm-unpack.py blinky.bin > blinky-unpack.txt
+python3 ../bitstream/agm-explain.py blinky-unpack.txt  > blinky-explain.txt
