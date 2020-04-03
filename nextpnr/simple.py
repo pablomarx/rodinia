@@ -89,7 +89,7 @@ def createIOTileBEL(chip, tile, row, col):
         ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=gb)
         
         #print("Creating bel: %s" % belname)
-        oname = "%s:InputMUX%02i" % (wire_prefix, z)
+        oname = "%s:InputMUX%02i" % (wire_prefix, (z*2)+1)
         iname = "%s:IOMUX%02i" % (wire_prefix, z)
         oename = "%s:oe%02i" % (wire_prefix, z)
         
