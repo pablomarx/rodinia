@@ -92,7 +92,7 @@ Running command proc_dff
 Running command proc_clean
 
 3.5.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `Blinky.$proc$Blinky.v:16$1'.
+Removing empty process `Blinky.$proc$Blinky.v:10$1'.
 Cleaned up 0 empty switches.
 Running command flatten
 
@@ -144,8 +144,6 @@ Running command opt_clean
 
 3.9.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \Blinky..
-  removed 1 unused temporary wires.
-Removed 0 unused cells and 1 unused wires.
 Running command check
 
 3.9.4. Executing CHECK pass (checking for obvious problems).
@@ -186,7 +184,6 @@ Running command opt_clean
 
 3.9.5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \Blinky..
-Removed 0 unused cells and 1 unused wires.
 Running command opt_expr
 
 3.9.5.8. Executing OPT_EXPR pass (perform const folding).
@@ -239,6 +236,7 @@ Running command opt_clean
 
 3.9.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \Blinky..
+  removed 1 unused temporary wires.
 Removed 0 unused cells and 1 unused wires.
 Running command opt_expr
 
@@ -475,15 +473,15 @@ Running command proc_mux
 Running command proc_dlatch
 
 3.18.2.6. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `$paramod\_90_lcu\WIDTH=32.\p' from process `$paramod\_90_lcu\WIDTH=32.$proc$/opt/agm/Supra-2019.06.b0/map/bin/../share/techmap.v:207$255'.
-No latch inferred for signal `$paramod\_90_lcu\WIDTH=32.\g' from process `$paramod\_90_lcu\WIDTH=32.$proc$/opt/agm/Supra-2019.06.b0/map/bin/../share/techmap.v:207$255'.
+No latch inferred for signal `$paramod\_90_lcu\WIDTH=26.\p' from process `$paramod\_90_lcu\WIDTH=26.$proc$/opt/agm/Supra-2019.06.b0/map/bin/../share/techmap.v:207$218'.
+No latch inferred for signal `$paramod\_90_lcu\WIDTH=26.\g' from process `$paramod\_90_lcu\WIDTH=26.$proc$/opt/agm/Supra-2019.06.b0/map/bin/../share/techmap.v:207$218'.
 Running command proc_dff
 
 3.18.2.7. Executing PROC_DFF pass (convert process syncs to FFs).
 Running command proc_clean
 
 3.18.2.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `$paramod\_90_lcu\WIDTH=32.$proc$/opt/agm/Supra-2019.06.b0/map/bin/../share/techmap.v:207$255'.
+Removing empty process `$paramod\_90_lcu\WIDTH=26.$proc$/opt/agm/Supra-2019.06.b0/map/bin/../share/techmap.v:207$218'.
 Cleaned up 0 empty switches.
 
 3.18.3. Executing OPT pass (performing simple optimizations).
@@ -493,7 +491,7 @@ Running command opt_expr
 Running command opt_merge
 
 3.18.3.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\_90_lcu\WIDTH=32'.
+Finding identical cells in module `$paramod\_90_lcu\WIDTH=26'.
 Removed a total of 0 cells.
 Running command opt_rmdff
 
@@ -501,9 +499,9 @@ Running command opt_rmdff
 Running command opt_clean
 
 3.18.3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\_90_lcu\WIDTH=32..
-  removed 67 unused temporary wires.
-Removed 31 unused cells and 68 unused wires.
+Finding unused cells or wires in module $paramod\_90_lcu\WIDTH=26..
+  removed 55 unused temporary wires.
+Removed 25 unused cells and 56 unused wires.
 
 3.18.3.5. Finished fast OPT passes.
 No more expansions possible.
@@ -542,8 +540,8 @@ Running command opt_clean
 
 3.19.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \Blinky..
-  removed 112 unused temporary wires.
-Removed 68 unused cells and 180 unused wires.
+  removed 89 unused temporary wires.
+Removed 53 unused cells and 145 unused wires.
 Running command opt_expr -full
 
 3.19.8. Executing OPT_EXPR pass (perform const folding).
@@ -573,14 +571,13 @@ Running command opt_clean
 
 3.19.14. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \Blinky..
-Removed 68 unused cells and 180 unused wires.
+Removed 53 unused cells and 145 unused wires.
 Running command opt_expr -full
 
 3.19.15. Executing OPT_EXPR pass (perform const folding).
 
 3.19.16. Finished OPT passes. (There is nothing left to do.)
 Running command clean -purge
-Removed 0 unused cells and 1 unused wires.
 Running command setundef -undriven -zero
 
 3.20. Executing SETUNDEF pass (replace undef values with defined constants).
@@ -589,19 +586,19 @@ Running command abc -lut 4
 3.21. Executing ABC pass (technology mapping using ABC).
 
 3.21.1. Extracting gate netlist of module `\Blinky' to `<abc-temp-dir>/input.blif'..
-Extracted 84 gates and 117 wires to a netlist network with 32 inputs and 32 outputs.
+Extracted 68 gates and 95 wires to a netlist network with 26 inputs and 26 outputs.
 
 3.21.1.1. Executing ABC.
 Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
 
 3.21.1.2. Re-integrating ABC results.
-ABC RESULTS:              $lut cells:       84
-ABC RESULTS:        internal signals:       53
-ABC RESULTS:           input signals:       32
-ABC RESULTS:          output signals:       32
+ABC RESULTS:              $lut cells:       68
+ABC RESULTS:        internal signals:       43
+ABC RESULTS:           input signals:       26
+ABC RESULTS:          output signals:       26
 Running command clean
-Removed 0 unused cells and 87 unused wires.
+Removed 0 unused cells and 71 unused wires.
 Running command iopadmap -bits -outpad $__outpad I:O -inpad $__inpad O:I
 
 3.22. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
@@ -625,7 +622,7 @@ Running command dffinit -ff dffeas Q INIT
 
 3.24. Executing DFFINIT pass (set INIT param on FF cells).
 Running command clean -purge
-Removed 0 unused cells and 247 unused wires.
+Removed 0 unused cells and 165 unused wires.
 Running command hierarchy -check
 
 3.25. Executing HIERARCHY pass (managing design hierarchy).
@@ -642,19 +639,19 @@ Running command stat
 
 === Blinky ===
 
-   Number of wires:                 21
-   Number of wire bits:            108
-   Number of public wires:           5
-   Number of public wire bits:      33
+   Number of wires:                 14
+   Number of wire bits:             78
+   Number of public wires:           3
+   Number of public wire bits:      35
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                107
+   Number of cells:                 69
      $not                            1
-     dffeas                         32
+     dffeas                         26
      rodina_io_ibuf                  1
-     rodina_io_obuf                 32
-     rodina_lcell_comb              41
+     rodina_io_obuf                  8
+     rodina_lcell_comb              33
 
 Running command check -noinit
 
@@ -666,7 +663,7 @@ Running command write_verilog -attr2comment -defparam -nohex -decimal -bitblaste
 3.28. Executing Verilog backend.
 Dumping module `\Blinky'.
 
-End of script. Logfile hash: d383ec2bef
-CPU: user 0.19s system 0.01s, MEM: 39.82 MB total, 19.80 MB resident
+End of script. Logfile hash: 867e799e51
+CPU: user 0.18s system 0.01s, MEM: 39.83 MB total, 19.38 MB resident
 Yosys 0.7+377 (git sha1 68e2bdf, gcc 5.4.0-6ubuntu1~16.04.4 -O3 -DNDEBUG -fPIC -fno-builtin-malloc -fno-builtin-free -fno-builtin-realloc -fno-builtin-calloc -fno-builtin-cfree -fno-builtin-valloc -fno-builtin-pvalloc -fno-builtin-memalign -fno-builtin-posix_memalign)
-Time spent: 18% 11x read_verilog (0 sec), 18% 3x techmap (0 sec), ...
+Time spent: 22% 11x read_verilog (0 sec), 15% 1x share (0 sec), ...

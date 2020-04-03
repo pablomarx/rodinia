@@ -2,1012 +2,630 @@
 
 module Blinky(
 	clk,
-	bank0,
-	bank1,
-	bank2,
-	bank3);
+	leds);
 input	clk;
-output	[7:0] bank0;
-output	[7:0] bank1;
-output	[7:0] bank2;
-output	[7:0] bank3;
+output	[7:0] leds;
 
-wire	[31:0] syn__000_;
-//wire	syn__000_[0];
-wire	[7:0] syn__011_;
-//wire	syn__011_[0];
-//wire	syn__000_[10];
-//wire	syn__000_[11];
-//wire	syn__000_[12];
-//wire	syn__000_[13];
-//wire	syn__000_[14];
-//wire	syn__000_[15];
-//wire	syn__000_[16];
-//wire	syn__000_[17];
-//wire	syn__000_[18];
-//wire	syn__000_[19];
-//wire	syn__000_[1];
-//wire	syn__000_[20];
-//wire	syn__000_[21];
-//wire	syn__000_[22];
-//wire	syn__000_[23];
-//wire	syn__000_[24];
-//wire	syn__000_[25];
-//wire	syn__000_[26];
-//wire	syn__000_[27];
-//wire	syn__000_[28];
-//wire	syn__000_[29];
-//wire	syn__000_[2];
-//wire	syn__000_[30];
-//wire	syn__000_[31];
-//wire	syn__000_[3];
-//wire	syn__000_[4];
-//wire	syn__000_[5];
-//wire	syn__000_[6];
-//wire	syn__000_[7];
-//wire	syn__000_[8];
-//wire	syn__000_[9];
-wire	syn__001_;
-wire	syn__002_;
-wire	syn__003_;
-wire	syn__004_;
-wire	syn__005_;
-wire	syn__006_;
-wire	syn__007_;
-wire	syn__008_;
-wire	syn__009_;
-wire	syn__010_;
-wire	\syn__011_[0]_inv ;
-//wire	syn__011_[1];
-//wire	syn__011_[2];
-//wire	syn__011_[3];
-//wire	syn__011_[4];
-//wire	syn__011_[5];
-//wire	syn__011_[6];
-//wire	syn__011_[7];
-wire	[7:0] syn__012_;
-//wire	syn__012_[0];
-//wire	syn__012_[1];
-//wire	syn__012_[2];
-//wire	syn__012_[3];
-//wire	syn__012_[4];
-//wire	syn__012_[5];
-//wire	syn__012_[6];
-//wire	syn__012_[7];
-wire	[7:0] syn__013_;
-//wire	syn__013_[0];
-//wire	syn__013_[1];
-//wire	syn__013_[2];
-//wire	syn__013_[3];
-//wire	syn__013_[4];
-//wire	syn__013_[5];
-//wire	syn__013_[6];
-//wire	syn__013_[7];
-wire	[7:0] syn__014_;
-//wire	syn__014_[0];
-//wire	syn__014_[1];
-//wire	syn__014_[2];
-//wire	syn__014_[3];
-//wire	syn__014_[4];
-//wire	syn__014_[5];
-//wire	syn__014_[6];
-//wire	syn__014_[7];
-wire	syn__015_;
+wire	[25:0] syn__00_;
+//wire	syn__00_[0];
+wire	[25:0] counter;
+//wire	counter[0];
+wire	\counter[0]_inv ;
+//wire	counter[10];
+//wire	counter[11];
+//wire	counter[12];
+//wire	counter[13];
+//wire	counter[14];
+//wire	counter[15];
+//wire	counter[16];
+//wire	counter[17];
+//wire	counter[18];
+//wire	counter[19];
+//wire	counter[1];
+//wire	counter[20];
+//wire	counter[21];
+//wire	counter[22];
+//wire	counter[23];
+//wire	counter[24];
+//wire	counter[25];
+//wire	counter[2];
+//wire	counter[3];
+//wire	counter[4];
+//wire	counter[5];
+//wire	counter[6];
+//wire	counter[7];
+//wire	counter[8];
+//wire	counter[9];
+//wire	syn__00_[10];
+//wire	syn__00_[11];
+//wire	syn__00_[12];
+//wire	syn__00_[13];
+//wire	syn__00_[14];
+//wire	syn__00_[15];
+//wire	syn__00_[16];
+//wire	syn__00_[17];
+//wire	syn__00_[18];
+//wire	syn__00_[19];
+//wire	syn__00_[1];
+//wire	syn__00_[20];
+//wire	syn__00_[21];
+//wire	syn__00_[22];
+//wire	syn__00_[23];
+//wire	syn__00_[24];
+//wire	syn__00_[25];
+//wire	syn__00_[2];
+//wire	syn__00_[3];
+//wire	syn__00_[4];
+//wire	syn__00_[5];
+//wire	syn__00_[6];
+//wire	syn__00_[7];
+//wire	syn__00_[8];
+//wire	syn__00_[9];
+wire	syn__01_;
+wire	syn__02_;
+wire	syn__03_;
+wire	syn__04_;
+wire	syn__05_;
+wire	syn__06_;
+wire	syn__07_;
+wire	syn__08_;
+wire	syn__09_;
+wire	[7:0] syn__10_;
+//wire	syn__10_[0];
+//wire	syn__10_[1];
+//wire	syn__10_[2];
+//wire	syn__10_[3];
+//wire	syn__10_[4];
+//wire	syn__10_[5];
+//wire	syn__10_[6];
+//wire	syn__10_[7];
 
 assign vcc = 1'b1;
 assign gnd = 1'b0;
 
 // Location: LCCELL_1
-cycloneive_lcell_comb \syn__011_[0]_inv~I (
+cycloneive_lcell_comb \counter[0]_inv~I (
 	.dataa(),
 	.datab(),
 	.datac(),
-	.datad(syn__011_[0]),
+	.datad(counter[0]),
 	.cin(),
-	.combout(\syn__011_[0]_inv ),
+	.combout(\counter[0]_inv ),
 	.cout());
-defparam \syn__011_[0]_inv~I .lut_mask = 16'h00FF;
-defparam \syn__011_[0]_inv~I .dont_touch = "off";
-defparam \syn__011_[0]_inv~I .sum_lutc_input = "datac";
+defparam \counter[0]_inv~I .lut_mask = 16'h00FF;
+defparam \counter[0]_inv~I .dont_touch = "off";
+defparam \counter[0]_inv~I .sum_lutc_input = "datac";
 
 // Location: LCCELL_2
-cycloneive_lcell_comb syn__016_(
-	.dataa(syn__011_[1]),
-	.datab(syn__011_[0]),
+cycloneive_lcell_comb syn__11_(
+	.dataa(counter[1]),
+	.datab(counter[0]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[1]),
+	.combout(syn__00_[1]),
 	.cout());
-defparam syn__016_.lut_mask = 16'h6666;
-defparam syn__016_.dont_touch = "off";
-defparam syn__016_.sum_lutc_input = "datac";
+defparam syn__11_.lut_mask = 16'h6666;
+defparam syn__11_.dont_touch = "off";
+defparam syn__11_.sum_lutc_input = "datac";
 
 // Location: LCCELL_3
-cycloneive_lcell_comb syn__017_(
-	.dataa(syn__011_[1]),
-	.datab(syn__011_[0]),
-	.datac(syn__011_[2]),
+cycloneive_lcell_comb syn__12_(
+	.dataa(counter[1]),
+	.datab(counter[0]),
+	.datac(counter[2]),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[2]),
+	.combout(syn__00_[2]),
 	.cout());
-defparam syn__017_.lut_mask = 16'h7878;
-defparam syn__017_.dont_touch = "off";
-defparam syn__017_.sum_lutc_input = "datac";
+defparam syn__12_.lut_mask = 16'h7878;
+defparam syn__12_.dont_touch = "off";
+defparam syn__12_.sum_lutc_input = "datac";
 
 // Location: LCCELL_4
-cycloneive_lcell_comb syn__018_(
-	.dataa(syn__011_[1]),
-	.datab(syn__011_[0]),
-	.datac(syn__011_[2]),
-	.datad(syn__011_[3]),
+cycloneive_lcell_comb syn__13_(
+	.dataa(counter[1]),
+	.datab(counter[0]),
+	.datac(counter[2]),
+	.datad(counter[3]),
 	.cin(),
-	.combout(syn__000_[3]),
+	.combout(syn__00_[3]),
 	.cout());
-defparam syn__018_.lut_mask = 16'h7F80;
-defparam syn__018_.dont_touch = "off";
-defparam syn__018_.sum_lutc_input = "datac";
+defparam syn__13_.lut_mask = 16'h7F80;
+defparam syn__13_.dont_touch = "off";
+defparam syn__13_.sum_lutc_input = "datac";
 
 // Location: LCCELL_5
-cycloneive_lcell_comb syn__019_(
-	.dataa(syn__003_),
-	.datab(syn__011_[4]),
+cycloneive_lcell_comb syn__14_(
+	.dataa(syn__01_),
+	.datab(counter[4]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[4]),
+	.combout(syn__00_[4]),
 	.cout());
-defparam syn__019_.lut_mask = 16'h6666;
-defparam syn__019_.dont_touch = "off";
-defparam syn__019_.sum_lutc_input = "datac";
+defparam syn__14_.lut_mask = 16'h6666;
+defparam syn__14_.dont_touch = "off";
+defparam syn__14_.sum_lutc_input = "datac";
 
 // Location: LCCELL_6
-cycloneive_lcell_comb syn__020_(
-	.dataa(syn__011_[1]),
-	.datab(syn__011_[0]),
-	.datac(syn__011_[2]),
-	.datad(syn__011_[3]),
+cycloneive_lcell_comb syn__15_(
+	.dataa(counter[1]),
+	.datab(counter[0]),
+	.datac(counter[2]),
+	.datad(counter[3]),
 	.cin(),
-	.combout(syn__003_),
+	.combout(syn__01_),
 	.cout());
-defparam syn__020_.lut_mask = 16'h8000;
-defparam syn__020_.dont_touch = "off";
-defparam syn__020_.sum_lutc_input = "datac";
+defparam syn__15_.lut_mask = 16'h8000;
+defparam syn__15_.dont_touch = "off";
+defparam syn__15_.sum_lutc_input = "datac";
 
 // Location: LCCELL_7
-cycloneive_lcell_comb syn__021_(
-	.dataa(syn__003_),
-	.datab(syn__011_[4]),
-	.datac(syn__011_[5]),
+cycloneive_lcell_comb syn__16_(
+	.dataa(syn__01_),
+	.datab(counter[4]),
+	.datac(counter[5]),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[5]),
+	.combout(syn__00_[5]),
 	.cout());
-defparam syn__021_.lut_mask = 16'h7878;
-defparam syn__021_.dont_touch = "off";
-defparam syn__021_.sum_lutc_input = "datac";
+defparam syn__16_.lut_mask = 16'h7878;
+defparam syn__16_.dont_touch = "off";
+defparam syn__16_.sum_lutc_input = "datac";
 
 // Location: LCCELL_8
-cycloneive_lcell_comb syn__022_(
-	.dataa(syn__003_),
-	.datab(syn__011_[4]),
-	.datac(syn__011_[5]),
-	.datad(syn__011_[6]),
+cycloneive_lcell_comb syn__17_(
+	.dataa(syn__01_),
+	.datab(counter[4]),
+	.datac(counter[5]),
+	.datad(counter[6]),
 	.cin(),
-	.combout(syn__000_[6]),
+	.combout(syn__00_[6]),
 	.cout());
-defparam syn__022_.lut_mask = 16'h7F80;
-defparam syn__022_.dont_touch = "off";
-defparam syn__022_.sum_lutc_input = "datac";
+defparam syn__17_.lut_mask = 16'h7F80;
+defparam syn__17_.dont_touch = "off";
+defparam syn__17_.sum_lutc_input = "datac";
 
 // Location: LCCELL_9
-cycloneive_lcell_comb syn__023_(
-	.dataa(syn__004_),
-	.datab(syn__011_[7]),
+cycloneive_lcell_comb syn__18_(
+	.dataa(syn__02_),
+	.datab(counter[7]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[7]),
+	.combout(syn__00_[7]),
 	.cout());
-defparam syn__023_.lut_mask = 16'h6666;
-defparam syn__023_.dont_touch = "off";
-defparam syn__023_.sum_lutc_input = "datac";
+defparam syn__18_.lut_mask = 16'h6666;
+defparam syn__18_.dont_touch = "off";
+defparam syn__18_.sum_lutc_input = "datac";
 
 // Location: LCCELL_10
-cycloneive_lcell_comb syn__024_(
-	.dataa(syn__003_),
-	.datab(syn__011_[4]),
-	.datac(syn__011_[5]),
-	.datad(syn__011_[6]),
+cycloneive_lcell_comb syn__19_(
+	.dataa(syn__01_),
+	.datab(counter[4]),
+	.datac(counter[5]),
+	.datad(counter[6]),
 	.cin(),
-	.combout(syn__004_),
+	.combout(syn__02_),
 	.cout());
-defparam syn__024_.lut_mask = 16'h8000;
-defparam syn__024_.dont_touch = "off";
-defparam syn__024_.sum_lutc_input = "datac";
+defparam syn__19_.lut_mask = 16'h8000;
+defparam syn__19_.dont_touch = "off";
+defparam syn__19_.sum_lutc_input = "datac";
 
 // Location: LCCELL_11
-cycloneive_lcell_comb syn__025_(
-	.dataa(syn__004_),
-	.datab(syn__011_[7]),
-	.datac(syn__012_[0]),
+cycloneive_lcell_comb syn__20_(
+	.dataa(syn__02_),
+	.datab(counter[7]),
+	.datac(counter[8]),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[8]),
+	.combout(syn__00_[8]),
 	.cout());
-defparam syn__025_.lut_mask = 16'h7878;
-defparam syn__025_.dont_touch = "off";
-defparam syn__025_.sum_lutc_input = "datac";
+defparam syn__20_.lut_mask = 16'h7878;
+defparam syn__20_.dont_touch = "off";
+defparam syn__20_.sum_lutc_input = "datac";
 
 // Location: LCCELL_12
-cycloneive_lcell_comb syn__026_(
-	.dataa(syn__004_),
-	.datab(syn__011_[7]),
-	.datac(syn__012_[0]),
-	.datad(syn__012_[1]),
+cycloneive_lcell_comb syn__21_(
+	.dataa(syn__02_),
+	.datab(counter[7]),
+	.datac(counter[8]),
+	.datad(counter[9]),
 	.cin(),
-	.combout(syn__000_[9]),
+	.combout(syn__00_[9]),
 	.cout());
-defparam syn__026_.lut_mask = 16'h7F80;
-defparam syn__026_.dont_touch = "off";
-defparam syn__026_.sum_lutc_input = "datac";
+defparam syn__21_.lut_mask = 16'h7F80;
+defparam syn__21_.dont_touch = "off";
+defparam syn__21_.sum_lutc_input = "datac";
 
 // Location: LCCELL_13
-cycloneive_lcell_comb syn__027_(
-	.dataa(syn__005_),
-	.datab(syn__012_[2]),
+cycloneive_lcell_comb syn__22_(
+	.dataa(syn__03_),
+	.datab(counter[10]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[10]),
+	.combout(syn__00_[10]),
 	.cout());
-defparam syn__027_.lut_mask = 16'h6666;
-defparam syn__027_.dont_touch = "off";
-defparam syn__027_.sum_lutc_input = "datac";
+defparam syn__22_.lut_mask = 16'h6666;
+defparam syn__22_.dont_touch = "off";
+defparam syn__22_.sum_lutc_input = "datac";
 
 // Location: LCCELL_14
-cycloneive_lcell_comb syn__028_(
-	.dataa(syn__004_),
-	.datab(syn__011_[7]),
-	.datac(syn__012_[0]),
-	.datad(syn__012_[1]),
+cycloneive_lcell_comb syn__23_(
+	.dataa(syn__02_),
+	.datab(counter[7]),
+	.datac(counter[8]),
+	.datad(counter[9]),
 	.cin(),
-	.combout(syn__005_),
+	.combout(syn__03_),
 	.cout());
-defparam syn__028_.lut_mask = 16'h8000;
-defparam syn__028_.dont_touch = "off";
-defparam syn__028_.sum_lutc_input = "datac";
+defparam syn__23_.lut_mask = 16'h8000;
+defparam syn__23_.dont_touch = "off";
+defparam syn__23_.sum_lutc_input = "datac";
 
 // Location: LCCELL_15
-cycloneive_lcell_comb syn__029_(
-	.dataa(syn__005_),
-	.datab(syn__012_[2]),
-	.datac(syn__012_[3]),
+cycloneive_lcell_comb syn__24_(
+	.dataa(syn__03_),
+	.datab(counter[10]),
+	.datac(counter[11]),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[11]),
+	.combout(syn__00_[11]),
 	.cout());
-defparam syn__029_.lut_mask = 16'h7878;
-defparam syn__029_.dont_touch = "off";
-defparam syn__029_.sum_lutc_input = "datac";
+defparam syn__24_.lut_mask = 16'h7878;
+defparam syn__24_.dont_touch = "off";
+defparam syn__24_.sum_lutc_input = "datac";
 
 // Location: LCCELL_16
-cycloneive_lcell_comb syn__030_(
-	.dataa(syn__005_),
-	.datab(syn__012_[2]),
-	.datac(syn__012_[3]),
-	.datad(syn__012_[4]),
+cycloneive_lcell_comb syn__25_(
+	.dataa(syn__03_),
+	.datab(counter[10]),
+	.datac(counter[11]),
+	.datad(counter[12]),
 	.cin(),
-	.combout(syn__000_[12]),
+	.combout(syn__00_[12]),
 	.cout());
-defparam syn__030_.lut_mask = 16'h7F80;
-defparam syn__030_.dont_touch = "off";
-defparam syn__030_.sum_lutc_input = "datac";
+defparam syn__25_.lut_mask = 16'h7F80;
+defparam syn__25_.dont_touch = "off";
+defparam syn__25_.sum_lutc_input = "datac";
 
 // Location: LCCELL_17
-cycloneive_lcell_comb syn__031_(
-	.dataa(syn__006_),
-	.datab(syn__012_[5]),
+cycloneive_lcell_comb syn__26_(
+	.dataa(syn__04_),
+	.datab(counter[13]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[13]),
+	.combout(syn__00_[13]),
 	.cout());
-defparam syn__031_.lut_mask = 16'h6666;
-defparam syn__031_.dont_touch = "off";
-defparam syn__031_.sum_lutc_input = "datac";
+defparam syn__26_.lut_mask = 16'h6666;
+defparam syn__26_.dont_touch = "off";
+defparam syn__26_.sum_lutc_input = "datac";
 
 // Location: LCCELL_18
-cycloneive_lcell_comb syn__032_(
-	.dataa(syn__005_),
-	.datab(syn__012_[2]),
-	.datac(syn__012_[3]),
-	.datad(syn__012_[4]),
+cycloneive_lcell_comb syn__27_(
+	.dataa(syn__03_),
+	.datab(counter[10]),
+	.datac(counter[11]),
+	.datad(counter[12]),
 	.cin(),
-	.combout(syn__006_),
+	.combout(syn__04_),
 	.cout());
-defparam syn__032_.lut_mask = 16'h8000;
-defparam syn__032_.dont_touch = "off";
-defparam syn__032_.sum_lutc_input = "datac";
+defparam syn__27_.lut_mask = 16'h8000;
+defparam syn__27_.dont_touch = "off";
+defparam syn__27_.sum_lutc_input = "datac";
 
 // Location: LCCELL_19
-cycloneive_lcell_comb syn__033_(
-	.dataa(syn__006_),
-	.datab(syn__012_[5]),
-	.datac(syn__012_[6]),
+cycloneive_lcell_comb syn__28_(
+	.dataa(syn__04_),
+	.datab(counter[13]),
+	.datac(counter[14]),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[14]),
+	.combout(syn__00_[14]),
 	.cout());
-defparam syn__033_.lut_mask = 16'h7878;
-defparam syn__033_.dont_touch = "off";
-defparam syn__033_.sum_lutc_input = "datac";
+defparam syn__28_.lut_mask = 16'h7878;
+defparam syn__28_.dont_touch = "off";
+defparam syn__28_.sum_lutc_input = "datac";
 
 // Location: LCCELL_20
-cycloneive_lcell_comb syn__034_(
-	.dataa(syn__006_),
-	.datab(syn__012_[5]),
-	.datac(syn__012_[6]),
-	.datad(syn__012_[7]),
+cycloneive_lcell_comb syn__29_(
+	.dataa(syn__04_),
+	.datab(counter[13]),
+	.datac(counter[14]),
+	.datad(counter[15]),
 	.cin(),
-	.combout(syn__000_[15]),
+	.combout(syn__00_[15]),
 	.cout());
-defparam syn__034_.lut_mask = 16'h7F80;
-defparam syn__034_.dont_touch = "off";
-defparam syn__034_.sum_lutc_input = "datac";
+defparam syn__29_.lut_mask = 16'h7F80;
+defparam syn__29_.dont_touch = "off";
+defparam syn__29_.sum_lutc_input = "datac";
 
 // Location: LCCELL_21
-cycloneive_lcell_comb syn__035_(
-	.dataa(syn__007_),
-	.datab(syn__013_[0]),
+cycloneive_lcell_comb syn__30_(
+	.dataa(syn__05_),
+	.datab(counter[16]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[16]),
+	.combout(syn__00_[16]),
 	.cout());
-defparam syn__035_.lut_mask = 16'h6666;
-defparam syn__035_.dont_touch = "off";
-defparam syn__035_.sum_lutc_input = "datac";
+defparam syn__30_.lut_mask = 16'h6666;
+defparam syn__30_.dont_touch = "off";
+defparam syn__30_.sum_lutc_input = "datac";
 
 // Location: LCCELL_22
-cycloneive_lcell_comb syn__036_(
-	.dataa(syn__006_),
-	.datab(syn__012_[5]),
-	.datac(syn__012_[6]),
-	.datad(syn__012_[7]),
+cycloneive_lcell_comb syn__31_(
+	.dataa(syn__04_),
+	.datab(counter[13]),
+	.datac(counter[14]),
+	.datad(counter[15]),
 	.cin(),
-	.combout(syn__007_),
+	.combout(syn__05_),
 	.cout());
-defparam syn__036_.lut_mask = 16'h8000;
-defparam syn__036_.dont_touch = "off";
-defparam syn__036_.sum_lutc_input = "datac";
+defparam syn__31_.lut_mask = 16'h8000;
+defparam syn__31_.dont_touch = "off";
+defparam syn__31_.sum_lutc_input = "datac";
 
 // Location: LCCELL_23
-cycloneive_lcell_comb syn__037_(
-	.dataa(syn__007_),
-	.datab(syn__013_[0]),
-	.datac(syn__013_[1]),
+cycloneive_lcell_comb syn__32_(
+	.dataa(syn__05_),
+	.datab(counter[16]),
+	.datac(counter[17]),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[17]),
+	.combout(syn__00_[17]),
 	.cout());
-defparam syn__037_.lut_mask = 16'h7878;
-defparam syn__037_.dont_touch = "off";
-defparam syn__037_.sum_lutc_input = "datac";
+defparam syn__32_.lut_mask = 16'h7878;
+defparam syn__32_.dont_touch = "off";
+defparam syn__32_.sum_lutc_input = "datac";
 
 // Location: LCCELL_24
-cycloneive_lcell_comb syn__038_(
-	.dataa(syn__007_),
-	.datab(syn__013_[0]),
-	.datac(syn__013_[1]),
-	.datad(syn__013_[2]),
+cycloneive_lcell_comb syn__33_(
+	.dataa(syn__05_),
+	.datab(counter[16]),
+	.datac(counter[17]),
+	.datad(syn__10_[0]),
 	.cin(),
-	.combout(syn__000_[18]),
+	.combout(syn__00_[18]),
 	.cout());
-defparam syn__038_.lut_mask = 16'h7F80;
-defparam syn__038_.dont_touch = "off";
-defparam syn__038_.sum_lutc_input = "datac";
+defparam syn__33_.lut_mask = 16'h7F80;
+defparam syn__33_.dont_touch = "off";
+defparam syn__33_.sum_lutc_input = "datac";
 
 // Location: LCCELL_25
-cycloneive_lcell_comb syn__039_(
-	.dataa(syn__008_),
-	.datab(syn__013_[3]),
+cycloneive_lcell_comb syn__34_(
+	.dataa(syn__06_),
+	.datab(syn__10_[1]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[19]),
+	.combout(syn__00_[19]),
 	.cout());
-defparam syn__039_.lut_mask = 16'h6666;
-defparam syn__039_.dont_touch = "off";
-defparam syn__039_.sum_lutc_input = "datac";
+defparam syn__34_.lut_mask = 16'h6666;
+defparam syn__34_.dont_touch = "off";
+defparam syn__34_.sum_lutc_input = "datac";
 
 // Location: LCCELL_26
-cycloneive_lcell_comb syn__040_(
-	.dataa(syn__007_),
-	.datab(syn__013_[0]),
-	.datac(syn__013_[1]),
-	.datad(syn__013_[2]),
+cycloneive_lcell_comb syn__35_(
+	.dataa(syn__05_),
+	.datab(counter[16]),
+	.datac(counter[17]),
+	.datad(syn__10_[0]),
 	.cin(),
-	.combout(syn__008_),
+	.combout(syn__06_),
 	.cout());
-defparam syn__040_.lut_mask = 16'h8000;
-defparam syn__040_.dont_touch = "off";
-defparam syn__040_.sum_lutc_input = "datac";
+defparam syn__35_.lut_mask = 16'h8000;
+defparam syn__35_.dont_touch = "off";
+defparam syn__35_.sum_lutc_input = "datac";
 
 // Location: LCCELL_27
-cycloneive_lcell_comb syn__041_(
-	.dataa(syn__008_),
-	.datab(syn__013_[3]),
-	.datac(syn__013_[4]),
+cycloneive_lcell_comb syn__36_(
+	.dataa(syn__06_),
+	.datab(syn__10_[1]),
+	.datac(syn__10_[2]),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[20]),
+	.combout(syn__00_[20]),
 	.cout());
-defparam syn__041_.lut_mask = 16'h7878;
-defparam syn__041_.dont_touch = "off";
-defparam syn__041_.sum_lutc_input = "datac";
+defparam syn__36_.lut_mask = 16'h7878;
+defparam syn__36_.dont_touch = "off";
+defparam syn__36_.sum_lutc_input = "datac";
 
 // Location: LCCELL_28
-cycloneive_lcell_comb syn__042_(
-	.dataa(syn__008_),
-	.datab(syn__013_[3]),
-	.datac(syn__013_[4]),
-	.datad(syn__013_[5]),
+cycloneive_lcell_comb syn__37_(
+	.dataa(syn__06_),
+	.datab(syn__10_[1]),
+	.datac(syn__10_[2]),
+	.datad(syn__10_[3]),
 	.cin(),
-	.combout(syn__000_[21]),
+	.combout(syn__00_[21]),
 	.cout());
-defparam syn__042_.lut_mask = 16'h7F80;
-defparam syn__042_.dont_touch = "off";
-defparam syn__042_.sum_lutc_input = "datac";
+defparam syn__37_.lut_mask = 16'h7F80;
+defparam syn__37_.dont_touch = "off";
+defparam syn__37_.sum_lutc_input = "datac";
 
 // Location: LCCELL_29
-cycloneive_lcell_comb syn__043_(
-	.dataa(syn__009_),
-	.datab(syn__013_[6]),
+cycloneive_lcell_comb syn__38_(
+	.dataa(syn__07_),
+	.datab(syn__10_[4]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[22]),
+	.combout(syn__00_[22]),
 	.cout());
-defparam syn__043_.lut_mask = 16'h6666;
-defparam syn__043_.dont_touch = "off";
-defparam syn__043_.sum_lutc_input = "datac";
+defparam syn__38_.lut_mask = 16'h6666;
+defparam syn__38_.dont_touch = "off";
+defparam syn__38_.sum_lutc_input = "datac";
 
 // Location: LCCELL_30
-cycloneive_lcell_comb syn__044_(
-	.dataa(syn__008_),
-	.datab(syn__013_[3]),
-	.datac(syn__013_[4]),
-	.datad(syn__013_[5]),
+cycloneive_lcell_comb syn__39_(
+	.dataa(syn__06_),
+	.datab(syn__10_[1]),
+	.datac(syn__10_[2]),
+	.datad(syn__10_[3]),
 	.cin(),
-	.combout(syn__009_),
+	.combout(syn__07_),
 	.cout());
-defparam syn__044_.lut_mask = 16'h8000;
-defparam syn__044_.dont_touch = "off";
-defparam syn__044_.sum_lutc_input = "datac";
+defparam syn__39_.lut_mask = 16'h8000;
+defparam syn__39_.dont_touch = "off";
+defparam syn__39_.sum_lutc_input = "datac";
 
 // Location: LCCELL_31
-cycloneive_lcell_comb syn__045_(
-	.dataa(syn__009_),
-	.datab(syn__013_[6]),
-	.datac(syn__013_[7]),
+cycloneive_lcell_comb syn__40_(
+	.dataa(syn__07_),
+	.datab(syn__10_[4]),
+	.datac(syn__10_[5]),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[23]),
+	.combout(syn__00_[23]),
 	.cout());
-defparam syn__045_.lut_mask = 16'h7878;
-defparam syn__045_.dont_touch = "off";
-defparam syn__045_.sum_lutc_input = "datac";
+defparam syn__40_.lut_mask = 16'h7878;
+defparam syn__40_.dont_touch = "off";
+defparam syn__40_.sum_lutc_input = "datac";
 
 // Location: LCCELL_32
-cycloneive_lcell_comb syn__046_(
-	.dataa(syn__009_),
-	.datab(syn__013_[6]),
-	.datac(syn__013_[7]),
-	.datad(syn__014_[0]),
+cycloneive_lcell_comb syn__41_(
+	.dataa(syn__07_),
+	.datab(syn__10_[4]),
+	.datac(syn__10_[5]),
+	.datad(syn__10_[6]),
 	.cin(),
-	.combout(syn__000_[24]),
+	.combout(syn__00_[24]),
 	.cout());
-defparam syn__046_.lut_mask = 16'h7F80;
-defparam syn__046_.dont_touch = "off";
-defparam syn__046_.sum_lutc_input = "datac";
+defparam syn__41_.lut_mask = 16'h7F80;
+defparam syn__41_.dont_touch = "off";
+defparam syn__41_.sum_lutc_input = "datac";
 
 // Location: LCCELL_33
-cycloneive_lcell_comb syn__047_(
-	.dataa(syn__010_),
-	.datab(syn__014_[1]),
+cycloneive_lcell_comb syn__42_(
+	.dataa(syn__08_),
+	.datab(syn__10_[7]),
 	.datac(vcc),
 	.datad(vcc),
 	.cin(),
-	.combout(syn__000_[25]),
+	.combout(syn__00_[25]),
 	.cout());
-defparam syn__047_.lut_mask = 16'h6666;
-defparam syn__047_.dont_touch = "off";
-defparam syn__047_.sum_lutc_input = "datac";
+defparam syn__42_.lut_mask = 16'h6666;
+defparam syn__42_.dont_touch = "off";
+defparam syn__42_.sum_lutc_input = "datac";
 
 // Location: LCCELL_34
-cycloneive_lcell_comb syn__048_(
-	.dataa(syn__009_),
-	.datab(syn__013_[6]),
-	.datac(syn__013_[7]),
-	.datad(syn__014_[0]),
+cycloneive_lcell_comb syn__43_(
+	.dataa(syn__07_),
+	.datab(syn__10_[4]),
+	.datac(syn__10_[5]),
+	.datad(syn__10_[6]),
 	.cin(),
-	.combout(syn__010_),
+	.combout(syn__08_),
 	.cout());
-defparam syn__048_.lut_mask = 16'h8000;
-defparam syn__048_.dont_touch = "off";
-defparam syn__048_.sum_lutc_input = "datac";
+defparam syn__43_.lut_mask = 16'h8000;
+defparam syn__43_.dont_touch = "off";
+defparam syn__43_.sum_lutc_input = "datac";
 
-// Location: LCCELL_35
-cycloneive_lcell_comb syn__049_(
-	.dataa(syn__010_),
-	.datab(syn__014_[1]),
-	.datac(syn__014_[2]),
-	.datad(vcc),
-	.cin(),
-	.combout(syn__000_[26]),
-	.cout());
-defparam syn__049_.lut_mask = 16'h7878;
-defparam syn__049_.dont_touch = "off";
-defparam syn__049_.sum_lutc_input = "datac";
-
-// Location: LCCELL_36
-cycloneive_lcell_comb syn__050_(
-	.dataa(syn__010_),
-	.datab(syn__014_[1]),
-	.datac(syn__014_[2]),
-	.datad(syn__014_[3]),
-	.cin(),
-	.combout(syn__000_[27]),
-	.cout());
-defparam syn__050_.lut_mask = 16'h7F80;
-defparam syn__050_.dont_touch = "off";
-defparam syn__050_.sum_lutc_input = "datac";
-
-// Location: LCCELL_37
-cycloneive_lcell_comb syn__051_(
-	.dataa(syn__001_),
-	.datab(syn__014_[4]),
-	.datac(vcc),
-	.datad(vcc),
-	.cin(),
-	.combout(syn__000_[28]),
-	.cout());
-defparam syn__051_.lut_mask = 16'h6666;
-defparam syn__051_.dont_touch = "off";
-defparam syn__051_.sum_lutc_input = "datac";
-
-// Location: LCCELL_38
-cycloneive_lcell_comb syn__052_(
-	.dataa(syn__010_),
-	.datab(syn__014_[1]),
-	.datac(syn__014_[2]),
-	.datad(syn__014_[3]),
-	.cin(),
-	.combout(syn__001_),
-	.cout());
-defparam syn__052_.lut_mask = 16'h8000;
-defparam syn__052_.dont_touch = "off";
-defparam syn__052_.sum_lutc_input = "datac";
-
-// Location: LCCELL_39
-cycloneive_lcell_comb syn__053_(
-	.dataa(syn__001_),
-	.datab(syn__014_[4]),
-	.datac(syn__014_[5]),
-	.datad(vcc),
-	.cin(),
-	.combout(syn__000_[29]),
-	.cout());
-defparam syn__053_.lut_mask = 16'h7878;
-defparam syn__053_.dont_touch = "off";
-defparam syn__053_.sum_lutc_input = "datac";
-
-// Location: LCCELL_40
-cycloneive_lcell_comb syn__054_(
-	.dataa(syn__001_),
-	.datab(syn__014_[4]),
-	.datac(syn__014_[5]),
-	.datad(syn__014_[6]),
-	.cin(),
-	.combout(syn__000_[30]),
-	.cout());
-defparam syn__054_.lut_mask = 16'h7F80;
-defparam syn__054_.dont_touch = "off";
-defparam syn__054_.sum_lutc_input = "datac";
-
-// Location: LCCELL_41
-cycloneive_lcell_comb syn__055_(
-	.dataa(syn__002_),
-	.datab(syn__014_[7]),
-	.datac(vcc),
-	.datad(vcc),
-	.cin(),
-	.combout(syn__000_[31]),
-	.cout());
-defparam syn__055_.lut_mask = 16'h6666;
-defparam syn__055_.dont_touch = "off";
-defparam syn__055_.sum_lutc_input = "datac";
-
-// Location: LCCELL_42
-cycloneive_lcell_comb syn__056_(
-	.dataa(syn__001_),
-	.datab(syn__014_[4]),
-	.datac(syn__014_[5]),
-	.datad(syn__014_[6]),
-	.cin(),
-	.combout(syn__002_),
-	.cout());
-defparam syn__056_.lut_mask = 16'h8000;
-defparam syn__056_.dont_touch = "off";
-defparam syn__056_.sum_lutc_input = "datac";
-
-// Location: PIN_43
-cycloneive_io_obuf syn__057_(
-	.i(syn__011_[0]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank0[0]),
-	.obar());
-defparam syn__057_.bus_hold = "false";
-defparam syn__057_.open_drain_output = "false";
-
-// Location: PIN_44
-cycloneive_io_obuf syn__058_(
-	.i(syn__011_[1]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank0[1]),
-	.obar());
-defparam syn__058_.bus_hold = "false";
-defparam syn__058_.open_drain_output = "false";
-
-// Location: PIN_45
-cycloneive_io_obuf syn__059_(
-	.i(syn__011_[2]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank0[2]),
-	.obar());
-defparam syn__059_.bus_hold = "false";
-defparam syn__059_.open_drain_output = "false";
-
-// Location: PIN_46
-cycloneive_io_obuf syn__060_(
-	.i(syn__011_[3]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank0[3]),
-	.obar());
-defparam syn__060_.bus_hold = "false";
-defparam syn__060_.open_drain_output = "false";
-
-// Location: PIN_47
-cycloneive_io_obuf syn__061_(
-	.i(syn__011_[4]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank0[4]),
-	.obar());
-defparam syn__061_.bus_hold = "false";
-defparam syn__061_.open_drain_output = "false";
-
-// Location: PIN_48
-cycloneive_io_obuf syn__062_(
-	.i(syn__011_[5]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank0[5]),
-	.obar());
-defparam syn__062_.bus_hold = "false";
-defparam syn__062_.open_drain_output = "false";
-
-// Location: PIN_49
-cycloneive_io_obuf syn__063_(
-	.i(syn__011_[6]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank0[6]),
-	.obar());
-defparam syn__063_.bus_hold = "false";
-defparam syn__063_.open_drain_output = "false";
-
-// Location: PIN_50
-cycloneive_io_obuf syn__064_(
-	.i(syn__011_[7]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank0[7]),
-	.obar());
-defparam syn__064_.bus_hold = "false";
-defparam syn__064_.open_drain_output = "false";
-
-// Location: PIN_51
-cycloneive_io_obuf syn__065_(
-	.i(syn__012_[0]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank1[0]),
-	.obar());
-defparam syn__065_.bus_hold = "false";
-defparam syn__065_.open_drain_output = "false";
-
-// Location: PIN_52
-cycloneive_io_obuf syn__066_(
-	.i(syn__012_[1]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank1[1]),
-	.obar());
-defparam syn__066_.bus_hold = "false";
-defparam syn__066_.open_drain_output = "false";
-
-// Location: PIN_53
-cycloneive_io_obuf syn__067_(
-	.i(syn__012_[2]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank1[2]),
-	.obar());
-defparam syn__067_.bus_hold = "false";
-defparam syn__067_.open_drain_output = "false";
-
-// Location: PIN_54
-cycloneive_io_obuf syn__068_(
-	.i(syn__012_[3]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank1[3]),
-	.obar());
-defparam syn__068_.bus_hold = "false";
-defparam syn__068_.open_drain_output = "false";
-
-// Location: PIN_55
-cycloneive_io_obuf syn__069_(
-	.i(syn__012_[4]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank1[4]),
-	.obar());
-defparam syn__069_.bus_hold = "false";
-defparam syn__069_.open_drain_output = "false";
-
-// Location: PIN_56
-cycloneive_io_obuf syn__070_(
-	.i(syn__012_[5]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank1[5]),
-	.obar());
-defparam syn__070_.bus_hold = "false";
-defparam syn__070_.open_drain_output = "false";
-
-// Location: PIN_57
-cycloneive_io_obuf syn__071_(
-	.i(syn__012_[6]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank1[6]),
-	.obar());
-defparam syn__071_.bus_hold = "false";
-defparam syn__071_.open_drain_output = "false";
-
-// Location: PIN_58
-cycloneive_io_obuf syn__072_(
-	.i(syn__012_[7]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank1[7]),
-	.obar());
-defparam syn__072_.bus_hold = "false";
-defparam syn__072_.open_drain_output = "false";
-
-// Location: PIN_59
-cycloneive_io_obuf syn__073_(
-	.i(syn__013_[0]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank2[0]),
-	.obar());
-defparam syn__073_.bus_hold = "false";
-defparam syn__073_.open_drain_output = "false";
-
-// Location: PIN_60
-cycloneive_io_obuf syn__074_(
-	.i(syn__013_[1]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank2[1]),
-	.obar());
-defparam syn__074_.bus_hold = "false";
-defparam syn__074_.open_drain_output = "false";
-
-// Location: PIN_61
-cycloneive_io_obuf syn__075_(
-	.i(syn__013_[2]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank2[2]),
-	.obar());
-defparam syn__075_.bus_hold = "false";
-defparam syn__075_.open_drain_output = "false";
-
-// Location: PIN_62
-cycloneive_io_obuf syn__076_(
-	.i(syn__013_[3]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank2[3]),
-	.obar());
-defparam syn__076_.bus_hold = "false";
-defparam syn__076_.open_drain_output = "false";
-
-// Location: PIN_63
-cycloneive_io_obuf syn__077_(
-	.i(syn__013_[4]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank2[4]),
-	.obar());
-defparam syn__077_.bus_hold = "false";
-defparam syn__077_.open_drain_output = "false";
-
-// Location: PIN_64
-cycloneive_io_obuf syn__078_(
-	.i(syn__013_[5]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank2[5]),
-	.obar());
-defparam syn__078_.bus_hold = "false";
-defparam syn__078_.open_drain_output = "false";
-
-// Location: PIN_65
-cycloneive_io_obuf syn__079_(
-	.i(syn__013_[6]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank2[6]),
-	.obar());
-defparam syn__079_.bus_hold = "false";
-defparam syn__079_.open_drain_output = "false";
-
-// Location: PIN_66
-cycloneive_io_obuf syn__080_(
-	.i(syn__013_[7]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank2[7]),
-	.obar());
-defparam syn__080_.bus_hold = "false";
-defparam syn__080_.open_drain_output = "false";
-
-// Location: PIN_67
-cycloneive_io_obuf syn__081_(
-	.i(syn__014_[0]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank3[0]),
-	.obar());
-defparam syn__081_.bus_hold = "false";
-defparam syn__081_.open_drain_output = "false";
-
-// Location: PIN_68
-cycloneive_io_obuf syn__082_(
-	.i(syn__014_[1]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank3[1]),
-	.obar());
-defparam syn__082_.bus_hold = "false";
-defparam syn__082_.open_drain_output = "false";
-
-// Location: PIN_69
-cycloneive_io_obuf syn__083_(
-	.i(syn__014_[2]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank3[2]),
-	.obar());
-defparam syn__083_.bus_hold = "false";
-defparam syn__083_.open_drain_output = "false";
-
-// Location: PIN_70
-cycloneive_io_obuf syn__084_(
-	.i(syn__014_[3]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank3[3]),
-	.obar());
-defparam syn__084_.bus_hold = "false";
-defparam syn__084_.open_drain_output = "false";
-
-// Location: PIN_71
-cycloneive_io_obuf syn__085_(
-	.i(syn__014_[4]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank3[4]),
-	.obar());
-defparam syn__085_.bus_hold = "false";
-defparam syn__085_.open_drain_output = "false";
-
-// Location: PIN_72
-cycloneive_io_obuf syn__086_(
-	.i(syn__014_[5]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank3[5]),
-	.obar());
-defparam syn__086_.bus_hold = "false";
-defparam syn__086_.open_drain_output = "false";
-
-// Location: PIN_73
-cycloneive_io_obuf syn__087_(
-	.i(syn__014_[6]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank3[6]),
-	.obar());
-defparam syn__087_.bus_hold = "false";
-defparam syn__087_.open_drain_output = "false";
-
-// Location: PIN_74
-cycloneive_io_obuf syn__088_(
-	.i(syn__014_[7]),
-	.oe(vcc),
-	.seriesterminationcontrol(),
-	.devoe(),
-	.o(bank3[7]),
-	.obar());
-defparam syn__088_.bus_hold = "false";
-defparam syn__088_.open_drain_output = "false";
-
-// Location: PIN_75
-cycloneive_io_ibuf syn__089_(
+// Location: PIN_35
+cycloneive_io_ibuf syn__44_(
 	.i(clk),
 	.ibar(gnd),
-	.o(syn__015_));
-defparam syn__089_.bus_hold = "false";
-defparam syn__089_.differential_mode = "false";
-defparam syn__089_.simulate_z_as = "Z";
+	.o(syn__09_));
+defparam syn__44_.bus_hold = "false";
+defparam syn__44_.differential_mode = "false";
+defparam syn__44_.simulate_z_as = "Z";
 
-// Location: LCCELL_76
-dffeas syn__090_(
-	.clk(syn__015_),
-	.d(\syn__011_[0]_inv ),
+// Location: PIN_36
+cycloneive_io_obuf syn__45_(
+	.i(syn__10_[0]),
+	.oe(vcc),
+	.seriesterminationcontrol(),
+	.devoe(),
+	.o(leds[0]),
+	.obar());
+defparam syn__45_.bus_hold = "false";
+defparam syn__45_.open_drain_output = "false";
+
+// Location: PIN_37
+cycloneive_io_obuf syn__46_(
+	.i(syn__10_[1]),
+	.oe(vcc),
+	.seriesterminationcontrol(),
+	.devoe(),
+	.o(leds[1]),
+	.obar());
+defparam syn__46_.bus_hold = "false";
+defparam syn__46_.open_drain_output = "false";
+
+// Location: PIN_38
+cycloneive_io_obuf syn__47_(
+	.i(syn__10_[2]),
+	.oe(vcc),
+	.seriesterminationcontrol(),
+	.devoe(),
+	.o(leds[2]),
+	.obar());
+defparam syn__47_.bus_hold = "false";
+defparam syn__47_.open_drain_output = "false";
+
+// Location: PIN_39
+cycloneive_io_obuf syn__48_(
+	.i(syn__10_[3]),
+	.oe(vcc),
+	.seriesterminationcontrol(),
+	.devoe(),
+	.o(leds[3]),
+	.obar());
+defparam syn__48_.bus_hold = "false";
+defparam syn__48_.open_drain_output = "false";
+
+// Location: PIN_40
+cycloneive_io_obuf syn__49_(
+	.i(syn__10_[4]),
+	.oe(vcc),
+	.seriesterminationcontrol(),
+	.devoe(),
+	.o(leds[4]),
+	.obar());
+defparam syn__49_.bus_hold = "false";
+defparam syn__49_.open_drain_output = "false";
+
+// Location: PIN_41
+cycloneive_io_obuf syn__50_(
+	.i(syn__10_[5]),
+	.oe(vcc),
+	.seriesterminationcontrol(),
+	.devoe(),
+	.o(leds[5]),
+	.obar());
+defparam syn__50_.bus_hold = "false";
+defparam syn__50_.open_drain_output = "false";
+
+// Location: PIN_42
+cycloneive_io_obuf syn__51_(
+	.i(syn__10_[6]),
+	.oe(vcc),
+	.seriesterminationcontrol(),
+	.devoe(),
+	.o(leds[6]),
+	.obar());
+defparam syn__51_.bus_hold = "false";
+defparam syn__51_.open_drain_output = "false";
+
+// Location: PIN_43
+cycloneive_io_obuf syn__52_(
+	.i(syn__10_[7]),
+	.oe(vcc),
+	.seriesterminationcontrol(),
+	.devoe(),
+	.o(leds[7]),
+	.obar());
+defparam syn__52_.bus_hold = "false";
+defparam syn__52_.open_drain_output = "false";
+
+// Location: LCCELL_44
+dffeas syn__53_(
+	.clk(syn__09_),
+	.d(\counter[0]_inv ),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1016,13 +634,13 @@ dffeas syn__090_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__011_[0]),
+	.q(counter[0]),
 	.prn(vcc));
 
-// Location: LCCELL_77
-dffeas syn__091_(
-	.clk(syn__015_),
-	.d(syn__000_[1]),
+// Location: LCCELL_45
+dffeas syn__54_(
+	.clk(syn__09_),
+	.d(syn__00_[1]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1031,13 +649,13 @@ dffeas syn__091_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__011_[1]),
+	.q(counter[1]),
 	.prn(vcc));
 
-// Location: LCCELL_78
-dffeas syn__092_(
-	.clk(syn__015_),
-	.d(syn__000_[2]),
+// Location: LCCELL_46
+dffeas syn__55_(
+	.clk(syn__09_),
+	.d(syn__00_[2]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1046,13 +664,13 @@ dffeas syn__092_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__011_[2]),
+	.q(counter[2]),
 	.prn(vcc));
 
-// Location: LCCELL_79
-dffeas syn__093_(
-	.clk(syn__015_),
-	.d(syn__000_[3]),
+// Location: LCCELL_47
+dffeas syn__56_(
+	.clk(syn__09_),
+	.d(syn__00_[3]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1061,13 +679,13 @@ dffeas syn__093_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__011_[3]),
+	.q(counter[3]),
 	.prn(vcc));
 
-// Location: LCCELL_80
-dffeas syn__094_(
-	.clk(syn__015_),
-	.d(syn__000_[4]),
+// Location: LCCELL_48
+dffeas syn__57_(
+	.clk(syn__09_),
+	.d(syn__00_[4]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1076,13 +694,13 @@ dffeas syn__094_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__011_[4]),
+	.q(counter[4]),
 	.prn(vcc));
 
-// Location: LCCELL_81
-dffeas syn__095_(
-	.clk(syn__015_),
-	.d(syn__000_[5]),
+// Location: LCCELL_49
+dffeas syn__58_(
+	.clk(syn__09_),
+	.d(syn__00_[5]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1091,13 +709,13 @@ dffeas syn__095_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__011_[5]),
+	.q(counter[5]),
 	.prn(vcc));
 
-// Location: LCCELL_82
-dffeas syn__096_(
-	.clk(syn__015_),
-	.d(syn__000_[6]),
+// Location: LCCELL_50
+dffeas syn__59_(
+	.clk(syn__09_),
+	.d(syn__00_[6]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1106,13 +724,13 @@ dffeas syn__096_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__011_[6]),
+	.q(counter[6]),
 	.prn(vcc));
 
-// Location: LCCELL_83
-dffeas syn__097_(
-	.clk(syn__015_),
-	.d(syn__000_[7]),
+// Location: LCCELL_51
+dffeas syn__60_(
+	.clk(syn__09_),
+	.d(syn__00_[7]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1121,13 +739,13 @@ dffeas syn__097_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__011_[7]),
+	.q(counter[7]),
 	.prn(vcc));
 
-// Location: LCCELL_84
-dffeas syn__098_(
-	.clk(syn__015_),
-	.d(syn__000_[8]),
+// Location: LCCELL_52
+dffeas syn__61_(
+	.clk(syn__09_),
+	.d(syn__00_[8]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1136,13 +754,13 @@ dffeas syn__098_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__012_[0]),
+	.q(counter[8]),
 	.prn(vcc));
 
-// Location: LCCELL_85
-dffeas syn__099_(
-	.clk(syn__015_),
-	.d(syn__000_[9]),
+// Location: LCCELL_53
+dffeas syn__62_(
+	.clk(syn__09_),
+	.d(syn__00_[9]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1151,13 +769,13 @@ dffeas syn__099_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__012_[1]),
+	.q(counter[9]),
 	.prn(vcc));
 
-// Location: LCCELL_86
-dffeas syn__100_(
-	.clk(syn__015_),
-	.d(syn__000_[10]),
+// Location: LCCELL_54
+dffeas syn__63_(
+	.clk(syn__09_),
+	.d(syn__00_[10]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1166,13 +784,13 @@ dffeas syn__100_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__012_[2]),
+	.q(counter[10]),
 	.prn(vcc));
 
-// Location: LCCELL_87
-dffeas syn__101_(
-	.clk(syn__015_),
-	.d(syn__000_[11]),
+// Location: LCCELL_55
+dffeas syn__64_(
+	.clk(syn__09_),
+	.d(syn__00_[11]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1181,13 +799,13 @@ dffeas syn__101_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__012_[3]),
+	.q(counter[11]),
 	.prn(vcc));
 
-// Location: LCCELL_88
-dffeas syn__102_(
-	.clk(syn__015_),
-	.d(syn__000_[12]),
+// Location: LCCELL_56
+dffeas syn__65_(
+	.clk(syn__09_),
+	.d(syn__00_[12]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1196,13 +814,13 @@ dffeas syn__102_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__012_[4]),
+	.q(counter[12]),
 	.prn(vcc));
 
-// Location: LCCELL_89
-dffeas syn__103_(
-	.clk(syn__015_),
-	.d(syn__000_[13]),
+// Location: LCCELL_57
+dffeas syn__66_(
+	.clk(syn__09_),
+	.d(syn__00_[13]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1211,13 +829,13 @@ dffeas syn__103_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__012_[5]),
+	.q(counter[13]),
 	.prn(vcc));
 
-// Location: LCCELL_90
-dffeas syn__104_(
-	.clk(syn__015_),
-	.d(syn__000_[14]),
+// Location: LCCELL_58
+dffeas syn__67_(
+	.clk(syn__09_),
+	.d(syn__00_[14]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1226,13 +844,13 @@ dffeas syn__104_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__012_[6]),
+	.q(counter[14]),
 	.prn(vcc));
 
-// Location: LCCELL_91
-dffeas syn__105_(
-	.clk(syn__015_),
-	.d(syn__000_[15]),
+// Location: LCCELL_59
+dffeas syn__68_(
+	.clk(syn__09_),
+	.d(syn__00_[15]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1241,13 +859,13 @@ dffeas syn__105_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__012_[7]),
+	.q(counter[15]),
 	.prn(vcc));
 
-// Location: LCCELL_92
-dffeas syn__106_(
-	.clk(syn__015_),
-	.d(syn__000_[16]),
+// Location: LCCELL_60
+dffeas syn__69_(
+	.clk(syn__09_),
+	.d(syn__00_[16]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1256,13 +874,13 @@ dffeas syn__106_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__013_[0]),
+	.q(counter[16]),
 	.prn(vcc));
 
-// Location: LCCELL_93
-dffeas syn__107_(
-	.clk(syn__015_),
-	.d(syn__000_[17]),
+// Location: LCCELL_61
+dffeas syn__70_(
+	.clk(syn__09_),
+	.d(syn__00_[17]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1271,13 +889,13 @@ dffeas syn__107_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__013_[1]),
+	.q(counter[17]),
 	.prn(vcc));
 
-// Location: LCCELL_94
-dffeas syn__108_(
-	.clk(syn__015_),
-	.d(syn__000_[18]),
+// Location: LCCELL_62
+dffeas syn__71_(
+	.clk(syn__09_),
+	.d(syn__00_[18]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1286,13 +904,13 @@ dffeas syn__108_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__013_[2]),
+	.q(syn__10_[0]),
 	.prn(vcc));
 
-// Location: LCCELL_95
-dffeas syn__109_(
-	.clk(syn__015_),
-	.d(syn__000_[19]),
+// Location: LCCELL_63
+dffeas syn__72_(
+	.clk(syn__09_),
+	.d(syn__00_[19]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1301,13 +919,13 @@ dffeas syn__109_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__013_[3]),
+	.q(syn__10_[1]),
 	.prn(vcc));
 
-// Location: LCCELL_96
-dffeas syn__110_(
-	.clk(syn__015_),
-	.d(syn__000_[20]),
+// Location: LCCELL_64
+dffeas syn__73_(
+	.clk(syn__09_),
+	.d(syn__00_[20]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1316,13 +934,13 @@ dffeas syn__110_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__013_[4]),
+	.q(syn__10_[2]),
 	.prn(vcc));
 
-// Location: LCCELL_97
-dffeas syn__111_(
-	.clk(syn__015_),
-	.d(syn__000_[21]),
+// Location: LCCELL_65
+dffeas syn__74_(
+	.clk(syn__09_),
+	.d(syn__00_[21]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1331,13 +949,13 @@ dffeas syn__111_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__013_[5]),
+	.q(syn__10_[3]),
 	.prn(vcc));
 
-// Location: LCCELL_98
-dffeas syn__112_(
-	.clk(syn__015_),
-	.d(syn__000_[22]),
+// Location: LCCELL_66
+dffeas syn__75_(
+	.clk(syn__09_),
+	.d(syn__00_[22]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1346,13 +964,13 @@ dffeas syn__112_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__013_[6]),
+	.q(syn__10_[4]),
 	.prn(vcc));
 
-// Location: LCCELL_99
-dffeas syn__113_(
-	.clk(syn__015_),
-	.d(syn__000_[23]),
+// Location: LCCELL_67
+dffeas syn__76_(
+	.clk(syn__09_),
+	.d(syn__00_[23]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1361,13 +979,13 @@ dffeas syn__113_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__013_[7]),
+	.q(syn__10_[5]),
 	.prn(vcc));
 
-// Location: LCCELL_100
-dffeas syn__114_(
-	.clk(syn__015_),
-	.d(syn__000_[24]),
+// Location: LCCELL_68
+dffeas syn__77_(
+	.clk(syn__09_),
+	.d(syn__00_[24]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1376,13 +994,13 @@ dffeas syn__114_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__014_[0]),
+	.q(syn__10_[6]),
 	.prn(vcc));
 
-// Location: LCCELL_101
-dffeas syn__115_(
-	.clk(syn__015_),
-	.d(syn__000_[25]),
+// Location: LCCELL_69
+dffeas syn__78_(
+	.clk(syn__09_),
+	.d(syn__00_[25]),
 	.asdata(gnd),
 	.clrn(vcc),
 	.aload(gnd),
@@ -1391,97 +1009,7 @@ dffeas syn__115_(
 	.ena(vcc),
 	.devclrn(),
 	.devpor(),
-	.q(syn__014_[1]),
-	.prn(vcc));
-
-// Location: LCCELL_102
-dffeas syn__116_(
-	.clk(syn__015_),
-	.d(syn__000_[26]),
-	.asdata(gnd),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(),
-	.devpor(),
-	.q(syn__014_[2]),
-	.prn(vcc));
-
-// Location: LCCELL_103
-dffeas syn__117_(
-	.clk(syn__015_),
-	.d(syn__000_[27]),
-	.asdata(gnd),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(),
-	.devpor(),
-	.q(syn__014_[3]),
-	.prn(vcc));
-
-// Location: LCCELL_104
-dffeas syn__118_(
-	.clk(syn__015_),
-	.d(syn__000_[28]),
-	.asdata(gnd),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(),
-	.devpor(),
-	.q(syn__014_[4]),
-	.prn(vcc));
-
-// Location: LCCELL_105
-dffeas syn__119_(
-	.clk(syn__015_),
-	.d(syn__000_[29]),
-	.asdata(gnd),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(),
-	.devpor(),
-	.q(syn__014_[5]),
-	.prn(vcc));
-
-// Location: LCCELL_106
-dffeas syn__120_(
-	.clk(syn__015_),
-	.d(syn__000_[30]),
-	.asdata(gnd),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(),
-	.devpor(),
-	.q(syn__014_[6]),
-	.prn(vcc));
-
-// Location: LCCELL_107
-dffeas syn__121_(
-	.clk(syn__015_),
-	.d(syn__000_[31]),
-	.asdata(gnd),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(),
-	.devpor(),
-	.q(syn__014_[7]),
+	.q(syn__10_[7]),
 	.prn(vcc));
 
 endmodule

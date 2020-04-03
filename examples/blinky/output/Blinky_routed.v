@@ -2,105 +2,91 @@
 
 module Blinky(
 	clk,
-	bank0,
-	bank1,
-	bank2,
-	bank3);
+	leds);
 input	clk;
-output	[7:0] bank0;
-output	[7:0] bank1;
-output	[7:0] bank2;
-output	[7:0] bank3;
+output	[7:0] leds;
 
 //wire	gnd;
 //wire	vcc;
 wire	AsyncReset_X1009_Y1001_GND;
 wire	AsyncReset_X1011_Y1001_GND;
 wire	AsyncReset_X1012_Y1001_GND;
-wire	[31:0] syn__000_;
-//wire	syn__000_[0];
-//wire	syn__000_[10];
-//wire	syn__000_[11];
-//wire	syn__000_[12];
-//wire	syn__000_[13];
-//wire	syn__000_[14];
-//wire	syn__000_[15];
-//wire	syn__000_[16];
-//wire	syn__000_[17];
-//wire	syn__000_[18];
-//wire	syn__000_[19];
-//wire	syn__000_[1];
-//wire	syn__000_[20];
-//wire	syn__000_[21];
-//wire	syn__000_[22];
-//wire	syn__000_[23];
-//wire	syn__000_[24];
-//wire	syn__000_[25];
-//wire	syn__000_[26];
-//wire	syn__000_[27];
-//wire	syn__000_[28];
-//wire	syn__000_[29];
-//wire	syn__000_[2];
-//wire	syn__000_[30];
-//wire	syn__000_[31];
-//wire	syn__000_[3];
-//wire	syn__000_[4];
-//wire	syn__000_[5];
-//wire	syn__000_[6];
-//wire	syn__000_[7];
-//wire	syn__000_[8];
-//wire	syn__000_[9];
-wire	syn__001_;
-wire	syn__002_;
-wire	syn__003_;
-wire	syn__004_;
-wire	syn__005_;
-wire	syn__006_;
-wire	syn__007_;
-wire	syn__008_;
-wire	syn__009_;
-wire	syn__010_;
-wire	[7:0] syn__011_;
-//wire	syn__011_[0];
-wire	\syn__011_[0]_inv ;
-//wire	syn__011_[1];
-//wire	syn__011_[2];
-//wire	syn__011_[3];
-//wire	syn__011_[4];
-//wire	syn__011_[5];
-//wire	syn__011_[6];
-//wire	syn__011_[7];
-wire	[7:0] syn__012_;
-//wire	syn__012_[0];
-//wire	syn__012_[1];
-//wire	syn__012_[2];
-//wire	syn__012_[3];
-//wire	syn__012_[4];
-//wire	syn__012_[5];
-//wire	syn__012_[6];
-//wire	syn__012_[7];
-wire	[7:0] syn__013_;
-//wire	syn__013_[0];
-//wire	syn__013_[1];
-//wire	syn__013_[2];
-//wire	syn__013_[3];
-//wire	syn__013_[4];
-//wire	syn__013_[5];
-//wire	syn__013_[6];
-//wire	syn__013_[7];
-wire	[7:0] syn__014_;
-//wire	syn__014_[0];
-//wire	syn__014_[1];
-//wire	syn__014_[2];
-//wire	syn__014_[3];
-//wire	syn__014_[4];
-//wire	syn__014_[5];
-//wire	syn__014_[6];
-//wire	syn__014_[7];
-wire	syn__015_;
-wire	syn__015__X1009_Y1001_SIG_VCC;
-wire	syn__015__X1011_Y1001_SIG_VCC;
-wire	syn__015__X1012_Y1001_SIG_VCC;
+wire	[25:0] counter;
+//wire	counter[0];
+wire	\counter[0]_inv ;
+//wire	counter[10];
+//wire	counter[11];
+//wire	counter[12];
+//wire	counter[13];
+//wire	counter[14];
+//wire	counter[15];
+//wire	counter[16];
+//wire	counter[17];
+//wire	counter[18];
+//wire	counter[19];
+//wire	counter[1];
+//wire	counter[20];
+//wire	counter[21];
+//wire	counter[22];
+//wire	counter[23];
+//wire	counter[24];
+//wire	counter[25];
+//wire	counter[2];
+//wire	counter[3];
+//wire	counter[4];
+//wire	counter[5];
+//wire	counter[6];
+//wire	counter[7];
+//wire	counter[8];
+//wire	counter[9];
+wire	[25:0] syn__00_;
+//wire	syn__00_[0];
+//wire	syn__00_[10];
+//wire	syn__00_[11];
+//wire	syn__00_[12];
+//wire	syn__00_[13];
+//wire	syn__00_[14];
+//wire	syn__00_[15];
+//wire	syn__00_[16];
+//wire	syn__00_[17];
+//wire	syn__00_[18];
+//wire	syn__00_[19];
+//wire	syn__00_[1];
+//wire	syn__00_[20];
+//wire	syn__00_[21];
+//wire	syn__00_[22];
+//wire	syn__00_[23];
+//wire	syn__00_[24];
+//wire	syn__00_[25];
+//wire	syn__00_[2];
+//wire	syn__00_[3];
+//wire	syn__00_[4];
+//wire	syn__00_[5];
+//wire	syn__00_[6];
+//wire	syn__00_[7];
+//wire	syn__00_[8];
+//wire	syn__00_[9];
+wire	syn__01_;
+wire	syn__02_;
+wire	syn__03_;
+wire	syn__04_;
+wire	syn__05_;
+wire	syn__06_;
+wire	syn__07_;
+wire	syn__08_;
+wire	syn__09_;
+wire	syn__09__X1009_Y1001_SIG_VCC;
+wire	syn__09__X1011_Y1001_SIG_VCC;
+wire	syn__09__X1012_Y1001_SIG_VCC;
+wire	[7:0] syn__10_;
+//wire	syn__10_[0];
+//wire	syn__10_[1];
+//wire	syn__10_[2];
+//wire	syn__10_[3];
+//wire	syn__10_[4];
+//wire	syn__10_[5];
+//wire	syn__10_[6];
+//wire	syn__10_[7];
 
 assign vcc = 1'b1;
 assign gnd = 1'b0;
@@ -108,62 +94,62 @@ assign gnd = 1'b0;
 alta_asyncctrl asyncreset_ctrl_X1009_Y1001_N0(
 	.Din(),
 	.Dout(AsyncReset_X1009_Y1001_GND));
-defparam asyncreset_ctrl_X1009_Y1001_N0.coord_x = 5;
-defparam asyncreset_ctrl_X1009_Y1001_N0.coord_y = 2;
+defparam asyncreset_ctrl_X1009_Y1001_N0.coord_x = 1;
+defparam asyncreset_ctrl_X1009_Y1001_N0.coord_y = 7;
 defparam asyncreset_ctrl_X1009_Y1001_N0.coord_z = 0;
 defparam asyncreset_ctrl_X1009_Y1001_N0.AsyncCtrlMux = 2'b00;
 
 alta_asyncctrl asyncreset_ctrl_X1011_Y1001_N0(
 	.Din(),
 	.Dout(AsyncReset_X1011_Y1001_GND));
-defparam asyncreset_ctrl_X1011_Y1001_N0.coord_x = 6;
-defparam asyncreset_ctrl_X1011_Y1001_N0.coord_y = 2;
+defparam asyncreset_ctrl_X1011_Y1001_N0.coord_x = 1;
+defparam asyncreset_ctrl_X1011_Y1001_N0.coord_y = 8;
 defparam asyncreset_ctrl_X1011_Y1001_N0.coord_z = 0;
 defparam asyncreset_ctrl_X1011_Y1001_N0.AsyncCtrlMux = 2'b00;
 
 alta_asyncctrl asyncreset_ctrl_X1012_Y1001_N0(
 	.Din(),
 	.Dout(AsyncReset_X1012_Y1001_GND));
-defparam asyncreset_ctrl_X1012_Y1001_N0.coord_x = 5;
+defparam asyncreset_ctrl_X1012_Y1001_N0.coord_x = 2;
 defparam asyncreset_ctrl_X1012_Y1001_N0.coord_y = 7;
 defparam asyncreset_ctrl_X1012_Y1001_N0.coord_z = 0;
 defparam asyncreset_ctrl_X1012_Y1001_N0.AsyncCtrlMux = 2'b00;
 
 alta_clkenctrl clken_ctrl_X1009_Y1001_N0(
-	.ClkIn(syn__015_),
+	.ClkIn(syn__09_),
 	.ClkEn(),
-	.ClkOut(syn__015__X1009_Y1001_SIG_VCC));
-defparam clken_ctrl_X1009_Y1001_N0.coord_x = 5;
-defparam clken_ctrl_X1009_Y1001_N0.coord_y = 2;
+	.ClkOut(syn__09__X1009_Y1001_SIG_VCC));
+defparam clken_ctrl_X1009_Y1001_N0.coord_x = 1;
+defparam clken_ctrl_X1009_Y1001_N0.coord_y = 7;
 defparam clken_ctrl_X1009_Y1001_N0.coord_z = 0;
 defparam clken_ctrl_X1009_Y1001_N0.ClkMux = 2'b10;
 defparam clken_ctrl_X1009_Y1001_N0.ClkEnMux = 2'b01;
 
 alta_clkenctrl clken_ctrl_X1011_Y1001_N0(
-	.ClkIn(syn__015_),
+	.ClkIn(syn__09_),
 	.ClkEn(),
-	.ClkOut(syn__015__X1011_Y1001_SIG_VCC));
-defparam clken_ctrl_X1011_Y1001_N0.coord_x = 6;
-defparam clken_ctrl_X1011_Y1001_N0.coord_y = 2;
+	.ClkOut(syn__09__X1011_Y1001_SIG_VCC));
+defparam clken_ctrl_X1011_Y1001_N0.coord_x = 1;
+defparam clken_ctrl_X1011_Y1001_N0.coord_y = 8;
 defparam clken_ctrl_X1011_Y1001_N0.coord_z = 0;
 defparam clken_ctrl_X1011_Y1001_N0.ClkMux = 2'b10;
 defparam clken_ctrl_X1011_Y1001_N0.ClkEnMux = 2'b01;
 
 alta_clkenctrl clken_ctrl_X1012_Y1001_N0(
-	.ClkIn(syn__015_),
+	.ClkIn(syn__09_),
 	.ClkEn(),
-	.ClkOut(syn__015__X1012_Y1001_SIG_VCC));
-defparam clken_ctrl_X1012_Y1001_N0.coord_x = 5;
+	.ClkOut(syn__09__X1012_Y1001_SIG_VCC));
+defparam clken_ctrl_X1012_Y1001_N0.coord_x = 2;
 defparam clken_ctrl_X1012_Y1001_N0.coord_y = 7;
 defparam clken_ctrl_X1012_Y1001_N0.coord_z = 0;
 defparam clken_ctrl_X1012_Y1001_N0.ClkMux = 2'b10;
 defparam clken_ctrl_X1012_Y1001_N0.ClkEnMux = 2'b01;
 
-alta_slice syn__020_(
-	.A(syn__011_[2]),
-	.B(syn__011_[3]),
-	.C(syn__011_[1]),
-	.D(syn__011_[0]),
+alta_slice syn__15_(
+	.A(counter[2]),
+	.B(counter[3]),
+	.C(counter[1]),
+	.D(counter[0]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -171,24 +157,24 @@ alta_slice syn__020_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__003_),
+	.LutOut(syn__01_),
 	.Cout(),
 	.Q());
-defparam syn__020_.coord_x = 5;
-defparam syn__020_.coord_y = 2;
-defparam syn__020_.coord_z = 14;
-defparam syn__020_.mask = 16'h8000;
-defparam syn__020_.modeMux = 1'b0;
-defparam syn__020_.FeedbackMux = 1'b0;
-defparam syn__020_.ShiftMux = 1'b0;
-defparam syn__020_.BypassEn = 1'b0;
-defparam syn__020_.CarryEnb = 1'b1;
+defparam syn__15_.coord_x = 1;
+defparam syn__15_.coord_y = 7;
+defparam syn__15_.coord_z = 4;
+defparam syn__15_.mask = 16'h8000;
+defparam syn__15_.modeMux = 1'b0;
+defparam syn__15_.FeedbackMux = 1'b0;
+defparam syn__15_.ShiftMux = 1'b0;
+defparam syn__15_.BypassEn = 1'b0;
+defparam syn__15_.CarryEnb = 1'b1;
 
-alta_slice syn__024_(
-	.A(syn__011_[5]),
-	.B(syn__011_[6]),
-	.C(syn__003_),
-	.D(syn__011_[4]),
+alta_slice syn__19_(
+	.A(counter[5]),
+	.B(counter[6]),
+	.C(syn__01_),
+	.D(counter[4]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -196,24 +182,24 @@ alta_slice syn__024_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__004_),
+	.LutOut(syn__02_),
 	.Cout(),
 	.Q());
-defparam syn__024_.coord_x = 5;
-defparam syn__024_.coord_y = 2;
-defparam syn__024_.coord_z = 8;
-defparam syn__024_.mask = 16'h8000;
-defparam syn__024_.modeMux = 1'b0;
-defparam syn__024_.FeedbackMux = 1'b0;
-defparam syn__024_.ShiftMux = 1'b0;
-defparam syn__024_.BypassEn = 1'b0;
-defparam syn__024_.CarryEnb = 1'b1;
+defparam syn__19_.coord_x = 1;
+defparam syn__19_.coord_y = 7;
+defparam syn__19_.coord_z = 0;
+defparam syn__19_.mask = 16'h8000;
+defparam syn__19_.modeMux = 1'b0;
+defparam syn__19_.FeedbackMux = 1'b0;
+defparam syn__19_.ShiftMux = 1'b0;
+defparam syn__19_.BypassEn = 1'b0;
+defparam syn__19_.CarryEnb = 1'b1;
 
-alta_slice syn__028_(
-	.A(syn__012_[0]),
-	.B(syn__012_[1]),
-	.C(syn__004_),
-	.D(syn__011_[7]),
+alta_slice syn__23_(
+	.A(counter[8]),
+	.B(counter[9]),
+	.C(syn__02_),
+	.D(counter[7]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -221,24 +207,24 @@ alta_slice syn__028_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__005_),
+	.LutOut(syn__03_),
 	.Cout(),
 	.Q());
-defparam syn__028_.coord_x = 5;
-defparam syn__028_.coord_y = 2;
-defparam syn__028_.coord_z = 10;
-defparam syn__028_.mask = 16'h8000;
-defparam syn__028_.modeMux = 1'b0;
-defparam syn__028_.FeedbackMux = 1'b0;
-defparam syn__028_.ShiftMux = 1'b0;
-defparam syn__028_.BypassEn = 1'b0;
-defparam syn__028_.CarryEnb = 1'b1;
+defparam syn__23_.coord_x = 1;
+defparam syn__23_.coord_y = 7;
+defparam syn__23_.coord_z = 12;
+defparam syn__23_.mask = 16'h8000;
+defparam syn__23_.modeMux = 1'b0;
+defparam syn__23_.FeedbackMux = 1'b0;
+defparam syn__23_.ShiftMux = 1'b0;
+defparam syn__23_.BypassEn = 1'b0;
+defparam syn__23_.CarryEnb = 1'b1;
 
-alta_slice syn__032_(
-	.A(syn__012_[3]),
-	.B(syn__012_[4]),
-	.C(syn__005_),
-	.D(syn__012_[2]),
+alta_slice syn__27_(
+	.A(counter[11]),
+	.B(counter[10]),
+	.C(syn__03_),
+	.D(counter[12]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -246,24 +232,24 @@ alta_slice syn__032_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__006_),
+	.LutOut(syn__04_),
 	.Cout(),
 	.Q());
-defparam syn__032_.coord_x = 5;
-defparam syn__032_.coord_y = 2;
-defparam syn__032_.coord_z = 15;
-defparam syn__032_.mask = 16'h8000;
-defparam syn__032_.modeMux = 1'b0;
-defparam syn__032_.FeedbackMux = 1'b0;
-defparam syn__032_.ShiftMux = 1'b0;
-defparam syn__032_.BypassEn = 1'b0;
-defparam syn__032_.CarryEnb = 1'b1;
+defparam syn__27_.coord_x = 1;
+defparam syn__27_.coord_y = 7;
+defparam syn__27_.coord_z = 10;
+defparam syn__27_.mask = 16'h8000;
+defparam syn__27_.modeMux = 1'b0;
+defparam syn__27_.FeedbackMux = 1'b0;
+defparam syn__27_.ShiftMux = 1'b0;
+defparam syn__27_.BypassEn = 1'b0;
+defparam syn__27_.CarryEnb = 1'b1;
 
-alta_slice syn__036_(
-	.A(syn__006_),
-	.B(syn__012_[7]),
-	.C(syn__012_[6]),
-	.D(syn__012_[5]),
+alta_slice syn__31_(
+	.A(syn__04_),
+	.B(counter[15]),
+	.C(counter[14]),
+	.D(counter[13]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -271,24 +257,24 @@ alta_slice syn__036_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__007_),
+	.LutOut(syn__05_),
 	.Cout(),
 	.Q());
-defparam syn__036_.coord_x = 6;
-defparam syn__036_.coord_y = 2;
-defparam syn__036_.coord_z = 4;
-defparam syn__036_.mask = 16'h8000;
-defparam syn__036_.modeMux = 1'b0;
-defparam syn__036_.FeedbackMux = 1'b0;
-defparam syn__036_.ShiftMux = 1'b0;
-defparam syn__036_.BypassEn = 1'b0;
-defparam syn__036_.CarryEnb = 1'b1;
+defparam syn__31_.coord_x = 1;
+defparam syn__31_.coord_y = 8;
+defparam syn__31_.coord_z = 4;
+defparam syn__31_.mask = 16'h8000;
+defparam syn__31_.modeMux = 1'b0;
+defparam syn__31_.FeedbackMux = 1'b0;
+defparam syn__31_.ShiftMux = 1'b0;
+defparam syn__31_.BypassEn = 1'b0;
+defparam syn__31_.CarryEnb = 1'b1;
 
-alta_slice syn__040_(
-	.A(syn__013_[1]),
-	.B(syn__013_[2]),
-	.C(syn__007_),
-	.D(syn__013_[0]),
+alta_slice syn__35_(
+	.A(counter[17]),
+	.B(syn__10_[0]),
+	.C(syn__05_),
+	.D(counter[16]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -296,24 +282,24 @@ alta_slice syn__040_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__008_),
+	.LutOut(syn__06_),
 	.Cout(),
 	.Q());
-defparam syn__040_.coord_x = 6;
-defparam syn__040_.coord_y = 2;
-defparam syn__040_.coord_z = 14;
-defparam syn__040_.mask = 16'h8000;
-defparam syn__040_.modeMux = 1'b0;
-defparam syn__040_.FeedbackMux = 1'b0;
-defparam syn__040_.ShiftMux = 1'b0;
-defparam syn__040_.BypassEn = 1'b0;
-defparam syn__040_.CarryEnb = 1'b1;
+defparam syn__35_.coord_x = 1;
+defparam syn__35_.coord_y = 8;
+defparam syn__35_.coord_z = 6;
+defparam syn__35_.mask = 16'h8000;
+defparam syn__35_.modeMux = 1'b0;
+defparam syn__35_.FeedbackMux = 1'b0;
+defparam syn__35_.ShiftMux = 1'b0;
+defparam syn__35_.BypassEn = 1'b0;
+defparam syn__35_.CarryEnb = 1'b1;
 
-alta_slice syn__044_(
-	.A(syn__013_[4]),
-	.B(syn__013_[5]),
-	.C(syn__008_),
-	.D(syn__013_[3]),
+alta_slice syn__39_(
+	.A(syn__10_[2]),
+	.B(syn__10_[3]),
+	.C(syn__06_),
+	.D(syn__10_[1]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -321,24 +307,24 @@ alta_slice syn__044_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__009_),
+	.LutOut(syn__07_),
 	.Cout(),
 	.Q());
-defparam syn__044_.coord_x = 6;
-defparam syn__044_.coord_y = 2;
-defparam syn__044_.coord_z = 12;
-defparam syn__044_.mask = 16'h8000;
-defparam syn__044_.modeMux = 1'b0;
-defparam syn__044_.FeedbackMux = 1'b0;
-defparam syn__044_.ShiftMux = 1'b0;
-defparam syn__044_.BypassEn = 1'b0;
-defparam syn__044_.CarryEnb = 1'b1;
+defparam syn__39_.coord_x = 1;
+defparam syn__39_.coord_y = 8;
+defparam syn__39_.coord_z = 2;
+defparam syn__39_.mask = 16'h8000;
+defparam syn__39_.modeMux = 1'b0;
+defparam syn__39_.FeedbackMux = 1'b0;
+defparam syn__39_.ShiftMux = 1'b0;
+defparam syn__39_.BypassEn = 1'b0;
+defparam syn__39_.CarryEnb = 1'b1;
 
-alta_slice syn__048_(
-	.A(syn__013_[7]),
-	.B(syn__014_[0]),
-	.C(syn__009_),
-	.D(syn__013_[6]),
+alta_slice syn__43_(
+	.A(syn__10_[5]),
+	.B(syn__10_[6]),
+	.C(syn__07_),
+	.D(syn__10_[4]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -346,1382 +332,20 @@ alta_slice syn__048_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__010_),
+	.LutOut(syn__08_),
 	.Cout(),
 	.Q());
-defparam syn__048_.coord_x = 6;
-defparam syn__048_.coord_y = 2;
-defparam syn__048_.coord_z = 11;
-defparam syn__048_.mask = 16'h8000;
-defparam syn__048_.modeMux = 1'b0;
-defparam syn__048_.FeedbackMux = 1'b0;
-defparam syn__048_.ShiftMux = 1'b0;
-defparam syn__048_.BypassEn = 1'b0;
-defparam syn__048_.CarryEnb = 1'b1;
+defparam syn__43_.coord_x = 1;
+defparam syn__43_.coord_y = 8;
+defparam syn__43_.coord_z = 12;
+defparam syn__43_.mask = 16'h8000;
+defparam syn__43_.modeMux = 1'b0;
+defparam syn__43_.FeedbackMux = 1'b0;
+defparam syn__43_.ShiftMux = 1'b0;
+defparam syn__43_.BypassEn = 1'b0;
+defparam syn__43_.CarryEnb = 1'b1;
 
-alta_slice syn__052_(
-	.A(syn__010_),
-	.B(syn__014_[3]),
-	.C(syn__014_[2]),
-	.D(syn__014_[1]),
-	.Cin(),
-	.Qin(),
-	.Clk(),
-	.AsyncReset(),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__001_),
-	.Cout(),
-	.Q());
-defparam syn__052_.coord_x = 5;
-defparam syn__052_.coord_y = 7;
-defparam syn__052_.coord_z = 2;
-defparam syn__052_.mask = 16'h8000;
-defparam syn__052_.modeMux = 1'b0;
-defparam syn__052_.FeedbackMux = 1'b0;
-defparam syn__052_.ShiftMux = 1'b0;
-defparam syn__052_.BypassEn = 1'b0;
-defparam syn__052_.CarryEnb = 1'b1;
-
-alta_slice syn__056_(
-	.A(syn__014_[5]),
-	.B(syn__014_[6]),
-	.C(syn__001_),
-	.D(syn__014_[4]),
-	.Cin(),
-	.Qin(),
-	.Clk(),
-	.AsyncReset(),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__002_),
-	.Cout(),
-	.Q());
-defparam syn__056_.coord_x = 5;
-defparam syn__056_.coord_y = 7;
-defparam syn__056_.coord_z = 4;
-defparam syn__056_.mask = 16'h8000;
-defparam syn__056_.modeMux = 1'b0;
-defparam syn__056_.FeedbackMux = 1'b0;
-defparam syn__056_.ShiftMux = 1'b0;
-defparam syn__056_.BypassEn = 1'b0;
-defparam syn__056_.CarryEnb = 1'b1;
-
-alta_rio syn__057_(
-	.padio(bank0[0]),
-	.datain(syn__011_[0]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__057_.coord_x = 2;
-defparam syn__057_.coord_y = 9;
-defparam syn__057_.coord_z = 0;
-defparam syn__057_.IN_ASYNC_MODE = 1'b0;
-defparam syn__057_.IN_SYNC_MODE = 1'b0;
-defparam syn__057_.IN_POWERUP = 1'b0;
-defparam syn__057_.OUT_REG_MODE = 1'b0;
-defparam syn__057_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__057_.OUT_SYNC_MODE = 1'b0;
-defparam syn__057_.OUT_POWERUP = 1'b0;
-defparam syn__057_.OE_REG_MODE = 1'b0;
-defparam syn__057_.OE_ASYNC_MODE = 1'b0;
-defparam syn__057_.OE_SYNC_MODE = 1'b0;
-defparam syn__057_.OE_POWERUP = 1'b0;
-defparam syn__057_.CFG_TRI_INPUT = 1'b0;
-defparam syn__057_.CFG_PULL_UP = 1'b0;
-defparam syn__057_.CFG_SLR = 1'b0;
-defparam syn__057_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__057_.CFG_PDRCTRL = 4'b0010;
-defparam syn__057_.CFG_KEEP = 2'b00;
-defparam syn__057_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__057_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__057_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__057_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__057_.DPCLK_DELAY = 4'b0000;
-defparam syn__057_.OUT_DELAY = 1'b0;
-defparam syn__057_.IN_DATA_DELAY = 3'b000;
-defparam syn__057_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__058_(
-	.padio(bank0[1]),
-	.datain(syn__011_[1]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__058_.coord_x = 1;
-defparam syn__058_.coord_y = 9;
-defparam syn__058_.coord_z = 3;
-defparam syn__058_.IN_ASYNC_MODE = 1'b0;
-defparam syn__058_.IN_SYNC_MODE = 1'b0;
-defparam syn__058_.IN_POWERUP = 1'b0;
-defparam syn__058_.OUT_REG_MODE = 1'b0;
-defparam syn__058_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__058_.OUT_SYNC_MODE = 1'b0;
-defparam syn__058_.OUT_POWERUP = 1'b0;
-defparam syn__058_.OE_REG_MODE = 1'b0;
-defparam syn__058_.OE_ASYNC_MODE = 1'b0;
-defparam syn__058_.OE_SYNC_MODE = 1'b0;
-defparam syn__058_.OE_POWERUP = 1'b0;
-defparam syn__058_.CFG_TRI_INPUT = 1'b0;
-defparam syn__058_.CFG_PULL_UP = 1'b0;
-defparam syn__058_.CFG_SLR = 1'b0;
-defparam syn__058_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__058_.CFG_PDRCTRL = 4'b0010;
-defparam syn__058_.CFG_KEEP = 2'b00;
-defparam syn__058_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__058_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__058_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__058_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__058_.DPCLK_DELAY = 4'b0000;
-defparam syn__058_.OUT_DELAY = 1'b0;
-defparam syn__058_.IN_DATA_DELAY = 3'b000;
-defparam syn__058_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__059_(
-	.padio(bank0[2]),
-	.datain(syn__011_[2]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__059_.coord_x = 0;
-defparam syn__059_.coord_y = 9;
-defparam syn__059_.coord_z = 2;
-defparam syn__059_.IN_ASYNC_MODE = 1'b0;
-defparam syn__059_.IN_SYNC_MODE = 1'b0;
-defparam syn__059_.IN_POWERUP = 1'b0;
-defparam syn__059_.OUT_REG_MODE = 1'b0;
-defparam syn__059_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__059_.OUT_SYNC_MODE = 1'b0;
-defparam syn__059_.OUT_POWERUP = 1'b0;
-defparam syn__059_.OE_REG_MODE = 1'b0;
-defparam syn__059_.OE_ASYNC_MODE = 1'b0;
-defparam syn__059_.OE_SYNC_MODE = 1'b0;
-defparam syn__059_.OE_POWERUP = 1'b0;
-defparam syn__059_.CFG_TRI_INPUT = 1'b0;
-defparam syn__059_.CFG_PULL_UP = 1'b0;
-defparam syn__059_.CFG_SLR = 1'b0;
-defparam syn__059_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__059_.CFG_PDRCTRL = 4'b0010;
-defparam syn__059_.CFG_KEEP = 2'b00;
-defparam syn__059_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__059_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__059_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__059_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__059_.DPCLK_DELAY = 4'b0000;
-defparam syn__059_.OUT_DELAY = 1'b0;
-defparam syn__059_.IN_DATA_DELAY = 3'b000;
-defparam syn__059_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__060_(
-	.padio(bank0[3]),
-	.datain(syn__011_[3]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__060_.coord_x = 0;
-defparam syn__060_.coord_y = 9;
-defparam syn__060_.coord_z = 0;
-defparam syn__060_.IN_ASYNC_MODE = 1'b0;
-defparam syn__060_.IN_SYNC_MODE = 1'b0;
-defparam syn__060_.IN_POWERUP = 1'b0;
-defparam syn__060_.OUT_REG_MODE = 1'b0;
-defparam syn__060_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__060_.OUT_SYNC_MODE = 1'b0;
-defparam syn__060_.OUT_POWERUP = 1'b0;
-defparam syn__060_.OE_REG_MODE = 1'b0;
-defparam syn__060_.OE_ASYNC_MODE = 1'b0;
-defparam syn__060_.OE_SYNC_MODE = 1'b0;
-defparam syn__060_.OE_POWERUP = 1'b0;
-defparam syn__060_.CFG_TRI_INPUT = 1'b0;
-defparam syn__060_.CFG_PULL_UP = 1'b0;
-defparam syn__060_.CFG_SLR = 1'b0;
-defparam syn__060_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__060_.CFG_PDRCTRL = 4'b0010;
-defparam syn__060_.CFG_KEEP = 2'b00;
-defparam syn__060_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__060_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__060_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__060_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__060_.DPCLK_DELAY = 4'b0000;
-defparam syn__060_.OUT_DELAY = 1'b0;
-defparam syn__060_.IN_DATA_DELAY = 3'b000;
-defparam syn__060_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__061_(
-	.padio(bank0[4]),
-	.datain(syn__011_[4]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__061_.coord_x = 1;
-defparam syn__061_.coord_y = 9;
-defparam syn__061_.coord_z = 1;
-defparam syn__061_.IN_ASYNC_MODE = 1'b0;
-defparam syn__061_.IN_SYNC_MODE = 1'b0;
-defparam syn__061_.IN_POWERUP = 1'b0;
-defparam syn__061_.OUT_REG_MODE = 1'b0;
-defparam syn__061_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__061_.OUT_SYNC_MODE = 1'b0;
-defparam syn__061_.OUT_POWERUP = 1'b0;
-defparam syn__061_.OE_REG_MODE = 1'b0;
-defparam syn__061_.OE_ASYNC_MODE = 1'b0;
-defparam syn__061_.OE_SYNC_MODE = 1'b0;
-defparam syn__061_.OE_POWERUP = 1'b0;
-defparam syn__061_.CFG_TRI_INPUT = 1'b0;
-defparam syn__061_.CFG_PULL_UP = 1'b0;
-defparam syn__061_.CFG_SLR = 1'b0;
-defparam syn__061_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__061_.CFG_PDRCTRL = 4'b0010;
-defparam syn__061_.CFG_KEEP = 2'b00;
-defparam syn__061_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__061_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__061_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__061_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__061_.DPCLK_DELAY = 4'b0000;
-defparam syn__061_.OUT_DELAY = 1'b0;
-defparam syn__061_.IN_DATA_DELAY = 3'b000;
-defparam syn__061_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__062_(
-	.padio(bank0[5]),
-	.datain(syn__011_[5]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__062_.coord_x = 6;
-defparam syn__062_.coord_y = 9;
-defparam syn__062_.coord_z = 2;
-defparam syn__062_.IN_ASYNC_MODE = 1'b0;
-defparam syn__062_.IN_SYNC_MODE = 1'b0;
-defparam syn__062_.IN_POWERUP = 1'b0;
-defparam syn__062_.OUT_REG_MODE = 1'b0;
-defparam syn__062_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__062_.OUT_SYNC_MODE = 1'b0;
-defparam syn__062_.OUT_POWERUP = 1'b0;
-defparam syn__062_.OE_REG_MODE = 1'b0;
-defparam syn__062_.OE_ASYNC_MODE = 1'b0;
-defparam syn__062_.OE_SYNC_MODE = 1'b0;
-defparam syn__062_.OE_POWERUP = 1'b0;
-defparam syn__062_.CFG_TRI_INPUT = 1'b0;
-defparam syn__062_.CFG_PULL_UP = 1'b0;
-defparam syn__062_.CFG_SLR = 1'b0;
-defparam syn__062_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__062_.CFG_PDRCTRL = 4'b0010;
-defparam syn__062_.CFG_KEEP = 2'b00;
-defparam syn__062_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__062_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__062_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__062_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__062_.DPCLK_DELAY = 4'b0000;
-defparam syn__062_.OUT_DELAY = 1'b0;
-defparam syn__062_.IN_DATA_DELAY = 3'b000;
-defparam syn__062_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__063_(
-	.padio(bank0[6]),
-	.datain(syn__011_[6]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__063_.coord_x = 2;
-defparam syn__063_.coord_y = 1;
-defparam syn__063_.coord_z = 0;
-defparam syn__063_.IN_ASYNC_MODE = 1'b0;
-defparam syn__063_.IN_SYNC_MODE = 1'b0;
-defparam syn__063_.IN_POWERUP = 1'b0;
-defparam syn__063_.OUT_REG_MODE = 1'b0;
-defparam syn__063_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__063_.OUT_SYNC_MODE = 1'b0;
-defparam syn__063_.OUT_POWERUP = 1'b0;
-defparam syn__063_.OE_REG_MODE = 1'b0;
-defparam syn__063_.OE_ASYNC_MODE = 1'b0;
-defparam syn__063_.OE_SYNC_MODE = 1'b0;
-defparam syn__063_.OE_POWERUP = 1'b0;
-defparam syn__063_.CFG_TRI_INPUT = 1'b0;
-defparam syn__063_.CFG_PULL_UP = 1'b0;
-defparam syn__063_.CFG_SLR = 1'b0;
-defparam syn__063_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__063_.CFG_PDRCTRL = 4'b0010;
-defparam syn__063_.CFG_KEEP = 2'b00;
-defparam syn__063_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__063_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__063_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__063_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__063_.DPCLK_DELAY = 4'b0000;
-defparam syn__063_.OUT_DELAY = 1'b0;
-defparam syn__063_.IN_DATA_DELAY = 3'b000;
-defparam syn__063_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__064_(
-	.padio(bank0[7]),
-	.datain(syn__011_[7]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__064_.coord_x = 2;
-defparam syn__064_.coord_y = 1;
-defparam syn__064_.coord_z = 2;
-defparam syn__064_.IN_ASYNC_MODE = 1'b0;
-defparam syn__064_.IN_SYNC_MODE = 1'b0;
-defparam syn__064_.IN_POWERUP = 1'b0;
-defparam syn__064_.OUT_REG_MODE = 1'b0;
-defparam syn__064_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__064_.OUT_SYNC_MODE = 1'b0;
-defparam syn__064_.OUT_POWERUP = 1'b0;
-defparam syn__064_.OE_REG_MODE = 1'b0;
-defparam syn__064_.OE_ASYNC_MODE = 1'b0;
-defparam syn__064_.OE_SYNC_MODE = 1'b0;
-defparam syn__064_.OE_POWERUP = 1'b0;
-defparam syn__064_.CFG_TRI_INPUT = 1'b0;
-defparam syn__064_.CFG_PULL_UP = 1'b0;
-defparam syn__064_.CFG_SLR = 1'b0;
-defparam syn__064_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__064_.CFG_PDRCTRL = 4'b0010;
-defparam syn__064_.CFG_KEEP = 2'b00;
-defparam syn__064_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__064_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__064_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__064_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__064_.DPCLK_DELAY = 4'b0000;
-defparam syn__064_.OUT_DELAY = 1'b0;
-defparam syn__064_.IN_DATA_DELAY = 3'b000;
-defparam syn__064_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__065_(
-	.padio(bank1[0]),
-	.datain(syn__012_[0]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__065_.coord_x = 4;
-defparam syn__065_.coord_y = 1;
-defparam syn__065_.coord_z = 0;
-defparam syn__065_.IN_ASYNC_MODE = 1'b0;
-defparam syn__065_.IN_SYNC_MODE = 1'b0;
-defparam syn__065_.IN_POWERUP = 1'b0;
-defparam syn__065_.OUT_REG_MODE = 1'b0;
-defparam syn__065_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__065_.OUT_SYNC_MODE = 1'b0;
-defparam syn__065_.OUT_POWERUP = 1'b0;
-defparam syn__065_.OE_REG_MODE = 1'b0;
-defparam syn__065_.OE_ASYNC_MODE = 1'b0;
-defparam syn__065_.OE_SYNC_MODE = 1'b0;
-defparam syn__065_.OE_POWERUP = 1'b0;
-defparam syn__065_.CFG_TRI_INPUT = 1'b0;
-defparam syn__065_.CFG_PULL_UP = 1'b0;
-defparam syn__065_.CFG_SLR = 1'b0;
-defparam syn__065_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__065_.CFG_PDRCTRL = 4'b0010;
-defparam syn__065_.CFG_KEEP = 2'b00;
-defparam syn__065_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__065_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__065_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__065_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__065_.DPCLK_DELAY = 4'b0000;
-defparam syn__065_.OUT_DELAY = 1'b0;
-defparam syn__065_.IN_DATA_DELAY = 3'b000;
-defparam syn__065_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__066_(
-	.padio(bank1[1]),
-	.datain(syn__012_[1]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__066_.coord_x = 4;
-defparam syn__066_.coord_y = 1;
-defparam syn__066_.coord_z = 2;
-defparam syn__066_.IN_ASYNC_MODE = 1'b0;
-defparam syn__066_.IN_SYNC_MODE = 1'b0;
-defparam syn__066_.IN_POWERUP = 1'b0;
-defparam syn__066_.OUT_REG_MODE = 1'b0;
-defparam syn__066_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__066_.OUT_SYNC_MODE = 1'b0;
-defparam syn__066_.OUT_POWERUP = 1'b0;
-defparam syn__066_.OE_REG_MODE = 1'b0;
-defparam syn__066_.OE_ASYNC_MODE = 1'b0;
-defparam syn__066_.OE_SYNC_MODE = 1'b0;
-defparam syn__066_.OE_POWERUP = 1'b0;
-defparam syn__066_.CFG_TRI_INPUT = 1'b0;
-defparam syn__066_.CFG_PULL_UP = 1'b0;
-defparam syn__066_.CFG_SLR = 1'b0;
-defparam syn__066_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__066_.CFG_PDRCTRL = 4'b0010;
-defparam syn__066_.CFG_KEEP = 2'b00;
-defparam syn__066_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__066_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__066_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__066_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__066_.DPCLK_DELAY = 4'b0000;
-defparam syn__066_.OUT_DELAY = 1'b0;
-defparam syn__066_.IN_DATA_DELAY = 3'b000;
-defparam syn__066_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__067_(
-	.padio(bank1[2]),
-	.datain(syn__012_[2]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__067_.coord_x = 5;
-defparam syn__067_.coord_y = 1;
-defparam syn__067_.coord_z = 0;
-defparam syn__067_.IN_ASYNC_MODE = 1'b0;
-defparam syn__067_.IN_SYNC_MODE = 1'b0;
-defparam syn__067_.IN_POWERUP = 1'b0;
-defparam syn__067_.OUT_REG_MODE = 1'b0;
-defparam syn__067_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__067_.OUT_SYNC_MODE = 1'b0;
-defparam syn__067_.OUT_POWERUP = 1'b0;
-defparam syn__067_.OE_REG_MODE = 1'b0;
-defparam syn__067_.OE_ASYNC_MODE = 1'b0;
-defparam syn__067_.OE_SYNC_MODE = 1'b0;
-defparam syn__067_.OE_POWERUP = 1'b0;
-defparam syn__067_.CFG_TRI_INPUT = 1'b0;
-defparam syn__067_.CFG_PULL_UP = 1'b0;
-defparam syn__067_.CFG_SLR = 1'b0;
-defparam syn__067_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__067_.CFG_PDRCTRL = 4'b0010;
-defparam syn__067_.CFG_KEEP = 2'b00;
-defparam syn__067_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__067_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__067_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__067_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__067_.DPCLK_DELAY = 4'b0000;
-defparam syn__067_.OUT_DELAY = 1'b0;
-defparam syn__067_.IN_DATA_DELAY = 3'b000;
-defparam syn__067_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__068_(
-	.padio(bank1[3]),
-	.datain(syn__012_[3]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__068_.coord_x = 5;
-defparam syn__068_.coord_y = 1;
-defparam syn__068_.coord_z = 1;
-defparam syn__068_.IN_ASYNC_MODE = 1'b0;
-defparam syn__068_.IN_SYNC_MODE = 1'b0;
-defparam syn__068_.IN_POWERUP = 1'b0;
-defparam syn__068_.OUT_REG_MODE = 1'b0;
-defparam syn__068_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__068_.OUT_SYNC_MODE = 1'b0;
-defparam syn__068_.OUT_POWERUP = 1'b0;
-defparam syn__068_.OE_REG_MODE = 1'b0;
-defparam syn__068_.OE_ASYNC_MODE = 1'b0;
-defparam syn__068_.OE_SYNC_MODE = 1'b0;
-defparam syn__068_.OE_POWERUP = 1'b0;
-defparam syn__068_.CFG_TRI_INPUT = 1'b0;
-defparam syn__068_.CFG_PULL_UP = 1'b0;
-defparam syn__068_.CFG_SLR = 1'b0;
-defparam syn__068_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__068_.CFG_PDRCTRL = 4'b0010;
-defparam syn__068_.CFG_KEEP = 2'b00;
-defparam syn__068_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__068_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__068_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__068_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__068_.DPCLK_DELAY = 4'b0000;
-defparam syn__068_.OUT_DELAY = 1'b0;
-defparam syn__068_.IN_DATA_DELAY = 3'b000;
-defparam syn__068_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__069_(
-	.padio(bank1[4]),
-	.datain(syn__012_[4]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__069_.coord_x = 5;
-defparam syn__069_.coord_y = 1;
-defparam syn__069_.coord_z = 2;
-defparam syn__069_.IN_ASYNC_MODE = 1'b0;
-defparam syn__069_.IN_SYNC_MODE = 1'b0;
-defparam syn__069_.IN_POWERUP = 1'b0;
-defparam syn__069_.OUT_REG_MODE = 1'b0;
-defparam syn__069_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__069_.OUT_SYNC_MODE = 1'b0;
-defparam syn__069_.OUT_POWERUP = 1'b0;
-defparam syn__069_.OE_REG_MODE = 1'b0;
-defparam syn__069_.OE_ASYNC_MODE = 1'b0;
-defparam syn__069_.OE_SYNC_MODE = 1'b0;
-defparam syn__069_.OE_POWERUP = 1'b0;
-defparam syn__069_.CFG_TRI_INPUT = 1'b0;
-defparam syn__069_.CFG_PULL_UP = 1'b0;
-defparam syn__069_.CFG_SLR = 1'b0;
-defparam syn__069_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__069_.CFG_PDRCTRL = 4'b0010;
-defparam syn__069_.CFG_KEEP = 2'b00;
-defparam syn__069_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__069_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__069_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__069_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__069_.DPCLK_DELAY = 4'b0000;
-defparam syn__069_.OUT_DELAY = 1'b0;
-defparam syn__069_.IN_DATA_DELAY = 3'b000;
-defparam syn__069_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__070_(
-	.padio(bank1[5]),
-	.datain(syn__012_[5]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__070_.coord_x = 5;
-defparam syn__070_.coord_y = 1;
-defparam syn__070_.coord_z = 3;
-defparam syn__070_.IN_ASYNC_MODE = 1'b0;
-defparam syn__070_.IN_SYNC_MODE = 1'b0;
-defparam syn__070_.IN_POWERUP = 1'b0;
-defparam syn__070_.OUT_REG_MODE = 1'b0;
-defparam syn__070_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__070_.OUT_SYNC_MODE = 1'b0;
-defparam syn__070_.OUT_POWERUP = 1'b0;
-defparam syn__070_.OE_REG_MODE = 1'b0;
-defparam syn__070_.OE_ASYNC_MODE = 1'b0;
-defparam syn__070_.OE_SYNC_MODE = 1'b0;
-defparam syn__070_.OE_POWERUP = 1'b0;
-defparam syn__070_.CFG_TRI_INPUT = 1'b0;
-defparam syn__070_.CFG_PULL_UP = 1'b0;
-defparam syn__070_.CFG_SLR = 1'b0;
-defparam syn__070_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__070_.CFG_PDRCTRL = 4'b0010;
-defparam syn__070_.CFG_KEEP = 2'b00;
-defparam syn__070_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__070_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__070_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__070_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__070_.DPCLK_DELAY = 4'b0000;
-defparam syn__070_.OUT_DELAY = 1'b0;
-defparam syn__070_.IN_DATA_DELAY = 3'b000;
-defparam syn__070_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__071_(
-	.padio(bank1[6]),
-	.datain(syn__012_[6]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__071_.coord_x = 6;
-defparam syn__071_.coord_y = 1;
-defparam syn__071_.coord_z = 0;
-defparam syn__071_.IN_ASYNC_MODE = 1'b0;
-defparam syn__071_.IN_SYNC_MODE = 1'b0;
-defparam syn__071_.IN_POWERUP = 1'b0;
-defparam syn__071_.OUT_REG_MODE = 1'b0;
-defparam syn__071_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__071_.OUT_SYNC_MODE = 1'b0;
-defparam syn__071_.OUT_POWERUP = 1'b0;
-defparam syn__071_.OE_REG_MODE = 1'b0;
-defparam syn__071_.OE_ASYNC_MODE = 1'b0;
-defparam syn__071_.OE_SYNC_MODE = 1'b0;
-defparam syn__071_.OE_POWERUP = 1'b0;
-defparam syn__071_.CFG_TRI_INPUT = 1'b0;
-defparam syn__071_.CFG_PULL_UP = 1'b0;
-defparam syn__071_.CFG_SLR = 1'b0;
-defparam syn__071_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__071_.CFG_PDRCTRL = 4'b0010;
-defparam syn__071_.CFG_KEEP = 2'b00;
-defparam syn__071_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__071_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__071_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__071_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__071_.DPCLK_DELAY = 4'b0000;
-defparam syn__071_.OUT_DELAY = 1'b0;
-defparam syn__071_.IN_DATA_DELAY = 3'b000;
-defparam syn__071_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__072_(
-	.padio(bank1[7]),
-	.datain(syn__012_[7]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__072_.coord_x = 6;
-defparam syn__072_.coord_y = 1;
-defparam syn__072_.coord_z = 1;
-defparam syn__072_.IN_ASYNC_MODE = 1'b0;
-defparam syn__072_.IN_SYNC_MODE = 1'b0;
-defparam syn__072_.IN_POWERUP = 1'b0;
-defparam syn__072_.OUT_REG_MODE = 1'b0;
-defparam syn__072_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__072_.OUT_SYNC_MODE = 1'b0;
-defparam syn__072_.OUT_POWERUP = 1'b0;
-defparam syn__072_.OE_REG_MODE = 1'b0;
-defparam syn__072_.OE_ASYNC_MODE = 1'b0;
-defparam syn__072_.OE_SYNC_MODE = 1'b0;
-defparam syn__072_.OE_POWERUP = 1'b0;
-defparam syn__072_.CFG_TRI_INPUT = 1'b0;
-defparam syn__072_.CFG_PULL_UP = 1'b0;
-defparam syn__072_.CFG_SLR = 1'b0;
-defparam syn__072_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__072_.CFG_PDRCTRL = 4'b0010;
-defparam syn__072_.CFG_KEEP = 2'b00;
-defparam syn__072_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__072_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__072_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__072_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__072_.DPCLK_DELAY = 4'b0000;
-defparam syn__072_.OUT_DELAY = 1'b0;
-defparam syn__072_.IN_DATA_DELAY = 3'b000;
-defparam syn__072_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__073_(
-	.padio(bank2[0]),
-	.datain(syn__013_[0]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__073_.coord_x = 6;
-defparam syn__073_.coord_y = 1;
-defparam syn__073_.coord_z = 2;
-defparam syn__073_.IN_ASYNC_MODE = 1'b0;
-defparam syn__073_.IN_SYNC_MODE = 1'b0;
-defparam syn__073_.IN_POWERUP = 1'b0;
-defparam syn__073_.OUT_REG_MODE = 1'b0;
-defparam syn__073_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__073_.OUT_SYNC_MODE = 1'b0;
-defparam syn__073_.OUT_POWERUP = 1'b0;
-defparam syn__073_.OE_REG_MODE = 1'b0;
-defparam syn__073_.OE_ASYNC_MODE = 1'b0;
-defparam syn__073_.OE_SYNC_MODE = 1'b0;
-defparam syn__073_.OE_POWERUP = 1'b0;
-defparam syn__073_.CFG_TRI_INPUT = 1'b0;
-defparam syn__073_.CFG_PULL_UP = 1'b0;
-defparam syn__073_.CFG_SLR = 1'b0;
-defparam syn__073_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__073_.CFG_PDRCTRL = 4'b0010;
-defparam syn__073_.CFG_KEEP = 2'b00;
-defparam syn__073_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__073_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__073_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__073_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__073_.DPCLK_DELAY = 4'b0000;
-defparam syn__073_.OUT_DELAY = 1'b0;
-defparam syn__073_.IN_DATA_DELAY = 3'b000;
-defparam syn__073_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__074_(
-	.padio(bank2[1]),
-	.datain(syn__013_[1]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__074_.coord_x = 6;
-defparam syn__074_.coord_y = 1;
-defparam syn__074_.coord_z = 3;
-defparam syn__074_.IN_ASYNC_MODE = 1'b0;
-defparam syn__074_.IN_SYNC_MODE = 1'b0;
-defparam syn__074_.IN_POWERUP = 1'b0;
-defparam syn__074_.OUT_REG_MODE = 1'b0;
-defparam syn__074_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__074_.OUT_SYNC_MODE = 1'b0;
-defparam syn__074_.OUT_POWERUP = 1'b0;
-defparam syn__074_.OE_REG_MODE = 1'b0;
-defparam syn__074_.OE_ASYNC_MODE = 1'b0;
-defparam syn__074_.OE_SYNC_MODE = 1'b0;
-defparam syn__074_.OE_POWERUP = 1'b0;
-defparam syn__074_.CFG_TRI_INPUT = 1'b0;
-defparam syn__074_.CFG_PULL_UP = 1'b0;
-defparam syn__074_.CFG_SLR = 1'b0;
-defparam syn__074_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__074_.CFG_PDRCTRL = 4'b0010;
-defparam syn__074_.CFG_KEEP = 2'b00;
-defparam syn__074_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__074_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__074_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__074_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__074_.DPCLK_DELAY = 4'b0000;
-defparam syn__074_.OUT_DELAY = 1'b0;
-defparam syn__074_.IN_DATA_DELAY = 3'b000;
-defparam syn__074_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__075_(
-	.padio(bank2[2]),
-	.datain(syn__013_[2]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__075_.coord_x = 9;
-defparam syn__075_.coord_y = 0;
-defparam syn__075_.coord_z = 1;
-defparam syn__075_.IN_ASYNC_MODE = 1'b0;
-defparam syn__075_.IN_SYNC_MODE = 1'b0;
-defparam syn__075_.IN_POWERUP = 1'b0;
-defparam syn__075_.OUT_REG_MODE = 1'b0;
-defparam syn__075_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__075_.OUT_SYNC_MODE = 1'b0;
-defparam syn__075_.OUT_POWERUP = 1'b0;
-defparam syn__075_.OE_REG_MODE = 1'b0;
-defparam syn__075_.OE_ASYNC_MODE = 1'b0;
-defparam syn__075_.OE_SYNC_MODE = 1'b0;
-defparam syn__075_.OE_POWERUP = 1'b0;
-defparam syn__075_.CFG_TRI_INPUT = 1'b0;
-defparam syn__075_.CFG_PULL_UP = 1'b0;
-defparam syn__075_.CFG_SLR = 1'b0;
-defparam syn__075_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__075_.CFG_PDRCTRL = 4'b0010;
-defparam syn__075_.CFG_KEEP = 2'b00;
-defparam syn__075_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__075_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__075_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__075_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__075_.DPCLK_DELAY = 4'b0000;
-defparam syn__075_.OUT_DELAY = 1'b0;
-defparam syn__075_.IN_DATA_DELAY = 3'b000;
-defparam syn__075_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__076_(
-	.padio(bank2[3]),
-	.datain(syn__013_[3]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__076_.coord_x = 9;
-defparam syn__076_.coord_y = 0;
-defparam syn__076_.coord_z = 3;
-defparam syn__076_.IN_ASYNC_MODE = 1'b0;
-defparam syn__076_.IN_SYNC_MODE = 1'b0;
-defparam syn__076_.IN_POWERUP = 1'b0;
-defparam syn__076_.OUT_REG_MODE = 1'b0;
-defparam syn__076_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__076_.OUT_SYNC_MODE = 1'b0;
-defparam syn__076_.OUT_POWERUP = 1'b0;
-defparam syn__076_.OE_REG_MODE = 1'b0;
-defparam syn__076_.OE_ASYNC_MODE = 1'b0;
-defparam syn__076_.OE_SYNC_MODE = 1'b0;
-defparam syn__076_.OE_POWERUP = 1'b0;
-defparam syn__076_.CFG_TRI_INPUT = 1'b0;
-defparam syn__076_.CFG_PULL_UP = 1'b0;
-defparam syn__076_.CFG_SLR = 1'b0;
-defparam syn__076_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__076_.CFG_PDRCTRL = 4'b0010;
-defparam syn__076_.CFG_KEEP = 2'b00;
-defparam syn__076_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__076_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__076_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__076_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__076_.DPCLK_DELAY = 4'b0000;
-defparam syn__076_.OUT_DELAY = 1'b0;
-defparam syn__076_.IN_DATA_DELAY = 3'b000;
-defparam syn__076_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__077_(
-	.padio(bank2[4]),
-	.datain(syn__013_[4]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__077_.coord_x = 8;
-defparam syn__077_.coord_y = 9;
-defparam syn__077_.coord_z = 0;
-defparam syn__077_.IN_ASYNC_MODE = 1'b0;
-defparam syn__077_.IN_SYNC_MODE = 1'b0;
-defparam syn__077_.IN_POWERUP = 1'b0;
-defparam syn__077_.OUT_REG_MODE = 1'b0;
-defparam syn__077_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__077_.OUT_SYNC_MODE = 1'b0;
-defparam syn__077_.OUT_POWERUP = 1'b0;
-defparam syn__077_.OE_REG_MODE = 1'b0;
-defparam syn__077_.OE_ASYNC_MODE = 1'b0;
-defparam syn__077_.OE_SYNC_MODE = 1'b0;
-defparam syn__077_.OE_POWERUP = 1'b0;
-defparam syn__077_.CFG_TRI_INPUT = 1'b0;
-defparam syn__077_.CFG_PULL_UP = 1'b0;
-defparam syn__077_.CFG_SLR = 1'b0;
-defparam syn__077_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__077_.CFG_PDRCTRL = 4'b0010;
-defparam syn__077_.CFG_KEEP = 2'b00;
-defparam syn__077_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__077_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__077_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__077_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__077_.DPCLK_DELAY = 4'b0000;
-defparam syn__077_.OUT_DELAY = 1'b0;
-defparam syn__077_.IN_DATA_DELAY = 3'b000;
-defparam syn__077_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__078_(
-	.padio(bank2[5]),
-	.datain(syn__013_[5]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__078_.coord_x = 11;
-defparam syn__078_.coord_y = 9;
-defparam syn__078_.coord_z = 1;
-defparam syn__078_.IN_ASYNC_MODE = 1'b0;
-defparam syn__078_.IN_SYNC_MODE = 1'b0;
-defparam syn__078_.IN_POWERUP = 1'b0;
-defparam syn__078_.OUT_REG_MODE = 1'b0;
-defparam syn__078_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__078_.OUT_SYNC_MODE = 1'b0;
-defparam syn__078_.OUT_POWERUP = 1'b0;
-defparam syn__078_.OE_REG_MODE = 1'b0;
-defparam syn__078_.OE_ASYNC_MODE = 1'b0;
-defparam syn__078_.OE_SYNC_MODE = 1'b0;
-defparam syn__078_.OE_POWERUP = 1'b0;
-defparam syn__078_.CFG_TRI_INPUT = 1'b0;
-defparam syn__078_.CFG_PULL_UP = 1'b0;
-defparam syn__078_.CFG_SLR = 1'b0;
-defparam syn__078_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__078_.CFG_PDRCTRL = 4'b0010;
-defparam syn__078_.CFG_KEEP = 2'b00;
-defparam syn__078_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__078_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__078_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__078_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__078_.DPCLK_DELAY = 4'b0000;
-defparam syn__078_.OUT_DELAY = 1'b0;
-defparam syn__078_.IN_DATA_DELAY = 3'b000;
-defparam syn__078_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__079_(
-	.padio(bank2[6]),
-	.datain(syn__013_[6]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__079_.coord_x = 9;
-defparam syn__079_.coord_y = 9;
-defparam syn__079_.coord_z = 3;
-defparam syn__079_.IN_ASYNC_MODE = 1'b0;
-defparam syn__079_.IN_SYNC_MODE = 1'b0;
-defparam syn__079_.IN_POWERUP = 1'b0;
-defparam syn__079_.OUT_REG_MODE = 1'b0;
-defparam syn__079_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__079_.OUT_SYNC_MODE = 1'b0;
-defparam syn__079_.OUT_POWERUP = 1'b0;
-defparam syn__079_.OE_REG_MODE = 1'b0;
-defparam syn__079_.OE_ASYNC_MODE = 1'b0;
-defparam syn__079_.OE_SYNC_MODE = 1'b0;
-defparam syn__079_.OE_POWERUP = 1'b0;
-defparam syn__079_.CFG_TRI_INPUT = 1'b0;
-defparam syn__079_.CFG_PULL_UP = 1'b0;
-defparam syn__079_.CFG_SLR = 1'b0;
-defparam syn__079_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__079_.CFG_PDRCTRL = 4'b0010;
-defparam syn__079_.CFG_KEEP = 2'b00;
-defparam syn__079_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__079_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__079_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__079_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__079_.DPCLK_DELAY = 4'b0000;
-defparam syn__079_.OUT_DELAY = 1'b0;
-defparam syn__079_.IN_DATA_DELAY = 3'b000;
-defparam syn__079_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__080_(
-	.padio(bank2[7]),
-	.datain(syn__013_[7]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__080_.coord_x = 9;
-defparam syn__080_.coord_y = 9;
-defparam syn__080_.coord_z = 1;
-defparam syn__080_.IN_ASYNC_MODE = 1'b0;
-defparam syn__080_.IN_SYNC_MODE = 1'b0;
-defparam syn__080_.IN_POWERUP = 1'b0;
-defparam syn__080_.OUT_REG_MODE = 1'b0;
-defparam syn__080_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__080_.OUT_SYNC_MODE = 1'b0;
-defparam syn__080_.OUT_POWERUP = 1'b0;
-defparam syn__080_.OE_REG_MODE = 1'b0;
-defparam syn__080_.OE_ASYNC_MODE = 1'b0;
-defparam syn__080_.OE_SYNC_MODE = 1'b0;
-defparam syn__080_.OE_POWERUP = 1'b0;
-defparam syn__080_.CFG_TRI_INPUT = 1'b0;
-defparam syn__080_.CFG_PULL_UP = 1'b0;
-defparam syn__080_.CFG_SLR = 1'b0;
-defparam syn__080_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__080_.CFG_PDRCTRL = 4'b0010;
-defparam syn__080_.CFG_KEEP = 2'b00;
-defparam syn__080_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__080_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__080_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__080_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__080_.DPCLK_DELAY = 4'b0000;
-defparam syn__080_.OUT_DELAY = 1'b0;
-defparam syn__080_.IN_DATA_DELAY = 3'b000;
-defparam syn__080_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__081_(
-	.padio(bank3[0]),
-	.datain(syn__014_[0]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__081_.coord_x = 8;
-defparam syn__081_.coord_y = 9;
-defparam syn__081_.coord_z = 3;
-defparam syn__081_.IN_ASYNC_MODE = 1'b0;
-defparam syn__081_.IN_SYNC_MODE = 1'b0;
-defparam syn__081_.IN_POWERUP = 1'b0;
-defparam syn__081_.OUT_REG_MODE = 1'b0;
-defparam syn__081_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__081_.OUT_SYNC_MODE = 1'b0;
-defparam syn__081_.OUT_POWERUP = 1'b0;
-defparam syn__081_.OE_REG_MODE = 1'b0;
-defparam syn__081_.OE_ASYNC_MODE = 1'b0;
-defparam syn__081_.OE_SYNC_MODE = 1'b0;
-defparam syn__081_.OE_POWERUP = 1'b0;
-defparam syn__081_.CFG_TRI_INPUT = 1'b0;
-defparam syn__081_.CFG_PULL_UP = 1'b0;
-defparam syn__081_.CFG_SLR = 1'b0;
-defparam syn__081_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__081_.CFG_PDRCTRL = 4'b0010;
-defparam syn__081_.CFG_KEEP = 2'b00;
-defparam syn__081_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__081_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__081_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__081_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__081_.DPCLK_DELAY = 4'b0000;
-defparam syn__081_.OUT_DELAY = 1'b0;
-defparam syn__081_.IN_DATA_DELAY = 3'b000;
-defparam syn__081_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__082_(
-	.padio(bank3[1]),
-	.datain(syn__014_[1]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__082_.coord_x = 7;
-defparam syn__082_.coord_y = 9;
-defparam syn__082_.coord_z = 3;
-defparam syn__082_.IN_ASYNC_MODE = 1'b0;
-defparam syn__082_.IN_SYNC_MODE = 1'b0;
-defparam syn__082_.IN_POWERUP = 1'b0;
-defparam syn__082_.OUT_REG_MODE = 1'b0;
-defparam syn__082_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__082_.OUT_SYNC_MODE = 1'b0;
-defparam syn__082_.OUT_POWERUP = 1'b0;
-defparam syn__082_.OE_REG_MODE = 1'b0;
-defparam syn__082_.OE_ASYNC_MODE = 1'b0;
-defparam syn__082_.OE_SYNC_MODE = 1'b0;
-defparam syn__082_.OE_POWERUP = 1'b0;
-defparam syn__082_.CFG_TRI_INPUT = 1'b0;
-defparam syn__082_.CFG_PULL_UP = 1'b0;
-defparam syn__082_.CFG_SLR = 1'b0;
-defparam syn__082_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__082_.CFG_PDRCTRL = 4'b0010;
-defparam syn__082_.CFG_KEEP = 2'b00;
-defparam syn__082_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__082_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__082_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__082_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__082_.DPCLK_DELAY = 4'b0000;
-defparam syn__082_.OUT_DELAY = 1'b0;
-defparam syn__082_.IN_DATA_DELAY = 3'b000;
-defparam syn__082_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__083_(
-	.padio(bank3[2]),
-	.datain(syn__014_[2]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__083_.coord_x = 7;
-defparam syn__083_.coord_y = 9;
-defparam syn__083_.coord_z = 0;
-defparam syn__083_.IN_ASYNC_MODE = 1'b0;
-defparam syn__083_.IN_SYNC_MODE = 1'b0;
-defparam syn__083_.IN_POWERUP = 1'b0;
-defparam syn__083_.OUT_REG_MODE = 1'b0;
-defparam syn__083_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__083_.OUT_SYNC_MODE = 1'b0;
-defparam syn__083_.OUT_POWERUP = 1'b0;
-defparam syn__083_.OE_REG_MODE = 1'b0;
-defparam syn__083_.OE_ASYNC_MODE = 1'b0;
-defparam syn__083_.OE_SYNC_MODE = 1'b0;
-defparam syn__083_.OE_POWERUP = 1'b0;
-defparam syn__083_.CFG_TRI_INPUT = 1'b0;
-defparam syn__083_.CFG_PULL_UP = 1'b0;
-defparam syn__083_.CFG_SLR = 1'b0;
-defparam syn__083_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__083_.CFG_PDRCTRL = 4'b0010;
-defparam syn__083_.CFG_KEEP = 2'b00;
-defparam syn__083_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__083_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__083_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__083_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__083_.DPCLK_DELAY = 4'b0000;
-defparam syn__083_.OUT_DELAY = 1'b0;
-defparam syn__083_.IN_DATA_DELAY = 3'b000;
-defparam syn__083_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__084_(
-	.padio(bank3[3]),
-	.datain(syn__014_[3]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__084_.coord_x = 6;
-defparam syn__084_.coord_y = 9;
-defparam syn__084_.coord_z = 0;
-defparam syn__084_.IN_ASYNC_MODE = 1'b0;
-defparam syn__084_.IN_SYNC_MODE = 1'b0;
-defparam syn__084_.IN_POWERUP = 1'b0;
-defparam syn__084_.OUT_REG_MODE = 1'b0;
-defparam syn__084_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__084_.OUT_SYNC_MODE = 1'b0;
-defparam syn__084_.OUT_POWERUP = 1'b0;
-defparam syn__084_.OE_REG_MODE = 1'b0;
-defparam syn__084_.OE_ASYNC_MODE = 1'b0;
-defparam syn__084_.OE_SYNC_MODE = 1'b0;
-defparam syn__084_.OE_POWERUP = 1'b0;
-defparam syn__084_.CFG_TRI_INPUT = 1'b0;
-defparam syn__084_.CFG_PULL_UP = 1'b0;
-defparam syn__084_.CFG_SLR = 1'b0;
-defparam syn__084_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__084_.CFG_PDRCTRL = 4'b0010;
-defparam syn__084_.CFG_KEEP = 2'b00;
-defparam syn__084_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__084_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__084_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__084_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__084_.DPCLK_DELAY = 4'b0000;
-defparam syn__084_.OUT_DELAY = 1'b0;
-defparam syn__084_.IN_DATA_DELAY = 3'b000;
-defparam syn__084_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__085_(
-	.padio(bank3[4]),
-	.datain(syn__014_[4]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__085_.coord_x = 5;
-defparam syn__085_.coord_y = 9;
-defparam syn__085_.coord_z = 3;
-defparam syn__085_.IN_ASYNC_MODE = 1'b0;
-defparam syn__085_.IN_SYNC_MODE = 1'b0;
-defparam syn__085_.IN_POWERUP = 1'b0;
-defparam syn__085_.OUT_REG_MODE = 1'b0;
-defparam syn__085_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__085_.OUT_SYNC_MODE = 1'b0;
-defparam syn__085_.OUT_POWERUP = 1'b0;
-defparam syn__085_.OE_REG_MODE = 1'b0;
-defparam syn__085_.OE_ASYNC_MODE = 1'b0;
-defparam syn__085_.OE_SYNC_MODE = 1'b0;
-defparam syn__085_.OE_POWERUP = 1'b0;
-defparam syn__085_.CFG_TRI_INPUT = 1'b0;
-defparam syn__085_.CFG_PULL_UP = 1'b0;
-defparam syn__085_.CFG_SLR = 1'b0;
-defparam syn__085_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__085_.CFG_PDRCTRL = 4'b0010;
-defparam syn__085_.CFG_KEEP = 2'b00;
-defparam syn__085_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__085_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__085_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__085_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__085_.DPCLK_DELAY = 4'b0000;
-defparam syn__085_.OUT_DELAY = 1'b0;
-defparam syn__085_.IN_DATA_DELAY = 3'b000;
-defparam syn__085_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__086_(
-	.padio(bank3[5]),
-	.datain(syn__014_[5]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__086_.coord_x = 5;
-defparam syn__086_.coord_y = 9;
-defparam syn__086_.coord_z = 2;
-defparam syn__086_.IN_ASYNC_MODE = 1'b0;
-defparam syn__086_.IN_SYNC_MODE = 1'b0;
-defparam syn__086_.IN_POWERUP = 1'b0;
-defparam syn__086_.OUT_REG_MODE = 1'b0;
-defparam syn__086_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__086_.OUT_SYNC_MODE = 1'b0;
-defparam syn__086_.OUT_POWERUP = 1'b0;
-defparam syn__086_.OE_REG_MODE = 1'b0;
-defparam syn__086_.OE_ASYNC_MODE = 1'b0;
-defparam syn__086_.OE_SYNC_MODE = 1'b0;
-defparam syn__086_.OE_POWERUP = 1'b0;
-defparam syn__086_.CFG_TRI_INPUT = 1'b0;
-defparam syn__086_.CFG_PULL_UP = 1'b0;
-defparam syn__086_.CFG_SLR = 1'b0;
-defparam syn__086_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__086_.CFG_PDRCTRL = 4'b0010;
-defparam syn__086_.CFG_KEEP = 2'b00;
-defparam syn__086_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__086_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__086_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__086_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__086_.DPCLK_DELAY = 4'b0000;
-defparam syn__086_.OUT_DELAY = 1'b0;
-defparam syn__086_.IN_DATA_DELAY = 3'b000;
-defparam syn__086_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__087_(
-	.padio(bank3[6]),
-	.datain(syn__014_[6]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__087_.coord_x = 5;
-defparam syn__087_.coord_y = 9;
-defparam syn__087_.coord_z = 1;
-defparam syn__087_.IN_ASYNC_MODE = 1'b0;
-defparam syn__087_.IN_SYNC_MODE = 1'b0;
-defparam syn__087_.IN_POWERUP = 1'b0;
-defparam syn__087_.OUT_REG_MODE = 1'b0;
-defparam syn__087_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__087_.OUT_SYNC_MODE = 1'b0;
-defparam syn__087_.OUT_POWERUP = 1'b0;
-defparam syn__087_.OE_REG_MODE = 1'b0;
-defparam syn__087_.OE_ASYNC_MODE = 1'b0;
-defparam syn__087_.OE_SYNC_MODE = 1'b0;
-defparam syn__087_.OE_POWERUP = 1'b0;
-defparam syn__087_.CFG_TRI_INPUT = 1'b0;
-defparam syn__087_.CFG_PULL_UP = 1'b0;
-defparam syn__087_.CFG_SLR = 1'b0;
-defparam syn__087_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__087_.CFG_PDRCTRL = 4'b0010;
-defparam syn__087_.CFG_KEEP = 2'b00;
-defparam syn__087_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__087_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__087_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__087_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__087_.DPCLK_DELAY = 4'b0000;
-defparam syn__087_.OUT_DELAY = 1'b0;
-defparam syn__087_.IN_DATA_DELAY = 3'b000;
-defparam syn__087_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__088_(
-	.padio(bank3[7]),
-	.datain(syn__014_[7]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout());
-defparam syn__088_.coord_x = 5;
-defparam syn__088_.coord_y = 9;
-defparam syn__088_.coord_z = 0;
-defparam syn__088_.IN_ASYNC_MODE = 1'b0;
-defparam syn__088_.IN_SYNC_MODE = 1'b0;
-defparam syn__088_.IN_POWERUP = 1'b0;
-defparam syn__088_.OUT_REG_MODE = 1'b0;
-defparam syn__088_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__088_.OUT_SYNC_MODE = 1'b0;
-defparam syn__088_.OUT_POWERUP = 1'b0;
-defparam syn__088_.OE_REG_MODE = 1'b0;
-defparam syn__088_.OE_ASYNC_MODE = 1'b0;
-defparam syn__088_.OE_SYNC_MODE = 1'b0;
-defparam syn__088_.OE_POWERUP = 1'b0;
-defparam syn__088_.CFG_TRI_INPUT = 1'b0;
-defparam syn__088_.CFG_PULL_UP = 1'b0;
-defparam syn__088_.CFG_SLR = 1'b0;
-defparam syn__088_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__088_.CFG_PDRCTRL = 4'b0010;
-defparam syn__088_.CFG_KEEP = 2'b00;
-defparam syn__088_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__088_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__088_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__088_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__088_.DPCLK_DELAY = 4'b0000;
-defparam syn__088_.OUT_DELAY = 1'b0;
-defparam syn__088_.IN_DATA_DELAY = 3'b000;
-defparam syn__088_.IN_REG_DELAY = 3'b000;
-
-alta_rio syn__089_(
+alta_rio syn__44_(
 	.padio(clk),
 	.datain(gnd),
 	.oe(gnd),
@@ -1731,835 +355,1013 @@ alta_rio syn__089_(
 	.inclkena(vcc),
 	.areset(gnd),
 	.sreset(gnd),
-	.combout(syn__015_),
+	.combout(syn__09_),
 	.regout());
-defparam syn__089_.coord_x = 4;
-defparam syn__089_.coord_y = 9;
-defparam syn__089_.coord_z = 0;
-defparam syn__089_.IN_ASYNC_MODE = 1'b0;
-defparam syn__089_.IN_SYNC_MODE = 1'b0;
-defparam syn__089_.IN_POWERUP = 1'b0;
-defparam syn__089_.OUT_REG_MODE = 1'b0;
-defparam syn__089_.OUT_ASYNC_MODE = 1'b0;
-defparam syn__089_.OUT_SYNC_MODE = 1'b0;
-defparam syn__089_.OUT_POWERUP = 1'b0;
-defparam syn__089_.OE_REG_MODE = 1'b0;
-defparam syn__089_.OE_ASYNC_MODE = 1'b0;
-defparam syn__089_.OE_SYNC_MODE = 1'b0;
-defparam syn__089_.OE_POWERUP = 1'b0;
-defparam syn__089_.CFG_TRI_INPUT = 1'b0;
-defparam syn__089_.CFG_PULL_UP = 1'b0;
-defparam syn__089_.CFG_SLR = 1'b0;
-defparam syn__089_.CFG_OPEN_DRAIN = 1'b0;
-defparam syn__089_.CFG_PDRCTRL = 4'b0010;
-defparam syn__089_.CFG_KEEP = 2'b00;
-defparam syn__089_.CFG_LVDS_OUT_EN = 1'b0;
-defparam syn__089_.CFG_LVDS_SEL_CUA = 2'b00;
-defparam syn__089_.CFG_LVDS_IREF = 10'b0110000000;
-defparam syn__089_.CFG_LVDS_IN_EN = 1'b0;
-defparam syn__089_.DPCLK_DELAY = 4'b0000;
-defparam syn__089_.OUT_DELAY = 1'b0;
-defparam syn__089_.IN_DATA_DELAY = 3'b000;
-defparam syn__089_.IN_REG_DELAY = 3'b000;
+defparam syn__44_.coord_x = 4;
+defparam syn__44_.coord_y = 9;
+defparam syn__44_.coord_z = 0;
+defparam syn__44_.IN_ASYNC_MODE = 1'b0;
+defparam syn__44_.IN_SYNC_MODE = 1'b0;
+defparam syn__44_.IN_POWERUP = 1'b0;
+defparam syn__44_.OUT_REG_MODE = 1'b0;
+defparam syn__44_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__44_.OUT_SYNC_MODE = 1'b0;
+defparam syn__44_.OUT_POWERUP = 1'b0;
+defparam syn__44_.OE_REG_MODE = 1'b0;
+defparam syn__44_.OE_ASYNC_MODE = 1'b0;
+defparam syn__44_.OE_SYNC_MODE = 1'b0;
+defparam syn__44_.OE_POWERUP = 1'b0;
+defparam syn__44_.CFG_TRI_INPUT = 1'b0;
+defparam syn__44_.CFG_PULL_UP = 1'b0;
+defparam syn__44_.CFG_SLR = 1'b0;
+defparam syn__44_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__44_.CFG_PDRCTRL = 4'b0010;
+defparam syn__44_.CFG_KEEP = 2'b00;
+defparam syn__44_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__44_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__44_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__44_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__44_.DPCLK_DELAY = 4'b0000;
+defparam syn__44_.OUT_DELAY = 1'b0;
+defparam syn__44_.IN_DATA_DELAY = 3'b000;
+defparam syn__44_.IN_REG_DELAY = 3'b000;
 
-alta_slice syn__090_(
+alta_rio syn__45_(
+	.padio(leds[0]),
+	.datain(syn__10_[0]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout());
+defparam syn__45_.coord_x = 2;
+defparam syn__45_.coord_y = 9;
+defparam syn__45_.coord_z = 0;
+defparam syn__45_.IN_ASYNC_MODE = 1'b0;
+defparam syn__45_.IN_SYNC_MODE = 1'b0;
+defparam syn__45_.IN_POWERUP = 1'b0;
+defparam syn__45_.OUT_REG_MODE = 1'b0;
+defparam syn__45_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__45_.OUT_SYNC_MODE = 1'b0;
+defparam syn__45_.OUT_POWERUP = 1'b0;
+defparam syn__45_.OE_REG_MODE = 1'b0;
+defparam syn__45_.OE_ASYNC_MODE = 1'b0;
+defparam syn__45_.OE_SYNC_MODE = 1'b0;
+defparam syn__45_.OE_POWERUP = 1'b0;
+defparam syn__45_.CFG_TRI_INPUT = 1'b0;
+defparam syn__45_.CFG_PULL_UP = 1'b0;
+defparam syn__45_.CFG_SLR = 1'b0;
+defparam syn__45_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__45_.CFG_PDRCTRL = 4'b0010;
+defparam syn__45_.CFG_KEEP = 2'b00;
+defparam syn__45_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__45_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__45_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__45_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__45_.DPCLK_DELAY = 4'b0000;
+defparam syn__45_.OUT_DELAY = 1'b0;
+defparam syn__45_.IN_DATA_DELAY = 3'b000;
+defparam syn__45_.IN_REG_DELAY = 3'b000;
+
+alta_rio syn__46_(
+	.padio(leds[1]),
+	.datain(syn__10_[1]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout());
+defparam syn__46_.coord_x = 1;
+defparam syn__46_.coord_y = 9;
+defparam syn__46_.coord_z = 3;
+defparam syn__46_.IN_ASYNC_MODE = 1'b0;
+defparam syn__46_.IN_SYNC_MODE = 1'b0;
+defparam syn__46_.IN_POWERUP = 1'b0;
+defparam syn__46_.OUT_REG_MODE = 1'b0;
+defparam syn__46_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__46_.OUT_SYNC_MODE = 1'b0;
+defparam syn__46_.OUT_POWERUP = 1'b0;
+defparam syn__46_.OE_REG_MODE = 1'b0;
+defparam syn__46_.OE_ASYNC_MODE = 1'b0;
+defparam syn__46_.OE_SYNC_MODE = 1'b0;
+defparam syn__46_.OE_POWERUP = 1'b0;
+defparam syn__46_.CFG_TRI_INPUT = 1'b0;
+defparam syn__46_.CFG_PULL_UP = 1'b0;
+defparam syn__46_.CFG_SLR = 1'b0;
+defparam syn__46_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__46_.CFG_PDRCTRL = 4'b0010;
+defparam syn__46_.CFG_KEEP = 2'b00;
+defparam syn__46_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__46_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__46_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__46_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__46_.DPCLK_DELAY = 4'b0000;
+defparam syn__46_.OUT_DELAY = 1'b0;
+defparam syn__46_.IN_DATA_DELAY = 3'b000;
+defparam syn__46_.IN_REG_DELAY = 3'b000;
+
+alta_rio syn__47_(
+	.padio(leds[2]),
+	.datain(syn__10_[2]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout());
+defparam syn__47_.coord_x = 0;
+defparam syn__47_.coord_y = 9;
+defparam syn__47_.coord_z = 2;
+defparam syn__47_.IN_ASYNC_MODE = 1'b0;
+defparam syn__47_.IN_SYNC_MODE = 1'b0;
+defparam syn__47_.IN_POWERUP = 1'b0;
+defparam syn__47_.OUT_REG_MODE = 1'b0;
+defparam syn__47_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__47_.OUT_SYNC_MODE = 1'b0;
+defparam syn__47_.OUT_POWERUP = 1'b0;
+defparam syn__47_.OE_REG_MODE = 1'b0;
+defparam syn__47_.OE_ASYNC_MODE = 1'b0;
+defparam syn__47_.OE_SYNC_MODE = 1'b0;
+defparam syn__47_.OE_POWERUP = 1'b0;
+defparam syn__47_.CFG_TRI_INPUT = 1'b0;
+defparam syn__47_.CFG_PULL_UP = 1'b0;
+defparam syn__47_.CFG_SLR = 1'b0;
+defparam syn__47_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__47_.CFG_PDRCTRL = 4'b0010;
+defparam syn__47_.CFG_KEEP = 2'b00;
+defparam syn__47_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__47_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__47_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__47_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__47_.DPCLK_DELAY = 4'b0000;
+defparam syn__47_.OUT_DELAY = 1'b0;
+defparam syn__47_.IN_DATA_DELAY = 3'b000;
+defparam syn__47_.IN_REG_DELAY = 3'b000;
+
+alta_rio syn__48_(
+	.padio(leds[3]),
+	.datain(syn__10_[3]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout());
+defparam syn__48_.coord_x = 0;
+defparam syn__48_.coord_y = 9;
+defparam syn__48_.coord_z = 0;
+defparam syn__48_.IN_ASYNC_MODE = 1'b0;
+defparam syn__48_.IN_SYNC_MODE = 1'b0;
+defparam syn__48_.IN_POWERUP = 1'b0;
+defparam syn__48_.OUT_REG_MODE = 1'b0;
+defparam syn__48_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__48_.OUT_SYNC_MODE = 1'b0;
+defparam syn__48_.OUT_POWERUP = 1'b0;
+defparam syn__48_.OE_REG_MODE = 1'b0;
+defparam syn__48_.OE_ASYNC_MODE = 1'b0;
+defparam syn__48_.OE_SYNC_MODE = 1'b0;
+defparam syn__48_.OE_POWERUP = 1'b0;
+defparam syn__48_.CFG_TRI_INPUT = 1'b0;
+defparam syn__48_.CFG_PULL_UP = 1'b0;
+defparam syn__48_.CFG_SLR = 1'b0;
+defparam syn__48_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__48_.CFG_PDRCTRL = 4'b0010;
+defparam syn__48_.CFG_KEEP = 2'b00;
+defparam syn__48_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__48_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__48_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__48_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__48_.DPCLK_DELAY = 4'b0000;
+defparam syn__48_.OUT_DELAY = 1'b0;
+defparam syn__48_.IN_DATA_DELAY = 3'b000;
+defparam syn__48_.IN_REG_DELAY = 3'b000;
+
+alta_rio syn__49_(
+	.padio(leds[4]),
+	.datain(syn__10_[4]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout());
+defparam syn__49_.coord_x = 1;
+defparam syn__49_.coord_y = 9;
+defparam syn__49_.coord_z = 1;
+defparam syn__49_.IN_ASYNC_MODE = 1'b0;
+defparam syn__49_.IN_SYNC_MODE = 1'b0;
+defparam syn__49_.IN_POWERUP = 1'b0;
+defparam syn__49_.OUT_REG_MODE = 1'b0;
+defparam syn__49_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__49_.OUT_SYNC_MODE = 1'b0;
+defparam syn__49_.OUT_POWERUP = 1'b0;
+defparam syn__49_.OE_REG_MODE = 1'b0;
+defparam syn__49_.OE_ASYNC_MODE = 1'b0;
+defparam syn__49_.OE_SYNC_MODE = 1'b0;
+defparam syn__49_.OE_POWERUP = 1'b0;
+defparam syn__49_.CFG_TRI_INPUT = 1'b0;
+defparam syn__49_.CFG_PULL_UP = 1'b0;
+defparam syn__49_.CFG_SLR = 1'b0;
+defparam syn__49_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__49_.CFG_PDRCTRL = 4'b0010;
+defparam syn__49_.CFG_KEEP = 2'b00;
+defparam syn__49_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__49_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__49_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__49_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__49_.DPCLK_DELAY = 4'b0000;
+defparam syn__49_.OUT_DELAY = 1'b0;
+defparam syn__49_.IN_DATA_DELAY = 3'b000;
+defparam syn__49_.IN_REG_DELAY = 3'b000;
+
+alta_rio syn__50_(
+	.padio(leds[5]),
+	.datain(syn__10_[5]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout());
+defparam syn__50_.coord_x = 6;
+defparam syn__50_.coord_y = 9;
+defparam syn__50_.coord_z = 2;
+defparam syn__50_.IN_ASYNC_MODE = 1'b0;
+defparam syn__50_.IN_SYNC_MODE = 1'b0;
+defparam syn__50_.IN_POWERUP = 1'b0;
+defparam syn__50_.OUT_REG_MODE = 1'b0;
+defparam syn__50_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__50_.OUT_SYNC_MODE = 1'b0;
+defparam syn__50_.OUT_POWERUP = 1'b0;
+defparam syn__50_.OE_REG_MODE = 1'b0;
+defparam syn__50_.OE_ASYNC_MODE = 1'b0;
+defparam syn__50_.OE_SYNC_MODE = 1'b0;
+defparam syn__50_.OE_POWERUP = 1'b0;
+defparam syn__50_.CFG_TRI_INPUT = 1'b0;
+defparam syn__50_.CFG_PULL_UP = 1'b0;
+defparam syn__50_.CFG_SLR = 1'b0;
+defparam syn__50_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__50_.CFG_PDRCTRL = 4'b0010;
+defparam syn__50_.CFG_KEEP = 2'b00;
+defparam syn__50_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__50_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__50_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__50_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__50_.DPCLK_DELAY = 4'b0000;
+defparam syn__50_.OUT_DELAY = 1'b0;
+defparam syn__50_.IN_DATA_DELAY = 3'b000;
+defparam syn__50_.IN_REG_DELAY = 3'b000;
+
+alta_rio syn__51_(
+	.padio(leds[6]),
+	.datain(syn__10_[6]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout());
+defparam syn__51_.coord_x = 7;
+defparam syn__51_.coord_y = 1;
+defparam syn__51_.coord_z = 0;
+defparam syn__51_.IN_ASYNC_MODE = 1'b0;
+defparam syn__51_.IN_SYNC_MODE = 1'b0;
+defparam syn__51_.IN_POWERUP = 1'b0;
+defparam syn__51_.OUT_REG_MODE = 1'b0;
+defparam syn__51_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__51_.OUT_SYNC_MODE = 1'b0;
+defparam syn__51_.OUT_POWERUP = 1'b0;
+defparam syn__51_.OE_REG_MODE = 1'b0;
+defparam syn__51_.OE_ASYNC_MODE = 1'b0;
+defparam syn__51_.OE_SYNC_MODE = 1'b0;
+defparam syn__51_.OE_POWERUP = 1'b0;
+defparam syn__51_.CFG_TRI_INPUT = 1'b0;
+defparam syn__51_.CFG_PULL_UP = 1'b0;
+defparam syn__51_.CFG_SLR = 1'b0;
+defparam syn__51_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__51_.CFG_PDRCTRL = 4'b0010;
+defparam syn__51_.CFG_KEEP = 2'b00;
+defparam syn__51_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__51_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__51_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__51_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__51_.DPCLK_DELAY = 4'b0000;
+defparam syn__51_.OUT_DELAY = 1'b0;
+defparam syn__51_.IN_DATA_DELAY = 3'b000;
+defparam syn__51_.IN_REG_DELAY = 3'b000;
+
+alta_rio syn__52_(
+	.padio(leds[7]),
+	.datain(syn__10_[7]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout());
+defparam syn__52_.coord_x = 2;
+defparam syn__52_.coord_y = 1;
+defparam syn__52_.coord_z = 0;
+defparam syn__52_.IN_ASYNC_MODE = 1'b0;
+defparam syn__52_.IN_SYNC_MODE = 1'b0;
+defparam syn__52_.IN_POWERUP = 1'b0;
+defparam syn__52_.OUT_REG_MODE = 1'b0;
+defparam syn__52_.OUT_ASYNC_MODE = 1'b0;
+defparam syn__52_.OUT_SYNC_MODE = 1'b0;
+defparam syn__52_.OUT_POWERUP = 1'b0;
+defparam syn__52_.OE_REG_MODE = 1'b0;
+defparam syn__52_.OE_ASYNC_MODE = 1'b0;
+defparam syn__52_.OE_SYNC_MODE = 1'b0;
+defparam syn__52_.OE_POWERUP = 1'b0;
+defparam syn__52_.CFG_TRI_INPUT = 1'b0;
+defparam syn__52_.CFG_PULL_UP = 1'b0;
+defparam syn__52_.CFG_SLR = 1'b0;
+defparam syn__52_.CFG_OPEN_DRAIN = 1'b0;
+defparam syn__52_.CFG_PDRCTRL = 4'b0010;
+defparam syn__52_.CFG_KEEP = 2'b00;
+defparam syn__52_.CFG_LVDS_OUT_EN = 1'b0;
+defparam syn__52_.CFG_LVDS_SEL_CUA = 2'b00;
+defparam syn__52_.CFG_LVDS_IREF = 10'b0110000000;
+defparam syn__52_.CFG_LVDS_IN_EN = 1'b0;
+defparam syn__52_.DPCLK_DELAY = 4'b0000;
+defparam syn__52_.OUT_DELAY = 1'b0;
+defparam syn__52_.IN_DATA_DELAY = 3'b000;
+defparam syn__52_.IN_REG_DELAY = 3'b000;
+
+alta_slice syn__53_(
 	.A(),
 	.B(),
 	.C(vcc),
 	.D(),
 	.Cin(),
-	.Qin(syn__011_[0]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
+	.Qin(counter[0]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(\syn__011_[0]_inv ),
+	.LutOut(\counter[0]_inv ),
 	.Cout(),
-	.Q(syn__011_[0]));
-defparam syn__090_.coord_x = 5;
-defparam syn__090_.coord_y = 7;
-defparam syn__090_.coord_z = 0;
-defparam syn__090_.mask = 16'h0F0F;
-defparam syn__090_.modeMux = 1'b0;
-defparam syn__090_.FeedbackMux = 1'b1;
-defparam syn__090_.ShiftMux = 1'b0;
-defparam syn__090_.BypassEn = 1'b0;
-defparam syn__090_.CarryEnb = 1'b1;
+	.Q(counter[0]));
+defparam syn__53_.coord_x = 1;
+defparam syn__53_.coord_y = 7;
+defparam syn__53_.coord_z = 11;
+defparam syn__53_.mask = 16'h0F0F;
+defparam syn__53_.modeMux = 1'b0;
+defparam syn__53_.FeedbackMux = 1'b1;
+defparam syn__53_.ShiftMux = 1'b0;
+defparam syn__53_.BypassEn = 1'b0;
+defparam syn__53_.CarryEnb = 1'b1;
 
-alta_slice syn__091_(
+alta_slice syn__54_(
 	.A(vcc),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__011_[0]),
+	.D(counter[0]),
 	.Cin(),
-	.Qin(syn__011_[1]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[1]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[1]),
+	.LutOut(syn__00_[1]),
 	.Cout(),
-	.Q(syn__011_[1]));
-defparam syn__091_.coord_x = 5;
-defparam syn__091_.coord_y = 2;
-defparam syn__091_.coord_z = 6;
-defparam syn__091_.mask = 16'h0FF0;
-defparam syn__091_.modeMux = 1'b0;
-defparam syn__091_.FeedbackMux = 1'b1;
-defparam syn__091_.ShiftMux = 1'b0;
-defparam syn__091_.BypassEn = 1'b0;
-defparam syn__091_.CarryEnb = 1'b1;
+	.Q(counter[1]));
+defparam syn__54_.coord_x = 1;
+defparam syn__54_.coord_y = 7;
+defparam syn__54_.coord_z = 8;
+defparam syn__54_.mask = 16'h0FF0;
+defparam syn__54_.modeMux = 1'b0;
+defparam syn__54_.FeedbackMux = 1'b1;
+defparam syn__54_.ShiftMux = 1'b0;
+defparam syn__54_.BypassEn = 1'b0;
+defparam syn__54_.CarryEnb = 1'b1;
 
-alta_slice syn__092_(
-	.A(syn__011_[1]),
+alta_slice syn__55_(
+	.A(counter[1]),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__011_[0]),
+	.D(counter[0]),
 	.Cin(),
-	.Qin(syn__011_[2]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[2]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[2]),
+	.LutOut(syn__00_[2]),
 	.Cout(),
-	.Q(syn__011_[2]));
-defparam syn__092_.coord_x = 5;
-defparam syn__092_.coord_y = 2;
-defparam syn__092_.coord_z = 12;
-defparam syn__092_.mask = 16'h5AF0;
-defparam syn__092_.modeMux = 1'b0;
-defparam syn__092_.FeedbackMux = 1'b1;
-defparam syn__092_.ShiftMux = 1'b0;
-defparam syn__092_.BypassEn = 1'b0;
-defparam syn__092_.CarryEnb = 1'b1;
+	.Q(counter[2]));
+defparam syn__55_.coord_x = 1;
+defparam syn__55_.coord_y = 7;
+defparam syn__55_.coord_z = 2;
+defparam syn__55_.mask = 16'h5AF0;
+defparam syn__55_.modeMux = 1'b0;
+defparam syn__55_.FeedbackMux = 1'b1;
+defparam syn__55_.ShiftMux = 1'b0;
+defparam syn__55_.BypassEn = 1'b0;
+defparam syn__55_.CarryEnb = 1'b1;
 
-alta_slice syn__093_(
-	.A(syn__011_[1]),
-	.B(syn__011_[2]),
+alta_slice syn__56_(
+	.A(counter[1]),
+	.B(counter[2]),
 	.C(vcc),
-	.D(syn__011_[0]),
+	.D(counter[0]),
 	.Cin(),
-	.Qin(syn__011_[3]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[3]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[3]),
+	.LutOut(syn__00_[3]),
 	.Cout(),
-	.Q(syn__011_[3]));
-defparam syn__093_.coord_x = 5;
-defparam syn__093_.coord_y = 2;
-defparam syn__093_.coord_z = 13;
-defparam syn__093_.mask = 16'h78F0;
-defparam syn__093_.modeMux = 1'b0;
-defparam syn__093_.FeedbackMux = 1'b1;
-defparam syn__093_.ShiftMux = 1'b0;
-defparam syn__093_.BypassEn = 1'b0;
-defparam syn__093_.CarryEnb = 1'b1;
+	.Q(counter[3]));
+defparam syn__56_.coord_x = 1;
+defparam syn__56_.coord_y = 7;
+defparam syn__56_.coord_z = 3;
+defparam syn__56_.mask = 16'h78F0;
+defparam syn__56_.modeMux = 1'b0;
+defparam syn__56_.FeedbackMux = 1'b1;
+defparam syn__56_.ShiftMux = 1'b0;
+defparam syn__56_.BypassEn = 1'b0;
+defparam syn__56_.CarryEnb = 1'b1;
 
-alta_slice syn__094_(
-	.A(syn__003_),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__011_[4]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[4]),
-	.Cout(),
-	.Q(syn__011_[4]));
-defparam syn__094_.coord_x = 5;
-defparam syn__094_.coord_y = 2;
-defparam syn__094_.coord_z = 7;
-defparam syn__094_.mask = 16'h5A5A;
-defparam syn__094_.modeMux = 1'b0;
-defparam syn__094_.FeedbackMux = 1'b1;
-defparam syn__094_.ShiftMux = 1'b0;
-defparam syn__094_.BypassEn = 1'b0;
-defparam syn__094_.CarryEnb = 1'b1;
-
-alta_slice syn__095_(
-	.A(syn__003_),
-	.B(vcc),
-	.C(vcc),
-	.D(syn__011_[4]),
-	.Cin(),
-	.Qin(syn__011_[5]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[5]),
-	.Cout(),
-	.Q(syn__011_[5]));
-defparam syn__095_.coord_x = 5;
-defparam syn__095_.coord_y = 2;
-defparam syn__095_.coord_z = 0;
-defparam syn__095_.mask = 16'h5AF0;
-defparam syn__095_.modeMux = 1'b0;
-defparam syn__095_.FeedbackMux = 1'b1;
-defparam syn__095_.ShiftMux = 1'b0;
-defparam syn__095_.BypassEn = 1'b0;
-defparam syn__095_.CarryEnb = 1'b1;
-
-alta_slice syn__096_(
-	.A(syn__003_),
-	.B(syn__011_[5]),
-	.C(vcc),
-	.D(syn__011_[4]),
-	.Cin(),
-	.Qin(syn__011_[6]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[6]),
-	.Cout(),
-	.Q(syn__011_[6]));
-defparam syn__096_.coord_x = 5;
-defparam syn__096_.coord_y = 2;
-defparam syn__096_.coord_z = 1;
-defparam syn__096_.mask = 16'h78F0;
-defparam syn__096_.modeMux = 1'b0;
-defparam syn__096_.FeedbackMux = 1'b1;
-defparam syn__096_.ShiftMux = 1'b0;
-defparam syn__096_.BypassEn = 1'b0;
-defparam syn__096_.CarryEnb = 1'b1;
-
-alta_slice syn__097_(
+alta_slice syn__57_(
 	.A(vcc),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__004_),
+	.D(syn__01_),
 	.Cin(),
-	.Qin(syn__011_[7]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[4]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[7]),
+	.LutOut(syn__00_[4]),
 	.Cout(),
-	.Q(syn__011_[7]));
-defparam syn__097_.coord_x = 5;
-defparam syn__097_.coord_y = 2;
-defparam syn__097_.coord_z = 9;
-defparam syn__097_.mask = 16'h0FF0;
-defparam syn__097_.modeMux = 1'b0;
-defparam syn__097_.FeedbackMux = 1'b1;
-defparam syn__097_.ShiftMux = 1'b0;
-defparam syn__097_.BypassEn = 1'b0;
-defparam syn__097_.CarryEnb = 1'b1;
+	.Q(counter[4]));
+defparam syn__57_.coord_x = 1;
+defparam syn__57_.coord_y = 7;
+defparam syn__57_.coord_z = 5;
+defparam syn__57_.mask = 16'h0FF0;
+defparam syn__57_.modeMux = 1'b0;
+defparam syn__57_.FeedbackMux = 1'b1;
+defparam syn__57_.ShiftMux = 1'b0;
+defparam syn__57_.BypassEn = 1'b0;
+defparam syn__57_.CarryEnb = 1'b1;
 
-alta_slice syn__098_(
-	.A(syn__004_),
+alta_slice syn__58_(
+	.A(syn__01_),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__011_[7]),
+	.D(counter[4]),
 	.Cin(),
-	.Qin(syn__012_[0]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[5]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[8]),
+	.LutOut(syn__00_[5]),
 	.Cout(),
-	.Q(syn__012_[0]));
-defparam syn__098_.coord_x = 5;
-defparam syn__098_.coord_y = 2;
-defparam syn__098_.coord_z = 4;
-defparam syn__098_.mask = 16'h5AF0;
-defparam syn__098_.modeMux = 1'b0;
-defparam syn__098_.FeedbackMux = 1'b1;
-defparam syn__098_.ShiftMux = 1'b0;
-defparam syn__098_.BypassEn = 1'b0;
-defparam syn__098_.CarryEnb = 1'b1;
+	.Q(counter[5]));
+defparam syn__58_.coord_x = 1;
+defparam syn__58_.coord_y = 7;
+defparam syn__58_.coord_z = 1;
+defparam syn__58_.mask = 16'h5AF0;
+defparam syn__58_.modeMux = 1'b0;
+defparam syn__58_.FeedbackMux = 1'b1;
+defparam syn__58_.ShiftMux = 1'b0;
+defparam syn__58_.BypassEn = 1'b0;
+defparam syn__58_.CarryEnb = 1'b1;
 
-alta_slice syn__099_(
-	.A(syn__004_),
-	.B(syn__012_[0]),
+alta_slice syn__59_(
+	.A(syn__01_),
+	.B(counter[5]),
 	.C(vcc),
-	.D(syn__011_[7]),
+	.D(counter[4]),
 	.Cin(),
-	.Qin(syn__012_[1]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[6]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[9]),
+	.LutOut(syn__00_[6]),
 	.Cout(),
-	.Q(syn__012_[1]));
-defparam syn__099_.coord_x = 5;
-defparam syn__099_.coord_y = 2;
-defparam syn__099_.coord_z = 5;
-defparam syn__099_.mask = 16'h78F0;
-defparam syn__099_.modeMux = 1'b0;
-defparam syn__099_.FeedbackMux = 1'b1;
-defparam syn__099_.ShiftMux = 1'b0;
-defparam syn__099_.BypassEn = 1'b0;
-defparam syn__099_.CarryEnb = 1'b1;
+	.Q(counter[6]));
+defparam syn__59_.coord_x = 1;
+defparam syn__59_.coord_y = 7;
+defparam syn__59_.coord_z = 13;
+defparam syn__59_.mask = 16'h78F0;
+defparam syn__59_.modeMux = 1'b0;
+defparam syn__59_.FeedbackMux = 1'b1;
+defparam syn__59_.ShiftMux = 1'b0;
+defparam syn__59_.BypassEn = 1'b0;
+defparam syn__59_.CarryEnb = 1'b1;
 
-alta_slice syn__100_(
+alta_slice syn__60_(
+	.A(syn__02_),
+	.B(vcc),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[7]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[7]),
+	.Cout(),
+	.Q(counter[7]));
+defparam syn__60_.coord_x = 1;
+defparam syn__60_.coord_y = 7;
+defparam syn__60_.coord_z = 9;
+defparam syn__60_.mask = 16'h5A5A;
+defparam syn__60_.modeMux = 1'b0;
+defparam syn__60_.FeedbackMux = 1'b1;
+defparam syn__60_.ShiftMux = 1'b0;
+defparam syn__60_.BypassEn = 1'b0;
+defparam syn__60_.CarryEnb = 1'b1;
+
+alta_slice syn__61_(
+	.A(syn__02_),
+	.B(vcc),
+	.C(vcc),
+	.D(counter[7]),
+	.Cin(),
+	.Qin(counter[8]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[8]),
+	.Cout(),
+	.Q(counter[8]));
+defparam syn__61_.coord_x = 1;
+defparam syn__61_.coord_y = 7;
+defparam syn__61_.coord_z = 6;
+defparam syn__61_.mask = 16'h5AF0;
+defparam syn__61_.modeMux = 1'b0;
+defparam syn__61_.FeedbackMux = 1'b1;
+defparam syn__61_.ShiftMux = 1'b0;
+defparam syn__61_.BypassEn = 1'b0;
+defparam syn__61_.CarryEnb = 1'b1;
+
+alta_slice syn__62_(
+	.A(syn__02_),
+	.B(counter[8]),
+	.C(vcc),
+	.D(counter[7]),
+	.Cin(),
+	.Qin(counter[9]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[9]),
+	.Cout(),
+	.Q(counter[9]));
+defparam syn__62_.coord_x = 1;
+defparam syn__62_.coord_y = 7;
+defparam syn__62_.coord_z = 7;
+defparam syn__62_.mask = 16'h78F0;
+defparam syn__62_.modeMux = 1'b0;
+defparam syn__62_.FeedbackMux = 1'b1;
+defparam syn__62_.ShiftMux = 1'b0;
+defparam syn__62_.BypassEn = 1'b0;
+defparam syn__62_.CarryEnb = 1'b1;
+
+alta_slice syn__63_(
 	.A(vcc),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__005_),
+	.D(syn__03_),
 	.Cin(),
-	.Qin(syn__012_[2]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[10]),
+	.Clk(syn__09__X1012_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1012_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[10]),
+	.Cout(),
+	.Q(counter[10]));
+defparam syn__63_.coord_x = 2;
+defparam syn__63_.coord_y = 7;
+defparam syn__63_.coord_z = 0;
+defparam syn__63_.mask = 16'h0FF0;
+defparam syn__63_.modeMux = 1'b0;
+defparam syn__63_.FeedbackMux = 1'b1;
+defparam syn__63_.ShiftMux = 1'b0;
+defparam syn__63_.BypassEn = 1'b0;
+defparam syn__63_.CarryEnb = 1'b1;
+
+alta_slice syn__64_(
+	.A(syn__03_),
+	.B(counter[10]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[11]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[10]),
+	.LutOut(syn__00_[11]),
 	.Cout(),
-	.Q(syn__012_[2]));
-defparam syn__100_.coord_x = 5;
-defparam syn__100_.coord_y = 2;
-defparam syn__100_.coord_z = 11;
-defparam syn__100_.mask = 16'h0FF0;
-defparam syn__100_.modeMux = 1'b0;
-defparam syn__100_.FeedbackMux = 1'b1;
-defparam syn__100_.ShiftMux = 1'b0;
-defparam syn__100_.BypassEn = 1'b0;
-defparam syn__100_.CarryEnb = 1'b1;
+	.Q(counter[11]));
+defparam syn__64_.coord_x = 1;
+defparam syn__64_.coord_y = 7;
+defparam syn__64_.coord_z = 14;
+defparam syn__64_.mask = 16'h7878;
+defparam syn__64_.modeMux = 1'b0;
+defparam syn__64_.FeedbackMux = 1'b1;
+defparam syn__64_.ShiftMux = 1'b0;
+defparam syn__64_.BypassEn = 1'b0;
+defparam syn__64_.CarryEnb = 1'b1;
 
-alta_slice syn__101_(
-	.A(syn__005_),
-	.B(vcc),
+alta_slice syn__65_(
+	.A(syn__03_),
+	.B(counter[11]),
 	.C(vcc),
-	.D(syn__012_[2]),
+	.D(counter[10]),
 	.Cin(),
-	.Qin(syn__012_[3]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[12]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[11]),
+	.LutOut(syn__00_[12]),
 	.Cout(),
-	.Q(syn__012_[3]));
-defparam syn__101_.coord_x = 5;
-defparam syn__101_.coord_y = 2;
-defparam syn__101_.coord_z = 2;
-defparam syn__101_.mask = 16'h5AF0;
-defparam syn__101_.modeMux = 1'b0;
-defparam syn__101_.FeedbackMux = 1'b1;
-defparam syn__101_.ShiftMux = 1'b0;
-defparam syn__101_.BypassEn = 1'b0;
-defparam syn__101_.CarryEnb = 1'b1;
+	.Q(counter[12]));
+defparam syn__65_.coord_x = 1;
+defparam syn__65_.coord_y = 7;
+defparam syn__65_.coord_z = 15;
+defparam syn__65_.mask = 16'h78F0;
+defparam syn__65_.modeMux = 1'b0;
+defparam syn__65_.FeedbackMux = 1'b1;
+defparam syn__65_.ShiftMux = 1'b0;
+defparam syn__65_.BypassEn = 1'b0;
+defparam syn__65_.CarryEnb = 1'b1;
 
-alta_slice syn__102_(
-	.A(syn__005_),
-	.B(syn__012_[3]),
-	.C(vcc),
-	.D(syn__012_[2]),
-	.Cin(),
-	.Qin(syn__012_[4]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[12]),
-	.Cout(),
-	.Q(syn__012_[4]));
-defparam syn__102_.coord_x = 5;
-defparam syn__102_.coord_y = 2;
-defparam syn__102_.coord_z = 3;
-defparam syn__102_.mask = 16'h78F0;
-defparam syn__102_.modeMux = 1'b0;
-defparam syn__102_.FeedbackMux = 1'b1;
-defparam syn__102_.ShiftMux = 1'b0;
-defparam syn__102_.BypassEn = 1'b0;
-defparam syn__102_.CarryEnb = 1'b1;
-
-alta_slice syn__103_(
-	.A(syn__006_),
+alta_slice syn__66_(
+	.A(syn__04_),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(syn__012_[5]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(counter[13]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[13]),
+	.LutOut(syn__00_[13]),
 	.Cout(),
-	.Q(syn__012_[5]));
-defparam syn__103_.coord_x = 6;
-defparam syn__103_.coord_y = 2;
-defparam syn__103_.coord_z = 13;
-defparam syn__103_.mask = 16'h5A5A;
-defparam syn__103_.modeMux = 1'b0;
-defparam syn__103_.FeedbackMux = 1'b1;
-defparam syn__103_.ShiftMux = 1'b0;
-defparam syn__103_.BypassEn = 1'b0;
-defparam syn__103_.CarryEnb = 1'b1;
+	.Q(counter[13]));
+defparam syn__66_.coord_x = 1;
+defparam syn__66_.coord_y = 8;
+defparam syn__66_.coord_z = 7;
+defparam syn__66_.mask = 16'h5A5A;
+defparam syn__66_.modeMux = 1'b0;
+defparam syn__66_.FeedbackMux = 1'b1;
+defparam syn__66_.ShiftMux = 1'b0;
+defparam syn__66_.BypassEn = 1'b0;
+defparam syn__66_.CarryEnb = 1'b1;
 
-alta_slice syn__104_(
-	.A(syn__006_),
+alta_slice syn__67_(
+	.A(syn__04_),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__012_[5]),
+	.D(counter[13]),
 	.Cin(),
-	.Qin(syn__012_[6]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(counter[14]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[14]),
+	.LutOut(syn__00_[14]),
 	.Cout(),
-	.Q(syn__012_[6]));
-defparam syn__104_.coord_x = 6;
-defparam syn__104_.coord_y = 2;
-defparam syn__104_.coord_z = 8;
-defparam syn__104_.mask = 16'h5AF0;
-defparam syn__104_.modeMux = 1'b0;
-defparam syn__104_.FeedbackMux = 1'b1;
-defparam syn__104_.ShiftMux = 1'b0;
-defparam syn__104_.BypassEn = 1'b0;
-defparam syn__104_.CarryEnb = 1'b1;
+	.Q(counter[14]));
+defparam syn__67_.coord_x = 1;
+defparam syn__67_.coord_y = 8;
+defparam syn__67_.coord_z = 10;
+defparam syn__67_.mask = 16'h5AF0;
+defparam syn__67_.modeMux = 1'b0;
+defparam syn__67_.FeedbackMux = 1'b1;
+defparam syn__67_.ShiftMux = 1'b0;
+defparam syn__67_.BypassEn = 1'b0;
+defparam syn__67_.CarryEnb = 1'b1;
 
-alta_slice syn__105_(
-	.A(syn__012_[6]),
-	.B(syn__012_[5]),
+alta_slice syn__68_(
+	.A(syn__04_),
+	.B(counter[14]),
 	.C(vcc),
-	.D(syn__006_),
+	.D(counter[13]),
 	.Cin(),
-	.Qin(syn__012_[7]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(counter[15]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[15]),
+	.LutOut(syn__00_[15]),
 	.Cout(),
-	.Q(syn__012_[7]));
-defparam syn__105_.coord_x = 6;
-defparam syn__105_.coord_y = 2;
-defparam syn__105_.coord_z = 9;
-defparam syn__105_.mask = 16'h78F0;
-defparam syn__105_.modeMux = 1'b0;
-defparam syn__105_.FeedbackMux = 1'b1;
-defparam syn__105_.ShiftMux = 1'b0;
-defparam syn__105_.BypassEn = 1'b0;
-defparam syn__105_.CarryEnb = 1'b1;
+	.Q(counter[15]));
+defparam syn__68_.coord_x = 1;
+defparam syn__68_.coord_y = 8;
+defparam syn__68_.coord_z = 11;
+defparam syn__68_.mask = 16'h78F0;
+defparam syn__68_.modeMux = 1'b0;
+defparam syn__68_.FeedbackMux = 1'b1;
+defparam syn__68_.ShiftMux = 1'b0;
+defparam syn__68_.BypassEn = 1'b0;
+defparam syn__68_.CarryEnb = 1'b1;
 
-alta_slice syn__106_(
-	.A(syn__007_),
+alta_slice syn__69_(
+	.A(vcc),
 	.B(vcc),
 	.C(vcc),
-	.D(vcc),
+	.D(syn__05_),
 	.Cin(),
-	.Qin(syn__013_[0]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(counter[16]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[16]),
+	.LutOut(syn__00_[16]),
 	.Cout(),
-	.Q(syn__013_[0]));
-defparam syn__106_.coord_x = 6;
-defparam syn__106_.coord_y = 2;
-defparam syn__106_.coord_z = 15;
-defparam syn__106_.mask = 16'h5A5A;
-defparam syn__106_.modeMux = 1'b0;
-defparam syn__106_.FeedbackMux = 1'b1;
-defparam syn__106_.ShiftMux = 1'b0;
-defparam syn__106_.BypassEn = 1'b0;
-defparam syn__106_.CarryEnb = 1'b1;
+	.Q(counter[16]));
+defparam syn__69_.coord_x = 1;
+defparam syn__69_.coord_y = 8;
+defparam syn__69_.coord_z = 5;
+defparam syn__69_.mask = 16'h0FF0;
+defparam syn__69_.modeMux = 1'b0;
+defparam syn__69_.FeedbackMux = 1'b1;
+defparam syn__69_.ShiftMux = 1'b0;
+defparam syn__69_.BypassEn = 1'b0;
+defparam syn__69_.CarryEnb = 1'b1;
 
-alta_slice syn__107_(
-	.A(syn__007_),
+alta_slice syn__70_(
+	.A(syn__05_),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__013_[0]),
+	.D(counter[16]),
 	.Cin(),
-	.Qin(syn__013_[1]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(counter[17]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[17]),
+	.LutOut(syn__00_[17]),
 	.Cout(),
-	.Q(syn__013_[1]));
-defparam syn__107_.coord_x = 6;
-defparam syn__107_.coord_y = 2;
-defparam syn__107_.coord_z = 6;
-defparam syn__107_.mask = 16'h5AF0;
-defparam syn__107_.modeMux = 1'b0;
-defparam syn__107_.FeedbackMux = 1'b1;
-defparam syn__107_.ShiftMux = 1'b0;
-defparam syn__107_.BypassEn = 1'b0;
-defparam syn__107_.CarryEnb = 1'b1;
+	.Q(counter[17]));
+defparam syn__70_.coord_x = 1;
+defparam syn__70_.coord_y = 8;
+defparam syn__70_.coord_z = 14;
+defparam syn__70_.mask = 16'h5AF0;
+defparam syn__70_.modeMux = 1'b0;
+defparam syn__70_.FeedbackMux = 1'b1;
+defparam syn__70_.ShiftMux = 1'b0;
+defparam syn__70_.BypassEn = 1'b0;
+defparam syn__70_.CarryEnb = 1'b1;
 
-alta_slice syn__108_(
-	.A(syn__007_),
-	.B(syn__013_[1]),
+alta_slice syn__71_(
+	.A(syn__05_),
+	.B(counter[17]),
 	.C(vcc),
-	.D(syn__013_[0]),
+	.D(counter[16]),
 	.Cin(),
-	.Qin(syn__013_[2]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(syn__10_[0]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[18]),
+	.LutOut(syn__00_[18]),
 	.Cout(),
-	.Q(syn__013_[2]));
-defparam syn__108_.coord_x = 6;
-defparam syn__108_.coord_y = 2;
-defparam syn__108_.coord_z = 7;
-defparam syn__108_.mask = 16'h78F0;
-defparam syn__108_.modeMux = 1'b0;
-defparam syn__108_.FeedbackMux = 1'b1;
-defparam syn__108_.ShiftMux = 1'b0;
-defparam syn__108_.BypassEn = 1'b0;
-defparam syn__108_.CarryEnb = 1'b1;
+	.Q(syn__10_[0]));
+defparam syn__71_.coord_x = 1;
+defparam syn__71_.coord_y = 8;
+defparam syn__71_.coord_z = 15;
+defparam syn__71_.mask = 16'h78F0;
+defparam syn__71_.modeMux = 1'b0;
+defparam syn__71_.FeedbackMux = 1'b1;
+defparam syn__71_.ShiftMux = 1'b0;
+defparam syn__71_.BypassEn = 1'b0;
+defparam syn__71_.CarryEnb = 1'b1;
 
-alta_slice syn__109_(
-	.A(syn__008_),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__013_[3]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[19]),
-	.Cout(),
-	.Q(syn__013_[3]));
-defparam syn__109_.coord_x = 6;
-defparam syn__109_.coord_y = 2;
-defparam syn__109_.coord_z = 5;
-defparam syn__109_.mask = 16'h5A5A;
-defparam syn__109_.modeMux = 1'b0;
-defparam syn__109_.FeedbackMux = 1'b1;
-defparam syn__109_.ShiftMux = 1'b0;
-defparam syn__109_.BypassEn = 1'b0;
-defparam syn__109_.CarryEnb = 1'b1;
-
-alta_slice syn__110_(
-	.A(syn__008_),
-	.B(vcc),
-	.C(vcc),
-	.D(syn__013_[3]),
-	.Cin(),
-	.Qin(syn__013_[4]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[20]),
-	.Cout(),
-	.Q(syn__013_[4]));
-defparam syn__110_.coord_x = 6;
-defparam syn__110_.coord_y = 2;
-defparam syn__110_.coord_z = 0;
-defparam syn__110_.mask = 16'h5AF0;
-defparam syn__110_.modeMux = 1'b0;
-defparam syn__110_.FeedbackMux = 1'b1;
-defparam syn__110_.ShiftMux = 1'b0;
-defparam syn__110_.BypassEn = 1'b0;
-defparam syn__110_.CarryEnb = 1'b1;
-
-alta_slice syn__111_(
-	.A(syn__008_),
-	.B(syn__013_[4]),
-	.C(vcc),
-	.D(syn__013_[3]),
-	.Cin(),
-	.Qin(syn__013_[5]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[21]),
-	.Cout(),
-	.Q(syn__013_[5]));
-defparam syn__111_.coord_x = 6;
-defparam syn__111_.coord_y = 2;
-defparam syn__111_.coord_z = 1;
-defparam syn__111_.mask = 16'h78F0;
-defparam syn__111_.modeMux = 1'b0;
-defparam syn__111_.FeedbackMux = 1'b1;
-defparam syn__111_.ShiftMux = 1'b0;
-defparam syn__111_.BypassEn = 1'b0;
-defparam syn__111_.CarryEnb = 1'b1;
-
-alta_slice syn__112_(
-	.A(syn__009_),
+alta_slice syn__72_(
+	.A(syn__06_),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(syn__013_[6]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(syn__10_[1]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[22]),
+	.LutOut(syn__00_[19]),
 	.Cout(),
-	.Q(syn__013_[6]));
-defparam syn__112_.coord_x = 6;
-defparam syn__112_.coord_y = 2;
-defparam syn__112_.coord_z = 3;
-defparam syn__112_.mask = 16'h5A5A;
-defparam syn__112_.modeMux = 1'b0;
-defparam syn__112_.FeedbackMux = 1'b1;
-defparam syn__112_.ShiftMux = 1'b0;
-defparam syn__112_.BypassEn = 1'b0;
-defparam syn__112_.CarryEnb = 1'b1;
+	.Q(syn__10_[1]));
+defparam syn__72_.coord_x = 1;
+defparam syn__72_.coord_y = 8;
+defparam syn__72_.coord_z = 3;
+defparam syn__72_.mask = 16'h5A5A;
+defparam syn__72_.modeMux = 1'b0;
+defparam syn__72_.FeedbackMux = 1'b1;
+defparam syn__72_.ShiftMux = 1'b0;
+defparam syn__72_.BypassEn = 1'b0;
+defparam syn__72_.CarryEnb = 1'b1;
 
-alta_slice syn__113_(
-	.A(syn__009_),
+alta_slice syn__73_(
+	.A(syn__06_),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__013_[6]),
+	.D(syn__10_[1]),
 	.Cin(),
-	.Qin(syn__013_[7]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(syn__10_[2]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[23]),
+	.LutOut(syn__00_[20]),
 	.Cout(),
-	.Q(syn__013_[7]));
-defparam syn__113_.coord_x = 6;
-defparam syn__113_.coord_y = 2;
-defparam syn__113_.coord_z = 2;
-defparam syn__113_.mask = 16'h5AF0;
-defparam syn__113_.modeMux = 1'b0;
-defparam syn__113_.FeedbackMux = 1'b1;
-defparam syn__113_.ShiftMux = 1'b0;
-defparam syn__113_.BypassEn = 1'b0;
-defparam syn__113_.CarryEnb = 1'b1;
+	.Q(syn__10_[2]));
+defparam syn__73_.coord_x = 1;
+defparam syn__73_.coord_y = 8;
+defparam syn__73_.coord_z = 0;
+defparam syn__73_.mask = 16'h5AF0;
+defparam syn__73_.modeMux = 1'b0;
+defparam syn__73_.FeedbackMux = 1'b1;
+defparam syn__73_.ShiftMux = 1'b0;
+defparam syn__73_.BypassEn = 1'b0;
+defparam syn__73_.CarryEnb = 1'b1;
 
-alta_slice syn__114_(
-	.A(syn__013_[7]),
-	.B(syn__009_),
+alta_slice syn__74_(
+	.A(syn__06_),
+	.B(syn__10_[2]),
 	.C(vcc),
-	.D(syn__013_[6]),
+	.D(syn__10_[1]),
 	.Cin(),
-	.Qin(syn__014_[0]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(syn__10_[3]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[24]),
+	.LutOut(syn__00_[21]),
 	.Cout(),
-	.Q(syn__014_[0]));
-defparam syn__114_.coord_x = 6;
-defparam syn__114_.coord_y = 2;
-defparam syn__114_.coord_z = 10;
-defparam syn__114_.mask = 16'h78F0;
-defparam syn__114_.modeMux = 1'b0;
-defparam syn__114_.FeedbackMux = 1'b1;
-defparam syn__114_.ShiftMux = 1'b0;
-defparam syn__114_.BypassEn = 1'b0;
-defparam syn__114_.CarryEnb = 1'b1;
+	.Q(syn__10_[3]));
+defparam syn__74_.coord_x = 1;
+defparam syn__74_.coord_y = 8;
+defparam syn__74_.coord_z = 1;
+defparam syn__74_.mask = 16'h78F0;
+defparam syn__74_.modeMux = 1'b0;
+defparam syn__74_.FeedbackMux = 1'b1;
+defparam syn__74_.ShiftMux = 1'b0;
+defparam syn__74_.BypassEn = 1'b0;
+defparam syn__74_.CarryEnb = 1'b1;
 
-alta_slice syn__115_(
-	.A(syn__010_),
+alta_slice syn__75_(
+	.A(syn__07_),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(syn__014_[1]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
+	.Qin(syn__10_[4]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[25]),
+	.LutOut(syn__00_[22]),
 	.Cout(),
-	.Q(syn__014_[1]));
-defparam syn__115_.coord_x = 5;
-defparam syn__115_.coord_y = 7;
-defparam syn__115_.coord_z = 3;
-defparam syn__115_.mask = 16'h5A5A;
-defparam syn__115_.modeMux = 1'b0;
-defparam syn__115_.FeedbackMux = 1'b1;
-defparam syn__115_.ShiftMux = 1'b0;
-defparam syn__115_.BypassEn = 1'b0;
-defparam syn__115_.CarryEnb = 1'b1;
+	.Q(syn__10_[4]));
+defparam syn__75_.coord_x = 1;
+defparam syn__75_.coord_y = 8;
+defparam syn__75_.coord_z = 13;
+defparam syn__75_.mask = 16'h5A5A;
+defparam syn__75_.modeMux = 1'b0;
+defparam syn__75_.FeedbackMux = 1'b1;
+defparam syn__75_.ShiftMux = 1'b0;
+defparam syn__75_.BypassEn = 1'b0;
+defparam syn__75_.CarryEnb = 1'b1;
 
-alta_slice syn__116_(
-	.A(syn__010_),
+alta_slice syn__76_(
+	.A(syn__07_),
 	.B(vcc),
 	.C(vcc),
-	.D(syn__014_[1]),
+	.D(syn__10_[4]),
 	.Cin(),
-	.Qin(syn__014_[2]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
+	.Qin(syn__10_[5]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[26]),
+	.LutOut(syn__00_[23]),
 	.Cout(),
-	.Q(syn__014_[2]));
-defparam syn__116_.coord_x = 5;
-defparam syn__116_.coord_y = 7;
-defparam syn__116_.coord_z = 8;
-defparam syn__116_.mask = 16'h5AF0;
-defparam syn__116_.modeMux = 1'b0;
-defparam syn__116_.FeedbackMux = 1'b1;
-defparam syn__116_.ShiftMux = 1'b0;
-defparam syn__116_.BypassEn = 1'b0;
-defparam syn__116_.CarryEnb = 1'b1;
+	.Q(syn__10_[5]));
+defparam syn__76_.coord_x = 1;
+defparam syn__76_.coord_y = 8;
+defparam syn__76_.coord_z = 8;
+defparam syn__76_.mask = 16'h5AF0;
+defparam syn__76_.modeMux = 1'b0;
+defparam syn__76_.FeedbackMux = 1'b1;
+defparam syn__76_.ShiftMux = 1'b0;
+defparam syn__76_.BypassEn = 1'b0;
+defparam syn__76_.CarryEnb = 1'b1;
 
-alta_slice syn__117_(
-	.A(syn__010_),
-	.B(syn__014_[2]),
+alta_slice syn__77_(
+	.A(syn__07_),
+	.B(syn__10_[5]),
 	.C(vcc),
-	.D(syn__014_[1]),
+	.D(syn__10_[4]),
 	.Cin(),
-	.Qin(syn__014_[3]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
+	.Qin(syn__10_[6]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[27]),
+	.LutOut(syn__00_[24]),
 	.Cout(),
-	.Q(syn__014_[3]));
-defparam syn__117_.coord_x = 5;
-defparam syn__117_.coord_y = 7;
-defparam syn__117_.coord_z = 9;
-defparam syn__117_.mask = 16'h78F0;
-defparam syn__117_.modeMux = 1'b0;
-defparam syn__117_.FeedbackMux = 1'b1;
-defparam syn__117_.ShiftMux = 1'b0;
-defparam syn__117_.BypassEn = 1'b0;
-defparam syn__117_.CarryEnb = 1'b1;
+	.Q(syn__10_[6]));
+defparam syn__77_.coord_x = 1;
+defparam syn__77_.coord_y = 8;
+defparam syn__77_.coord_z = 9;
+defparam syn__77_.mask = 16'h78F0;
+defparam syn__77_.modeMux = 1'b0;
+defparam syn__77_.FeedbackMux = 1'b1;
+defparam syn__77_.ShiftMux = 1'b0;
+defparam syn__77_.BypassEn = 1'b0;
+defparam syn__77_.CarryEnb = 1'b1;
 
-alta_slice syn__118_(
-	.A(syn__001_),
+alta_slice syn__78_(
+	.A(vcc),
 	.B(vcc),
 	.C(vcc),
-	.D(vcc),
+	.D(syn__08_),
 	.Cin(),
-	.Qin(syn__014_[4]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
+	.Qin(syn__10_[7]),
+	.Clk(syn__09__X1012_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1012_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[28]),
+	.LutOut(syn__00_[25]),
 	.Cout(),
-	.Q(syn__014_[4]));
-defparam syn__118_.coord_x = 5;
-defparam syn__118_.coord_y = 7;
-defparam syn__118_.coord_z = 5;
-defparam syn__118_.mask = 16'h5A5A;
-defparam syn__118_.modeMux = 1'b0;
-defparam syn__118_.FeedbackMux = 1'b1;
-defparam syn__118_.ShiftMux = 1'b0;
-defparam syn__118_.BypassEn = 1'b0;
-defparam syn__118_.CarryEnb = 1'b1;
-
-alta_slice syn__119_(
-	.A(syn__001_),
-	.B(vcc),
-	.C(vcc),
-	.D(syn__014_[4]),
-	.Cin(),
-	.Qin(syn__014_[5]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[29]),
-	.Cout(),
-	.Q(syn__014_[5]));
-defparam syn__119_.coord_x = 5;
-defparam syn__119_.coord_y = 7;
-defparam syn__119_.coord_z = 6;
-defparam syn__119_.mask = 16'h5AF0;
-defparam syn__119_.modeMux = 1'b0;
-defparam syn__119_.FeedbackMux = 1'b1;
-defparam syn__119_.ShiftMux = 1'b0;
-defparam syn__119_.BypassEn = 1'b0;
-defparam syn__119_.CarryEnb = 1'b1;
-
-alta_slice syn__120_(
-	.A(syn__001_),
-	.B(syn__014_[5]),
-	.C(vcc),
-	.D(syn__014_[4]),
-	.Cin(),
-	.Qin(syn__014_[6]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[30]),
-	.Cout(),
-	.Q(syn__014_[6]));
-defparam syn__120_.coord_x = 5;
-defparam syn__120_.coord_y = 7;
-defparam syn__120_.coord_z = 7;
-defparam syn__120_.mask = 16'h78F0;
-defparam syn__120_.modeMux = 1'b0;
-defparam syn__120_.FeedbackMux = 1'b1;
-defparam syn__120_.ShiftMux = 1'b0;
-defparam syn__120_.BypassEn = 1'b0;
-defparam syn__120_.CarryEnb = 1'b1;
-
-alta_slice syn__121_(
-	.A(syn__002_),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__014_[7]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[31]),
-	.Cout(),
-	.Q(syn__014_[7]));
-defparam syn__121_.coord_x = 5;
-defparam syn__121_.coord_y = 7;
-defparam syn__121_.coord_z = 1;
-defparam syn__121_.mask = 16'h5A5A;
-defparam syn__121_.modeMux = 1'b0;
-defparam syn__121_.FeedbackMux = 1'b1;
-defparam syn__121_.ShiftMux = 1'b0;
-defparam syn__121_.BypassEn = 1'b0;
-defparam syn__121_.CarryEnb = 1'b1;
+	.Q(syn__10_[7]));
+defparam syn__78_.coord_x = 2;
+defparam syn__78_.coord_y = 7;
+defparam syn__78_.coord_z = 10;
+defparam syn__78_.mask = 16'h0FF0;
+defparam syn__78_.modeMux = 1'b0;
+defparam syn__78_.FeedbackMux = 1'b1;
+defparam syn__78_.ShiftMux = 1'b0;
+defparam syn__78_.BypassEn = 1'b0;
+defparam syn__78_.CarryEnb = 1'b1;
 
 endmodule

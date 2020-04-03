@@ -2,648 +2,90 @@
 
 module Blinky(
 	clk,
-	bank0,
-	bank1,
-	bank2,
-	bank3);
+	leds);
 input	clk;
-output	[7:0] bank0;
-output	[7:0] bank1;
-output	[7:0] bank2;
-output	[7:0] bank3;
+output	[7:0] leds;
 
-wire	[31:0] syn__000_;
-//wire	syn__000_[0];
-wire	[7:0] syn__011_;
-//wire	syn__011_[0];
-//wire	syn__000_[10];
-//wire	syn__000_[11];
-//wire	syn__000_[12];
-//wire	syn__000_[13];
-//wire	syn__000_[14];
-//wire	syn__000_[15];
-//wire	syn__000_[16];
-//wire	syn__000_[17];
-//wire	syn__000_[18];
-//wire	syn__000_[19];
-//wire	syn__000_[1];
-//wire	syn__000_[20];
-//wire	syn__000_[21];
-//wire	syn__000_[22];
-//wire	syn__000_[23];
-//wire	syn__000_[24];
-//wire	syn__000_[25];
-//wire	syn__000_[26];
-//wire	syn__000_[27];
-//wire	syn__000_[28];
-//wire	syn__000_[29];
-//wire	syn__000_[2];
-//wire	syn__000_[30];
-//wire	syn__000_[31];
-//wire	syn__000_[3];
-//wire	syn__000_[4];
-//wire	syn__000_[5];
-//wire	syn__000_[6];
-//wire	syn__000_[7];
-//wire	syn__000_[8];
-//wire	syn__000_[9];
-wire	syn__001_;
-wire	syn__002_;
-wire	syn__003_;
-wire	syn__004_;
-wire	syn__005_;
-wire	syn__006_;
-wire	syn__007_;
-wire	syn__008_;
-wire	syn__009_;
-wire	syn__010_;
-wire	\syn__011_[0]_inv ;
-//wire	syn__011_[1];
-//wire	syn__011_[2];
-//wire	syn__011_[3];
-//wire	syn__011_[4];
-//wire	syn__011_[5];
-//wire	syn__011_[6];
-//wire	syn__011_[7];
-wire	[7:0] syn__012_;
-//wire	syn__012_[0];
-//wire	syn__012_[1];
-//wire	syn__012_[2];
-//wire	syn__012_[3];
-//wire	syn__012_[4];
-//wire	syn__012_[5];
-//wire	syn__012_[6];
-//wire	syn__012_[7];
-wire	[7:0] syn__013_;
-//wire	syn__013_[0];
-//wire	syn__013_[1];
-//wire	syn__013_[2];
-//wire	syn__013_[3];
-//wire	syn__013_[4];
-//wire	syn__013_[5];
-//wire	syn__013_[6];
-//wire	syn__013_[7];
-wire	[7:0] syn__014_;
-//wire	syn__014_[0];
-//wire	syn__014_[1];
-//wire	syn__014_[2];
-//wire	syn__014_[3];
-//wire	syn__014_[4];
-//wire	syn__014_[5];
-//wire	syn__014_[6];
-//wire	syn__014_[7];
-wire	syn__015_;
+wire	[25:0] syn__00_;
+//wire	syn__00_[0];
+wire	[25:0] counter;
+//wire	counter[0];
+wire	\counter[0]_inv ;
+//wire	counter[10];
+//wire	counter[11];
+//wire	counter[12];
+//wire	counter[13];
+//wire	counter[14];
+//wire	counter[15];
+//wire	counter[16];
+//wire	counter[17];
+//wire	counter[18];
+//wire	counter[19];
+//wire	counter[1];
+//wire	counter[20];
+//wire	counter[21];
+//wire	counter[22];
+//wire	counter[23];
+//wire	counter[24];
+//wire	counter[25];
+//wire	counter[2];
+//wire	counter[3];
+//wire	counter[4];
+//wire	counter[5];
+//wire	counter[6];
+//wire	counter[7];
+//wire	counter[8];
+//wire	counter[9];
+//wire	syn__00_[10];
+//wire	syn__00_[11];
+//wire	syn__00_[12];
+//wire	syn__00_[13];
+//wire	syn__00_[14];
+//wire	syn__00_[15];
+//wire	syn__00_[16];
+//wire	syn__00_[17];
+//wire	syn__00_[18];
+//wire	syn__00_[19];
+//wire	syn__00_[1];
+//wire	syn__00_[20];
+//wire	syn__00_[21];
+//wire	syn__00_[22];
+//wire	syn__00_[23];
+//wire	syn__00_[24];
+//wire	syn__00_[25];
+//wire	syn__00_[2];
+//wire	syn__00_[3];
+//wire	syn__00_[4];
+//wire	syn__00_[5];
+//wire	syn__00_[6];
+//wire	syn__00_[7];
+//wire	syn__00_[8];
+//wire	syn__00_[9];
+wire	syn__01_;
+wire	syn__02_;
+wire	syn__03_;
+wire	syn__04_;
+wire	syn__05_;
+wire	syn__06_;
+wire	syn__07_;
+wire	syn__08_;
+wire	syn__09_;
+wire	[7:0] syn__10_;
+//wire	syn__10_[0];
+//wire	syn__10_[1];
+//wire	syn__10_[2];
+//wire	syn__10_[3];
+//wire	syn__10_[4];
+//wire	syn__10_[5];
+//wire	syn__10_[6];
+//wire	syn__10_[7];
 
 assign vcc = 1'b1;
 assign gnd = 1'b0;
 
-// Location: PIN_43
-// alta_io_obuf syn__057_(
-alta_rio syn__057_(
-	.datain(syn__011_[0]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[0]));
-defparam syn__057_.CFG_KEEP = 2'b00;
-// defparam syn__057_.open_drain_output = "false";
-
-// Location: PIN_44
-// alta_io_obuf syn__058_(
-alta_rio syn__058_(
-	.datain(syn__011_[1]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[1]));
-defparam syn__058_.CFG_KEEP = 2'b00;
-// defparam syn__058_.open_drain_output = "false";
-
-// Location: PIN_45
-// alta_io_obuf syn__059_(
-alta_rio syn__059_(
-	.datain(syn__011_[2]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[2]));
-defparam syn__059_.CFG_KEEP = 2'b00;
-// defparam syn__059_.open_drain_output = "false";
-
-// Location: PIN_46
-// alta_io_obuf syn__060_(
-alta_rio syn__060_(
-	.datain(syn__011_[3]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[3]));
-defparam syn__060_.CFG_KEEP = 2'b00;
-// defparam syn__060_.open_drain_output = "false";
-
-// Location: PIN_47
-// alta_io_obuf syn__061_(
-alta_rio syn__061_(
-	.datain(syn__011_[4]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[4]));
-defparam syn__061_.CFG_KEEP = 2'b00;
-// defparam syn__061_.open_drain_output = "false";
-
-// Location: PIN_48
-// alta_io_obuf syn__062_(
-alta_rio syn__062_(
-	.datain(syn__011_[5]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[5]));
-defparam syn__062_.CFG_KEEP = 2'b00;
-// defparam syn__062_.open_drain_output = "false";
-
-// Location: PIN_49
-// alta_io_obuf syn__063_(
-alta_rio syn__063_(
-	.datain(syn__011_[6]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[6]));
-defparam syn__063_.CFG_KEEP = 2'b00;
-// defparam syn__063_.open_drain_output = "false";
-
-// Location: PIN_50
-// alta_io_obuf syn__064_(
-alta_rio syn__064_(
-	.datain(syn__011_[7]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank0[7]));
-defparam syn__064_.CFG_KEEP = 2'b00;
-// defparam syn__064_.open_drain_output = "false";
-
-// Location: PIN_51
-// alta_io_obuf syn__065_(
-alta_rio syn__065_(
-	.datain(syn__012_[0]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[0]));
-defparam syn__065_.CFG_KEEP = 2'b00;
-// defparam syn__065_.open_drain_output = "false";
-
-// Location: PIN_52
-// alta_io_obuf syn__066_(
-alta_rio syn__066_(
-	.datain(syn__012_[1]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[1]));
-defparam syn__066_.CFG_KEEP = 2'b00;
-// defparam syn__066_.open_drain_output = "false";
-
-// Location: PIN_53
-// alta_io_obuf syn__067_(
-alta_rio syn__067_(
-	.datain(syn__012_[2]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[2]));
-defparam syn__067_.CFG_KEEP = 2'b00;
-// defparam syn__067_.open_drain_output = "false";
-
-// Location: PIN_54
-// alta_io_obuf syn__068_(
-alta_rio syn__068_(
-	.datain(syn__012_[3]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[3]));
-defparam syn__068_.CFG_KEEP = 2'b00;
-// defparam syn__068_.open_drain_output = "false";
-
-// Location: PIN_55
-// alta_io_obuf syn__069_(
-alta_rio syn__069_(
-	.datain(syn__012_[4]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[4]));
-defparam syn__069_.CFG_KEEP = 2'b00;
-// defparam syn__069_.open_drain_output = "false";
-
-// Location: PIN_56
-// alta_io_obuf syn__070_(
-alta_rio syn__070_(
-	.datain(syn__012_[5]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[5]));
-defparam syn__070_.CFG_KEEP = 2'b00;
-// defparam syn__070_.open_drain_output = "false";
-
-// Location: PIN_57
-// alta_io_obuf syn__071_(
-alta_rio syn__071_(
-	.datain(syn__012_[6]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[6]));
-defparam syn__071_.CFG_KEEP = 2'b00;
-// defparam syn__071_.open_drain_output = "false";
-
-// Location: PIN_58
-// alta_io_obuf syn__072_(
-alta_rio syn__072_(
-	.datain(syn__012_[7]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank1[7]));
-defparam syn__072_.CFG_KEEP = 2'b00;
-// defparam syn__072_.open_drain_output = "false";
-
-// Location: PIN_59
-// alta_io_obuf syn__073_(
-alta_rio syn__073_(
-	.datain(syn__013_[0]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[0]));
-defparam syn__073_.CFG_KEEP = 2'b00;
-// defparam syn__073_.open_drain_output = "false";
-
-// Location: PIN_60
-// alta_io_obuf syn__074_(
-alta_rio syn__074_(
-	.datain(syn__013_[1]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[1]));
-defparam syn__074_.CFG_KEEP = 2'b00;
-// defparam syn__074_.open_drain_output = "false";
-
-// Location: PIN_61
-// alta_io_obuf syn__075_(
-alta_rio syn__075_(
-	.datain(syn__013_[2]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[2]));
-defparam syn__075_.CFG_KEEP = 2'b00;
-// defparam syn__075_.open_drain_output = "false";
-
-// Location: PIN_62
-// alta_io_obuf syn__076_(
-alta_rio syn__076_(
-	.datain(syn__013_[3]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[3]));
-defparam syn__076_.CFG_KEEP = 2'b00;
-// defparam syn__076_.open_drain_output = "false";
-
-// Location: PIN_63
-// alta_io_obuf syn__077_(
-alta_rio syn__077_(
-	.datain(syn__013_[4]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[4]));
-defparam syn__077_.CFG_KEEP = 2'b00;
-// defparam syn__077_.open_drain_output = "false";
-
-// Location: PIN_64
-// alta_io_obuf syn__078_(
-alta_rio syn__078_(
-	.datain(syn__013_[5]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[5]));
-defparam syn__078_.CFG_KEEP = 2'b00;
-// defparam syn__078_.open_drain_output = "false";
-
-// Location: PIN_65
-// alta_io_obuf syn__079_(
-alta_rio syn__079_(
-	.datain(syn__013_[6]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[6]));
-defparam syn__079_.CFG_KEEP = 2'b00;
-// defparam syn__079_.open_drain_output = "false";
-
-// Location: PIN_66
-// alta_io_obuf syn__080_(
-alta_rio syn__080_(
-	.datain(syn__013_[7]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank2[7]));
-defparam syn__080_.CFG_KEEP = 2'b00;
-// defparam syn__080_.open_drain_output = "false";
-
-// Location: PIN_67
-// alta_io_obuf syn__081_(
-alta_rio syn__081_(
-	.datain(syn__014_[0]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[0]));
-defparam syn__081_.CFG_KEEP = 2'b00;
-// defparam syn__081_.open_drain_output = "false";
-
-// Location: PIN_68
-// alta_io_obuf syn__082_(
-alta_rio syn__082_(
-	.datain(syn__014_[1]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[1]));
-defparam syn__082_.CFG_KEEP = 2'b00;
-// defparam syn__082_.open_drain_output = "false";
-
-// Location: PIN_69
-// alta_io_obuf syn__083_(
-alta_rio syn__083_(
-	.datain(syn__014_[2]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[2]));
-defparam syn__083_.CFG_KEEP = 2'b00;
-// defparam syn__083_.open_drain_output = "false";
-
-// Location: PIN_70
-// alta_io_obuf syn__084_(
-alta_rio syn__084_(
-	.datain(syn__014_[3]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[3]));
-defparam syn__084_.CFG_KEEP = 2'b00;
-// defparam syn__084_.open_drain_output = "false";
-
-// Location: PIN_71
-// alta_io_obuf syn__085_(
-alta_rio syn__085_(
-	.datain(syn__014_[4]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[4]));
-defparam syn__085_.CFG_KEEP = 2'b00;
-// defparam syn__085_.open_drain_output = "false";
-
-// Location: PIN_72
-// alta_io_obuf syn__086_(
-alta_rio syn__086_(
-	.datain(syn__014_[5]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[5]));
-defparam syn__086_.CFG_KEEP = 2'b00;
-// defparam syn__086_.open_drain_output = "false";
-
-// Location: PIN_73
-// alta_io_obuf syn__087_(
-alta_rio syn__087_(
-	.datain(syn__014_[6]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[6]));
-defparam syn__087_.CFG_KEEP = 2'b00;
-// defparam syn__087_.open_drain_output = "false";
-
-// Location: PIN_74
-// alta_io_obuf syn__088_(
-alta_rio syn__088_(
-	.datain(syn__014_[7]),
-	.oe(vcc),
-	.outclk(gnd),
-	.outclkena(vcc),
-	.inclk(gnd),
-	.inclkena(vcc),
-	.areset(gnd),
-	.sreset(gnd),
-	.combout(),
-	.regout(),
-	.padio(bank3[7]));
-defparam syn__088_.CFG_KEEP = 2'b00;
-// defparam syn__088_.open_drain_output = "false";
-
-// Location: PIN_75
-// alta_io_ibuf syn__089_(
-alta_rio syn__089_(
+// Location: PIN_35
+// alta_io_ibuf syn__44_(
+alta_rio syn__44_(
 	.datain(gnd),
 	.oe(gnd),
 	.outclk(gnd),
@@ -652,449 +94,272 @@ alta_rio syn__089_(
 	.inclkena(vcc),
 	.areset(gnd),
 	.sreset(gnd),
-	.combout(syn__015_),
+	.combout(syn__09_),
 	.regout(),
 	.padio(clk));
-defparam syn__089_.CFG_KEEP = 2'b00;
-// defparam syn__089_.differential_mode = "false";
-// defparam syn__089_.simulate_z_as = "Z";
+defparam syn__44_.CFG_KEEP = 2'b00;
+// defparam syn__44_.differential_mode = "false";
+// defparam syn__44_.simulate_z_as = "Z";
+
+// Location: PIN_36
+// alta_io_obuf syn__45_(
+alta_rio syn__45_(
+	.datain(syn__10_[0]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(leds[0]));
+defparam syn__45_.CFG_KEEP = 2'b00;
+// defparam syn__45_.open_drain_output = "false";
+
+// Location: PIN_37
+// alta_io_obuf syn__46_(
+alta_rio syn__46_(
+	.datain(syn__10_[1]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(leds[1]));
+defparam syn__46_.CFG_KEEP = 2'b00;
+// defparam syn__46_.open_drain_output = "false";
+
+// Location: PIN_38
+// alta_io_obuf syn__47_(
+alta_rio syn__47_(
+	.datain(syn__10_[2]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(leds[2]));
+defparam syn__47_.CFG_KEEP = 2'b00;
+// defparam syn__47_.open_drain_output = "false";
+
+// Location: PIN_39
+// alta_io_obuf syn__48_(
+alta_rio syn__48_(
+	.datain(syn__10_[3]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(leds[3]));
+defparam syn__48_.CFG_KEEP = 2'b00;
+// defparam syn__48_.open_drain_output = "false";
+
+// Location: PIN_40
+// alta_io_obuf syn__49_(
+alta_rio syn__49_(
+	.datain(syn__10_[4]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(leds[4]));
+defparam syn__49_.CFG_KEEP = 2'b00;
+// defparam syn__49_.open_drain_output = "false";
+
+// Location: PIN_41
+// alta_io_obuf syn__50_(
+alta_rio syn__50_(
+	.datain(syn__10_[5]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(leds[5]));
+defparam syn__50_.CFG_KEEP = 2'b00;
+// defparam syn__50_.open_drain_output = "false";
+
+// Location: PIN_42
+// alta_io_obuf syn__51_(
+alta_rio syn__51_(
+	.datain(syn__10_[6]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(leds[6]));
+defparam syn__51_.CFG_KEEP = 2'b00;
+// defparam syn__51_.open_drain_output = "false";
+
+// Location: PIN_43
+// alta_io_obuf syn__52_(
+alta_rio syn__52_(
+	.datain(syn__10_[7]),
+	.oe(vcc),
+	.outclk(gnd),
+	.outclkena(vcc),
+	.inclk(gnd),
+	.inclkena(vcc),
+	.areset(gnd),
+	.sreset(gnd),
+	.combout(),
+	.regout(),
+	.padio(leds[7]));
+defparam syn__52_.CFG_KEEP = 2'b00;
+// defparam syn__52_.open_drain_output = "false";
 
 // Location: LCCELL_X1009_Y1001_N0
-// alta_lcell_comb syn__021_(
+// alta_lcell_comb syn__11_(
 // Location: LCCELL_X1009_Y1001_N0
-// alta_lcell_ff syn__095_(
-alta_slice syn__095_(
-	.A(syn__003_),
-	.B(syn__011_[4]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__011_[5]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[5]),
-	.Cout(),
-	.Q(syn__011_[5]));
-defparam syn__095_.mask = 16'h7878;
-defparam syn__095_.mode = "logic";
-defparam syn__095_.modeMux = 1'b0;
-defparam syn__095_.FeedbackMux = 1'b1;
-defparam syn__095_.ShiftMux = 1'b0;
-defparam syn__095_.BypassEn = 1'b0;
-defparam syn__095_.CarryEnb = 1'b1;
-defparam syn__095_.AsyncResetMux = 2'b00;
-defparam syn__095_.SyncResetMux = 2'bxx;
-defparam syn__095_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N10
-// alta_lcell_comb syn__025_(
-// Location: LCCELL_X1009_Y1001_N10
-// alta_lcell_ff syn__098_(
-alta_slice syn__098_(
-	.A(syn__004_),
-	.B(syn__011_[7]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__012_[0]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[8]),
-	.Cout(),
-	.Q(syn__012_[0]));
-defparam syn__098_.mask = 16'h7878;
-defparam syn__098_.mode = "logic";
-defparam syn__098_.modeMux = 1'b0;
-defparam syn__098_.FeedbackMux = 1'b1;
-defparam syn__098_.ShiftMux = 1'b0;
-defparam syn__098_.BypassEn = 1'b0;
-defparam syn__098_.CarryEnb = 1'b1;
-defparam syn__098_.AsyncResetMux = 2'b00;
-defparam syn__098_.SyncResetMux = 2'bxx;
-defparam syn__098_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N12
-// alta_lcell_comb syn__023_(
-// Location: LCCELL_X1009_Y1001_N12
-// alta_lcell_ff syn__097_(
-alta_slice syn__097_(
-	.A(syn__004_),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__011_[7]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[7]),
-	.Cout(),
-	.Q(syn__011_[7]));
-defparam syn__097_.mask = 16'h5A5A;
-defparam syn__097_.mode = "logic";
-defparam syn__097_.modeMux = 1'b0;
-defparam syn__097_.FeedbackMux = 1'b1;
-defparam syn__097_.ShiftMux = 1'b0;
-defparam syn__097_.BypassEn = 1'b0;
-defparam syn__097_.CarryEnb = 1'b1;
-defparam syn__097_.AsyncResetMux = 2'b00;
-defparam syn__097_.SyncResetMux = 2'bxx;
-defparam syn__097_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N14
-// alta_lcell_comb syn__022_(
-// Location: LCCELL_X1009_Y1001_N14
-// alta_lcell_ff syn__096_(
-alta_slice syn__096_(
-	.A(syn__003_),
-	.B(syn__011_[4]),
-	.C(vcc),
-	.D(syn__011_[5]),
-	.Cin(),
-	.Qin(syn__011_[6]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[6]),
-	.Cout(),
-	.Q(syn__011_[6]));
-defparam syn__096_.mask = 16'h78F0;
-defparam syn__096_.mode = "logic";
-defparam syn__096_.modeMux = 1'b0;
-defparam syn__096_.FeedbackMux = 1'b1;
-defparam syn__096_.ShiftMux = 1'b0;
-defparam syn__096_.BypassEn = 1'b0;
-defparam syn__096_.CarryEnb = 1'b1;
-defparam syn__096_.AsyncResetMux = 2'b00;
-defparam syn__096_.SyncResetMux = 2'bxx;
-defparam syn__096_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N16
-// alta_lcell_comb syn__024_(
-alta_slice syn__024_(
-	.A(syn__003_),
-	.B(syn__011_[4]),
-	.C(syn__011_[5]),
-	.D(syn__011_[6]),
-	.Cin(),
-	.Qin(),
-	.Clk(),
-	.AsyncReset(),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__004_),
-	.Cout(),
-	.Q());
-defparam syn__024_.mask = 16'h8000;
-defparam syn__024_.mode = "logic";
-defparam syn__024_.modeMux = 1'b0;
-defparam syn__024_.FeedbackMux = 1'b0;
-defparam syn__024_.ShiftMux = 1'b0;
-defparam syn__024_.BypassEn = 1'b0;
-defparam syn__024_.CarryEnb = 1'b1;
-defparam syn__024_.AsyncResetMux = 2'bxx;
-defparam syn__024_.SyncResetMux = 2'bxx;
-defparam syn__024_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N18
-// alta_lcell_comb syn__027_(
-// Location: LCCELL_X1009_Y1001_N18
-// alta_lcell_ff syn__100_(
-alta_slice syn__100_(
-	.A(syn__005_),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__012_[2]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[10]),
-	.Cout(),
-	.Q(syn__012_[2]));
-defparam syn__100_.mask = 16'h5A5A;
-defparam syn__100_.mode = "logic";
-defparam syn__100_.modeMux = 1'b0;
-defparam syn__100_.FeedbackMux = 1'b1;
-defparam syn__100_.ShiftMux = 1'b0;
-defparam syn__100_.BypassEn = 1'b0;
-defparam syn__100_.CarryEnb = 1'b1;
-defparam syn__100_.AsyncResetMux = 2'b00;
-defparam syn__100_.SyncResetMux = 2'bxx;
-defparam syn__100_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N2
-// alta_lcell_comb syn__019_(
-// Location: LCCELL_X1009_Y1001_N2
-// alta_lcell_ff syn__094_(
-alta_slice syn__094_(
-	.A(syn__003_),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__011_[4]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[4]),
-	.Cout(),
-	.Q(syn__011_[4]));
-defparam syn__094_.mask = 16'h5A5A;
-defparam syn__094_.mode = "logic";
-defparam syn__094_.modeMux = 1'b0;
-defparam syn__094_.FeedbackMux = 1'b1;
-defparam syn__094_.ShiftMux = 1'b0;
-defparam syn__094_.BypassEn = 1'b0;
-defparam syn__094_.CarryEnb = 1'b1;
-defparam syn__094_.AsyncResetMux = 2'b00;
-defparam syn__094_.SyncResetMux = 2'bxx;
-defparam syn__094_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N20
-// alta_lcell_comb syn__017_(
-// Location: LCCELL_X1009_Y1001_N20
-// alta_lcell_ff syn__092_(
-alta_slice syn__092_(
-	.A(syn__011_[1]),
-	.B(syn__011_[0]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__011_[2]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[2]),
-	.Cout(),
-	.Q(syn__011_[2]));
-defparam syn__092_.mask = 16'h7878;
-defparam syn__092_.mode = "logic";
-defparam syn__092_.modeMux = 1'b0;
-defparam syn__092_.FeedbackMux = 1'b1;
-defparam syn__092_.ShiftMux = 1'b0;
-defparam syn__092_.BypassEn = 1'b0;
-defparam syn__092_.CarryEnb = 1'b1;
-defparam syn__092_.AsyncResetMux = 2'b00;
-defparam syn__092_.SyncResetMux = 2'bxx;
-defparam syn__092_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N22
-// alta_lcell_comb syn__029_(
-// Location: LCCELL_X1009_Y1001_N22
-// alta_lcell_ff syn__101_(
-alta_slice syn__101_(
-	.A(syn__005_),
-	.B(syn__012_[2]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__012_[3]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[11]),
-	.Cout(),
-	.Q(syn__012_[3]));
-defparam syn__101_.mask = 16'h7878;
-defparam syn__101_.mode = "logic";
-defparam syn__101_.modeMux = 1'b0;
-defparam syn__101_.FeedbackMux = 1'b1;
-defparam syn__101_.ShiftMux = 1'b0;
-defparam syn__101_.BypassEn = 1'b0;
-defparam syn__101_.CarryEnb = 1'b1;
-defparam syn__101_.AsyncResetMux = 2'b00;
-defparam syn__101_.SyncResetMux = 2'bxx;
-defparam syn__101_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N24
-// alta_lcell_comb syn__028_(
-alta_slice syn__028_(
-	.A(syn__004_),
-	.B(syn__011_[7]),
-	.C(syn__012_[0]),
-	.D(syn__012_[1]),
-	.Cin(),
-	.Qin(),
-	.Clk(),
-	.AsyncReset(),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__005_),
-	.Cout(),
-	.Q());
-defparam syn__028_.mask = 16'h8000;
-defparam syn__028_.mode = "logic";
-defparam syn__028_.modeMux = 1'b0;
-defparam syn__028_.FeedbackMux = 1'b0;
-defparam syn__028_.ShiftMux = 1'b0;
-defparam syn__028_.BypassEn = 1'b0;
-defparam syn__028_.CarryEnb = 1'b1;
-defparam syn__028_.AsyncResetMux = 2'bxx;
-defparam syn__028_.SyncResetMux = 2'bxx;
-defparam syn__028_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N26
-// alta_lcell_comb syn__018_(
-// Location: LCCELL_X1009_Y1001_N26
-// alta_lcell_ff syn__093_(
-alta_slice syn__093_(
-	.A(syn__011_[1]),
-	.B(syn__011_[0]),
-	.C(vcc),
-	.D(syn__011_[2]),
-	.Cin(),
-	.Qin(syn__011_[3]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1009_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[3]),
-	.Cout(),
-	.Q(syn__011_[3]));
-defparam syn__093_.mask = 16'h78F0;
-defparam syn__093_.mode = "logic";
-defparam syn__093_.modeMux = 1'b0;
-defparam syn__093_.FeedbackMux = 1'b1;
-defparam syn__093_.ShiftMux = 1'b0;
-defparam syn__093_.BypassEn = 1'b0;
-defparam syn__093_.CarryEnb = 1'b1;
-defparam syn__093_.AsyncResetMux = 2'b00;
-defparam syn__093_.SyncResetMux = 2'bxx;
-defparam syn__093_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N28
-// alta_lcell_comb syn__032_(
-alta_slice syn__032_(
-	.A(syn__005_),
-	.B(syn__012_[2]),
-	.C(syn__012_[3]),
-	.D(syn__012_[4]),
-	.Cin(),
-	.Qin(),
-	.Clk(),
-	.AsyncReset(),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__006_),
-	.Cout(),
-	.Q());
-defparam syn__032_.mask = 16'h8000;
-defparam syn__032_.mode = "logic";
-defparam syn__032_.modeMux = 1'b0;
-defparam syn__032_.FeedbackMux = 1'b0;
-defparam syn__032_.ShiftMux = 1'b0;
-defparam syn__032_.BypassEn = 1'b0;
-defparam syn__032_.CarryEnb = 1'b1;
-defparam syn__032_.AsyncResetMux = 2'bxx;
-defparam syn__032_.SyncResetMux = 2'bxx;
-defparam syn__032_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N30
-// alta_lcell_comb syn__016_(
-// Location: LCCELL_X1009_Y1001_N30
-// alta_lcell_ff syn__091_(
-alta_slice syn__091_(
+// alta_lcell_ff syn__54_(
+alta_slice syn__54_(
 	.A(vcc),
-	.B(syn__011_[0]),
+	.B(counter[0]),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(syn__011_[1]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[1]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[1]),
+	.LutOut(syn__00_[1]),
 	.Cout(),
-	.Q(syn__011_[1]));
-defparam syn__091_.mask = 16'h3C3C;
-defparam syn__091_.mode = "logic";
-defparam syn__091_.modeMux = 1'b0;
-defparam syn__091_.FeedbackMux = 1'b1;
-defparam syn__091_.ShiftMux = 1'b0;
-defparam syn__091_.BypassEn = 1'b0;
-defparam syn__091_.CarryEnb = 1'b1;
-defparam syn__091_.AsyncResetMux = 2'b00;
-defparam syn__091_.SyncResetMux = 2'bxx;
-defparam syn__091_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N4
-// alta_lcell_comb syn__026_(
-// Location: LCCELL_X1009_Y1001_N4
-// alta_lcell_ff syn__099_(
-alta_slice syn__099_(
-	.A(syn__004_),
-	.B(syn__011_[7]),
+	.Q(counter[1]));
+defparam syn__54_.mask = 16'h3C3C;
+defparam syn__54_.mode = "logic";
+defparam syn__54_.modeMux = 1'b0;
+defparam syn__54_.FeedbackMux = 1'b1;
+defparam syn__54_.ShiftMux = 1'b0;
+defparam syn__54_.BypassEn = 1'b0;
+defparam syn__54_.CarryEnb = 1'b1;
+defparam syn__54_.AsyncResetMux = 2'b00;
+defparam syn__54_.SyncResetMux = 2'bxx;
+defparam syn__54_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N10
+// alta_lcell_comb syn__14_(
+// Location: LCCELL_X1009_Y1001_N10
+// alta_lcell_ff syn__57_(
+alta_slice syn__57_(
+	.A(syn__01_),
+	.B(vcc),
 	.C(vcc),
-	.D(syn__012_[0]),
+	.D(vcc),
 	.Cin(),
-	.Qin(syn__012_[1]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[4]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[9]),
+	.LutOut(syn__00_[4]),
 	.Cout(),
-	.Q(syn__012_[1]));
-defparam syn__099_.mask = 16'h78F0;
-defparam syn__099_.mode = "logic";
-defparam syn__099_.modeMux = 1'b0;
-defparam syn__099_.FeedbackMux = 1'b1;
-defparam syn__099_.ShiftMux = 1'b0;
-defparam syn__099_.BypassEn = 1'b0;
-defparam syn__099_.CarryEnb = 1'b1;
-defparam syn__099_.AsyncResetMux = 2'b00;
-defparam syn__099_.SyncResetMux = 2'bxx;
-defparam syn__099_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N6
-// alta_lcell_comb syn__030_(
-// Location: LCCELL_X1009_Y1001_N6
-// alta_lcell_ff syn__102_(
-alta_slice syn__102_(
-	.A(syn__005_),
-	.B(syn__012_[2]),
+	.Q(counter[4]));
+defparam syn__57_.mask = 16'h5A5A;
+defparam syn__57_.mode = "logic";
+defparam syn__57_.modeMux = 1'b0;
+defparam syn__57_.FeedbackMux = 1'b1;
+defparam syn__57_.ShiftMux = 1'b0;
+defparam syn__57_.BypassEn = 1'b0;
+defparam syn__57_.CarryEnb = 1'b1;
+defparam syn__57_.AsyncResetMux = 2'b00;
+defparam syn__57_.SyncResetMux = 2'bxx;
+defparam syn__57_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N12
+// alta_lcell_comb syn__21_(
+// Location: LCCELL_X1009_Y1001_N12
+// alta_lcell_ff syn__62_(
+alta_slice syn__62_(
+	.A(syn__02_),
+	.B(counter[7]),
 	.C(vcc),
-	.D(syn__012_[3]),
+	.D(counter[8]),
 	.Cin(),
-	.Qin(syn__012_[4]),
-	.Clk(syn__015__X1009_Y1001_SIG_VCC),
+	.Qin(counter[9]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1009_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[12]),
+	.LutOut(syn__00_[9]),
 	.Cout(),
-	.Q(syn__012_[4]));
-defparam syn__102_.mask = 16'h78F0;
-defparam syn__102_.mode = "logic";
-defparam syn__102_.modeMux = 1'b0;
-defparam syn__102_.FeedbackMux = 1'b1;
-defparam syn__102_.ShiftMux = 1'b0;
-defparam syn__102_.BypassEn = 1'b0;
-defparam syn__102_.CarryEnb = 1'b1;
-defparam syn__102_.AsyncResetMux = 2'b00;
-defparam syn__102_.SyncResetMux = 2'bxx;
-defparam syn__102_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1009_Y1001_N8
-// alta_lcell_comb syn__020_(
-alta_slice syn__020_(
-	.A(syn__011_[1]),
-	.B(syn__011_[0]),
-	.C(syn__011_[2]),
-	.D(syn__011_[3]),
+	.Q(counter[9]));
+defparam syn__62_.mask = 16'h78F0;
+defparam syn__62_.mode = "logic";
+defparam syn__62_.modeMux = 1'b0;
+defparam syn__62_.FeedbackMux = 1'b1;
+defparam syn__62_.ShiftMux = 1'b0;
+defparam syn__62_.BypassEn = 1'b0;
+defparam syn__62_.CarryEnb = 1'b1;
+defparam syn__62_.AsyncResetMux = 2'b00;
+defparam syn__62_.SyncResetMux = 2'bxx;
+defparam syn__62_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N14
+// alta_lcell_comb syn__12_(
+// Location: LCCELL_X1009_Y1001_N14
+// alta_lcell_ff syn__55_(
+alta_slice syn__55_(
+	.A(counter[1]),
+	.B(counter[0]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[2]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[2]),
+	.Cout(),
+	.Q(counter[2]));
+defparam syn__55_.mask = 16'h7878;
+defparam syn__55_.mode = "logic";
+defparam syn__55_.modeMux = 1'b0;
+defparam syn__55_.FeedbackMux = 1'b1;
+defparam syn__55_.ShiftMux = 1'b0;
+defparam syn__55_.BypassEn = 1'b0;
+defparam syn__55_.CarryEnb = 1'b1;
+defparam syn__55_.AsyncResetMux = 2'b00;
+defparam syn__55_.SyncResetMux = 2'bxx;
+defparam syn__55_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N16
+// alta_lcell_comb syn__19_(
+alta_slice syn__19_(
+	.A(syn__01_),
+	.B(counter[4]),
+	.C(counter[5]),
+	.D(counter[6]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -1102,22 +367,335 @@ alta_slice syn__020_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__003_),
+	.LutOut(syn__02_),
 	.Cout(),
 	.Q());
-defparam syn__020_.mask = 16'h8000;
-defparam syn__020_.mode = "logic";
-defparam syn__020_.modeMux = 1'b0;
-defparam syn__020_.FeedbackMux = 1'b0;
-defparam syn__020_.ShiftMux = 1'b0;
-defparam syn__020_.BypassEn = 1'b0;
-defparam syn__020_.CarryEnb = 1'b1;
-defparam syn__020_.AsyncResetMux = 2'bxx;
-defparam syn__020_.SyncResetMux = 2'bxx;
-defparam syn__020_.SyncLoadMux = 2'bxx;
+defparam syn__19_.mask = 16'h8000;
+defparam syn__19_.mode = "logic";
+defparam syn__19_.modeMux = 1'b0;
+defparam syn__19_.FeedbackMux = 1'b0;
+defparam syn__19_.ShiftMux = 1'b0;
+defparam syn__19_.BypassEn = 1'b0;
+defparam syn__19_.CarryEnb = 1'b1;
+defparam syn__19_.AsyncResetMux = 2'bxx;
+defparam syn__19_.SyncResetMux = 2'bxx;
+defparam syn__19_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N18
+// alta_lcell_comb syn__20_(
+// Location: LCCELL_X1009_Y1001_N18
+// alta_lcell_ff syn__61_(
+alta_slice syn__61_(
+	.A(syn__02_),
+	.B(counter[7]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[8]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[8]),
+	.Cout(),
+	.Q(counter[8]));
+defparam syn__61_.mask = 16'h7878;
+defparam syn__61_.mode = "logic";
+defparam syn__61_.modeMux = 1'b0;
+defparam syn__61_.FeedbackMux = 1'b1;
+defparam syn__61_.ShiftMux = 1'b0;
+defparam syn__61_.BypassEn = 1'b0;
+defparam syn__61_.CarryEnb = 1'b1;
+defparam syn__61_.AsyncResetMux = 2'b00;
+defparam syn__61_.SyncResetMux = 2'bxx;
+defparam syn__61_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N2
+// alta_lcell_comb syn__16_(
+// Location: LCCELL_X1009_Y1001_N2
+// alta_lcell_ff syn__58_(
+alta_slice syn__58_(
+	.A(syn__01_),
+	.B(counter[4]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[5]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[5]),
+	.Cout(),
+	.Q(counter[5]));
+defparam syn__58_.mask = 16'h7878;
+defparam syn__58_.mode = "logic";
+defparam syn__58_.modeMux = 1'b0;
+defparam syn__58_.FeedbackMux = 1'b1;
+defparam syn__58_.ShiftMux = 1'b0;
+defparam syn__58_.BypassEn = 1'b0;
+defparam syn__58_.CarryEnb = 1'b1;
+defparam syn__58_.AsyncResetMux = 2'b00;
+defparam syn__58_.SyncResetMux = 2'bxx;
+defparam syn__58_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N20
+// alta_lcell_comb syn__18_(
+// Location: LCCELL_X1009_Y1001_N20
+// alta_lcell_ff syn__60_(
+alta_slice syn__60_(
+	.A(syn__02_),
+	.B(vcc),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[7]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[7]),
+	.Cout(),
+	.Q(counter[7]));
+defparam syn__60_.mask = 16'h5A5A;
+defparam syn__60_.mode = "logic";
+defparam syn__60_.modeMux = 1'b0;
+defparam syn__60_.FeedbackMux = 1'b1;
+defparam syn__60_.ShiftMux = 1'b0;
+defparam syn__60_.BypassEn = 1'b0;
+defparam syn__60_.CarryEnb = 1'b1;
+defparam syn__60_.AsyncResetMux = 2'b00;
+defparam syn__60_.SyncResetMux = 2'bxx;
+defparam syn__60_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N22
+// alta_lcell_comb \counter[0]_inv~I (
+// Location: LCCELL_X1009_Y1001_N22
+// alta_lcell_ff syn__53_(
+alta_slice syn__53_(
+	.A(),
+	.B(),
+	.C(vcc),
+	.D(),
+	.Cin(),
+	.Qin(counter[0]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(\counter[0]_inv ),
+	.Cout(),
+	.Q(counter[0]));
+defparam syn__53_.mask = 16'h0F0F;
+defparam syn__53_.mode = "logic";
+defparam syn__53_.modeMux = 1'b0;
+defparam syn__53_.FeedbackMux = 1'b1;
+defparam syn__53_.ShiftMux = 1'b0;
+defparam syn__53_.BypassEn = 1'b0;
+defparam syn__53_.CarryEnb = 1'b1;
+defparam syn__53_.AsyncResetMux = 2'b00;
+defparam syn__53_.SyncResetMux = 2'bxx;
+defparam syn__53_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N24
+// alta_lcell_comb syn__23_(
+alta_slice syn__23_(
+	.A(syn__02_),
+	.B(counter[7]),
+	.C(counter[8]),
+	.D(counter[9]),
+	.Cin(),
+	.Qin(),
+	.Clk(),
+	.AsyncReset(),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__03_),
+	.Cout(),
+	.Q());
+defparam syn__23_.mask = 16'h8000;
+defparam syn__23_.mode = "logic";
+defparam syn__23_.modeMux = 1'b0;
+defparam syn__23_.FeedbackMux = 1'b0;
+defparam syn__23_.ShiftMux = 1'b0;
+defparam syn__23_.BypassEn = 1'b0;
+defparam syn__23_.CarryEnb = 1'b1;
+defparam syn__23_.AsyncResetMux = 2'bxx;
+defparam syn__23_.SyncResetMux = 2'bxx;
+defparam syn__23_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N26
+// alta_lcell_comb syn__25_(
+// Location: LCCELL_X1009_Y1001_N26
+// alta_lcell_ff syn__65_(
+alta_slice syn__65_(
+	.A(syn__03_),
+	.B(counter[10]),
+	.C(vcc),
+	.D(counter[11]),
+	.Cin(),
+	.Qin(counter[12]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[12]),
+	.Cout(),
+	.Q(counter[12]));
+defparam syn__65_.mask = 16'h78F0;
+defparam syn__65_.mode = "logic";
+defparam syn__65_.modeMux = 1'b0;
+defparam syn__65_.FeedbackMux = 1'b1;
+defparam syn__65_.ShiftMux = 1'b0;
+defparam syn__65_.BypassEn = 1'b0;
+defparam syn__65_.CarryEnb = 1'b1;
+defparam syn__65_.AsyncResetMux = 2'b00;
+defparam syn__65_.SyncResetMux = 2'bxx;
+defparam syn__65_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N28
+// alta_lcell_comb syn__24_(
+// Location: LCCELL_X1009_Y1001_N28
+// alta_lcell_ff syn__64_(
+alta_slice syn__64_(
+	.A(syn__03_),
+	.B(counter[10]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[11]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[11]),
+	.Cout(),
+	.Q(counter[11]));
+defparam syn__64_.mask = 16'h7878;
+defparam syn__64_.mode = "logic";
+defparam syn__64_.modeMux = 1'b0;
+defparam syn__64_.FeedbackMux = 1'b1;
+defparam syn__64_.ShiftMux = 1'b0;
+defparam syn__64_.BypassEn = 1'b0;
+defparam syn__64_.CarryEnb = 1'b1;
+defparam syn__64_.AsyncResetMux = 2'b00;
+defparam syn__64_.SyncResetMux = 2'bxx;
+defparam syn__64_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N30
+// alta_lcell_comb syn__27_(
+alta_slice syn__27_(
+	.A(syn__03_),
+	.B(counter[10]),
+	.C(counter[11]),
+	.D(counter[12]),
+	.Cin(),
+	.Qin(),
+	.Clk(),
+	.AsyncReset(),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__04_),
+	.Cout(),
+	.Q());
+defparam syn__27_.mask = 16'h8000;
+defparam syn__27_.mode = "logic";
+defparam syn__27_.modeMux = 1'b0;
+defparam syn__27_.FeedbackMux = 1'b0;
+defparam syn__27_.ShiftMux = 1'b0;
+defparam syn__27_.BypassEn = 1'b0;
+defparam syn__27_.CarryEnb = 1'b1;
+defparam syn__27_.AsyncResetMux = 2'bxx;
+defparam syn__27_.SyncResetMux = 2'bxx;
+defparam syn__27_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N4
+// alta_lcell_comb syn__17_(
+// Location: LCCELL_X1009_Y1001_N4
+// alta_lcell_ff syn__59_(
+alta_slice syn__59_(
+	.A(syn__01_),
+	.B(counter[4]),
+	.C(vcc),
+	.D(counter[5]),
+	.Cin(),
+	.Qin(counter[6]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[6]),
+	.Cout(),
+	.Q(counter[6]));
+defparam syn__59_.mask = 16'h78F0;
+defparam syn__59_.mode = "logic";
+defparam syn__59_.modeMux = 1'b0;
+defparam syn__59_.FeedbackMux = 1'b1;
+defparam syn__59_.ShiftMux = 1'b0;
+defparam syn__59_.BypassEn = 1'b0;
+defparam syn__59_.CarryEnb = 1'b1;
+defparam syn__59_.AsyncResetMux = 2'b00;
+defparam syn__59_.SyncResetMux = 2'bxx;
+defparam syn__59_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N6
+// alta_lcell_comb syn__13_(
+// Location: LCCELL_X1009_Y1001_N6
+// alta_lcell_ff syn__56_(
+alta_slice syn__56_(
+	.A(counter[1]),
+	.B(counter[0]),
+	.C(vcc),
+	.D(counter[2]),
+	.Cin(),
+	.Qin(counter[3]),
+	.Clk(syn__09__X1009_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1009_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[3]),
+	.Cout(),
+	.Q(counter[3]));
+defparam syn__56_.mask = 16'h78F0;
+defparam syn__56_.mode = "logic";
+defparam syn__56_.modeMux = 1'b0;
+defparam syn__56_.FeedbackMux = 1'b1;
+defparam syn__56_.ShiftMux = 1'b0;
+defparam syn__56_.BypassEn = 1'b0;
+defparam syn__56_.CarryEnb = 1'b1;
+defparam syn__56_.AsyncResetMux = 2'b00;
+defparam syn__56_.SyncResetMux = 2'bxx;
+defparam syn__56_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1009_Y1001_N8
+// alta_lcell_comb syn__15_(
+alta_slice syn__15_(
+	.A(counter[1]),
+	.B(counter[0]),
+	.C(counter[2]),
+	.D(counter[3]),
+	.Cin(),
+	.Qin(),
+	.Clk(),
+	.AsyncReset(),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__01_),
+	.Cout(),
+	.Q());
+defparam syn__15_.mask = 16'h8000;
+defparam syn__15_.mode = "logic";
+defparam syn__15_.modeMux = 1'b0;
+defparam syn__15_.FeedbackMux = 1'b0;
+defparam syn__15_.ShiftMux = 1'b0;
+defparam syn__15_.BypassEn = 1'b0;
+defparam syn__15_.CarryEnb = 1'b1;
+defparam syn__15_.AsyncResetMux = 2'bxx;
+defparam syn__15_.SyncResetMux = 2'bxx;
+defparam syn__15_.SyncLoadMux = 2'bxx;
 
 // Location: CLKENCTRL_X1009_Y1001_N0
-alta_clkenctrl clken_ctrl_X1009_Y1001_N0(.ClkIn(syn__015_), .ClkEn(), .ClkOut(syn__015__X1009_Y1001_SIG_VCC));
+alta_clkenctrl clken_ctrl_X1009_Y1001_N0(.ClkIn(syn__09_), .ClkEn(), .ClkOut(syn__09__X1009_Y1001_SIG_VCC));
 defparam clken_ctrl_X1009_Y1001_N0.ClkMux = 2'b10;
 defparam clken_ctrl_X1009_Y1001_N0.ClkEnMux = 2'b01;
 
@@ -1125,273 +703,271 @@ defparam clken_ctrl_X1009_Y1001_N0.ClkEnMux = 2'b01;
 alta_asyncctrl asyncreset_ctrl_X1009_Y1001_N0(.Din(), .Dout(AsyncReset_X1009_Y1001_GND));
 defparam asyncreset_ctrl_X1009_Y1001_N0.AsyncCtrlMux = 2'b00;
 // Location: LCCELL_X1011_Y1001_N0
-// alta_lcell_comb syn__035_(
+// alta_lcell_comb syn__26_(
 // Location: LCCELL_X1011_Y1001_N0
-// alta_lcell_ff syn__106_(
-alta_slice syn__106_(
-	.A(syn__007_),
+// alta_lcell_ff syn__66_(
+alta_slice syn__66_(
+	.A(syn__04_),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(syn__013_[0]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(counter[13]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[16]),
+	.LutOut(syn__00_[13]),
 	.Cout(),
-	.Q(syn__013_[0]));
-defparam syn__106_.mask = 16'h5A5A;
-defparam syn__106_.mode = "logic";
-defparam syn__106_.modeMux = 1'b0;
-defparam syn__106_.FeedbackMux = 1'b1;
-defparam syn__106_.ShiftMux = 1'b0;
-defparam syn__106_.BypassEn = 1'b0;
-defparam syn__106_.CarryEnb = 1'b1;
-defparam syn__106_.AsyncResetMux = 2'b00;
-defparam syn__106_.SyncResetMux = 2'bxx;
-defparam syn__106_.SyncLoadMux = 2'bxx;
+	.Q(counter[13]));
+defparam syn__66_.mask = 16'h5A5A;
+defparam syn__66_.mode = "logic";
+defparam syn__66_.modeMux = 1'b0;
+defparam syn__66_.FeedbackMux = 1'b1;
+defparam syn__66_.ShiftMux = 1'b0;
+defparam syn__66_.BypassEn = 1'b0;
+defparam syn__66_.CarryEnb = 1'b1;
+defparam syn__66_.AsyncResetMux = 2'b00;
+defparam syn__66_.SyncResetMux = 2'bxx;
+defparam syn__66_.SyncLoadMux = 2'bxx;
 // Location: LCCELL_X1011_Y1001_N10
-// alta_lcell_comb syn__038_(
+// alta_lcell_comb syn__30_(
 // Location: LCCELL_X1011_Y1001_N10
-// alta_lcell_ff syn__108_(
-alta_slice syn__108_(
-	.A(syn__007_),
-	.B(syn__013_[0]),
-	.C(vcc),
-	.D(syn__013_[1]),
-	.Cin(),
-	.Qin(syn__013_[2]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[18]),
-	.Cout(),
-	.Q(syn__013_[2]));
-defparam syn__108_.mask = 16'h78F0;
-defparam syn__108_.mode = "logic";
-defparam syn__108_.modeMux = 1'b0;
-defparam syn__108_.FeedbackMux = 1'b1;
-defparam syn__108_.ShiftMux = 1'b0;
-defparam syn__108_.BypassEn = 1'b0;
-defparam syn__108_.CarryEnb = 1'b1;
-defparam syn__108_.AsyncResetMux = 2'b00;
-defparam syn__108_.SyncResetMux = 2'bxx;
-defparam syn__108_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N12
-// alta_lcell_comb syn__042_(
-// Location: LCCELL_X1011_Y1001_N12
-// alta_lcell_ff syn__111_(
-alta_slice syn__111_(
-	.A(syn__008_),
-	.B(syn__013_[3]),
-	.C(vcc),
-	.D(syn__013_[4]),
-	.Cin(),
-	.Qin(syn__013_[5]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[21]),
-	.Cout(),
-	.Q(syn__013_[5]));
-defparam syn__111_.mask = 16'h78F0;
-defparam syn__111_.mode = "logic";
-defparam syn__111_.modeMux = 1'b0;
-defparam syn__111_.FeedbackMux = 1'b1;
-defparam syn__111_.ShiftMux = 1'b0;
-defparam syn__111_.BypassEn = 1'b0;
-defparam syn__111_.CarryEnb = 1'b1;
-defparam syn__111_.AsyncResetMux = 2'b00;
-defparam syn__111_.SyncResetMux = 2'bxx;
-defparam syn__111_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N14
-// alta_lcell_comb syn__046_(
-// Location: LCCELL_X1011_Y1001_N14
-// alta_lcell_ff syn__114_(
-alta_slice syn__114_(
-	.A(syn__009_),
-	.B(syn__013_[6]),
-	.C(vcc),
-	.D(syn__013_[7]),
-	.Cin(),
-	.Qin(syn__014_[0]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[24]),
-	.Cout(),
-	.Q(syn__014_[0]));
-defparam syn__114_.mask = 16'h78F0;
-defparam syn__114_.mode = "logic";
-defparam syn__114_.modeMux = 1'b0;
-defparam syn__114_.FeedbackMux = 1'b1;
-defparam syn__114_.ShiftMux = 1'b0;
-defparam syn__114_.BypassEn = 1'b0;
-defparam syn__114_.CarryEnb = 1'b1;
-defparam syn__114_.AsyncResetMux = 2'b00;
-defparam syn__114_.SyncResetMux = 2'bxx;
-defparam syn__114_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N16
-// alta_lcell_comb syn__037_(
-// Location: LCCELL_X1011_Y1001_N16
-// alta_lcell_ff syn__107_(
-alta_slice syn__107_(
-	.A(syn__007_),
-	.B(syn__013_[0]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__013_[1]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[17]),
-	.Cout(),
-	.Q(syn__013_[1]));
-defparam syn__107_.mask = 16'h7878;
-defparam syn__107_.mode = "logic";
-defparam syn__107_.modeMux = 1'b0;
-defparam syn__107_.FeedbackMux = 1'b1;
-defparam syn__107_.ShiftMux = 1'b0;
-defparam syn__107_.BypassEn = 1'b0;
-defparam syn__107_.CarryEnb = 1'b1;
-defparam syn__107_.AsyncResetMux = 2'b00;
-defparam syn__107_.SyncResetMux = 2'bxx;
-defparam syn__107_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N18
-// alta_lcell_comb syn__045_(
-// Location: LCCELL_X1011_Y1001_N18
-// alta_lcell_ff syn__113_(
-alta_slice syn__113_(
-	.A(syn__009_),
-	.B(syn__013_[6]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__013_[7]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[23]),
-	.Cout(),
-	.Q(syn__013_[7]));
-defparam syn__113_.mask = 16'h7878;
-defparam syn__113_.mode = "logic";
-defparam syn__113_.modeMux = 1'b0;
-defparam syn__113_.FeedbackMux = 1'b1;
-defparam syn__113_.ShiftMux = 1'b0;
-defparam syn__113_.BypassEn = 1'b0;
-defparam syn__113_.CarryEnb = 1'b1;
-defparam syn__113_.AsyncResetMux = 2'b00;
-defparam syn__113_.SyncResetMux = 2'bxx;
-defparam syn__113_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N2
-// alta_lcell_comb syn__041_(
-// Location: LCCELL_X1011_Y1001_N2
-// alta_lcell_ff syn__110_(
-alta_slice syn__110_(
-	.A(syn__008_),
-	.B(syn__013_[3]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__013_[4]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[20]),
-	.Cout(),
-	.Q(syn__013_[4]));
-defparam syn__110_.mask = 16'h7878;
-defparam syn__110_.mode = "logic";
-defparam syn__110_.modeMux = 1'b0;
-defparam syn__110_.FeedbackMux = 1'b1;
-defparam syn__110_.ShiftMux = 1'b0;
-defparam syn__110_.BypassEn = 1'b0;
-defparam syn__110_.CarryEnb = 1'b1;
-defparam syn__110_.AsyncResetMux = 2'b00;
-defparam syn__110_.SyncResetMux = 2'bxx;
-defparam syn__110_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N20
-// alta_lcell_comb syn__034_(
-// Location: LCCELL_X1011_Y1001_N20
-// alta_lcell_ff syn__105_(
-alta_slice syn__105_(
-	.A(syn__006_),
-	.B(syn__012_[5]),
-	.C(vcc),
-	.D(syn__012_[6]),
-	.Cin(),
-	.Qin(syn__012_[7]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[15]),
-	.Cout(),
-	.Q(syn__012_[7]));
-defparam syn__105_.mask = 16'h78F0;
-defparam syn__105_.mode = "logic";
-defparam syn__105_.modeMux = 1'b0;
-defparam syn__105_.FeedbackMux = 1'b1;
-defparam syn__105_.ShiftMux = 1'b0;
-defparam syn__105_.BypassEn = 1'b0;
-defparam syn__105_.CarryEnb = 1'b1;
-defparam syn__105_.AsyncResetMux = 2'b00;
-defparam syn__105_.SyncResetMux = 2'bxx;
-defparam syn__105_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N22
-// alta_lcell_comb syn__031_(
-// Location: LCCELL_X1011_Y1001_N22
-// alta_lcell_ff syn__103_(
-alta_slice syn__103_(
-	.A(syn__006_),
+// alta_lcell_ff syn__69_(
+alta_slice syn__69_(
+	.A(syn__05_),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(syn__012_[5]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(counter[16]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[13]),
+	.LutOut(syn__00_[16]),
 	.Cout(),
-	.Q(syn__012_[5]));
-defparam syn__103_.mask = 16'h5A5A;
-defparam syn__103_.mode = "logic";
-defparam syn__103_.modeMux = 1'b0;
-defparam syn__103_.FeedbackMux = 1'b1;
-defparam syn__103_.ShiftMux = 1'b0;
-defparam syn__103_.BypassEn = 1'b0;
-defparam syn__103_.CarryEnb = 1'b1;
-defparam syn__103_.AsyncResetMux = 2'b00;
-defparam syn__103_.SyncResetMux = 2'bxx;
-defparam syn__103_.SyncLoadMux = 2'bxx;
+	.Q(counter[16]));
+defparam syn__69_.mask = 16'h5A5A;
+defparam syn__69_.mode = "logic";
+defparam syn__69_.modeMux = 1'b0;
+defparam syn__69_.FeedbackMux = 1'b1;
+defparam syn__69_.ShiftMux = 1'b0;
+defparam syn__69_.BypassEn = 1'b0;
+defparam syn__69_.CarryEnb = 1'b1;
+defparam syn__69_.AsyncResetMux = 2'b00;
+defparam syn__69_.SyncResetMux = 2'bxx;
+defparam syn__69_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N12
+// alta_lcell_comb syn__29_(
+// Location: LCCELL_X1011_Y1001_N12
+// alta_lcell_ff syn__68_(
+alta_slice syn__68_(
+	.A(syn__04_),
+	.B(counter[13]),
+	.C(vcc),
+	.D(counter[14]),
+	.Cin(),
+	.Qin(counter[15]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[15]),
+	.Cout(),
+	.Q(counter[15]));
+defparam syn__68_.mask = 16'h78F0;
+defparam syn__68_.mode = "logic";
+defparam syn__68_.modeMux = 1'b0;
+defparam syn__68_.FeedbackMux = 1'b1;
+defparam syn__68_.ShiftMux = 1'b0;
+defparam syn__68_.BypassEn = 1'b0;
+defparam syn__68_.CarryEnb = 1'b1;
+defparam syn__68_.AsyncResetMux = 2'b00;
+defparam syn__68_.SyncResetMux = 2'bxx;
+defparam syn__68_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N14
+// alta_lcell_comb syn__36_(
+// Location: LCCELL_X1011_Y1001_N14
+// alta_lcell_ff syn__73_(
+alta_slice syn__73_(
+	.A(syn__06_),
+	.B(syn__10_[1]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(syn__10_[2]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[20]),
+	.Cout(),
+	.Q(syn__10_[2]));
+defparam syn__73_.mask = 16'h7878;
+defparam syn__73_.mode = "logic";
+defparam syn__73_.modeMux = 1'b0;
+defparam syn__73_.FeedbackMux = 1'b1;
+defparam syn__73_.ShiftMux = 1'b0;
+defparam syn__73_.BypassEn = 1'b0;
+defparam syn__73_.CarryEnb = 1'b1;
+defparam syn__73_.AsyncResetMux = 2'b00;
+defparam syn__73_.SyncResetMux = 2'bxx;
+defparam syn__73_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N16
+// alta_lcell_comb syn__35_(
+alta_slice syn__35_(
+	.A(syn__05_),
+	.B(counter[16]),
+	.C(counter[17]),
+	.D(syn__10_[0]),
+	.Cin(),
+	.Qin(),
+	.Clk(),
+	.AsyncReset(),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__06_),
+	.Cout(),
+	.Q());
+defparam syn__35_.mask = 16'h8000;
+defparam syn__35_.mode = "logic";
+defparam syn__35_.modeMux = 1'b0;
+defparam syn__35_.FeedbackMux = 1'b0;
+defparam syn__35_.ShiftMux = 1'b0;
+defparam syn__35_.BypassEn = 1'b0;
+defparam syn__35_.CarryEnb = 1'b1;
+defparam syn__35_.AsyncResetMux = 2'bxx;
+defparam syn__35_.SyncResetMux = 2'bxx;
+defparam syn__35_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N18
+// alta_lcell_comb syn__34_(
+// Location: LCCELL_X1011_Y1001_N18
+// alta_lcell_ff syn__72_(
+alta_slice syn__72_(
+	.A(syn__06_),
+	.B(vcc),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(syn__10_[1]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[19]),
+	.Cout(),
+	.Q(syn__10_[1]));
+defparam syn__72_.mask = 16'h5A5A;
+defparam syn__72_.mode = "logic";
+defparam syn__72_.modeMux = 1'b0;
+defparam syn__72_.FeedbackMux = 1'b1;
+defparam syn__72_.ShiftMux = 1'b0;
+defparam syn__72_.BypassEn = 1'b0;
+defparam syn__72_.CarryEnb = 1'b1;
+defparam syn__72_.AsyncResetMux = 2'b00;
+defparam syn__72_.SyncResetMux = 2'bxx;
+defparam syn__72_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N2
+// alta_lcell_comb syn__32_(
+// Location: LCCELL_X1011_Y1001_N2
+// alta_lcell_ff syn__70_(
+alta_slice syn__70_(
+	.A(syn__05_),
+	.B(counter[16]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[17]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[17]),
+	.Cout(),
+	.Q(counter[17]));
+defparam syn__70_.mask = 16'h7878;
+defparam syn__70_.mode = "logic";
+defparam syn__70_.modeMux = 1'b0;
+defparam syn__70_.FeedbackMux = 1'b1;
+defparam syn__70_.ShiftMux = 1'b0;
+defparam syn__70_.BypassEn = 1'b0;
+defparam syn__70_.CarryEnb = 1'b1;
+defparam syn__70_.AsyncResetMux = 2'b00;
+defparam syn__70_.SyncResetMux = 2'bxx;
+defparam syn__70_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N20
+// alta_lcell_comb syn__28_(
+// Location: LCCELL_X1011_Y1001_N20
+// alta_lcell_ff syn__67_(
+alta_slice syn__67_(
+	.A(syn__04_),
+	.B(counter[13]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(counter[14]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[14]),
+	.Cout(),
+	.Q(counter[14]));
+defparam syn__67_.mask = 16'h7878;
+defparam syn__67_.mode = "logic";
+defparam syn__67_.modeMux = 1'b0;
+defparam syn__67_.FeedbackMux = 1'b1;
+defparam syn__67_.ShiftMux = 1'b0;
+defparam syn__67_.BypassEn = 1'b0;
+defparam syn__67_.CarryEnb = 1'b1;
+defparam syn__67_.AsyncResetMux = 2'b00;
+defparam syn__67_.SyncResetMux = 2'bxx;
+defparam syn__67_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N22
+// alta_lcell_comb syn__41_(
+// Location: LCCELL_X1011_Y1001_N22
+// alta_lcell_ff syn__77_(
+alta_slice syn__77_(
+	.A(syn__07_),
+	.B(syn__10_[4]),
+	.C(vcc),
+	.D(syn__10_[5]),
+	.Cin(),
+	.Qin(syn__10_[6]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[24]),
+	.Cout(),
+	.Q(syn__10_[6]));
+defparam syn__77_.mask = 16'h78F0;
+defparam syn__77_.mode = "logic";
+defparam syn__77_.modeMux = 1'b0;
+defparam syn__77_.FeedbackMux = 1'b1;
+defparam syn__77_.ShiftMux = 1'b0;
+defparam syn__77_.BypassEn = 1'b0;
+defparam syn__77_.CarryEnb = 1'b1;
+defparam syn__77_.AsyncResetMux = 2'b00;
+defparam syn__77_.SyncResetMux = 2'bxx;
+defparam syn__77_.SyncLoadMux = 2'bxx;
 // Location: LCCELL_X1011_Y1001_N24
-// alta_lcell_comb syn__044_(
-alta_slice syn__044_(
-	.A(syn__008_),
-	.B(syn__013_[3]),
-	.C(syn__013_[4]),
-	.D(syn__013_[5]),
+// alta_lcell_comb syn__39_(
+alta_slice syn__39_(
+	.A(syn__06_),
+	.B(syn__10_[1]),
+	.C(syn__10_[2]),
+	.D(syn__10_[3]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -1399,26 +975,84 @@ alta_slice syn__044_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__009_),
+	.LutOut(syn__07_),
 	.Cout(),
 	.Q());
-defparam syn__044_.mask = 16'h8000;
-defparam syn__044_.mode = "logic";
-defparam syn__044_.modeMux = 1'b0;
-defparam syn__044_.FeedbackMux = 1'b0;
-defparam syn__044_.ShiftMux = 1'b0;
-defparam syn__044_.BypassEn = 1'b0;
-defparam syn__044_.CarryEnb = 1'b1;
-defparam syn__044_.AsyncResetMux = 2'bxx;
-defparam syn__044_.SyncResetMux = 2'bxx;
-defparam syn__044_.SyncLoadMux = 2'bxx;
+defparam syn__39_.mask = 16'h8000;
+defparam syn__39_.mode = "logic";
+defparam syn__39_.modeMux = 1'b0;
+defparam syn__39_.FeedbackMux = 1'b0;
+defparam syn__39_.ShiftMux = 1'b0;
+defparam syn__39_.BypassEn = 1'b0;
+defparam syn__39_.CarryEnb = 1'b1;
+defparam syn__39_.AsyncResetMux = 2'bxx;
+defparam syn__39_.SyncResetMux = 2'bxx;
+defparam syn__39_.SyncLoadMux = 2'bxx;
 // Location: LCCELL_X1011_Y1001_N26
-// alta_lcell_comb syn__048_(
-alta_slice syn__048_(
-	.A(syn__009_),
-	.B(syn__013_[6]),
-	.C(syn__013_[7]),
-	.D(syn__014_[0]),
+// alta_lcell_comb syn__40_(
+// Location: LCCELL_X1011_Y1001_N26
+// alta_lcell_ff syn__76_(
+alta_slice syn__76_(
+	.A(syn__07_),
+	.B(syn__10_[4]),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(syn__10_[5]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[23]),
+	.Cout(),
+	.Q(syn__10_[5]));
+defparam syn__76_.mask = 16'h7878;
+defparam syn__76_.mode = "logic";
+defparam syn__76_.modeMux = 1'b0;
+defparam syn__76_.FeedbackMux = 1'b1;
+defparam syn__76_.ShiftMux = 1'b0;
+defparam syn__76_.BypassEn = 1'b0;
+defparam syn__76_.CarryEnb = 1'b1;
+defparam syn__76_.AsyncResetMux = 2'b00;
+defparam syn__76_.SyncResetMux = 2'bxx;
+defparam syn__76_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N28
+// alta_lcell_comb syn__38_(
+// Location: LCCELL_X1011_Y1001_N28
+// alta_lcell_ff syn__75_(
+alta_slice syn__75_(
+	.A(syn__07_),
+	.B(vcc),
+	.C(vcc),
+	.D(vcc),
+	.Cin(),
+	.Qin(syn__10_[4]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
+	.SyncReset(),
+	.ShiftData(),
+	.SyncLoad(),
+	.LutOut(syn__00_[22]),
+	.Cout(),
+	.Q(syn__10_[4]));
+defparam syn__75_.mask = 16'h5A5A;
+defparam syn__75_.mode = "logic";
+defparam syn__75_.modeMux = 1'b0;
+defparam syn__75_.FeedbackMux = 1'b1;
+defparam syn__75_.ShiftMux = 1'b0;
+defparam syn__75_.BypassEn = 1'b0;
+defparam syn__75_.CarryEnb = 1'b1;
+defparam syn__75_.AsyncResetMux = 2'b00;
+defparam syn__75_.SyncResetMux = 2'bxx;
+defparam syn__75_.SyncLoadMux = 2'bxx;
+// Location: LCCELL_X1011_Y1001_N30
+// alta_lcell_comb syn__43_(
+alta_slice syn__43_(
+	.A(syn__07_),
+	.B(syn__10_[4]),
+	.C(syn__10_[5]),
+	.D(syn__10_[6]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -1426,140 +1060,84 @@ alta_slice syn__048_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__010_),
+	.LutOut(syn__08_),
 	.Cout(),
 	.Q());
-defparam syn__048_.mask = 16'h8000;
-defparam syn__048_.mode = "logic";
-defparam syn__048_.modeMux = 1'b0;
-defparam syn__048_.FeedbackMux = 1'b0;
-defparam syn__048_.ShiftMux = 1'b0;
-defparam syn__048_.BypassEn = 1'b0;
-defparam syn__048_.CarryEnb = 1'b1;
-defparam syn__048_.AsyncResetMux = 2'bxx;
-defparam syn__048_.SyncResetMux = 2'bxx;
-defparam syn__048_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N28
-// alta_lcell_comb syn__043_(
-// Location: LCCELL_X1011_Y1001_N28
-// alta_lcell_ff syn__112_(
-alta_slice syn__112_(
-	.A(syn__009_),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__013_[6]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[22]),
-	.Cout(),
-	.Q(syn__013_[6]));
-defparam syn__112_.mask = 16'h5A5A;
-defparam syn__112_.mode = "logic";
-defparam syn__112_.modeMux = 1'b0;
-defparam syn__112_.FeedbackMux = 1'b1;
-defparam syn__112_.ShiftMux = 1'b0;
-defparam syn__112_.BypassEn = 1'b0;
-defparam syn__112_.CarryEnb = 1'b1;
-defparam syn__112_.AsyncResetMux = 2'b00;
-defparam syn__112_.SyncResetMux = 2'bxx;
-defparam syn__112_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1011_Y1001_N30
-// alta_lcell_comb syn__033_(
-// Location: LCCELL_X1011_Y1001_N30
-// alta_lcell_ff syn__104_(
-alta_slice syn__104_(
-	.A(syn__006_),
-	.B(syn__012_[5]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__012_[6]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1011_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[14]),
-	.Cout(),
-	.Q(syn__012_[6]));
-defparam syn__104_.mask = 16'h7878;
-defparam syn__104_.mode = "logic";
-defparam syn__104_.modeMux = 1'b0;
-defparam syn__104_.FeedbackMux = 1'b1;
-defparam syn__104_.ShiftMux = 1'b0;
-defparam syn__104_.BypassEn = 1'b0;
-defparam syn__104_.CarryEnb = 1'b1;
-defparam syn__104_.AsyncResetMux = 2'b00;
-defparam syn__104_.SyncResetMux = 2'bxx;
-defparam syn__104_.SyncLoadMux = 2'bxx;
+defparam syn__43_.mask = 16'h8000;
+defparam syn__43_.mode = "logic";
+defparam syn__43_.modeMux = 1'b0;
+defparam syn__43_.FeedbackMux = 1'b0;
+defparam syn__43_.ShiftMux = 1'b0;
+defparam syn__43_.BypassEn = 1'b0;
+defparam syn__43_.CarryEnb = 1'b1;
+defparam syn__43_.AsyncResetMux = 2'bxx;
+defparam syn__43_.SyncResetMux = 2'bxx;
+defparam syn__43_.SyncLoadMux = 2'bxx;
 // Location: LCCELL_X1011_Y1001_N4
-// alta_lcell_comb syn__039_(
+// alta_lcell_comb syn__33_(
 // Location: LCCELL_X1011_Y1001_N4
-// alta_lcell_ff syn__109_(
-alta_slice syn__109_(
-	.A(syn__008_),
-	.B(vcc),
+// alta_lcell_ff syn__71_(
+alta_slice syn__71_(
+	.A(syn__05_),
+	.B(counter[16]),
 	.C(vcc),
-	.D(vcc),
+	.D(counter[17]),
 	.Cin(),
-	.Qin(syn__013_[3]),
-	.Clk(syn__015__X1011_Y1001_SIG_VCC),
+	.Qin(syn__10_[0]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[19]),
+	.LutOut(syn__00_[18]),
 	.Cout(),
-	.Q(syn__013_[3]));
-defparam syn__109_.mask = 16'h5A5A;
-defparam syn__109_.mode = "logic";
-defparam syn__109_.modeMux = 1'b0;
-defparam syn__109_.FeedbackMux = 1'b1;
-defparam syn__109_.ShiftMux = 1'b0;
-defparam syn__109_.BypassEn = 1'b0;
-defparam syn__109_.CarryEnb = 1'b1;
-defparam syn__109_.AsyncResetMux = 2'b00;
-defparam syn__109_.SyncResetMux = 2'bxx;
-defparam syn__109_.SyncLoadMux = 2'bxx;
+	.Q(syn__10_[0]));
+defparam syn__71_.mask = 16'h78F0;
+defparam syn__71_.mode = "logic";
+defparam syn__71_.modeMux = 1'b0;
+defparam syn__71_.FeedbackMux = 1'b1;
+defparam syn__71_.ShiftMux = 1'b0;
+defparam syn__71_.BypassEn = 1'b0;
+defparam syn__71_.CarryEnb = 1'b1;
+defparam syn__71_.AsyncResetMux = 2'b00;
+defparam syn__71_.SyncResetMux = 2'bxx;
+defparam syn__71_.SyncLoadMux = 2'bxx;
 // Location: LCCELL_X1011_Y1001_N6
-// alta_lcell_comb syn__040_(
-alta_slice syn__040_(
-	.A(syn__007_),
-	.B(syn__013_[0]),
-	.C(syn__013_[1]),
-	.D(syn__013_[2]),
+// alta_lcell_comb syn__37_(
+// Location: LCCELL_X1011_Y1001_N6
+// alta_lcell_ff syn__74_(
+alta_slice syn__74_(
+	.A(syn__06_),
+	.B(syn__10_[1]),
+	.C(vcc),
+	.D(syn__10_[2]),
 	.Cin(),
-	.Qin(),
-	.Clk(),
-	.AsyncReset(),
+	.Qin(syn__10_[3]),
+	.Clk(syn__09__X1011_Y1001_SIG_VCC),
+	.AsyncReset(AsyncReset_X1011_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__008_),
+	.LutOut(syn__00_[21]),
 	.Cout(),
-	.Q());
-defparam syn__040_.mask = 16'h8000;
-defparam syn__040_.mode = "logic";
-defparam syn__040_.modeMux = 1'b0;
-defparam syn__040_.FeedbackMux = 1'b0;
-defparam syn__040_.ShiftMux = 1'b0;
-defparam syn__040_.BypassEn = 1'b0;
-defparam syn__040_.CarryEnb = 1'b1;
-defparam syn__040_.AsyncResetMux = 2'bxx;
-defparam syn__040_.SyncResetMux = 2'bxx;
-defparam syn__040_.SyncLoadMux = 2'bxx;
+	.Q(syn__10_[3]));
+defparam syn__74_.mask = 16'h78F0;
+defparam syn__74_.mode = "logic";
+defparam syn__74_.modeMux = 1'b0;
+defparam syn__74_.FeedbackMux = 1'b1;
+defparam syn__74_.ShiftMux = 1'b0;
+defparam syn__74_.BypassEn = 1'b0;
+defparam syn__74_.CarryEnb = 1'b1;
+defparam syn__74_.AsyncResetMux = 2'b00;
+defparam syn__74_.SyncResetMux = 2'bxx;
+defparam syn__74_.SyncLoadMux = 2'bxx;
 // Location: LCCELL_X1011_Y1001_N8
-// alta_lcell_comb syn__036_(
-alta_slice syn__036_(
-	.A(syn__006_),
-	.B(syn__012_[5]),
-	.C(syn__012_[6]),
-	.D(syn__012_[7]),
+// alta_lcell_comb syn__31_(
+alta_slice syn__31_(
+	.A(syn__04_),
+	.B(counter[13]),
+	.C(counter[14]),
+	.D(counter[15]),
 	.Cin(),
 	.Qin(),
 	.Clk(),
@@ -1567,22 +1145,22 @@ alta_slice syn__036_(
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__007_),
+	.LutOut(syn__05_),
 	.Cout(),
 	.Q());
-defparam syn__036_.mask = 16'h8000;
-defparam syn__036_.mode = "logic";
-defparam syn__036_.modeMux = 1'b0;
-defparam syn__036_.FeedbackMux = 1'b0;
-defparam syn__036_.ShiftMux = 1'b0;
-defparam syn__036_.BypassEn = 1'b0;
-defparam syn__036_.CarryEnb = 1'b1;
-defparam syn__036_.AsyncResetMux = 2'bxx;
-defparam syn__036_.SyncResetMux = 2'bxx;
-defparam syn__036_.SyncLoadMux = 2'bxx;
+defparam syn__31_.mask = 16'h8000;
+defparam syn__31_.mode = "logic";
+defparam syn__31_.modeMux = 1'b0;
+defparam syn__31_.FeedbackMux = 1'b0;
+defparam syn__31_.ShiftMux = 1'b0;
+defparam syn__31_.BypassEn = 1'b0;
+defparam syn__31_.CarryEnb = 1'b1;
+defparam syn__31_.AsyncResetMux = 2'bxx;
+defparam syn__31_.SyncResetMux = 2'bxx;
+defparam syn__31_.SyncLoadMux = 2'bxx;
 
 // Location: CLKENCTRL_X1011_Y1001_N0
-alta_clkenctrl clken_ctrl_X1011_Y1001_N0(.ClkIn(syn__015_), .ClkEn(), .ClkOut(syn__015__X1011_Y1001_SIG_VCC));
+alta_clkenctrl clken_ctrl_X1011_Y1001_N0(.ClkIn(syn__09_), .ClkEn(), .ClkOut(syn__09__X1011_Y1001_SIG_VCC));
 defparam clken_ctrl_X1011_Y1001_N0.ClkMux = 2'b10;
 defparam clken_ctrl_X1011_Y1001_N0.ClkEnMux = 2'b01;
 
@@ -1590,294 +1168,66 @@ defparam clken_ctrl_X1011_Y1001_N0.ClkEnMux = 2'b01;
 alta_asyncctrl asyncreset_ctrl_X1011_Y1001_N0(.Din(), .Dout(AsyncReset_X1011_Y1001_GND));
 defparam asyncreset_ctrl_X1011_Y1001_N0.AsyncCtrlMux = 2'b00;
 // Location: LCCELL_X1012_Y1001_N0
-// alta_lcell_comb syn__051_(
+// alta_lcell_comb syn__22_(
 // Location: LCCELL_X1012_Y1001_N0
-// alta_lcell_ff syn__118_(
-alta_slice syn__118_(
-	.A(syn__001_),
+// alta_lcell_ff syn__63_(
+alta_slice syn__63_(
+	.A(syn__03_),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(syn__014_[4]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
+	.Qin(counter[10]),
+	.Clk(syn__09__X1012_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1012_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[28]),
+	.LutOut(syn__00_[10]),
 	.Cout(),
-	.Q(syn__014_[4]));
-defparam syn__118_.mask = 16'h5A5A;
-defparam syn__118_.mode = "logic";
-defparam syn__118_.modeMux = 1'b0;
-defparam syn__118_.FeedbackMux = 1'b1;
-defparam syn__118_.ShiftMux = 1'b0;
-defparam syn__118_.BypassEn = 1'b0;
-defparam syn__118_.CarryEnb = 1'b1;
-defparam syn__118_.AsyncResetMux = 2'b00;
-defparam syn__118_.SyncResetMux = 2'bxx;
-defparam syn__118_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1012_Y1001_N10
-// alta_lcell_comb syn__053_(
-// Location: LCCELL_X1012_Y1001_N10
-// alta_lcell_ff syn__119_(
-alta_slice syn__119_(
-	.A(syn__001_),
-	.B(syn__014_[4]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__014_[5]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[29]),
-	.Cout(),
-	.Q(syn__014_[5]));
-defparam syn__119_.mask = 16'h7878;
-defparam syn__119_.mode = "logic";
-defparam syn__119_.modeMux = 1'b0;
-defparam syn__119_.FeedbackMux = 1'b1;
-defparam syn__119_.ShiftMux = 1'b0;
-defparam syn__119_.BypassEn = 1'b0;
-defparam syn__119_.CarryEnb = 1'b1;
-defparam syn__119_.AsyncResetMux = 2'b00;
-defparam syn__119_.SyncResetMux = 2'bxx;
-defparam syn__119_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1012_Y1001_N12
-// alta_lcell_comb syn__055_(
-// Location: LCCELL_X1012_Y1001_N12
-// alta_lcell_ff syn__121_(
-alta_slice syn__121_(
-	.A(syn__002_),
-	.B(vcc),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__014_[7]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[31]),
-	.Cout(),
-	.Q(syn__014_[7]));
-defparam syn__121_.mask = 16'h5A5A;
-defparam syn__121_.mode = "logic";
-defparam syn__121_.modeMux = 1'b0;
-defparam syn__121_.FeedbackMux = 1'b1;
-defparam syn__121_.ShiftMux = 1'b0;
-defparam syn__121_.BypassEn = 1'b0;
-defparam syn__121_.CarryEnb = 1'b1;
-defparam syn__121_.AsyncResetMux = 2'b00;
-defparam syn__121_.SyncResetMux = 2'bxx;
-defparam syn__121_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1012_Y1001_N14
-// alta_lcell_comb syn__054_(
-// Location: LCCELL_X1012_Y1001_N14
-// alta_lcell_ff syn__120_(
-alta_slice syn__120_(
-	.A(syn__001_),
-	.B(syn__014_[4]),
-	.C(vcc),
-	.D(syn__014_[5]),
-	.Cin(),
-	.Qin(syn__014_[6]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[30]),
-	.Cout(),
-	.Q(syn__014_[6]));
-defparam syn__120_.mask = 16'h78F0;
-defparam syn__120_.mode = "logic";
-defparam syn__120_.modeMux = 1'b0;
-defparam syn__120_.FeedbackMux = 1'b1;
-defparam syn__120_.ShiftMux = 1'b0;
-defparam syn__120_.BypassEn = 1'b0;
-defparam syn__120_.CarryEnb = 1'b1;
-defparam syn__120_.AsyncResetMux = 2'b00;
-defparam syn__120_.SyncResetMux = 2'bxx;
-defparam syn__120_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1012_Y1001_N16
-// alta_lcell_comb syn__056_(
-alta_slice syn__056_(
-	.A(syn__001_),
-	.B(syn__014_[4]),
-	.C(syn__014_[5]),
-	.D(syn__014_[6]),
-	.Cin(),
-	.Qin(),
-	.Clk(),
-	.AsyncReset(),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__002_),
-	.Cout(),
-	.Q());
-defparam syn__056_.mask = 16'h8000;
-defparam syn__056_.mode = "logic";
-defparam syn__056_.modeMux = 1'b0;
-defparam syn__056_.FeedbackMux = 1'b0;
-defparam syn__056_.ShiftMux = 1'b0;
-defparam syn__056_.BypassEn = 1'b0;
-defparam syn__056_.CarryEnb = 1'b1;
-defparam syn__056_.AsyncResetMux = 2'bxx;
-defparam syn__056_.SyncResetMux = 2'bxx;
-defparam syn__056_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1012_Y1001_N18
-// alta_lcell_comb \syn__011_[0]_inv~I (
-// Location: LCCELL_X1012_Y1001_N18
-// alta_lcell_ff syn__090_(
-alta_slice syn__090_(
-	.A(),
-	.B(),
-	.C(vcc),
-	.D(),
-	.Cin(),
-	.Qin(syn__011_[0]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(\syn__011_[0]_inv ),
-	.Cout(),
-	.Q(syn__011_[0]));
-defparam syn__090_.mask = 16'h0F0F;
-defparam syn__090_.mode = "logic";
-defparam syn__090_.modeMux = 1'b0;
-defparam syn__090_.FeedbackMux = 1'b1;
-defparam syn__090_.ShiftMux = 1'b0;
-defparam syn__090_.BypassEn = 1'b0;
-defparam syn__090_.CarryEnb = 1'b1;
-defparam syn__090_.AsyncResetMux = 2'b00;
-defparam syn__090_.SyncResetMux = 2'bxx;
-defparam syn__090_.SyncLoadMux = 2'bxx;
+	.Q(counter[10]));
+defparam syn__63_.mask = 16'h5A5A;
+defparam syn__63_.mode = "logic";
+defparam syn__63_.modeMux = 1'b0;
+defparam syn__63_.FeedbackMux = 1'b1;
+defparam syn__63_.ShiftMux = 1'b0;
+defparam syn__63_.BypassEn = 1'b0;
+defparam syn__63_.CarryEnb = 1'b1;
+defparam syn__63_.AsyncResetMux = 2'b00;
+defparam syn__63_.SyncResetMux = 2'bxx;
+defparam syn__63_.SyncLoadMux = 2'bxx;
 // Location: LCCELL_X1012_Y1001_N2
-// alta_lcell_comb syn__049_(
+// alta_lcell_comb syn__42_(
 // Location: LCCELL_X1012_Y1001_N2
-// alta_lcell_ff syn__116_(
-alta_slice syn__116_(
-	.A(syn__010_),
-	.B(syn__014_[1]),
-	.C(vcc),
-	.D(vcc),
-	.Cin(),
-	.Qin(syn__014_[2]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[26]),
-	.Cout(),
-	.Q(syn__014_[2]));
-defparam syn__116_.mask = 16'h7878;
-defparam syn__116_.mode = "logic";
-defparam syn__116_.modeMux = 1'b0;
-defparam syn__116_.FeedbackMux = 1'b1;
-defparam syn__116_.ShiftMux = 1'b0;
-defparam syn__116_.BypassEn = 1'b0;
-defparam syn__116_.CarryEnb = 1'b1;
-defparam syn__116_.AsyncResetMux = 2'b00;
-defparam syn__116_.SyncResetMux = 2'bxx;
-defparam syn__116_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1012_Y1001_N4
-// alta_lcell_comb syn__047_(
-// Location: LCCELL_X1012_Y1001_N4
-// alta_lcell_ff syn__115_(
-alta_slice syn__115_(
-	.A(syn__010_),
+// alta_lcell_ff syn__78_(
+alta_slice syn__78_(
+	.A(syn__08_),
 	.B(vcc),
 	.C(vcc),
 	.D(vcc),
 	.Cin(),
-	.Qin(syn__014_[1]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
+	.Qin(syn__10_[7]),
+	.Clk(syn__09__X1012_Y1001_SIG_VCC),
 	.AsyncReset(AsyncReset_X1012_Y1001_GND),
 	.SyncReset(),
 	.ShiftData(),
 	.SyncLoad(),
-	.LutOut(syn__000_[25]),
+	.LutOut(syn__00_[25]),
 	.Cout(),
-	.Q(syn__014_[1]));
-defparam syn__115_.mask = 16'h5A5A;
-defparam syn__115_.mode = "logic";
-defparam syn__115_.modeMux = 1'b0;
-defparam syn__115_.FeedbackMux = 1'b1;
-defparam syn__115_.ShiftMux = 1'b0;
-defparam syn__115_.BypassEn = 1'b0;
-defparam syn__115_.CarryEnb = 1'b1;
-defparam syn__115_.AsyncResetMux = 2'b00;
-defparam syn__115_.SyncResetMux = 2'bxx;
-defparam syn__115_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1012_Y1001_N6
-// alta_lcell_comb syn__050_(
-// Location: LCCELL_X1012_Y1001_N6
-// alta_lcell_ff syn__117_(
-alta_slice syn__117_(
-	.A(syn__010_),
-	.B(syn__014_[1]),
-	.C(vcc),
-	.D(syn__014_[2]),
-	.Cin(),
-	.Qin(syn__014_[3]),
-	.Clk(syn__015__X1012_Y1001_SIG_VCC),
-	.AsyncReset(AsyncReset_X1012_Y1001_GND),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__000_[27]),
-	.Cout(),
-	.Q(syn__014_[3]));
-defparam syn__117_.mask = 16'h78F0;
-defparam syn__117_.mode = "logic";
-defparam syn__117_.modeMux = 1'b0;
-defparam syn__117_.FeedbackMux = 1'b1;
-defparam syn__117_.ShiftMux = 1'b0;
-defparam syn__117_.BypassEn = 1'b0;
-defparam syn__117_.CarryEnb = 1'b1;
-defparam syn__117_.AsyncResetMux = 2'b00;
-defparam syn__117_.SyncResetMux = 2'bxx;
-defparam syn__117_.SyncLoadMux = 2'bxx;
-// Location: LCCELL_X1012_Y1001_N8
-// alta_lcell_comb syn__052_(
-alta_slice syn__052_(
-	.A(syn__010_),
-	.B(syn__014_[1]),
-	.C(syn__014_[2]),
-	.D(syn__014_[3]),
-	.Cin(),
-	.Qin(),
-	.Clk(),
-	.AsyncReset(),
-	.SyncReset(),
-	.ShiftData(),
-	.SyncLoad(),
-	.LutOut(syn__001_),
-	.Cout(),
-	.Q());
-defparam syn__052_.mask = 16'h8000;
-defparam syn__052_.mode = "logic";
-defparam syn__052_.modeMux = 1'b0;
-defparam syn__052_.FeedbackMux = 1'b0;
-defparam syn__052_.ShiftMux = 1'b0;
-defparam syn__052_.BypassEn = 1'b0;
-defparam syn__052_.CarryEnb = 1'b1;
-defparam syn__052_.AsyncResetMux = 2'bxx;
-defparam syn__052_.SyncResetMux = 2'bxx;
-defparam syn__052_.SyncLoadMux = 2'bxx;
+	.Q(syn__10_[7]));
+defparam syn__78_.mask = 16'h5A5A;
+defparam syn__78_.mode = "logic";
+defparam syn__78_.modeMux = 1'b0;
+defparam syn__78_.FeedbackMux = 1'b1;
+defparam syn__78_.ShiftMux = 1'b0;
+defparam syn__78_.BypassEn = 1'b0;
+defparam syn__78_.CarryEnb = 1'b1;
+defparam syn__78_.AsyncResetMux = 2'b00;
+defparam syn__78_.SyncResetMux = 2'bxx;
+defparam syn__78_.SyncLoadMux = 2'bxx;
 
 // Location: CLKENCTRL_X1012_Y1001_N0
-alta_clkenctrl clken_ctrl_X1012_Y1001_N0(.ClkIn(syn__015_), .ClkEn(), .ClkOut(syn__015__X1012_Y1001_SIG_VCC));
+alta_clkenctrl clken_ctrl_X1012_Y1001_N0(.ClkIn(syn__09_), .ClkEn(), .ClkOut(syn__09__X1012_Y1001_SIG_VCC));
 defparam clken_ctrl_X1012_Y1001_N0.ClkMux = 2'b10;
 defparam clken_ctrl_X1012_Y1001_N0.ClkEnMux = 2'b01;
 
