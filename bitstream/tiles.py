@@ -157,10 +157,12 @@ class Tile:
                     break
         return bits
 
-def mux_encode(val, length):
-    bottom = 1 << (2 - int(val / length))
+def mux_encode(val, bit_len, val_len):
+    length = bit_len * val_len
+    assert(val <= length)
+    bottom = 1 << ((val_len - 1) - int(val / length))
     top = 1 << (length - 1 - (val % length))
-    return num_to_bits((top << 3) | bottom, length + 3)
+    return num_to_bits((top << val_len) | bottom, bit_len + val_len) 
 
 def mux_decode(bits, length=None):
     if length is None:
@@ -342,9 +344,9 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
-	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4),
-	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
+	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3, 3),
+	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4, 3),
+	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 1, 2),
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
@@ -461,9 +463,9 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=4, va
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
-	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4),
-	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
+	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3, 3),
+	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4, 3),
+	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 1, 2),
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
@@ -583,9 +585,9 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
-	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4),
-	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
+	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3, 3),
+	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4, 3),
+	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 1, 2),
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
@@ -703,9 +705,9 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', columns=34, rows=20, slices=4, va
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
-	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4),
-	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3),
+	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 3, 3),
+	'IOMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4, 3),
+	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 1, 2),
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
@@ -919,9 +921,9 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
 	'IMUX[0-9][0-9]': lambda x: mux_format(x, 9, 'I'),
 	'CtrlMUX[0-9][0-9]': lambda x: mux_format(x, 9, 'I'),
 }, encoders={
-	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 7),
-	'IMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9),
-	'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9),
+	'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 7, 3),
+	'IMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9, 3),
+	'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9, 3),
 }, annotations={
 	'BramClkMUX00': 'Clk0',
 	'BramClkMUX01': 'Clk1',
@@ -1385,11 +1387,11 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
     'alta_slice[0-9][0-9].FF_USED': lambda x: True,
     'alta_slice[0-9][0-9].INIT\[[^\]]*]': lambda x: re.sub('(alta_slice[0-9][0-9]).INIT\[[^\]]*]', lambda x: x.groups()[0] + "_LUT", x),
 }, encoders={
-    'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9),
+    'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9, 3),
     'alta_slice[0-9][0-9]_LUT$': lambda x: [1 if a == 0 else 0 for a in x[::-1]],
-    'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 7),
-    'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9),
-    'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 1),
+    'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 7, 3),
+    'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9, 3),
+    'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 2, 2),
 }, annotations={
 	'alta_slice00_IMUX00':'A',
 	'alta_slice00_IMUX01':'B',
