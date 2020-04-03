@@ -226,7 +226,7 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', columns=34, rows=20, slice
 	'SeamMUX09':[295,296,297,298,299,300,301,302],
 }))
 
-InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=8, values={
+InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4, values={
 	# Tile is identical to AG1200_IOTILE_N4, with the addition of CFG_GclkDMUX00
 
 	# Each CtrlMUX contains 2 entries of 6 bits each
@@ -348,7 +348,7 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=8,
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
-InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=8, values={
+InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=4, values={
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 274, 308, 273, 307, 272, 306, 342, 376, 341, 375, 340, 374 ],
 	'CtrlMUX01': [ 280, 314, 279, 313, 278, 312, 348, 382, 347, 381, 346, 380 ],
@@ -466,7 +466,7 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=8, va
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
-InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=8, values={
+InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4, values={
 	# Tile is identical to AG1200_TILE_S4, with the addition of CFG_GclkDMUX00
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340, 308, 274, 307, 273, 306, 272 ],
@@ -587,7 +587,7 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=8,
 	'TileClkMUX[0-9][0-9]': [0,0,1]
 }))
 
-InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', columns=34, rows=20, slices=8, values={
+InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', columns=34, rows=20, slices=4, values={
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340, 308, 274, 307, 273, 306, 272 ],
 	'CtrlMUX01': [ 382, 348, 381, 347, 380, 346, 314, 280, 313, 279, 312, 278 ],
