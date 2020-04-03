@@ -160,25 +160,32 @@ class Tile:
 def mux_encode(val, bit_len, val_len):
     length = bit_len * val_len
     assert(val <= length)
-    bottom = 1 << ((val_len - 1) - int(val / length))
-    top = 1 << (length - 1 - (val % length))
-    return num_to_bits((top << val_len) | bottom, bit_len + val_len) 
+    bottom = 1 << (val_len - 1 - int(val / bit_len))
+    top = 1 << (bit_len - 1 - (val % bit_len))
+    
+    result = num_to_bits((top << val_len) | bottom, bit_len + val_len)
+    assert val == mux_decode(result, bit_len)
+    return result
 
 def mux_decode(bits, length=None):
-    if length is None:
-        length = len(bits) - 3
+    if length:
+        X = len(bits) - length
+    else:
+        X = 3
+        length = len(bits) - X
     
     strval = bits_to_string(bits)
     val = int(strval, 2)
     if val == 0:
         return -1
     
-    top = val >> 3
-    bottom = val & 7
+    top = val >> X
+    bottom = val & ((1<<X)-1)
+    
     if top == 0 or bottom == 0:
         return -1
 
-    return int(((length-1) - log(top, 2)) + (length * (2 - log(bottom, 2))))
+    return int(((length-1) - log(top, 2)) + (length * (X - 1 - log(bottom, 2))))
     
 def mux_format(bits, length, type):
     index = mux_decode(bits, length)
