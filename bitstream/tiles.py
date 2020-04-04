@@ -207,6 +207,18 @@ def lut_encode(inbits):
     outbits = bits_invert(outbits)
     return outbits[::-1]
 
+def lut_decode(inbits):
+    outbits = ['x'] * len(inbits)
+    inbits = inbits[::-1]
+    inbits = bits_invert(inbits)
+    outidx = 0
+    for inidx in range(0, len(inbits)):
+        outbits[outidx] = inbits[inidx]
+        outidx += 4
+        if outidx >= len(outbits):
+            outidx -= len(outbits) - 1
+    return outbits
+
 def slice_omux_format(bits):
     if bits[0] is 0:
         name = 'LutOut'
@@ -1395,7 +1407,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 	'alta_slice15_OMUX46':[2277],
 	'alta_slice15_OMUX47':[2311],
 }, formatters={
-	'^alta_slice[0-9][0-9]_LUT$': lambda x: '16\'h'+format(bytes_to_num(bits_to_bytes(bits_invert(x[::-1]))), '04x'),
+	'^alta_slice[0-9][0-9]_LUT$': lambda x: '16\'h'+format(bytes_to_num(bits_to_bytes(lut_decode(x))), '04x')+'(raw:16\'h'+format(bytes_to_num(bits_to_bytes(bits_invert(x[::-1]))), '04x')+')',
 	'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda x: mux_format(x, 9, 'I'),
 	'alta_slice[0-9][0-9]_OMUX[0-9][0-9]': lambda x: slice_omux_format(x), 
 	'RMUX[0-9][0-9]': lambda x: mux_format(x, 7, 'I'),
