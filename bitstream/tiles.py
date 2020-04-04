@@ -196,6 +196,17 @@ def mux_format(bits, length, type):
     index = mux_decode(bits, length)
     return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
 
+def lut_encode(inbits):
+    outbits = ['x'] * len(inbits)
+    outidx = len(outbits) - 1
+    for inidx in range(len(inbits)-1, -1, -1):
+        outbits[outidx] = inbits[inidx]
+        outidx -= 4
+        if outidx < 0:
+            outidx += len(outbits) - 1
+    outbits = bits_invert(outbits)
+    return outbits[::-1]
+
 def slice_omux_format(bits):
     if bits[0] is 0:
         name = 'LutOut'
@@ -1400,7 +1411,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
     'alta_slice[0-9][0-9].INIT\[[^\]]*]': lambda x: re.sub('(alta_slice[0-9][0-9]).INIT\[[^\]]*]', lambda x: x.groups()[0] + "_LUT", x),
 }, encoders={
     'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 9, 3),
-    'alta_slice[0-9][0-9]_LUT$': lambda x: [1 if a == 0 else 0 for a in x[::-1]],
+    'alta_slice[0-9][0-9]_LUT$': lambda x: lut_encode(x),
     'RMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 7, 3),
     'CtrlMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 8, 4),
 	'TileClkMUX[0-9][0-9]': lambda x: mux_encode(bits_to_num(x), 4, 0),
