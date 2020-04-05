@@ -196,33 +196,40 @@ def mux_format(bits, length, type):
     index = mux_decode(bits, length)
     return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
 
-def slice_from_lut_key(key):
+def lut_slice_from_key(key):
     if key.startswith("alta_slice") and key.endswith("_LUT"):
         return int(key[10:-4])
     return None
 
-def lut_encode(key,inbits):
+def lut_map_for_slice(slice):
+    if slice in [0, 4, 8, 12]:
+        return [0, 4, 8, 12,   1, 5,  9, 13,   2, 6, 10, 14,   3, 7, 11, 15 ]
+    elif slice in [3, 7, 13]:
+        return [0, 1, 8, 9,    2, 3, 10, 11,   4, 5, 12, 13,   6, 7, 14, 15 ]
+    else:
+        return [0, 1, 2, 3,    4, 5,  6,  7,   8, 9, 10, 11,   12, 13, 14, 15 ]
+
+def lut_encode(key, inbits):
+    slice = lut_slice_from_key(key)
+    map = lut_map_for_slice(slice)
     outbits = ['x'] * len(inbits)
-    outidx = len(outbits) - 1
-    for inidx in range(len(inbits)-1, -1, -1):
+    for inidx in range(0, len(inbits)):
+        outidx = map[inidx]
         outbits[outidx] = inbits[inidx]
-        outidx -= 4
-        if outidx < 0:
-            outidx += len(outbits) - 1
     outbits = bits_invert(outbits)
     return outbits[::-1]
 
-def lut_decode(key,inbits):
-    slice = slice_from_lut_key(key)
-    outbits = ['x'] * len(inbits)
+def lut_decode(key, inbits):
+    slice = lut_slice_from_key(key)
+    map = lut_map_for_slice(slice)
+        
     inbits = inbits[::-1]
     inbits = bits_invert(inbits)
-    outidx = 0
-    for inidx in range(0, len(inbits)):
+    outbits = ['x'] * len(inbits)
+    
+    for outidx in range(0, len(inbits)):
+        inidx = map[outidx]
         outbits[outidx] = inbits[inidx]
-        outidx += 4
-        if outidx >= len(outbits):
-            outidx -= len(outbits) - 1
     return outbits
 
 def slice_omux_format(bits):
