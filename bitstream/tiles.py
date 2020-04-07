@@ -87,6 +87,11 @@ class Tile:
         result = self.bit_format(name, bits)
         if name in self.annotations:
             result += "\t; "+self.annotations[name]
+        else:
+            for pattern in self.annotations:
+                if re.match(pattern, name):
+                    result += "\t; "+self.annotations[pattern]
+                    break
             
         if name.lower().find("mux") != -1:
             value = mux_decode(bits)
@@ -1418,6 +1423,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
     'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 8, 4),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 4, 0),
 }, annotations={
+    'alta_slice[0-9][0-9]_LUTCMUX': 'FeedbackMux?',
 	'alta_slice00_IMUX00':'A',
 	'alta_slice00_IMUX01':'B',
 	'alta_slice00_IMUX02':'C',
