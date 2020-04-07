@@ -201,36 +201,13 @@ def lut_slice_from_key(key):
         return int(key[10:-4])
     return None
 
-def lut_map_for_slice(slice):
-    if slice in [0, 4, 8, 12]:
-        return [0, 4, 8, 12,   1, 5,  9, 13,   2, 6, 10, 14,   3, 7, 11, 15 ]
-    elif slice in [3, 7, 13]:
-        return [0, 1, 8, 9,    2, 3, 10, 11,   4, 5, 12, 13,   6, 7, 14, 15 ]
-    else:
-        return [0, 1, 2, 3,    4, 5,  6,  7,   8, 9, 10, 11,   12, 13, 14, 15 ]
-
 def lut_encode(key, inbits):
-    slice = lut_slice_from_key(key)
-    map = lut_map_for_slice(slice)
-    outbits = ['x'] * len(inbits)
-    for inidx in range(0, len(inbits)):
-        outidx = map[inidx]
-        outbits[outidx] = inbits[inidx]
-    outbits = bits_invert(outbits)
+    outbits = bits_invert(inbits)
     return outbits[::-1]
 
 def lut_decode(key, inbits):
-    slice = lut_slice_from_key(key)
-    map = lut_map_for_slice(slice)
-        
-    inbits = inbits[::-1]
-    inbits = bits_invert(inbits)
-    outbits = ['x'] * len(inbits)
-    
-    for outidx in range(0, len(inbits)):
-        inidx = map[outidx]
-        outbits[outidx] = inbits[inidx]
-    return outbits
+    outbits = bits_invert(inbits)
+    return outbits[::-1]
 
 def slice_omux_format(bits):
     if bits[0] is 0:
@@ -1420,7 +1397,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 	'alta_slice15_OMUX46':[2277],
 	'alta_slice15_OMUX47':[2311],
 }, formatters={
-	'^alta_slice[0-9][0-9]_LUT$': lambda key,val: '16\'h'+format(bytes_to_num(bits_to_bytes(lut_decode(key,val))), '04x')+'(raw:16\'h'+format(bytes_to_num(bits_to_bytes(bits_invert(val[::-1]))), '04x')+')',
+	'^alta_slice[0-9][0-9]_LUT$': lambda key,val: '16\'h'+format(bytes_to_num(bits_to_bytes(lut_decode(key,val))), '04x'),
 	'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda key,val: mux_format(val, 9, 'I'),
 	'alta_slice[0-9][0-9]_OMUX[0-9][0-9]': lambda key,val: slice_omux_format(val), 
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
