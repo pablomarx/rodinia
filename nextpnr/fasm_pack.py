@@ -59,7 +59,11 @@ for chain in chip.configChain:
 filename = sys.argv[1]
 with open(filename, "r") as file:
     lines = file.readlines()
-    
+
+useFormatters = True
+if lines[0] == "#nofmt!\n":
+    useFormatters = False
+
 for line in lines:
     line = line.strip()
     if len(line) == 0:
@@ -97,7 +101,7 @@ for line in lines:
     value = string_to_bits(setting[1].strip())
     
     bits = bits_by_tile[col][row]
-    success = tile.encode(key, value, bits) 
+    success = tile.encode(key, value, bits, useFormatters) 
     if not success:
         chain_idx = 0
         for chain in chip.configChain:
