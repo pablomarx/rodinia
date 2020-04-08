@@ -106,7 +106,14 @@ class Tile:
                 result += '\t; ' + net
         return result
         
-    def encode(self, key, value, bits):
+    def encode(self, key, value, bits, use_encoder=True):
+        # XXX: Temporary hack... 
+        if self.type == "IOTILE" and key.endswith("OUTPUT_USED"):
+            slice = int(key[8:10])
+            if slice < 4:
+                for x in range (1, 4):
+                    self.encode("IOMUX%02i" % (slice + (4 * x)), [0,0,0,0, 0,0,0], bits, False)
+
         for pattern in self.key_transformers:
             if re.match(pattern, key):
                 key = self.key_transformers[pattern](key)
@@ -116,12 +123,13 @@ class Tile:
         
         if key not in self.values:
             print("Can't find key:%s in %s values" % (key, self.type))
-            return None
-            
-        for pattern in self.encoders:
-            if re.match(pattern, key):
-                value = self.encoders[pattern](key,value)
-                break
+            return None    
+        
+        if use_encoder:
+            for pattern in self.encoders:
+                if re.match(pattern, key):
+                    value = self.encoders[pattern](key,value)
+                    break
                 
         indices = self.values[key]
         assert len(indices) == len(value)
