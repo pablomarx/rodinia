@@ -1,0 +1,817 @@
+#nofmt!
+
+# ; I:9	; <= LogicTILE(2,5):RMUX38:O0 T4X 0.44	; syn__10_[6]
+B_Y05X03.RMUX51 = 10'b0010000010	
+
+I_Y01X00.IOMUX04 = 7'b0000000	
+I_Y01X00.IOMUX05 = 7'b0000000	
+I_Y01X00.IOMUX06 = 7'b0000000	
+I_Y01X00.IOMUX07 = 7'b0000000	
+I_Y09X00.IOMUX00 = 7'b1000010	
+I_Y09X00.IOMUX02 = 7'b0010100	
+I_Y09X00.IOMUX04 = 7'b0000000	
+I_Y09X00.IOMUX05 = 7'b0000000	
+I_Y09X00.IOMUX06 = 7'b0000000	
+I_Y09X00.IOMUX07 = 7'b0000000	
+I_Y09X00.IOMUX08 = 7'b0000000	
+I_Y09X00.IOMUX10 = 7'b0000000	
+I_Y09X00.IOMUX12 = 7'b0000000	
+I_Y09X00.IOMUX14 = 7'b0000000	
+
+# ; I:0	; <= LogicTILE(0,8):RMUX55:O0 T4Y 0.527	; syn__10_[2]
+I_Y09X00.RMUX08 = 6'b100100	
+
+# ; I:0	; <= LogicTILE(0,8):RMUX85:O0 T4Y 0.527	; syn__10_[3]
+I_Y09X00.RMUX16 = 6'b100100	
+
+I_Y01X01.IOMUX04 = 7'b0000000	
+I_Y01X01.IOMUX05 = 7'b0000000	
+I_Y01X01.IOMUX06 = 7'b0000000	
+I_Y01X01.IOMUX07 = 7'b0000000	
+I_Y00X11.IOMUX04 = 7'b0000000	
+I_Y00X11.IOMUX06 = 7'b0000000	
+I_Y09X11.IOMUX04 = 7'b0000000	
+I_Y09X11.IOMUX06 = 7'b0000000	
+I_Y09X11.IOMUX07 = 7'b0000000	
+I_Y00X12.IOMUX05 = 7'b0000000	
+I_Y00X12.IOMUX07 = 7'b0000000	
+I_Y09X12.IOMUX04 = 7'b0000000	
+I_Y09X12.IOMUX05 = 7'b0000000	
+I_Y09X12.IOMUX06 = 7'b0000000	
+I_Y09X12.IOMUX07 = 7'b0000000	
+
+# ; I:4	; <= IOTILE(1,9):RMUX16:O0 T0 0.877	; syn__10_[4]
+I_Y09X01.IOMUX01 = 7'b1000010	
+
+# ; I:3	; <= IOTILE(1,9):RMUX12:O0 T0 0.877	; syn__10_[1]
+I_Y09X01.IOMUX03 = 7'b0001100	
+
+I_Y09X01.IOMUX04 = 7'b0000000	
+I_Y09X01.IOMUX05 = 7'b0000000	
+I_Y09X01.IOMUX06 = 7'b0000000	
+I_Y09X01.IOMUX07 = 7'b0000000	
+I_Y09X01.IOMUX09 = 7'b0000000	
+I_Y09X01.IOMUX11 = 7'b0000000	
+I_Y09X01.IOMUX13 = 7'b0000000	
+I_Y09X01.IOMUX15 = 7'b0000000	
+
+# ; I:2	; <= LogicTILE(1,8):RMUX09:O0 T4Y 0.527	; syn__10_[1]
+I_Y09X01.RMUX12 = 6'b001100	
+
+# ; I:0	; <= LogicTILE(1,8):RMUX85:O0 T4Y 0.527	; syn__10_[4]
+I_Y09X01.RMUX16 = 6'b100100	
+
+# ; I:7	; <= IOTILE(2,1):RMUX28:O0 T0 0.877	; syn__10_[7]
+I_Y01X02.IOMUX00 = 7'b0001010	
+
+I_Y01X02.IOMUX04 = 7'b0000000	
+I_Y01X02.IOMUX05 = 7'b0000000	
+I_Y01X02.IOMUX07 = 7'b0000000	
+I_Y01X02.IOMUX08 = 7'b0000000	
+I_Y01X02.IOMUX12 = 7'b0000000	
+
+# ; I:1	; <= LogicTILE(2,5):RMUX44:O0 T4Y 0.623	; syn__10_[7]
+I_Y01X02.RMUX28 = 6'b010100	
+
+# ; I:4	; <= IOTILE(2,9):RMUX16:O0 T0 0.877	; syn__10_[0]
+I_Y09X02.IOMUX00 = 7'b1000010	
+
+I_Y09X02.IOMUX04 = 7'b0000000	
+I_Y09X02.IOMUX05 = 7'b0000000	
+I_Y09X02.IOMUX07 = 7'b0000000	
+I_Y09X02.IOMUX08 = 7'b0000000	
+I_Y09X02.IOMUX12 = 7'b0000000	
+
+# ; I:0	; <= LogicTILE(2,8):RMUX85:O0 T4Y 0.527	; syn__10_[0]
+I_Y09X02.RMUX16 = 6'b100100	
+
+I_Y01X04.IOMUX05 = 7'b0000000	
+I_Y01X04.IOMUX07 = 7'b0000000	
+I_Y09X04.IOMUX05 = 7'b0000000	
+I_Y09X04.IOMUX07 = 7'b0000000	
+I_Y09X04.IOMUX08 = 7'b0000000	
+I_Y09X04.IOMUX12 = 7'b0000000	
+
+# syn09
+I_Y09X04.InputMUX01 = 1'b0
+
+# ; I:1	; <= IOTILE(6,9):RMUX04:O0 T0 0.877	; syn__10_[5]
+I_Y09X06.IOMUX02 = 7'b0100100	
+
+I_Y09X06.IOMUX05 = 7'b0000000	
+I_Y09X06.IOMUX06 = 7'b0000000	
+I_Y09X06.IOMUX07 = 7'b0000000	
+I_Y09X06.IOMUX10 = 7'b0000000	
+I_Y09X06.IOMUX14 = 7'b0000000	
+
+# ; I:2	; <= LogicTILE(6,8):RMUX75:O0 T4Y 0.527	; syn__10_[5]
+I_Y09X06.RMUX04 = 6'b001100	
+
+# ; I:5	; <= IOTILE(7,1):RMUX20:O0 T0 0.877	; syn__10_[6]
+I_Y01X07.IOMUX00 = 7'b0100010	
+
+I_Y01X07.IOMUX04 = 7'b0000000	
+I_Y01X07.IOMUX07 = 7'b0000000	
+I_Y01X07.IOMUX08 = 7'b0000000	
+I_Y01X07.IOMUX12 = 7'b0000000	
+
+# ; I:1	; <= LogicTILE(7,5):RMUX14:O0 T4Y 0.623	; syn__10_[6]
+I_Y01X07.RMUX20 = 6'b010100	
+
+I_Y09X08.GclkDMUX00 = 4'b1111
+
+I_Y00X09.IOMUX04 = 7'b0000000	
+I_Y00X09.IOMUX06 = 7'b0000000	
+
+I_Y09X09.GclkDMUX00 = 4'b1111
+
+I_Y09X09.IOMUX06 = 7'b0000000	
+
+# ; I:5	; <= LogicTILE(1,8):RMUX13:O0 T4X 0.44	; syn__10_[2]
+L_Y08X00.RMUX55 = 10'b0000010100	
+
+# ; I:6	; <= LogicTILE(2,8):RMUX20:O0 T4X 0.475	; syn__10_[3]
+L_Y08X00.RMUX85 = 10'b0000001100	
+
+# ; I:17	; <= LogicTILE(2,7):RMUX30:O0 T1 0.388	; syn__09_
+L_Y07X01.CtrlMUX01 = 12'b010000000010	
+
+# ; I:7	; <= LogicTILE(4,7):RMUX03:O0 T4X 0.48	; syn__09_
+L_Y07X01.RMUX11 = 10'b1000000010	
+
+# ; I:2	; <= LogicTILE(1,7):OMUX32:O0 T0 0.197	; syn__04_
+L_Y07X01.RMUX55 = 10'b0010000100	
+
+# ; I:5	; <= LogicTILE(2,7):RMUX13:O0 T4X 0.44	; counter[10]
+L_Y07X01.RMUX65 = 10'b0000010100	
+
+L_Y07X01.TileAsyncMUX00 = 4'b0001
+
+# syn09
+L_Y07X01.TileClkMUX00 = 4'b0010	
+
+L_Y07X01.alta_slice00_CARRY_CRL = 1'b1
+
+# ; I:1	; A	; <= LogicTILE(1,7):OMUX04:O0 T0 0.996	; counter[5]
+L_Y07X01.alta_slice00_IMUX00 = 12'b010000000100	
+
+# ; I:7	; B	; <= LogicTILE(1,7):OMUX40:O0 T0 0.955	; counter[6]
+L_Y07X01.alta_slice00_IMUX01 = 12'b000000010100	
+
+# ; I:3	; C	; <= LogicTILE(1,7):OMUX13:O0 T0 0.867	; syn__01_
+L_Y07X01.alta_slice00_IMUX02 = 12'b000100000100	
+
+# ; I:3	; D	; <= LogicTILE(1,7):OMUX16:O0 T0 0.541	; counter[4]
+L_Y07X01.alta_slice00_IMUX03 = 12'b000100000100	
+
+L_Y07X01.alta_slice00_LUT = 16'h8000
+
+L_Y07X01.alta_slice01_CARRY_CRL = 1'b1
+
+# ; I:3	; A	; <= LogicTILE(1,7):OMUX13:O0 T0 0.996	; syn__01_
+L_Y07X01.alta_slice01_IMUX04 = 12'b000100000100	
+
+# ; I:3	; D	; <= LogicTILE(1,7):OMUX16:O0 T0 0.541	; counter[4]
+L_Y07X01.alta_slice01_IMUX07 = 12'b000100000100	
+
+L_Y07X01.alta_slice01_LUT = 16'h5af0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice01_LUTCMUX = 2'b10	
+
+# ; Q	; counter[5]
+L_Y07X01.alta_slice01_OMUX04 = 1'b1	
+
+L_Y07X01.alta_slice02_CARRY_CRL = 1'b1
+
+# ; I:5	; A	; <= LogicTILE(1,7):OMUX25:O0 T0 0.996	; counter[1]
+L_Y07X01.alta_slice02_IMUX08 = 12'b000001000100	
+
+# ; I:6	; D	; <= LogicTILE(1,7):OMUX34:O0 T0 0.541	; counter[0]
+L_Y07X01.alta_slice02_IMUX11 = 12'b000000100100	
+
+L_Y07X01.alta_slice02_LUT = 16'h5af0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice02_LUTCMUX = 2'b10	
+
+# ; Q	; counter[2]
+L_Y07X01.alta_slice02_OMUX07 = 1'b1	
+
+L_Y07X01.alta_slice03_CARRY_CRL = 1'b1
+
+# ; I:5	; A	; <= LogicTILE(1,7):OMUX25:O0 T0 0.996	; counter[1]
+L_Y07X01.alta_slice03_IMUX12 = 12'b000001000100	
+
+# ; I:1	; B	; <= LogicTILE(1,7):OMUX07:O0 T0 0.955	; counter[2]
+L_Y07X01.alta_slice03_IMUX13 = 12'b010000000100	
+
+# ; I:6	; D	; <= LogicTILE(1,7):OMUX34:O0 T0 0.541	; counter[0]
+L_Y07X01.alta_slice03_IMUX15 = 12'b000000100100	
+
+L_Y07X01.alta_slice03_LUT = 16'h78f0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice03_LUTCMUX = 2'b10	
+
+# ; Q	; counter[3]
+L_Y07X01.alta_slice03_OMUX10 = 1'b1	
+
+L_Y07X01.alta_slice04_CARRY_CRL = 1'b1
+
+# ; I:1	; A	; <= LogicTILE(1,7):OMUX07:O0 T0 0.996	; counter[2]
+L_Y07X01.alta_slice04_IMUX16 = 12'b010000000100	
+
+# ; I:1	; B	; <= LogicTILE(1,7):OMUX10:O0 T0 0.955	; counter[3]
+L_Y07X01.alta_slice04_IMUX17 = 12'b010000000100	
+
+# ; I:5	; C	; <= LogicTILE(1,7):OMUX25:O0 T0 0.867	; counter[1]
+L_Y07X01.alta_slice04_IMUX18 = 12'b000001000100	
+
+# ; I:6	; D	; <= LogicTILE(1,7):OMUX34:O0 T0 0.541	; counter[0]
+L_Y07X01.alta_slice04_IMUX19 = 12'b000000100100	
+
+L_Y07X01.alta_slice04_LUT = 16'h8000
+
+L_Y07X01.alta_slice05_CARRY_CRL = 1'b1
+
+# ; I:2	; D	; <= LogicTILE(1,7):OMUX13:O0 T0 0.541	; syn__01_
+L_Y07X01.alta_slice05_IMUX23 = 12'b001000000100	
+
+L_Y07X01.alta_slice05_LUT = 16'h0ff0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice05_LUTCMUX = 2'b10	
+
+# ; Q	; counter[4]
+L_Y07X01.alta_slice05_OMUX16 = 1'b1	
+
+L_Y07X01.alta_slice06_CARRY_CRL = 1'b1
+
+# ; I:0	; A	; <= LogicTILE(1,7):OMUX01:O0 T0 0.996	; syn__02_
+L_Y07X01.alta_slice06_IMUX24 = 12'b100000000100	
+
+# ; I:5	; D	; <= LogicTILE(1,7):OMUX28:O0 T0 0.541	; counter[7]
+L_Y07X01.alta_slice06_IMUX27 = 12'b000001000100	
+
+L_Y07X01.alta_slice06_LUT = 16'h5af0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice06_LUTCMUX = 2'b10	
+
+# ; Q	; counter[8]
+L_Y07X01.alta_slice06_OMUX19 = 1'b1	
+
+L_Y07X01.alta_slice07_CARRY_CRL = 1'b1
+
+# ; I:0	; A	; <= LogicTILE(1,7):OMUX01:O0 T0 0.996	; syn__02_
+L_Y07X01.alta_slice07_IMUX28 = 12'b100000000100	
+
+# ; I:3	; B	; <= LogicTILE(1,7):OMUX19:O0 T0 0.955	; counter[8]
+L_Y07X01.alta_slice07_IMUX29 = 12'b000100000100	
+
+# ; I:5	; D	; <= LogicTILE(1,7):OMUX28:O0 T0 0.541	; counter[7]
+L_Y07X01.alta_slice07_IMUX31 = 12'b000001000100	
+
+L_Y07X01.alta_slice07_LUT = 16'h78f0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice07_LUTCMUX = 2'b10	
+
+# ; Q	; counter[9]
+L_Y07X01.alta_slice07_OMUX22 = 1'b1	
+
+L_Y07X01.alta_slice08_CARRY_CRL = 1'b1
+
+# ; I:6	; D	; <= LogicTILE(1,7):OMUX34:O0 T0 0.541	; counter[0]
+L_Y07X01.alta_slice08_IMUX35 = 12'b000000100100	
+
+L_Y07X01.alta_slice08_LUT = 16'h0ff0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice08_LUTCMUX = 2'b10	
+
+# ; Q	; counter[1]
+L_Y07X01.alta_slice08_OMUX25 = 1'b1	
+
+L_Y07X01.alta_slice09_CARRY_CRL = 1'b1
+
+# ; I:0	; A	; <= LogicTILE(1,7):OMUX01:O0 T0 0.996	; syn__02_
+L_Y07X01.alta_slice09_IMUX36 = 12'b100000000100	
+
+L_Y07X01.alta_slice09_LUT = 16'h5a5a
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice09_LUTCMUX = 2'b10	
+
+# ; Q	; counter[7]
+L_Y07X01.alta_slice09_OMUX28 = 1'b1	
+
+L_Y07X01.alta_slice10_CARRY_CRL = 1'b1
+
+# ; I:8	; A	; <= LogicTILE(1,7):OMUX43:O0 T0 0.996	; counter[11]
+L_Y07X01.alta_slice10_IMUX40 = 12'b000000001100	
+
+# ; I:9	; B	; <= LogicTILE(2,7):RMUX06:O0 T1 1.109	; counter[10]
+L_Y07X01.alta_slice10_IMUX41 = 12'b100000000010	
+
+# ; I:7	; C	; <= LogicTILE(1,7):OMUX37:O0 T0 0.867	; syn__03_
+L_Y07X01.alta_slice10_IMUX42 = 12'b000000010100	
+
+# ; I:8	; D	; <= LogicTILE(1,7):OMUX46:O0 T0 0.541	; counter[12]
+L_Y07X01.alta_slice10_IMUX43 = 12'b000000001100	
+
+L_Y07X01.alta_slice10_LUT = 16'h8000
+
+L_Y07X01.alta_slice11_CARRY_CRL = 1'b1
+
+L_Y07X01.alta_slice11_LUT = 16'h0f0f
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice11_LUTCMUX = 2'b10	
+
+# ; Q	; counter[0]
+L_Y07X01.alta_slice11_OMUX34 = 1'b1	
+
+L_Y07X01.alta_slice12_CARRY_CRL = 1'b1
+
+# ; I:3	; A	; <= LogicTILE(1,7):OMUX19:O0 T0 0.996	; counter[8]
+L_Y07X01.alta_slice12_IMUX48 = 12'b000100000100	
+
+# ; I:3	; B	; <= LogicTILE(1,7):OMUX22:O0 T0 0.955	; counter[9]
+L_Y07X01.alta_slice12_IMUX49 = 12'b000100000100	
+
+# ; I:0	; C	; <= LogicTILE(1,7):OMUX01:O0 T0 0.867	; syn__02_
+L_Y07X01.alta_slice12_IMUX50 = 12'b100000000100	
+
+# ; I:4	; D	; <= LogicTILE(1,7):OMUX28:O0 T0 0.541	; counter[7]
+L_Y07X01.alta_slice12_IMUX51 = 12'b000010000100	
+
+L_Y07X01.alta_slice12_LUT = 16'h8000
+
+L_Y07X01.alta_slice13_CARRY_CRL = 1'b1
+
+# ; I:2	; A	; <= LogicTILE(1,7):OMUX13:O0 T0 0.996	; syn__01_
+L_Y07X01.alta_slice13_IMUX52 = 12'b001000000100	
+
+# ; I:0	; B	; <= LogicTILE(1,7):OMUX04:O0 T0 0.955	; counter[5]
+L_Y07X01.alta_slice13_IMUX53 = 12'b100000000100	
+
+# ; I:2	; D	; <= LogicTILE(1,7):OMUX16:O0 T0 0.541	; counter[4]
+L_Y07X01.alta_slice13_IMUX55 = 12'b001000000100	
+
+L_Y07X01.alta_slice13_LUT = 16'h78f0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice13_LUTCMUX = 2'b10	
+
+# ; Q	; counter[6]
+L_Y07X01.alta_slice13_OMUX40 = 1'b1	
+
+L_Y07X01.alta_slice14_CARRY_CRL = 1'b1
+
+# ; I:6	; A	; <= LogicTILE(1,7):OMUX37:O0 T0 0.996	; syn__03_
+L_Y07X01.alta_slice14_IMUX56 = 12'b000000100100	
+
+# ; I:9	; B	; <= LogicTILE(2,7):RMUX06:O0 T1 1.109	; counter[10]
+L_Y07X01.alta_slice14_IMUX57 = 12'b100000000010	
+
+L_Y07X01.alta_slice14_LUT = 16'h7878
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice14_LUTCMUX = 2'b10	
+
+# ; Q	; counter[11]
+L_Y07X01.alta_slice14_OMUX43 = 1'b1	
+
+L_Y07X01.alta_slice15_CARRY_CRL = 1'b1
+
+# ; I:6	; A	; <= LogicTILE(1,7):OMUX37:O0 T0 0.996	; syn__03_
+L_Y07X01.alta_slice15_IMUX60 = 12'b000000100100	
+
+# ; I:7	; B	; <= LogicTILE(1,7):OMUX43:O0 T0 0.955	; counter[11]
+L_Y07X01.alta_slice15_IMUX61 = 12'b000000010100	
+
+# ; I:21	; D	; <= LogicTILE(1,7):RMUX65:O0 T0 0.688	; counter[10]
+L_Y07X01.alta_slice15_IMUX63 = 12'b000100000001	
+
+L_Y07X01.alta_slice15_LUT = 16'h78f0
+
+# ; FeedbackMux?
+L_Y07X01.alta_slice15_LUTCMUX = 2'b10	
+
+# ; Q	; counter[12]
+L_Y07X01.alta_slice15_OMUX46 = 1'b1	
+
+# ; I:27	; <= LogicTILE(1,8):RMUX35:O0 T0 0.381	; syn__09_
+L_Y08X01.CtrlMUX01 = 12'b000100000001	
+
+# ; I:3	; <= LogicTILE(1,8):OMUX11:O0 T0 0.197	; syn__10_[1]
+L_Y08X01.RMUX09 = 10'b0001000100	
+
+# ; I:0	; <= LogicTILE(1,8):OMUX02:O0 T0 0.197	; syn__10_[2]
+L_Y08X01.RMUX13 = 10'b1000000100	
+
+# ; I:13	; <= LogicTILE(1,7):RMUX55:O0 T4Y 0.527	; syn__04_
+L_Y08X01.RMUX40 = 10'b0000001010	
+
+# ; I:7	; <= LogicTILE(4,8):RMUX13:O0 T4X 0.48	; syn__09_
+L_Y08X01.RMUX71 = 10'b1000000010	
+
+# ; I:1	; <= LogicTILE(1,8):OMUX41:O0 T0 0.197	; syn__10_[4]
+L_Y08X01.RMUX85 = 10'b0100000100	
+
+L_Y08X01.TileAsyncMUX00 = 4'b0001
+
+# syn09
+L_Y08X01.TileClkMUX00 = 4'b0010
+
+L_Y08X01.alta_slice00_CARRY_CRL = 1'b1
+
+# ; I:4	; A	; <= LogicTILE(1,8):OMUX19:O0 T0 0.996	; syn__06_
+L_Y08X01.alta_slice00_IMUX00 = 12'b000010000100	
+
+# ; I:2	; D	; <= LogicTILE(1,8):OMUX10:O0 T0 0.541	; syn__10_[1]
+L_Y08X01.alta_slice00_IMUX03 = 12'b001000000100	
+
+L_Y08X01.alta_slice00_LUT = 16'h5af0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice00_LUTCMUX = 2'b10	
+
+# ; Q	; syn__10_[2]
+L_Y08X01.alta_slice00_OMUX01 = 1'b1	
+
+# ; Q	; syn__10_[2]
+L_Y08X01.alta_slice00_OMUX02 = 1'b1	
+
+L_Y08X01.alta_slice01_CARRY_CRL = 1'b1
+
+# ; I:4	; A	; <= LogicTILE(1,8):OMUX19:O0 T0 0.996	; syn__06_
+L_Y08X01.alta_slice01_IMUX04 = 12'b000010000100	
+
+# ; I:0	; B	; <= LogicTILE(1,8):OMUX01:O0 T0 0.955	; syn__10_[2]
+L_Y08X01.alta_slice01_IMUX05 = 12'b100000000100	
+
+# ; I:2	; D	; <= LogicTILE(1,8):OMUX10:O0 T0 0.541	; syn__10_[1]
+L_Y08X01.alta_slice01_IMUX07 = 12'b001000000100	
+
+L_Y08X01.alta_slice01_LUT = 16'h78f0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice01_LUTCMUX = 2'b10	
+
+# ; Q	; syn__10_[3]
+L_Y08X01.alta_slice01_OMUX03 = 1'b1	
+
+# ; Q	; syn__10_[3]
+L_Y08X01.alta_slice01_OMUX04 = 1'b1	
+
+L_Y08X01.alta_slice02_CARRY_CRL = 1'b1
+
+# ; I:0	; A	; <= LogicTILE(1,8):OMUX01:O0 T0 0.996	; syn__10_[2]
+L_Y08X01.alta_slice02_IMUX08 = 12'b100000000100	
+
+# ; I:0	; B	; <= LogicTILE(1,8):OMUX04:O0 T0 0.955	; syn__10_[3]
+L_Y08X01.alta_slice02_IMUX09 = 12'b100000000100	
+
+# ; I:4	; C	; <= LogicTILE(1,8):OMUX19:O0 T0 0.867	; syn__06_
+L_Y08X01.alta_slice02_IMUX10 = 12'b000010000100	
+
+# ; I:2	; D	; <= LogicTILE(1,8):OMUX10:O0 T0 0.541	; syn__10_[1]
+L_Y08X01.alta_slice02_IMUX11 = 12'b001000000100	
+
+L_Y08X01.alta_slice02_LUT = 16'h8000
+
+L_Y08X01.alta_slice03_CARRY_CRL = 1'b1
+
+# ; I:4	; A	; <= LogicTILE(1,8):OMUX19:O0 T0 0.996	; syn__06_
+L_Y08X01.alta_slice03_IMUX12 = 12'b000010000100	
+
+L_Y08X01.alta_slice03_LUT = 16'h5a5a
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice03_LUTCMUX = 2'b10	
+
+# ; Q	; syn__10_[1]
+L_Y08X01.alta_slice03_OMUX10 = 1'b1	
+
+# ; Q	; syn__10_[1]
+L_Y08X01.alta_slice03_OMUX11 = 1'b1	
+
+L_Y08X01.alta_slice04_CARRY_CRL = 1'b1
+
+# ; I:17	; A	; <= LogicTILE(1,8):RMUX40:O0 T0 1.143	; syn__04_
+L_Y08X01.alta_slice04_IMUX16 = 12'b000000001010	
+
+# ; I:6	; B	; <= LogicTILE(1,8):OMUX34:O0 T0 0.955	; counter[15]
+L_Y08X01.alta_slice04_IMUX17 = 12'b000000100100	
+
+# ; I:6	; C	; <= LogicTILE(1,8):OMUX31:O0 T0 0.867	; counter[14]
+L_Y08X01.alta_slice04_IMUX18 = 12'b000000100100	
+
+# ; I:4	; D	; <= LogicTILE(1,8):OMUX22:O0 T0 0.541	; counter[13]
+L_Y08X01.alta_slice04_IMUX19 = 12'b000010000100	
+
+L_Y08X01.alta_slice04_LUT = 16'h8000
+
+L_Y08X01.alta_slice05_CARRY_CRL = 1'b1
+
+# ; I:2	; D	; <= LogicTILE(1,8):OMUX13:O0 T0 0.541	; syn__05_
+L_Y08X01.alta_slice05_IMUX23 = 12'b001000000100	
+
+L_Y08X01.alta_slice05_LUT = 16'h0ff0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice05_LUTCMUX = 2'b10	
+
+# ; Q	; counter[16]
+L_Y08X01.alta_slice05_OMUX16 = 1'b1	
+
+L_Y08X01.alta_slice06_CARRY_CRL = 1'b1
+
+# ; I:8	; A	; <= LogicTILE(1,8):OMUX43:O0 T0 0.996	; counter[17]
+L_Y08X01.alta_slice06_IMUX24 = 12'b000000001100	
+
+# ; I:8	; B	; <= LogicTILE(1,8):OMUX46:O0 T0 0.955	; syn__10_[0]
+L_Y08X01.alta_slice06_IMUX25 = 12'b000000001100	
+
+# ; I:2	; C	; <= LogicTILE(1,8):OMUX13:O0 T0 0.867	; syn__05_
+L_Y08X01.alta_slice06_IMUX26 = 12'b001000000100	
+
+# ; I:2	; D	; <= LogicTILE(1,8):OMUX16:O0 T0 0.541	; counter[16]
+L_Y08X01.alta_slice06_IMUX27 = 12'b001000000100	
+
+L_Y08X01.alta_slice06_LUT = 16'h8000
+
+L_Y08X01.alta_slice07_CARRY_CRL = 1'b1
+
+# ; I:17	; A	; <= LogicTILE(1,8):RMUX40:O0 T0 1.143	; syn__04_
+L_Y08X01.alta_slice07_IMUX28 = 12'b000000001010	
+
+L_Y08X01.alta_slice07_LUT = 16'h5a5a
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice07_LUTCMUX = 2'b10	
+
+# ; Q	; counter[13]
+L_Y08X01.alta_slice07_OMUX22 = 1'b1	
+
+L_Y08X01.alta_slice08_CARRY_CRL = 1'b1
+
+# ; I:1	; A	; <= LogicTILE(1,8):OMUX07:O0 T0 0.996	; syn__07_
+L_Y08X01.alta_slice08_IMUX32 = 12'b010000000100	
+
+# ; I:7	; D	; <= LogicTILE(1,8):OMUX40:O0 T0 0.541	; syn__10_[4]
+L_Y08X01.alta_slice08_IMUX35 = 12'b000000010100	
+
+L_Y08X01.alta_slice08_LUT = 16'h5af0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice08_LUTCMUX = 2'b10	
+
+# ; Q	; syn__10_[5]
+L_Y08X01.alta_slice08_OMUX24 = 1'b1	
+
+# ; Q	; syn__10_[5]
+L_Y08X01.alta_slice08_OMUX25 = 1'b1	
+
+L_Y08X01.alta_slice09_CARRY_CRL = 1'b1
+
+# ; I:1	; A	; <= LogicTILE(1,8):OMUX07:O0 T0 0.996	; syn__07_
+L_Y08X01.alta_slice09_IMUX36 = 12'b010000000100	
+
+# ; I:4	; B	; <= LogicTILE(1,8):OMUX25:O0 T0 0.955	; syn__10_[5]
+L_Y08X01.alta_slice09_IMUX37 = 12'b000010000100	
+
+# ; I:7	; D	; <= LogicTILE(1,8):OMUX40:O0 T0 0.541	; syn__10_[4]
+L_Y08X01.alta_slice09_IMUX39 = 12'b000000010100	
+
+L_Y08X01.alta_slice09_LUT = 16'h78f0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice09_LUTCMUX = 2'b10	
+
+# ; Q	; syn__10_[6]
+L_Y08X01.alta_slice09_OMUX27 = 1'b1	
+
+# ; Q	; syn__10_[6]
+L_Y08X01.alta_slice09_OMUX28 = 1'b1	
+
+L_Y08X01.alta_slice10_CARRY_CRL = 1'b1
+
+# ; I:17	; A	; <= LogicTILE(1,8):RMUX40:O0 T0 1.143	; syn__04_
+L_Y08X01.alta_slice10_IMUX40 = 12'b000000001010	
+
+# ; I:3	; D	; <= LogicTILE(1,8):OMUX22:O0 T0 0.541	; counter[13]
+L_Y08X01.alta_slice10_IMUX43 = 12'b000100000100	
+
+L_Y08X01.alta_slice10_LUT = 16'h5af0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice10_LUTCMUX = 2'b10	
+
+# ; Q	; counter[14]
+L_Y08X01.alta_slice10_OMUX31 = 1'b1	
+
+L_Y08X01.alta_slice11_CARRY_CRL = 1'b1
+
+# ; I:17	; A	; <= LogicTILE(1,8):RMUX40:O0 T0 1.143	; syn__04_
+L_Y08X01.alta_slice11_IMUX44 = 12'b000000001010	
+
+# ; I:5	; B	; <= LogicTILE(1,8):OMUX31:O0 T0 0.955	; counter[14]
+L_Y08X01.alta_slice11_IMUX45 = 12'b000001000100	
+
+# ; I:3	; D	; <= LogicTILE(1,8):OMUX22:O0 T0 0.541	; counter[13]
+L_Y08X01.alta_slice11_IMUX47 = 12'b000100000100	
+
+L_Y08X01.alta_slice11_LUT = 16'h78f0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice11_LUTCMUX = 2'b10	
+
+# ; Q	; counter[15]
+L_Y08X01.alta_slice11_OMUX34 = 1'b1	
+
+L_Y08X01.alta_slice12_CARRY_CRL = 1'b1
+
+# ; I:4	; A	; <= LogicTILE(1,8):OMUX25:O0 T0 0.996	; syn__10_[5]
+L_Y08X01.alta_slice12_IMUX48 = 12'b000010000100	
+
+# ; I:4	; B	; <= LogicTILE(1,8):OMUX28:O0 T0 0.955	; syn__10_[6]
+L_Y08X01.alta_slice12_IMUX49 = 12'b000010000100	
+
+# ; I:1	; C	; <= LogicTILE(1,8):OMUX07:O0 T0 0.867	; syn__07_
+L_Y08X01.alta_slice12_IMUX50 = 12'b010000000100	
+
+# ; I:7	; D	; <= LogicTILE(1,8):OMUX40:O0 T0 0.541	; syn__10_[4]
+L_Y08X01.alta_slice12_IMUX51 = 12'b000000010100	
+
+L_Y08X01.alta_slice12_LUT = 16'h8000
+
+L_Y08X01.alta_slice13_CARRY_CRL = 1'b1
+
+# ; I:1	; A	; <= LogicTILE(1,8):OMUX07:O0 T0 0.996	; syn__07_
+L_Y08X01.alta_slice13_IMUX52 = 12'b010000000100	
+
+L_Y08X01.alta_slice13_LUT = 16'h5a5a
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice13_LUTCMUX = 2'b10	
+
+# ; Q	; syn__10_[4]
+L_Y08X01.alta_slice13_OMUX40 = 1'b1	
+
+# ; Q	; syn__10_[4]
+L_Y08X01.alta_slice13_OMUX41 = 1'b1	
+
+L_Y08X01.alta_slice14_CARRY_CRL = 1'b1
+
+# ; I:2	; A	; <= LogicTILE(1,8):OMUX13:O0 T0 0.996	; syn__05_
+L_Y08X01.alta_slice14_IMUX56 = 12'b001000000100	
+
+# ; I:2	; D	; <= LogicTILE(1,8):OMUX16:O0 T0 0.541	; counter[16]
+L_Y08X01.alta_slice14_IMUX59 = 12'b001000000100	
+
+L_Y08X01.alta_slice14_LUT = 16'h5af0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice14_LUTCMUX = 2'b10	
+
+# ; Q	; counter[17]
+L_Y08X01.alta_slice14_OMUX43 = 1'b1	
+
+L_Y08X01.alta_slice15_CARRY_CRL = 1'b1
+
+# ; I:2	; A	; <= LogicTILE(1,8):OMUX13:O0 T0 0.996	; syn__05_
+L_Y08X01.alta_slice15_IMUX60 = 12'b001000000100	
+
+# ; I:7	; B	; <= LogicTILE(1,8):OMUX43:O0 T0 0.955	; counter[17]
+L_Y08X01.alta_slice15_IMUX61 = 12'b000000010100	
+
+# ; I:2	; D	; <= LogicTILE(1,8):OMUX16:O0 T0 0.541	; counter[16]
+L_Y08X01.alta_slice15_IMUX63 = 12'b001000000100	
+
+L_Y08X01.alta_slice15_LUT = 16'h78f0
+
+# ; FeedbackMux?
+L_Y08X01.alta_slice15_LUTCMUX = 2'b10	
+
+# ; Q	; syn__10_[0]
+L_Y08X01.alta_slice15_OMUX45 = 1'b1	
+
+# ; Q	; syn__10_[0]
+L_Y08X01.alta_slice15_OMUX46 = 1'b1	
+
+# ; I:19	; <= LogicTILE(2,8):RMUX57:O0 T4Y 0.606	; syn__10_[6]
+L_Y05X02.RMUX38 = 10'b0000010001	
+
+# ; I:18	; <= LogicTILE(2,7):RMUX57:O0 T4Y 0.567	; syn__10_[7]
+L_Y05X02.RMUX44 = 10'b0000100001	
+
+
+# ; I:17	; <= BramTILE(3,7):RMUX24:O0 T1 0.388	; syn__09_
+L_Y07X02.CtrlMUX00 = 12'b010000000010	
+
+# ; I:0	; <= LogicTILE(2,7):OMUX02:O0 T0 0.197	; counter[10]
+L_Y07X02.RMUX06 = 10'b1000000100	
+
+# ; I:6	; <= LogicTILE(4,7):RMUX03:O0 T4X 0.475	; syn__09_
+L_Y07X02.RMUX10 = 10'b0000001100	
+
+# ; I:0	; <= LogicTILE(2,7):OMUX02:O0 T0 0.197	; counter[10]
+L_Y07X02.RMUX13 = 10'b1000000100	
+
+# ; I:17	; <= LogicTILE(2,8):RMUX73:O0 T4Y 0.527	; syn__08_
+L_Y07X02.RMUX23 = 10'b0001000001	
+
+# ; I:2	; <= LogicTILE(2,7):OMUX32:O0 T0 0.197	; syn__10_[7]
+L_Y07X02.RMUX57 = 10'b0010000100	
+
+# ; I:0	; <= LogicTILE(1,7):OMUX36:O0 T1 0.193	; syn__03_
+L_Y07X02.RMUX83 = 10'b1000000100	
+
+L_Y07X02.TileAsyncMUX00 = 4'b0001
+
+# syn09
+L_Y07X02.TileClkMUX00 = 4'b0100
+
+L_Y07X02.alta_slice00_CARRY_CRL = 1'b1
+
+# ; I:24	; D	; <= LogicTILE(2,7):RMUX83:O0 T0 0.688	; syn__03_
+L_Y07X02.alta_slice00_IMUX03 = 12'b000000100001	
+
+L_Y07X02.alta_slice00_LUT = 16'h0ff0
+
+# ; FeedbackMux?
+L_Y07X02.alta_slice00_LUTCMUX = 2'b10	
+
+# ; Q	; counter[10]
+L_Y07X02.alta_slice00_OMUX02 = 1'b1	
+
+L_Y07X02.alta_slice10_CARRY_CRL = 1'b1
+
+# ; I:14	; D	; <= LogicTILE(2,7):RMUX23:O0 T0 0.688	; syn__08_
+L_Y07X02.alta_slice10_IMUX43 = 12'b000001000010	
+
+L_Y07X02.alta_slice10_LUT = 16'h0ff0
+
+# ; FeedbackMux?
+L_Y07X02.alta_slice10_LUTCMUX = 2'b10	
+
+# ; Q	; syn__10_[7]
+L_Y07X02.alta_slice10_OMUX32 = 1'b1	
+
+# ; I:1	; <= LogicTILE(1,8):OMUX03:O0 T1 0.193	; syn__10_[3]
+L_Y08X02.RMUX20 = 10'b0100000100	
+
+# ; I:1	; <= LogicTILE(1,8):OMUX27:O0 T1 0.193	; syn__10_[6]
+L_Y08X02.RMUX57 = 10'b0100000100	
+
+# ; I:0	; <= LogicTILE(1,8):OMUX24:O0 T1 0.193	; syn__10_[5]
+L_Y08X02.RMUX68 = 10'b1000000100	
+
+# ; I:0	; <= LogicTILE(1,8):OMUX36:O0 T1 0.193	; syn__08_
+L_Y08X02.RMUX73 = 10'b1000000100	
+
+# ; I:3	; <= LogicTILE(1,8):OMUX45:O0 T1 0.193	; syn__10_[0]
+L_Y08X02.RMUX85 = 10'b0001000100	
+
+# ; I:18	; <= IOTILE(4,9):InputMUX01:O0 T4Y 0.524	; syn__09_
+L_Y07X04.RMUX03 = 10'b0000100001	
+
+# ; I:17	; <= IOTILE(4,9):InputMUX01:O0 T4Y 0.456	; syn__09_
+L_Y08X04.RMUX13 = 10'b0001000001	
+
+# ; I:12	; <= LogicTILE(2,8):RMUX68:O0 T4X 0.482	; syn__10_[5]
+L_Y08X06.RMUX75 = 10'b0000010010	
+
+# ; I:12	; <= BramTILE(3,5):RMUX51:O0 T4X 0.482	; syn__10_[6]
+L_Y05X07.RMUX14 = 10'b0000010010	
+
+# Cell clk_ibuf at IOTILE(04,09):alta_rio00
+I_Y09X04.alta_rio00.INPUT_USED
+
+# Cell led0_obuf at IOTILE(02,09):alta_rio00
+I_Y09X02.alta_rio00.OUTPUT_USED
+
+# Cell led1_obuf at IOTILE(01,09):alta_rio03
+I_Y09X01.alta_rio03.OUTPUT_USED
+
+# Cell led2_obuf at IOTILE(00,09):alta_rio02
+I_Y09X00.alta_rio02.OUTPUT_USED
+
+# Cell led3_obuf at IOTILE(00,09):alta_rio00
+I_Y09X00.alta_rio00.OUTPUT_USED
+
+# Cell led4_obuf at IOTILE(01,09):alta_rio01
+I_Y09X01.alta_rio01.OUTPUT_USED
+
+# Cell led5_obuf at IOTILE(06,09):alta_rio02
+I_Y09X06.alta_rio02.OUTPUT_USED
+
+# Cell led6_obuf at IOTILE(07,01):alta_rio00
+I_Y01X07.alta_rio00.OUTPUT_USED
+
+# Cell led7_obuf at IOTILE(02,01):alta_rio02
+I_Y01X02.alta_rio02.OUTPUT_USED
