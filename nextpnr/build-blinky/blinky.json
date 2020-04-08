@@ -1,0 +1,1670 @@
+{
+  "creator": "Yosys 0.9+1706 (git sha1 1dbc7017, clang 10.0.1 -fPIC -Os)",
+  "modules": {
+    "DFF": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:13.1-19.10"
+      },
+      "ports": {
+        "CLK": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "D": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CLK": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:14.8-14.11"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:14.13-14.14"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:15.13-15.14"
+          }
+        }
+      }
+    },
+    "GENERIC_IOB": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:40.1-58.10"
+      },
+      "ports": {
+        "PAD": {
+          "direction": "inout",
+          "bits": [ 2 ]
+        },
+        "I": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "O": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:46.11-46.13"
+          }
+        },
+        "I": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:46.8-46.9"
+          }
+        },
+        "O": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:47.9-47.10"
+          }
+        },
+        "PAD": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:45.8-45.11"
+          }
+        }
+      }
+    },
+    "GENERIC_SLICE": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:21.1-38.10"
+      },
+      "ports": {
+        "CLK": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "I": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6 ]
+        },
+        "F": {
+          "direction": "output",
+          "bits": [ 7 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CLK": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:26.8-26.11"
+          }
+        },
+        "F": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:28.9-28.10"
+          }
+        },
+        "I": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:27.16-27.17"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:29.9-29.10"
+          }
+        }
+      }
+    },
+    "LUT": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "dynports": "00000000000000000000000000000001",
+        "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:3.1-11.10"
+      },
+      "ports": {
+        "I": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "I": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:7.16-7.17"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:8.9-8.10"
+          }
+        }
+      }
+    },
+    "top": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "blinky.v:1.1-31.10"
+      },
+      "ports": {
+      },
+      "cells": {
+        "$abc$510$auto$blifparse.cc:498:parse_blif$511": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 2, 3, "0", "0" ],
+            "Q": [ 4 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$512": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 5, 6, 7, 8 ],
+            "Q": [ 2 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$513": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 9, 10, 11, 12 ],
+            "Q": [ 5 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$514": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 13, 14, 15, 16 ],
+            "Q": [ 9 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$515": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 17, 18, 19, 20 ],
+            "Q": [ 13 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$516": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 21, 22, 23, 24 ],
+            "Q": [ 17 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$517": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 25, 26, 27, 28 ],
+            "Q": [ 21 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$518": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 2, 3, 29, "0" ],
+            "Q": [ 30 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$519": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 2, 3, 29, 31 ],
+            "Q": [ 32 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$520": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 33, 34, "0", "0" ],
+            "Q": [ 35 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$521": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 2, 3, 29, 31 ],
+            "Q": [ 33 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$522": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 33, 34, 36, "0" ],
+            "Q": [ 37 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$523": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 33, 34, 36, 38 ],
+            "Q": [ 39 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$524": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 40, 41, "0", "0" ],
+            "Q": [ 42 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$525": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 33, 34, 36, 38 ],
+            "Q": [ 40 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$526": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 25, 26, "0", "0" ],
+            "Q": [ 43 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$527": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 25, 26, 28, "0" ],
+            "Q": [ 44 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$528": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 25, 26, 28, 27 ],
+            "Q": [ 45 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$529": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 21, 23, "0", "0" ],
+            "Q": [ 46 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$530": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 21, 23, 22, "0" ],
+            "Q": [ 47 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$531": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 21, 22, 23, 24 ],
+            "Q": [ 48 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$532": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 17, 18, "0", "0" ],
+            "Q": [ 49 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$533": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 17, 18, 20, "0" ],
+            "Q": [ 50 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$534": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 17, 18, 20, 19 ],
+            "Q": [ 51 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$535": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 13, 15, "0", "0" ],
+            "Q": [ 52 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$536": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 13, 15, 14, "0" ],
+            "Q": [ 53 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$537": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 13, 14, 15, 16 ],
+            "Q": [ 54 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$538": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 9, 10, "0", "0" ],
+            "Q": [ 55 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$539": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 9, 10, 12, "0" ],
+            "Q": [ 56 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$540": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 9, 10, 12, 11 ],
+            "Q": [ 57 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$541": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 5, 7, "0", "0" ],
+            "Q": [ 58 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$542": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 5, 7, 6, "0" ],
+            "Q": [ 59 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$543": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 5, 6, 7, 8 ],
+            "Q": [ 60 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$544": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 25, "0", "0", "0" ],
+            "Q": [ 61 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$50": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 61 ],
+            "Q": [ 25 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$51": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 43 ],
+            "Q": [ 26 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$52": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 44 ],
+            "Q": [ 28 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$53": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 45 ],
+            "Q": [ 27 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$54": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 46 ],
+            "Q": [ 23 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$55": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 47 ],
+            "Q": [ 22 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$56": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 48 ],
+            "Q": [ 24 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$57": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 49 ],
+            "Q": [ 18 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$58": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 50 ],
+            "Q": [ 20 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$59": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 51 ],
+            "Q": [ 19 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$60": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 52 ],
+            "Q": [ 15 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$61": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 53 ],
+            "Q": [ 14 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$62": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 54 ],
+            "Q": [ 16 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$63": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 55 ],
+            "Q": [ 10 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$64": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 56 ],
+            "Q": [ 12 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$65": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 57 ],
+            "Q": [ 11 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$66": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 58 ],
+            "Q": [ 7 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$67": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 59 ],
+            "Q": [ 6 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$68": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 60 ],
+            "Q": [ 8 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$69": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 4 ],
+            "Q": [ 3 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$70": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 30 ],
+            "Q": [ 29 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$71": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 32 ],
+            "Q": [ 31 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$72": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 35 ],
+            "Q": [ 34 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$73": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 37 ],
+            "Q": [ 36 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$74": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 39 ],
+            "Q": [ 38 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$75": {
+          "hide_name": 1,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:10.48-10.89"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 62 ],
+            "D": [ 42 ],
+            "Q": [ 41 ]
+          }
+        },
+        "clk_ibuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000001",
+            "OUTPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL": "IOTILE(04,09):alta_rio00",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:5.49-5.67"
+          },
+          "port_directions": {
+            "O": "output"
+          },
+          "connections": {
+            "O": [ 62 ]
+          }
+        },
+        "led0_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(02,09):alta_rio00",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:23.49-23.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 8 ]
+          }
+        },
+        "led1_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(01,09):alta_rio03",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:21.49-21.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 3 ]
+          }
+        },
+        "led2_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(00,09):alta_rio02",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:19.49-19.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 29 ]
+          }
+        },
+        "led3_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(00,09):alta_rio00",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:17.49-17.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 31 ]
+          }
+        },
+        "led4_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(01,09):alta_rio01",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:15.49-15.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 34 ]
+          }
+        },
+        "led5_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(06,09):alta_rio02",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:13.49-13.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 36 ]
+          }
+        },
+        "led6_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(07,01):alta_rio00",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:11.49-11.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 38 ]
+          }
+        },
+        "led7_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(02,01):alta_rio02",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "blinky.v:9.49-9.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 41 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\ctr[25:0]": {
+          "hide_name": 1,
+          "bits": [ 61, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 4, 30, 32, 35, 37, 39, 42 ],
+          "attributes": {
+            "src": "blinky.v:26.1-27.20"
+          }
+        },
+        "$abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[21]_new_": {
+          "hide_name": 1,
+          "bits": [ 33 ],
+          "attributes": {
+            "src": "blinky.v:27|/usr/local/bin/../share/yosys/techmap.v:295.27-295.69|/usr/local/bin/../share/yosys/techmap.v:238.21-238.22"
+          }
+        },
+        "$abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[24]_new_": {
+          "hide_name": 1,
+          "bits": [ 40 ],
+          "attributes": {
+            "src": "blinky.v:27|/usr/local/bin/../share/yosys/techmap.v:295.27-295.69|/usr/local/bin/../share/yosys/techmap.v:238.21-238.22"
+          }
+        },
+        "$abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[3]_new_": {
+          "hide_name": 1,
+          "bits": [ 21 ],
+          "attributes": {
+            "src": "blinky.v:27|/usr/local/bin/../share/yosys/techmap.v:295.27-295.69|/usr/local/bin/../share/yosys/techmap.v:238.21-238.22"
+          }
+        },
+        "$abc$510$new_n55_": {
+          "hide_name": 1,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "$abc$510$new_n56_": {
+          "hide_name": 1,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "$abc$510$new_n57_": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "$abc$510$new_n58_": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$abc$510$new_n59_": {
+          "hide_name": 1,
+          "bits": [ 17 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 62 ],
+          "attributes": {
+            "src": "blinky.v:3.7-3.10"
+          }
+        },
+        "ctr": {
+          "hide_name": 0,
+          "bits": [ 25, 26, 28, 27, 23, 22, 24, 18, 20, 19, 15, 14, 16, 10, 12, 11, 7, 6, 8, 3, 29, 31, 34, 36, 38, 41 ],
+          "attributes": {
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "leds": {
+          "hide_name": 0,
+          "bits": [ 8, 3, 29, 31, 34, 36, 38, 41 ],
+          "attributes": {
+            "src": "blinky.v:7.13-7.17"
+          }
+        }
+      }
+    }
+  }
+}

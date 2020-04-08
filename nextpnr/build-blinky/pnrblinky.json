@@ -1,0 +1,1491 @@
+{
+  "creator": "Next Generation Place and Route (Version 98e2f9e)",
+  "modules": {
+    "top": {
+      "settings": {
+        "route": "00000000000000000000000000000001",
+        "router1/useEstimate": "1 ",
+        "router1/fullCleanupReroute": "1 ",
+        "router1/cleanupReroute": "1 ",
+        "router1/maxIterCnt": "200",
+        "place": "00000000000000000000000000000001",
+        "placer1/startTemp": "1.000000",
+        "placer1/budgetBased": "0 ",
+        "placer1/minBelsForGridPick": "64",
+        "placer1/netShareWeight": "0.000000",
+        "placer1/constraintWeight": "10.000000",
+        "placerHeap/timingWeight": "10 ",
+        "placerHeap/beta": "0.900000",
+        "seed": "01010011010110001001011110010011",
+        "placer": "heap",
+        "pack": "00000000000000000000000000000001",
+        "placerHeap/criticalityExponent": "2",
+        "arch.type": "none",
+        "placerHeap/alpha": "0.100000",
+        "arch.name": "generic",
+        "router": "router1",
+        "auto_freq": "00000000000000000000000000000000",
+        "slack_redist_iter": "00000000000000000000000000000000",
+        "timing_driven": "00000000000000000000000000000001",
+        "synth": "00000000000000000000000000000001",
+        "target_freq": "12000000.000000"
+      },
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "blinky.v:1.1-31.10"
+      },
+      "ports": {
+      },
+      "cells": {
+        "$abc$510$auto$blifparse.cc:498:parse_blif$544_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice01",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 66, 427194, 427195, 427196 ],
+            "Q": [ 66 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$543_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,08):alta_slice13",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 40, 41, 42, 44 ],
+            "Q": [ 44 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$542_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,08):alta_slice05",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 40, 42, 41, 427197 ],
+            "Q": [ 41 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$541_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,08):alta_slice12",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 40, 42, 427198, 427199 ],
+            "Q": [ 42 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$540_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,07):alta_slice13",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 46, 47, 49, 48 ],
+            "Q": [ 48 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$539_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,07):alta_slice01",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 46, 47, 49, 427200 ],
+            "Q": [ 49 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$538_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,07):alta_slice02",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 46, 47, 427201, 427202 ],
+            "Q": [ 47 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$537_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,07):alta_slice12",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 51, 52, 53, 54 ],
+            "Q": [ 54 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$536_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,07):alta_slice14",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 51, 53, 52, 427203 ],
+            "Q": [ 52 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$535_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,07):alta_slice02",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 51, 53, 427204, 427205 ],
+            "Q": [ 53 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$534_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice06",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 56, 57, 59, 58 ],
+            "Q": [ 58 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$533_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice12",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 56, 57, 59, 427206 ],
+            "Q": [ 59 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$532_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice00",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 56, 57, 427207, 427208 ],
+            "Q": [ 57 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$531_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice05",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 61, 62, 63, 64 ],
+            "Q": [ 64 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$530_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice02",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 61, 63, 62, 427209 ],
+            "Q": [ 62 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$529_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice07",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 61, 63, 427210, 427211 ],
+            "Q": [ 63 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$528_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice10",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 66, 67, 69, 68 ],
+            "Q": [ 68 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$527_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice08",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 66, 67, 69, 427212 ],
+            "Q": [ 69 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$526_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice09",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 66, 67, 427213, 427214 ],
+            "Q": [ 67 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$525_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(02,06):alta_slice10",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 101 ],
+            "CLK": [  ],
+            "I": [ 81, 83, 92, 98 ],
+            "Q": [  ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$524_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(02,06):alta_slice06",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 101, 103, 427215, 427216 ],
+            "Q": [ 103 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$523_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(02,06):alta_slice02",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 81, 83, 92, 98 ],
+            "Q": [ 98 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$522_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(02,06):alta_slice01",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 81, 83, 92, 427217 ],
+            "Q": [ 92 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$521_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,08):alta_slice08",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 81 ],
+            "CLK": [  ],
+            "I": [ 23, 26, 72, 78 ],
+            "Q": [  ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$520_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(02,06):alta_slice15",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 81, 83, 427218, 427219 ],
+            "Q": [ 83 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$519_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0111111110000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,08):alta_slice02",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 23, 26, 72, 78 ],
+            "Q": [ 78 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$518_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "01111000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,08):alta_slice12",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 23, 26, 72, 427220 ],
+            "Q": [ 72 ]
+          }
+        },
+        "led7_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(02,01):alta_rio02",
+            "src": "blinky.v:9.49-9.72",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 103 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$516_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice11",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 56 ],
+            "CLK": [  ],
+            "I": [ 61, 62, 63, 64 ],
+            "Q": [  ]
+          }
+        },
+        "led5_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(06,09):alta_rio02",
+            "src": "blinky.v:13.49-13.72",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 92 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$512_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,08):alta_slice01",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 23 ],
+            "CLK": [  ],
+            "I": [ 40, 41, 42, 44 ],
+            "Q": [  ]
+          }
+        },
+        "led1_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(01,09):alta_rio03",
+            "src": "blinky.v:21.49-21.72",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 26 ]
+          }
+        },
+        "$PACKER_GND": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "0000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "LogicTILE(11,04):alta_slice15"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 426132 ],
+            "CLK": [  ],
+            "I": [ 427221, 427222, 427223, 427224 ],
+            "Q": [  ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$513_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,07):alta_slice07",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 40 ],
+            "CLK": [  ],
+            "I": [ 46, 47, 48, 49 ],
+            "Q": [  ]
+          }
+        },
+        "led2_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(00,09):alta_rio02",
+            "src": "blinky.v:19.49-19.72",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 72 ]
+          }
+        },
+        "$PACKER_VCC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1111111111111111",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "LogicTILE(05,08):alta_slice11"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 426134 ],
+            "CLK": [  ],
+            "I": [ 427225, 427226, 427227, 427228 ],
+            "Q": [  ]
+          }
+        },
+        "clk_ibuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(04,09):alta_rio00",
+            "src": "blinky.v:5.49-5.67",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output"
+          },
+          "connections": {
+            "O": [ 193 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$517_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice04",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 61 ],
+            "CLK": [  ],
+            "I": [ 66, 67, 68, 69 ],
+            "Q": [  ]
+          }
+        },
+        "led6_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(07,01):alta_rio00",
+            "src": "blinky.v:11.49-11.72",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 98 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$511_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000001",
+            "INIT": "0110",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(01,08):alta_slice02",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [  ],
+            "CLK": [ 193 ],
+            "I": [ 23, 26, 427229, 427230 ],
+            "Q": [ 26 ]
+          }
+        },
+        "led0_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(02,09):alta_rio00",
+            "src": "blinky.v:23.49-23.72",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 44 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$514_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,07):alta_slice00",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 46 ],
+            "CLK": [  ],
+            "I": [ 51, 52, 53, 54 ],
+            "Q": [  ]
+          }
+        },
+        "led3_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(00,09):alta_rio00",
+            "src": "blinky.v:17.49-17.72",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 78 ]
+          }
+        },
+        "$abc$510$auto$blifparse.cc:498:parse_blif$515_LC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "LogicTILE(00,06):alta_slice03",
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:7.27-7.59"
+          },
+          "port_directions": {
+            "F": "output",
+            "CLK": "input",
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "F": [ 51 ],
+            "CLK": [  ],
+            "I": [ 56, 57, 58, 59 ],
+            "Q": [  ]
+          }
+        },
+        "led4_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "NEXTPNR_BEL": "IOTILE(01,09):alta_rio01",
+            "src": "blinky.v:15.49-15.72",
+            "keep": "00000000000000000000000000000001",
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 83 ]
+          }
+        }
+      },
+      "netnames": {
+        "$PACKER_VCC_NET": {
+          "hide_name": 1,
+          "bits": [ 426134 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 193 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(02,06):ClkMUX06;LogicTILE(02,06):ClkMUX06:I1 <= LogicTILE(02,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,06):ClkMUX10;LogicTILE(00,06):ClkMUX10:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(01,08):ClkMUX12;LogicTILE(01,08):ClkMUX12:I0 <= LogicTILE(01,08):alta_clkenctrl00:ClkOut;1;LogicTILE(01,07):ClkMUX13;LogicTILE(01,07):ClkMUX13:I1 <= LogicTILE(01,07):alta_clkenctrl01:ClkOut;1;LogicTILE(00,07):RMUX64;LogicTILE(00,07):RMUX64:I8 <= LogicTILE(04,07):RMUX13:O0;1;LogicTILE(00,07):CtrlMUX02;LogicTILE(00,07):CtrlMUX02:I26 <= LogicTILE(00,07):RMUX64:O0;1;LogicTILE(00,07):alta_clkenctrl01:ClkOut;LogicTILE(00,07):alta_clkenctrl01:ClkIn <= LogicTILE(00,07):alta_clkenctrl01:ClkOut;1;LogicTILE(00,07):ClkMUX12;LogicTILE(00,07):ClkMUX12:I1 <= LogicTILE(00,07):alta_clkenctrl01:ClkOut;1;LogicTILE(00,06):ClkMUX02;LogicTILE(00,06):ClkMUX02:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,08):ClkMUX12;LogicTILE(00,08):ClkMUX12:I0 <= LogicTILE(00,08):alta_clkenctrl00:ClkOut;1;LogicTILE(00,06):ClkMUX01;LogicTILE(00,06):ClkMUX01:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(01,07):ClkMUX01;LogicTILE(01,07):ClkMUX01:I1 <= LogicTILE(01,07):alta_clkenctrl01:ClkOut;1;LogicTILE(00,06):ClkMUX06;LogicTILE(00,06):ClkMUX06:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,07):TileClkMUX01;LogicTILE(00,07):TileClkMUX01:I1 <= LogicTILE(00,07):CtrlMUX02:O0;1;LogicTILE(02,06):ClkMUX01;LogicTILE(02,06):ClkMUX01:I1 <= LogicTILE(02,06):alta_clkenctrl01:ClkOut;1;LogicTILE(01,07):RMUX70;LogicTILE(01,07):RMUX70:I7 <= LogicTILE(04,07):RMUX13:O0;1;LogicTILE(00,06):ClkMUX09;LogicTILE(00,06):ClkMUX09:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(02,06):ClkMUX02;LogicTILE(02,06):ClkMUX02:I1 <= LogicTILE(02,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,08):RMUX05;LogicTILE(00,08):RMUX05:I8 <= LogicTILE(04,08):RMUX03:O0;1;LogicTILE(00,07):ClkMUX02;LogicTILE(00,07):ClkMUX02:I1 <= LogicTILE(00,07):alta_clkenctrl01:ClkOut;1;LogicTILE(00,08):alta_clkenctrl00:ClkOut;LogicTILE(00,08):alta_clkenctrl00:ClkIn <= LogicTILE(00,08):alta_clkenctrl00:ClkOut;1;LogicTILE(01,08):CtrlMUX01;LogicTILE(01,08):CtrlMUX01:I17 <= LogicTILE(01,08):RMUX11:O0;1;LogicTILE(01,07):alta_clkenctrl01:ClkIn;LogicTILE(01,07):alta_clkenctrl01:ClkIn <= LogicTILE(01,07):TileClkMUX01:O0;1;LogicTILE(01,07):alta_clkenctrl01:ClkOut;LogicTILE(01,07):alta_clkenctrl01:ClkIn <= LogicTILE(01,07):alta_clkenctrl01:ClkOut;1;BramTILE(03,06):RMUX48;BramTILE(03,06):RMUX48:I5 <= LogicTILE(04,06):RMUX13:O0;1;LogicTILE(00,06):ClkMUX07;LogicTILE(00,06):ClkMUX07:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,06):TileClkMUX01;LogicTILE(00,06):TileClkMUX01:I1 <= LogicTILE(00,06):CtrlMUX02:O0;1;LogicTILE(00,08):ClkMUX02;LogicTILE(00,08):ClkMUX02:I0 <= LogicTILE(00,08):alta_clkenctrl00:ClkOut;1;LogicTILE(01,07):CtrlMUX02;LogicTILE(01,07):CtrlMUX02:I27 <= LogicTILE(01,07):RMUX70:O0;1;LogicTILE(01,08):alta_clkenctrl00:ClkIn;LogicTILE(01,08):alta_clkenctrl00:ClkIn <= LogicTILE(01,08):TileClkMUX00:O0;1;LogicTILE(04,06):RMUX13;LogicTILE(04,06):RMUX13:I19 <= IOTILE(04,09):InputMUX01:O0;1;LogicTILE(01,08):ClkMUX05;LogicTILE(01,08):ClkMUX05:I0 <= LogicTILE(01,08):alta_clkenctrl00:ClkOut;1;LogicTILE(02,06):CtrlMUX02;LogicTILE(02,06):CtrlMUX02:I12 <= BramTILE(03,06):RMUX48:O0;1;LogicTILE(04,08):RMUX03;LogicTILE(04,08):RMUX03:I17 <= IOTILE(04,09):InputMUX01:O0;1;LogicTILE(01,08):TileClkMUX00;LogicTILE(01,08):TileClkMUX00:I2 <= LogicTILE(01,08):CtrlMUX01:O0;1;LogicTILE(01,08):RMUX11;LogicTILE(01,08):RMUX11:I7 <= LogicTILE(04,08):RMUX03:O0;1;LogicTILE(00,08):TileClkMUX00;LogicTILE(00,08):TileClkMUX00:I2 <= LogicTILE(00,08):CtrlMUX01:O0;1;LogicTILE(01,08):alta_clkenctrl00:ClkOut;LogicTILE(01,08):alta_clkenctrl00:ClkIn <= LogicTILE(01,08):alta_clkenctrl00:ClkOut;1;LogicTILE(01,07):ClkMUX02;LogicTILE(01,07):ClkMUX02:I1 <= LogicTILE(01,07):alta_clkenctrl01:ClkOut;1;LogicTILE(02,06):alta_clkenctrl01:ClkIn;LogicTILE(02,06):alta_clkenctrl01:ClkIn <= LogicTILE(02,06):TileClkMUX01:O0;1;LogicTILE(00,07):alta_clkenctrl01:ClkIn;LogicTILE(00,07):alta_clkenctrl01:ClkIn <= LogicTILE(00,07):TileClkMUX01:O0;1;IOTILE(04,09):InputMUX01;IOTILE(04,09):InputMUX01:I0 <= IOTILE(04,09):alta_ioreg00:combout;1;LogicTILE(00,07):ClkMUX14;LogicTILE(00,07):ClkMUX14:I1 <= LogicTILE(00,07):alta_clkenctrl01:ClkOut;1;LogicTILE(00,08):alta_clkenctrl00:ClkIn;LogicTILE(00,08):alta_clkenctrl00:ClkIn <= LogicTILE(00,08):TileClkMUX00:O0;1;IOTILE(04,09):alta_ioreg00;;1;LogicTILE(01,07):TileClkMUX01;LogicTILE(01,07):TileClkMUX01:I1 <= LogicTILE(01,07):CtrlMUX02:O0;1;LogicTILE(02,06):alta_clkenctrl01:ClkOut;LogicTILE(02,06):alta_clkenctrl01:ClkIn <= LogicTILE(02,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,06):ClkMUX05;LogicTILE(00,06):ClkMUX05:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,06):RMUX64;LogicTILE(00,06):RMUX64:I8 <= LogicTILE(04,06):RMUX13:O0;1;LogicTILE(01,08):ClkMUX13;LogicTILE(01,08):ClkMUX13:I0 <= LogicTILE(01,08):alta_clkenctrl00:ClkOut;1;LogicTILE(00,06):alta_clkenctrl01:ClkIn;LogicTILE(00,06):alta_clkenctrl01:ClkIn <= LogicTILE(00,06):TileClkMUX01:O0;1;LogicTILE(00,06):ClkMUX00;LogicTILE(00,06):ClkMUX00:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(01,08):ClkMUX02;LogicTILE(01,08):ClkMUX02:I0 <= LogicTILE(01,08):alta_clkenctrl00:ClkOut;1;LogicTILE(02,06):ClkMUX15;LogicTILE(02,06):ClkMUX15:I1 <= LogicTILE(02,06):alta_clkenctrl01:ClkOut;1;LogicTILE(04,07):RMUX13;LogicTILE(04,07):RMUX13:I18 <= IOTILE(04,09):InputMUX01:O0;1;LogicTILE(00,06):alta_clkenctrl01:ClkOut;LogicTILE(00,06):alta_clkenctrl01:ClkIn <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,06):ClkMUX12;LogicTILE(00,06):ClkMUX12:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1;LogicTILE(00,06):CtrlMUX02;LogicTILE(00,06):CtrlMUX02:I26 <= LogicTILE(00,06):RMUX64:O0;1;LogicTILE(00,08):CtrlMUX01;LogicTILE(00,08):CtrlMUX01:I16 <= LogicTILE(00,08):RMUX05:O0;1;LogicTILE(02,06):TileClkMUX01;LogicTILE(02,06):TileClkMUX01:I1 <= LogicTILE(02,06):CtrlMUX02:O0;1;LogicTILE(00,06):ClkMUX08;LogicTILE(00,06):ClkMUX08:I1 <= LogicTILE(00,06):alta_clkenctrl01:ClkOut;1",
+            "src": "blinky.v:3.7-3.10"
+          }
+        },
+        "$PACKER_GND_NET": {
+          "hide_name": 1,
+          "bits": [ 426132 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "ctr[23]": {
+          "hide_name": 0,
+          "bits": [ 92 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(02,06):alta_slice10:C;LogicTILE(02,06):alta_slice10:C <= LogicTILE(02,06):IMUX42:O0;1;LogicTILE(02,06):RMUX04;LogicTILE(02,06):RMUX04:I1 <= LogicTILE(02,06):OMUX05:O0;1;LogicTILE(02,06):IMUX10;LogicTILE(02,06):IMUX10:I11 <= LogicTILE(02,06):RMUX04:O0;1;LogicTILE(02,06):alta_slice02:C;LogicTILE(02,06):alta_slice02:C <= LogicTILE(02,06):IMUX10:O0;1;LogicTILE(02,06):OMUX05;LogicTILE(02,06):OMUX05:I1 <= LogicTILE(02,06):alta_slice01:Q;1;IOTILE(06,09):RMUX12;IOTILE(06,09):RMUX12:I0 <= LogicTILE(06,06):RMUX32:O0;1;LogicTILE(02,06):RMUX08;LogicTILE(02,06):RMUX08:I1 <= LogicTILE(02,06):OMUX05:O0;1;IOTILE(06,09):IOMUX02;IOTILE(06,09):IOMUX02:I3 <= IOTILE(06,09):RMUX12:O0;1;LogicTILE(02,06):alta_slice01:Q;;1;LogicTILE(02,06):IMUX06;LogicTILE(02,06):IMUX06:I1 <= LogicTILE(02,06):OMUX04:O0;1;LogicTILE(06,06):RMUX32;LogicTILE(06,06):RMUX32:I12 <= LogicTILE(02,06):RMUX08:O0;1;LogicTILE(02,06):IMUX42;LogicTILE(02,06):IMUX42:I11 <= LogicTILE(02,06):RMUX04:O0;1;LogicTILE(02,06):OMUX04;LogicTILE(02,06):OMUX04:I1 <= LogicTILE(02,06):alta_slice01:Q;1;LogicTILE(02,06):alta_slice01:C;LogicTILE(02,06):alta_slice01:C <= LogicTILE(02,06):IMUX06:O0;1",
+            "src": "blinky.v:7.13-7.17"
+          }
+        },
+        "ctr[22]": {
+          "hide_name": 0,
+          "bits": [ 83 ] ,
+          "attributes": {
+            "ROUTING": "IOTILE(01,09):RMUX00;IOTILE(01,09):RMUX00:I2 <= LogicTILE(01,06):RMUX25:O0;1;LogicTILE(02,06):OMUX46;LogicTILE(02,06):OMUX46:I1 <= LogicTILE(02,06):alta_slice15:Q;1;LogicTILE(02,06):IMUX61;LogicTILE(02,06):IMUX61:I8 <= LogicTILE(02,06):OMUX46:O0;1;LogicTILE(02,06):alta_slice15:B;LogicTILE(02,06):alta_slice15:B <= LogicTILE(02,06):IMUX61:O0;1;LogicTILE(02,06):IMUX05;LogicTILE(02,06):IMUX05:I8 <= LogicTILE(02,06):OMUX46:O0;1;LogicTILE(02,06):RMUX79;LogicTILE(02,06):RMUX79:I3 <= LogicTILE(02,06):OMUX47:O0;1;LogicTILE(02,06):alta_slice01:B;LogicTILE(02,06):alta_slice01:B <= LogicTILE(02,06):IMUX05:O0;1;LogicTILE(02,06):alta_slice15:Q;;1;IOTILE(01,09):IOMUX01;IOTILE(01,09):IOMUX01:I0 <= IOTILE(01,09):RMUX00:O0;1;LogicTILE(02,06):IMUX41;LogicTILE(02,06):IMUX41:I8 <= LogicTILE(02,06):OMUX46:O0;1;LogicTILE(02,06):OMUX47;LogicTILE(02,06):OMUX47:I1 <= LogicTILE(02,06):alta_slice15:Q;1;LogicTILE(01,06):RMUX25;LogicTILE(01,06):RMUX25:I5 <= LogicTILE(02,06):RMUX79:O0;1;LogicTILE(02,06):alta_slice10:B;LogicTILE(02,06):alta_slice10:B <= LogicTILE(02,06):IMUX41:O0;1;LogicTILE(02,06):IMUX09;LogicTILE(02,06):IMUX09:I8 <= LogicTILE(02,06):OMUX46:O0;1;LogicTILE(02,06):alta_slice02:B;LogicTILE(02,06):alta_slice02:B <= LogicTILE(02,06):IMUX09:O0;1",
+            "src": "blinky.v:7.13-7.17"
+          }
+        },
+        "$abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[21]_new_": {
+          "hide_name": 1,
+          "bits": [ 81 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(02,06):IMUX04;LogicTILE(02,06):IMUX04:I23 <= LogicTILE(02,06):RMUX76:O0;1;LogicTILE(02,06):alta_slice01:A;LogicTILE(02,06):alta_slice01:A <= LogicTILE(02,06):IMUX04:O0;1;LogicTILE(02,06):alta_slice15:A;LogicTILE(02,06):alta_slice15:A <= LogicTILE(02,06):IMUX60:O0;1;LogicTILE(02,06):IMUX60;LogicTILE(02,06):IMUX60:I23 <= LogicTILE(02,06):RMUX76:O0;1;LogicTILE(02,06):alta_slice10:A;LogicTILE(02,06):alta_slice10:A <= LogicTILE(02,06):IMUX40:O0;1;LogicTILE(00,08):OMUX24;LogicTILE(00,08):OMUX24:I0 <= LogicTILE(00,08):alta_slice08:LutOut;1;LogicTILE(02,06):IMUX40;LogicTILE(02,06):IMUX40:I23 <= LogicTILE(02,06):RMUX76:O0;1;LogicTILE(02,08):RMUX21;LogicTILE(02,08):RMUX21:I9 <= LogicTILE(01,08):RMUX51:O0;1;LogicTILE(00,08):alta_slice08:LutOut;;1;LogicTILE(02,06):RMUX76;LogicTILE(02,06):RMUX76:I18 <= LogicTILE(02,08):RMUX21:O0;1;LogicTILE(01,08):RMUX51;LogicTILE(01,08):RMUX51:I0 <= LogicTILE(00,08):OMUX24:O0;1;LogicTILE(02,06):IMUX08;LogicTILE(02,06):IMUX08:I23 <= LogicTILE(02,06):RMUX76:O0;1;LogicTILE(02,06):alta_slice02:A;LogicTILE(02,06):alta_slice02:A <= LogicTILE(02,06):IMUX08:O0;1",
+            "src": "blinky.v:27|/usr/local/bin/../share/yosys/techmap.v:295.27-295.69|/usr/local/bin/../share/yosys/techmap.v:238.21-238.22"
+          }
+        },
+        "ctr[21]": {
+          "hide_name": 0,
+          "bits": [ 78 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,08):IMUX35;LogicTILE(00,08):IMUX35:I12 <= LogicTILE(00,08):RMUX11:O0;1;LogicTILE(00,08):OMUX07;LogicTILE(00,08):OMUX07:I1 <= LogicTILE(00,08):alta_slice02:Q;1;LogicTILE(00,08):alta_slice08:D;LogicTILE(00,08):alta_slice08:D <= LogicTILE(00,08):IMUX35:O0;1;LogicTILE(00,08):IMUX11;LogicTILE(00,08):IMUX11:I1 <= LogicTILE(00,08):OMUX07:O0;1;LogicTILE(00,08):RMUX09;LogicTILE(00,08):RMUX09:I2 <= LogicTILE(00,08):OMUX08:O0;1;LogicTILE(00,08):OMUX08;LogicTILE(00,08):OMUX08:I1 <= LogicTILE(00,08):alta_slice02:Q;1;LogicTILE(00,08):RMUX11;LogicTILE(00,08):RMUX11:I2 <= LogicTILE(00,08):OMUX08:O0;1;LogicTILE(00,08):alta_slice02:D;LogicTILE(00,08):alta_slice02:D <= LogicTILE(00,08):IMUX11:O0;1;IOTILE(00,09):RMUX12;IOTILE(00,09):RMUX12:I2 <= LogicTILE(00,08):RMUX09:O0;1;LogicTILE(00,08):alta_slice02:Q;;1;IOTILE(00,09):IOMUX00;IOTILE(00,09):IOMUX00:I3 <= IOTILE(00,09):RMUX12:O0;1",
+            "src": "blinky.v:7.13-7.17"
+          }
+        },
+        "ctr[20]": {
+          "hide_name": 0,
+          "bits": [ 72 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,08):IMUX50;LogicTILE(00,08):IMUX50:I6 <= LogicTILE(00,08):OMUX37:O0;1;LogicTILE(00,08):alta_slice12:C;LogicTILE(00,08):alta_slice12:C <= LogicTILE(00,08):IMUX50:O0;1;LogicTILE(00,08):IMUX34;LogicTILE(00,08):IMUX34:I7 <= LogicTILE(00,08):OMUX37:O0;1;LogicTILE(00,08):alta_slice08:C;LogicTILE(00,08):alta_slice08:C <= LogicTILE(00,08):IMUX34:O0;1;LogicTILE(00,08):IMUX10;LogicTILE(00,08):IMUX10:I7 <= LogicTILE(00,08):OMUX37:O0;1;LogicTILE(00,08):alta_slice02:C;LogicTILE(00,08):alta_slice02:C <= LogicTILE(00,08):IMUX10:O0;1;LogicTILE(00,08):OMUX38;LogicTILE(00,08):OMUX38:I1 <= LogicTILE(00,08):alta_slice12:Q;1;LogicTILE(00,08):alta_slice12:Q;;1;LogicTILE(00,08):RMUX85;LogicTILE(00,08):RMUX85:I0 <= LogicTILE(00,08):OMUX38:O0;1;IOTILE(00,09):RMUX16;IOTILE(00,09):RMUX16:I0 <= LogicTILE(00,08):RMUX85:O0;1;LogicTILE(00,08):OMUX37;LogicTILE(00,08):OMUX37:I1 <= LogicTILE(00,08):alta_slice12:Q;1;IOTILE(00,09):IOMUX02;IOTILE(00,09):IOMUX02:I4 <= IOTILE(00,09):RMUX16:O0;1",
+            "src": "blinky.v:7.13-7.17"
+          }
+        },
+        "ctr[2]": {
+          "hide_name": 0,
+          "bits": [ 69 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):alta_slice10:C;LogicTILE(00,06):alta_slice10:C <= LogicTILE(00,06):IMUX42:O0;1;LogicTILE(00,06):OMUX26;LogicTILE(00,06):OMUX26:I1 <= LogicTILE(00,06):alta_slice08:Q;1;LogicTILE(00,06):IMUX42;LogicTILE(00,06):IMUX42:I4 <= LogicTILE(00,06):OMUX25:O0;1;LogicTILE(00,06):RMUX71;LogicTILE(00,06):RMUX71:I0 <= LogicTILE(00,06):OMUX26:O0;1;LogicTILE(00,06):IMUX19;LogicTILE(00,06):IMUX19:I22 <= LogicTILE(00,06):RMUX71:O0;1;LogicTILE(00,06):alta_slice08:Q;;1;LogicTILE(00,06):alta_slice04:D;LogicTILE(00,06):alta_slice04:D <= LogicTILE(00,06):IMUX19:O0;1;LogicTILE(00,06):OMUX25;LogicTILE(00,06):OMUX25:I1 <= LogicTILE(00,06):alta_slice08:Q;1;LogicTILE(00,06):IMUX34;LogicTILE(00,06):IMUX34:I4 <= LogicTILE(00,06):OMUX25:O0;1;LogicTILE(00,06):alta_slice08:C;LogicTILE(00,06):alta_slice08:C <= LogicTILE(00,06):IMUX34:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[3]": {
+          "hide_name": 0,
+          "bits": [ 68 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):IMUX18;LogicTILE(00,06):IMUX18:I6 <= LogicTILE(00,06):OMUX31:O0;1;LogicTILE(00,06):alta_slice04:C;LogicTILE(00,06):alta_slice04:C <= LogicTILE(00,06):IMUX18:O0;1;LogicTILE(00,06):alta_slice10:Q;;1;LogicTILE(00,06):OMUX31;LogicTILE(00,06):OMUX31:I1 <= LogicTILE(00,06):alta_slice10:Q;1;LogicTILE(00,06):IMUX43;LogicTILE(00,06):IMUX43:I5 <= LogicTILE(00,06):OMUX31:O0;1;LogicTILE(00,06):alta_slice10:D;LogicTILE(00,06):alta_slice10:D <= LogicTILE(00,06):IMUX43:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[1]": {
+          "hide_name": 0,
+          "bits": [ 67 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):IMUX17;LogicTILE(00,06):IMUX17:I5 <= LogicTILE(00,06):OMUX28:O0;1;LogicTILE(00,06):alta_slice04:B;LogicTILE(00,06):alta_slice04:B <= LogicTILE(00,06):IMUX17:O0;1;LogicTILE(00,06):IMUX37;LogicTILE(00,06):IMUX37:I5 <= LogicTILE(00,06):OMUX28:O0;1;LogicTILE(00,06):IMUX33;LogicTILE(00,06):IMUX33:I5 <= LogicTILE(00,06):OMUX28:O0;1;LogicTILE(00,06):alta_slice09:B;LogicTILE(00,06):alta_slice09:B <= LogicTILE(00,06):IMUX37:O0;1;LogicTILE(00,06):OMUX28;LogicTILE(00,06):OMUX28:I1 <= LogicTILE(00,06):alta_slice09:Q;1;LogicTILE(00,06):alta_slice08:B;LogicTILE(00,06):alta_slice08:B <= LogicTILE(00,06):IMUX33:O0;1;LogicTILE(00,06):alta_slice09:Q;;1;LogicTILE(00,06):IMUX41;LogicTILE(00,06):IMUX41:I4 <= LogicTILE(00,06):OMUX28:O0;1;LogicTILE(00,06):alta_slice10:B;LogicTILE(00,06):alta_slice10:B <= LogicTILE(00,06):IMUX41:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[0]": {
+          "hide_name": 0,
+          "bits": [ 66 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):IMUX36;LogicTILE(00,06):IMUX36:I11 <= LogicTILE(00,06):RMUX04:O0;1;LogicTILE(00,06):OMUX04;LogicTILE(00,06):OMUX04:I1 <= LogicTILE(00,06):alta_slice01:Q;1;LogicTILE(00,06):OMUX05;LogicTILE(00,06):OMUX05:I1 <= LogicTILE(00,06):alta_slice01:Q;1;LogicTILE(00,06):alta_slice01:A;LogicTILE(00,06):alta_slice01:A <= LogicTILE(00,06):IMUX04:O0;1;LogicTILE(00,06):IMUX32;LogicTILE(00,06):IMUX32:I11 <= LogicTILE(00,06):RMUX04:O0;1;LogicTILE(00,06):alta_slice04:A;LogicTILE(00,06):alta_slice04:A <= LogicTILE(00,06):IMUX16:O0;1;LogicTILE(00,06):alta_slice09:A;LogicTILE(00,06):alta_slice09:A <= LogicTILE(00,06):IMUX36:O0;1;LogicTILE(00,06):IMUX40;LogicTILE(00,06):IMUX40:I11 <= LogicTILE(00,06):RMUX04:O0;1;LogicTILE(00,06):alta_slice01:Q;;1;LogicTILE(00,06):IMUX04;LogicTILE(00,06):IMUX04:I1 <= LogicTILE(00,06):OMUX04:O0;1;LogicTILE(00,06):RMUX04;LogicTILE(00,06):RMUX04:I1 <= LogicTILE(00,06):OMUX05:O0;1;LogicTILE(00,06):alta_slice08:A;LogicTILE(00,06):alta_slice08:A <= LogicTILE(00,06):IMUX32:O0;1;LogicTILE(00,06):IMUX16;LogicTILE(00,06):IMUX16:I11 <= LogicTILE(00,06):RMUX04:O0;1;LogicTILE(00,06):alta_slice10:A;LogicTILE(00,06):alta_slice10:A <= LogicTILE(00,06):IMUX40:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[6]": {
+          "hide_name": 0,
+          "bits": [ 64 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):alta_slice05:D;LogicTILE(00,06):alta_slice05:D <= LogicTILE(00,06):IMUX23:O0;1;LogicTILE(00,06):alta_slice05:Q;;1;LogicTILE(00,06):OMUX16;LogicTILE(00,06):OMUX16:I1 <= LogicTILE(00,06):alta_slice05:Q;1;LogicTILE(00,06):IMUX47;LogicTILE(00,06):IMUX47:I2 <= LogicTILE(00,06):OMUX16:O0;1;LogicTILE(00,06):IMUX23;LogicTILE(00,06):IMUX23:I3 <= LogicTILE(00,06):OMUX16:O0;1;LogicTILE(00,06):alta_slice11:D;LogicTILE(00,06):alta_slice11:D <= LogicTILE(00,06):IMUX47:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[4]": {
+          "hide_name": 0,
+          "bits": [ 63 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):IMUX09;LogicTILE(00,06):IMUX09:I4 <= LogicTILE(00,06):OMUX22:O0;1;LogicTILE(00,06):alta_slice02:B;LogicTILE(00,06):alta_slice02:B <= LogicTILE(00,06):IMUX09:O0;1;LogicTILE(00,06):alta_slice07:B;LogicTILE(00,06):alta_slice07:B <= LogicTILE(00,06):IMUX29:O0;1;LogicTILE(00,06):IMUX46;LogicTILE(00,06):IMUX46:I17 <= LogicTILE(00,06):RMUX40:O0;1;LogicTILE(00,06):OMUX23;LogicTILE(00,06):OMUX23:I1 <= LogicTILE(00,06):alta_slice07:Q;1;LogicTILE(00,06):alta_slice11:C;LogicTILE(00,06):alta_slice11:C <= LogicTILE(00,06):IMUX46:O0;1;LogicTILE(00,06):alta_slice07:Q;;1;LogicTILE(00,06):OMUX22;LogicTILE(00,06):OMUX22:I1 <= LogicTILE(00,06):alta_slice07:Q;1;LogicTILE(00,06):alta_slice05:C;LogicTILE(00,06):alta_slice05:C <= LogicTILE(00,06):IMUX22:O0;1;LogicTILE(00,06):IMUX29;LogicTILE(00,06):IMUX29:I4 <= LogicTILE(00,06):OMUX22:O0;1;LogicTILE(00,06):RMUX40;LogicTILE(00,06):RMUX40:I3 <= LogicTILE(00,06):OMUX23:O0;1;LogicTILE(00,06):IMUX22;LogicTILE(00,06):IMUX22:I17 <= LogicTILE(00,06):RMUX40:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[5]": {
+          "hide_name": 0,
+          "bits": [ 62 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):OMUX07;LogicTILE(00,06):OMUX07:I1 <= LogicTILE(00,06):alta_slice02:Q;1;LogicTILE(00,06):IMUX21;LogicTILE(00,06):IMUX21:I11 <= LogicTILE(00,06):RMUX05:O0;1;LogicTILE(00,06):IMUX10;LogicTILE(00,06):IMUX10:I1 <= LogicTILE(00,06):OMUX07:O0;1;LogicTILE(00,06):alta_slice02:C;LogicTILE(00,06):alta_slice02:C <= LogicTILE(00,06):IMUX10:O0;1;LogicTILE(00,06):OMUX08;LogicTILE(00,06):OMUX08:I1 <= LogicTILE(00,06):alta_slice02:Q;1;LogicTILE(00,06):alta_slice02:Q;;1;LogicTILE(00,06):alta_slice05:B;LogicTILE(00,06):alta_slice05:B <= LogicTILE(00,06):IMUX21:O0;1;LogicTILE(00,06):RMUX05;LogicTILE(00,06):RMUX05:I2 <= LogicTILE(00,06):OMUX08:O0;1;LogicTILE(00,06):IMUX45;LogicTILE(00,06):IMUX45:I11 <= LogicTILE(00,06):RMUX05:O0;1;LogicTILE(00,06):alta_slice11:B;LogicTILE(00,06):alta_slice11:B <= LogicTILE(00,06):IMUX45:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "$abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[3]_new_": {
+          "hide_name": 1,
+          "bits": [ 61 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):alta_slice07:A;LogicTILE(00,06):alta_slice07:A <= LogicTILE(00,06):IMUX28:O0;1;LogicTILE(00,06):IMUX08;LogicTILE(00,06):IMUX08:I3 <= LogicTILE(00,06):OMUX13:O0;1;LogicTILE(00,06):IMUX20;LogicTILE(00,06):IMUX20:I2 <= LogicTILE(00,06):OMUX13:O0;1;LogicTILE(00,06):alta_slice04:LutOut;;1;LogicTILE(00,06):alta_slice11:A;LogicTILE(00,06):alta_slice11:A <= LogicTILE(00,06):IMUX44:O0;1;LogicTILE(00,06):IMUX28;LogicTILE(00,06):IMUX28:I2 <= LogicTILE(00,06):OMUX13:O0;1;LogicTILE(00,06):alta_slice02:A;LogicTILE(00,06):alta_slice02:A <= LogicTILE(00,06):IMUX08:O0;1;LogicTILE(00,06):OMUX13;LogicTILE(00,06):OMUX13:I0 <= LogicTILE(00,06):alta_slice04:LutOut;1;LogicTILE(00,06):IMUX44;LogicTILE(00,06):IMUX44:I2 <= LogicTILE(00,06):OMUX13:O0;1;LogicTILE(00,06):alta_slice05:A;LogicTILE(00,06):alta_slice05:A <= LogicTILE(00,06):IMUX20:O0;1",
+            "src": "blinky.v:27|/usr/local/bin/../share/yosys/techmap.v:295.27-295.69|/usr/local/bin/../share/yosys/techmap.v:238.21-238.22"
+          }
+        },
+        "ctr[8]": {
+          "hide_name": 0,
+          "bits": [ 59 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):OMUX38;LogicTILE(00,06):OMUX38:I1 <= LogicTILE(00,06):alta_slice12:Q;1;LogicTILE(00,06):RMUX89;LogicTILE(00,06):RMUX89:I0 <= LogicTILE(00,06):OMUX38:O0;1;LogicTILE(00,06):IMUX26;LogicTILE(00,06):IMUX26:I7 <= LogicTILE(00,06):OMUX37:O0;1;LogicTILE(00,06):IMUX15;LogicTILE(00,06):IMUX15:I25 <= LogicTILE(00,06):RMUX89:O0;1;LogicTILE(00,06):alta_slice12:Q;;1;LogicTILE(00,06):IMUX50;LogicTILE(00,06):IMUX50:I6 <= LogicTILE(00,06):OMUX37:O0;1;LogicTILE(00,06):alta_slice03:D;LogicTILE(00,06):alta_slice03:D <= LogicTILE(00,06):IMUX15:O0;1;LogicTILE(00,06):alta_slice06:C;LogicTILE(00,06):alta_slice06:C <= LogicTILE(00,06):IMUX26:O0;1;LogicTILE(00,06):OMUX37;LogicTILE(00,06):OMUX37:I1 <= LogicTILE(00,06):alta_slice12:Q;1;LogicTILE(00,06):alta_slice12:C;LogicTILE(00,06):alta_slice12:C <= LogicTILE(00,06):IMUX50:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[7]": {
+          "hide_name": 0,
+          "bits": [ 57 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):IMUX49;LogicTILE(00,06):IMUX49:I14 <= LogicTILE(00,06):RMUX23:O0;1;LogicTILE(00,06):IMUX25;LogicTILE(00,06):IMUX25:I14 <= LogicTILE(00,06):RMUX23:O0;1;LogicTILE(00,06):alta_slice06:B;LogicTILE(00,06):alta_slice06:B <= LogicTILE(00,06):IMUX25:O0;1;LogicTILE(00,06):OMUX01;LogicTILE(00,06):OMUX01:I1 <= LogicTILE(00,06):alta_slice00:Q;1;LogicTILE(00,06):alta_slice00:B;LogicTILE(00,06):alta_slice00:B <= LogicTILE(00,06):IMUX01:O0;1;LogicTILE(00,06):IMUX01;LogicTILE(00,06):IMUX01:I0 <= LogicTILE(00,06):OMUX01:O0;1;LogicTILE(00,06):RMUX23;LogicTILE(00,06):RMUX23:I0 <= LogicTILE(00,06):OMUX02:O0;1;LogicTILE(00,06):alta_slice00:Q;;1;LogicTILE(00,06):alta_slice12:B;LogicTILE(00,06):alta_slice12:B <= LogicTILE(00,06):IMUX49:O0;1;LogicTILE(00,06):alta_slice03:B;LogicTILE(00,06):alta_slice03:B <= LogicTILE(00,06):IMUX13:O0;1;LogicTILE(00,06):OMUX02;LogicTILE(00,06):OMUX02:I1 <= LogicTILE(00,06):alta_slice00:Q;1;LogicTILE(00,06):IMUX13;LogicTILE(00,06):IMUX13:I14 <= LogicTILE(00,06):RMUX23:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "$abc$510$auto$alumacc.cc:485:replace_alu$4.lcu.g[24]_new_": {
+          "hide_name": 1,
+          "bits": [ 101 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(02,06):alta_slice10:LutOut;;1;LogicTILE(02,06):OMUX31;LogicTILE(02,06):OMUX31:I0 <= LogicTILE(02,06):alta_slice10:LutOut;1;LogicTILE(02,06):IMUX24;LogicTILE(02,06):IMUX24:I6 <= LogicTILE(02,06):OMUX31:O0;1;LogicTILE(02,06):alta_slice06:A;LogicTILE(02,06):alta_slice06:A <= LogicTILE(02,06):IMUX24:O0;1",
+            "src": "blinky.v:27|/usr/local/bin/../share/yosys/techmap.v:295.27-295.69|/usr/local/bin/../share/yosys/techmap.v:238.21-238.22"
+          }
+        },
+        "ctr[12]": {
+          "hide_name": 0,
+          "bits": [ 54 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,07):IMUX51;LogicTILE(00,07):IMUX51:I6 <= LogicTILE(00,07):OMUX37:O0;1;LogicTILE(00,07):alta_slice12:D;LogicTILE(00,07):alta_slice12:D <= LogicTILE(00,07):IMUX51:O0;1;LogicTILE(00,07):alta_slice12:Q;;1;LogicTILE(00,07):OMUX38;LogicTILE(00,07):OMUX38:I1 <= LogicTILE(00,07):alta_slice12:Q;1;LogicTILE(00,07):RMUX95;LogicTILE(00,07):RMUX95:I0 <= LogicTILE(00,07):OMUX38:O0;1;LogicTILE(00,07):OMUX37;LogicTILE(00,07):OMUX37:I1 <= LogicTILE(00,07):alta_slice12:Q;1;LogicTILE(00,07):IMUX03;LogicTILE(00,07):IMUX03:I26 <= LogicTILE(00,07):RMUX95:O0;1;LogicTILE(00,07):alta_slice00:D;LogicTILE(00,07):alta_slice00:D <= LogicTILE(00,07):IMUX03:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[10]": {
+          "hide_name": 0,
+          "bits": [ 53 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,07):IMUX50;LogicTILE(00,07):IMUX50:I1 <= LogicTILE(00,07):OMUX07:O0;1;LogicTILE(00,07):alta_slice12:C;LogicTILE(00,07):alta_slice12:C <= LogicTILE(00,07):IMUX50:O0;1;LogicTILE(00,07):alta_slice00:C;LogicTILE(00,07):alta_slice00:C <= LogicTILE(00,07):IMUX02:O0;1;LogicTILE(00,07):alta_slice02:B;LogicTILE(00,07):alta_slice02:B <= LogicTILE(00,07):IMUX09:O0;1;LogicTILE(00,07):IMUX09;LogicTILE(00,07):IMUX09:I1 <= LogicTILE(00,07):OMUX07:O0;1;LogicTILE(00,07):OMUX07;LogicTILE(00,07):OMUX07:I1 <= LogicTILE(00,07):alta_slice02:Q;1;LogicTILE(00,07):RMUX05;LogicTILE(00,07):RMUX05:I2 <= LogicTILE(00,07):OMUX08:O0;1;LogicTILE(00,07):IMUX02;LogicTILE(00,07):IMUX02:I2 <= LogicTILE(00,07):OMUX07:O0;1;LogicTILE(00,07):IMUX57;LogicTILE(00,07):IMUX57:I11 <= LogicTILE(00,07):RMUX05:O0;1;LogicTILE(00,07):alta_slice14:B;LogicTILE(00,07):alta_slice14:B <= LogicTILE(00,07):IMUX57:O0;1;LogicTILE(00,07):alta_slice02:Q;;1;LogicTILE(00,07):OMUX08;LogicTILE(00,07):OMUX08:I1 <= LogicTILE(00,07):alta_slice02:Q;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[11]": {
+          "hide_name": 0,
+          "bits": [ 52 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,07):IMUX01;LogicTILE(00,07):IMUX01:I23 <= LogicTILE(00,07):RMUX77:O0;1;LogicTILE(00,07):alta_slice00:B;LogicTILE(00,07):alta_slice00:B <= LogicTILE(00,07):IMUX01:O0;1;LogicTILE(00,07):RMUX77;LogicTILE(00,07):RMUX77:I2 <= LogicTILE(00,07):OMUX44:O0;1;LogicTILE(00,07):alta_slice12:B;LogicTILE(00,07):alta_slice12:B <= LogicTILE(00,07):IMUX49:O0;1;LogicTILE(00,07):OMUX43;LogicTILE(00,07):OMUX43:I1 <= LogicTILE(00,07):alta_slice14:Q;1;LogicTILE(00,07):OMUX44;LogicTILE(00,07):OMUX44:I1 <= LogicTILE(00,07):alta_slice14:Q;1;LogicTILE(00,07):IMUX49;LogicTILE(00,07):IMUX49:I23 <= LogicTILE(00,07):RMUX77:O0;1;LogicTILE(00,07):alta_slice14:Q;;1;LogicTILE(00,07):IMUX58;LogicTILE(00,07):IMUX58:I7 <= LogicTILE(00,07):OMUX43:O0;1;LogicTILE(00,07):alta_slice14:C;LogicTILE(00,07):alta_slice14:C <= LogicTILE(00,07):IMUX58:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[15]": {
+          "hide_name": 0,
+          "bits": [ 48 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(01,07):IMUX55;LogicTILE(01,07):IMUX55:I7 <= LogicTILE(01,07):OMUX40:O0;1;LogicTILE(01,07):alta_slice13:D;LogicTILE(01,07):alta_slice13:D <= LogicTILE(01,07):IMUX55:O0;1;LogicTILE(01,07):OMUX41;LogicTILE(01,07):OMUX41:I1 <= LogicTILE(01,07):alta_slice13:Q;1;LogicTILE(01,07):RMUX82;LogicTILE(01,07):RMUX82:I1 <= LogicTILE(01,07):OMUX41:O0;1;LogicTILE(01,07):IMUX30;LogicTILE(01,07):IMUX30:I24 <= LogicTILE(01,07):RMUX82:O0;1;LogicTILE(01,07):OMUX40;LogicTILE(01,07):OMUX40:I1 <= LogicTILE(01,07):alta_slice13:Q;1;LogicTILE(01,07):alta_slice13:Q;;1;LogicTILE(01,07):alta_slice07:C;LogicTILE(01,07):alta_slice07:C <= LogicTILE(01,07):IMUX30:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[13]": {
+          "hide_name": 0,
+          "bits": [ 47 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(01,07):IMUX53;LogicTILE(01,07):IMUX53:I12 <= LogicTILE(01,07):RMUX11:O0;1;LogicTILE(01,07):OMUX07;LogicTILE(01,07):OMUX07:I1 <= LogicTILE(01,07):alta_slice02:Q;1;LogicTILE(01,07):IMUX09;LogicTILE(01,07):IMUX09:I1 <= LogicTILE(01,07):OMUX07:O0;1;LogicTILE(01,07):alta_slice01:B;LogicTILE(01,07):alta_slice01:B <= LogicTILE(01,07):IMUX05:O0;1;LogicTILE(01,07):IMUX29;LogicTILE(01,07):IMUX29:I12 <= LogicTILE(01,07):RMUX11:O0;1;LogicTILE(01,07):alta_slice02:Q;;1;LogicTILE(01,07):alta_slice13:B;LogicTILE(01,07):alta_slice13:B <= LogicTILE(01,07):IMUX53:O0;1;LogicTILE(01,07):IMUX05;LogicTILE(01,07):IMUX05:I12 <= LogicTILE(01,07):RMUX11:O0;1;LogicTILE(01,07):alta_slice02:B;LogicTILE(01,07):alta_slice02:B <= LogicTILE(01,07):IMUX09:O0;1;LogicTILE(01,07):OMUX08;LogicTILE(01,07):OMUX08:I1 <= LogicTILE(01,07):alta_slice02:Q;1;LogicTILE(01,07):RMUX11;LogicTILE(01,07):RMUX11:I2 <= LogicTILE(01,07):OMUX08:O0;1;LogicTILE(01,07):alta_slice07:B;LogicTILE(01,07):alta_slice07:B <= LogicTILE(01,07):IMUX29:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[16]": {
+          "hide_name": 0,
+          "bits": [ 42 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(01,08):IMUX06;LogicTILE(01,08):IMUX06:I7 <= LogicTILE(01,08):OMUX37:O0;1;LogicTILE(01,08):IMUX21;LogicTILE(01,08):IMUX21:I25 <= LogicTILE(01,08):RMUX89:O0;1;LogicTILE(01,08):alta_slice01:C;LogicTILE(01,08):alta_slice01:C <= LogicTILE(01,08):IMUX06:O0;1;LogicTILE(01,08):alta_slice05:B;LogicTILE(01,08):alta_slice05:B <= LogicTILE(01,08):IMUX21:O0;1;LogicTILE(01,08):OMUX38;LogicTILE(01,08):OMUX38:I1 <= LogicTILE(01,08):alta_slice12:Q;1;LogicTILE(01,08):IMUX49;LogicTILE(01,08):IMUX49:I6 <= LogicTILE(01,08):OMUX37:O0;1;LogicTILE(01,08):alta_slice12:B;LogicTILE(01,08):alta_slice12:B <= LogicTILE(01,08):IMUX49:O0;1;LogicTILE(01,08):RMUX89;LogicTILE(01,08):RMUX89:I0 <= LogicTILE(01,08):OMUX38:O0;1;LogicTILE(01,08):IMUX54;LogicTILE(01,08):IMUX54:I6 <= LogicTILE(01,08):OMUX37:O0;1;LogicTILE(01,08):alta_slice12:Q;;1;LogicTILE(01,08):OMUX37;LogicTILE(01,08):OMUX37:I1 <= LogicTILE(01,08):alta_slice12:Q;1;LogicTILE(01,08):alta_slice13:C;LogicTILE(01,08):alta_slice13:C <= LogicTILE(01,08):IMUX54:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[17]": {
+          "hide_name": 0,
+          "bits": [ 41 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(01,08):IMUX22;LogicTILE(01,08):IMUX22:I3 <= LogicTILE(01,08):OMUX16:O0;1;LogicTILE(01,08):alta_slice13:B;LogicTILE(01,08):alta_slice13:B <= LogicTILE(01,08):IMUX53:O0;1;LogicTILE(01,08):alta_slice05:Q;;1;LogicTILE(01,08):OMUX16;LogicTILE(01,08):OMUX16:I1 <= LogicTILE(01,08):alta_slice05:Q;1;LogicTILE(01,08):IMUX05;LogicTILE(01,08):IMUX05:I3 <= LogicTILE(01,08):OMUX16:O0;1;LogicTILE(01,08):alta_slice05:C;LogicTILE(01,08):alta_slice05:C <= LogicTILE(01,08):IMUX22:O0;1;LogicTILE(01,08):IMUX53;LogicTILE(01,08):IMUX53:I2 <= LogicTILE(01,08):OMUX16:O0;1;LogicTILE(01,08):alta_slice01:B;LogicTILE(01,08):alta_slice01:B <= LogicTILE(01,08):IMUX05:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "$abc$510$new_n56_": {
+          "hide_name": 1,
+          "bits": [ 40 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(01,08):IMUX20;LogicTILE(01,08):IMUX20:I14 <= LogicTILE(01,08):RMUX22:O0;1;LogicTILE(01,08):IMUX52;LogicTILE(01,08):IMUX52:I14 <= LogicTILE(01,08):RMUX22:O0;1;LogicTILE(01,08):alta_slice13:A;LogicTILE(01,08):alta_slice13:A <= LogicTILE(01,08):IMUX52:O0;1;LogicTILE(01,07):alta_slice07:LutOut;;1;LogicTILE(01,07):OMUX23;LogicTILE(01,07):OMUX23:I0 <= LogicTILE(01,07):alta_slice07:LutOut;1;LogicTILE(01,08):RMUX22;LogicTILE(01,08):RMUX22:I13 <= LogicTILE(01,07):RMUX25:O0;1;LogicTILE(01,08):alta_slice12:A;LogicTILE(01,08):alta_slice12:A <= LogicTILE(01,08):IMUX48:O0;1;LogicTILE(01,08):alta_slice01:A;LogicTILE(01,08):alta_slice01:A <= LogicTILE(01,08):IMUX04:O0;1;LogicTILE(01,07):RMUX25;LogicTILE(01,07):RMUX25:I3 <= LogicTILE(01,07):OMUX23:O0;1;LogicTILE(01,08):alta_slice05:A;LogicTILE(01,08):alta_slice05:A <= LogicTILE(01,08):IMUX20:O0;1;LogicTILE(01,08):IMUX48;LogicTILE(01,08):IMUX48:I14 <= LogicTILE(01,08):RMUX22:O0;1;LogicTILE(01,08):IMUX04;LogicTILE(01,08):IMUX04:I14 <= LogicTILE(01,08):RMUX22:O0;1"
+          }
+        },
+        "$abc$510$new_n55_": {
+          "hide_name": 1,
+          "bits": [ 23 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,08):IMUX08;LogicTILE(00,08):IMUX08:I9 <= LogicTILE(01,08):RMUX00:O0;1;LogicTILE(00,08):alta_slice08:A;LogicTILE(00,08):alta_slice08:A <= LogicTILE(00,08):IMUX32:O0;1;LogicTILE(01,08):RMUX10;LogicTILE(01,08):RMUX10:I1 <= LogicTILE(01,08):OMUX05:O0;1;LogicTILE(00,08):alta_slice12:A;LogicTILE(00,08):alta_slice12:A <= LogicTILE(00,08):IMUX48:O0;1;LogicTILE(01,08):IMUX08;LogicTILE(01,08):IMUX08:I12 <= LogicTILE(01,08):RMUX10:O0;1;LogicTILE(01,08):alta_slice01:LutOut;;1;LogicTILE(00,08):alta_slice02:A;LogicTILE(00,08):alta_slice02:A <= LogicTILE(00,08):IMUX08:O0;1;LogicTILE(01,08):RMUX00;LogicTILE(01,08):RMUX00:I1 <= LogicTILE(01,08):OMUX05:O0;1;LogicTILE(00,08):IMUX32;LogicTILE(00,08):IMUX32:I9 <= LogicTILE(01,08):RMUX00:O0;1;LogicTILE(01,08):OMUX05;LogicTILE(01,08):OMUX05:I0 <= LogicTILE(01,08):alta_slice01:LutOut;1;LogicTILE(01,08):alta_slice02:A;LogicTILE(01,08):alta_slice02:A <= LogicTILE(01,08):IMUX08:O0;1;LogicTILE(00,08):IMUX48;LogicTILE(00,08):IMUX48:I9 <= LogicTILE(01,08):RMUX00:O0;1"
+          }
+        },
+        "$abc$510$new_n57_": {
+          "hide_name": 1,
+          "bits": [ 46 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(01,07):IMUX28;LogicTILE(01,07):IMUX28:I14 <= LogicTILE(01,07):RMUX22:O0;1;LogicTILE(01,07):alta_slice07:A;LogicTILE(01,07):alta_slice07:A <= LogicTILE(01,07):IMUX28:O0;1;LogicTILE(01,07):IMUX08;LogicTILE(01,07):IMUX08:I14 <= LogicTILE(01,07):RMUX22:O0;1;LogicTILE(01,07):alta_slice02:A;LogicTILE(01,07):alta_slice02:A <= LogicTILE(01,07):IMUX08:O0;1;LogicTILE(01,07):IMUX52;LogicTILE(01,07):IMUX52:I14 <= LogicTILE(01,07):RMUX22:O0;1;LogicTILE(01,07):alta_slice13:A;LogicTILE(01,07):alta_slice13:A <= LogicTILE(01,07):IMUX52:O0;1;LogicTILE(00,07):alta_slice00:LutOut;;1;LogicTILE(00,07):OMUX00;LogicTILE(00,07):OMUX00:I0 <= LogicTILE(00,07):alta_slice00:LutOut;1;LogicTILE(01,07):RMUX22;LogicTILE(01,07):RMUX22:I0 <= LogicTILE(00,07):OMUX00:O0;1;LogicTILE(01,07):IMUX04;LogicTILE(01,07):IMUX04:I14 <= LogicTILE(01,07):RMUX22:O0;1;LogicTILE(01,07):alta_slice01:A;LogicTILE(01,07):alta_slice01:A <= LogicTILE(01,07):IMUX04:O0;1"
+          }
+        },
+        "ctr[9]": {
+          "hide_name": 0,
+          "bits": [ 58 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):IMUX27;LogicTILE(00,06):IMUX27:I3 <= LogicTILE(00,06):OMUX19:O0;1;LogicTILE(00,06):alta_slice06:Q;;1;LogicTILE(00,06):IMUX14;LogicTILE(00,06):IMUX14:I4 <= LogicTILE(00,06):OMUX19:O0;1;LogicTILE(00,06):OMUX19;LogicTILE(00,06):OMUX19:I1 <= LogicTILE(00,06):alta_slice06:Q;1;LogicTILE(00,06):alta_slice06:D;LogicTILE(00,06):alta_slice06:D <= LogicTILE(00,06):IMUX27:O0;1;LogicTILE(00,06):alta_slice03:C;LogicTILE(00,06):alta_slice03:C <= LogicTILE(00,06):IMUX14:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[14]": {
+          "hide_name": 0,
+          "bits": [ 49 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(01,07):OMUX05;LogicTILE(01,07):OMUX05:I1 <= LogicTILE(01,07):alta_slice01:Q;1;LogicTILE(01,07):IMUX54;LogicTILE(01,07):IMUX54:I11 <= LogicTILE(01,07):RMUX04:O0;1;LogicTILE(01,07):alta_slice13:C;LogicTILE(01,07):alta_slice13:C <= LogicTILE(01,07):IMUX54:O0;1;LogicTILE(01,07):IMUX31;LogicTILE(01,07):IMUX31:I0 <= LogicTILE(01,07):OMUX04:O0;1;LogicTILE(01,07):alta_slice01:Q;;1;LogicTILE(01,07):OMUX04;LogicTILE(01,07):OMUX04:I1 <= LogicTILE(01,07):alta_slice01:Q;1;LogicTILE(01,07):alta_slice07:D;LogicTILE(01,07):alta_slice07:D <= LogicTILE(01,07):IMUX31:O0;1;LogicTILE(01,07):IMUX06;LogicTILE(01,07):IMUX06:I1 <= LogicTILE(01,07):OMUX04:O0;1;LogicTILE(01,07):RMUX04;LogicTILE(01,07):RMUX04:I1 <= LogicTILE(01,07):OMUX05:O0;1;LogicTILE(01,07):alta_slice01:C;LogicTILE(01,07):alta_slice01:C <= LogicTILE(01,07):IMUX06:O0;1",
+            "src": "blinky.v:25.12-25.15"
+          }
+        },
+        "ctr[19]": {
+          "hide_name": 0,
+          "bits": [ 26 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,08):alta_slice08:B;LogicTILE(00,08):alta_slice08:B <= LogicTILE(00,08):IMUX33:O0;1;LogicTILE(00,08):IMUX49;LogicTILE(00,08):IMUX49:I9 <= LogicTILE(01,08):RMUX06:O0;1;LogicTILE(00,08):alta_slice12:B;LogicTILE(00,08):alta_slice12:B <= LogicTILE(00,08):IMUX49:O0;1;LogicTILE(01,08):RMUX07;LogicTILE(01,08):RMUX07:I2 <= LogicTILE(01,08):OMUX08:O0;1;LogicTILE(00,08):IMUX09;LogicTILE(00,08):IMUX09:I9 <= LogicTILE(01,08):RMUX06:O0;1;IOTILE(01,09):RMUX12;IOTILE(01,09):RMUX12:I2 <= LogicTILE(01,08):RMUX09:O0;1;LogicTILE(00,08):alta_slice02:B;LogicTILE(00,08):alta_slice02:B <= LogicTILE(00,08):IMUX09:O0;1;LogicTILE(01,08):OMUX07;LogicTILE(01,08):OMUX07:I1 <= LogicTILE(01,08):alta_slice02:Q;1;LogicTILE(01,08):alta_slice02:B;LogicTILE(01,08):alta_slice02:B <= LogicTILE(01,08):IMUX09:O0;1;LogicTILE(01,08):IMUX09;LogicTILE(01,08):IMUX09:I1 <= LogicTILE(01,08):OMUX07:O0;1;LogicTILE(01,08):alta_slice02:Q;;1;LogicTILE(01,08):RMUX06;LogicTILE(01,08):RMUX06:I4 <= LogicTILE(01,08):RMUX07:O0;1;LogicTILE(00,08):IMUX33;LogicTILE(00,08):IMUX33:I9 <= LogicTILE(01,08):RMUX06:O0;1;LogicTILE(01,08):RMUX09;LogicTILE(01,08):RMUX09:I2 <= LogicTILE(01,08):OMUX08:O0;1;LogicTILE(01,08):OMUX08;LogicTILE(01,08):OMUX08:I1 <= LogicTILE(01,08):alta_slice02:Q;1;IOTILE(01,09):IOMUX03;IOTILE(01,09):IOMUX03:I3 <= IOTILE(01,09):RMUX12:O0;1",
+            "src": "blinky.v:7.13-7.17"
+          }
+        },
+        "ctr[18]": {
+          "hide_name": 0,
+          "bits": [ 44 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(02,08):RMUX75;LogicTILE(02,08):RMUX75:I1 <= LogicTILE(01,08):OMUX39:O0;1;IOTILE(02,09):RMUX04;IOTILE(02,09):RMUX04:I2 <= LogicTILE(02,08):RMUX75:O0;1;IOTILE(02,09):IOMUX00;IOTILE(02,09):IOMUX00:I1 <= IOTILE(02,09):RMUX04:O0;1;LogicTILE(01,08):OMUX39;LogicTILE(01,08):OMUX39:I1 <= LogicTILE(01,08):alta_slice13:Q;1;LogicTILE(01,08):alta_slice01:D;LogicTILE(01,08):alta_slice01:D <= LogicTILE(01,08):IMUX07:O0;1;LogicTILE(01,08):alta_slice13:Q;;1;LogicTILE(01,08):IMUX07;LogicTILE(01,08):IMUX07:I7 <= LogicTILE(01,08):OMUX40:O0;1;LogicTILE(01,08):OMUX40;LogicTILE(01,08):OMUX40:I1 <= LogicTILE(01,08):alta_slice13:Q;1;LogicTILE(01,08):IMUX55;LogicTILE(01,08):IMUX55:I7 <= LogicTILE(01,08):OMUX40:O0;1;LogicTILE(01,08):alta_slice13:D;LogicTILE(01,08):alta_slice13:D <= LogicTILE(01,08):IMUX55:O0;1",
+            "src": "blinky.v:7.13-7.17"
+          }
+        },
+        "ctr[25]": {
+          "hide_name": 0,
+          "bits": [ 103 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(02,06):OMUX19;LogicTILE(02,06):OMUX19:I1 <= LogicTILE(02,06):alta_slice06:Q;1;LogicTILE(02,06):IMUX25;LogicTILE(02,06):IMUX25:I3 <= LogicTILE(02,06):OMUX19:O0;1;LogicTILE(02,06):alta_slice06:Q;;1;LogicTILE(02,06):OMUX20;LogicTILE(02,06):OMUX20:I1 <= LogicTILE(02,06):alta_slice06:Q;1;LogicTILE(02,06):alta_slice06:B;LogicTILE(02,06):alta_slice06:B <= LogicTILE(02,06):IMUX25:O0;1;LogicTILE(02,06):RMUX27;LogicTILE(02,06):RMUX27:I2 <= LogicTILE(02,06):OMUX20:O0;1;LogicTILE(02,05):RMUX14;LogicTILE(02,05):RMUX14:I17 <= LogicTILE(02,06):RMUX27:O0;1;IOTILE(02,01):RMUX20;IOTILE(02,01):RMUX20:I1 <= LogicTILE(02,05):RMUX14:O0;1;IOTILE(02,01):IOMUX02;IOTILE(02,01):IOMUX02:I5 <= IOTILE(02,01):RMUX20:O0;1",
+            "src": "blinky.v:7.13-7.17"
+          }
+        },
+        "$abc$510$new_n59_": {
+          "hide_name": 1,
+          "bits": [ 56 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,06):IMUX12;LogicTILE(00,06):IMUX12:I22 <= LogicTILE(00,06):RMUX70:O0;1;LogicTILE(00,06):alta_slice03:A;LogicTILE(00,06):alta_slice03:A <= LogicTILE(00,06):IMUX12:O0;1;LogicTILE(00,06):IMUX48;LogicTILE(00,06):IMUX48:I22 <= LogicTILE(00,06):RMUX70:O0;1;LogicTILE(00,06):alta_slice12:A;LogicTILE(00,06):alta_slice12:A <= LogicTILE(00,06):IMUX48:O0;1;LogicTILE(00,06):IMUX24;LogicTILE(00,06):IMUX24:I22 <= LogicTILE(00,06):RMUX70:O0;1;LogicTILE(00,06):alta_slice06:A;LogicTILE(00,06):alta_slice06:A <= LogicTILE(00,06):IMUX24:O0;1;LogicTILE(00,06):alta_slice11:LutOut;;1;LogicTILE(00,06):OMUX35;LogicTILE(00,06):OMUX35:I0 <= LogicTILE(00,06):alta_slice11:LutOut;1;LogicTILE(00,06):RMUX70;LogicTILE(00,06):RMUX70:I3 <= LogicTILE(00,06):OMUX35:O0;1;LogicTILE(00,06):IMUX00;LogicTILE(00,06):IMUX00:I22 <= LogicTILE(00,06):RMUX70:O0;1;LogicTILE(00,06):alta_slice00:A;LogicTILE(00,06):alta_slice00:A <= LogicTILE(00,06):IMUX00:O0;1"
+          }
+        },
+        "ctr[24]": {
+          "hide_name": 0,
+          "bits": [ 98 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(02,06):OMUX08;LogicTILE(02,06):OMUX08:I1 <= LogicTILE(02,06):alta_slice02:Q;1;LogicTILE(02,06):OMUX06;LogicTILE(02,06):OMUX06:I1 <= LogicTILE(02,06):alta_slice02:Q;1;LogicTILE(02,06):RMUX05;LogicTILE(02,06):RMUX05:I2 <= LogicTILE(02,06):OMUX08:O0;1;LogicTILE(02,06):OMUX07;LogicTILE(02,06):OMUX07:I1 <= LogicTILE(02,06):alta_slice02:Q;1;LogicTILE(07,06):RMUX27;LogicTILE(07,06):RMUX27:I12 <= BramTILE(03,06):RMUX08:O0;1;BramTILE(03,06):RMUX08;BramTILE(03,06):RMUX08:I2 <= LogicTILE(02,06):OMUX06:O0;1;IOTILE(07,01):IOMUX00;IOTILE(07,01):IOMUX00:I4 <= IOTILE(07,01):RMUX16:O0;1;LogicTILE(02,06):alta_slice02:Q;;1;LogicTILE(02,06):alta_slice10:D;LogicTILE(02,06):alta_slice10:D <= LogicTILE(02,06):IMUX43:O0;1;IOTILE(07,01):RMUX16;IOTILE(07,01):RMUX16:I4 <= LogicTILE(07,02):RMUX14:O0;1;LogicTILE(07,02):RMUX14;LogicTILE(07,02):RMUX14:I20 <= LogicTILE(07,06):RMUX27:O0;1;LogicTILE(02,06):IMUX11;LogicTILE(02,06):IMUX11:I1 <= LogicTILE(02,06):OMUX07:O0;1;LogicTILE(02,06):IMUX43;LogicTILE(02,06):IMUX43:I11 <= LogicTILE(02,06):RMUX05:O0;1;LogicTILE(02,06):alta_slice02:D;LogicTILE(02,06):alta_slice02:D <= LogicTILE(02,06):IMUX11:O0;1",
+            "src": "blinky.v:7.13-7.17"
+          }
+        },
+        "$abc$510$new_n58_": {
+          "hide_name": 1,
+          "bits": [ 51 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(00,07):IMUX00;LogicTILE(00,07):IMUX00:I15 <= LogicTILE(00,07):RMUX28:O0;1;LogicTILE(00,07):RMUX28;LogicTILE(00,07):RMUX28:I13 <= LogicTILE(00,06):RMUX09:O0;1;LogicTILE(00,07):IMUX08;LogicTILE(00,07):IMUX08:I15 <= LogicTILE(00,07):RMUX28:O0;1;LogicTILE(00,07):alta_slice02:A;LogicTILE(00,07):alta_slice02:A <= LogicTILE(00,07):IMUX08:O0;1;LogicTILE(00,07):IMUX48;LogicTILE(00,07):IMUX48:I15 <= LogicTILE(00,07):RMUX28:O0;1;LogicTILE(00,07):alta_slice00:A;LogicTILE(00,07):alta_slice00:A <= LogicTILE(00,07):IMUX00:O0;1;LogicTILE(00,07):IMUX56;LogicTILE(00,07):IMUX56:I15 <= LogicTILE(00,07):RMUX28:O0;1;LogicTILE(00,06):alta_slice03:LutOut;;1;LogicTILE(00,06):RMUX09;LogicTILE(00,06):RMUX09:I3 <= LogicTILE(00,06):OMUX11:O0;1;LogicTILE(00,06):OMUX11;LogicTILE(00,06):OMUX11:I0 <= LogicTILE(00,06):alta_slice03:LutOut;1;LogicTILE(00,07):alta_slice12:A;LogicTILE(00,07):alta_slice12:A <= LogicTILE(00,07):IMUX48:O0;1;LogicTILE(00,07):alta_slice14:A;LogicTILE(00,07):alta_slice14:A <= LogicTILE(00,07):IMUX56:O0;1"
+          }
+        }
+      }
+    }
+  }
+}

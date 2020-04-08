@@ -1,0 +1,406 @@
+{
+  "creator": "Yosys 0.9+1706 (git sha1 1dbc7017, clang 10.0.1 -fPIC -Os)",
+  "modules": {
+    "DFF": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:13.1-19.10"
+      },
+      "ports": {
+        "CLK": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "D": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CLK": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:14.8-14.11"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:14.13-14.14"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:15.13-15.14"
+          }
+        }
+      }
+    },
+    "GENERIC_IOB": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:40.1-58.10"
+      },
+      "ports": {
+        "PAD": {
+          "direction": "inout",
+          "bits": [ 2 ]
+        },
+        "I": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "O": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:46.11-46.13"
+          }
+        },
+        "I": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:46.8-46.9"
+          }
+        },
+        "O": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:47.9-47.10"
+          }
+        },
+        "PAD": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:45.8-45.11"
+          }
+        }
+      }
+    },
+    "GENERIC_SLICE": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:21.1-38.10"
+      },
+      "ports": {
+        "CLK": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "I": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6 ]
+        },
+        "F": {
+          "direction": "output",
+          "bits": [ 7 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CLK": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:26.8-26.11"
+          }
+        },
+        "F": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:28.9-28.10"
+          }
+        },
+        "I": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:27.16-27.17"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:29.9-29.10"
+          }
+        }
+      }
+    },
+    "LUT": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:3.1-11.10"
+      },
+      "ports": {
+        "I": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "I": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:7.16-7.17"
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/prims.v:8.9-8.10"
+          }
+        }
+      }
+    },
+    "top": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "simple.v:1.1-27.10"
+      },
+      "ports": {
+      },
+      "cells": {
+        "clk_ibuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000001",
+            "OUTPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL": "IOTILE(04,09):alta_rio00",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:5.49-5.67"
+          },
+          "port_directions": {
+            "O": "output"
+          },
+          "connections": {
+            "O": [ 2 ]
+          }
+        },
+        "led0_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(02,09):alta_rio00",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:23.49-23.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 2 ]
+          }
+        },
+        "led1_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(01,09):alta_rio03",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:21.49-21.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ "0" ]
+          }
+        },
+        "led2_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(00,09):alta_rio02",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:19.49-19.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 2 ]
+          }
+        },
+        "led3_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(00,09):alta_rio00",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:17.49-17.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ "0" ]
+          }
+        },
+        "led4_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(01,09):alta_rio01",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:15.49-15.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ "1" ]
+          }
+        },
+        "led5_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(06,09):alta_rio02",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:13.49-13.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ "0" ]
+          }
+        },
+        "led6_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(07,01):alta_rio00",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:11.49-11.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 2 ]
+          }
+        },
+        "led7_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "INPUT_USED": "00000000000000000000000000000000",
+            "OUTPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL": "IOTILE(02,01):alta_rio02",
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "simple.v:9.49-9.72"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ "0" ]
+          }
+        }
+      },
+      "netnames": {
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "simple.v:3.7-3.10"
+          }
+        },
+        "leds": {
+          "hide_name": 0,
+          "bits": [ 2, "0", 2, "0", "1", "0", 2 ],
+          "attributes": {
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "creator": "Next Generation Place and Route (Version 98e2f9e)",
+  "modules": {
+    "top": {
+      "settings": {
+        "route": "00000000000000000000000000000001",
+        "router1/useEstimate": "1 ",
+        "router1/fullCleanupReroute": "1 ",
+        "router1/cleanupReroute": "1 ",
+        "router1/maxIterCnt": "200",
+        "place": "00000000000000000000000000000001",
+        "placer1/startTemp": "1.000000",
+        "placer1/budgetBased": "0 ",
+        "placer1/minBelsForGridPick": "64",
+        "placer1/netShareWeight": "0.000000",
+        "placer1/constraintWeight": "10.000000",
+        "arch.type": "none",
+        "placerHeap/timingWeight": "10 ",
+        "arch.name": "generic",
+        "placerHeap/beta": "0.900000",
+        "auto_freq": "00000000000000000000000000000000",
+        "synth": "00000000000000000000000000000001",
+        "pack": "00000000000000000000000000000001",
+        "placer": "heap",
+        "seed": "01010011010110001001011110010011",
+        "placerHeap/criticalityExponent": "2",
+        "placerHeap/alpha": "0.100000",
+        "router": "router1",
+        "slack_redist_iter": "00000000000000000000000000000000",
+        "timing_driven": "00000000000000000000000000000001",
+        "target_freq": "12000000.000000"
+      },
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "simple.v:1.1-27.10"
+      },
+      "ports": {
+      },
+      "cells": {
+        "$PACKER_VCC": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "1111111111111111",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "LogicTILE(01,08):alta_slice11"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "I": "input",
+            "F": "output",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [  ],
+            "I": [ 426987, 426988, 426989, 426990 ],
+            "F": [ 425962 ],
+            "Q": [  ]
+          }
+        },
+        "led7_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(02,01):alta_rio02",
+            "src": "simple.v:9.49-9.72",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 425960 ]
+          }
+        },
+        "led6_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(07,01):alta_rio00",
+            "src": "simple.v:11.49-11.72",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 22 ]
+          }
+        },
+        "led3_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(00,09):alta_rio00",
+            "src": "simple.v:17.49-17.72",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 425960 ]
+          }
+        },
+        "led2_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(00,09):alta_rio02",
+            "src": "simple.v:19.49-19.72",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 22 ]
+          }
+        },
+        "led1_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(01,09):alta_rio03",
+            "src": "simple.v:21.49-21.72",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 425960 ]
+          }
+        },
+        "led4_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(01,09):alta_rio01",
+            "src": "simple.v:15.49-15.72",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 425962 ]
+          }
+        },
+        "$PACKER_GND": {
+          "hide_name": 1,
+          "type": "GENERIC_SLICE",
+          "parameters": {
+            "FF_USED": "00000000000000000000000000000000",
+            "INIT": "0000000000000000",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "LogicTILE(04,05):alta_slice15"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "I": "input",
+            "F": "output",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [  ],
+            "I": [ 426991, 426992, 426993, 426994 ],
+            "F": [ 425960 ],
+            "Q": [  ]
+          }
+        },
+        "clk_ibuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000000",
+            "INPUT_USED": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(04,09):alta_rio00",
+            "src": "simple.v:5.49-5.67",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output"
+          },
+          "connections": {
+            "O": [ 22 ]
+          }
+        },
+        "led0_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(02,09):alta_rio00",
+            "src": "simple.v:23.49-23.72",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 22 ]
+          }
+        },
+        "led5_obuf": {
+          "hide_name": 0,
+          "type": "GENERIC_IOB",
+          "parameters": {
+            "OUTPUT_USED": "00000000000000000000000000000001",
+            "INPUT_USED": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "IOTILE(06,09):alta_rio02",
+            "src": "simple.v:13.49-13.72",
+            "module_not_derived": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I": "input"
+          },
+          "connections": {
+            "I": [ 425960 ]
+          }
+        }
+      },
+      "netnames": {
+        "$PACKER_GND_NET": {
+          "hide_name": 1,
+          "bits": [ 425960 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(05,05):RMUX74;LogicTILE(05,05):RMUX74:I3 <= LogicTILE(04,05):OMUX45:O0;1;IOTILE(02,01):IOMUX02;IOTILE(02,01):IOMUX02:I5 <= IOTILE(02,01):RMUX20:O0;1;LogicTILE(02,05):RMUX87;LogicTILE(02,05):RMUX87:I7 <= LogicTILE(05,05):RMUX93:O0;1;LogicTILE(04,05):OMUX45;LogicTILE(04,05):OMUX45:I0 <= LogicTILE(04,05):alta_slice15:LutOut;1;IOTILE(06,09):IOMUX02;IOTILE(06,09):IOMUX02:I1 <= IOTILE(06,09):RMUX04:O0;1;LogicTILE(05,05):RMUX93;LogicTILE(05,05):RMUX93:I3 <= LogicTILE(04,05):OMUX45:O0;1;LogicTILE(01,05):RMUX92;LogicTILE(01,05):RMUX92:I8 <= LogicTILE(05,05):RMUX93:O0;1;IOTILE(06,09):RMUX04;IOTILE(06,09):RMUX04:I1 <= LogicTILE(06,05):RMUX02:O0;1;IOTILE(01,09):IOMUX03;IOTILE(01,09):IOMUX03:I7 <= IOTILE(01,09):RMUX28:O0;1;IOTILE(01,09):RMUX28;IOTILE(01,09):RMUX28:I1 <= LogicTILE(01,05):RMUX92:O0;1;LogicTILE(06,05):RMUX02;LogicTILE(06,05):RMUX02:I9 <= LogicTILE(05,05):RMUX74:O0;1;LogicTILE(04,05):alta_slice15:LutOut;;1;IOTILE(02,01):RMUX20;IOTILE(02,01):RMUX20:I5 <= LogicTILE(02,05):RMUX87:O0;1;LogicTILE(04,05):OMUX47;LogicTILE(04,05):OMUX47:I0 <= LogicTILE(04,05):alta_slice15:LutOut;1;IOTILE(00,09):RMUX00;IOTILE(00,09):RMUX00:I3 <= LogicTILE(00,05):RMUX25:O0;1;LogicTILE(04,05):RMUX79;LogicTILE(04,05):RMUX79:I3 <= LogicTILE(04,05):OMUX47:O0;1;LogicTILE(00,05):RMUX25;LogicTILE(00,05):RMUX25:I8 <= LogicTILE(04,05):RMUX79:O0;1;IOTILE(00,09):IOMUX00;IOTILE(00,09):IOMUX00:I0 <= IOTILE(00,09):RMUX00:O0;1"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 22 ] ,
+          "attributes": {
+            "ROUTING": "IOTILE(02,09):RMUX08;IOTILE(02,09):RMUX08:I0 <= LogicTILE(02,08):RMUX55:O0;1;IOTILE(02,09):IOMUX00;IOTILE(02,09):IOMUX00:I2 <= IOTILE(02,09):RMUX08:O0;1;LogicTILE(04,05):RMUX08;LogicTILE(04,05):RMUX08:I20 <= IOTILE(04,09):InputMUX01:O0;1;LogicTILE(07,05):RMUX37;LogicTILE(07,05):RMUX37:I11 <= LogicTILE(04,05):RMUX08:O0;1;LogicTILE(02,08):RMUX55;LogicTILE(02,08):RMUX55:I6 <= LogicTILE(04,08):RMUX13:O0;1;IOTILE(07,01):IOMUX00;IOTILE(07,01):IOMUX00:I4 <= IOTILE(07,01):RMUX16:O0;1;LogicTILE(04,08):RMUX13;LogicTILE(04,08):RMUX13:I17 <= IOTILE(04,09):InputMUX01:O0;1;LogicTILE(00,08):RMUX55;LogicTILE(00,08):RMUX55:I8 <= LogicTILE(04,08):RMUX13:O0;1;IOTILE(07,01):RMUX16;IOTILE(07,01):RMUX16:I3 <= LogicTILE(07,05):RMUX37:O0;1;IOTILE(04,09):InputMUX01;IOTILE(04,09):InputMUX01:I0 <= IOTILE(04,09):alta_ioreg00:combout;1;IOTILE(00,09):RMUX08;IOTILE(00,09):RMUX08:I0 <= LogicTILE(00,08):RMUX55:O0;1;IOTILE(04,09):alta_ioreg00;;1;IOTILE(00,09):IOMUX02;IOTILE(00,09):IOMUX02:I2 <= IOTILE(00,09):RMUX08:O0;1",
+            "src": "simple.v:3.7-3.10"
+          }
+        },
+        "$PACKER_VCC_NET": {
+          "hide_name": 1,
+          "bits": [ 425962 ] ,
+          "attributes": {
+            "ROUTING": "LogicTILE(01,08):RMUX55;LogicTILE(01,08):RMUX55:I3 <= LogicTILE(01,08):OMUX35:O0;1;LogicTILE(01,08):alta_slice11:LutOut;;1;LogicTILE(01,08):OMUX35;LogicTILE(01,08):OMUX35:I0 <= LogicTILE(01,08):alta_slice11:LutOut;1;IOTILE(01,09):RMUX08;IOTILE(01,09):RMUX08:I0 <= LogicTILE(01,08):RMUX55:O0;1;IOTILE(01,09):IOMUX01;IOTILE(01,09):IOMUX01:I2 <= IOTILE(01,09):RMUX08:O0;1"
+          }
+        }
+      }
+    }
+  }
+}
