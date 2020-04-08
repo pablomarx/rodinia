@@ -112,6 +112,13 @@ for line in lines:
         
         if not success:
             print("Did not enocde key:%s line:%s" % (key, line))
+        
+        # Hack to fix I/O
+        if useFormatters and key.startswith("alta_rio") and key.endswith("OUTPUT_USED"):
+            slice = int(key[8:10])
+            if slice < 4:
+                for x in range (1, 4):
+                    tile.encode("IOMUX%02i" % (slice + (4 * x)), [0,0,0,0, 0,0,0], bits, False)
 
 
 #
