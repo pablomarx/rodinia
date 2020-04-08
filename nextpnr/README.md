@@ -1,5 +1,5 @@
 ### Status
-Running `simple.sh` results in a complete flow from Verilog to binary bitstream.  However it is not yet blinking anything when uploaded to the AG1KLPQ48.
+Running `build.sh` results in a complete flow from Verilog to binary bitstream.  However it is not yet blinking anything when uploaded to the AG1KLPQ48.
 
 ### Files
 * [simple.py](simple.py) Creates the BELs, PIPs and wires for nextpnr.  Utilizes files in the [bitstream](../bitstream) directory: [chips.py](../bitstream/chips.py), [tiles.py](../bitstream/tiles.py), [wires.py](../bitstream/wires.py).  The resulting routing looks sensible, e.g. [log, starting at line 3379](log#L3379) and the IOTILEs appear to be configured correctly.

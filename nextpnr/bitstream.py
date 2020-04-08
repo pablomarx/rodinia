@@ -12,6 +12,6 @@ param_map = {
 	("GENERIC_IOB", "ENABLE_USED"): ParameterConfig(write=True, numeric=True, width=1),
 }
 
-with open("blinky.fasm", "w") as f:
+with open("nextpnr.fasm", "w") as f:
 	write_fasm(ctx, param_map, f)
 
