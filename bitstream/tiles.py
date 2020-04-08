@@ -378,7 +378,8 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 1, 2),
 }, defaults={
-	'TileClkMUX[0-9][0-9]': [0,0,1]
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=4, values={
@@ -497,7 +498,8 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=4, va
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 1, 2),
 }, defaults={
-	'TileClkMUX[0-9][0-9]': [0,0,1]
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4, values={
@@ -619,7 +621,8 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 1, 2),
 }, defaults={
-	'TileClkMUX[0-9][0-9]': [0,0,1]
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', columns=34, rows=20, slices=4, values={
@@ -739,7 +742,8 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', columns=34, rows=20, slices=4, va
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(bits_to_num(val), 1, 2),
 }, defaults={
-	'TileClkMUX[0-9][0-9]': [0,0,1]
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, values={
