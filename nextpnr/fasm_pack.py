@@ -61,14 +61,15 @@ with open(filename, "r") as file:
     lines = file.readlines()
 
 useFormatters = True
-if lines[0] == "#nofmt!\n":
-    useFormatters = False
-
 for line in lines:
     line = line.strip()
     if len(line) == 0:
         continue
     if line[0] == "#":
+        if line == "#nofmt!":
+            useFormatters = False
+        elif line == "#fmt!":
+            useFormatters = True
         continue
         
     match = re.match("^([^_]*)_([XY][0-9]*)([XY][0-9]*).(.*)$", line)
