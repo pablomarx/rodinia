@@ -14,7 +14,7 @@ else
 		mkdir ${OUTDIR}
 	fi
 	
-	yosys -p "tcl synth/synth_generic.tcl 4 ${OUTDIR}/${SOURCE}.json" ${SOURCE}.v
+	yosys -p "tcl synth/synth_generic.tcl 4 ${OUTDIR}/${SOURCE}.json ${OUTDIR}/${SOURCE}.v" ${SOURCE}.v
 	# --pre-place simple_timing.py
 	nextpnr-generic --pre-pack simple.py --post-route bitstream.py --json ${OUTDIR}/${SOURCE}.json --write ${OUTDIR}/pnr${SOURCE}.json --debug
 	yosys -p "read_verilog -lib synth/prims.v; read_json ${OUTDIR}/pnr${SOURCE}.json; dump -o ${OUTDIR}/${SOURCE}.il; show -format png -prefix ${SOURCE}"

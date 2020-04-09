@@ -22,3 +22,4 @@ yosys hierarchy -check
 yosys stat
 
 if {$argc > 1} { yosys write_json [lindex $argv 1] }
+if {$argc > 2} { yosys write_verilog [lindex $argv 2] }
