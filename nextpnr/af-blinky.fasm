@@ -239,7 +239,6 @@ L_Y07X01.alta_slice12_IMUX48 = 3
 L_Y07X01.alta_slice07_OMUX22 = 1
 L_Y07X01.alta_slice12_IMUX49 = 3
 
-L_Y07X01.TileAsyncMUX00 = 4'b0001
 L_Y07X01.TileClkMUX00 = 2
 L_Y07X01.alta_slice00_CARRY_CRL = 1
 L_Y07X01.alta_slice00_LUT = 16'h8000
@@ -302,7 +301,6 @@ L_Y07X02.ClkMUX12 = 1
 L_Y07X02.ClkMUX13 = 1
 L_Y07X02.ClkMUX14 = 1
 L_Y07X02.ClkMUX15 = 1
-L_Y07X02.TileAsyncMUX00 = 4'b0001
 L_Y07X02.TileClkMUX01 = 1
 L_Y07X02.alta_slice00_CARRY_CRL = 1
 L_Y07X02.alta_slice00_LUT = 16'h0ff0
@@ -311,7 +309,6 @@ L_Y07X02.alta_slice10_CARRY_CRL = 1
 L_Y07X02.alta_slice10_LUT = 16'h0ff0
 L_Y07X02.alta_slice10_LUTCMUX = 1
 
-L_Y08X01.TileAsyncMUX00 = 4'b0001
 L_Y08X01.TileClkMUX00 = 2
 L_Y08X01.alta_slice00_CARRY_CRL = 1
 L_Y08X01.alta_slice00_LUT = 16'h5af0
