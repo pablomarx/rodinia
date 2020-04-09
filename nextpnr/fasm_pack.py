@@ -103,7 +103,13 @@ for line in lines:
     
     bits = bits_by_tile[col][row]
     success = tile.encode(key, value, bits, useFormatters) 
-    if not success:
+    if success:
+        if useFormatters:
+            if key.startswith("TileClkMUX"):
+                # In af bitstreams, used logic tiles get this key/value set..
+                value = [0,0,0,1]
+                tile.encode("TileAsyncMUX00", value, bits)
+    else:
         chain_idx = 0
         for chain in chip.configChain:
             success = chain.encode(chip, tile.type, row, col, key, value, bits_by_config[chain_idx])
