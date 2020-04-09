@@ -1034,6 +1034,8 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
 InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices=16, values={
 	# 16 slices per tile
 
+    # Presumably selects between alta_asyncctrl00:Dout/TileAsyncMUX00 
+    # and alta_asyncctrl01:Dout/TileAsyncMUX01
 	'AsyncMUX00':[32],
 	'AsyncMUX01':[168],
 	'AsyncMUX02':[304],
@@ -1051,6 +1053,8 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 	'AsyncMUX14':[2072],
 	'AsyncMUX15':[2208],
 
+    # Presumably selects between alta_clkenctrl00:ClkOut/TileClkMUX00 
+    # and alta_clkenctrl01:ClkOut/TileClkMUX01
 	'ClkMUX00':[66],
 	'ClkMUX01':[202],
 	'ClkMUX02':[338],
@@ -1068,6 +1072,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 	'ClkMUX14':[2106],
 	'ClkMUX15':[2242],
 
+    # Feeds TileClkMUX, TileClkEnMUX, TileAsyncMUX, TileSyncMUX
 	'CtrlMUX00': [ 1103, 1137, 1104, 1138, 1105, 1139, 1106, 1140, 1107, 1141, 1108, 1142 ],
 	'CtrlMUX01': [ 1114, 1148, 1113, 1147, 1112, 1146, 1111, 1145, 1110, 1144, 1109, 1143 ],
 	'CtrlMUX02': [ 1205, 1171, 1206, 1172, 1207, 1173, 1208, 1174, 1209, 1175, 1210, 1176 ],
@@ -1184,7 +1189,9 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 	'TileClkEnMUX00':[1223,1222,1221],
 	'TileClkEnMUX01':[1121,1120,1119],
 
+    # 0100 = CtrlMUX00, 0010 = CtrlMUX01
 	'TileClkMUX00':[1118,1117,1116,1115],
+    # 0100 = CtrlMUX02, 0010 = CtrlMUX03
 	'TileClkMUX01':[1220,1219,1218,1217],
 
 	'TileSyncMUX00':[1189,1188,1187],
