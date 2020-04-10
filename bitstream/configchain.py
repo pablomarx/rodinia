@@ -63,7 +63,7 @@ class ConfigChainPLL:
             length += field[1]
         return [0] * length
     
-    def format(self, name, bits):
+    def format(self, name, bits, chain_id):
         return bits_to_string(bits)
     
     def encode(self, chip, tile, row, col, key, value, bits):
@@ -116,7 +116,7 @@ class ConfigChainIO:
                 bits[-1] = 1
         return bits
         
-    def format(self, name, bits):
+    def format(self, name, bits, chain_id):
         return bits_to_string(bits)
         
     def offset_for_field_named(self, name):

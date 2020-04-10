@@ -83,7 +83,7 @@ class Tile:
                 return self.formatters[pattern](name,bits)
         return bits_to_string(bits, 0, True)
     
-    def format(self, name, bits, x, y, routing):
+    def format(self, name, bits, x, y, routing=None):
         result = self.bit_format(name, bits)
         if name in self.annotations:
             result += "\t; "+self.annotations[name]

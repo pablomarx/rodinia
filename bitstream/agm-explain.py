@@ -21,23 +21,68 @@
 # DEALINGS IN THE SOFTWARE.
 #
 
+import argparse
 import sys
 from routefile import RouteFile
 from chips import ChipWithID, chips
 
-if len(sys.argv) != 2 and len(sys.argv) != 3:
-    print("usage: %s <agm-unpack.py output> [route.tx file]" % sys.argv[0])
-    sys.exit(-1)
+parser = argparse.ArgumentParser(description='Explain textual bitstream file.')
+parser.add_argument('file', metavar='file', type=str, 
+                    help='an ascii bitstream file (e.g. agm-unpack.py output)')
+parser.add_argument('--output', metavar='output', default='explain',
+                    help='output type. Supported types: "explain" (default) or "fasm"')
+parser.add_argument('--route', metavar='route.tx file', default=None,
+                    help='Optional path to route.tx file to annotate nets')
 
-filename = sys.argv[1]
+args = parser.parse_args()
+
+filename = args.file
 with open(filename, "r") as file:
     lines = file.readlines()
     
 routing = None
-if len(sys.argv) == 3:
-    routing = RouteFile(sys.argv[2])
+if args.route != None:
+    routing = RouteFile(args.route)
 
-def print_data(data):
+emit_fasm = args.output == 'fasm'
+if emit_fasm:
+    print("#nofmt!")
+
+def print_fasm_data(data):
+    owner = data['owner']
+    
+    empty_bits = owner.empty_bits()
+    empty_values = owner.decode(empty_bits)
+    
+    data_values = owner.decode(data['bits'])
+    
+    args = data['args']
+    
+    if 'x' in args:
+        tile_x = args['x']
+        tile_y = args['y']
+        tile_type = owner.type[0]
+        prefix = "%s_Y%02iX%02i." % (tile_type, tile_y, tile_x)
+    elif 'chain_id' in args:
+        prefix = "# .config_chain%i." % args['chain_id']
+    else:
+        prefix = "!!unknown!!"
+    
+    keys = list(data_values)
+    keys.sort()
+    
+    for key in keys:
+        empty_value = empty_values[key]
+        data_value = data_values[key]
+        if empty_value != data_value:
+            comment = owner.format(key, data_values[key], **args)
+            comps = comment.split(";")
+            if len(comps) > 1:
+                print("# %s" % ";".join(comps[1:]))
+            print("%s%s = %s" % (prefix, key, comps[0].strip()))
+            print("")
+
+def print_explain_data(data):
     owner = data['owner']
     values = owner.decode(data['bits'])
     
@@ -51,6 +96,12 @@ def print_data(data):
         print("%s: %s" % (key, owner.format(key, values[key], **args)))
 
     print("")
+    
+def print_data(data):
+    if emit_fasm:
+        print_fasm_data(data)
+    else:
+        print_explain_data(data)
 
 data = None
 for line in lines:
@@ -65,12 +116,12 @@ for line in lines:
             if comps[0] == ".device":
                 chip_id = int(comps[1], 16)
                 chip = ChipWithID(chip_id)
-                if chip != None:
-                    print(".device %s" % hex(chip.device_id))
+                assert(chip != None)
+                print("%sdevice %s" % ( "# " if emit_fasm else ".", hex(chip.device_id)))
             elif comps[0] == ".config_chain":
                 chain_id = int(comps[1])
                 chain = chip.configChain[chain_id]
-                data = { 'bits': [], 'owner': chain, 'header': line, 'args': {} }
+                data = { 'bits': [], 'owner': chain, 'header': line, 'args': { 'chain_id': chain_id } }
         if len(comps) == 3:
             if chip != None:
                 x = int(comps[1])
