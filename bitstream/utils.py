@@ -28,7 +28,7 @@ def round_up(a, b):
 
 def string_to_bits(str):
     bits = []
-    match = re.match("^([0-9]*)'([BbHhOoDd])([0-9a-fA-F]*)$", str)
+    match = re.match("^([0-9]*)'([BbHhOoDd])([0-9a-fA-F_]*)$", str)
     
     if match is None:
         radix = 'd'
@@ -42,6 +42,8 @@ def string_to_bits(str):
     
     if radix == 'b':
         for char in str:
+            if char == '_':
+                continue
             bits.append(1 if char == '1' else 0)
     elif radix == 'd':
         val = int(str)
@@ -52,6 +54,8 @@ def string_to_bits(str):
         bits = bits[::-1]
     elif radix == 'h':
         for char in str:
+            if char == '_':
+                continue
             nibble = int(char, 16)
             for idx in range(0, 4):
                 bits.append((nibble >> (3-idx)) & 1)
