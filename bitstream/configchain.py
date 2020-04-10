@@ -76,7 +76,7 @@ class ConfigChainPLL:
             name = field[0]
             length = field[1]
             value = bits[idx:idx+length]
-            result[name] = value
+            result[name] = bits_to_string(value, prefix=True)
             idx += length
         
         return result
@@ -160,7 +160,7 @@ class ConfigChainIO:
             name = field[0]
             length = field[1]
             value = bits[idx:idx+length]
-            result[name] = value
+            result[name] = bits_to_string(value, prefix=True)
             idx += length
         
         return result
