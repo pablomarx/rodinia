@@ -66,9 +66,21 @@ class ConfigChainPLL:
     def format(self, name, bits, chain_id):
         return bits_to_string(bits)
     
+    def offset_for_field_named(self, name):
+        offset = 0
+        for field in self.fields:
+            if field[0] == name:
+                return offset
+            offset += field[1]
+        return offset
+    
     def encode(self, chip, tile, row, col, key, value, bits):
-        return None
-
+        offset = self.offset_for_field_named(key)
+        for idx in range(len(value)):
+            bits[offset] = value[idx]
+            offset += 1
+        return True
+    
     def decode(self, bits):
         result = { '__NAME': 'PLL' }
         idx = 0
