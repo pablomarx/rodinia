@@ -64,7 +64,7 @@ def print_fasm_data(data):
         tile_type = owner.type[0]
         prefix = "%s_Y%02iX%02i." % (tile_type, tile_y, tile_x)
     elif 'chain_id' in args:
-        prefix = "# .config_chain%i." % args['chain_id']
+        prefix = "C_Y-1X%02i." % args['chain_id']
     else:
         prefix = "!!unknown!!"
     
