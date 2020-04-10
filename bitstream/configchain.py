@@ -128,6 +128,13 @@ class ConfigChainIO:
         return offset
     
     def encode(self, chip, tile, row, col, key, value, bits):
+        if not tile and not row and not col:
+            offset = self.offset_for_field_named(key)
+            for idx in range(len(value)):
+                bits[offset] = value[idx]
+                offset += 1
+            return True
+            
         match = re.match("^alta_rio([0-9]*)\.(INPUT|OUTPUT)_USED$", key)
         if not match:
             return None
