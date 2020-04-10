@@ -72,7 +72,7 @@ for line in lines:
             useFormatters = True
         continue
         
-    match = re.match("^([^_]*)_([XY][0-9]*)([XY][0-9]*).(.*)$", line)
+    match = re.match("^([^_]*)_([XY]-?[0-9]*)([XY]-?[0-9]*).(.*)$", line)
     assert match is not None
     
     comps = match.groups()
@@ -90,10 +90,6 @@ for line in lines:
     assert row is not None
     assert col is not None
     
-    tile = chip.tile_at(col, row)
-    assert tile is not None
-    assert tile.type[0] == comps[0]
-    
     setting = comps[3].split("=")
     if len(setting) == 1:
         setting.append("1")
@@ -101,6 +97,16 @@ for line in lines:
     key = setting[0].strip()
     value = string_to_bits(setting[1].strip())
     
+    if row < 0 and comps[0] == 'C':
+        chain_idx = col
+        success = chip.configChain[chain_idx].encode(chip, None, None, None, key, value, bits_by_config[chain_idx])
+        assert success;
+        continue;
+    
+    tile = chip.tile_at(col, row)
+    assert tile is not None
+    assert tile.type[0] == comps[0]
+        
     bits = bits_by_tile[col][row]
     success = tile.encode(key, value, bits, useFormatters) 
     if success:
