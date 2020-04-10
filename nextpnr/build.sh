@@ -24,5 +24,6 @@ else
 	python3 fasm_pack.py ${OUTDIR}/${SOURCE}.fasm ${OUTDIR}/${SOURCE}.asc
 	python3 ../bitstream/agm-pack.py ${OUTDIR}/${SOURCE}.asc ${OUTDIR}/${SOURCE}.bin
 	python3 ../bitstream/agm-unpack.py ${OUTDIR}/${SOURCE}.bin > ${OUTDIR}/${SOURCE}-unpack.txt
-	python3 ../bitstream/agm-explain.py ${OUTDIR}/${SOURCE}-unpack.txt > ${OUTDIR}/${SOURCE}-explain.txt
+	python3 ../bitstream/agm-explain.py ${OUTDIR}/${SOURCE}-unpack.txt > ${OUTDIR}/${SOURCE}-explain.txt 
+	python3 ../bitstream/agm-explain.py --output fasm ${OUTDIR}/${SOURCE}-unpack.txt > ${OUTDIR}/${SOURCE}-dis.fasm 
 fi
