@@ -109,6 +109,9 @@ for line in lines:
                 # In af bitstreams, used logic tiles get this key/value set..
                 value = [0,0,0,1]
                 tile.encode("TileAsyncMUX00", value, bits)
+            elif key.startswith("alta_slice") and key.endswith("INIT[15:0]"):
+                key = key[:-11] + "_CARRY_CRL"
+                tile.encode(key, [1], bits)
     else:
         chain_idx = 0
         for chain in chip.configChain:
