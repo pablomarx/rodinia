@@ -79,7 +79,13 @@ def print_fasm_data(data):
             comps = comment.split(";")
             if len(comps) > 1:
                 print("# %s" % ";".join(comps[1:]))
+                
+            # XXX: May be an issue with bram init_val too...
+            if key.endswith("_LUT"):
+                print("#fmt!")
             print("%s%s = %s" % (prefix, key, comps[0].strip()))
+            if key.endswith("_LUT"):
+                print("#nofmt!")
             print("")
 
 def print_explain_data(data):
