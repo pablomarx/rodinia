@@ -1,5 +1,5 @@
 {
-  "creator": "Yosys 0.9+2406 (git sha1 371af7da, clang 10.0.1 -fPIC -Os)",
+  "creator": "Yosys 0.9+2406 (git sha1 5d18fdad, clang 11.0.0 -fPIC -Os)",
   "modules": {
     "DFF": {
       "attributes": {
@@ -212,14 +212,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 2, 3, "1", "1" ],
+            "I": [ 2, 3, "0", "0" ],
             "Q": [ 4 ]
           }
         },
@@ -232,7 +232,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -252,7 +252,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -272,7 +272,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -292,7 +292,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -312,7 +312,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -332,7 +332,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -352,14 +352,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.35-15.90"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 2, 3, 29, "1" ],
+            "I": [ 2, 3, 29, "0" ],
             "Q": [ 30 ]
           }
         },
@@ -372,7 +372,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -392,14 +392,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 33, 34, "1", "1" ],
+            "I": [ 33, 34, "0", "0" ],
             "Q": [ 35 ]
           }
         },
@@ -412,7 +412,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -432,14 +432,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.35-15.90"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 33, 34, 36, "1" ],
+            "I": [ 33, 34, 36, "0" ],
             "Q": [ 37 ]
           }
         },
@@ -452,7 +452,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -472,14 +472,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 40, 41, "1", "1" ],
+            "I": [ 40, 41, "0", "0" ],
             "Q": [ 42 ]
           }
         },
@@ -492,7 +492,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -512,14 +512,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 25, 26, "1", "1" ],
+            "I": [ 25, 26, "0", "0" ],
             "Q": [ 43 ]
           }
         },
@@ -532,14 +532,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.35-15.90"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 25, 26, 28, "1" ],
+            "I": [ 25, 26, 28, "0" ],
             "Q": [ 44 ]
           }
         },
@@ -552,7 +552,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -572,14 +572,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 21, 23, "1", "1" ],
+            "I": [ 21, 23, "0", "0" ],
             "Q": [ 46 ]
           }
         },
@@ -592,14 +592,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.35-15.90"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 21, 23, 22, "1" ],
+            "I": [ 21, 23, 22, "0" ],
             "Q": [ 47 ]
           }
         },
@@ -612,7 +612,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -632,14 +632,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 17, 18, "1", "1" ],
+            "I": [ 17, 18, "0", "0" ],
             "Q": [ 49 ]
           }
         },
@@ -652,14 +652,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.35-15.90"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 17, 18, 20, "1" ],
+            "I": [ 17, 18, 20, "0" ],
             "Q": [ 50 ]
           }
         },
@@ -672,7 +672,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -692,14 +692,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 13, 15, "1", "1" ],
+            "I": [ 13, 15, "0", "0" ],
             "Q": [ 52 ]
           }
         },
@@ -712,14 +712,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.35-15.90"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 13, 15, 14, "1" ],
+            "I": [ 13, 15, 14, "0" ],
             "Q": [ 53 ]
           }
         },
@@ -732,7 +732,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -752,14 +752,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 9, 10, "1", "1" ],
+            "I": [ 9, 10, "0", "0" ],
             "Q": [ 55 ]
           }
         },
@@ -772,14 +772,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.35-15.90"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 9, 10, 12, "1" ],
+            "I": [ 9, 10, 12, "0" ],
             "Q": [ 56 ]
           }
         },
@@ -792,7 +792,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -812,14 +812,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.32-9.87"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 5, 7, "1", "1" ],
+            "I": [ 5, 7, "0", "0" ],
             "Q": [ 58 ]
           }
         },
@@ -832,14 +832,14 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:12.34-12.89"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.35-15.90"
           },
           "port_directions": {
             "I": "input",
             "Q": "output"
           },
           "connections": {
-            "I": [ 5, 7, 6, "1" ],
+            "I": [ 5, 7, 6, "0" ],
             "Q": [ 59 ]
           }
         },
@@ -852,7 +852,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:15.30-15.62"
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:18.31-18.63"
           },
           "port_directions": {
             "I": "input",
@@ -863,6 +863,26 @@
             "Q": [ 60 ]
           }
         },
+        "$abc$512$auto$blifparse.cc:498:parse_blif$546": {
+          "hide_name": 1,
+          "type": "LUT",
+          "parameters": {
+            "INIT": "01010101",
+            "K": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:9.33-9.88"
+          },
+          "port_directions": {
+            "I": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "I": [ 25, "0", "0", "0" ],
+            "Q": [ 61 ]
+          }
+        },
         "$auto$simplemap.cc:420:simplemap_dff$55": {
           "hide_name": 1,
           "type": "DFF",
@@ -870,7 +890,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -878,8 +898,8 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
-            "D": [ 62 ],
+            "CLK": [ 62 ],
+            "D": [ 61 ],
             "Q": [ 25 ]
           }
         },
@@ -890,7 +910,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -898,7 +918,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 43 ],
             "Q": [ 26 ]
           }
@@ -910,7 +930,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -918,7 +938,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 44 ],
             "Q": [ 28 ]
           }
@@ -930,7 +950,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -938,7 +958,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 45 ],
             "Q": [ 27 ]
           }
@@ -950,7 +970,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -958,7 +978,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 46 ],
             "Q": [ 23 ]
           }
@@ -970,7 +990,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -978,7 +998,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 47 ],
             "Q": [ 22 ]
           }
@@ -990,7 +1010,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -998,7 +1018,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 48 ],
             "Q": [ 24 ]
           }
@@ -1010,7 +1030,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1018,7 +1038,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 49 ],
             "Q": [ 18 ]
           }
@@ -1030,7 +1050,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1038,7 +1058,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 50 ],
             "Q": [ 20 ]
           }
@@ -1050,7 +1070,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1058,7 +1078,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 51 ],
             "Q": [ 19 ]
           }
@@ -1070,7 +1090,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1078,7 +1098,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 52 ],
             "Q": [ 15 ]
           }
@@ -1090,7 +1110,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1098,7 +1118,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 53 ],
             "Q": [ 14 ]
           }
@@ -1110,7 +1130,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1118,7 +1138,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 54 ],
             "Q": [ 16 ]
           }
@@ -1130,7 +1150,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1138,7 +1158,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 55 ],
             "Q": [ 10 ]
           }
@@ -1150,7 +1170,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1158,7 +1178,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 56 ],
             "Q": [ 12 ]
           }
@@ -1170,7 +1190,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1178,7 +1198,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 57 ],
             "Q": [ 11 ]
           }
@@ -1190,7 +1210,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1198,7 +1218,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 58 ],
             "Q": [ 7 ]
           }
@@ -1210,7 +1230,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1218,7 +1238,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 59 ],
             "Q": [ 6 ]
           }
@@ -1230,7 +1250,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1238,7 +1258,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 60 ],
             "Q": [ 8 ]
           }
@@ -1250,7 +1270,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1258,7 +1278,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 4 ],
             "Q": [ 3 ]
           }
@@ -1270,7 +1290,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1278,7 +1298,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 30 ],
             "Q": [ 29 ]
           }
@@ -1290,7 +1310,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1298,7 +1318,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 32 ],
             "Q": [ 31 ]
           }
@@ -1310,7 +1330,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1318,7 +1338,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 35 ],
             "Q": [ 34 ]
           }
@@ -1330,7 +1350,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1338,7 +1358,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 37 ],
             "Q": [ 36 ]
           }
@@ -1350,7 +1370,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1358,7 +1378,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 39 ],
             "Q": [ 38 ]
           }
@@ -1370,7 +1390,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:20.48-20.89"
+            "src": "blinky.v:26.1-27.20|/Users/swhite/Projects/rodinia/nextpnr/synth/cells_map.v:23.48-23.89"
           },
           "port_directions": {
             "CLK": "input",
@@ -1378,7 +1398,7 @@
             "Q": "output"
           },
           "connections": {
-            "CLK": [ 61 ],
+            "CLK": [ 62 ],
             "D": [ 42 ],
             "Q": [ 41 ]
           }
@@ -1400,7 +1420,7 @@
             "O": "output"
           },
           "connections": {
-            "O": [ 61 ]
+            "O": [ 62 ]
           }
         },
         "led0_obuf": {
@@ -1567,7 +1587,7 @@
       "netnames": {
         "$0\\ctr[25:0]": {
           "hide_name": 1,
-          "bits": [ 62, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 4, 30, 32, 35, 37, 39, 42 ],
+          "bits": [ 61, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 4, 30, 32, 35, 37, 39, 42 ],
           "attributes": {
             "src": "blinky.v:26.1-27.20"
           }
@@ -1626,7 +1646,7 @@
         },
         "clk": {
           "hide_name": 0,
-          "bits": [ 61 ],
+          "bits": [ 62 ],
           "attributes": {
             "src": "blinky.v:3.7-3.10"
           }

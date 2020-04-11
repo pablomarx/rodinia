@@ -5,15 +5,18 @@ module \$lut (A, Y);
 	output Y;
 
    generate
-	if (WIDTH == 2) begin
-	LUT #(.K(`LUT_K), .INIT({4{LUT}})) _TECHMAP_REPLACE_ (.I({1'b1, 1'b1, A[1], A[0]}), .Q(Y));
+	if (WIDTH == 1) begin
+		LUT #(.K(`LUT_K), .INIT({4{LUT}})) _TECHMAP_REPLACE_ (.I({1'b0, 1'b0, 1'b0, A[0]}), .Q(Y));
 	end else
-		if(WIDTH == 3) begin
-			LUT #(.K(`LUT_K), .INIT({2{LUT}})) _TECHMAP_REPLACE_ (.I({1'b1, A[2], A[1], A[0]}), .Q(Y));
+		if (WIDTH == 2) begin
+			LUT #(.K(`LUT_K), .INIT({4{LUT}})) _TECHMAP_REPLACE_ (.I({1'b0, 1'b0, A[1], A[0]}), .Q(Y));
 		end else
-			if(WIDTH == 4) begin
-				LUT #(.K(`LUT_K), .INIT(LUT)) _TECHMAP_REPLACE_ (.I(A), .Q(Y));
-			end 
+			if(WIDTH == 3) begin
+				LUT #(.K(`LUT_K), .INIT({2{LUT}})) _TECHMAP_REPLACE_ (.I({1'b0, A[2], A[1], A[0]}), .Q(Y));
+			end else
+				if(WIDTH == 4) begin
+					LUT #(.K(`LUT_K), .INIT(LUT)) _TECHMAP_REPLACE_ (.I(A), .Q(Y));
+				end 
     endgenerate
 endmodule
 
