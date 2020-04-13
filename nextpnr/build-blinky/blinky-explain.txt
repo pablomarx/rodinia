@@ -161,9 +161,9 @@ CtrlMUX03: 12'b000000_000000
 IN_ASYNC_MODE: 4'b0000
 IN_POWERUP: 4'b0000
 IN_SYNC_MODE: 4'b0000
-IOMUX00: 7'b0001_100	; I:3	; <= IOTILE(0,9):RMUX12:O0 T0 0.877
+IOMUX00: 7'b1000_010	; I:4	; <= IOTILE(0,9):RMUX16:O0 T0 0.877
 IOMUX01: 7'b0000_001	; I:-1
-IOMUX02: 7'b1000_010	; I:4	; <= IOTILE(0,9):RMUX16:O0 T0 0.877
+IOMUX02: 7'b0100_010	; I:5	; <= IOTILE(0,9):RMUX20:O0 T0 0.877
 IOMUX03: 7'b0000_001	; I:-1
 IOMUX04: 7'b0000_000	; I:-1
 IOMUX05: 7'b0000_001	; I:-1
@@ -213,7 +213,7 @@ RMUX08: 6'b000_000	; I:-1
 RMUX09: 6'b000_000	; I:-1
 RMUX10: 6'b000_000	; I:-1
 RMUX11: 6'b000_000	; I:-1
-RMUX12: 6'b001_100	; I:2	; <= LogicTILE(0,8):RMUX09:O0 T4Y 0.527
+RMUX12: 6'b000_000	; I:-1
 RMUX13: 6'b000_000	; I:-1
 RMUX14: 6'b000_000	; I:-1
 RMUX15: 6'b000_000	; I:-1
@@ -221,7 +221,7 @@ RMUX16: 6'b100_100	; I:0	; <= LogicTILE(0,8):RMUX85:O0 T4Y 0.527
 RMUX17: 6'b000_000	; I:-1
 RMUX18: 6'b000_000	; I:-1
 RMUX19: 6'b000_000	; I:-1
-RMUX20: 6'b000_000	; I:-1
+RMUX20: 6'b001_100	; I:2	; <= LogicTILE(0,8):RMUX39:O0 T4Y 0.527
 RMUX21: 6'b000_000	; I:-1
 RMUX22: 6'b000_000	; I:-1
 RMUX23: 6'b000_000	; I:-1
@@ -260,9 +260,9 @@ IN_ASYNC_MODE: 4'b0000
 IN_POWERUP: 4'b0000
 IN_SYNC_MODE: 4'b0000
 IOMUX00: 7'b0000_001	; I:-1
-IOMUX01: 7'b1000_100	; I:0	; <= IOTILE(1,9):RMUX00:O0 T0 0.877
+IOMUX01: 7'b0010_100	; I:2	; <= IOTILE(1,9):RMUX08:O0 T0 0.877
 IOMUX02: 7'b0000_001	; I:-1
-IOMUX03: 7'b0001_100	; I:3	; <= IOTILE(1,9):RMUX12:O0 T0 0.877
+IOMUX03: 7'b0001_010	; I:7	; <= IOTILE(1,9):RMUX28:O0 T0 0.877
 IOMUX04: 7'b0000_001	; I:-1
 IOMUX05: 7'b0000_000	; I:-1
 IOMUX06: 7'b0000_001	; I:-1
@@ -299,7 +299,7 @@ OUT_ASYNC_MODE: 4'b0000
 OUT_POWERUP: 4'b0000
 OUT_REG_MODE: 4'b0000
 OUT_SYNC_MODE: 4'b0000
-RMUX00: 6'b001_100	; I:2	; <= LogicTILE(1,6):RMUX25:O0 T4Y 0.606
+RMUX00: 6'b000_000	; I:-1
 RMUX01: 6'b000_000	; I:-1
 RMUX02: 6'b000_000	; I:-1
 RMUX03: 6'b000_000	; I:-1
@@ -307,11 +307,11 @@ RMUX04: 6'b000_000	; I:-1
 RMUX05: 6'b000_000	; I:-1
 RMUX06: 6'b000_000	; I:-1
 RMUX07: 6'b000_000	; I:-1
-RMUX08: 6'b000_000	; I:-1
+RMUX08: 6'b010_100	; I:1	; <= LogicTILE(1,7):RMUX55:O0 T4Y 0.567
 RMUX09: 6'b000_000	; I:-1
 RMUX10: 6'b000_000	; I:-1
 RMUX11: 6'b000_000	; I:-1
-RMUX12: 6'b001_100	; I:2	; <= LogicTILE(1,8):RMUX09:O0 T4Y 0.527
+RMUX12: 6'b000_000	; I:-1
 RMUX13: 6'b000_000	; I:-1
 RMUX14: 6'b000_000	; I:-1
 RMUX15: 6'b000_000	; I:-1
@@ -327,7 +327,7 @@ RMUX24: 6'b000_000	; I:-1
 RMUX25: 6'b000_000	; I:-1
 RMUX26: 6'b000_000	; I:-1
 RMUX27: 6'b000_000	; I:-1
-RMUX28: 6'b000_000	; I:-1
+RMUX28: 6'b001_100	; I:2	; <= LogicTILE(1,8):RMUX69:O0 T4Y 0.527
 RMUX29: 6'b000_000	; I:-1
 RMUX30: 6'b000_000	; I:-1
 RMUX31: 6'b000_000	; I:-1
@@ -357,7 +357,7 @@ CtrlMUX03: 12'b000000_000000
 IN_ASYNC_MODE: 4'b0000
 IN_POWERUP: 4'b0000
 IN_SYNC_MODE: 4'b0000
-IOMUX00: 7'b0100_100	; I:1	; <= IOTILE(2,9):RMUX04:O0 T0 0.877
+IOMUX00: 7'b1000_100	; I:0	; <= IOTILE(2,9):RMUX00:O0 T0 0.877
 IOMUX01: 7'b0000_001	; I:-1
 IOMUX02: 7'b0000_001	; I:-1
 IOMUX03: 7'b0000_001	; I:-1
@@ -397,11 +397,11 @@ OUT_ASYNC_MODE: 4'b0000
 OUT_POWERUP: 4'b0000
 OUT_REG_MODE: 4'b0000
 OUT_SYNC_MODE: 4'b0000
-RMUX00: 6'b000_000	; I:-1
+RMUX00: 6'b100_100	; I:0	; <= LogicTILE(2,8):RMUX25:O0 T4Y 0.527
 RMUX01: 6'b000_000	; I:-1
 RMUX02: 6'b000_000	; I:-1
 RMUX03: 6'b000_000	; I:-1
-RMUX04: 6'b001_100	; I:2	; <= LogicTILE(2,8):RMUX75:O0 T4Y 0.527
+RMUX04: 6'b000_000	; I:-1
 RMUX05: 6'b000_000	; I:-1
 RMUX06: 6'b000_000	; I:-1
 RMUX07: 6'b000_000	; I:-1
@@ -656,7 +656,7 @@ IN_POWERUP: 4'b0000
 IN_SYNC_MODE: 4'b0000
 IOMUX00: 7'b0000_001	; I:-1
 IOMUX01: 7'b0000_001	; I:-1
-IOMUX02: 7'b0001_100	; I:3	; <= IOTILE(6,9):RMUX12:O0 T0 0.877
+IOMUX02: 7'b0010_010	; I:6	; <= IOTILE(6,9):RMUX24:O0 T0 0.877
 IOMUX03: 7'b0000_001	; I:-1
 IOMUX04: 7'b0000_001	; I:-1
 IOMUX05: 7'b0000_001	; I:-1
@@ -706,7 +706,7 @@ RMUX08: 6'b000_000	; I:-1
 RMUX09: 6'b000_000	; I:-1
 RMUX10: 6'b000_000	; I:-1
 RMUX11: 6'b000_000	; I:-1
-RMUX12: 6'b100_100	; I:0	; <= LogicTILE(6,6):RMUX32:O0 T4Y 0.606
+RMUX12: 6'b000_000	; I:-1
 RMUX13: 6'b000_000	; I:-1
 RMUX14: 6'b000_000	; I:-1
 RMUX15: 6'b000_000	; I:-1
@@ -718,7 +718,7 @@ RMUX20: 6'b000_000	; I:-1
 RMUX21: 6'b000_000	; I:-1
 RMUX22: 6'b000_000	; I:-1
 RMUX23: 6'b000_000	; I:-1
-RMUX24: 6'b000_000	; I:-1
+RMUX24: 6'b010_010	; I:4	; <= LogicTILE(6,8):RMUX92:O0 T4Y 0.527
 RMUX25: 6'b000_000	; I:-1
 RMUX26: 6'b000_000	; I:-1
 RMUX27: 6'b000_000	; I:-1
@@ -1271,7 +1271,7 @@ ClkMUX13: 1'b0
 ClkMUX14: 1'b0
 ClkMUX15: 1'b0
 CtrlMUX00: 12'b00000000_0000	; I:-1
-CtrlMUX01: 12'b10000000_0010	; I:16	; <= LogicTILE(1,8):RMUX18:O0 T1 0.388
+CtrlMUX01: 12'b01000000_0010	; I:17	; <= LogicTILE(1,8):RMUX30:O0 T1 0.388
 CtrlMUX02: 12'b00000000_0000	; I:-1
 CtrlMUX03: 12'b00000000_0000	; I:-1
 DSTRSTB: 2'b00
@@ -1280,13 +1280,13 @@ RMUX01: 10'b0000000_000	; I:-1
 RMUX02: 10'b0000000_000	; I:-1
 RMUX03: 10'b0000000_000	; I:-1
 RMUX04: 10'b0000000_000	; I:-1
-RMUX05: 10'b0100000_010	; I:8	; <= LogicTILE(4,8):RMUX03:O0 T4X 0.482
+RMUX05: 10'b0000000_000	; I:-1
 RMUX06: 10'b0000000_000	; I:-1
 RMUX07: 10'b0000000_000	; I:-1
 RMUX08: 10'b0000000_000	; I:-1
-RMUX09: 10'b0010000_100	; I:2	; <= LogicTILE(0,8):OMUX08:O0 T0 0.197
+RMUX09: 10'b0000000_000	; I:-1
 RMUX10: 10'b0000000_000	; I:-1
-RMUX11: 10'b0010000_100	; I:2	; <= LogicTILE(0,8):OMUX08:O0 T0 0.197
+RMUX11: 10'b0100000_010	; I:8	; <= LogicTILE(4,8):RMUX03:O0 T4X 0.482
 RMUX12: 10'b0000000_000	; I:-1
 RMUX13: 10'b0000000_000	; I:-1
 RMUX14: 10'b0000000_000	; I:-1
@@ -1314,7 +1314,7 @@ RMUX35: 10'b0000000_000	; I:-1
 RMUX36: 10'b0000000_000	; I:-1
 RMUX37: 10'b0000000_000	; I:-1
 RMUX38: 10'b0000000_000	; I:-1
-RMUX39: 10'b0000000_000	; I:-1
+RMUX39: 10'b1000000_100	; I:0	; <= LogicTILE(0,8):OMUX14:O0 T0 0.197
 RMUX40: 10'b0000000_000	; I:-1
 RMUX41: 10'b0000000_000	; I:-1
 RMUX42: 10'b0000000_000	; I:-1
@@ -1328,7 +1328,7 @@ RMUX49: 10'b0000000_000	; I:-1
 RMUX50: 10'b0000000_000	; I:-1
 RMUX51: 10'b0000000_000	; I:-1
 RMUX52: 10'b0000000_000	; I:-1
-RMUX53: 10'b0000000_000	; I:-1
+RMUX53: 10'b0000001_010	; I:13	; <= LogicTILE(0,7):RMUX39:O0 T4Y 0.527
 RMUX54: 10'b0000000_000	; I:-1
 RMUX55: 10'b0000000_000	; I:-1
 RMUX56: 10'b0000000_000	; I:-1
@@ -1364,7 +1364,7 @@ RMUX85: 10'b1000000_100	; I:0	; <= LogicTILE(0,8):OMUX38:O0 T0 0.197
 RMUX86: 10'b0000000_000	; I:-1
 RMUX87: 10'b0000000_000	; I:-1
 RMUX88: 10'b0000000_000	; I:-1
-RMUX89: 10'b0000000_000	; I:-1
+RMUX89: 10'b1000000_100	; I:0	; <= LogicTILE(0,8):OMUX38:O0 T0 0.197
 RMUX90: 10'b0000000_000	; I:-1
 RMUX91: 10'b0000000_000	; I:-1
 RMUX92: 10'b0000000_000	; I:-1
@@ -1385,12 +1385,12 @@ TileSyncMUX00: 3'b000
 TileSyncMUX01: 3'b000
 __NAME: ALTA_TILE_SRAM_DIST
 alta_slice00_BYPASSEN: 1'b0
-alta_slice00_CARRY_CRL: 1'b0
-alta_slice00_IMUX00: 12'b000000000_000	; I:-1	; A
-alta_slice00_IMUX01: 12'b000000000_000	; I:-1	; B
-alta_slice00_IMUX02: 12'b000000000_000	; I:-1	; C
-alta_slice00_IMUX03: 12'b000000000_000	; I:-1	; D
-alta_slice00_LUT: 16'hffff
+alta_slice00_CARRY_CRL: 1'b1
+alta_slice00_IMUX00: 12'b010000000_010	; I:10	; A	; <= LogicTILE(1,8):RMUX48:O0 T1 1.15
+alta_slice00_IMUX01: 12'b010000000_010	; I:10	; B	; <= LogicTILE(1,8):RMUX54:O0 T1 1.109
+alta_slice00_IMUX02: 12'b000100000_100	; I:3	; C	; <= LogicTILE(0,8):OMUX13:O0 T0 0.867
+alta_slice00_IMUX03: 12'b000000010_001	; I:25	; D	; <= LogicTILE(0,8):RMUX89:O0 T0 0.688
+alta_slice00_LUT: 16'h8000
 alta_slice00_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice00_OMUX00: 1'b0	; LutOut
 alta_slice00_OMUX01: 1'b0	; LutOut
@@ -1409,16 +1409,16 @@ alta_slice01_OMUX04: 1'b0	; LutOut
 alta_slice01_OMUX05: 1'b0	; LutOut
 alta_slice01_SHIFTMUX: 1'b0
 alta_slice02_BYPASSEN: 1'b0
-alta_slice02_CARRY_CRL: 1'b1
-alta_slice02_IMUX08: 12'b100000000_010	; I:9	; A	; <= LogicTILE(1,8):RMUX00:O0 T1 1.15
-alta_slice02_IMUX09: 12'b100000000_010	; I:9	; B	; <= LogicTILE(1,8):RMUX06:O0 T1 1.109
-alta_slice02_IMUX10: 12'b000000010_100	; I:7	; C	; <= LogicTILE(0,8):OMUX37:O0 T0 0.867
-alta_slice02_IMUX11: 12'b010000000_100	; I:1	; D	; <= LogicTILE(0,8):OMUX07:O0 T0 0.541
-alta_slice02_LUT: 16'h7f80
-alta_slice02_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice02_CARRY_CRL: 1'b0
+alta_slice02_IMUX08: 12'b000000000_000	; I:-1	; A
+alta_slice02_IMUX09: 12'b000000000_000	; I:-1	; B
+alta_slice02_IMUX10: 12'b000000000_000	; I:-1	; C
+alta_slice02_IMUX11: 12'b000000000_000	; I:-1	; D
+alta_slice02_LUT: 16'hffff
+alta_slice02_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice02_OMUX06: 1'b0	; LutOut
-alta_slice02_OMUX07: 1'b1	; Q
-alta_slice02_OMUX08: 1'b1	; Q
+alta_slice02_OMUX07: 1'b0	; LutOut
+alta_slice02_OMUX08: 1'b0	; LutOut
 alta_slice02_SHIFTMUX: 1'b0
 alta_slice03_BYPASSEN: 1'b0
 alta_slice03_CARRY_CRL: 1'b0
@@ -1433,16 +1433,16 @@ alta_slice03_OMUX10: 1'b0	; LutOut
 alta_slice03_OMUX11: 1'b0	; LutOut
 alta_slice03_SHIFTMUX: 1'b0
 alta_slice04_BYPASSEN: 1'b0
-alta_slice04_CARRY_CRL: 1'b0
-alta_slice04_IMUX16: 12'b000000000_000	; I:-1	; A
-alta_slice04_IMUX17: 12'b000000000_000	; I:-1	; B
-alta_slice04_IMUX18: 12'b000000000_000	; I:-1	; C
-alta_slice04_IMUX19: 12'b000000000_000	; I:-1	; D
-alta_slice04_LUT: 16'hffff
-alta_slice04_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice04_CARRY_CRL: 1'b1
+alta_slice04_IMUX16: 12'b010000000_010	; I:10	; A	; <= LogicTILE(1,8):RMUX48:O0 T1 1.15
+alta_slice04_IMUX17: 12'b010000000_010	; I:10	; B	; <= LogicTILE(1,8):RMUX54:O0 T1 1.109
+alta_slice04_IMUX18: 12'b001000000_100	; I:2	; C	; <= LogicTILE(0,8):OMUX13:O0 T0 0.867
+alta_slice04_IMUX19: 12'b010000000_001	; I:19	; D	; <= LogicTILE(0,8):RMUX53:O0 T0 0.688
+alta_slice04_LUT: 16'h7878
+alta_slice04_LUTCMUX: 2'b10	; FeedbackMux?
 alta_slice04_OMUX12: 1'b0	; LutOut
-alta_slice04_OMUX13: 1'b0	; LutOut
-alta_slice04_OMUX14: 1'b0	; LutOut
+alta_slice04_OMUX13: 1'b1	; Q
+alta_slice04_OMUX14: 1'b1	; Q
 alta_slice04_SHIFTMUX: 1'b0
 alta_slice05_BYPASSEN: 1'b0
 alta_slice05_CARRY_CRL: 1'b0
@@ -1454,346 +1454,6 @@ alta_slice05_LUT: 16'hffff
 alta_slice05_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice05_OMUX15: 1'b0	; LutOut
 alta_slice05_OMUX16: 1'b0	; LutOut
-alta_slice05_OMUX17: 1'b0	; LutOut
-alta_slice05_SHIFTMUX: 1'b0
-alta_slice06_BYPASSEN: 1'b0
-alta_slice06_CARRY_CRL: 1'b0
-alta_slice06_IMUX24: 12'b000000000_000	; I:-1	; A
-alta_slice06_IMUX25: 12'b000000000_000	; I:-1	; B
-alta_slice06_IMUX26: 12'b000000000_000	; I:-1	; C
-alta_slice06_IMUX27: 12'b000000000_000	; I:-1	; D
-alta_slice06_LUT: 16'hffff
-alta_slice06_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice06_OMUX18: 1'b0	; LutOut
-alta_slice06_OMUX19: 1'b0	; LutOut
-alta_slice06_OMUX20: 1'b0	; LutOut
-alta_slice06_SHIFTMUX: 1'b0
-alta_slice07_BYPASSEN: 1'b0
-alta_slice07_CARRY_CRL: 1'b0
-alta_slice07_IMUX28: 12'b000000000_000	; I:-1	; A
-alta_slice07_IMUX29: 12'b000000000_000	; I:-1	; B
-alta_slice07_IMUX30: 12'b000000000_000	; I:-1	; C
-alta_slice07_IMUX31: 12'b000000000_000	; I:-1	; D
-alta_slice07_LUT: 16'hffff
-alta_slice07_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice07_OMUX21: 1'b0	; LutOut
-alta_slice07_OMUX22: 1'b0	; LutOut
-alta_slice07_OMUX23: 1'b0	; LutOut
-alta_slice07_SHIFTMUX: 1'b0
-alta_slice08_BYPASSEN: 1'b0
-alta_slice08_CARRY_CRL: 1'b1
-alta_slice08_IMUX32: 12'b100000000_010	; I:9	; A	; <= LogicTILE(1,8):RMUX00:O0 T1 1.15
-alta_slice08_IMUX33: 12'b100000000_010	; I:9	; B	; <= LogicTILE(1,8):RMUX06:O0 T1 1.109
-alta_slice08_IMUX34: 12'b000000010_100	; I:7	; C	; <= LogicTILE(0,8):OMUX37:O0 T0 0.867
-alta_slice08_IMUX35: 12'b000100000_010	; I:12	; D	; <= LogicTILE(0,8):RMUX11:O0 T0 0.688
-alta_slice08_LUT: 16'h8000
-alta_slice08_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice08_OMUX24: 1'b0	; LutOut
-alta_slice08_OMUX25: 1'b0	; LutOut
-alta_slice08_OMUX26: 1'b0	; LutOut
-alta_slice08_SHIFTMUX: 1'b0
-alta_slice09_BYPASSEN: 1'b0
-alta_slice09_CARRY_CRL: 1'b0
-alta_slice09_IMUX36: 12'b000000000_000	; I:-1	; A
-alta_slice09_IMUX37: 12'b000000000_000	; I:-1	; B
-alta_slice09_IMUX38: 12'b000000000_000	; I:-1	; C
-alta_slice09_IMUX39: 12'b000000000_000	; I:-1	; D
-alta_slice09_LUT: 16'hffff
-alta_slice09_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice09_OMUX27: 1'b0	; LutOut
-alta_slice09_OMUX28: 1'b0	; LutOut
-alta_slice09_OMUX29: 1'b0	; LutOut
-alta_slice09_SHIFTMUX: 1'b0
-alta_slice10_BYPASSEN: 1'b0
-alta_slice10_CARRY_CRL: 1'b0
-alta_slice10_IMUX40: 12'b000000000_000	; I:-1	; A
-alta_slice10_IMUX41: 12'b000000000_000	; I:-1	; B
-alta_slice10_IMUX42: 12'b000000000_000	; I:-1	; C
-alta_slice10_IMUX43: 12'b000000000_000	; I:-1	; D
-alta_slice10_LUT: 16'hffff
-alta_slice10_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice10_OMUX30: 1'b0	; LutOut
-alta_slice10_OMUX31: 1'b0	; LutOut
-alta_slice10_OMUX32: 1'b0	; LutOut
-alta_slice10_SHIFTMUX: 1'b0
-alta_slice11_BYPASSEN: 1'b0
-alta_slice11_CARRY_CRL: 1'b0
-alta_slice11_IMUX44: 12'b000000000_000	; I:-1	; A
-alta_slice11_IMUX45: 12'b000000000_000	; I:-1	; B
-alta_slice11_IMUX46: 12'b000000000_000	; I:-1	; C
-alta_slice11_IMUX47: 12'b000000000_000	; I:-1	; D
-alta_slice11_LUT: 16'hffff
-alta_slice11_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice11_OMUX33: 1'b0	; LutOut
-alta_slice11_OMUX34: 1'b0	; LutOut
-alta_slice11_OMUX35: 1'b0	; LutOut
-alta_slice11_SHIFTMUX: 1'b0
-alta_slice12_BYPASSEN: 1'b0
-alta_slice12_CARRY_CRL: 1'b1
-alta_slice12_IMUX48: 12'b100000000_010	; I:9	; A	; <= LogicTILE(1,8):RMUX00:O0 T1 1.15
-alta_slice12_IMUX49: 12'b100000000_010	; I:9	; B	; <= LogicTILE(1,8):RMUX06:O0 T1 1.109
-alta_slice12_IMUX50: 12'b000000100_100	; I:6	; C	; <= LogicTILE(0,8):OMUX37:O0 T0 0.867
-alta_slice12_IMUX51: 12'b000000000_000	; I:-1	; D
-alta_slice12_LUT: 16'h7878
-alta_slice12_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice12_OMUX36: 1'b0	; LutOut
-alta_slice12_OMUX37: 1'b1	; Q
-alta_slice12_OMUX38: 1'b1	; Q
-alta_slice12_SHIFTMUX: 1'b0
-alta_slice13_BYPASSEN: 1'b0
-alta_slice13_CARRY_CRL: 1'b0
-alta_slice13_IMUX52: 12'b000000000_000	; I:-1	; A
-alta_slice13_IMUX53: 12'b000000000_000	; I:-1	; B
-alta_slice13_IMUX54: 12'b000000000_000	; I:-1	; C
-alta_slice13_IMUX55: 12'b000000000_000	; I:-1	; D
-alta_slice13_LUT: 16'hffff
-alta_slice13_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice13_OMUX39: 1'b0	; LutOut
-alta_slice13_OMUX40: 1'b0	; LutOut
-alta_slice13_OMUX41: 1'b0	; LutOut
-alta_slice13_SHIFTMUX: 1'b0
-alta_slice14_BYPASSEN: 1'b0
-alta_slice14_CARRY_CRL: 1'b0
-alta_slice14_IMUX56: 12'b000000000_000	; I:-1	; A
-alta_slice14_IMUX57: 12'b000000000_000	; I:-1	; B
-alta_slice14_IMUX58: 12'b000000000_000	; I:-1	; C
-alta_slice14_IMUX59: 12'b000000000_000	; I:-1	; D
-alta_slice14_LUT: 16'hffff
-alta_slice14_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice14_OMUX42: 1'b0	; LutOut
-alta_slice14_OMUX43: 1'b0	; LutOut
-alta_slice14_OMUX44: 1'b0	; LutOut
-alta_slice14_SHIFTMUX: 1'b0
-alta_slice15_BYPASSEN: 1'b0
-alta_slice15_CARRY_CRL: 1'b0
-alta_slice15_IMUX60: 12'b000000000_000	; I:-1	; A
-alta_slice15_IMUX61: 12'b000000000_000	; I:-1	; B
-alta_slice15_IMUX62: 12'b000000000_000	; I:-1	; C
-alta_slice15_IMUX63: 12'b000000000_000	; I:-1	; D
-alta_slice15_LUT: 16'hffff
-alta_slice15_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice15_OMUX45: 1'b0	; LutOut
-alta_slice15_OMUX46: 1'b0	; LutOut
-alta_slice15_OMUX47: 1'b0	; LutOut
-alta_slice15_SHIFTMUX: 1'b0
-
-.LogicTILE 1 8
-AsyncMUX00: 1'b0
-AsyncMUX01: 1'b0
-AsyncMUX02: 1'b0
-AsyncMUX03: 1'b0
-AsyncMUX04: 1'b0
-AsyncMUX05: 1'b0
-AsyncMUX06: 1'b0
-AsyncMUX07: 1'b0
-AsyncMUX08: 1'b0
-AsyncMUX09: 1'b0
-AsyncMUX10: 1'b0
-AsyncMUX11: 1'b0
-AsyncMUX12: 1'b0
-AsyncMUX13: 1'b0
-AsyncMUX14: 1'b0
-AsyncMUX15: 1'b0
-ClkMUX00: 1'b0
-ClkMUX01: 1'b0
-ClkMUX02: 1'b0
-ClkMUX03: 1'b0
-ClkMUX04: 1'b0
-ClkMUX05: 1'b0
-ClkMUX06: 1'b0
-ClkMUX07: 1'b0
-ClkMUX08: 1'b0
-ClkMUX09: 1'b0
-ClkMUX10: 1'b0
-ClkMUX11: 1'b0
-ClkMUX12: 1'b0
-ClkMUX13: 1'b0
-ClkMUX14: 1'b0
-ClkMUX15: 1'b0
-CtrlMUX00: 12'b00000000_0000	; I:-1
-CtrlMUX01: 12'b01000000_0010	; I:17	; <= LogicTILE(2,8):RMUX30:O0 T1 0.388
-CtrlMUX02: 12'b00000000_0000	; I:-1
-CtrlMUX03: 12'b00000000_0000	; I:-1
-DSTRSTB: 2'b00
-RMUX00: 10'b0100000_100	; I:1	; <= LogicTILE(1,8):OMUX05:O0 T0 0.197
-RMUX01: 10'b0000000_000	; I:-1
-RMUX02: 10'b0000000_000	; I:-1
-RMUX03: 10'b0000000_000	; I:-1
-RMUX04: 10'b0000000_000	; I:-1
-RMUX05: 10'b0000000_000	; I:-1
-RMUX06: 10'b0000100_100	; I:4	; <= LogicTILE(1,8):RMUX07:O0 T0 0.381
-RMUX07: 10'b0010000_100	; I:2	; <= LogicTILE(1,8):OMUX08:O0 T0 0.197
-RMUX08: 10'b0000000_000	; I:-1
-RMUX09: 10'b0010000_100	; I:2	; <= LogicTILE(1,8):OMUX08:O0 T0 0.197
-RMUX10: 10'b0100000_100	; I:1	; <= LogicTILE(1,8):OMUX05:O0 T0 0.197
-RMUX11: 10'b1000000_010	; I:7	; <= LogicTILE(4,8):RMUX03:O0 T4X 0.48
-RMUX12: 10'b0000000_000	; I:-1
-RMUX13: 10'b0000000_000	; I:-1
-RMUX14: 10'b0000000_000	; I:-1
-RMUX15: 10'b0000000_000	; I:-1
-RMUX16: 10'b0000000_000	; I:-1
-RMUX17: 10'b0000000_000	; I:-1
-RMUX18: 10'b0000000_000	; I:-1
-RMUX19: 10'b0000000_000	; I:-1
-RMUX20: 10'b0000000_000	; I:-1
-RMUX21: 10'b0000000_000	; I:-1
-RMUX22: 10'b0000001_010	; I:13	; <= LogicTILE(1,7):RMUX25:O0 T4Y 0.527
-RMUX23: 10'b0000000_000	; I:-1
-RMUX24: 10'b0000000_000	; I:-1
-RMUX25: 10'b0000000_000	; I:-1
-RMUX26: 10'b0000000_000	; I:-1
-RMUX27: 10'b0000000_000	; I:-1
-RMUX28: 10'b0000000_000	; I:-1
-RMUX29: 10'b0000000_000	; I:-1
-RMUX30: 10'b0000000_000	; I:-1
-RMUX31: 10'b0000000_000	; I:-1
-RMUX32: 10'b0000000_000	; I:-1
-RMUX33: 10'b0000000_000	; I:-1
-RMUX34: 10'b0000000_000	; I:-1
-RMUX35: 10'b0000000_000	; I:-1
-RMUX36: 10'b0000000_000	; I:-1
-RMUX37: 10'b0000000_000	; I:-1
-RMUX38: 10'b0000000_000	; I:-1
-RMUX39: 10'b0000000_000	; I:-1
-RMUX40: 10'b0000000_000	; I:-1
-RMUX41: 10'b0000000_000	; I:-1
-RMUX42: 10'b0000000_000	; I:-1
-RMUX43: 10'b0000000_000	; I:-1
-RMUX44: 10'b0000000_000	; I:-1
-RMUX45: 10'b0000000_000	; I:-1
-RMUX46: 10'b0000000_000	; I:-1
-RMUX47: 10'b0000000_000	; I:-1
-RMUX48: 10'b0000000_000	; I:-1
-RMUX49: 10'b0000000_000	; I:-1
-RMUX50: 10'b0000000_000	; I:-1
-RMUX51: 10'b1000000_100	; I:0	; <= LogicTILE(0,8):OMUX24:O0 T1 0.193
-RMUX52: 10'b0000000_000	; I:-1
-RMUX53: 10'b0000000_000	; I:-1
-RMUX54: 10'b0000000_000	; I:-1
-RMUX55: 10'b0000000_000	; I:-1
-RMUX56: 10'b0000000_000	; I:-1
-RMUX57: 10'b0000000_000	; I:-1
-RMUX58: 10'b0000000_000	; I:-1
-RMUX59: 10'b0000000_000	; I:-1
-RMUX60: 10'b0000000_000	; I:-1
-RMUX61: 10'b0000000_000	; I:-1
-RMUX62: 10'b0000000_000	; I:-1
-RMUX63: 10'b0000000_000	; I:-1
-RMUX64: 10'b0000000_000	; I:-1
-RMUX65: 10'b0000000_000	; I:-1
-RMUX66: 10'b0000000_000	; I:-1
-RMUX67: 10'b0000000_000	; I:-1
-RMUX68: 10'b0000000_000	; I:-1
-RMUX69: 10'b0000000_000	; I:-1
-RMUX70: 10'b0000000_000	; I:-1
-RMUX71: 10'b0000000_000	; I:-1
-RMUX72: 10'b0000000_000	; I:-1
-RMUX73: 10'b0000000_000	; I:-1
-RMUX74: 10'b0000000_000	; I:-1
-RMUX75: 10'b0000000_000	; I:-1
-RMUX76: 10'b0000000_000	; I:-1
-RMUX77: 10'b0000000_000	; I:-1
-RMUX78: 10'b0000000_000	; I:-1
-RMUX79: 10'b0000000_000	; I:-1
-RMUX80: 10'b0000000_000	; I:-1
-RMUX81: 10'b0000000_000	; I:-1
-RMUX82: 10'b0000000_000	; I:-1
-RMUX83: 10'b0000000_000	; I:-1
-RMUX84: 10'b0000000_000	; I:-1
-RMUX85: 10'b0000000_000	; I:-1
-RMUX86: 10'b0000000_000	; I:-1
-RMUX87: 10'b0000000_000	; I:-1
-RMUX88: 10'b0000000_000	; I:-1
-RMUX89: 10'b1000000_100	; I:0	; <= LogicTILE(1,8):OMUX38:O0 T0 0.197
-RMUX90: 10'b0000000_000	; I:-1
-RMUX91: 10'b0000000_000	; I:-1
-RMUX92: 10'b0000000_000	; I:-1
-RMUX93: 10'b0000000_000	; I:-1
-RMUX94: 10'b0000000_000	; I:-1
-RMUX95: 10'b0000000_000	; I:-1
-SeamMUX00: 8'b00000000
-SeamMUX01: 8'b00000000
-SeamMUX02: 8'b00000000
-SeamMUX03: 8'b00000000
-TileAsyncMUX00: 4'b0001
-TileAsyncMUX01: 4'b0000
-TileClkEnMUX00: 3'b000
-TileClkEnMUX01: 3'b000
-TileClkMUX00: 4'b0010
-TileClkMUX01: 4'b0000
-TileSyncMUX00: 3'b000
-TileSyncMUX01: 3'b000
-__NAME: ALTA_TILE_SRAM_DIST
-alta_slice00_BYPASSEN: 1'b0
-alta_slice00_CARRY_CRL: 1'b0
-alta_slice00_IMUX00: 12'b000000000_000	; I:-1	; A
-alta_slice00_IMUX01: 12'b000000000_000	; I:-1	; B
-alta_slice00_IMUX02: 12'b000000000_000	; I:-1	; C
-alta_slice00_IMUX03: 12'b000000000_000	; I:-1	; D
-alta_slice00_LUT: 16'hffff
-alta_slice00_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice00_OMUX00: 1'b0	; LutOut
-alta_slice00_OMUX01: 1'b0	; LutOut
-alta_slice00_OMUX02: 1'b0	; LutOut
-alta_slice00_SHIFTMUX: 1'b0
-alta_slice01_BYPASSEN: 1'b0
-alta_slice01_CARRY_CRL: 1'b1
-alta_slice01_IMUX04: 12'b000001000_010	; I:14	; A	; <= LogicTILE(1,8):RMUX22:O0 T0 1.143
-alta_slice01_IMUX05: 12'b000100000_100	; I:3	; B	; <= LogicTILE(1,8):OMUX16:O0 T0 0.955
-alta_slice01_IMUX06: 12'b000000010_100	; I:7	; C	; <= LogicTILE(1,8):OMUX37:O0 T0 0.867
-alta_slice01_IMUX07: 12'b000000010_100	; I:7	; D	; <= LogicTILE(1,8):OMUX40:O0 T0 0.541
-alta_slice01_LUT: 16'h8000
-alta_slice01_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice01_OMUX03: 1'b0	; LutOut
-alta_slice01_OMUX04: 1'b0	; LutOut
-alta_slice01_OMUX05: 1'b0	; LutOut
-alta_slice01_SHIFTMUX: 1'b0
-alta_slice02_BYPASSEN: 1'b0
-alta_slice02_CARRY_CRL: 1'b1
-alta_slice02_IMUX08: 12'b000100000_010	; I:12	; A	; <= LogicTILE(1,8):RMUX10:O0 T0 1.143
-alta_slice02_IMUX09: 12'b010000000_100	; I:1	; B	; <= LogicTILE(1,8):OMUX07:O0 T0 0.955
-alta_slice02_IMUX10: 12'b000000000_000	; I:-1	; C
-alta_slice02_IMUX11: 12'b000000000_000	; I:-1	; D
-alta_slice02_LUT: 16'h6666
-alta_slice02_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice02_OMUX06: 1'b0	; LutOut
-alta_slice02_OMUX07: 1'b1	; Q
-alta_slice02_OMUX08: 1'b1	; Q
-alta_slice02_SHIFTMUX: 1'b0
-alta_slice03_BYPASSEN: 1'b0
-alta_slice03_CARRY_CRL: 1'b0
-alta_slice03_IMUX12: 12'b000000000_000	; I:-1	; A
-alta_slice03_IMUX13: 12'b000000000_000	; I:-1	; B
-alta_slice03_IMUX14: 12'b000000000_000	; I:-1	; C
-alta_slice03_IMUX15: 12'b000000000_000	; I:-1	; D
-alta_slice03_LUT: 16'hffff
-alta_slice03_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice03_OMUX09: 1'b0	; LutOut
-alta_slice03_OMUX10: 1'b0	; LutOut
-alta_slice03_OMUX11: 1'b0	; LutOut
-alta_slice03_SHIFTMUX: 1'b0
-alta_slice04_BYPASSEN: 1'b0
-alta_slice04_CARRY_CRL: 1'b0
-alta_slice04_IMUX16: 12'b000000000_000	; I:-1	; A
-alta_slice04_IMUX17: 12'b000000000_000	; I:-1	; B
-alta_slice04_IMUX18: 12'b000000000_000	; I:-1	; C
-alta_slice04_IMUX19: 12'b000000000_000	; I:-1	; D
-alta_slice04_LUT: 16'hffff
-alta_slice04_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice04_OMUX12: 1'b0	; LutOut
-alta_slice04_OMUX13: 1'b0	; LutOut
-alta_slice04_OMUX14: 1'b0	; LutOut
-alta_slice04_SHIFTMUX: 1'b0
-alta_slice05_BYPASSEN: 1'b0
-alta_slice05_CARRY_CRL: 1'b1
-alta_slice05_IMUX20: 12'b000001000_010	; I:14	; A	; <= LogicTILE(1,8):RMUX22:O0 T0 1.143
-alta_slice05_IMUX21: 12'b000000010_001	; I:25	; B	; <= LogicTILE(1,8):RMUX89:O0 T0 1.102
-alta_slice05_IMUX22: 12'b000100000_100	; I:3	; C	; <= LogicTILE(1,8):OMUX16:O0 T0 0.867
-alta_slice05_IMUX23: 12'b000000000_000	; I:-1	; D
-alta_slice05_LUT: 16'h7878
-alta_slice05_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice05_OMUX15: 1'b0	; LutOut
-alta_slice05_OMUX16: 1'b1	; Q
 alta_slice05_OMUX17: 1'b0	; LutOut
 alta_slice05_SHIFTMUX: 1'b0
 alta_slice06_BYPASSEN: 1'b0
@@ -1870,26 +1530,26 @@ alta_slice11_OMUX35: 1'b0	; LutOut
 alta_slice11_SHIFTMUX: 1'b0
 alta_slice12_BYPASSEN: 1'b0
 alta_slice12_CARRY_CRL: 1'b1
-alta_slice12_IMUX48: 12'b000001000_010	; I:14	; A	; <= LogicTILE(1,8):RMUX22:O0 T0 1.143
-alta_slice12_IMUX49: 12'b000000100_100	; I:6	; B	; <= LogicTILE(1,8):OMUX37:O0 T0 0.955
-alta_slice12_IMUX50: 12'b000000000_000	; I:-1	; C
-alta_slice12_IMUX51: 12'b000000000_000	; I:-1	; D
-alta_slice12_LUT: 16'h6666
+alta_slice12_IMUX48: 12'b010000000_010	; I:10	; A	; <= LogicTILE(1,8):RMUX48:O0 T1 1.15
+alta_slice12_IMUX49: 12'b010000000_010	; I:10	; B	; <= LogicTILE(1,8):RMUX54:O0 T1 1.109
+alta_slice12_IMUX50: 12'b001000000_100	; I:2	; C	; <= LogicTILE(0,8):OMUX13:O0 T0 0.867
+alta_slice12_IMUX51: 12'b000000100_100	; I:6	; D	; <= LogicTILE(0,8):OMUX37:O0 T0 0.541
+alta_slice12_LUT: 16'h7f80
 alta_slice12_LUTCMUX: 2'b10	; FeedbackMux?
 alta_slice12_OMUX36: 1'b0	; LutOut
 alta_slice12_OMUX37: 1'b1	; Q
 alta_slice12_OMUX38: 1'b1	; Q
 alta_slice12_SHIFTMUX: 1'b0
 alta_slice13_BYPASSEN: 1'b0
-alta_slice13_CARRY_CRL: 1'b1
-alta_slice13_IMUX52: 12'b000001000_010	; I:14	; A	; <= LogicTILE(1,8):RMUX22:O0 T0 1.143
-alta_slice13_IMUX53: 12'b001000000_100	; I:2	; B	; <= LogicTILE(1,8):OMUX16:O0 T0 0.955
-alta_slice13_IMUX54: 12'b000000100_100	; I:6	; C	; <= LogicTILE(1,8):OMUX37:O0 T0 0.867
-alta_slice13_IMUX55: 12'b000000010_100	; I:7	; D	; <= LogicTILE(1,8):OMUX40:O0 T0 0.541
-alta_slice13_LUT: 16'h7f80
-alta_slice13_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice13_OMUX39: 1'b1	; Q
-alta_slice13_OMUX40: 1'b1	; Q
+alta_slice13_CARRY_CRL: 1'b0
+alta_slice13_IMUX52: 12'b000000000_000	; I:-1	; A
+alta_slice13_IMUX53: 12'b000000000_000	; I:-1	; B
+alta_slice13_IMUX54: 12'b000000000_000	; I:-1	; C
+alta_slice13_IMUX55: 12'b000000000_000	; I:-1	; D
+alta_slice13_LUT: 16'hffff
+alta_slice13_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice13_OMUX39: 1'b0	; LutOut
+alta_slice13_OMUX40: 1'b0	; LutOut
 alta_slice13_OMUX41: 1'b0	; LutOut
 alta_slice13_SHIFTMUX: 1'b0
 alta_slice14_BYPASSEN: 1'b0
@@ -1911,6 +1571,346 @@ alta_slice15_IMUX61: 12'b000000000_000	; I:-1	; B
 alta_slice15_IMUX62: 12'b000000000_000	; I:-1	; C
 alta_slice15_IMUX63: 12'b000000000_000	; I:-1	; D
 alta_slice15_LUT: 16'hffff
+alta_slice15_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice15_OMUX45: 1'b0	; LutOut
+alta_slice15_OMUX46: 1'b0	; LutOut
+alta_slice15_OMUX47: 1'b0	; LutOut
+alta_slice15_SHIFTMUX: 1'b0
+
+.LogicTILE 1 8
+AsyncMUX00: 1'b0
+AsyncMUX01: 1'b0
+AsyncMUX02: 1'b0
+AsyncMUX03: 1'b0
+AsyncMUX04: 1'b0
+AsyncMUX05: 1'b0
+AsyncMUX06: 1'b0
+AsyncMUX07: 1'b0
+AsyncMUX08: 1'b0
+AsyncMUX09: 1'b0
+AsyncMUX10: 1'b0
+AsyncMUX11: 1'b0
+AsyncMUX12: 1'b0
+AsyncMUX13: 1'b0
+AsyncMUX14: 1'b0
+AsyncMUX15: 1'b0
+ClkMUX00: 1'b1
+ClkMUX01: 1'b1
+ClkMUX02: 1'b0
+ClkMUX03: 1'b1
+ClkMUX04: 1'b1
+ClkMUX05: 1'b0
+ClkMUX06: 1'b1
+ClkMUX07: 1'b1
+ClkMUX08: 1'b1
+ClkMUX09: 1'b1
+ClkMUX10: 1'b0
+ClkMUX11: 1'b1
+ClkMUX12: 1'b0
+ClkMUX13: 1'b0
+ClkMUX14: 1'b1
+ClkMUX15: 1'b0
+CtrlMUX00: 12'b00000000_0000	; I:-1
+CtrlMUX01: 12'b00000000_0000	; I:-1
+CtrlMUX02: 12'b00000000_0000	; I:-1
+CtrlMUX03: 12'b01000000_0010	; I:17	; <= LogicTILE(2,8):RMUX30:O0 T1 0.388
+DSTRSTB: 2'b00
+RMUX00: 10'b0000000_000	; I:-1
+RMUX01: 10'b1000000_100	; I:0	; <= LogicTILE(0,8):OMUX00:O0 T1 0.193
+RMUX02: 10'b0000000_000	; I:-1
+RMUX03: 10'b0000000_000	; I:-1
+RMUX04: 10'b0000000_000	; I:-1
+RMUX05: 10'b0000000_000	; I:-1
+RMUX06: 10'b0000000_000	; I:-1
+RMUX07: 10'b0000000_000	; I:-1
+RMUX08: 10'b0000000_000	; I:-1
+RMUX09: 10'b0000000_000	; I:-1
+RMUX10: 10'b0000000_000	; I:-1
+RMUX11: 10'b1000000_010	; I:7	; <= LogicTILE(4,8):RMUX03:O0 T4X 0.48
+RMUX12: 10'b0000000_000	; I:-1
+RMUX13: 10'b0000000_000	; I:-1
+RMUX14: 10'b1000000_100	; I:0	; <= LogicTILE(0,8):OMUX00:O0 T1 0.193
+RMUX15: 10'b0000000_000	; I:-1
+RMUX16: 10'b0000000_000	; I:-1
+RMUX17: 10'b1000000_100	; I:0	; <= LogicTILE(1,8):OMUX02:O0 T0 0.197
+RMUX18: 10'b0000000_000	; I:-1
+RMUX19: 10'b0000000_000	; I:-1
+RMUX20: 10'b0000000_000	; I:-1
+RMUX21: 10'b0000000_000	; I:-1
+RMUX22: 10'b0000001_010	; I:13	; <= LogicTILE(1,7):RMUX25:O0 T4Y 0.527
+RMUX23: 10'b0000001_010	; I:13	; <= LogicTILE(1,7):RMUX25:O0 T4Y 0.527
+RMUX24: 10'b0000000_000	; I:-1
+RMUX25: 10'b0000000_000	; I:-1
+RMUX26: 10'b0000000_000	; I:-1
+RMUX27: 10'b0000000_000	; I:-1
+RMUX28: 10'b0000001_010	; I:13	; <= LogicTILE(1,7):RMUX09:O0 T4Y 0.527
+RMUX29: 10'b0000000_000	; I:-1
+RMUX30: 10'b0000000_000	; I:-1
+RMUX31: 10'b0000000_000	; I:-1
+RMUX32: 10'b0000000_000	; I:-1
+RMUX33: 10'b0000000_000	; I:-1
+RMUX34: 10'b0000000_000	; I:-1
+RMUX35: 10'b0000000_000	; I:-1
+RMUX36: 10'b0000000_000	; I:-1
+RMUX37: 10'b0000000_000	; I:-1
+RMUX38: 10'b0000000_000	; I:-1
+RMUX39: 10'b0000000_000	; I:-1
+RMUX40: 10'b0001000_100	; I:3	; <= LogicTILE(1,8):OMUX23:O0 T0 0.197
+RMUX41: 10'b1000000_100	; I:0	; <= LogicTILE(1,8):OMUX14:O0 T0 0.197
+RMUX42: 10'b0000000_000	; I:-1
+RMUX43: 10'b0000000_000	; I:-1
+RMUX44: 10'b0000000_000	; I:-1
+RMUX45: 10'b0000000_000	; I:-1
+RMUX46: 10'b0000000_000	; I:-1
+RMUX47: 10'b0000000_000	; I:-1
+RMUX48: 10'b0000100_100	; I:4	; <= LogicTILE(1,8):RMUX49:O0 T0 0.381
+RMUX49: 10'b0010000_100	; I:2	; <= LogicTILE(1,8):OMUX32:O0 T0 0.197
+RMUX50: 10'b0000000_000	; I:-1
+RMUX51: 10'b0000000_000	; I:-1
+RMUX52: 10'b0100000_100	; I:1	; <= LogicTILE(1,8):OMUX29:O0 T0 0.197
+RMUX53: 10'b0000000_000	; I:-1
+RMUX54: 10'b1000000_100	; I:0	; <= LogicTILE(1,8):OMUX26:O0 T0 0.197
+RMUX55: 10'b0000000_000	; I:-1
+RMUX56: 10'b0000000_000	; I:-1
+RMUX57: 10'b0000000_000	; I:-1
+RMUX58: 10'b0000000_000	; I:-1
+RMUX59: 10'b0000000_000	; I:-1
+RMUX60: 10'b0000000_000	; I:-1
+RMUX61: 10'b0000000_000	; I:-1
+RMUX62: 10'b0000000_000	; I:-1
+RMUX63: 10'b0000000_000	; I:-1
+RMUX64: 10'b0000000_000	; I:-1
+RMUX65: 10'b0000000_000	; I:-1
+RMUX66: 10'b0000000_000	; I:-1
+RMUX67: 10'b0000000_000	; I:-1
+RMUX68: 10'b0000000_000	; I:-1
+RMUX69: 10'b1000000_100	; I:0	; <= LogicTILE(1,8):OMUX26:O0 T0 0.197
+RMUX70: 10'b0000000_000	; I:-1
+RMUX71: 10'b0000000_000	; I:-1
+RMUX72: 10'b0000000_000	; I:-1
+RMUX73: 10'b0000000_000	; I:-1
+RMUX74: 10'b0000000_000	; I:-1
+RMUX75: 10'b0000000_000	; I:-1
+RMUX76: 10'b0000000_000	; I:-1
+RMUX77: 10'b0000000_000	; I:-1
+RMUX78: 10'b0000000_000	; I:-1
+RMUX79: 10'b0000000_000	; I:-1
+RMUX80: 10'b0000000_000	; I:-1
+RMUX81: 10'b0000000_000	; I:-1
+RMUX82: 10'b0100000_100	; I:1	; <= LogicTILE(1,8):OMUX41:O0 T0 0.197
+RMUX83: 10'b0010000_100	; I:2	; <= LogicTILE(1,8):OMUX44:O0 T0 0.197
+RMUX84: 10'b0000000_000	; I:-1
+RMUX85: 10'b0000000_000	; I:-1
+RMUX86: 10'b0000000_000	; I:-1
+RMUX87: 10'b0000000_000	; I:-1
+RMUX88: 10'b0000000_000	; I:-1
+RMUX89: 10'b0000000_000	; I:-1
+RMUX90: 10'b0000000_000	; I:-1
+RMUX91: 10'b0000000_000	; I:-1
+RMUX92: 10'b0000000_000	; I:-1
+RMUX93: 10'b0000000_000	; I:-1
+RMUX94: 10'b0001000_100	; I:3	; <= LogicTILE(1,8):OMUX47:O0 T0 0.197
+RMUX95: 10'b0000000_000	; I:-1
+SeamMUX00: 8'b00000000
+SeamMUX01: 8'b00000000
+SeamMUX02: 8'b00000000
+SeamMUX03: 8'b00000000
+TileAsyncMUX00: 4'b0001
+TileAsyncMUX01: 4'b0000
+TileClkEnMUX00: 3'b000
+TileClkEnMUX01: 3'b000
+TileClkMUX00: 4'b0000
+TileClkMUX01: 4'b0010
+TileSyncMUX00: 3'b000
+TileSyncMUX01: 3'b000
+__NAME: ALTA_TILE_SRAM_DIST
+alta_slice00_BYPASSEN: 1'b0
+alta_slice00_CARRY_CRL: 1'b1
+alta_slice00_IMUX00: 12'b000000100_001	; I:24	; A	; <= LogicTILE(1,8):RMUX82:O0 T0 1.143
+alta_slice00_IMUX01: 12'b000000100_100	; I:6	; B	; <= LogicTILE(1,8):OMUX34:O0 T0 0.955
+alta_slice00_IMUX02: 12'b100000000_100	; I:0	; C	; <= LogicTILE(1,8):OMUX01:O0 T0 0.867
+alta_slice00_IMUX03: 12'b000001000_010	; I:14	; D	; <= LogicTILE(1,8):RMUX23:O0 T0 0.688
+alta_slice00_LUT: 16'h7878
+alta_slice00_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice00_OMUX00: 1'b0	; LutOut
+alta_slice00_OMUX01: 1'b1	; Q
+alta_slice00_OMUX02: 1'b1	; Q
+alta_slice00_SHIFTMUX: 1'b0
+alta_slice01_BYPASSEN: 1'b0
+alta_slice01_CARRY_CRL: 1'b1
+alta_slice01_IMUX04: 12'b000000100_010	; I:15	; A	; <= LogicTILE(1,8):RMUX28:O0 T0 1.143
+alta_slice01_IMUX05: 12'b000000100_001	; I:24	; B	; <= LogicTILE(1,8):RMUX83:O0 T0 1.102
+alta_slice01_IMUX06: 12'b000000001_010	; I:17	; C	; <= LogicTILE(1,8):RMUX40:O0 T0 1.014
+alta_slice01_IMUX07: 12'b010000000_100	; I:1	; D	; <= LogicTILE(1,8):OMUX04:O0 T0 0.541
+alta_slice01_LUT: 16'h7f80
+alta_slice01_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice01_OMUX03: 1'b0	; LutOut
+alta_slice01_OMUX04: 1'b1	; Q
+alta_slice01_OMUX05: 1'b0	; LutOut
+alta_slice01_SHIFTMUX: 1'b0
+alta_slice02_BYPASSEN: 1'b0
+alta_slice02_CARRY_CRL: 1'b0
+alta_slice02_IMUX08: 12'b000000000_000	; I:-1	; A
+alta_slice02_IMUX09: 12'b000000000_000	; I:-1	; B
+alta_slice02_IMUX10: 12'b000000000_000	; I:-1	; C
+alta_slice02_IMUX11: 12'b000000000_000	; I:-1	; D
+alta_slice02_LUT: 16'hffff
+alta_slice02_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice02_OMUX06: 1'b0	; LutOut
+alta_slice02_OMUX07: 1'b0	; LutOut
+alta_slice02_OMUX08: 1'b0	; LutOut
+alta_slice02_SHIFTMUX: 1'b0
+alta_slice03_BYPASSEN: 1'b0
+alta_slice03_CARRY_CRL: 1'b1
+alta_slice03_IMUX12: 12'b000000001_001	; I:26	; A	; <= LogicTILE(1,8):RMUX94:O0 T0 1.143
+alta_slice03_IMUX13: 12'b000001000_100	; I:5	; B	; <= LogicTILE(1,8):OMUX28:O0 T0 0.955
+alta_slice03_IMUX14: 12'b001000000_100	; I:2	; C	; <= LogicTILE(1,8):OMUX10:O0 T0 0.867
+alta_slice03_IMUX15: 12'b000001000_010	; I:14	; D	; <= LogicTILE(1,8):RMUX23:O0 T0 0.688
+alta_slice03_LUT: 16'h7878
+alta_slice03_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice03_OMUX09: 1'b0	; LutOut
+alta_slice03_OMUX10: 1'b1	; Q
+alta_slice03_OMUX11: 1'b0	; LutOut
+alta_slice03_SHIFTMUX: 1'b0
+alta_slice04_BYPASSEN: 1'b0
+alta_slice04_CARRY_CRL: 1'b1
+alta_slice04_IMUX16: 12'b000000001_001	; I:26	; A	; <= LogicTILE(1,8):RMUX94:O0 T0 1.143
+alta_slice04_IMUX17: 12'b010000000_100	; I:1	; B	; <= LogicTILE(1,8):OMUX10:O0 T0 0.955
+alta_slice04_IMUX18: 12'b010000000_001	; I:19	; C	; <= LogicTILE(1,8):RMUX52:O0 T0 1.014
+alta_slice04_IMUX19: 12'b001000000_100	; I:2	; D	; <= LogicTILE(1,8):OMUX13:O0 T0 0.541
+alta_slice04_LUT: 16'h7f80
+alta_slice04_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice04_OMUX12: 1'b1	; Q
+alta_slice04_OMUX13: 1'b1	; Q
+alta_slice04_OMUX14: 1'b1	; Q
+alta_slice04_SHIFTMUX: 1'b0
+alta_slice05_BYPASSEN: 1'b0
+alta_slice05_CARRY_CRL: 1'b0
+alta_slice05_IMUX20: 12'b000000000_000	; I:-1	; A
+alta_slice05_IMUX21: 12'b000000000_000	; I:-1	; B
+alta_slice05_IMUX22: 12'b000000000_000	; I:-1	; C
+alta_slice05_IMUX23: 12'b000000000_000	; I:-1	; D
+alta_slice05_LUT: 16'hffff
+alta_slice05_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice05_OMUX15: 1'b0	; LutOut
+alta_slice05_OMUX16: 1'b0	; LutOut
+alta_slice05_OMUX17: 1'b0	; LutOut
+alta_slice05_SHIFTMUX: 1'b0
+alta_slice06_BYPASSEN: 1'b0
+alta_slice06_CARRY_CRL: 1'b1
+alta_slice06_IMUX24: 12'b000000100_001	; I:24	; A	; <= LogicTILE(1,8):RMUX82:O0 T0 1.143
+alta_slice06_IMUX25: 12'b000000100_100	; I:6	; B	; <= LogicTILE(1,8):OMUX34:O0 T0 0.955
+alta_slice06_IMUX26: 12'b100000000_100	; I:0	; C	; <= LogicTILE(1,8):OMUX01:O0 T0 0.867
+alta_slice06_IMUX27: 12'b000100000_100	; I:3	; D	; <= LogicTILE(1,8):OMUX19:O0 T0 0.541
+alta_slice06_LUT: 16'h7f80
+alta_slice06_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice06_OMUX18: 1'b0	; LutOut
+alta_slice06_OMUX19: 1'b1	; Q
+alta_slice06_OMUX20: 1'b0	; LutOut
+alta_slice06_SHIFTMUX: 1'b0
+alta_slice07_BYPASSEN: 1'b0
+alta_slice07_CARRY_CRL: 1'b1
+alta_slice07_IMUX28: 12'b000000100_010	; I:15	; A	; <= LogicTILE(1,8):RMUX28:O0 T0 1.143
+alta_slice07_IMUX29: 12'b000010000_100	; I:4	; B	; <= LogicTILE(1,8):OMUX22:O0 T0 0.955
+alta_slice07_IMUX30: 12'b000001000_010	; I:14	; C	; <= LogicTILE(1,8):RMUX22:O0 T0 1.014
+alta_slice07_IMUX31: 12'b000001000_010	; I:14	; D	; <= LogicTILE(1,8):RMUX23:O0 T0 0.688
+alta_slice07_LUT: 16'h6666
+alta_slice07_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice07_OMUX21: 1'b0	; LutOut
+alta_slice07_OMUX22: 1'b1	; Q
+alta_slice07_OMUX23: 1'b1	; Q
+alta_slice07_SHIFTMUX: 1'b0
+alta_slice08_BYPASSEN: 1'b0
+alta_slice08_CARRY_CRL: 1'b1
+alta_slice08_IMUX32: 12'b000000100_100	; I:6	; A	; <= LogicTILE(1,8):OMUX31:O0 T0 0.996
+alta_slice08_IMUX33: 12'b000010000_100	; I:4	; B	; <= LogicTILE(1,8):OMUX25:O0 T0 0.955
+alta_slice08_IMUX34: 12'b000001000_010	; I:14	; C	; <= LogicTILE(1,8):RMUX22:O0 T0 1.014
+alta_slice08_IMUX35: 12'b000001000_010	; I:14	; D	; <= LogicTILE(1,8):RMUX23:O0 T0 0.688
+alta_slice08_LUT: 16'h6666
+alta_slice08_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice08_OMUX24: 1'b0	; LutOut
+alta_slice08_OMUX25: 1'b1	; Q
+alta_slice08_OMUX26: 1'b1	; Q
+alta_slice08_SHIFTMUX: 1'b0
+alta_slice09_BYPASSEN: 1'b0
+alta_slice09_CARRY_CRL: 1'b1
+alta_slice09_IMUX36: 12'b000000001_001	; I:26	; A	; <= LogicTILE(1,8):RMUX94:O0 T0 1.143
+alta_slice09_IMUX37: 12'b000001000_100	; I:5	; B	; <= LogicTILE(1,8):OMUX28:O0 T0 0.955
+alta_slice09_IMUX38: 12'b000001000_010	; I:14	; C	; <= LogicTILE(1,8):RMUX22:O0 T0 1.014
+alta_slice09_IMUX39: 12'b000001000_010	; I:14	; D	; <= LogicTILE(1,8):RMUX23:O0 T0 0.688
+alta_slice09_LUT: 16'h6666
+alta_slice09_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice09_OMUX27: 1'b0	; LutOut
+alta_slice09_OMUX28: 1'b1	; Q
+alta_slice09_OMUX29: 1'b1	; Q
+alta_slice09_SHIFTMUX: 1'b0
+alta_slice10_BYPASSEN: 1'b0
+alta_slice10_CARRY_CRL: 1'b1
+alta_slice10_IMUX40: 12'b000000001_001	; I:26	; A	; <= LogicTILE(1,8):RMUX94:O0 T0 1.143
+alta_slice10_IMUX41: 12'b010000000_100	; I:1	; B	; <= LogicTILE(1,8):OMUX10:O0 T0 0.955
+alta_slice10_IMUX42: 12'b010000000_001	; I:19	; C	; <= LogicTILE(1,8):RMUX52:O0 T0 1.014
+alta_slice10_IMUX43: 12'b000000001_010	; I:17	; D	; <= LogicTILE(1,8):RMUX41:O0 T0 0.688
+alta_slice10_LUT: 16'h8000
+alta_slice10_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice10_OMUX30: 1'b0	; LutOut
+alta_slice10_OMUX31: 1'b0	; LutOut
+alta_slice10_OMUX32: 1'b0	; LutOut
+alta_slice10_SHIFTMUX: 1'b0
+alta_slice11_BYPASSEN: 1'b0
+alta_slice11_CARRY_CRL: 1'b1
+alta_slice11_IMUX44: 12'b000000100_001	; I:24	; A	; <= LogicTILE(1,8):RMUX82:O0 T0 1.143
+alta_slice11_IMUX45: 12'b000000100_100	; I:6	; B	; <= LogicTILE(1,8):OMUX34:O0 T0 0.955
+alta_slice11_IMUX46: 12'b000001000_010	; I:14	; C	; <= LogicTILE(1,8):RMUX22:O0 T0 1.014
+alta_slice11_IMUX47: 12'b000001000_010	; I:14	; D	; <= LogicTILE(1,8):RMUX23:O0 T0 0.688
+alta_slice11_LUT: 16'h6666
+alta_slice11_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice11_OMUX33: 1'b0	; LutOut
+alta_slice11_OMUX34: 1'b1	; Q
+alta_slice11_OMUX35: 1'b0	; LutOut
+alta_slice11_SHIFTMUX: 1'b0
+alta_slice12_BYPASSEN: 1'b0
+alta_slice12_CARRY_CRL: 1'b0
+alta_slice12_IMUX48: 12'b000000000_000	; I:-1	; A
+alta_slice12_IMUX49: 12'b000000000_000	; I:-1	; B
+alta_slice12_IMUX50: 12'b000000000_000	; I:-1	; C
+alta_slice12_IMUX51: 12'b000000000_000	; I:-1	; D
+alta_slice12_LUT: 16'hffff
+alta_slice12_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice12_OMUX36: 1'b0	; LutOut
+alta_slice12_OMUX37: 1'b0	; LutOut
+alta_slice12_OMUX38: 1'b0	; LutOut
+alta_slice12_SHIFTMUX: 1'b0
+alta_slice13_BYPASSEN: 1'b0
+alta_slice13_CARRY_CRL: 1'b1
+alta_slice13_IMUX52: 12'b000000100_010	; I:15	; A	; <= LogicTILE(1,8):RMUX28:O0 T0 1.143
+alta_slice13_IMUX53: 12'b000000100_001	; I:24	; B	; <= LogicTILE(1,8):RMUX83:O0 T0 1.102
+alta_slice13_IMUX54: 12'b000000001_010	; I:17	; C	; <= LogicTILE(1,8):RMUX40:O0 T0 1.014
+alta_slice13_IMUX55: 12'b100000000_100	; I:0	; D	; <= LogicTILE(1,8):OMUX04:O0 T0 0.541
+alta_slice13_LUT: 16'h8000
+alta_slice13_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice13_OMUX39: 1'b0	; LutOut
+alta_slice13_OMUX40: 1'b0	; LutOut
+alta_slice13_OMUX41: 1'b0	; LutOut
+alta_slice13_SHIFTMUX: 1'b0
+alta_slice14_BYPASSEN: 1'b0
+alta_slice14_CARRY_CRL: 1'b1
+alta_slice14_IMUX56: 12'b000000100_010	; I:15	; A	; <= LogicTILE(1,8):RMUX28:O0 T0 1.143
+alta_slice14_IMUX57: 12'b000100000_100	; I:3	; B	; <= LogicTILE(1,8):OMUX22:O0 T0 0.955
+alta_slice14_IMUX58: 12'b000000010_100	; I:7	; C	; <= LogicTILE(1,8):OMUX43:O0 T0 0.867
+alta_slice14_IMUX59: 12'b000001000_010	; I:14	; D	; <= LogicTILE(1,8):RMUX23:O0 T0 0.688
+alta_slice14_LUT: 16'h7878
+alta_slice14_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice14_OMUX42: 1'b0	; LutOut
+alta_slice14_OMUX43: 1'b1	; Q
+alta_slice14_OMUX44: 1'b1	; Q
+alta_slice14_SHIFTMUX: 1'b0
+alta_slice15_BYPASSEN: 1'b0
+alta_slice15_CARRY_CRL: 1'b1
+alta_slice15_IMUX60: 12'b000000100_001	; I:24	; A	; <= LogicTILE(1,8):RMUX82:O0 T0 1.143
+alta_slice15_IMUX61: 12'b000001000_100	; I:5	; B	; <= LogicTILE(1,8):OMUX34:O0 T0 0.955
+alta_slice15_IMUX62: 12'b000100000_100	; I:3	; C	; <= LogicTILE(1,8):OMUX19:O0 T0 0.867
+alta_slice15_IMUX63: 12'b000010000_010	; I:13	; D	; <= LogicTILE(1,8):RMUX17:O0 T0 0.688
+alta_slice15_LUT: 16'h8000
 alta_slice15_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice15_OMUX45: 1'b0	; LutOut
 alta_slice15_OMUX46: 1'b0	; LutOut
@@ -1940,7 +1940,7 @@ ClkMUX02: 1'b0
 ClkMUX03: 1'b0
 ClkMUX04: 1'b0
 ClkMUX05: 1'b0
-ClkMUX06: 1'b0
+ClkMUX06: 1'b1
 ClkMUX07: 1'b0
 ClkMUX08: 1'b0
 ClkMUX09: 1'b0
@@ -1953,7 +1953,7 @@ ClkMUX15: 1'b0
 CtrlMUX00: 12'b00000000_0000	; I:-1
 CtrlMUX01: 12'b00000000_0000	; I:-1
 CtrlMUX02: 12'b00000000_0000	; I:-1
-CtrlMUX03: 12'b00000000_0000	; I:-1
+CtrlMUX03: 12'b00001000_0100	; I:12	; <= LogicTILE(2,8):OMUX28:O0 T0 0.234
 DSTRSTB: 2'b00
 RMUX00: 10'b0000000_000	; I:-1
 RMUX01: 10'b0000000_000	; I:-1
@@ -1971,18 +1971,18 @@ RMUX12: 10'b0000000_000	; I:-1
 RMUX13: 10'b0000000_000	; I:-1
 RMUX14: 10'b0000000_000	; I:-1
 RMUX15: 10'b0000000_000	; I:-1
-RMUX16: 10'b0000000_000	; I:-1
+RMUX16: 10'b0010000_010	; I:9	; <= LogicTILE(1,8):RMUX01:O0 T4X 0.44
 RMUX17: 10'b0000000_000	; I:-1
 RMUX18: 10'b0000000_000	; I:-1
 RMUX19: 10'b0000000_000	; I:-1
 RMUX20: 10'b0000000_000	; I:-1
-RMUX21: 10'b0010000_010	; I:9	; <= LogicTILE(1,8):RMUX51:O0 T4X 0.44
+RMUX21: 10'b0000000_000	; I:-1
 RMUX22: 10'b0000000_000	; I:-1
-RMUX23: 10'b0000000_000	; I:-1
+RMUX23: 10'b0000001_010	; I:13	; <= LogicTILE(2,7):RMUX25:O0 T4Y 0.527
 RMUX24: 10'b0000000_000	; I:-1
-RMUX25: 10'b0000000_000	; I:-1
+RMUX25: 10'b1000000_100	; I:0	; <= LogicTILE(1,8):OMUX12:O0 T1 0.193
 RMUX26: 10'b0000000_000	; I:-1
-RMUX27: 10'b0000000_000	; I:-1
+RMUX27: 10'b0010000_100	; I:2	; <= LogicTILE(2,8):OMUX20:O0 T0 0.197
 RMUX28: 10'b0000000_000	; I:-1
 RMUX29: 10'b0000000_000	; I:-1
 RMUX30: 10'b0000000_000	; I:-1
@@ -2030,9 +2030,9 @@ RMUX71: 10'b0000000_000	; I:-1
 RMUX72: 10'b0000000_000	; I:-1
 RMUX73: 10'b0000000_000	; I:-1
 RMUX74: 10'b0000000_000	; I:-1
-RMUX75: 10'b0100000_100	; I:1	; <= LogicTILE(1,8):OMUX39:O0 T1 0.193
+RMUX75: 10'b0000000_000	; I:-1
 RMUX76: 10'b0000000_000	; I:-1
-RMUX77: 10'b0000000_000	; I:-1
+RMUX77: 10'b0000001_010	; I:13	; <= LogicTILE(2,7):RMUX69:O0 T4Y 0.527
 RMUX78: 10'b0000000_000	; I:-1
 RMUX79: 10'b0000000_000	; I:-1
 RMUX80: 10'b0000000_000	; I:-1
@@ -2055,12 +2055,12 @@ SeamMUX00: 8'b00000000
 SeamMUX01: 8'b00000000
 SeamMUX02: 8'b00000000
 SeamMUX03: 8'b00000000
-TileAsyncMUX00: 4'b0000
+TileAsyncMUX00: 4'b0001
 TileAsyncMUX01: 4'b0000
 TileClkEnMUX00: 3'b000
 TileClkEnMUX01: 3'b000
 TileClkMUX00: 4'b0000
-TileClkMUX01: 4'b0000
+TileClkMUX01: 4'b0010
 TileSyncMUX00: 3'b000
 TileSyncMUX01: 3'b000
 __NAME: ALTA_TILE_SRAM_DIST
@@ -2137,16 +2137,16 @@ alta_slice05_OMUX16: 1'b0	; LutOut
 alta_slice05_OMUX17: 1'b0	; LutOut
 alta_slice05_SHIFTMUX: 1'b0
 alta_slice06_BYPASSEN: 1'b0
-alta_slice06_CARRY_CRL: 1'b0
-alta_slice06_IMUX24: 12'b000000000_000	; I:-1	; A
-alta_slice06_IMUX25: 12'b000000000_000	; I:-1	; B
-alta_slice06_IMUX26: 12'b000000000_000	; I:-1	; C
-alta_slice06_IMUX27: 12'b000000000_000	; I:-1	; D
-alta_slice06_LUT: 16'hffff
-alta_slice06_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice06_OMUX18: 1'b0	; LutOut
-alta_slice06_OMUX19: 1'b0	; LutOut
-alta_slice06_OMUX20: 1'b0	; LutOut
+alta_slice06_CARRY_CRL: 1'b1
+alta_slice06_IMUX24: 12'b000010000_010	; I:13	; A	; <= LogicTILE(2,8):RMUX16:O0 T0 1.143
+alta_slice06_IMUX25: 12'b000001000_001	; I:23	; B	; <= LogicTILE(2,8):RMUX77:O0 T0 1.102
+alta_slice06_IMUX26: 12'b000100000_100	; I:3	; C	; <= LogicTILE(2,8):OMUX19:O0 T0 0.867
+alta_slice06_IMUX27: 12'b000001000_010	; I:14	; D	; <= LogicTILE(2,8):RMUX23:O0 T0 0.688
+alta_slice06_LUT: 16'h7878
+alta_slice06_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice06_OMUX18: 1'b1	; Q
+alta_slice06_OMUX19: 1'b1	; Q
+alta_slice06_OMUX20: 1'b1	; Q
 alta_slice06_SHIFTMUX: 1'b0
 alta_slice07_BYPASSEN: 1'b0
 alta_slice07_CARRY_CRL: 1'b0
@@ -2377,7 +2377,7 @@ RMUX41: 10'b0000000_000	; I:-1
 RMUX42: 10'b0000000_000	; I:-1
 RMUX43: 10'b0000000_000	; I:-1
 RMUX44: 10'b0000000_000	; I:-1
-RMUX45: 10'b0000000_000	; I:-1
+RMUX45: 10'b0010000_100	; I:2	; <= LogicTILE(2,8):OMUX18:O0 T1 0.193
 RMUX46: 10'b0000000_000	; I:-1
 RMUX47: 10'b0000000_000	; I:-1
 RMUX48: 10'b0000000_000	; I:-1
@@ -2386,7 +2386,7 @@ RMUX50: 10'b0000000_000	; I:-1
 RMUX51: 10'b0000000_000	; I:-1
 RMUX52: 10'b0000000_000	; I:-1
 RMUX53: 10'b0000000_000	; I:-1
-RMUX54: 10'b0000000_000	; I:-1
+RMUX54: 10'b0000010_100	; I:5	; <= LogicTILE(4,8):RMUX13:O0 T4X 0.44
 RMUX55: 10'b0000000_000	; I:-1
 RMUX56: 10'b0000000_000	; I:-1
 RMUX57: 10'b0000000_000	; I:-1
@@ -2500,7 +2500,7 @@ RMUX09: 10'b0000000_000	; I:-1
 RMUX10: 10'b0000000_000	; I:-1
 RMUX11: 10'b0000000_000	; I:-1
 RMUX12: 10'b0000000_000	; I:-1
-RMUX13: 10'b0000000_000	; I:-1
+RMUX13: 10'b0001000_001	; I:17	; <= IOTILE(4,9):InputMUX01:O0 T4Y 0.456
 RMUX14: 10'b0000000_000	; I:-1
 RMUX15: 10'b0000000_000	; I:-1
 RMUX16: 10'b0000000_000	; I:-1
@@ -3069,7 +3069,7 @@ alta_slice10_OMUX31: 1'b0	; LutOut
 alta_slice10_OMUX32: 1'b0	; LutOut
 alta_slice10_SHIFTMUX: 1'b0
 alta_slice11_BYPASSEN: 1'b0
-alta_slice11_CARRY_CRL: 1'b1
+alta_slice11_CARRY_CRL: 1'b0
 alta_slice11_IMUX44: 12'b000000000_000	; I:-1	; A
 alta_slice11_IMUX45: 12'b000000000_000	; I:-1	; B
 alta_slice11_IMUX46: 12'b000000000_000	; I:-1	; C
@@ -3259,7 +3259,7 @@ RMUX88: 10'b0000000_000	; I:-1
 RMUX89: 10'b0000000_000	; I:-1
 RMUX90: 10'b0000000_000	; I:-1
 RMUX91: 10'b0000000_000	; I:-1
-RMUX92: 10'b0000000_000	; I:-1
+RMUX92: 10'b0000100_010	; I:11	; <= BramTILE(3,8):RMUX45:O0 T4X 0.48
 RMUX93: 10'b0000000_000	; I:-1
 RMUX94: 10'b0000000_000	; I:-1
 RMUX95: 10'b0000000_000	; I:-1
@@ -5499,686 +5499,6 @@ AsyncMUX14: 1'b0
 AsyncMUX15: 1'b0
 ClkMUX00: 1'b0
 ClkMUX01: 1'b0
-ClkMUX02: 1'b1
-ClkMUX03: 1'b0
-ClkMUX04: 1'b0
-ClkMUX05: 1'b0
-ClkMUX06: 1'b0
-ClkMUX07: 1'b0
-ClkMUX08: 1'b0
-ClkMUX09: 1'b0
-ClkMUX10: 1'b0
-ClkMUX11: 1'b0
-ClkMUX12: 1'b1
-ClkMUX13: 1'b0
-ClkMUX14: 1'b1
-ClkMUX15: 1'b0
-CtrlMUX00: 12'b00000000_0000	; I:-1
-CtrlMUX01: 12'b00000000_0000	; I:-1
-CtrlMUX02: 12'b00100000_0001	; I:26	; <= LogicTILE(0,7):RMUX28:O0 T0 0.381
-CtrlMUX03: 12'b00000000_0000	; I:-1
-DSTRSTB: 2'b00
-RMUX00: 10'b0000000_000	; I:-1
-RMUX01: 10'b0000000_000	; I:-1
-RMUX02: 10'b0000000_000	; I:-1
-RMUX03: 10'b0000000_000	; I:-1
-RMUX04: 10'b0000000_000	; I:-1
-RMUX05: 10'b0010000_100	; I:2	; <= LogicTILE(0,7):OMUX08:O0 T0 0.197
-RMUX06: 10'b0000000_000	; I:-1
-RMUX07: 10'b0000000_000	; I:-1
-RMUX08: 10'b0000000_000	; I:-1
-RMUX09: 10'b0000000_000	; I:-1
-RMUX10: 10'b0000000_000	; I:-1
-RMUX11: 10'b0000000_000	; I:-1
-RMUX12: 10'b0000000_000	; I:-1
-RMUX13: 10'b0000000_000	; I:-1
-RMUX14: 10'b0000000_000	; I:-1
-RMUX15: 10'b0000000_000	; I:-1
-RMUX16: 10'b0000000_000	; I:-1
-RMUX17: 10'b0000000_000	; I:-1
-RMUX18: 10'b0000000_000	; I:-1
-RMUX19: 10'b0000000_000	; I:-1
-RMUX20: 10'b0000000_000	; I:-1
-RMUX21: 10'b0000000_000	; I:-1
-RMUX22: 10'b0000000_000	; I:-1
-RMUX23: 10'b0000000_000	; I:-1
-RMUX24: 10'b0000000_000	; I:-1
-RMUX25: 10'b0000000_000	; I:-1
-RMUX26: 10'b0000000_000	; I:-1
-RMUX27: 10'b0000000_000	; I:-1
-RMUX28: 10'b0000001_010	; I:13	; <= LogicTILE(0,6):RMUX09:O0 T4Y 0.527
-RMUX29: 10'b0000000_000	; I:-1
-RMUX30: 10'b0000000_000	; I:-1
-RMUX31: 10'b0000000_000	; I:-1
-RMUX32: 10'b0000000_000	; I:-1
-RMUX33: 10'b0000000_000	; I:-1
-RMUX34: 10'b0000000_000	; I:-1
-RMUX35: 10'b0000000_000	; I:-1
-RMUX36: 10'b0000000_000	; I:-1
-RMUX37: 10'b0000000_000	; I:-1
-RMUX38: 10'b0000000_000	; I:-1
-RMUX39: 10'b0000000_000	; I:-1
-RMUX40: 10'b0000000_000	; I:-1
-RMUX41: 10'b0000000_000	; I:-1
-RMUX42: 10'b0000000_000	; I:-1
-RMUX43: 10'b0000000_000	; I:-1
-RMUX44: 10'b0000000_000	; I:-1
-RMUX45: 10'b0000000_000	; I:-1
-RMUX46: 10'b0000000_000	; I:-1
-RMUX47: 10'b0000000_000	; I:-1
-RMUX48: 10'b0000000_000	; I:-1
-RMUX49: 10'b0000000_000	; I:-1
-RMUX50: 10'b0000000_000	; I:-1
-RMUX51: 10'b0000000_000	; I:-1
-RMUX52: 10'b0000000_000	; I:-1
-RMUX53: 10'b0000000_000	; I:-1
-RMUX54: 10'b0000000_000	; I:-1
-RMUX55: 10'b0000000_000	; I:-1
-RMUX56: 10'b0000000_000	; I:-1
-RMUX57: 10'b0000000_000	; I:-1
-RMUX58: 10'b0000000_000	; I:-1
-RMUX59: 10'b0000000_000	; I:-1
-RMUX60: 10'b0000000_000	; I:-1
-RMUX61: 10'b0000000_000	; I:-1
-RMUX62: 10'b0000000_000	; I:-1
-RMUX63: 10'b0000000_000	; I:-1
-RMUX64: 10'b0100000_010	; I:8	; <= LogicTILE(4,7):RMUX13:O0 T4X 0.482
-RMUX65: 10'b0000000_000	; I:-1
-RMUX66: 10'b0000000_000	; I:-1
-RMUX67: 10'b0000000_000	; I:-1
-RMUX68: 10'b0000000_000	; I:-1
-RMUX69: 10'b0000000_000	; I:-1
-RMUX70: 10'b0000000_000	; I:-1
-RMUX71: 10'b0000000_000	; I:-1
-RMUX72: 10'b0000000_000	; I:-1
-RMUX73: 10'b0000000_000	; I:-1
-RMUX74: 10'b0000000_000	; I:-1
-RMUX75: 10'b0000000_000	; I:-1
-RMUX76: 10'b0000000_000	; I:-1
-RMUX77: 10'b0010000_100	; I:2	; <= LogicTILE(0,7):OMUX44:O0 T0 0.197
-RMUX78: 10'b0000000_000	; I:-1
-RMUX79: 10'b0000000_000	; I:-1
-RMUX80: 10'b0000000_000	; I:-1
-RMUX81: 10'b0000000_000	; I:-1
-RMUX82: 10'b0000000_000	; I:-1
-RMUX83: 10'b0000000_000	; I:-1
-RMUX84: 10'b0000000_000	; I:-1
-RMUX85: 10'b0000000_000	; I:-1
-RMUX86: 10'b0000000_000	; I:-1
-RMUX87: 10'b0000000_000	; I:-1
-RMUX88: 10'b0000000_000	; I:-1
-RMUX89: 10'b0000000_000	; I:-1
-RMUX90: 10'b0000000_000	; I:-1
-RMUX91: 10'b0000000_000	; I:-1
-RMUX92: 10'b0000000_000	; I:-1
-RMUX93: 10'b0000000_000	; I:-1
-RMUX94: 10'b0000000_000	; I:-1
-RMUX95: 10'b1000000_100	; I:0	; <= LogicTILE(0,7):OMUX38:O0 T0 0.197
-SeamMUX00: 8'b00000000
-SeamMUX01: 8'b00000000
-SeamMUX02: 8'b00000000
-SeamMUX03: 8'b00000000
-TileAsyncMUX00: 4'b0001
-TileAsyncMUX01: 4'b0000
-TileClkEnMUX00: 3'b000
-TileClkEnMUX01: 3'b000
-TileClkMUX00: 4'b0000
-TileClkMUX01: 4'b0100
-TileSyncMUX00: 3'b000
-TileSyncMUX01: 3'b000
-__NAME: ALTA_TILE_SRAM_DIST
-alta_slice00_BYPASSEN: 1'b0
-alta_slice00_CARRY_CRL: 1'b1
-alta_slice00_IMUX00: 12'b000000100_010	; I:15	; A	; <= LogicTILE(0,7):RMUX28:O0 T0 1.143
-alta_slice00_IMUX01: 12'b000001000_001	; I:23	; B	; <= LogicTILE(0,7):RMUX77:O0 T0 1.102
-alta_slice00_IMUX02: 12'b001000000_100	; I:2	; C	; <= LogicTILE(0,7):OMUX07:O0 T0 0.867
-alta_slice00_IMUX03: 12'b000000001_001	; I:26	; D	; <= LogicTILE(0,7):RMUX95:O0 T0 0.688
-alta_slice00_LUT: 16'h8000
-alta_slice00_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice00_OMUX00: 1'b0	; LutOut
-alta_slice00_OMUX01: 1'b0	; LutOut
-alta_slice00_OMUX02: 1'b0	; LutOut
-alta_slice00_SHIFTMUX: 1'b0
-alta_slice01_BYPASSEN: 1'b0
-alta_slice01_CARRY_CRL: 1'b0
-alta_slice01_IMUX04: 12'b000000000_000	; I:-1	; A
-alta_slice01_IMUX05: 12'b000000000_000	; I:-1	; B
-alta_slice01_IMUX06: 12'b000000000_000	; I:-1	; C
-alta_slice01_IMUX07: 12'b000000000_000	; I:-1	; D
-alta_slice01_LUT: 16'hffff
-alta_slice01_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice01_OMUX03: 1'b0	; LutOut
-alta_slice01_OMUX04: 1'b0	; LutOut
-alta_slice01_OMUX05: 1'b0	; LutOut
-alta_slice01_SHIFTMUX: 1'b0
-alta_slice02_BYPASSEN: 1'b0
-alta_slice02_CARRY_CRL: 1'b1
-alta_slice02_IMUX08: 12'b000000100_010	; I:15	; A	; <= LogicTILE(0,7):RMUX28:O0 T0 1.143
-alta_slice02_IMUX09: 12'b010000000_100	; I:1	; B	; <= LogicTILE(0,7):OMUX07:O0 T0 0.955
-alta_slice02_IMUX10: 12'b000000000_000	; I:-1	; C
-alta_slice02_IMUX11: 12'b000000000_000	; I:-1	; D
-alta_slice02_LUT: 16'h6666
-alta_slice02_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice02_OMUX06: 1'b0	; LutOut
-alta_slice02_OMUX07: 1'b1	; Q
-alta_slice02_OMUX08: 1'b1	; Q
-alta_slice02_SHIFTMUX: 1'b0
-alta_slice03_BYPASSEN: 1'b0
-alta_slice03_CARRY_CRL: 1'b0
-alta_slice03_IMUX12: 12'b000000000_000	; I:-1	; A
-alta_slice03_IMUX13: 12'b000000000_000	; I:-1	; B
-alta_slice03_IMUX14: 12'b000000000_000	; I:-1	; C
-alta_slice03_IMUX15: 12'b000000000_000	; I:-1	; D
-alta_slice03_LUT: 16'hffff
-alta_slice03_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice03_OMUX09: 1'b0	; LutOut
-alta_slice03_OMUX10: 1'b0	; LutOut
-alta_slice03_OMUX11: 1'b0	; LutOut
-alta_slice03_SHIFTMUX: 1'b0
-alta_slice04_BYPASSEN: 1'b0
-alta_slice04_CARRY_CRL: 1'b0
-alta_slice04_IMUX16: 12'b000000000_000	; I:-1	; A
-alta_slice04_IMUX17: 12'b000000000_000	; I:-1	; B
-alta_slice04_IMUX18: 12'b000000000_000	; I:-1	; C
-alta_slice04_IMUX19: 12'b000000000_000	; I:-1	; D
-alta_slice04_LUT: 16'hffff
-alta_slice04_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice04_OMUX12: 1'b0	; LutOut
-alta_slice04_OMUX13: 1'b0	; LutOut
-alta_slice04_OMUX14: 1'b0	; LutOut
-alta_slice04_SHIFTMUX: 1'b0
-alta_slice05_BYPASSEN: 1'b0
-alta_slice05_CARRY_CRL: 1'b0
-alta_slice05_IMUX20: 12'b000000000_000	; I:-1	; A
-alta_slice05_IMUX21: 12'b000000000_000	; I:-1	; B
-alta_slice05_IMUX22: 12'b000000000_000	; I:-1	; C
-alta_slice05_IMUX23: 12'b000000000_000	; I:-1	; D
-alta_slice05_LUT: 16'hffff
-alta_slice05_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice05_OMUX15: 1'b0	; LutOut
-alta_slice05_OMUX16: 1'b0	; LutOut
-alta_slice05_OMUX17: 1'b0	; LutOut
-alta_slice05_SHIFTMUX: 1'b0
-alta_slice06_BYPASSEN: 1'b0
-alta_slice06_CARRY_CRL: 1'b0
-alta_slice06_IMUX24: 12'b000000000_000	; I:-1	; A
-alta_slice06_IMUX25: 12'b000000000_000	; I:-1	; B
-alta_slice06_IMUX26: 12'b000000000_000	; I:-1	; C
-alta_slice06_IMUX27: 12'b000000000_000	; I:-1	; D
-alta_slice06_LUT: 16'hffff
-alta_slice06_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice06_OMUX18: 1'b0	; LutOut
-alta_slice06_OMUX19: 1'b0	; LutOut
-alta_slice06_OMUX20: 1'b0	; LutOut
-alta_slice06_SHIFTMUX: 1'b0
-alta_slice07_BYPASSEN: 1'b0
-alta_slice07_CARRY_CRL: 1'b0
-alta_slice07_IMUX28: 12'b000000000_000	; I:-1	; A
-alta_slice07_IMUX29: 12'b000000000_000	; I:-1	; B
-alta_slice07_IMUX30: 12'b000000000_000	; I:-1	; C
-alta_slice07_IMUX31: 12'b000000000_000	; I:-1	; D
-alta_slice07_LUT: 16'hffff
-alta_slice07_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice07_OMUX21: 1'b0	; LutOut
-alta_slice07_OMUX22: 1'b0	; LutOut
-alta_slice07_OMUX23: 1'b0	; LutOut
-alta_slice07_SHIFTMUX: 1'b0
-alta_slice08_BYPASSEN: 1'b0
-alta_slice08_CARRY_CRL: 1'b0
-alta_slice08_IMUX32: 12'b000000000_000	; I:-1	; A
-alta_slice08_IMUX33: 12'b000000000_000	; I:-1	; B
-alta_slice08_IMUX34: 12'b000000000_000	; I:-1	; C
-alta_slice08_IMUX35: 12'b000000000_000	; I:-1	; D
-alta_slice08_LUT: 16'hffff
-alta_slice08_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice08_OMUX24: 1'b0	; LutOut
-alta_slice08_OMUX25: 1'b0	; LutOut
-alta_slice08_OMUX26: 1'b0	; LutOut
-alta_slice08_SHIFTMUX: 1'b0
-alta_slice09_BYPASSEN: 1'b0
-alta_slice09_CARRY_CRL: 1'b0
-alta_slice09_IMUX36: 12'b000000000_000	; I:-1	; A
-alta_slice09_IMUX37: 12'b000000000_000	; I:-1	; B
-alta_slice09_IMUX38: 12'b000000000_000	; I:-1	; C
-alta_slice09_IMUX39: 12'b000000000_000	; I:-1	; D
-alta_slice09_LUT: 16'hffff
-alta_slice09_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice09_OMUX27: 1'b0	; LutOut
-alta_slice09_OMUX28: 1'b0	; LutOut
-alta_slice09_OMUX29: 1'b0	; LutOut
-alta_slice09_SHIFTMUX: 1'b0
-alta_slice10_BYPASSEN: 1'b0
-alta_slice10_CARRY_CRL: 1'b0
-alta_slice10_IMUX40: 12'b000000000_000	; I:-1	; A
-alta_slice10_IMUX41: 12'b000000000_000	; I:-1	; B
-alta_slice10_IMUX42: 12'b000000000_000	; I:-1	; C
-alta_slice10_IMUX43: 12'b000000000_000	; I:-1	; D
-alta_slice10_LUT: 16'hffff
-alta_slice10_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice10_OMUX30: 1'b0	; LutOut
-alta_slice10_OMUX31: 1'b0	; LutOut
-alta_slice10_OMUX32: 1'b0	; LutOut
-alta_slice10_SHIFTMUX: 1'b0
-alta_slice11_BYPASSEN: 1'b0
-alta_slice11_CARRY_CRL: 1'b0
-alta_slice11_IMUX44: 12'b000000000_000	; I:-1	; A
-alta_slice11_IMUX45: 12'b000000000_000	; I:-1	; B
-alta_slice11_IMUX46: 12'b000000000_000	; I:-1	; C
-alta_slice11_IMUX47: 12'b000000000_000	; I:-1	; D
-alta_slice11_LUT: 16'hffff
-alta_slice11_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice11_OMUX33: 1'b0	; LutOut
-alta_slice11_OMUX34: 1'b0	; LutOut
-alta_slice11_OMUX35: 1'b0	; LutOut
-alta_slice11_SHIFTMUX: 1'b0
-alta_slice12_BYPASSEN: 1'b0
-alta_slice12_CARRY_CRL: 1'b1
-alta_slice12_IMUX48: 12'b000000100_010	; I:15	; A	; <= LogicTILE(0,7):RMUX28:O0 T0 1.143
-alta_slice12_IMUX49: 12'b000001000_001	; I:23	; B	; <= LogicTILE(0,7):RMUX77:O0 T0 1.102
-alta_slice12_IMUX50: 12'b010000000_100	; I:1	; C	; <= LogicTILE(0,7):OMUX07:O0 T0 0.867
-alta_slice12_IMUX51: 12'b000000100_100	; I:6	; D	; <= LogicTILE(0,7):OMUX37:O0 T0 0.541
-alta_slice12_LUT: 16'h7f80
-alta_slice12_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice12_OMUX36: 1'b0	; LutOut
-alta_slice12_OMUX37: 1'b1	; Q
-alta_slice12_OMUX38: 1'b1	; Q
-alta_slice12_SHIFTMUX: 1'b0
-alta_slice13_BYPASSEN: 1'b0
-alta_slice13_CARRY_CRL: 1'b0
-alta_slice13_IMUX52: 12'b000000000_000	; I:-1	; A
-alta_slice13_IMUX53: 12'b000000000_000	; I:-1	; B
-alta_slice13_IMUX54: 12'b000000000_000	; I:-1	; C
-alta_slice13_IMUX55: 12'b000000000_000	; I:-1	; D
-alta_slice13_LUT: 16'hffff
-alta_slice13_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice13_OMUX39: 1'b0	; LutOut
-alta_slice13_OMUX40: 1'b0	; LutOut
-alta_slice13_OMUX41: 1'b0	; LutOut
-alta_slice13_SHIFTMUX: 1'b0
-alta_slice14_BYPASSEN: 1'b0
-alta_slice14_CARRY_CRL: 1'b1
-alta_slice14_IMUX56: 12'b000000100_010	; I:15	; A	; <= LogicTILE(0,7):RMUX28:O0 T0 1.143
-alta_slice14_IMUX57: 12'b001000000_010	; I:11	; B	; <= LogicTILE(0,7):RMUX05:O0 T0 1.102
-alta_slice14_IMUX58: 12'b000000010_100	; I:7	; C	; <= LogicTILE(0,7):OMUX43:O0 T0 0.867
-alta_slice14_IMUX59: 12'b000000000_000	; I:-1	; D
-alta_slice14_LUT: 16'h7878
-alta_slice14_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice14_OMUX42: 1'b0	; LutOut
-alta_slice14_OMUX43: 1'b1	; Q
-alta_slice14_OMUX44: 1'b1	; Q
-alta_slice14_SHIFTMUX: 1'b0
-alta_slice15_BYPASSEN: 1'b0
-alta_slice15_CARRY_CRL: 1'b0
-alta_slice15_IMUX60: 12'b000000000_000	; I:-1	; A
-alta_slice15_IMUX61: 12'b000000000_000	; I:-1	; B
-alta_slice15_IMUX62: 12'b000000000_000	; I:-1	; C
-alta_slice15_IMUX63: 12'b000000000_000	; I:-1	; D
-alta_slice15_LUT: 16'hffff
-alta_slice15_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice15_OMUX45: 1'b0	; LutOut
-alta_slice15_OMUX46: 1'b0	; LutOut
-alta_slice15_OMUX47: 1'b0	; LutOut
-alta_slice15_SHIFTMUX: 1'b0
-
-.LogicTILE 1 7
-AsyncMUX00: 1'b0
-AsyncMUX01: 1'b0
-AsyncMUX02: 1'b0
-AsyncMUX03: 1'b0
-AsyncMUX04: 1'b0
-AsyncMUX05: 1'b0
-AsyncMUX06: 1'b0
-AsyncMUX07: 1'b0
-AsyncMUX08: 1'b0
-AsyncMUX09: 1'b0
-AsyncMUX10: 1'b0
-AsyncMUX11: 1'b0
-AsyncMUX12: 1'b0
-AsyncMUX13: 1'b0
-AsyncMUX14: 1'b0
-AsyncMUX15: 1'b0
-ClkMUX00: 1'b0
-ClkMUX01: 1'b1
-ClkMUX02: 1'b1
-ClkMUX03: 1'b0
-ClkMUX04: 1'b0
-ClkMUX05: 1'b0
-ClkMUX06: 1'b0
-ClkMUX07: 1'b0
-ClkMUX08: 1'b0
-ClkMUX09: 1'b0
-ClkMUX10: 1'b0
-ClkMUX11: 1'b0
-ClkMUX12: 1'b0
-ClkMUX13: 1'b1
-ClkMUX14: 1'b0
-ClkMUX15: 1'b0
-CtrlMUX00: 12'b00000000_0000	; I:-1
-CtrlMUX01: 12'b00000000_0000	; I:-1
-CtrlMUX02: 12'b00010000_0001	; I:27	; <= LogicTILE(1,7):RMUX34:O0 T0 0.381
-CtrlMUX03: 12'b00000000_0000	; I:-1
-DSTRSTB: 2'b00
-RMUX00: 10'b0000000_000	; I:-1
-RMUX01: 10'b0000000_000	; I:-1
-RMUX02: 10'b0000000_000	; I:-1
-RMUX03: 10'b0000000_000	; I:-1
-RMUX04: 10'b0100000_100	; I:1	; <= LogicTILE(1,7):OMUX05:O0 T0 0.197
-RMUX05: 10'b0000000_000	; I:-1
-RMUX06: 10'b0000000_000	; I:-1
-RMUX07: 10'b0000000_000	; I:-1
-RMUX08: 10'b0000000_000	; I:-1
-RMUX09: 10'b0000000_000	; I:-1
-RMUX10: 10'b0000000_000	; I:-1
-RMUX11: 10'b0010000_100	; I:2	; <= LogicTILE(1,7):OMUX08:O0 T0 0.197
-RMUX12: 10'b0000000_000	; I:-1
-RMUX13: 10'b0000000_000	; I:-1
-RMUX14: 10'b0000000_000	; I:-1
-RMUX15: 10'b0000000_000	; I:-1
-RMUX16: 10'b0000000_000	; I:-1
-RMUX17: 10'b0000000_000	; I:-1
-RMUX18: 10'b0000000_000	; I:-1
-RMUX19: 10'b0000000_000	; I:-1
-RMUX20: 10'b0000000_000	; I:-1
-RMUX21: 10'b0000000_000	; I:-1
-RMUX22: 10'b1000000_100	; I:0	; <= LogicTILE(0,7):OMUX00:O0 T1 0.193
-RMUX23: 10'b0000000_000	; I:-1
-RMUX24: 10'b0000000_000	; I:-1
-RMUX25: 10'b0001000_100	; I:3	; <= LogicTILE(1,7):OMUX23:O0 T0 0.197
-RMUX26: 10'b0000000_000	; I:-1
-RMUX27: 10'b0000000_000	; I:-1
-RMUX28: 10'b0000000_000	; I:-1
-RMUX29: 10'b0000000_000	; I:-1
-RMUX30: 10'b0000000_000	; I:-1
-RMUX31: 10'b0000000_000	; I:-1
-RMUX32: 10'b0000000_000	; I:-1
-RMUX33: 10'b0000000_000	; I:-1
-RMUX34: 10'b0000000_000	; I:-1
-RMUX35: 10'b0000000_000	; I:-1
-RMUX36: 10'b0000000_000	; I:-1
-RMUX37: 10'b0000000_000	; I:-1
-RMUX38: 10'b0000000_000	; I:-1
-RMUX39: 10'b0000000_000	; I:-1
-RMUX40: 10'b0000000_000	; I:-1
-RMUX41: 10'b0000000_000	; I:-1
-RMUX42: 10'b0000000_000	; I:-1
-RMUX43: 10'b0000000_000	; I:-1
-RMUX44: 10'b0000000_000	; I:-1
-RMUX45: 10'b0000000_000	; I:-1
-RMUX46: 10'b0000000_000	; I:-1
-RMUX47: 10'b0000000_000	; I:-1
-RMUX48: 10'b0000000_000	; I:-1
-RMUX49: 10'b0000000_000	; I:-1
-RMUX50: 10'b0000000_000	; I:-1
-RMUX51: 10'b0000000_000	; I:-1
-RMUX52: 10'b0000000_000	; I:-1
-RMUX53: 10'b0000000_000	; I:-1
-RMUX54: 10'b0000000_000	; I:-1
-RMUX55: 10'b0000000_000	; I:-1
-RMUX56: 10'b0000000_000	; I:-1
-RMUX57: 10'b0000000_000	; I:-1
-RMUX58: 10'b0000000_000	; I:-1
-RMUX59: 10'b0000000_000	; I:-1
-RMUX60: 10'b0000000_000	; I:-1
-RMUX61: 10'b0000000_000	; I:-1
-RMUX62: 10'b0000000_000	; I:-1
-RMUX63: 10'b0000000_000	; I:-1
-RMUX64: 10'b0000000_000	; I:-1
-RMUX65: 10'b0000000_000	; I:-1
-RMUX66: 10'b0000000_000	; I:-1
-RMUX67: 10'b0000000_000	; I:-1
-RMUX68: 10'b0000000_000	; I:-1
-RMUX69: 10'b0000000_000	; I:-1
-RMUX70: 10'b1000000_010	; I:7	; <= LogicTILE(4,7):RMUX13:O0 T4X 0.48
-RMUX71: 10'b0000000_000	; I:-1
-RMUX72: 10'b0000000_000	; I:-1
-RMUX73: 10'b0000000_000	; I:-1
-RMUX74: 10'b0000000_000	; I:-1
-RMUX75: 10'b0000000_000	; I:-1
-RMUX76: 10'b0000000_000	; I:-1
-RMUX77: 10'b0000000_000	; I:-1
-RMUX78: 10'b0000000_000	; I:-1
-RMUX79: 10'b0000000_000	; I:-1
-RMUX80: 10'b0000000_000	; I:-1
-RMUX81: 10'b0000000_000	; I:-1
-RMUX82: 10'b0100000_100	; I:1	; <= LogicTILE(1,7):OMUX41:O0 T0 0.197
-RMUX83: 10'b0000000_000	; I:-1
-RMUX84: 10'b0000000_000	; I:-1
-RMUX85: 10'b0000000_000	; I:-1
-RMUX86: 10'b0000000_000	; I:-1
-RMUX87: 10'b0000000_000	; I:-1
-RMUX88: 10'b0000000_000	; I:-1
-RMUX89: 10'b0000000_000	; I:-1
-RMUX90: 10'b0000000_000	; I:-1
-RMUX91: 10'b0000000_000	; I:-1
-RMUX92: 10'b0000000_000	; I:-1
-RMUX93: 10'b0000000_000	; I:-1
-RMUX94: 10'b0000000_000	; I:-1
-RMUX95: 10'b0000000_000	; I:-1
-SeamMUX00: 8'b00000000
-SeamMUX01: 8'b00000000
-SeamMUX02: 8'b00000000
-SeamMUX03: 8'b00000000
-TileAsyncMUX00: 4'b0001
-TileAsyncMUX01: 4'b0000
-TileClkEnMUX00: 3'b000
-TileClkEnMUX01: 3'b000
-TileClkMUX00: 4'b0000
-TileClkMUX01: 4'b0100
-TileSyncMUX00: 3'b000
-TileSyncMUX01: 3'b000
-__NAME: ALTA_TILE_SRAM_DIST
-alta_slice00_BYPASSEN: 1'b0
-alta_slice00_CARRY_CRL: 1'b0
-alta_slice00_IMUX00: 12'b000000000_000	; I:-1	; A
-alta_slice00_IMUX01: 12'b000000000_000	; I:-1	; B
-alta_slice00_IMUX02: 12'b000000000_000	; I:-1	; C
-alta_slice00_IMUX03: 12'b000000000_000	; I:-1	; D
-alta_slice00_LUT: 16'hffff
-alta_slice00_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice00_OMUX00: 1'b0	; LutOut
-alta_slice00_OMUX01: 1'b0	; LutOut
-alta_slice00_OMUX02: 1'b0	; LutOut
-alta_slice00_SHIFTMUX: 1'b0
-alta_slice01_BYPASSEN: 1'b0
-alta_slice01_CARRY_CRL: 1'b1
-alta_slice01_IMUX04: 12'b000001000_010	; I:14	; A	; <= LogicTILE(1,7):RMUX22:O0 T0 1.143
-alta_slice01_IMUX05: 12'b000100000_010	; I:12	; B	; <= LogicTILE(1,7):RMUX11:O0 T0 1.102
-alta_slice01_IMUX06: 12'b010000000_100	; I:1	; C	; <= LogicTILE(1,7):OMUX04:O0 T0 0.867
-alta_slice01_IMUX07: 12'b000000000_000	; I:-1	; D
-alta_slice01_LUT: 16'h7878
-alta_slice01_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice01_OMUX03: 1'b0	; LutOut
-alta_slice01_OMUX04: 1'b1	; Q
-alta_slice01_OMUX05: 1'b1	; Q
-alta_slice01_SHIFTMUX: 1'b0
-alta_slice02_BYPASSEN: 1'b0
-alta_slice02_CARRY_CRL: 1'b1
-alta_slice02_IMUX08: 12'b000001000_010	; I:14	; A	; <= LogicTILE(1,7):RMUX22:O0 T0 1.143
-alta_slice02_IMUX09: 12'b010000000_100	; I:1	; B	; <= LogicTILE(1,7):OMUX07:O0 T0 0.955
-alta_slice02_IMUX10: 12'b000000000_000	; I:-1	; C
-alta_slice02_IMUX11: 12'b000000000_000	; I:-1	; D
-alta_slice02_LUT: 16'h6666
-alta_slice02_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice02_OMUX06: 1'b0	; LutOut
-alta_slice02_OMUX07: 1'b1	; Q
-alta_slice02_OMUX08: 1'b1	; Q
-alta_slice02_SHIFTMUX: 1'b0
-alta_slice03_BYPASSEN: 1'b0
-alta_slice03_CARRY_CRL: 1'b0
-alta_slice03_IMUX12: 12'b000000000_000	; I:-1	; A
-alta_slice03_IMUX13: 12'b000000000_000	; I:-1	; B
-alta_slice03_IMUX14: 12'b000000000_000	; I:-1	; C
-alta_slice03_IMUX15: 12'b000000000_000	; I:-1	; D
-alta_slice03_LUT: 16'hffff
-alta_slice03_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice03_OMUX09: 1'b0	; LutOut
-alta_slice03_OMUX10: 1'b0	; LutOut
-alta_slice03_OMUX11: 1'b0	; LutOut
-alta_slice03_SHIFTMUX: 1'b0
-alta_slice04_BYPASSEN: 1'b0
-alta_slice04_CARRY_CRL: 1'b0
-alta_slice04_IMUX16: 12'b000000000_000	; I:-1	; A
-alta_slice04_IMUX17: 12'b000000000_000	; I:-1	; B
-alta_slice04_IMUX18: 12'b000000000_000	; I:-1	; C
-alta_slice04_IMUX19: 12'b000000000_000	; I:-1	; D
-alta_slice04_LUT: 16'hffff
-alta_slice04_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice04_OMUX12: 1'b0	; LutOut
-alta_slice04_OMUX13: 1'b0	; LutOut
-alta_slice04_OMUX14: 1'b0	; LutOut
-alta_slice04_SHIFTMUX: 1'b0
-alta_slice05_BYPASSEN: 1'b0
-alta_slice05_CARRY_CRL: 1'b0
-alta_slice05_IMUX20: 12'b000000000_000	; I:-1	; A
-alta_slice05_IMUX21: 12'b000000000_000	; I:-1	; B
-alta_slice05_IMUX22: 12'b000000000_000	; I:-1	; C
-alta_slice05_IMUX23: 12'b000000000_000	; I:-1	; D
-alta_slice05_LUT: 16'hffff
-alta_slice05_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice05_OMUX15: 1'b0	; LutOut
-alta_slice05_OMUX16: 1'b0	; LutOut
-alta_slice05_OMUX17: 1'b0	; LutOut
-alta_slice05_SHIFTMUX: 1'b0
-alta_slice06_BYPASSEN: 1'b0
-alta_slice06_CARRY_CRL: 1'b0
-alta_slice06_IMUX24: 12'b000000000_000	; I:-1	; A
-alta_slice06_IMUX25: 12'b000000000_000	; I:-1	; B
-alta_slice06_IMUX26: 12'b000000000_000	; I:-1	; C
-alta_slice06_IMUX27: 12'b000000000_000	; I:-1	; D
-alta_slice06_LUT: 16'hffff
-alta_slice06_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice06_OMUX18: 1'b0	; LutOut
-alta_slice06_OMUX19: 1'b0	; LutOut
-alta_slice06_OMUX20: 1'b0	; LutOut
-alta_slice06_SHIFTMUX: 1'b0
-alta_slice07_BYPASSEN: 1'b0
-alta_slice07_CARRY_CRL: 1'b1
-alta_slice07_IMUX28: 12'b000001000_010	; I:14	; A	; <= LogicTILE(1,7):RMUX22:O0 T0 1.143
-alta_slice07_IMUX29: 12'b000100000_010	; I:12	; B	; <= LogicTILE(1,7):RMUX11:O0 T0 1.102
-alta_slice07_IMUX30: 12'b000000100_001	; I:24	; C	; <= LogicTILE(1,7):RMUX82:O0 T0 1.014
-alta_slice07_IMUX31: 12'b100000000_100	; I:0	; D	; <= LogicTILE(1,7):OMUX04:O0 T0 0.541
-alta_slice07_LUT: 16'h8000
-alta_slice07_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice07_OMUX21: 1'b0	; LutOut
-alta_slice07_OMUX22: 1'b0	; LutOut
-alta_slice07_OMUX23: 1'b0	; LutOut
-alta_slice07_SHIFTMUX: 1'b0
-alta_slice08_BYPASSEN: 1'b0
-alta_slice08_CARRY_CRL: 1'b0
-alta_slice08_IMUX32: 12'b000000000_000	; I:-1	; A
-alta_slice08_IMUX33: 12'b000000000_000	; I:-1	; B
-alta_slice08_IMUX34: 12'b000000000_000	; I:-1	; C
-alta_slice08_IMUX35: 12'b000000000_000	; I:-1	; D
-alta_slice08_LUT: 16'hffff
-alta_slice08_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice08_OMUX24: 1'b0	; LutOut
-alta_slice08_OMUX25: 1'b0	; LutOut
-alta_slice08_OMUX26: 1'b0	; LutOut
-alta_slice08_SHIFTMUX: 1'b0
-alta_slice09_BYPASSEN: 1'b0
-alta_slice09_CARRY_CRL: 1'b0
-alta_slice09_IMUX36: 12'b000000000_000	; I:-1	; A
-alta_slice09_IMUX37: 12'b000000000_000	; I:-1	; B
-alta_slice09_IMUX38: 12'b000000000_000	; I:-1	; C
-alta_slice09_IMUX39: 12'b000000000_000	; I:-1	; D
-alta_slice09_LUT: 16'hffff
-alta_slice09_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice09_OMUX27: 1'b0	; LutOut
-alta_slice09_OMUX28: 1'b0	; LutOut
-alta_slice09_OMUX29: 1'b0	; LutOut
-alta_slice09_SHIFTMUX: 1'b0
-alta_slice10_BYPASSEN: 1'b0
-alta_slice10_CARRY_CRL: 1'b0
-alta_slice10_IMUX40: 12'b000000000_000	; I:-1	; A
-alta_slice10_IMUX41: 12'b000000000_000	; I:-1	; B
-alta_slice10_IMUX42: 12'b000000000_000	; I:-1	; C
-alta_slice10_IMUX43: 12'b000000000_000	; I:-1	; D
-alta_slice10_LUT: 16'hffff
-alta_slice10_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice10_OMUX30: 1'b0	; LutOut
-alta_slice10_OMUX31: 1'b0	; LutOut
-alta_slice10_OMUX32: 1'b0	; LutOut
-alta_slice10_SHIFTMUX: 1'b0
-alta_slice11_BYPASSEN: 1'b0
-alta_slice11_CARRY_CRL: 1'b0
-alta_slice11_IMUX44: 12'b000000000_000	; I:-1	; A
-alta_slice11_IMUX45: 12'b000000000_000	; I:-1	; B
-alta_slice11_IMUX46: 12'b000000000_000	; I:-1	; C
-alta_slice11_IMUX47: 12'b000000000_000	; I:-1	; D
-alta_slice11_LUT: 16'hffff
-alta_slice11_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice11_OMUX33: 1'b0	; LutOut
-alta_slice11_OMUX34: 1'b0	; LutOut
-alta_slice11_OMUX35: 1'b0	; LutOut
-alta_slice11_SHIFTMUX: 1'b0
-alta_slice12_BYPASSEN: 1'b0
-alta_slice12_CARRY_CRL: 1'b0
-alta_slice12_IMUX48: 12'b000000000_000	; I:-1	; A
-alta_slice12_IMUX49: 12'b000000000_000	; I:-1	; B
-alta_slice12_IMUX50: 12'b000000000_000	; I:-1	; C
-alta_slice12_IMUX51: 12'b000000000_000	; I:-1	; D
-alta_slice12_LUT: 16'hffff
-alta_slice12_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice12_OMUX36: 1'b0	; LutOut
-alta_slice12_OMUX37: 1'b0	; LutOut
-alta_slice12_OMUX38: 1'b0	; LutOut
-alta_slice12_SHIFTMUX: 1'b0
-alta_slice13_BYPASSEN: 1'b0
-alta_slice13_CARRY_CRL: 1'b1
-alta_slice13_IMUX52: 12'b000001000_010	; I:14	; A	; <= LogicTILE(1,7):RMUX22:O0 T0 1.143
-alta_slice13_IMUX53: 12'b000100000_010	; I:12	; B	; <= LogicTILE(1,7):RMUX11:O0 T0 1.102
-alta_slice13_IMUX54: 12'b001000000_010	; I:11	; C	; <= LogicTILE(1,7):RMUX04:O0 T0 1.014
-alta_slice13_IMUX55: 12'b000000010_100	; I:7	; D	; <= LogicTILE(1,7):OMUX40:O0 T0 0.541
-alta_slice13_LUT: 16'h7f80
-alta_slice13_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice13_OMUX39: 1'b0	; LutOut
-alta_slice13_OMUX40: 1'b1	; Q
-alta_slice13_OMUX41: 1'b1	; Q
-alta_slice13_SHIFTMUX: 1'b0
-alta_slice14_BYPASSEN: 1'b0
-alta_slice14_CARRY_CRL: 1'b0
-alta_slice14_IMUX56: 12'b000000000_000	; I:-1	; A
-alta_slice14_IMUX57: 12'b000000000_000	; I:-1	; B
-alta_slice14_IMUX58: 12'b000000000_000	; I:-1	; C
-alta_slice14_IMUX59: 12'b000000000_000	; I:-1	; D
-alta_slice14_LUT: 16'hffff
-alta_slice14_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice14_OMUX42: 1'b0	; LutOut
-alta_slice14_OMUX43: 1'b0	; LutOut
-alta_slice14_OMUX44: 1'b0	; LutOut
-alta_slice14_SHIFTMUX: 1'b0
-alta_slice15_BYPASSEN: 1'b0
-alta_slice15_CARRY_CRL: 1'b0
-alta_slice15_IMUX60: 12'b000000000_000	; I:-1	; A
-alta_slice15_IMUX61: 12'b000000000_000	; I:-1	; B
-alta_slice15_IMUX62: 12'b000000000_000	; I:-1	; C
-alta_slice15_IMUX63: 12'b000000000_000	; I:-1	; D
-alta_slice15_LUT: 16'hffff
-alta_slice15_LUTCMUX: 2'b00	; FeedbackMux?
-alta_slice15_OMUX45: 1'b0	; LutOut
-alta_slice15_OMUX46: 1'b0	; LutOut
-alta_slice15_OMUX47: 1'b0	; LutOut
-alta_slice15_SHIFTMUX: 1'b0
-
-.LogicTILE 2 7
-AsyncMUX00: 1'b0
-AsyncMUX01: 1'b0
-AsyncMUX02: 1'b0
-AsyncMUX03: 1'b0
-AsyncMUX04: 1'b0
-AsyncMUX05: 1'b0
-AsyncMUX06: 1'b0
-AsyncMUX07: 1'b0
-AsyncMUX08: 1'b0
-AsyncMUX09: 1'b0
-AsyncMUX10: 1'b0
-AsyncMUX11: 1'b0
-AsyncMUX12: 1'b0
-AsyncMUX13: 1'b0
-AsyncMUX14: 1'b0
-AsyncMUX15: 1'b0
-ClkMUX00: 1'b0
-ClkMUX01: 1'b0
 ClkMUX02: 1'b0
 ClkMUX03: 1'b0
 ClkMUX04: 1'b0
@@ -6237,7 +5557,7 @@ RMUX35: 10'b0000000_000	; I:-1
 RMUX36: 10'b0000000_000	; I:-1
 RMUX37: 10'b0000000_000	; I:-1
 RMUX38: 10'b0000000_000	; I:-1
-RMUX39: 10'b0000000_000	; I:-1
+RMUX39: 10'b0100000_100	; I:1	; <= LogicTILE(0,7):OMUX17:O0 T0 0.197
 RMUX40: 10'b0000000_000	; I:-1
 RMUX41: 10'b0000000_000	; I:-1
 RMUX42: 10'b0000000_000	; I:-1
@@ -6368,7 +5688,7 @@ alta_slice04_OMUX13: 1'b0	; LutOut
 alta_slice04_OMUX14: 1'b0	; LutOut
 alta_slice04_SHIFTMUX: 1'b0
 alta_slice05_BYPASSEN: 1'b0
-alta_slice05_CARRY_CRL: 1'b0
+alta_slice05_CARRY_CRL: 1'b1
 alta_slice05_IMUX20: 12'b000000000_000	; I:-1	; A
 alta_slice05_IMUX21: 12'b000000000_000	; I:-1	; B
 alta_slice05_IMUX22: 12'b000000000_000	; I:-1	; C
@@ -6449,6 +5769,686 @@ alta_slice11_LUT: 16'hffff
 alta_slice11_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice11_OMUX33: 1'b0	; LutOut
 alta_slice11_OMUX34: 1'b0	; LutOut
+alta_slice11_OMUX35: 1'b0	; LutOut
+alta_slice11_SHIFTMUX: 1'b0
+alta_slice12_BYPASSEN: 1'b0
+alta_slice12_CARRY_CRL: 1'b0
+alta_slice12_IMUX48: 12'b000000000_000	; I:-1	; A
+alta_slice12_IMUX49: 12'b000000000_000	; I:-1	; B
+alta_slice12_IMUX50: 12'b000000000_000	; I:-1	; C
+alta_slice12_IMUX51: 12'b000000000_000	; I:-1	; D
+alta_slice12_LUT: 16'hffff
+alta_slice12_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice12_OMUX36: 1'b0	; LutOut
+alta_slice12_OMUX37: 1'b0	; LutOut
+alta_slice12_OMUX38: 1'b0	; LutOut
+alta_slice12_SHIFTMUX: 1'b0
+alta_slice13_BYPASSEN: 1'b0
+alta_slice13_CARRY_CRL: 1'b0
+alta_slice13_IMUX52: 12'b000000000_000	; I:-1	; A
+alta_slice13_IMUX53: 12'b000000000_000	; I:-1	; B
+alta_slice13_IMUX54: 12'b000000000_000	; I:-1	; C
+alta_slice13_IMUX55: 12'b000000000_000	; I:-1	; D
+alta_slice13_LUT: 16'hffff
+alta_slice13_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice13_OMUX39: 1'b0	; LutOut
+alta_slice13_OMUX40: 1'b0	; LutOut
+alta_slice13_OMUX41: 1'b0	; LutOut
+alta_slice13_SHIFTMUX: 1'b0
+alta_slice14_BYPASSEN: 1'b0
+alta_slice14_CARRY_CRL: 1'b0
+alta_slice14_IMUX56: 12'b000000000_000	; I:-1	; A
+alta_slice14_IMUX57: 12'b000000000_000	; I:-1	; B
+alta_slice14_IMUX58: 12'b000000000_000	; I:-1	; C
+alta_slice14_IMUX59: 12'b000000000_000	; I:-1	; D
+alta_slice14_LUT: 16'hffff
+alta_slice14_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice14_OMUX42: 1'b0	; LutOut
+alta_slice14_OMUX43: 1'b0	; LutOut
+alta_slice14_OMUX44: 1'b0	; LutOut
+alta_slice14_SHIFTMUX: 1'b0
+alta_slice15_BYPASSEN: 1'b0
+alta_slice15_CARRY_CRL: 1'b0
+alta_slice15_IMUX60: 12'b000000000_000	; I:-1	; A
+alta_slice15_IMUX61: 12'b000000000_000	; I:-1	; B
+alta_slice15_IMUX62: 12'b000000000_000	; I:-1	; C
+alta_slice15_IMUX63: 12'b000000000_000	; I:-1	; D
+alta_slice15_LUT: 16'hffff
+alta_slice15_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice15_OMUX45: 1'b0	; LutOut
+alta_slice15_OMUX46: 1'b0	; LutOut
+alta_slice15_OMUX47: 1'b0	; LutOut
+alta_slice15_SHIFTMUX: 1'b0
+
+.LogicTILE 1 7
+AsyncMUX00: 1'b0
+AsyncMUX01: 1'b0
+AsyncMUX02: 1'b0
+AsyncMUX03: 1'b0
+AsyncMUX04: 1'b0
+AsyncMUX05: 1'b0
+AsyncMUX06: 1'b0
+AsyncMUX07: 1'b0
+AsyncMUX08: 1'b0
+AsyncMUX09: 1'b0
+AsyncMUX10: 1'b0
+AsyncMUX11: 1'b0
+AsyncMUX12: 1'b0
+AsyncMUX13: 1'b0
+AsyncMUX14: 1'b0
+AsyncMUX15: 1'b0
+ClkMUX00: 1'b1
+ClkMUX01: 1'b0
+ClkMUX02: 1'b0
+ClkMUX03: 1'b1
+ClkMUX04: 1'b1
+ClkMUX05: 1'b0
+ClkMUX06: 1'b1
+ClkMUX07: 1'b1
+ClkMUX08: 1'b0
+ClkMUX09: 1'b1
+ClkMUX10: 1'b1
+ClkMUX11: 1'b1
+ClkMUX12: 1'b1
+ClkMUX13: 1'b1
+ClkMUX14: 1'b0
+ClkMUX15: 1'b1
+CtrlMUX00: 12'b00000000_0000	; I:-1
+CtrlMUX01: 12'b00000000_0000	; I:-1
+CtrlMUX02: 12'b00010000_0001	; I:27	; <= LogicTILE(1,7):RMUX34:O0 T0 0.381
+CtrlMUX03: 12'b00000000_0000	; I:-1
+DSTRSTB: 2'b00
+RMUX00: 10'b0000000_000	; I:-1
+RMUX01: 10'b0000000_000	; I:-1
+RMUX02: 10'b0000000_000	; I:-1
+RMUX03: 10'b0000000_000	; I:-1
+RMUX04: 10'b0000000_000	; I:-1
+RMUX05: 10'b0000000_000	; I:-1
+RMUX06: 10'b0000000_000	; I:-1
+RMUX07: 10'b0000000_000	; I:-1
+RMUX08: 10'b0000000_000	; I:-1
+RMUX09: 10'b0010000_100	; I:2	; <= LogicTILE(1,7):OMUX08:O0 T0 0.197
+RMUX10: 10'b0100000_100	; I:1	; <= LogicTILE(1,7):OMUX05:O0 T0 0.197
+RMUX11: 10'b0000000_000	; I:-1
+RMUX12: 10'b0000000_000	; I:-1
+RMUX13: 10'b0000000_000	; I:-1
+RMUX14: 10'b0000000_000	; I:-1
+RMUX15: 10'b0000000_000	; I:-1
+RMUX16: 10'b0001000_100	; I:3	; <= LogicTILE(1,7):OMUX11:O0 T0 0.197
+RMUX17: 10'b1000000_100	; I:0	; <= LogicTILE(1,7):OMUX02:O0 T0 0.197
+RMUX18: 10'b0000000_000	; I:-1
+RMUX19: 10'b0000000_000	; I:-1
+RMUX20: 10'b0000000_000	; I:-1
+RMUX21: 10'b0000000_000	; I:-1
+RMUX22: 10'b0000000_000	; I:-1
+RMUX23: 10'b0000000_000	; I:-1
+RMUX24: 10'b0000000_000	; I:-1
+RMUX25: 10'b0100000_100	; I:1	; <= LogicTILE(0,7):OMUX15:O0 T1 0.193
+RMUX26: 10'b0000000_000	; I:-1
+RMUX27: 10'b0000000_000	; I:-1
+RMUX28: 10'b0000000_000	; I:-1
+RMUX29: 10'b0100000_100	; I:1	; <= LogicTILE(0,7):OMUX15:O0 T1 0.193
+RMUX30: 10'b0000000_000	; I:-1
+RMUX31: 10'b0100000_100	; I:1	; <= LogicTILE(0,7):OMUX15:O0 T1 0.193
+RMUX32: 10'b0000000_000	; I:-1
+RMUX33: 10'b0000000_000	; I:-1
+RMUX34: 10'b0000000_000	; I:-1
+RMUX35: 10'b0000000_000	; I:-1
+RMUX36: 10'b0000000_000	; I:-1
+RMUX37: 10'b0000000_000	; I:-1
+RMUX38: 10'b0000000_000	; I:-1
+RMUX39: 10'b0000000_000	; I:-1
+RMUX40: 10'b0001000_100	; I:3	; <= LogicTILE(1,7):OMUX23:O0 T0 0.197
+RMUX41: 10'b0000000_000	; I:-1
+RMUX42: 10'b0000000_000	; I:-1
+RMUX43: 10'b0000000_000	; I:-1
+RMUX44: 10'b0000000_000	; I:-1
+RMUX45: 10'b0000000_000	; I:-1
+RMUX46: 10'b0100000_100	; I:1	; <= LogicTILE(0,7):OMUX15:O0 T1 0.193
+RMUX47: 10'b1000000_100	; I:0	; <= LogicTILE(1,7):OMUX14:O0 T0 0.197
+RMUX48: 10'b0000000_000	; I:-1
+RMUX49: 10'b0000000_000	; I:-1
+RMUX50: 10'b0001000_001	; I:17	; <= LogicTILE(1,8):RMUX14:O0 T4Y 0.527
+RMUX51: 10'b0001000_001	; I:17	; <= LogicTILE(1,8):RMUX14:O0 T4Y 0.527
+RMUX52: 10'b0000100_100	; I:4	; <= LogicTILE(1,7):RMUX50:O0 T0 0.381
+RMUX53: 10'b0000000_000	; I:-1
+RMUX54: 10'b0000000_000	; I:-1
+RMUX55: 10'b0010000_100	; I:2	; <= LogicTILE(1,7):OMUX32:O0 T0 0.197
+RMUX56: 10'b0000000_000	; I:-1
+RMUX57: 10'b0000000_000	; I:-1
+RMUX58: 10'b0100000_100	; I:1	; <= LogicTILE(1,7):OMUX29:O0 T0 0.197
+RMUX59: 10'b0000000_000	; I:-1
+RMUX60: 10'b0000000_000	; I:-1
+RMUX61: 10'b0000000_000	; I:-1
+RMUX62: 10'b0000000_000	; I:-1
+RMUX63: 10'b0000000_000	; I:-1
+RMUX64: 10'b0000000_000	; I:-1
+RMUX65: 10'b0000000_000	; I:-1
+RMUX66: 10'b0000000_000	; I:-1
+RMUX67: 10'b0000000_000	; I:-1
+RMUX68: 10'b0000000_000	; I:-1
+RMUX69: 10'b0000000_000	; I:-1
+RMUX70: 10'b1000000_010	; I:7	; <= LogicTILE(4,7):RMUX13:O0 T4X 0.48
+RMUX71: 10'b0000000_000	; I:-1
+RMUX72: 10'b0000000_000	; I:-1
+RMUX73: 10'b0000000_000	; I:-1
+RMUX74: 10'b0000000_000	; I:-1
+RMUX75: 10'b0000000_000	; I:-1
+RMUX76: 10'b0000000_000	; I:-1
+RMUX77: 10'b0000000_000	; I:-1
+RMUX78: 10'b0000000_000	; I:-1
+RMUX79: 10'b0000000_000	; I:-1
+RMUX80: 10'b0000000_000	; I:-1
+RMUX81: 10'b0000000_000	; I:-1
+RMUX82: 10'b0100000_100	; I:1	; <= LogicTILE(1,7):OMUX41:O0 T0 0.197
+RMUX83: 10'b0000000_000	; I:-1
+RMUX84: 10'b0000000_000	; I:-1
+RMUX85: 10'b0000000_000	; I:-1
+RMUX86: 10'b0000000_000	; I:-1
+RMUX87: 10'b0000000_000	; I:-1
+RMUX88: 10'b0000000_000	; I:-1
+RMUX89: 10'b0000000_000	; I:-1
+RMUX90: 10'b0000000_000	; I:-1
+RMUX91: 10'b0000000_000	; I:-1
+RMUX92: 10'b0000000_000	; I:-1
+RMUX93: 10'b0000000_000	; I:-1
+RMUX94: 10'b0000000_000	; I:-1
+RMUX95: 10'b1000000_100	; I:0	; <= LogicTILE(1,7):OMUX38:O0 T0 0.197
+SeamMUX00: 8'b00000000
+SeamMUX01: 8'b00000000
+SeamMUX02: 8'b00000000
+SeamMUX03: 8'b00000000
+TileAsyncMUX00: 4'b0001
+TileAsyncMUX01: 4'b0000
+TileClkEnMUX00: 3'b000
+TileClkEnMUX01: 3'b000
+TileClkMUX00: 4'b0000
+TileClkMUX01: 4'b0100
+TileSyncMUX00: 3'b000
+TileSyncMUX01: 3'b000
+__NAME: ALTA_TILE_SRAM_DIST
+alta_slice00_BYPASSEN: 1'b0
+alta_slice00_CARRY_CRL: 1'b1
+alta_slice00_IMUX00: 12'b000000001_100	; I:8	; A	; <= LogicTILE(1,7):OMUX43:O0 T0 0.996
+alta_slice00_IMUX01: 12'b100000000_100	; I:0	; B	; <= LogicTILE(1,7):OMUX01:O0 T0 0.955
+alta_slice00_IMUX02: 12'b100000000_001	; I:18	; C	; <= LogicTILE(1,7):RMUX46:O0 T0 1.014
+alta_slice00_IMUX03: 12'b000000100_010	; I:15	; D	; <= LogicTILE(1,7):RMUX29:O0 T0 0.688
+alta_slice00_LUT: 16'h6666
+alta_slice00_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice00_OMUX00: 1'b0	; LutOut
+alta_slice00_OMUX01: 1'b1	; Q
+alta_slice00_OMUX02: 1'b1	; Q
+alta_slice00_SHIFTMUX: 1'b0
+alta_slice01_BYPASSEN: 1'b0
+alta_slice01_CARRY_CRL: 1'b1
+alta_slice01_IMUX04: 12'b000000001_100	; I:8	; A	; <= LogicTILE(1,7):OMUX43:O0 T0 0.996
+alta_slice01_IMUX05: 12'b000000100_100	; I:6	; B	; <= LogicTILE(1,7):OMUX34:O0 T0 0.955
+alta_slice01_IMUX06: 12'b100000000_100	; I:0	; C	; <= LogicTILE(1,7):OMUX01:O0 T0 0.867
+alta_slice01_IMUX07: 12'b000000001_001	; I:26	; D	; <= LogicTILE(1,7):RMUX95:O0 T0 0.688
+alta_slice01_LUT: 16'h8000
+alta_slice01_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice01_OMUX03: 1'b0	; LutOut
+alta_slice01_OMUX04: 1'b0	; LutOut
+alta_slice01_OMUX05: 1'b0	; LutOut
+alta_slice01_SHIFTMUX: 1'b0
+alta_slice02_BYPASSEN: 1'b0
+alta_slice02_CARRY_CRL: 1'b1
+alta_slice02_IMUX08: 12'b000100000_010	; I:12	; A	; <= LogicTILE(1,7):RMUX10:O0 T0 1.143
+alta_slice02_IMUX09: 12'b000000001_100	; I:8	; B	; <= LogicTILE(1,7):OMUX46:O0 T0 0.955
+alta_slice02_IMUX10: 12'b000010000_100	; I:4	; C	; <= LogicTILE(1,7):OMUX19:O0 T0 0.867
+alta_slice02_IMUX11: 12'b000000010_100	; I:7	; D	; <= LogicTILE(1,7):OMUX40:O0 T0 0.541
+alta_slice02_LUT: 16'h8000
+alta_slice02_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice02_OMUX06: 1'b0	; LutOut
+alta_slice02_OMUX07: 1'b0	; LutOut
+alta_slice02_OMUX08: 1'b0	; LutOut
+alta_slice02_SHIFTMUX: 1'b0
+alta_slice03_BYPASSEN: 1'b0
+alta_slice03_CARRY_CRL: 1'b1
+alta_slice03_IMUX12: 12'b001000000_100	; I:2	; A	; <= LogicTILE(1,7):OMUX10:O0 T0 0.996
+alta_slice03_IMUX13: 12'b000000100_010	; I:15	; B	; <= LogicTILE(1,7):RMUX29:O0 T0 1.102
+alta_slice03_IMUX14: 12'b100000000_001	; I:18	; C	; <= LogicTILE(1,7):RMUX46:O0 T0 1.014
+alta_slice03_IMUX15: 12'b000000100_010	; I:15	; D	; <= LogicTILE(1,7):RMUX29:O0 T0 0.688
+alta_slice03_LUT: 16'h5555
+alta_slice03_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice03_OMUX09: 1'b0	; LutOut
+alta_slice03_OMUX10: 1'b1	; Q
+alta_slice03_OMUX11: 1'b1	; Q
+alta_slice03_SHIFTMUX: 1'b0
+alta_slice04_BYPASSEN: 1'b0
+alta_slice04_CARRY_CRL: 1'b1
+alta_slice04_IMUX16: 12'b000010000_010	; I:13	; A	; <= LogicTILE(1,7):RMUX16:O0 T0 1.143
+alta_slice04_IMUX17: 12'b001000000_100	; I:2	; B	; <= LogicTILE(1,7):OMUX13:O0 T0 0.955
+alta_slice04_IMUX18: 12'b100000000_001	; I:18	; C	; <= LogicTILE(1,7):RMUX46:O0 T0 1.014
+alta_slice04_IMUX19: 12'b000000100_010	; I:15	; D	; <= LogicTILE(1,7):RMUX29:O0 T0 0.688
+alta_slice04_LUT: 16'h6666
+alta_slice04_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice04_OMUX12: 1'b0	; LutOut
+alta_slice04_OMUX13: 1'b1	; Q
+alta_slice04_OMUX14: 1'b1	; Q
+alta_slice04_SHIFTMUX: 1'b0
+alta_slice05_BYPASSEN: 1'b0
+alta_slice05_CARRY_CRL: 1'b0
+alta_slice05_IMUX20: 12'b000000000_000	; I:-1	; A
+alta_slice05_IMUX21: 12'b000000000_000	; I:-1	; B
+alta_slice05_IMUX22: 12'b000000000_000	; I:-1	; C
+alta_slice05_IMUX23: 12'b000000000_000	; I:-1	; D
+alta_slice05_LUT: 16'hffff
+alta_slice05_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice05_OMUX15: 1'b0	; LutOut
+alta_slice05_OMUX16: 1'b0	; LutOut
+alta_slice05_OMUX17: 1'b0	; LutOut
+alta_slice05_SHIFTMUX: 1'b0
+alta_slice06_BYPASSEN: 1'b0
+alta_slice06_CARRY_CRL: 1'b1
+alta_slice06_IMUX24: 12'b000100000_010	; I:12	; A	; <= LogicTILE(1,7):RMUX10:O0 T0 1.143
+alta_slice06_IMUX25: 12'b000000001_100	; I:8	; B	; <= LogicTILE(1,7):OMUX46:O0 T0 0.955
+alta_slice06_IMUX26: 12'b000000100_001	; I:24	; C	; <= LogicTILE(1,7):RMUX82:O0 T0 1.014
+alta_slice06_IMUX27: 12'b000100000_100	; I:3	; D	; <= LogicTILE(1,7):OMUX19:O0 T0 0.541
+alta_slice06_LUT: 16'h7f80
+alta_slice06_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice06_OMUX18: 1'b0	; LutOut
+alta_slice06_OMUX19: 1'b1	; Q
+alta_slice06_OMUX20: 1'b0	; LutOut
+alta_slice06_SHIFTMUX: 1'b0
+alta_slice07_BYPASSEN: 1'b0
+alta_slice07_CARRY_CRL: 1'b1
+alta_slice07_IMUX28: 12'b000010000_010	; I:13	; A	; <= LogicTILE(1,7):RMUX16:O0 T0 1.143
+alta_slice07_IMUX29: 12'b100000000_001	; I:18	; B	; <= LogicTILE(1,7):RMUX47:O0 T0 1.102
+alta_slice07_IMUX30: 12'b001000000_001	; I:20	; C	; <= LogicTILE(1,7):RMUX58:O0 T0 1.014
+alta_slice07_IMUX31: 12'b000010000_100	; I:4	; D	; <= LogicTILE(1,7):OMUX22:O0 T0 0.541
+alta_slice07_LUT: 16'h7f80
+alta_slice07_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice07_OMUX21: 1'b0	; LutOut
+alta_slice07_OMUX22: 1'b1	; Q
+alta_slice07_OMUX23: 1'b1	; Q
+alta_slice07_SHIFTMUX: 1'b0
+alta_slice08_BYPASSEN: 1'b0
+alta_slice08_CARRY_CRL: 1'b0
+alta_slice08_IMUX32: 12'b000000000_000	; I:-1	; A
+alta_slice08_IMUX33: 12'b000000000_000	; I:-1	; B
+alta_slice08_IMUX34: 12'b000000000_000	; I:-1	; C
+alta_slice08_IMUX35: 12'b000000000_000	; I:-1	; D
+alta_slice08_LUT: 16'hffff
+alta_slice08_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice08_OMUX24: 1'b0	; LutOut
+alta_slice08_OMUX25: 1'b0	; LutOut
+alta_slice08_OMUX26: 1'b0	; LutOut
+alta_slice08_SHIFTMUX: 1'b0
+alta_slice09_BYPASSEN: 1'b0
+alta_slice09_CARRY_CRL: 1'b1
+alta_slice09_IMUX36: 12'b000010000_010	; I:13	; A	; <= LogicTILE(1,7):RMUX16:O0 T0 1.143
+alta_slice09_IMUX37: 12'b100000000_001	; I:18	; B	; <= LogicTILE(1,7):RMUX47:O0 T0 1.102
+alta_slice09_IMUX38: 12'b000001000_100	; I:5	; C	; <= LogicTILE(1,7):OMUX28:O0 T0 0.867
+alta_slice09_IMUX39: 12'b000000100_010	; I:15	; D	; <= LogicTILE(1,7):RMUX29:O0 T0 0.688
+alta_slice09_LUT: 16'h7878
+alta_slice09_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice09_OMUX27: 1'b0	; LutOut
+alta_slice09_OMUX28: 1'b1	; Q
+alta_slice09_OMUX29: 1'b1	; Q
+alta_slice09_SHIFTMUX: 1'b0
+alta_slice10_BYPASSEN: 1'b0
+alta_slice10_CARRY_CRL: 1'b1
+alta_slice10_IMUX40: 12'b010000000_001	; I:19	; A	; <= LogicTILE(1,7):RMUX52:O0 T0 1.143
+alta_slice10_IMUX41: 12'b000001000_100	; I:5	; B	; <= LogicTILE(1,7):OMUX31:O0 T0 0.955
+alta_slice10_IMUX42: 12'b100000000_001	; I:18	; C	; <= LogicTILE(1,7):RMUX46:O0 T0 1.014
+alta_slice10_IMUX43: 12'b000000100_010	; I:15	; D	; <= LogicTILE(1,7):RMUX29:O0 T0 0.688
+alta_slice10_LUT: 16'h6666
+alta_slice10_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice10_OMUX30: 1'b1	; Q
+alta_slice10_OMUX31: 1'b1	; Q
+alta_slice10_OMUX32: 1'b1	; Q
+alta_slice10_SHIFTMUX: 1'b0
+alta_slice11_BYPASSEN: 1'b0
+alta_slice11_CARRY_CRL: 1'b1
+alta_slice11_IMUX44: 12'b000000001_100	; I:8	; A	; <= LogicTILE(1,7):OMUX43:O0 T0 0.996
+alta_slice11_IMUX45: 12'b000010000_010	; I:13	; B	; <= LogicTILE(1,7):RMUX17:O0 T0 1.102
+alta_slice11_IMUX46: 12'b000000100_100	; I:6	; C	; <= LogicTILE(1,7):OMUX34:O0 T0 0.867
+alta_slice11_IMUX47: 12'b000000100_010	; I:15	; D	; <= LogicTILE(1,7):RMUX29:O0 T0 0.688
+alta_slice11_LUT: 16'h7878
+alta_slice11_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice11_OMUX33: 1'b0	; LutOut
+alta_slice11_OMUX34: 1'b1	; Q
+alta_slice11_OMUX35: 1'b0	; LutOut
+alta_slice11_SHIFTMUX: 1'b0
+alta_slice12_BYPASSEN: 1'b0
+alta_slice12_CARRY_CRL: 1'b1
+alta_slice12_IMUX48: 12'b000000001_100	; I:8	; A	; <= LogicTILE(1,7):OMUX43:O0 T0 0.996
+alta_slice12_IMUX49: 12'b000001000_100	; I:5	; B	; <= LogicTILE(1,7):OMUX34:O0 T0 0.955
+alta_slice12_IMUX50: 12'b100000000_100	; I:0	; C	; <= LogicTILE(1,7):OMUX01:O0 T0 0.867
+alta_slice12_IMUX51: 12'b000000100_100	; I:6	; D	; <= LogicTILE(1,7):OMUX37:O0 T0 0.541
+alta_slice12_LUT: 16'h7f80
+alta_slice12_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice12_OMUX36: 1'b0	; LutOut
+alta_slice12_OMUX37: 1'b1	; Q
+alta_slice12_OMUX38: 1'b1	; Q
+alta_slice12_SHIFTMUX: 1'b0
+alta_slice13_BYPASSEN: 1'b0
+alta_slice13_CARRY_CRL: 1'b1
+alta_slice13_IMUX52: 12'b000100000_010	; I:12	; A	; <= LogicTILE(1,7):RMUX10:O0 T0 1.143
+alta_slice13_IMUX53: 12'b000000001_100	; I:8	; B	; <= LogicTILE(1,7):OMUX46:O0 T0 0.955
+alta_slice13_IMUX54: 12'b000000010_100	; I:7	; C	; <= LogicTILE(1,7):OMUX40:O0 T0 0.867
+alta_slice13_IMUX55: 12'b000000100_010	; I:15	; D	; <= LogicTILE(1,7):RMUX29:O0 T0 0.688
+alta_slice13_LUT: 16'h7878
+alta_slice13_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice13_OMUX39: 1'b0	; LutOut
+alta_slice13_OMUX40: 1'b1	; Q
+alta_slice13_OMUX41: 1'b1	; Q
+alta_slice13_SHIFTMUX: 1'b0
+alta_slice14_BYPASSEN: 1'b0
+alta_slice14_CARRY_CRL: 1'b1
+alta_slice14_IMUX56: 12'b000010000_010	; I:13	; A	; <= LogicTILE(1,7):RMUX16:O0 T0 1.143
+alta_slice14_IMUX57: 12'b100000000_001	; I:18	; B	; <= LogicTILE(1,7):RMUX47:O0 T0 1.102
+alta_slice14_IMUX58: 12'b000000001_010	; I:17	; C	; <= LogicTILE(1,7):RMUX40:O0 T0 1.014
+alta_slice14_IMUX59: 12'b000010000_100	; I:4	; D	; <= LogicTILE(1,7):OMUX28:O0 T0 0.541
+alta_slice14_LUT: 16'h8000
+alta_slice14_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice14_OMUX42: 1'b0	; LutOut
+alta_slice14_OMUX43: 1'b0	; LutOut
+alta_slice14_OMUX44: 1'b0	; LutOut
+alta_slice14_SHIFTMUX: 1'b0
+alta_slice15_BYPASSEN: 1'b0
+alta_slice15_CARRY_CRL: 1'b1
+alta_slice15_IMUX60: 12'b000100000_010	; I:12	; A	; <= LogicTILE(1,7):RMUX10:O0 T0 1.143
+alta_slice15_IMUX61: 12'b000000001_100	; I:8	; B	; <= LogicTILE(1,7):OMUX46:O0 T0 0.955
+alta_slice15_IMUX62: 12'b100000000_001	; I:18	; C	; <= LogicTILE(1,7):RMUX46:O0 T0 1.014
+alta_slice15_IMUX63: 12'b000000100_010	; I:15	; D	; <= LogicTILE(1,7):RMUX29:O0 T0 0.688
+alta_slice15_LUT: 16'h6666
+alta_slice15_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice15_OMUX45: 1'b0	; LutOut
+alta_slice15_OMUX46: 1'b1	; Q
+alta_slice15_OMUX47: 1'b0	; LutOut
+alta_slice15_SHIFTMUX: 1'b0
+
+.LogicTILE 2 7
+AsyncMUX00: 1'b0
+AsyncMUX01: 1'b0
+AsyncMUX02: 1'b0
+AsyncMUX03: 1'b0
+AsyncMUX04: 1'b0
+AsyncMUX05: 1'b0
+AsyncMUX06: 1'b0
+AsyncMUX07: 1'b0
+AsyncMUX08: 1'b0
+AsyncMUX09: 1'b0
+AsyncMUX10: 1'b0
+AsyncMUX11: 1'b0
+AsyncMUX12: 1'b0
+AsyncMUX13: 1'b0
+AsyncMUX14: 1'b0
+AsyncMUX15: 1'b0
+ClkMUX00: 1'b0
+ClkMUX01: 1'b0
+ClkMUX02: 1'b0
+ClkMUX03: 1'b0
+ClkMUX04: 1'b0
+ClkMUX05: 1'b0
+ClkMUX06: 1'b1
+ClkMUX07: 1'b0
+ClkMUX08: 1'b0
+ClkMUX09: 1'b0
+ClkMUX10: 1'b0
+ClkMUX11: 1'b1
+ClkMUX12: 1'b0
+ClkMUX13: 1'b0
+ClkMUX14: 1'b0
+ClkMUX15: 1'b0
+CtrlMUX00: 12'b00000000_0000	; I:-1
+CtrlMUX01: 12'b00000000_0000	; I:-1
+CtrlMUX02: 12'b00001000_0100	; I:12	; <= LogicTILE(2,7):OMUX25:O0 T0 0.234
+CtrlMUX03: 12'b00000000_0000	; I:-1
+DSTRSTB: 2'b00
+RMUX00: 10'b0000000_000	; I:-1
+RMUX01: 10'b0000000_000	; I:-1
+RMUX02: 10'b0000000_000	; I:-1
+RMUX03: 10'b0000000_000	; I:-1
+RMUX04: 10'b0001000_001	; I:17	; <= LogicTILE(2,8):RMUX27:O0 T4Y 0.527
+RMUX05: 10'b0000000_000	; I:-1
+RMUX06: 10'b0000000_000	; I:-1
+RMUX07: 10'b0000000_000	; I:-1
+RMUX08: 10'b0000000_000	; I:-1
+RMUX09: 10'b0000000_000	; I:-1
+RMUX10: 10'b0010000_010	; I:9	; <= LogicTILE(1,7):RMUX51:O0 T4X 0.44
+RMUX11: 10'b0000000_000	; I:-1
+RMUX12: 10'b0000000_000	; I:-1
+RMUX13: 10'b0000000_000	; I:-1
+RMUX14: 10'b0000000_000	; I:-1
+RMUX15: 10'b0000000_000	; I:-1
+RMUX16: 10'b0000000_000	; I:-1
+RMUX17: 10'b0000000_000	; I:-1
+RMUX18: 10'b0000000_000	; I:-1
+RMUX19: 10'b0000000_000	; I:-1
+RMUX20: 10'b0000000_000	; I:-1
+RMUX21: 10'b0000000_000	; I:-1
+RMUX22: 10'b0000000_000	; I:-1
+RMUX23: 10'b0000000_000	; I:-1
+RMUX24: 10'b0000000_000	; I:-1
+RMUX25: 10'b0010000_010	; I:9	; <= LogicTILE(1,7):RMUX31:O0 T4X 0.44
+RMUX26: 10'b0000000_000	; I:-1
+RMUX27: 10'b0000000_000	; I:-1
+RMUX28: 10'b0000000_000	; I:-1
+RMUX29: 10'b0000000_000	; I:-1
+RMUX30: 10'b0000000_000	; I:-1
+RMUX31: 10'b0000000_000	; I:-1
+RMUX32: 10'b0000000_000	; I:-1
+RMUX33: 10'b0000000_000	; I:-1
+RMUX34: 10'b0000000_000	; I:-1
+RMUX35: 10'b0000000_000	; I:-1
+RMUX36: 10'b0000000_000	; I:-1
+RMUX37: 10'b0000000_000	; I:-1
+RMUX38: 10'b0000000_000	; I:-1
+RMUX39: 10'b0000000_000	; I:-1
+RMUX40: 10'b0010000_010	; I:9	; <= LogicTILE(1,7):RMUX31:O0 T4X 0.44
+RMUX41: 10'b0010000_010	; I:9	; <= LogicTILE(1,7):RMUX31:O0 T4X 0.44
+RMUX42: 10'b0000000_000	; I:-1
+RMUX43: 10'b0000000_000	; I:-1
+RMUX44: 10'b0010000_100	; I:2	; <= LogicTILE(2,7):OMUX20:O0 T0 0.197
+RMUX45: 10'b0000000_000	; I:-1
+RMUX46: 10'b0000000_000	; I:-1
+RMUX47: 10'b0000000_000	; I:-1
+RMUX48: 10'b0000000_000	; I:-1
+RMUX49: 10'b0000000_000	; I:-1
+RMUX50: 10'b0000000_000	; I:-1
+RMUX51: 10'b0000000_000	; I:-1
+RMUX52: 10'b0000000_000	; I:-1
+RMUX53: 10'b0000000_000	; I:-1
+RMUX54: 10'b0000000_000	; I:-1
+RMUX55: 10'b0000000_000	; I:-1
+RMUX56: 10'b0000000_000	; I:-1
+RMUX57: 10'b0000000_000	; I:-1
+RMUX58: 10'b0000000_000	; I:-1
+RMUX59: 10'b0000000_000	; I:-1
+RMUX60: 10'b0000000_000	; I:-1
+RMUX61: 10'b0000000_000	; I:-1
+RMUX62: 10'b0000000_000	; I:-1
+RMUX63: 10'b0000000_000	; I:-1
+RMUX64: 10'b0000000_000	; I:-1
+RMUX65: 10'b0010000_100	; I:2	; <= LogicTILE(1,7):OMUX30:O0 T1 0.193
+RMUX66: 10'b0000000_000	; I:-1
+RMUX67: 10'b0000000_000	; I:-1
+RMUX68: 10'b0000000_000	; I:-1
+RMUX69: 10'b0010000_100	; I:2	; <= LogicTILE(1,7):OMUX30:O0 T1 0.193
+RMUX70: 10'b0000000_000	; I:-1
+RMUX71: 10'b0000000_000	; I:-1
+RMUX72: 10'b0000000_000	; I:-1
+RMUX73: 10'b0000000_000	; I:-1
+RMUX74: 10'b0000000_000	; I:-1
+RMUX75: 10'b0000000_000	; I:-1
+RMUX76: 10'b0000000_000	; I:-1
+RMUX77: 10'b0000000_000	; I:-1
+RMUX78: 10'b0000000_000	; I:-1
+RMUX79: 10'b0000000_000	; I:-1
+RMUX80: 10'b0000000_000	; I:-1
+RMUX81: 10'b0000000_000	; I:-1
+RMUX82: 10'b0000000_000	; I:-1
+RMUX83: 10'b0000000_000	; I:-1
+RMUX84: 10'b0000000_000	; I:-1
+RMUX85: 10'b0000000_000	; I:-1
+RMUX86: 10'b0000000_000	; I:-1
+RMUX87: 10'b0000000_000	; I:-1
+RMUX88: 10'b0000000_000	; I:-1
+RMUX89: 10'b0000000_000	; I:-1
+RMUX90: 10'b0000000_000	; I:-1
+RMUX91: 10'b0000000_000	; I:-1
+RMUX92: 10'b0000000_000	; I:-1
+RMUX93: 10'b0000000_000	; I:-1
+RMUX94: 10'b0000000_000	; I:-1
+RMUX95: 10'b0000000_000	; I:-1
+SeamMUX00: 8'b00000000
+SeamMUX01: 8'b00000000
+SeamMUX02: 8'b00000000
+SeamMUX03: 8'b00000000
+TileAsyncMUX00: 4'b0001
+TileAsyncMUX01: 4'b0000
+TileClkEnMUX00: 3'b000
+TileClkEnMUX01: 3'b000
+TileClkMUX00: 4'b0000
+TileClkMUX01: 4'b0100
+TileSyncMUX00: 3'b000
+TileSyncMUX01: 3'b000
+__NAME: ALTA_TILE_SRAM_DIST
+alta_slice00_BYPASSEN: 1'b0
+alta_slice00_CARRY_CRL: 1'b0
+alta_slice00_IMUX00: 12'b000000000_000	; I:-1	; A
+alta_slice00_IMUX01: 12'b000000000_000	; I:-1	; B
+alta_slice00_IMUX02: 12'b000000000_000	; I:-1	; C
+alta_slice00_IMUX03: 12'b000000000_000	; I:-1	; D
+alta_slice00_LUT: 16'hffff
+alta_slice00_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice00_OMUX00: 1'b0	; LutOut
+alta_slice00_OMUX01: 1'b0	; LutOut
+alta_slice00_OMUX02: 1'b0	; LutOut
+alta_slice00_SHIFTMUX: 1'b0
+alta_slice01_BYPASSEN: 1'b0
+alta_slice01_CARRY_CRL: 1'b0
+alta_slice01_IMUX04: 12'b000000000_000	; I:-1	; A
+alta_slice01_IMUX05: 12'b000000000_000	; I:-1	; B
+alta_slice01_IMUX06: 12'b000000000_000	; I:-1	; C
+alta_slice01_IMUX07: 12'b000000000_000	; I:-1	; D
+alta_slice01_LUT: 16'hffff
+alta_slice01_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice01_OMUX03: 1'b0	; LutOut
+alta_slice01_OMUX04: 1'b0	; LutOut
+alta_slice01_OMUX05: 1'b0	; LutOut
+alta_slice01_SHIFTMUX: 1'b0
+alta_slice02_BYPASSEN: 1'b0
+alta_slice02_CARRY_CRL: 1'b0
+alta_slice02_IMUX08: 12'b000000000_000	; I:-1	; A
+alta_slice02_IMUX09: 12'b000000000_000	; I:-1	; B
+alta_slice02_IMUX10: 12'b000000000_000	; I:-1	; C
+alta_slice02_IMUX11: 12'b000000000_000	; I:-1	; D
+alta_slice02_LUT: 16'hffff
+alta_slice02_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice02_OMUX06: 1'b0	; LutOut
+alta_slice02_OMUX07: 1'b0	; LutOut
+alta_slice02_OMUX08: 1'b0	; LutOut
+alta_slice02_SHIFTMUX: 1'b0
+alta_slice03_BYPASSEN: 1'b0
+alta_slice03_CARRY_CRL: 1'b0
+alta_slice03_IMUX12: 12'b000000000_000	; I:-1	; A
+alta_slice03_IMUX13: 12'b000000000_000	; I:-1	; B
+alta_slice03_IMUX14: 12'b000000000_000	; I:-1	; C
+alta_slice03_IMUX15: 12'b000000000_000	; I:-1	; D
+alta_slice03_LUT: 16'hffff
+alta_slice03_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice03_OMUX09: 1'b0	; LutOut
+alta_slice03_OMUX10: 1'b0	; LutOut
+alta_slice03_OMUX11: 1'b0	; LutOut
+alta_slice03_SHIFTMUX: 1'b0
+alta_slice04_BYPASSEN: 1'b0
+alta_slice04_CARRY_CRL: 1'b0
+alta_slice04_IMUX16: 12'b000000000_000	; I:-1	; A
+alta_slice04_IMUX17: 12'b000000000_000	; I:-1	; B
+alta_slice04_IMUX18: 12'b000000000_000	; I:-1	; C
+alta_slice04_IMUX19: 12'b000000000_000	; I:-1	; D
+alta_slice04_LUT: 16'hffff
+alta_slice04_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice04_OMUX12: 1'b0	; LutOut
+alta_slice04_OMUX13: 1'b0	; LutOut
+alta_slice04_OMUX14: 1'b0	; LutOut
+alta_slice04_SHIFTMUX: 1'b0
+alta_slice05_BYPASSEN: 1'b0
+alta_slice05_CARRY_CRL: 1'b0
+alta_slice05_IMUX20: 12'b000000000_000	; I:-1	; A
+alta_slice05_IMUX21: 12'b000000000_000	; I:-1	; B
+alta_slice05_IMUX22: 12'b000000000_000	; I:-1	; C
+alta_slice05_IMUX23: 12'b000000000_000	; I:-1	; D
+alta_slice05_LUT: 16'hffff
+alta_slice05_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice05_OMUX15: 1'b0	; LutOut
+alta_slice05_OMUX16: 1'b0	; LutOut
+alta_slice05_OMUX17: 1'b0	; LutOut
+alta_slice05_SHIFTMUX: 1'b0
+alta_slice06_BYPASSEN: 1'b0
+alta_slice06_CARRY_CRL: 1'b1
+alta_slice06_IMUX24: 12'b000010000_100	; I:4	; A	; <= LogicTILE(2,7):OMUX22:O0 T0 0.996
+alta_slice06_IMUX25: 12'b000100000_100	; I:3	; B	; <= LogicTILE(2,7):OMUX19:O0 T0 0.955
+alta_slice06_IMUX26: 12'b000000001_010	; I:17	; C	; <= LogicTILE(2,7):RMUX40:O0 T0 1.014
+alta_slice06_IMUX27: 12'b000000001_010	; I:17	; D	; <= LogicTILE(2,7):RMUX41:O0 T0 0.688
+alta_slice06_LUT: 16'h6666
+alta_slice06_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice06_OMUX18: 1'b0	; LutOut
+alta_slice06_OMUX19: 1'b1	; Q
+alta_slice06_OMUX20: 1'b1	; Q
+alta_slice06_SHIFTMUX: 1'b0
+alta_slice07_BYPASSEN: 1'b0
+alta_slice07_CARRY_CRL: 1'b1
+alta_slice07_IMUX28: 12'b000100000_010	; I:12	; A	; <= LogicTILE(2,7):RMUX10:O0 T0 1.143
+alta_slice07_IMUX29: 12'b000100000_001	; I:21	; B	; <= LogicTILE(2,7):RMUX65:O0 T0 1.102
+alta_slice07_IMUX30: 12'b001000000_010	; I:11	; C	; <= LogicTILE(2,7):RMUX04:O0 T0 1.014
+alta_slice07_IMUX31: 12'b000000100_100	; I:6	; D	; <= LogicTILE(2,7):OMUX34:O0 T0 0.541
+alta_slice07_LUT: 16'h8000
+alta_slice07_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice07_OMUX21: 1'b0	; LutOut
+alta_slice07_OMUX22: 1'b0	; LutOut
+alta_slice07_OMUX23: 1'b0	; LutOut
+alta_slice07_SHIFTMUX: 1'b0
+alta_slice08_BYPASSEN: 1'b0
+alta_slice08_CARRY_CRL: 1'b0
+alta_slice08_IMUX32: 12'b000000000_000	; I:-1	; A
+alta_slice08_IMUX33: 12'b000000000_000	; I:-1	; B
+alta_slice08_IMUX34: 12'b000000000_000	; I:-1	; C
+alta_slice08_IMUX35: 12'b000000000_000	; I:-1	; D
+alta_slice08_LUT: 16'hffff
+alta_slice08_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice08_OMUX24: 1'b0	; LutOut
+alta_slice08_OMUX25: 1'b0	; LutOut
+alta_slice08_OMUX26: 1'b0	; LutOut
+alta_slice08_SHIFTMUX: 1'b0
+alta_slice09_BYPASSEN: 1'b0
+alta_slice09_CARRY_CRL: 1'b0
+alta_slice09_IMUX36: 12'b000000000_000	; I:-1	; A
+alta_slice09_IMUX37: 12'b000000000_000	; I:-1	; B
+alta_slice09_IMUX38: 12'b000000000_000	; I:-1	; C
+alta_slice09_IMUX39: 12'b000000000_000	; I:-1	; D
+alta_slice09_LUT: 16'hffff
+alta_slice09_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice09_OMUX27: 1'b0	; LutOut
+alta_slice09_OMUX28: 1'b0	; LutOut
+alta_slice09_OMUX29: 1'b0	; LutOut
+alta_slice09_SHIFTMUX: 1'b0
+alta_slice10_BYPASSEN: 1'b0
+alta_slice10_CARRY_CRL: 1'b0
+alta_slice10_IMUX40: 12'b000000000_000	; I:-1	; A
+alta_slice10_IMUX41: 12'b000000000_000	; I:-1	; B
+alta_slice10_IMUX42: 12'b000000000_000	; I:-1	; C
+alta_slice10_IMUX43: 12'b000000000_000	; I:-1	; D
+alta_slice10_LUT: 16'hffff
+alta_slice10_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice10_OMUX30: 1'b0	; LutOut
+alta_slice10_OMUX31: 1'b0	; LutOut
+alta_slice10_OMUX32: 1'b0	; LutOut
+alta_slice10_SHIFTMUX: 1'b0
+alta_slice11_BYPASSEN: 1'b0
+alta_slice11_CARRY_CRL: 1'b1
+alta_slice11_IMUX44: 12'b000100000_010	; I:12	; A	; <= LogicTILE(2,7):RMUX10:O0 T0 1.143
+alta_slice11_IMUX45: 12'b000100000_001	; I:21	; B	; <= LogicTILE(2,7):RMUX65:O0 T0 1.102
+alta_slice11_IMUX46: 12'b001000000_010	; I:11	; C	; <= LogicTILE(2,7):RMUX04:O0 T0 1.014
+alta_slice11_IMUX47: 12'b000000100_100	; I:6	; D	; <= LogicTILE(2,7):OMUX34:O0 T0 0.541
+alta_slice11_LUT: 16'h7f80
+alta_slice11_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice11_OMUX33: 1'b1	; Q
+alta_slice11_OMUX34: 1'b1	; Q
 alta_slice11_OMUX35: 1'b0	; LutOut
 alta_slice11_SHIFTMUX: 1'b0
 alta_slice12_BYPASSEN: 1'b0
@@ -6623,9 +6623,9 @@ RMUX44: 10'b0000000_000	; I:-1
 RMUX45: 10'b0000000_000	; I:-1
 RMUX46: 10'b0000000_000	; I:-1
 RMUX47: 10'b0000000_000	; I:-1
-RMUX48: 10'b0000000_000	; I:-1
+RMUX48: 10'b0000010_100	; I:5	; <= LogicTILE(4,7):RMUX13:O0 T4X 0.44
 RMUX49: 10'b0000000_000	; I:-1
-RMUX50: 10'b0000000_000	; I:-1
+RMUX50: 10'b0001000_100	; I:3	; <= LogicTILE(2,7):OMUX33:O0 T1 0.193
 RMUX51: 10'b0000000_000	; I:-1
 RMUX52: 10'b0000000_000	; I:-1
 RMUX53: 10'b0000000_000	; I:-1
@@ -9740,37 +9740,37 @@ AsyncMUX12: 1'b0
 AsyncMUX13: 1'b0
 AsyncMUX14: 1'b0
 AsyncMUX15: 1'b0
-ClkMUX00: 1'b1
-ClkMUX01: 1'b1
-ClkMUX02: 1'b1
+ClkMUX00: 1'b0
+ClkMUX01: 1'b0
+ClkMUX02: 1'b0
 ClkMUX03: 1'b0
 ClkMUX04: 1'b0
-ClkMUX05: 1'b1
-ClkMUX06: 1'b1
-ClkMUX07: 1'b1
-ClkMUX08: 1'b1
-ClkMUX09: 1'b1
-ClkMUX10: 1'b1
+ClkMUX05: 1'b0
+ClkMUX06: 1'b0
+ClkMUX07: 1'b0
+ClkMUX08: 1'b0
+ClkMUX09: 1'b0
+ClkMUX10: 1'b0
 ClkMUX11: 1'b0
-ClkMUX12: 1'b1
+ClkMUX12: 1'b0
 ClkMUX13: 1'b0
 ClkMUX14: 1'b0
 ClkMUX15: 1'b0
 CtrlMUX00: 12'b00000000_0000	; I:-1
 CtrlMUX01: 12'b00000000_0000	; I:-1
-CtrlMUX02: 12'b00100000_0001	; I:26	; <= LogicTILE(0,6):RMUX28:O0 T0 0.381
+CtrlMUX02: 12'b00000000_0000	; I:-1
 CtrlMUX03: 12'b00000000_0000	; I:-1
 DSTRSTB: 2'b00
 RMUX00: 10'b0000000_000	; I:-1
 RMUX01: 10'b0000000_000	; I:-1
 RMUX02: 10'b0000000_000	; I:-1
 RMUX03: 10'b0000000_000	; I:-1
-RMUX04: 10'b0100000_100	; I:1	; <= LogicTILE(0,6):OMUX05:O0 T0 0.197
-RMUX05: 10'b0010000_100	; I:2	; <= LogicTILE(0,6):OMUX08:O0 T0 0.197
+RMUX04: 10'b0000000_000	; I:-1
+RMUX05: 10'b0000000_000	; I:-1
 RMUX06: 10'b0000000_000	; I:-1
 RMUX07: 10'b0000000_000	; I:-1
 RMUX08: 10'b0000000_000	; I:-1
-RMUX09: 10'b0001000_100	; I:3	; <= LogicTILE(0,6):OMUX11:O0 T0 0.197
+RMUX09: 10'b0000000_000	; I:-1
 RMUX10: 10'b0000000_000	; I:-1
 RMUX11: 10'b0000000_000	; I:-1
 RMUX12: 10'b0000000_000	; I:-1
@@ -9784,7 +9784,7 @@ RMUX19: 10'b0000000_000	; I:-1
 RMUX20: 10'b0000000_000	; I:-1
 RMUX21: 10'b0000000_000	; I:-1
 RMUX22: 10'b0000000_000	; I:-1
-RMUX23: 10'b1000000_100	; I:0	; <= LogicTILE(0,6):OMUX02:O0 T0 0.197
+RMUX23: 10'b0000000_000	; I:-1
 RMUX24: 10'b0000000_000	; I:-1
 RMUX25: 10'b0000000_000	; I:-1
 RMUX26: 10'b0000000_000	; I:-1
@@ -9801,7 +9801,7 @@ RMUX36: 10'b0000000_000	; I:-1
 RMUX37: 10'b0000000_000	; I:-1
 RMUX38: 10'b0000000_000	; I:-1
 RMUX39: 10'b0000000_000	; I:-1
-RMUX40: 10'b0001000_100	; I:3	; <= LogicTILE(0,6):OMUX23:O0 T0 0.197
+RMUX40: 10'b0000000_000	; I:-1
 RMUX41: 10'b0000000_000	; I:-1
 RMUX42: 10'b0000000_000	; I:-1
 RMUX43: 10'b0000000_000	; I:-1
@@ -9825,14 +9825,14 @@ RMUX60: 10'b0000000_000	; I:-1
 RMUX61: 10'b0000000_000	; I:-1
 RMUX62: 10'b0000000_000	; I:-1
 RMUX63: 10'b0000000_000	; I:-1
-RMUX64: 10'b0100000_010	; I:8	; <= LogicTILE(4,6):RMUX13:O0 T4X 0.482
+RMUX64: 10'b0000000_000	; I:-1
 RMUX65: 10'b0000000_000	; I:-1
 RMUX66: 10'b0000000_000	; I:-1
 RMUX67: 10'b0000000_000	; I:-1
 RMUX68: 10'b0000000_000	; I:-1
 RMUX69: 10'b0000000_000	; I:-1
-RMUX70: 10'b0001000_100	; I:3	; <= LogicTILE(0,6):OMUX35:O0 T0 0.197
-RMUX71: 10'b1000000_100	; I:0	; <= LogicTILE(0,6):OMUX26:O0 T0 0.197
+RMUX70: 10'b0000000_000	; I:-1
+RMUX71: 10'b0000000_000	; I:-1
 RMUX72: 10'b0000000_000	; I:-1
 RMUX73: 10'b0000000_000	; I:-1
 RMUX74: 10'b0000000_000	; I:-1
@@ -9850,7 +9850,7 @@ RMUX85: 10'b0000000_000	; I:-1
 RMUX86: 10'b0000000_000	; I:-1
 RMUX87: 10'b0000000_000	; I:-1
 RMUX88: 10'b0000000_000	; I:-1
-RMUX89: 10'b1000000_100	; I:0	; <= LogicTILE(0,6):OMUX38:O0 T0 0.197
+RMUX89: 10'b0000000_000	; I:-1
 RMUX90: 10'b0000000_000	; I:-1
 RMUX91: 10'b0000000_000	; I:-1
 RMUX92: 10'b0000000_000	; I:-1
@@ -9861,170 +9861,170 @@ SeamMUX00: 8'b00000000
 SeamMUX01: 8'b00000000
 SeamMUX02: 8'b00000000
 SeamMUX03: 8'b00000000
-TileAsyncMUX00: 4'b0001
+TileAsyncMUX00: 4'b0000
 TileAsyncMUX01: 4'b0000
 TileClkEnMUX00: 3'b000
 TileClkEnMUX01: 3'b000
 TileClkMUX00: 4'b0000
-TileClkMUX01: 4'b0100
+TileClkMUX01: 4'b0000
 TileSyncMUX00: 3'b000
 TileSyncMUX01: 3'b000
 __NAME: ALTA_TILE_SRAM_DIST
 alta_slice00_BYPASSEN: 1'b0
-alta_slice00_CARRY_CRL: 1'b1
-alta_slice00_IMUX00: 12'b000010000_001	; I:22	; A	; <= LogicTILE(0,6):RMUX70:O0 T0 1.143
-alta_slice00_IMUX01: 12'b100000000_100	; I:0	; B	; <= LogicTILE(0,6):OMUX01:O0 T0 0.955
+alta_slice00_CARRY_CRL: 1'b0
+alta_slice00_IMUX00: 12'b000000000_000	; I:-1	; A
+alta_slice00_IMUX01: 12'b000000000_000	; I:-1	; B
 alta_slice00_IMUX02: 12'b000000000_000	; I:-1	; C
 alta_slice00_IMUX03: 12'b000000000_000	; I:-1	; D
-alta_slice00_LUT: 16'h6666
-alta_slice00_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice00_LUT: 16'hffff
+alta_slice00_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice00_OMUX00: 1'b0	; LutOut
-alta_slice00_OMUX01: 1'b1	; Q
-alta_slice00_OMUX02: 1'b1	; Q
+alta_slice00_OMUX01: 1'b0	; LutOut
+alta_slice00_OMUX02: 1'b0	; LutOut
 alta_slice00_SHIFTMUX: 1'b0
 alta_slice01_BYPASSEN: 1'b0
-alta_slice01_CARRY_CRL: 1'b1
-alta_slice01_IMUX04: 12'b010000000_100	; I:1	; A	; <= LogicTILE(0,6):OMUX04:O0 T0 0.996
+alta_slice01_CARRY_CRL: 1'b0
+alta_slice01_IMUX04: 12'b000000000_000	; I:-1	; A
 alta_slice01_IMUX05: 12'b000000000_000	; I:-1	; B
 alta_slice01_IMUX06: 12'b000000000_000	; I:-1	; C
 alta_slice01_IMUX07: 12'b000000000_000	; I:-1	; D
-alta_slice01_LUT: 16'h0055
-alta_slice01_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice01_LUT: 16'hffff
+alta_slice01_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice01_OMUX03: 1'b0	; LutOut
-alta_slice01_OMUX04: 1'b1	; Q
-alta_slice01_OMUX05: 1'b1	; Q
+alta_slice01_OMUX04: 1'b0	; LutOut
+alta_slice01_OMUX05: 1'b0	; LutOut
 alta_slice01_SHIFTMUX: 1'b0
 alta_slice02_BYPASSEN: 1'b0
-alta_slice02_CARRY_CRL: 1'b1
-alta_slice02_IMUX08: 12'b000100000_100	; I:3	; A	; <= LogicTILE(0,6):OMUX13:O0 T0 0.996
-alta_slice02_IMUX09: 12'b000010000_100	; I:4	; B	; <= LogicTILE(0,6):OMUX22:O0 T0 0.955
-alta_slice02_IMUX10: 12'b010000000_100	; I:1	; C	; <= LogicTILE(0,6):OMUX07:O0 T0 0.867
+alta_slice02_CARRY_CRL: 1'b0
+alta_slice02_IMUX08: 12'b000000000_000	; I:-1	; A
+alta_slice02_IMUX09: 12'b000000000_000	; I:-1	; B
+alta_slice02_IMUX10: 12'b000000000_000	; I:-1	; C
 alta_slice02_IMUX11: 12'b000000000_000	; I:-1	; D
-alta_slice02_LUT: 16'h7878
-alta_slice02_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice02_LUT: 16'hffff
+alta_slice02_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice02_OMUX06: 1'b0	; LutOut
-alta_slice02_OMUX07: 1'b1	; Q
-alta_slice02_OMUX08: 1'b1	; Q
+alta_slice02_OMUX07: 1'b0	; LutOut
+alta_slice02_OMUX08: 1'b0	; LutOut
 alta_slice02_SHIFTMUX: 1'b0
 alta_slice03_BYPASSEN: 1'b0
-alta_slice03_CARRY_CRL: 1'b1
-alta_slice03_IMUX12: 12'b000010000_001	; I:22	; A	; <= LogicTILE(0,6):RMUX70:O0 T0 1.143
-alta_slice03_IMUX13: 12'b000001000_010	; I:14	; B	; <= LogicTILE(0,6):RMUX23:O0 T0 1.102
-alta_slice03_IMUX14: 12'b000010000_100	; I:4	; C	; <= LogicTILE(0,6):OMUX19:O0 T0 0.867
-alta_slice03_IMUX15: 12'b000000010_001	; I:25	; D	; <= LogicTILE(0,6):RMUX89:O0 T0 0.688
-alta_slice03_LUT: 16'h8000
+alta_slice03_CARRY_CRL: 1'b0
+alta_slice03_IMUX12: 12'b000000000_000	; I:-1	; A
+alta_slice03_IMUX13: 12'b000000000_000	; I:-1	; B
+alta_slice03_IMUX14: 12'b000000000_000	; I:-1	; C
+alta_slice03_IMUX15: 12'b000000000_000	; I:-1	; D
+alta_slice03_LUT: 16'hffff
 alta_slice03_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice03_OMUX09: 1'b0	; LutOut
 alta_slice03_OMUX10: 1'b0	; LutOut
 alta_slice03_OMUX11: 1'b0	; LutOut
 alta_slice03_SHIFTMUX: 1'b0
 alta_slice04_BYPASSEN: 1'b0
-alta_slice04_CARRY_CRL: 1'b1
-alta_slice04_IMUX16: 12'b001000000_010	; I:11	; A	; <= LogicTILE(0,6):RMUX04:O0 T0 1.143
-alta_slice04_IMUX17: 12'b000001000_100	; I:5	; B	; <= LogicTILE(0,6):OMUX28:O0 T0 0.955
-alta_slice04_IMUX18: 12'b000000100_100	; I:6	; C	; <= LogicTILE(0,6):OMUX31:O0 T0 0.867
-alta_slice04_IMUX19: 12'b000010000_001	; I:22	; D	; <= LogicTILE(0,6):RMUX71:O0 T0 0.688
-alta_slice04_LUT: 16'h8000
+alta_slice04_CARRY_CRL: 1'b0
+alta_slice04_IMUX16: 12'b000000000_000	; I:-1	; A
+alta_slice04_IMUX17: 12'b000000000_000	; I:-1	; B
+alta_slice04_IMUX18: 12'b000000000_000	; I:-1	; C
+alta_slice04_IMUX19: 12'b000000000_000	; I:-1	; D
+alta_slice04_LUT: 16'hffff
 alta_slice04_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice04_OMUX12: 1'b0	; LutOut
 alta_slice04_OMUX13: 1'b0	; LutOut
 alta_slice04_OMUX14: 1'b0	; LutOut
 alta_slice04_SHIFTMUX: 1'b0
 alta_slice05_BYPASSEN: 1'b0
-alta_slice05_CARRY_CRL: 1'b1
-alta_slice05_IMUX20: 12'b001000000_100	; I:2	; A	; <= LogicTILE(0,6):OMUX13:O0 T0 0.996
-alta_slice05_IMUX21: 12'b001000000_010	; I:11	; B	; <= LogicTILE(0,6):RMUX05:O0 T0 1.102
-alta_slice05_IMUX22: 12'b000000001_010	; I:17	; C	; <= LogicTILE(0,6):RMUX40:O0 T0 1.014
-alta_slice05_IMUX23: 12'b000100000_100	; I:3	; D	; <= LogicTILE(0,6):OMUX16:O0 T0 0.541
-alta_slice05_LUT: 16'h7f80
-alta_slice05_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice05_CARRY_CRL: 1'b0
+alta_slice05_IMUX20: 12'b000000000_000	; I:-1	; A
+alta_slice05_IMUX21: 12'b000000000_000	; I:-1	; B
+alta_slice05_IMUX22: 12'b000000000_000	; I:-1	; C
+alta_slice05_IMUX23: 12'b000000000_000	; I:-1	; D
+alta_slice05_LUT: 16'hffff
+alta_slice05_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice05_OMUX15: 1'b0	; LutOut
-alta_slice05_OMUX16: 1'b1	; Q
+alta_slice05_OMUX16: 1'b0	; LutOut
 alta_slice05_OMUX17: 1'b0	; LutOut
 alta_slice05_SHIFTMUX: 1'b0
 alta_slice06_BYPASSEN: 1'b0
-alta_slice06_CARRY_CRL: 1'b1
-alta_slice06_IMUX24: 12'b000010000_001	; I:22	; A	; <= LogicTILE(0,6):RMUX70:O0 T0 1.143
-alta_slice06_IMUX25: 12'b000001000_010	; I:14	; B	; <= LogicTILE(0,6):RMUX23:O0 T0 1.102
-alta_slice06_IMUX26: 12'b000000010_100	; I:7	; C	; <= LogicTILE(0,6):OMUX37:O0 T0 0.867
-alta_slice06_IMUX27: 12'b000100000_100	; I:3	; D	; <= LogicTILE(0,6):OMUX19:O0 T0 0.541
-alta_slice06_LUT: 16'h7f80
-alta_slice06_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice06_CARRY_CRL: 1'b0
+alta_slice06_IMUX24: 12'b000000000_000	; I:-1	; A
+alta_slice06_IMUX25: 12'b000000000_000	; I:-1	; B
+alta_slice06_IMUX26: 12'b000000000_000	; I:-1	; C
+alta_slice06_IMUX27: 12'b000000000_000	; I:-1	; D
+alta_slice06_LUT: 16'hffff
+alta_slice06_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice06_OMUX18: 1'b0	; LutOut
-alta_slice06_OMUX19: 1'b1	; Q
+alta_slice06_OMUX19: 1'b0	; LutOut
 alta_slice06_OMUX20: 1'b0	; LutOut
 alta_slice06_SHIFTMUX: 1'b0
 alta_slice07_BYPASSEN: 1'b0
-alta_slice07_CARRY_CRL: 1'b1
-alta_slice07_IMUX28: 12'b001000000_100	; I:2	; A	; <= LogicTILE(0,6):OMUX13:O0 T0 0.996
-alta_slice07_IMUX29: 12'b000010000_100	; I:4	; B	; <= LogicTILE(0,6):OMUX22:O0 T0 0.955
+alta_slice07_CARRY_CRL: 1'b0
+alta_slice07_IMUX28: 12'b000000000_000	; I:-1	; A
+alta_slice07_IMUX29: 12'b000000000_000	; I:-1	; B
 alta_slice07_IMUX30: 12'b000000000_000	; I:-1	; C
 alta_slice07_IMUX31: 12'b000000000_000	; I:-1	; D
-alta_slice07_LUT: 16'h6666
-alta_slice07_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice07_LUT: 16'hffff
+alta_slice07_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice07_OMUX21: 1'b0	; LutOut
-alta_slice07_OMUX22: 1'b1	; Q
-alta_slice07_OMUX23: 1'b1	; Q
+alta_slice07_OMUX22: 1'b0	; LutOut
+alta_slice07_OMUX23: 1'b0	; LutOut
 alta_slice07_SHIFTMUX: 1'b0
 alta_slice08_BYPASSEN: 1'b0
-alta_slice08_CARRY_CRL: 1'b1
-alta_slice08_IMUX32: 12'b001000000_010	; I:11	; A	; <= LogicTILE(0,6):RMUX04:O0 T0 1.143
-alta_slice08_IMUX33: 12'b000001000_100	; I:5	; B	; <= LogicTILE(0,6):OMUX28:O0 T0 0.955
-alta_slice08_IMUX34: 12'b000010000_100	; I:4	; C	; <= LogicTILE(0,6):OMUX25:O0 T0 0.867
+alta_slice08_CARRY_CRL: 1'b0
+alta_slice08_IMUX32: 12'b000000000_000	; I:-1	; A
+alta_slice08_IMUX33: 12'b000000000_000	; I:-1	; B
+alta_slice08_IMUX34: 12'b000000000_000	; I:-1	; C
 alta_slice08_IMUX35: 12'b000000000_000	; I:-1	; D
-alta_slice08_LUT: 16'h7878
-alta_slice08_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice08_LUT: 16'hffff
+alta_slice08_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice08_OMUX24: 1'b0	; LutOut
-alta_slice08_OMUX25: 1'b1	; Q
-alta_slice08_OMUX26: 1'b1	; Q
+alta_slice08_OMUX25: 1'b0	; LutOut
+alta_slice08_OMUX26: 1'b0	; LutOut
 alta_slice08_SHIFTMUX: 1'b0
 alta_slice09_BYPASSEN: 1'b0
-alta_slice09_CARRY_CRL: 1'b1
-alta_slice09_IMUX36: 12'b001000000_010	; I:11	; A	; <= LogicTILE(0,6):RMUX04:O0 T0 1.143
-alta_slice09_IMUX37: 12'b000001000_100	; I:5	; B	; <= LogicTILE(0,6):OMUX28:O0 T0 0.955
+alta_slice09_CARRY_CRL: 1'b0
+alta_slice09_IMUX36: 12'b000000000_000	; I:-1	; A
+alta_slice09_IMUX37: 12'b000000000_000	; I:-1	; B
 alta_slice09_IMUX38: 12'b000000000_000	; I:-1	; C
 alta_slice09_IMUX39: 12'b000000000_000	; I:-1	; D
-alta_slice09_LUT: 16'h6666
-alta_slice09_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice09_LUT: 16'hffff
+alta_slice09_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice09_OMUX27: 1'b0	; LutOut
-alta_slice09_OMUX28: 1'b1	; Q
+alta_slice09_OMUX28: 1'b0	; LutOut
 alta_slice09_OMUX29: 1'b0	; LutOut
 alta_slice09_SHIFTMUX: 1'b0
 alta_slice10_BYPASSEN: 1'b0
-alta_slice10_CARRY_CRL: 1'b1
-alta_slice10_IMUX40: 12'b001000000_010	; I:11	; A	; <= LogicTILE(0,6):RMUX04:O0 T0 1.143
-alta_slice10_IMUX41: 12'b000010000_100	; I:4	; B	; <= LogicTILE(0,6):OMUX28:O0 T0 0.955
-alta_slice10_IMUX42: 12'b000010000_100	; I:4	; C	; <= LogicTILE(0,6):OMUX25:O0 T0 0.867
-alta_slice10_IMUX43: 12'b000001000_100	; I:5	; D	; <= LogicTILE(0,6):OMUX31:O0 T0 0.541
-alta_slice10_LUT: 16'h7f80
-alta_slice10_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice10_CARRY_CRL: 1'b0
+alta_slice10_IMUX40: 12'b000000000_000	; I:-1	; A
+alta_slice10_IMUX41: 12'b000000000_000	; I:-1	; B
+alta_slice10_IMUX42: 12'b000000000_000	; I:-1	; C
+alta_slice10_IMUX43: 12'b000000000_000	; I:-1	; D
+alta_slice10_LUT: 16'hffff
+alta_slice10_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice10_OMUX30: 1'b0	; LutOut
-alta_slice10_OMUX31: 1'b1	; Q
+alta_slice10_OMUX31: 1'b0	; LutOut
 alta_slice10_OMUX32: 1'b0	; LutOut
 alta_slice10_SHIFTMUX: 1'b0
 alta_slice11_BYPASSEN: 1'b0
-alta_slice11_CARRY_CRL: 1'b1
-alta_slice11_IMUX44: 12'b001000000_100	; I:2	; A	; <= LogicTILE(0,6):OMUX13:O0 T0 0.996
-alta_slice11_IMUX45: 12'b001000000_010	; I:11	; B	; <= LogicTILE(0,6):RMUX05:O0 T0 1.102
-alta_slice11_IMUX46: 12'b000000001_010	; I:17	; C	; <= LogicTILE(0,6):RMUX40:O0 T0 1.014
-alta_slice11_IMUX47: 12'b001000000_100	; I:2	; D	; <= LogicTILE(0,6):OMUX16:O0 T0 0.541
-alta_slice11_LUT: 16'h8000
+alta_slice11_CARRY_CRL: 1'b0
+alta_slice11_IMUX44: 12'b000000000_000	; I:-1	; A
+alta_slice11_IMUX45: 12'b000000000_000	; I:-1	; B
+alta_slice11_IMUX46: 12'b000000000_000	; I:-1	; C
+alta_slice11_IMUX47: 12'b000000000_000	; I:-1	; D
+alta_slice11_LUT: 16'hffff
 alta_slice11_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice11_OMUX33: 1'b0	; LutOut
 alta_slice11_OMUX34: 1'b0	; LutOut
 alta_slice11_OMUX35: 1'b0	; LutOut
 alta_slice11_SHIFTMUX: 1'b0
 alta_slice12_BYPASSEN: 1'b0
-alta_slice12_CARRY_CRL: 1'b1
-alta_slice12_IMUX48: 12'b000010000_001	; I:22	; A	; <= LogicTILE(0,6):RMUX70:O0 T0 1.143
-alta_slice12_IMUX49: 12'b000001000_010	; I:14	; B	; <= LogicTILE(0,6):RMUX23:O0 T0 1.102
-alta_slice12_IMUX50: 12'b000000100_100	; I:6	; C	; <= LogicTILE(0,6):OMUX37:O0 T0 0.867
+alta_slice12_CARRY_CRL: 1'b0
+alta_slice12_IMUX48: 12'b000000000_000	; I:-1	; A
+alta_slice12_IMUX49: 12'b000000000_000	; I:-1	; B
+alta_slice12_IMUX50: 12'b000000000_000	; I:-1	; C
 alta_slice12_IMUX51: 12'b000000000_000	; I:-1	; D
-alta_slice12_LUT: 16'h7878
-alta_slice12_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice12_LUT: 16'hffff
+alta_slice12_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice12_OMUX36: 1'b0	; LutOut
-alta_slice12_OMUX37: 1'b1	; Q
-alta_slice12_OMUX38: 1'b1	; Q
+alta_slice12_OMUX37: 1'b0	; LutOut
+alta_slice12_OMUX38: 1'b0	; LutOut
 alta_slice12_SHIFTMUX: 1'b0
 alta_slice13_BYPASSEN: 1'b0
 alta_slice13_CARRY_CRL: 1'b0
@@ -10126,7 +10126,7 @@ RMUX21: 10'b0000000_000	; I:-1
 RMUX22: 10'b0000000_000	; I:-1
 RMUX23: 10'b0000000_000	; I:-1
 RMUX24: 10'b0000000_000	; I:-1
-RMUX25: 10'b0000010_100	; I:5	; <= LogicTILE(2,6):RMUX79:O0 T4X 0.44
+RMUX25: 10'b0000000_000	; I:-1
 RMUX26: 10'b0000000_000	; I:-1
 RMUX27: 10'b0000000_000	; I:-1
 RMUX28: 10'b0000000_000	; I:-1
@@ -10421,12 +10421,12 @@ AsyncMUX13: 1'b0
 AsyncMUX14: 1'b0
 AsyncMUX15: 1'b0
 ClkMUX00: 1'b0
-ClkMUX01: 1'b1
-ClkMUX02: 1'b1
+ClkMUX01: 1'b0
+ClkMUX02: 1'b0
 ClkMUX03: 1'b0
 ClkMUX04: 1'b0
 ClkMUX05: 1'b0
-ClkMUX06: 1'b1
+ClkMUX06: 1'b0
 ClkMUX07: 1'b0
 ClkMUX08: 1'b0
 ClkMUX09: 1'b0
@@ -10435,21 +10435,21 @@ ClkMUX11: 1'b0
 ClkMUX12: 1'b0
 ClkMUX13: 1'b0
 ClkMUX14: 1'b0
-ClkMUX15: 1'b1
+ClkMUX15: 1'b0
 CtrlMUX00: 12'b00000000_0000	; I:-1
 CtrlMUX01: 12'b00000000_0000	; I:-1
-CtrlMUX02: 12'b00001000_0100	; I:12	; <= LogicTILE(2,6):OMUX25:O0 T0 0.234
+CtrlMUX02: 12'b00000000_0000	; I:-1
 CtrlMUX03: 12'b00000000_0000	; I:-1
 DSTRSTB: 2'b00
 RMUX00: 10'b0000000_000	; I:-1
 RMUX01: 10'b0000000_000	; I:-1
 RMUX02: 10'b0000000_000	; I:-1
 RMUX03: 10'b0000000_000	; I:-1
-RMUX04: 10'b0100000_100	; I:1	; <= LogicTILE(2,6):OMUX05:O0 T0 0.197
-RMUX05: 10'b0010000_100	; I:2	; <= LogicTILE(2,6):OMUX08:O0 T0 0.197
+RMUX04: 10'b0000000_000	; I:-1
+RMUX05: 10'b0000000_000	; I:-1
 RMUX06: 10'b0000000_000	; I:-1
 RMUX07: 10'b0000000_000	; I:-1
-RMUX08: 10'b0100000_100	; I:1	; <= LogicTILE(2,6):OMUX05:O0 T0 0.197
+RMUX08: 10'b0000000_000	; I:-1
 RMUX09: 10'b0000000_000	; I:-1
 RMUX10: 10'b0000000_000	; I:-1
 RMUX11: 10'b0000000_000	; I:-1
@@ -10468,7 +10468,7 @@ RMUX23: 10'b0000000_000	; I:-1
 RMUX24: 10'b0000000_000	; I:-1
 RMUX25: 10'b0000000_000	; I:-1
 RMUX26: 10'b0000000_000	; I:-1
-RMUX27: 10'b0010000_100	; I:2	; <= LogicTILE(2,6):OMUX20:O0 T0 0.197
+RMUX27: 10'b0000000_000	; I:-1
 RMUX28: 10'b0000000_000	; I:-1
 RMUX29: 10'b0000000_000	; I:-1
 RMUX30: 10'b0000000_000	; I:-1
@@ -10517,10 +10517,10 @@ RMUX72: 10'b0000000_000	; I:-1
 RMUX73: 10'b0000000_000	; I:-1
 RMUX74: 10'b0000000_000	; I:-1
 RMUX75: 10'b0000000_000	; I:-1
-RMUX76: 10'b0000100_001	; I:18	; <= LogicTILE(2,8):RMUX21:O0 T4Y 0.567
+RMUX76: 10'b0000000_000	; I:-1
 RMUX77: 10'b0000000_000	; I:-1
 RMUX78: 10'b0000000_000	; I:-1
-RMUX79: 10'b0001000_100	; I:3	; <= LogicTILE(2,6):OMUX47:O0 T0 0.197
+RMUX79: 10'b0000000_000	; I:-1
 RMUX80: 10'b0000000_000	; I:-1
 RMUX81: 10'b0000000_000	; I:-1
 RMUX82: 10'b0000000_000	; I:-1
@@ -10541,12 +10541,12 @@ SeamMUX00: 8'b00000000
 SeamMUX01: 8'b00000000
 SeamMUX02: 8'b00000000
 SeamMUX03: 8'b00000000
-TileAsyncMUX00: 4'b0001
+TileAsyncMUX00: 4'b0000
 TileAsyncMUX01: 4'b0000
 TileClkEnMUX00: 3'b000
 TileClkEnMUX01: 3'b000
 TileClkMUX00: 4'b0000
-TileClkMUX01: 4'b0100
+TileClkMUX01: 4'b0000
 TileSyncMUX00: 3'b000
 TileSyncMUX01: 3'b000
 __NAME: ALTA_TILE_SRAM_DIST
@@ -10563,28 +10563,28 @@ alta_slice00_OMUX01: 1'b0	; LutOut
 alta_slice00_OMUX02: 1'b0	; LutOut
 alta_slice00_SHIFTMUX: 1'b0
 alta_slice01_BYPASSEN: 1'b0
-alta_slice01_CARRY_CRL: 1'b1
-alta_slice01_IMUX04: 12'b000001000_001	; I:23	; A	; <= LogicTILE(2,6):RMUX76:O0 T0 1.143
-alta_slice01_IMUX05: 12'b000000001_100	; I:8	; B	; <= LogicTILE(2,6):OMUX46:O0 T0 0.955
-alta_slice01_IMUX06: 12'b010000000_100	; I:1	; C	; <= LogicTILE(2,6):OMUX04:O0 T0 0.867
+alta_slice01_CARRY_CRL: 1'b0
+alta_slice01_IMUX04: 12'b000000000_000	; I:-1	; A
+alta_slice01_IMUX05: 12'b000000000_000	; I:-1	; B
+alta_slice01_IMUX06: 12'b000000000_000	; I:-1	; C
 alta_slice01_IMUX07: 12'b000000000_000	; I:-1	; D
-alta_slice01_LUT: 16'h7878
-alta_slice01_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice01_LUT: 16'hffff
+alta_slice01_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice01_OMUX03: 1'b0	; LutOut
-alta_slice01_OMUX04: 1'b1	; Q
-alta_slice01_OMUX05: 1'b1	; Q
+alta_slice01_OMUX04: 1'b0	; LutOut
+alta_slice01_OMUX05: 1'b0	; LutOut
 alta_slice01_SHIFTMUX: 1'b0
 alta_slice02_BYPASSEN: 1'b0
-alta_slice02_CARRY_CRL: 1'b1
-alta_slice02_IMUX08: 12'b000001000_001	; I:23	; A	; <= LogicTILE(2,6):RMUX76:O0 T0 1.143
-alta_slice02_IMUX09: 12'b000000001_100	; I:8	; B	; <= LogicTILE(2,6):OMUX46:O0 T0 0.955
-alta_slice02_IMUX10: 12'b001000000_010	; I:11	; C	; <= LogicTILE(2,6):RMUX04:O0 T0 1.014
-alta_slice02_IMUX11: 12'b010000000_100	; I:1	; D	; <= LogicTILE(2,6):OMUX07:O0 T0 0.541
-alta_slice02_LUT: 16'h7f80
-alta_slice02_LUTCMUX: 2'b10	; FeedbackMux?
-alta_slice02_OMUX06: 1'b1	; Q
-alta_slice02_OMUX07: 1'b1	; Q
-alta_slice02_OMUX08: 1'b1	; Q
+alta_slice02_CARRY_CRL: 1'b0
+alta_slice02_IMUX08: 12'b000000000_000	; I:-1	; A
+alta_slice02_IMUX09: 12'b000000000_000	; I:-1	; B
+alta_slice02_IMUX10: 12'b000000000_000	; I:-1	; C
+alta_slice02_IMUX11: 12'b000000000_000	; I:-1	; D
+alta_slice02_LUT: 16'hffff
+alta_slice02_LUTCMUX: 2'b00	; FeedbackMux?
+alta_slice02_OMUX06: 1'b0	; LutOut
+alta_slice02_OMUX07: 1'b0	; LutOut
+alta_slice02_OMUX08: 1'b0	; LutOut
 alta_slice02_SHIFTMUX: 1'b0
 alta_slice03_BYPASSEN: 1'b0
 alta_slice03_CARRY_CRL: 1'b0
@@ -10623,16 +10623,16 @@ alta_slice05_OMUX16: 1'b0	; LutOut
 alta_slice05_OMUX17: 1'b0	; LutOut
 alta_slice05_SHIFTMUX: 1'b0
 alta_slice06_BYPASSEN: 1'b0
-alta_slice06_CARRY_CRL: 1'b1
-alta_slice06_IMUX24: 12'b000000100_100	; I:6	; A	; <= LogicTILE(2,6):OMUX31:O0 T0 0.996
-alta_slice06_IMUX25: 12'b000100000_100	; I:3	; B	; <= LogicTILE(2,6):OMUX19:O0 T0 0.955
+alta_slice06_CARRY_CRL: 1'b0
+alta_slice06_IMUX24: 12'b000000000_000	; I:-1	; A
+alta_slice06_IMUX25: 12'b000000000_000	; I:-1	; B
 alta_slice06_IMUX26: 12'b000000000_000	; I:-1	; C
 alta_slice06_IMUX27: 12'b000000000_000	; I:-1	; D
-alta_slice06_LUT: 16'h6666
-alta_slice06_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice06_LUT: 16'hffff
+alta_slice06_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice06_OMUX18: 1'b0	; LutOut
-alta_slice06_OMUX19: 1'b1	; Q
-alta_slice06_OMUX20: 1'b1	; Q
+alta_slice06_OMUX19: 1'b0	; LutOut
+alta_slice06_OMUX20: 1'b0	; LutOut
 alta_slice06_SHIFTMUX: 1'b0
 alta_slice07_BYPASSEN: 1'b0
 alta_slice07_CARRY_CRL: 1'b0
@@ -10671,12 +10671,12 @@ alta_slice09_OMUX28: 1'b0	; LutOut
 alta_slice09_OMUX29: 1'b0	; LutOut
 alta_slice09_SHIFTMUX: 1'b0
 alta_slice10_BYPASSEN: 1'b0
-alta_slice10_CARRY_CRL: 1'b1
-alta_slice10_IMUX40: 12'b000001000_001	; I:23	; A	; <= LogicTILE(2,6):RMUX76:O0 T0 1.143
-alta_slice10_IMUX41: 12'b000000001_100	; I:8	; B	; <= LogicTILE(2,6):OMUX46:O0 T0 0.955
-alta_slice10_IMUX42: 12'b001000000_010	; I:11	; C	; <= LogicTILE(2,6):RMUX04:O0 T0 1.014
-alta_slice10_IMUX43: 12'b001000000_010	; I:11	; D	; <= LogicTILE(2,6):RMUX05:O0 T0 0.688
-alta_slice10_LUT: 16'h8000
+alta_slice10_CARRY_CRL: 1'b0
+alta_slice10_IMUX40: 12'b000000000_000	; I:-1	; A
+alta_slice10_IMUX41: 12'b000000000_000	; I:-1	; B
+alta_slice10_IMUX42: 12'b000000000_000	; I:-1	; C
+alta_slice10_IMUX43: 12'b000000000_000	; I:-1	; D
+alta_slice10_LUT: 16'hffff
 alta_slice10_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice10_OMUX30: 1'b0	; LutOut
 alta_slice10_OMUX31: 1'b0	; LutOut
@@ -10731,16 +10731,16 @@ alta_slice14_OMUX43: 1'b0	; LutOut
 alta_slice14_OMUX44: 1'b0	; LutOut
 alta_slice14_SHIFTMUX: 1'b0
 alta_slice15_BYPASSEN: 1'b0
-alta_slice15_CARRY_CRL: 1'b1
-alta_slice15_IMUX60: 12'b000001000_001	; I:23	; A	; <= LogicTILE(2,6):RMUX76:O0 T0 1.143
-alta_slice15_IMUX61: 12'b000000001_100	; I:8	; B	; <= LogicTILE(2,6):OMUX46:O0 T0 0.955
+alta_slice15_CARRY_CRL: 1'b0
+alta_slice15_IMUX60: 12'b000000000_000	; I:-1	; A
+alta_slice15_IMUX61: 12'b000000000_000	; I:-1	; B
 alta_slice15_IMUX62: 12'b000000000_000	; I:-1	; C
 alta_slice15_IMUX63: 12'b000000000_000	; I:-1	; D
-alta_slice15_LUT: 16'h6666
-alta_slice15_LUTCMUX: 2'b10	; FeedbackMux?
+alta_slice15_LUT: 16'hffff
+alta_slice15_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice15_OMUX45: 1'b0	; LutOut
-alta_slice15_OMUX46: 1'b1	; Q
-alta_slice15_OMUX47: 1'b1	; Q
+alta_slice15_OMUX46: 1'b0	; LutOut
+alta_slice15_OMUX47: 1'b0	; LutOut
 alta_slice15_SHIFTMUX: 1'b0
 
 .BramTILE 3 6
@@ -10826,7 +10826,7 @@ RMUX04: 10'b0000000_000	; I:-1
 RMUX05: 10'b0000000_000	; I:-1
 RMUX06: 10'b0000000_000	; I:-1
 RMUX07: 10'b0000000_000	; I:-1
-RMUX08: 10'b0010000_100	; I:2	; <= LogicTILE(2,6):OMUX06:O0 T1 0.193
+RMUX08: 10'b0000000_000	; I:-1
 RMUX09: 10'b0000000_000	; I:-1
 RMUX10: 10'b0000000_000	; I:-1
 RMUX11: 10'b0000000_000	; I:-1
@@ -10866,7 +10866,7 @@ RMUX44: 10'b0000000_000	; I:-1
 RMUX45: 10'b0000000_000	; I:-1
 RMUX46: 10'b0000000_000	; I:-1
 RMUX47: 10'b0000000_000	; I:-1
-RMUX48: 10'b0000010_100	; I:5	; <= LogicTILE(4,6):RMUX13:O0 T4X 0.44
+RMUX48: 10'b0000000_000	; I:-1
 RMUX49: 10'b0000000_000	; I:-1
 RMUX50: 10'b0000000_000	; I:-1
 RMUX51: 10'b0000000_000	; I:-1
@@ -10986,7 +10986,7 @@ RMUX09: 10'b0000000_000	; I:-1
 RMUX10: 10'b0000000_000	; I:-1
 RMUX11: 10'b0000000_000	; I:-1
 RMUX12: 10'b0000000_000	; I:-1
-RMUX13: 10'b0000010_001	; I:19	; <= IOTILE(4,9):InputMUX01:O0 T4Y 0.561
+RMUX13: 10'b0000000_000	; I:-1
 RMUX14: 10'b0000000_000	; I:-1
 RMUX15: 10'b0000000_000	; I:-1
 RMUX16: 10'b0000000_000	; I:-1
@@ -11685,7 +11685,7 @@ RMUX28: 10'b0000000_000	; I:-1
 RMUX29: 10'b0000000_000	; I:-1
 RMUX30: 10'b0000000_000	; I:-1
 RMUX31: 10'b0000000_000	; I:-1
-RMUX32: 10'b0000010_010	; I:12	; <= LogicTILE(2,6):RMUX08:O0 T4X 0.482
+RMUX32: 10'b0000000_000	; I:-1
 RMUX33: 10'b0000000_000	; I:-1
 RMUX34: 10'b0000000_000	; I:-1
 RMUX35: 10'b0000000_000	; I:-1
@@ -12020,7 +12020,7 @@ RMUX23: 10'b0000000_000	; I:-1
 RMUX24: 10'b0000000_000	; I:-1
 RMUX25: 10'b0000000_000	; I:-1
 RMUX26: 10'b0000000_000	; I:-1
-RMUX27: 10'b0000010_010	; I:12	; <= BramTILE(3,6):RMUX08:O0 T4X 0.482
+RMUX27: 10'b0000000_000	; I:-1
 RMUX28: 10'b0000000_000	; I:-1
 RMUX29: 10'b0000000_000	; I:-1
 RMUX30: 10'b0000000_000	; I:-1
@@ -14698,7 +14698,7 @@ RMUX10: 10'b0000000_000	; I:-1
 RMUX11: 10'b0000000_000	; I:-1
 RMUX12: 10'b0000000_000	; I:-1
 RMUX13: 10'b0000000_000	; I:-1
-RMUX14: 10'b0001000_001	; I:17	; <= LogicTILE(2,6):RMUX27:O0 T4Y 0.527
+RMUX14: 10'b0000000_000	; I:-1
 RMUX15: 10'b0000000_000	; I:-1
 RMUX16: 10'b0000000_000	; I:-1
 RMUX17: 10'b0000000_000	; I:-1
@@ -14764,7 +14764,7 @@ RMUX76: 10'b0000000_000	; I:-1
 RMUX77: 10'b0000000_000	; I:-1
 RMUX78: 10'b0000000_000	; I:-1
 RMUX79: 10'b0000000_000	; I:-1
-RMUX80: 10'b0000000_000	; I:-1
+RMUX80: 10'b0000100_001	; I:18	; <= LogicTILE(2,7):RMUX44:O0 T4Y 0.567
 RMUX81: 10'b0000000_000	; I:-1
 RMUX82: 10'b0000000_000	; I:-1
 RMUX83: 10'b0000000_000	; I:-1
@@ -21981,12 +21981,12 @@ alta_slice14_OMUX43: 1'b0	; LutOut
 alta_slice14_OMUX44: 1'b0	; LutOut
 alta_slice14_SHIFTMUX: 1'b0
 alta_slice15_BYPASSEN: 1'b0
-alta_slice15_CARRY_CRL: 1'b1
+alta_slice15_CARRY_CRL: 1'b0
 alta_slice15_IMUX60: 12'b000000000_000	; I:-1	; A
 alta_slice15_IMUX61: 12'b000000000_000	; I:-1	; B
 alta_slice15_IMUX62: 12'b000000000_000	; I:-1	; C
 alta_slice15_IMUX63: 12'b000000000_000	; I:-1	; D
-alta_slice15_LUT: 16'h0000
+alta_slice15_LUT: 16'hffff
 alta_slice15_LUTCMUX: 2'b00	; FeedbackMux?
 alta_slice15_OMUX45: 1'b0	; LutOut
 alta_slice15_OMUX46: 1'b0	; LutOut
@@ -23555,7 +23555,7 @@ RMUX04: 10'b0000000_000	; I:-1
 RMUX05: 10'b0000000_000	; I:-1
 RMUX06: 10'b0000000_000	; I:-1
 RMUX07: 10'b0000000_000	; I:-1
-RMUX08: 10'b0000000_000	; I:-1
+RMUX08: 10'b0000001_001	; I:20	; <= BramTILE(3,7):RMUX50:O0 T4Y 0.623
 RMUX09: 10'b0000000_000	; I:-1
 RMUX10: 10'b0000000_000	; I:-1
 RMUX11: 10'b0000000_000	; I:-1
@@ -24759,7 +24759,7 @@ RMUX33: 10'b0000000_000	; I:-1
 RMUX34: 10'b0000000_000	; I:-1
 RMUX35: 10'b0000000_000	; I:-1
 RMUX36: 10'b0000000_000	; I:-1
-RMUX37: 10'b0000000_000	; I:-1
+RMUX37: 10'b0000010_010	; I:12	; <= BramTILE(3,3):RMUX08:O0 T4X 0.482
 RMUX38: 10'b0000000_000	; I:-1
 RMUX39: 10'b0000000_000	; I:-1
 RMUX40: 10'b0000000_000	; I:-1
@@ -28979,7 +28979,7 @@ RMUX10: 10'b0000000_000	; I:-1
 RMUX11: 10'b0000000_000	; I:-1
 RMUX12: 10'b0000000_000	; I:-1
 RMUX13: 10'b0000000_000	; I:-1
-RMUX14: 10'b0000001_001	; I:20	; <= LogicTILE(7,6):RMUX27:O0 T4Y 0.623
+RMUX14: 10'b0000000_000	; I:-1
 RMUX15: 10'b0000000_000	; I:-1
 RMUX16: 10'b0000000_000	; I:-1
 RMUX17: 10'b0000000_000	; I:-1
@@ -31144,7 +31144,7 @@ IN_POWERUP: 4'b0000
 IN_SYNC_MODE: 4'b0000
 IOMUX00: 7'b0000_001	; I:-1
 IOMUX01: 7'b0000_001	; I:-1
-IOMUX02: 7'b0100_010	; I:5	; <= IOTILE(2,1):RMUX20:O0 T0 0.877
+IOMUX02: 7'b0001_100	; I:3	; <= IOTILE(2,1):RMUX12:O0 T0 0.877
 IOMUX03: 7'b0000_001	; I:-1
 IOMUX04: 7'b0000_001	; I:-1
 IOMUX05: 7'b0000_001	; I:-1
@@ -31194,7 +31194,7 @@ RMUX08: 6'b000_000	; I:-1
 RMUX09: 6'b000_000	; I:-1
 RMUX10: 6'b000_000	; I:-1
 RMUX11: 6'b000_000	; I:-1
-RMUX12: 6'b000_000	; I:-1
+RMUX12: 6'b010_100	; I:1	; <= LogicTILE(2,5):RMUX80:O0 T4Y 0.623
 RMUX13: 6'b000_000	; I:-1
 RMUX14: 6'b000_000	; I:-1
 RMUX15: 6'b000_000	; I:-1
@@ -31202,7 +31202,7 @@ RMUX16: 6'b000_000	; I:-1
 RMUX17: 6'b000_000	; I:-1
 RMUX18: 6'b000_000	; I:-1
 RMUX19: 6'b000_000	; I:-1
-RMUX20: 6'b010_100	; I:1	; <= LogicTILE(2,5):RMUX14:O0 T4Y 0.623
+RMUX20: 6'b000_000	; I:-1
 RMUX21: 6'b000_000	; I:-1
 RMUX22: 6'b000_000	; I:-1
 RMUX23: 6'b000_000	; I:-1
@@ -31594,7 +31594,7 @@ RMUX12: 6'b000_000	; I:-1
 RMUX13: 6'b000_000	; I:-1
 RMUX14: 6'b000_000	; I:-1
 RMUX15: 6'b000_000	; I:-1
-RMUX16: 6'b010_010	; I:4	; <= LogicTILE(7,2):RMUX14:O0 T4Y 0.527
+RMUX16: 6'b010_100	; I:1	; <= LogicTILE(7,3):RMUX37:O0 T4Y 0.567
 RMUX17: 6'b000_000	; I:-1
 RMUX18: 6'b000_000	; I:-1
 RMUX19: 6'b000_000	; I:-1
