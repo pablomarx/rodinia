@@ -13,4 +13,5 @@ done
 popd
 
 python ../../bitstream/agm-unpack.py output/Blinky.bin > output/Blinky_unpack.txt
-python ../../bitstream/agm-explain.py output/Blinky_unpack.txt output/alta_db/route.tx > output/Blinky_explain.txt
+python ../../bitstream/agm-explain.py --route output/alta_db/route.tx output/Blinky_unpack.txt > output/Blinky_explain.txt
+python ../../bitstream/agm-explain.py --output fasm --route output/alta_db/route.tx output/Blinky_unpack.txt > output/Blinky.fasm
