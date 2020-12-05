@@ -166,9 +166,6 @@ L_Y08X00.alta_slice04_IMUX19 = 12'b010000000_001
 L_Y08X00.alta_slice04_LUT = 16'h7878
 #nofmt!
 
-#  FeedbackMux?
-L_Y08X00.alta_slice04_LUTCMUX = 2'b10
-
 #  Q
 L_Y08X00.alta_slice04_OMUX13 = 1'b1
 
@@ -192,9 +189,6 @@ L_Y08X00.alta_slice12_IMUX51 = 12'b000000100_100
 #fmt!
 L_Y08X00.alta_slice12_LUT = 16'h7f80
 #nofmt!
-
-#  FeedbackMux?
-L_Y08X00.alta_slice12_LUTCMUX = 2'b10
 
 #  Q
 L_Y08X00.alta_slice12_OMUX37 = 1'b1
@@ -298,9 +292,6 @@ L_Y08X01.alta_slice00_IMUX03 = 12'b000001000_010
 L_Y08X01.alta_slice00_LUT = 16'h7878
 #nofmt!
 
-#  FeedbackMux?
-L_Y08X01.alta_slice00_LUTCMUX = 2'b10
-
 #  Q
 L_Y08X01.alta_slice00_OMUX01 = 1'b1
 
@@ -325,9 +316,6 @@ L_Y08X01.alta_slice01_IMUX07 = 12'b010000000_100
 L_Y08X01.alta_slice01_LUT = 16'h7f80
 #nofmt!
 
-#  FeedbackMux?
-L_Y08X01.alta_slice01_LUTCMUX = 2'b10
-
 #  Q
 L_Y08X01.alta_slice01_OMUX04 = 1'b1
 
@@ -349,9 +337,6 @@ L_Y08X01.alta_slice03_IMUX15 = 12'b000001000_010
 L_Y08X01.alta_slice03_LUT = 16'h7878
 #nofmt!
 
-#  FeedbackMux?
-L_Y08X01.alta_slice03_LUTCMUX = 2'b10
-
 #  Q
 L_Y08X01.alta_slice03_OMUX10 = 1'b1
 
@@ -372,9 +357,6 @@ L_Y08X01.alta_slice04_IMUX19 = 12'b001000000_100
 #fmt!
 L_Y08X01.alta_slice04_LUT = 16'h7f80
 #nofmt!
-
-#  FeedbackMux?
-L_Y08X01.alta_slice04_LUTCMUX = 2'b10
 
 #  Q
 L_Y08X01.alta_slice04_OMUX12 = 1'b1
@@ -403,9 +385,6 @@ L_Y08X01.alta_slice06_IMUX27 = 12'b000100000_100
 L_Y08X01.alta_slice06_LUT = 16'h7f80
 #nofmt!
 
-#  FeedbackMux?
-L_Y08X01.alta_slice06_LUTCMUX = 2'b10
-
 #  Q
 L_Y08X01.alta_slice06_OMUX19 = 1'b1
 
@@ -426,9 +405,6 @@ L_Y08X01.alta_slice07_IMUX31 = 12'b000001000_010
 #fmt!
 L_Y08X01.alta_slice07_LUT = 16'h6666
 #nofmt!
-
-#  FeedbackMux?
-L_Y08X01.alta_slice07_LUTCMUX = 2'b10
 
 #  Q
 L_Y08X01.alta_slice07_OMUX22 = 1'b1
@@ -454,9 +430,6 @@ L_Y08X01.alta_slice08_IMUX35 = 12'b000001000_010
 L_Y08X01.alta_slice08_LUT = 16'h6666
 #nofmt!
 
-#  FeedbackMux?
-L_Y08X01.alta_slice08_LUTCMUX = 2'b10
-
 #  Q
 L_Y08X01.alta_slice08_OMUX25 = 1'b1
 
@@ -480,9 +453,6 @@ L_Y08X01.alta_slice09_IMUX39 = 12'b000001000_010
 #fmt!
 L_Y08X01.alta_slice09_LUT = 16'h6666
 #nofmt!
-
-#  FeedbackMux?
-L_Y08X01.alta_slice09_LUTCMUX = 2'b10
 
 #  Q
 L_Y08X01.alta_slice09_OMUX28 = 1'b1
@@ -526,9 +496,6 @@ L_Y08X01.alta_slice11_IMUX47 = 12'b000001000_010
 L_Y08X01.alta_slice11_LUT = 16'h6666
 #nofmt!
 
-#  FeedbackMux?
-L_Y08X01.alta_slice11_LUTCMUX = 2'b10
-
 #  Q
 L_Y08X01.alta_slice11_OMUX34 = 1'b1
 
@@ -567,9 +534,6 @@ L_Y08X01.alta_slice14_IMUX59 = 12'b000001000_010
 #fmt!
 L_Y08X01.alta_slice14_LUT = 16'h7878
 #nofmt!
-
-#  FeedbackMux?
-L_Y08X01.alta_slice14_LUTCMUX = 2'b10
 
 #  Q
 L_Y08X01.alta_slice14_OMUX43 = 1'b1
@@ -636,9 +600,6 @@ L_Y08X02.alta_slice06_IMUX27 = 12'b000001000_010
 #fmt!
 L_Y08X02.alta_slice06_LUT = 16'h7878
 #nofmt!
-
-#  FeedbackMux?
-L_Y08X02.alta_slice06_LUTCMUX = 2'b10
 
 #  Q
 L_Y08X02.alta_slice06_OMUX18 = 1'b1
@@ -770,9 +731,6 @@ L_Y07X01.alta_slice00_IMUX03 = 12'b000000100_010
 L_Y07X01.alta_slice00_LUT = 16'h6666
 #nofmt!
 
-#  FeedbackMux?
-L_Y07X01.alta_slice00_LUTCMUX = 2'b10
-
 #  Q
 L_Y07X01.alta_slice00_OMUX01 = 1'b1
 
@@ -833,9 +791,6 @@ L_Y07X01.alta_slice03_IMUX15 = 12'b000000100_010
 L_Y07X01.alta_slice03_LUT = 16'h5555
 #nofmt!
 
-#  FeedbackMux?
-L_Y07X01.alta_slice03_LUTCMUX = 2'b10
-
 #  Q
 L_Y07X01.alta_slice03_OMUX10 = 1'b1
 
@@ -859,9 +814,6 @@ L_Y07X01.alta_slice04_IMUX19 = 12'b000000100_010
 #fmt!
 L_Y07X01.alta_slice04_LUT = 16'h6666
 #nofmt!
-
-#  FeedbackMux?
-L_Y07X01.alta_slice04_LUTCMUX = 2'b10
 
 #  Q
 L_Y07X01.alta_slice04_OMUX13 = 1'b1
@@ -887,9 +839,6 @@ L_Y07X01.alta_slice06_IMUX27 = 12'b000100000_100
 L_Y07X01.alta_slice06_LUT = 16'h7f80
 #nofmt!
 
-#  FeedbackMux?
-L_Y07X01.alta_slice06_LUTCMUX = 2'b10
-
 #  Q
 L_Y07X01.alta_slice06_OMUX19 = 1'b1
 
@@ -910,9 +859,6 @@ L_Y07X01.alta_slice07_IMUX31 = 12'b000010000_100
 #fmt!
 L_Y07X01.alta_slice07_LUT = 16'h7f80
 #nofmt!
-
-#  FeedbackMux?
-L_Y07X01.alta_slice07_LUTCMUX = 2'b10
 
 #  Q
 L_Y07X01.alta_slice07_OMUX22 = 1'b1
@@ -938,9 +884,6 @@ L_Y07X01.alta_slice09_IMUX39 = 12'b000000100_010
 L_Y07X01.alta_slice09_LUT = 16'h7878
 #nofmt!
 
-#  FeedbackMux?
-L_Y07X01.alta_slice09_LUTCMUX = 2'b10
-
 #  Q
 L_Y07X01.alta_slice09_OMUX28 = 1'b1
 
@@ -964,9 +907,6 @@ L_Y07X01.alta_slice10_IMUX43 = 12'b000000100_010
 #fmt!
 L_Y07X01.alta_slice10_LUT = 16'h6666
 #nofmt!
-
-#  FeedbackMux?
-L_Y07X01.alta_slice10_LUTCMUX = 2'b10
 
 #  Q
 L_Y07X01.alta_slice10_OMUX30 = 1'b1
@@ -995,9 +935,6 @@ L_Y07X01.alta_slice11_IMUX47 = 12'b000000100_010
 L_Y07X01.alta_slice11_LUT = 16'h7878
 #nofmt!
 
-#  FeedbackMux?
-L_Y07X01.alta_slice11_LUTCMUX = 2'b10
-
 #  Q
 L_Y07X01.alta_slice11_OMUX34 = 1'b1
 
@@ -1018,9 +955,6 @@ L_Y07X01.alta_slice12_IMUX51 = 12'b000000100_100
 #fmt!
 L_Y07X01.alta_slice12_LUT = 16'h7f80
 #nofmt!
-
-#  FeedbackMux?
-L_Y07X01.alta_slice12_LUTCMUX = 2'b10
 
 #  Q
 L_Y07X01.alta_slice12_OMUX37 = 1'b1
@@ -1045,9 +979,6 @@ L_Y07X01.alta_slice13_IMUX55 = 12'b000000100_010
 #fmt!
 L_Y07X01.alta_slice13_LUT = 16'h7878
 #nofmt!
-
-#  FeedbackMux?
-L_Y07X01.alta_slice13_LUTCMUX = 2'b10
 
 #  Q
 L_Y07X01.alta_slice13_OMUX40 = 1'b1
@@ -1090,9 +1021,6 @@ L_Y07X01.alta_slice15_IMUX63 = 12'b000000100_010
 #fmt!
 L_Y07X01.alta_slice15_LUT = 16'h6666
 #nofmt!
-
-#  FeedbackMux?
-L_Y07X01.alta_slice15_LUTCMUX = 2'b10
 
 #  Q
 L_Y07X01.alta_slice15_OMUX46 = 1'b1
@@ -1150,9 +1078,6 @@ L_Y07X02.alta_slice06_IMUX27 = 12'b000000001_010
 L_Y07X02.alta_slice06_LUT = 16'h6666
 #nofmt!
 
-#  FeedbackMux?
-L_Y07X02.alta_slice06_LUTCMUX = 2'b10
-
 #  Q
 L_Y07X02.alta_slice06_OMUX19 = 1'b1
 
@@ -1194,9 +1119,6 @@ L_Y07X02.alta_slice11_IMUX47 = 12'b000000100_100
 #fmt!
 L_Y07X02.alta_slice11_LUT = 16'h7f80
 #nofmt!
-
-#  FeedbackMux?
-L_Y07X02.alta_slice11_LUTCMUX = 2'b10
 
 #  Q
 L_Y07X02.alta_slice11_OMUX33 = 1'b1

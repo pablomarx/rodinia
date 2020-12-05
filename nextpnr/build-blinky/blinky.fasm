@@ -424,23 +424,23 @@ L_Y07X01.alta_slice10.FF_USED
 L_Y08X00.alta_slice00.INIT[15:0] = 16'b1000000000000000
 
 # Cell $abc$512$auto$blifparse.cc:498:parse_blif$524_LC at LogicTILE(02,08):alta_slice06
-L_Y08X02.alta_slice06.INIT[15:0] = 16'b0111100001111000
 L_Y08X02.alta_slice06.FF_USED
+L_Y08X02.alta_slice06.INIT[15:0] = 16'b0111100001111000
 
 # Cell $abc$512$auto$blifparse.cc:498:parse_blif$525_LC at LogicTILE(02,07):alta_slice11
-L_Y07X02.alta_slice11.INIT[15:0] = 16'b0111111110000000
 L_Y07X02.alta_slice11.FF_USED
+L_Y07X02.alta_slice11.INIT[15:0] = 16'b0111111110000000
 
 # Cell $abc$512$auto$blifparse.cc:498:parse_blif$526_LC at LogicTILE(02,07):alta_slice06
-L_Y07X02.alta_slice06.FF_USED
 L_Y07X02.alta_slice06.INIT[15:0] = 16'b0110011001100110
+L_Y07X02.alta_slice06.FF_USED
 
 # Cell $abc$512$auto$blifparse.cc:498:parse_blif$527_LC at LogicTILE(02,07):alta_slice07
 L_Y07X02.alta_slice07.INIT[15:0] = 16'b1000000000000000
 
 # Cell $abc$512$auto$blifparse.cc:498:parse_blif$528_LC at LogicTILE(01,07):alta_slice04
-L_Y07X01.alta_slice04.FF_USED
 L_Y07X01.alta_slice04.INIT[15:0] = 16'b0110011001100110
+L_Y07X01.alta_slice04.FF_USED
 
 # Cell $abc$512$auto$blifparse.cc:498:parse_blif$529_LC at LogicTILE(01,07):alta_slice09
 L_Y07X01.alta_slice09.INIT[15:0] = 16'b0111100001111000
