@@ -22,7 +22,7 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.join(sys.path[0], '..'), 'bitstream'))
+sys.path.append(os.path.join('..', 'bitstream'))
 
 from chips import ChipWithID
 from wires import enumerate_all_wires
