@@ -20,7 +20,7 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 #
-from utils import bytes_to_bits, bits_to_bytes, bytes_to_num
+from utils import bytes_to_bits, bits_to_bytes, bytes_to_num, num_to_bits, bits_to_num
 import sys
 
 if len(sys.argv) != 2:
@@ -63,27 +63,50 @@ def emit_body(bit_len, str):
     print("  -tdo  0 \\")
     print("  -mask 0")
 
-
+sram = True
 with open(sys.argv[1], "rb") as binaryfile:
     data = bytearray(binaryfile.read())
-    dev_type = bytes_to_num(data[0:4])
-    if dev_type == 0x120010:
-        chunk_size = 4
     
-    for offset in range(0, len(data), chunk_size):
-        chunk = data[offset:offset+chunk_size]
+    if sram:
+        chunk_size = 1
+        data = data[8:-4]
+        data = data[::-1]
+        print("sdr %i \\" % (len(data) * 8))
+        print("  -tdi \\")
+        result = ""
+        for offset in range(0, len(data), chunk_size):
+            if len(result) > 128:
+                print(result + " \\")
+                result = ""
+            byte = data[offset]
+            byte = num_to_bits(byte, 8)
+            byte = byte[::-1]
+            byte = bits_to_num(byte)
+            result += "%02x" % byte
+        if len(result) > 0:
+            print(result + " \\")
+        print("  -tdo 0 \\")
+        print("  -mask 0")
+    else: 
+        dev_type = bytes_to_num(data[0:4])
+        if dev_type == 0x120010:
+            chunk_size = 4
+    
+        for offset in range(0, len(data), chunk_size):
+            chunk = data[offset:offset+chunk_size]
         
-        header = [0x02, (count >> 8) & 0xff, count & 0xff, 0x00]
-        chunk = bytearray(header) + chunk
-        bits = bytes_to_bits(chunk)
-        bits.reverse()
-        bytes = bits_to_bytes(bits)
-        str = "".join(["%02x" % a for a in bytes])
+            header = [0x02, (count >> 8) & 0xff, count & 0xff, 0x00]
+            chunk = bytearray(header) + chunk
+            bits = bytes_to_bits(chunk)
+            bits.reverse()
+            bytes = bits_to_bytes(bits)
+            str = "".join(["%02x" % a for a in bytes])
         
-        emit_prefix(count>0, True)
-        emit_body(len(bits), str)
-        emit_trailer()
-        count += 1
+            emit_prefix(count>0, True)
+            emit_body(len(bits), str)
+            emit_trailer()
+            count += 1
 
-emit_prefix(True, True)
-emit_prefix(True, False)
+if not sram:
+    emit_prefix(True, True)
+    emit_prefix(True, False)
