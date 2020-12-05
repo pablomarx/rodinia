@@ -220,7 +220,7 @@ def lut_decode(key, inbits):
     return outbits[::-1]
 
 def slice_omux_format(bits):
-    if bits[0] is 0:
+    if bits[0] == 0:
         name = 'LutOut'
     else:
         name = 'Q'
