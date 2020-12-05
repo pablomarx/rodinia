@@ -1430,7 +1430,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 }, key_transformers={
     'IMUX[0-9][0-9]': lambda x: "alta_slice%02i_%s" % (int(int(x[4:]) / 4), x),
     'OMUX[0-9][0-9]': lambda x: "alta_slice%02i_%s" % (int(int(x[4:]) / 3), x),
-    'alta_slice[0-9][0-9].FF_USED': lambda x: "alta_slice%02i_LUTCMUX" % (int(x[10:12])),
+    'alta_slice[0-9][0-9].FF_USED': lambda x: "alta_slice%02i_CARRY_CRL" % (int(x[10:12])),
     'alta_slice[0-9][0-9].INIT\[[^\]]*]': lambda x: re.sub('(alta_slice[0-9][0-9]).INIT\[[^\]]*]', lambda x: x.groups()[0] + "_LUT", x),
 }, encoders={
     'alta_slice[0-9][0-9]_IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
