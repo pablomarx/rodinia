@@ -2,7 +2,7 @@
 Running `build.sh` results in a complete flow from Verilog to binary bitstream.  
 
 * `simple.v` sets LED outputs to 1'b0, 1'b1 and clk.  When uploaded to the FPGA it executes as expected.
-* `blinky.v` Not yet blinking... 
+* `blinky.v` Sets up a clock driven counter, blinks 8 LEDs 
 
 ### Files
 * [simple.py](simple.py) Creates the BELs, PIPs and wires for nextpnr.  Utilizes files in the [bitstream](../bitstream) directory: [chips.py](../bitstream/chips.py), [tiles.py](../bitstream/tiles.py), [wires.py](../bitstream/wires.py).  The resulting routing looks sensible, e.g. [build-blinky/log, starting at line 3357](build-blinky/log#3357) and the IOTILEs appear to be configured correctly.
