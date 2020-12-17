@@ -962,6 +962,7 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
 }, key_transformers={
     'INIT_VAL\[[^\]]*]': lambda x: 'INIT_VAL',
 }, encoders={
+    'INIT_VAL': lambda key,val: val[::-1],
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
 	'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
 	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
