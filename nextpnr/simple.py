@@ -114,6 +114,33 @@ def createBRAMTileBEL(chip, tile, row, col):
     belname = nameForTile(tile, row, col)
     #print("Creating %s" % (belname))
     ctx.addBel(name=belname, type="GENERIC_BRAM", loc=Loc(col, row, 0), gb=False)
+    
+    for pairs in (("Clk","BramClkMUX"), ("ClkEn","TileClkEnMUX"), ("AsyncReset","TileAsyncMUX")):
+        for port in range(0, 2):
+            name = "%s%i"  % (pairs[0], port)
+            wire = "%s:%s%02i" % (belname, pairs[1], port)
+            addWire(row, col, wire)
+            ctx.addBelInput(bel=belname, name=name, wire=wire)
+    
+    for inputs in ("AddressA", range(0, 12)), ("AddressB", range(63, 51, -1), "DataInA", range(12, 30)), ("DataInB", range(51, 33, -1)):
+        bit = 0
+        prefix = inputs[0]
+        for imux in inputs[1]:
+            pin = "%s[%i]" % (prefix, bit)
+            wire = "%s:IMUX%02i" % (belname, imux)
+            addWire(row, col, wire)
+            ctx.addBelInput(bel=belname, name=pin, wire=wire)
+            bit += 1
+    
+    for outputs in ("DataOutA", range(0, 18)), ("DataOutB", range(35, 17, -1)):
+        bit = 0
+        prefix = outputs[0]
+        for bufmux in outputs[1]:
+            pin = "%s[%i]" % (prefix, bit)
+            wire = "%s:BufMUX%02i" % (belname, bufmux)
+            addWire(row, col, wire)
+            ctx.addBelOutput(bel=belname, name=pin, wire=wire)
+            bit += 1
 
 def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
     assert row < chip.rows
@@ -190,7 +217,7 @@ def wire_enumerator(wire):
     assert dest.col < chip.columns
     
     if source.row == dest.row and source.col == dest.col and source.tile == "BramTILE":
-        if not source.config.startswith("RMUX") or not dest.config.startswith("RMUX"):
+        if source.config.startswith("alta_bram00") or dest.config.startswith("alta_bram00"):
             return
     
     addWire(dest.row, dest.col, dest.name, dest.config)

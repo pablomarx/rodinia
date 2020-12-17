@@ -19,22 +19,24 @@ ParameterConfig = namedtuple('ParameterConfig', 'write numeric width alias')
 ParameterConfig.__new__.__defaults__ = (False, True, 1, None)
 
 def bel_transform(input):
-    match = re.match("^([A-Za-z]*)\(([0-9]*),([0-9]*)\):(.*)$", input)
-    assert match is not None
+    match = re.match("^([A-Za-z]*)\(([0-9]*),([0-9]*)\)(:(.*))?$", input)
+    assert match != None
     
     comps = match.groups()
-    assert len(comps) is 4
+    assert len(comps) == 5
     
-    return "%s_Y%sX%s.%s" % (comps[0][0], comps[2], comps[1], comps[3])
+    if comps[4] == None:
+        return "%s_Y%sX%s" % (comps[0][0], comps[2], comps[1])
+    return "%s_Y%sX%s.%s" % (comps[0][0], comps[2], comps[1], comps[4])
 
 def pip_transform(input):
     match = re.match("^(.*):([^ ]*) <=.*$", input)
-    assert match is not None
+    assert match != None
     
     comps = match.groups()
-    assert len(comps) is 2
+    assert len(comps) == 2
     
-    if comps[1][0] is not "I":
+    if comps[1][0] != "I":
         # Probably alta_slice##:[ABCD] or such
         # which is explicitly wired up to the 
         # corresponding IMUX

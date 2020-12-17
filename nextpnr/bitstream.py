@@ -10,6 +10,8 @@ param_map = {
 	("GENERIC_IOB", "INPUT_USED"): ParameterConfig(write=True, numeric=True, width=1),
 	("GENERIC_IOB", "OUTPUT_USED"): ParameterConfig(write=True, numeric=True, width=1),
 	("GENERIC_IOB", "ENABLE_USED"): ParameterConfig(write=True, numeric=True, width=1),
+
+	("GENERIC_BRAM", "INIT_VAL"): ParameterConfig(write=True, numeric=True, width=4608),
 }
 
 with open("nextpnr.fasm", "w") as f:
