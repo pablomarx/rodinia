@@ -38,10 +38,10 @@ class WireEnd:
         self.col = col
         self.config = config
         self.bit = bit
-        if tile == "LogicTILE" and config.startswith("alta_"):
+        if (tile == "LogicTILE" and config.startswith("alta_")) or (tile == "BramTILE" and config.startswith("alta")):
             self.name = "%s(%02i,%02i):%s:%s" % (tile, col, row, config, bit)
         else:
-             self.name = "%s(%02i,%02i):%s" % (tile, col, row, config)
+            self.name = "%s(%02i,%02i):%s" % (tile, col, row, config)
 
 class Wire:
     source = None
