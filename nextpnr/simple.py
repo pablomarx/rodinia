@@ -115,12 +115,17 @@ def createBRAMTileBEL(chip, tile, row, col):
     #print("Creating %s" % (belname))
     ctx.addBel(name=belname, type="GENERIC_BRAM", loc=Loc(col, row, 0), gb=False)
     
-    for pairs in (("Clk","BramClkMUX"), ("ClkEn","TileClkEnMUX"), ("AsyncReset","TileAsyncMUX")):
+    for base in ("Clk", "ClkEn", "AsyncReset"):
         for port in range(0, 2):
-            name = "%s%i"  % (pairs[0], port)
-            wire = "%s:%s%02i" % (belname, pairs[1], port)
+            pin = "%s%i"  % (base, port)
+            wire = "%s:alta_bram00:%s" % (belname, pin)
             addWire(row, col, wire)
-            ctx.addBelInput(bel=belname, name=name, wire=wire)
+            ctx.addBelInput(bel=belname, name=pin, wire=wire)
+    
+    for base in ("WeRenA", "WeRenB"):
+        wire = "%s:alta_bram00:%s" % (belname, base)
+        addWire(row, col, wire)
+        ctx.addBelInput(bel=belname, name=base, wire=wire)
     
     for inputs in ("AddressA", range(0, 12)), ("AddressB", range(63, 51, -1), "DataInA", range(12, 30)), ("DataInB", range(51, 33, -1)):
         bit = 0
@@ -217,8 +222,12 @@ def wire_enumerator(wire):
     assert dest.col < chip.columns
     
     if source.row == dest.row and source.col == dest.col and source.tile == "BramTILE":
-        if source.config.startswith("alta_bram00") or dest.config.startswith("alta_bram00"):
-            return
+        if source.config.startswith("alta_bram00"):
+            if source.bit.startswith("Data") or source.bit.startswith("Address"):
+                return
+        elif dest.config.startswith("alta_bram00"):
+            if dest.bit.startswith("Data") or dest.bit.startswith("Address"):
+                return
     
     addWire(dest.row, dest.col, dest.name, dest.config)
     addWire(source.row, source.col, source.name, source.config)

@@ -968,6 +968,9 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
 	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
     # XXX: Haven't verified...
     'BramClkMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
+    'TileWeRenMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
+    'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
+    'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 3, 0),
 }, annotations={
 	'BramClkMUX00': 'Clk0',
 	'BramClkMUX01': 'Clk1',
