@@ -56,3 +56,17 @@ module GENERIC_IOB #(
 		assign O = PAD;
 	endgenerate
 endmodule
+
+module GENERIC_BRAM #(
+	parameter INIT_VAL        = 4608'b0,
+) (
+	input  [17:0]  DataInA,  DataInB,
+	input  [11:0] AddressA, AddressB,
+	output [17:0] DataOutA, DataOutB,
+	input  Clk0, ClkEn0, AsyncReset0,
+	input  Clk1, ClkEn1, AsyncReset1,
+	input  WeRenA, WeRenB
+);
+
+
+endmodule
