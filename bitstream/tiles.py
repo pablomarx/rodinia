@@ -958,14 +958,14 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
 	'INIT_VAL': lambda key,val: str(len(val)) + "'h" + "".join([format(bit, '02x') for bit in bits_to_bytes(val[::-1])]),
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
 	'IMUX[0-9][0-9]': lambda key,val: mux_format(val, 9, 'I'),
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_format(val, 9, 'I'),
+	'CtrlMUX[0-9][0-9]': lambda key,val: mux_format(val, 8, 'I'),
 }, key_transformers={
     'INIT_VAL\[[^\]]*]': lambda x: 'INIT_VAL',
 }, encoders={
     'INIT_VAL': lambda key,val: val[::-1],
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
 	'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
+	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
     # XXX: Haven't verified...
     'BramClkMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
     'TileWeRenMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
