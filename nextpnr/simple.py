@@ -107,6 +107,33 @@ def createRogicTile(chip, tile, row, col):
     belname = nameForTile(tile, row, col)
     # Intentionally blank for now
 
+def createPLLTile(chip, tile, row, col):
+    assert row < chip.rows
+    assert col < chip.columns 
+    belname = nameForTile(tile, row, col)
+    #print("Creating %s" % (belname))
+    ctx.addBel(name=belname, type="GENERIC_PLL", loc=Loc(col, row, 0), gb=False)
+    
+    wire_base = "%s:alta_pllx00" % (belname)
+    for clock in range(0, 4):
+        output = "clkout%i" % (clock)
+        input = "clkout%ien" % (clock)
+
+        out_wire = "%s:%s" % (wire_base, output)
+        addWire(row, col, out_wire)
+        
+        in_wire = "%s:%s" % (wire_base, input)
+        addWire(row, col, in_wire)
+
+        ctx.addBelOutput(bel=belname, name=output, wire=out_wire)
+        ctx.addBelInput(bel=belname, name=input, wire=in_wire)
+    
+    for configs in ('clkin', 'clkfb', 'pllen', 'resetn'):
+        pin = configs
+        wire = "%s:%s" % (wire_base, pin)
+        addWire(row, col, wire)
+        ctx.addBelInput(bel=belname, name=pin, wire=wire)
+
 def createBRAMTile(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
@@ -191,6 +218,8 @@ for row in range(0, chip.rows):
             createRogicTile(chip, tile, row, col)
         elif ttype == "BramTILE":
             createBRAMTile(chip, tile, row, col)
+        elif ttype == "PLLTILE":
+            createPLLTile(chip, tile, row, col)
 
 
 #
