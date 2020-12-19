@@ -1043,6 +1043,8 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
 	'TileWeRenMUX01':'WeRenB',
 }))
 
+InstallTile(Tile('ALTA_PLLX', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
+
 InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices=16, values={
 	# 16 slices per tile
 
