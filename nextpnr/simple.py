@@ -33,7 +33,7 @@ def nameForTile(tile, row, col):
     return "%s(%02i,%02i)" % (tile.type, col, row)
 
 # This would be an alta_slice in AGM speak
-def createLogicTileBEL(chip, tile, row, col):
+def createLogicTile(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
     tile_name = nameForTile(tile, row, col)
@@ -73,7 +73,7 @@ def createLogicTileBEL(chip, tile, row, col):
         ctx.addBelOutput(bel=belname, name="F", wire=fname)
 
 # This would be an alta_rio in AGM speak
-def createIOTileBEL(chip, tile, row, col):
+def createIOTile(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
     for z in range(0, tile.slices):
@@ -101,14 +101,13 @@ def createIOTileBEL(chip, tile, row, col):
         ctx.addBelInput(bel=belname, name="EN", wire=oename)
         ctx.addBelOutput(bel=belname, name="O", wire=oname)
 
-def createRogicTileBEL(chip, tile, row, col):
+def createRogicTile(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
     belname = nameForTile(tile, row, col)
-    #print("Creating %s" % (belname))
-    ctx.addBel(name=belname, type="GENERIC_ROUTE", loc=Loc(col, row, 0), gb=False)
+    # Intentionally blank for now
 
-def createBRAMTileBEL(chip, tile, row, col):
+def createBRAMTile(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
     belname = nameForTile(tile, row, col)
@@ -185,13 +184,13 @@ for row in range(0, chip.rows):
         ttype = tile.type
         
         if ttype == "IOTILE":
-            createIOTileBEL(chip, tile, row, col)
+            createIOTile(chip, tile, row, col)
         elif ttype == "LogicTILE":
-            createLogicTileBEL(chip, tile, row, col)
+            createLogicTile(chip, tile, row, col)
         elif ttype == "RogicTILE":
-            createRogicTileBEL(chip, tile, row, col)
+            createRogicTile(chip, tile, row, col)
         elif ttype == "BramTILE":
-            createBRAMTileBEL(chip, tile, row, col)
+            createBRAMTile(chip, tile, row, col)
 
 
 #
