@@ -172,11 +172,6 @@ def addWire(row, col, name, typ=""):
         #print("addWire: duplicate wire name=%s, type=%s, y=%i, x=%i" % (name, typ, row, col))
         pass
 
-def shouldProcessTileNamed(tile_name):
-    if tile_name == "LogicTILE" or tile_name == "IOTILE" or tile_name == "RogicTILE" or tile_name == "BramTILE":
-        return True
-    return None
-
 #
 # Create Basic Elements
 #
@@ -188,8 +183,6 @@ for row in range(0, chip.rows):
             continue
         
         ttype = tile.type
-        if not shouldProcessTileNamed(ttype):
-            continue
         
         if ttype == "IOTILE":
             createIOTileBEL(chip, tile, row, col)
@@ -211,11 +204,7 @@ print("Creating wires and PIPs")
 def wire_enumerator(wire):
     source = wire.source
     dest = wire.dest
-    if not shouldProcessTileNamed(source.tile):
-        return
-    if not shouldProcessTileNamed(dest.tile):
-        return
-
+    
     assert source.row < chip.rows
     assert dest.row < chip.rows
     assert source.col < chip.columns
