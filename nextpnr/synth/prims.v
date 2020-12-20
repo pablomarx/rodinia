@@ -69,6 +69,26 @@ module GENERIC_BRAM #(
 );
 endmodule
 
+module GENERIC_PLL #(
+  parameter CLKOUT0_DIV = 6'b000000,
+  parameter CLKOUT1_DIV = 6'b000000,
+  parameter CLKOUT2_DIV = 6'b000000,
+  parameter CLKOUT3_DIV = 6'b000000,
+  parameter CLKOUT0_DEL = 6'b000000,
+  parameter CLKOUT1_DEL = 6'b000000,
+  parameter CLKOUT2_DEL = 6'b000000,
+  parameter CLKOUT3_DEL = 6'b000000,
+) (
+	input clkin,
+	input clkout0en, clkout1en, clkout2en, clkout3en,
+	output clkout0, clkout1, clkout2, clkout3,
+	input pllen,
+	input resetn,
+	input clkfb
+);
+
+endmodule
+
 (* blackbox *)
 module alta_boot (
   input i_osc_enb,

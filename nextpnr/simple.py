@@ -76,23 +76,24 @@ def createLogicTile(chip, tile, row, col):
 def createIOTile(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
+    tile_name = nameForTile(tile, row, col)
+    
     for z in range(0, tile.slices):
         pin = chip.pin_at(row, col, z)
         if not pin:
             continue
         
-        wire_prefix = nameForTile(tile, row, col)
-        belname = "%s:alta_rio%02i" % (wire_prefix, z)
+        belname = "%s:alta_rio%02i" % (tile_name, z)
         
         gb = 'globalBuffer' in pin
         
         ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=gb)
         
         #print("Creating bel: %s" % belname)
-        #oname = "%s:InputMUX%02i" % (wire_prefix, (z*2)+1)
-        oname = "%s:alta_ioreg%02i" % (wire_prefix, z)
-        iname = "%s:IOMUX%02i" % (wire_prefix, z)
-        oename = "%s:oe%02i" % (wire_prefix, z)
+        #oname = "%s:InputMUX%02i" % (tile_name, (z*2)+1)
+        oname = "%s:alta_ioreg%02i" % (tile_name, z)
+        iname = "%s:IOMUX%02i" % (tile_name, z)
+        oename = "%s:oe%02i" % (tile_name, z)
         
         addWire(row, col, iname)
         addWire(row, col, oename)
@@ -100,6 +101,16 @@ def createIOTile(chip, tile, row, col):
         ctx.addBelInput(bel=belname, name="I", wire=iname)
         ctx.addBelInput(bel=belname, name="EN", wire=oename)
         ctx.addBelOutput(bel=belname, name="O", wire=oname)
+        
+    if "GclkDMUX00" in tile.values:
+        inname = "alta_io_gclk00:inclk" 
+        src = tile_name+":"+inname
+        addWire(row, col, src, inname)
+        
+        outname = "alta_io_gclk00:outclk" 
+        dest = tile_name+":"+outname
+        addWire(row, col, dest, outname)
+        createPIP("%s <= %s" % (src, dest), "???", src, dest, 0, row, col)
 
 def createRogicTile(chip, tile, row, col):
     assert row < chip.rows
@@ -152,6 +163,28 @@ def createUFMTile(chip, tile, row, col):
     osc_wire = "%s:%s" % (wire_prefix, osc)
     addWire(row, col, osc_wire)
     ctx.addBelOutput(bel=belname, name=osc, wire=osc_wire)
+
+    for gdd in range(0, 8):
+        wire_prefix = "%s:alta_ufm_gddd%02i" % (belname, gdd)
+        inname = "in" 
+        src = wire_prefix+":"+inname
+        addWire(row, col, src, inname)
+    
+        outname = "out" 
+        dest = wire_prefix+":"+outname
+        addWire(row, col, dest, outname)
+        createPIP("%s <= %s" % (src, dest), "???", src, dest, 0, row, col)
+        
+    wire_prefix = "%s:alta_io_gclk00" % (belname)
+    inname = "in" 
+    src = wire_prefix+":"+inname
+    addWire(row, col, src, inname)
+    
+    outname = "out" 
+    dest = wire_prefix+":"+outname
+    addWire(row, col, dest, outname)
+    createPIP("%s <= %s" % (src, dest), "???", src, dest, 0, row, col)
+
 
 def createBRAMTile(chip, tile, row, col):
     assert row < chip.rows
