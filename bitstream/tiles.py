@@ -385,6 +385,7 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 1, 2),
+    'GclkDMUX00': lambda key,val: mux_encode(val, 3, 1)
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -628,6 +629,7 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 1, 2),
+    'GclkDMUX00': lambda key,val: mux_encode(val, 3, 1)
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -974,6 +976,7 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
     'TileWeRenMUX0[0-9]': lambda key, val: mux_encode(val, 3, 1),
     'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 3, 1),
     'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 2, 1), 
+    'SeamMUX[0-9][0-9]': lambda key, val: mux_encode(val, 7, 1),
 }, annotations={
 	'BramClkMUX00': 'Clk0',
 	'BramClkMUX01': 'Clk1',
@@ -1452,6 +1455,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
     'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
     'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0),
+	'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 1),
 }, annotations={
     'alta_slice[0-9][0-9]_LUTCMUX': 'FeedbackMux?',
 	'alta_slice00_IMUX00':'A',
