@@ -134,6 +134,25 @@ def createPLLTile(chip, tile, row, col):
         addWire(row, col, wire)
         ctx.addBelInput(bel=belname, name=pin, wire=wire)
 
+def createUFMTile(chip, tile, row, col):
+    assert row < chip.rows
+    assert col < chip.columns 
+    belname = nameForTile(tile, row, col)
+    #print("Creating %s" % (belname))
+
+    ctx.addBel(name=belname, type="alta_boot", loc=Loc(col, row, 0), gb=False)
+    wire_prefix = "%s:alta_boot00" % (belname)
+    
+    osc_enb = "i_osc_enb"
+    osc_enb_wire = "%s:%s" % (wire_prefix, osc_enb)
+    addWire(row, col, osc_enb_wire)
+    ctx.addBelInput(bel=belname, name=osc_enb, wire=osc_enb_wire)
+    
+    osc = "o_osc"
+    osc_wire = "%s:%s" % (wire_prefix, osc)
+    addWire(row, col, osc_wire)
+    ctx.addBelOutput(bel=belname, name=osc, wire=osc_wire)
+
 def createBRAMTile(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
@@ -220,7 +239,8 @@ for row in range(0, chip.rows):
             createBRAMTile(chip, tile, row, col)
         elif ttype == "PLLTILE":
             createPLLTile(chip, tile, row, col)
-
+        elif ttype == "UFMTILE":
+            createUFMTile(chip, tile, row, col)
 
 #
 # Create Programmable Interconnect Points and Wires

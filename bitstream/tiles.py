@@ -261,6 +261,9 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', columns=34, rows=20, slice
 	'SeamMUX07':[363,364,365,366,367,368,369,370],
 	'SeamMUX08':[329,330,331,332,333,334,335,336],
 	'SeamMUX09':[295,296,297,298,299,300,301,302],
+}, encoders={
+	'BBMUXN[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2),
+    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2),
 }))
 
 InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4, values={

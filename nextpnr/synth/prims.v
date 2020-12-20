@@ -67,6 +67,11 @@ module GENERIC_BRAM #(
 	input  Clk1, ClkEn1, AsyncReset1,
 	input  WeRenA, WeRenB
 );
+endmodule
 
-
+(* blackbox *)
+module alta_boot (
+  input i_osc_enb,
+  output o_osc,
+);
 endmodule
