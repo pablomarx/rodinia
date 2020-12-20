@@ -29,16 +29,16 @@ class ConfigChainPLL:
         self.fields = [
             ('PLL_EN_FLAG',    1),
             ('RLPF',           2),
-            ('PllClkInMUX',    2),
+            ('PllClkInMUX00',  2),
             ('RVI',            2),
             ('RREF',           2),
             ('CP',             3),
             ('SELCLK_G1',      3),
             ('SELCLK_G2',      3),
-            ('PllIntFbMUX',    2),
+            ('PllIntFbMUX00',  2),
             ('DLYNUM_G2',      6),
-            ('PllSeamMUX0',    3),
-            ('PllSeamMUX1',    3),
+            ('PllSeamMUX00',   3),
+            ('PllSeamMUX01',   3),
             ('M_N',            6),
             ('M_M',            6),
             ('M_G1',           6),
@@ -54,7 +54,7 @@ class ConfigChainPLL:
             ('CLK_EN3',        1),
             ('SELCLK_G4',      3),
             ('SELCLK_G3',      3),
-            ('PllClkFbMUX',    1)
+            ('PllClkFbMUX00',  1)
         ]
     
     def empty_bits(self):
