@@ -172,7 +172,7 @@ def createBRAMTile(chip, tile, row, col):
         addWire(row, col, wire)
         ctx.addBelInput(bel=belname, name=base, wire=wire)
     
-    for inputs in ("AddressA", range(0, 12)), ("AddressB", range(63, 51, -1), "DataInA", range(12, 30)), ("DataInB", range(51, 33, -1)):
+    for inputs in ("AddressA", range(0, 12)), ("AddressB", range(63, 51, -1)), ("DataInA", range(12, 30)), ("DataInB", range(51, 33, -1)):
         bit = 0
         prefix = inputs[0]
         for imux in inputs[1]:
