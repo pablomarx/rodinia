@@ -72,10 +72,13 @@ class ConfigChainPLL:
             if field[0] == name:
                 return offset
             offset += field[1]
-        return offset
+        return None
     
     def encode(self, chip, tile, row, col, key, value, bits):
         offset = self.offset_for_field_named(key)
+        if offset == None:
+            return False
+        
         for idx in range(len(value)):
             bits[offset] = value[idx]
             offset += 1
