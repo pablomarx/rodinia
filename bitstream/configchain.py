@@ -56,6 +56,14 @@ class ConfigChainPLL:
             ('SELCLK_G3',      3),
             ('PllClkFbMUX00',  1)
         ]
+        self.aliases = {
+            'SinkMUXPseudo00': 'PLL_EN_FLAG', # pllen
+            # 1 is resetn
+            'SinkMUXPseudo02': 'CLK_EN1',     # clkout0en
+            'SinkMUXPseudo03': 'CLK_EN2',     # clkout1en
+            'SinkMUXPseudo04': 'CLK_EN3',     # clkout2en
+            'SinkMUXPseudo05': 'CLK_EN4',     # clkout3en
+        }
     
     def empty_bits(self):
         length = 0
@@ -75,6 +83,8 @@ class ConfigChainPLL:
         return None
     
     def encode(self, chip, tile, row, col, key, value, bits):
+        if key in self.aliases:
+            key = self.aliases[key]
         offset = self.offset_for_field_named(key)
         if offset == None:
             return False
