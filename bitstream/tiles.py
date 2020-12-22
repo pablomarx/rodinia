@@ -378,7 +378,8 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
 	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 6, True)
+	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 6, True),
+	'GclkDMUX00': lambda key,val: bits_to_string(bits_invert(val), 6, True),
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -386,7 +387,7 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
-    'GclkDMUX00': lambda key,val: ([0] * (4 - len(val))) + val,
+    'GclkDMUX00': lambda key,val: bits_invert(([0] * (4 - len(val))) + val),
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -625,6 +626,7 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
 	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
 	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 6, True),
+	'GclkDMUX00': lambda key,val: bits_to_string(bits_invert(val), 6, True),
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -632,7 +634,7 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
-    'GclkDMUX00': lambda key,val: ([0] * (4 - len(val))) + val,
+    'GclkDMUX00': lambda key,val: bits_invert(([0] * (4 - len(val))) + val),
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
