@@ -28,17 +28,17 @@ class ConfigChainPLL:
     def __init__(self, chip):
         self.fields = [
             ('PLL_EN_FLAG',    1),
-            ('RLPF',           2),
+            ('RLPF',           2),  # ???
             ('PllClkInMUX00',  2),
-            ('RVI',            2),
-            ('RREF',           2),
-            ('CP',             3),
+            ('RVI',            2),  # ???
+            ('RREF',           2),  # ???
+            ('CP',             3),  # ???
             ('SELCLK_G1',      3),
             ('SELCLK_G2',      3),
             ('PllIntFbMUX00',  2),
             ('DLYNUM_G2',      6),
-            ('PllSeamMUX00',   3),
-            ('PllSeamMUX01',   3),
+            ('PllSeamMUX00',   3),  # feeds PllClkFbMUX00
+            ('PllSeamMUX01',   3),  # feeds PllClkInMUX00
             ('M_N',            6),
             ('M_M',            6),
             ('M_G1',           6),
@@ -54,15 +54,33 @@ class ConfigChainPLL:
             ('CLK_EN3',        1),
             ('SELCLK_G4',      3),
             ('SELCLK_G3',      3),
-            ('PllClkFbMUX00',  1)
+            ('PllClkFbMUX00',  1),
         ]
         self.aliases = {
             'SinkMUXPseudo00': 'PLL_EN_FLAG', # pllen
-            # 1 is resetn
+            # XXX: 1 is resetn. Where to hook up??
             'SinkMUXPseudo02': 'CLK_EN1',     # clkout0en
             'SinkMUXPseudo03': 'CLK_EN2',     # clkout1en
             'SinkMUXPseudo04': 'CLK_EN3',     # clkout2en
             'SinkMUXPseudo05': 'CLK_EN4',     # clkout3en
+            # guess based on bit width
+            'CLKOUT0_PHASE': 'SELCLK_G1',
+            'CLKOUT1_PHASE': 'SELCLK_G2',
+            'CLKOUT2_PHASE': 'SELCLK_G3',
+            'CLKOUT3_PHASE': 'SELCLK_G4',
+            # guess based on Dly/Delay
+            'CLKOUT0_DEL': 'DLYNUM_G1',
+            'CLKOUT1_DEL': 'DLYNUM_G2',
+            'CLKOUT2_DEL': 'DLYNUM_G3',
+            'CLKOUT3_DEL': 'DLYNUM_G4',
+            # guess based on 6-bit and four items
+            'CLKOUT0_DIV': 'M_G1',
+            'CLKOUT1_DIV': 'M_G2',
+            'CLKOUT2_DIV': 'M_G3',
+            'CLKOUT3_DIV': 'M_G4',
+            # guesses
+            'CLKIN_DIV': 'M_N',
+            'CLKFB_DIV': 'M_M',
         }
     
     def empty_bits(self):
