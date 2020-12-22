@@ -22,7 +22,7 @@
 #
 from operator import itemgetter
 import re
-from utils import bits_to_string
+from utils import bits_to_string, bits_invert
 
 class ConfigChainPLL:
     def __init__(self, chip):
@@ -102,6 +102,10 @@ class ConfigChainPLL:
     
     def encode(self, chip, tile, row, col, key, value, bits):
         if key in self.aliases:
+            # XXX: ugly hack. router emits 0 to hook up to I0
+            # but we need a 1 to activate 
+            if key.startswith("SinkMUXPseudo"):
+                value = bits_invert(value)
             key = self.aliases[key]
         offset = self.offset_for_field_named(key)
         if offset == None:
