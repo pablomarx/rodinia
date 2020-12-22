@@ -1,10 +1,12 @@
 ### Status
 Running `build.sh` results in a complete flow from Verilog to binary bitstream.  
 
-* `simple.v` sets LED outputs to 1'b0, 1'b1 and clk.  When uploaded to the FPGA it executes as expected.
-* `blinky.v` Sets up a clock driven counter, blinks 8 LEDs 
-* `rs232demo.v` UART RX & TX controlling 5 LEDs 
-
+* [simple.v](simple.v) sets LED outputs to 1'b0, 1'b1 and clk.  When uploaded to the FPGA it executes as expected.
+* [blinky.v](blinky.v) Sets up a clock driven counter, blinks 8 LEDs 
+* [blinky_int_osc.v](blinky_int_osc.v) Like above, but uses the internal oscillator instead of external one
+* [blinky_int_osc_pll.v](blinky_int_osc_pll.v) Another blinky, but this one uses the built in pll 
+* [rs232demo.v](rs232demo.v) UART RX & TX controlling 5 LEDs 
+* [bram_rom.v](bram_rom.v) Uses a BRAM tile as ROM, blinks out the contents
 ### Files
 * [simple.py](simple.py) Creates the BELs, PIPs and wires for nextpnr.  Utilizes files in the [bitstream](../bitstream) directory: [chips.py](../bitstream/chips.py), [tiles.py](../bitstream/tiles.py), [wires.py](../bitstream/wires.py).  The resulting routing looks sensible, e.g. [build-blinky/log, starting at line 3357](build-blinky/log#3357) and the IOTILEs appear to be configured correctly.
 * [write_fasm.py](write_fasm.py) Mostly a copy of the same file from nextpnr: Does some mild transformation to PIP and BEL names to make them fasm compliant
