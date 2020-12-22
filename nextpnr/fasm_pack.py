@@ -95,6 +95,9 @@ for line in lines:
         setting.append("1")
     
     key = setting[0].strip()
+    if key[-1] == "]":
+        openb = key.rfind("[")
+        key = key[0:openb]
     value = string_to_bits(setting[1].strip())
     
     if row < 0 and comps[0] == 'C':
