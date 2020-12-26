@@ -50,7 +50,9 @@ if emit_fasm:
 
 def print_fasm_data(data):
     owner = data['owner']
-    
+    if owner == None:
+        sys.stderr.write("No owner for data: %s\n" % (data))
+        return
     empty_bits = owner.empty_bits()
     empty_values = owner.decode(empty_bits)
     
@@ -90,6 +92,9 @@ def print_fasm_data(data):
 
 def print_explain_data(data):
     owner = data['owner']
+    if owner == None:
+        sys.stderr.write("No owner for data: %s\n" % (data))
+        return
     values = owner.decode(data['bits'])
     
     args = data['args']
