@@ -39,6 +39,7 @@ class Chip:
     
     def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages, configChainClasses, lzwCompressed = False):
         global chips
+        assert len(floorplan) == rows * columns
         self.name = name
         self.device_id = device_id
         self.rows = rows
@@ -52,7 +53,6 @@ class Chip:
             configChain.append(ccClass(self))
         self.configChain = configChain
         self.lzwCompressed = lzwCompressed
-        chips.append(self)
     
     def pins_in_tile_at(self, x, y):
         result = []
@@ -119,7 +119,10 @@ def ChipWithID(id):
             return chip
     return None
 
-Chip('AG1KLP', 0x00120010, 10, 14, [
+def AddChip(chip):
+    chips.append(chip)
+
+AddChip(Chip('AG1200LP', 0x00120010, 10, 14, [
 	None,     'PLL',    None,     None,    None,     None,     None,     None,     None,       'IOS2',   None,    'IOS3',   'IOS3',   None,
 	'IOS0',   'IOS0',   'IOS0',   None,    'IOS1',   'IOS1',   'IOS1',   'IOS1',   'BOOT_PLL', 'LOGIC0', 'BRAM1', 'LOGIC0', 'LOGIC0', 'ROGIC0',
 	'LOGIC0', 'LOGIC0', 'LOGIC0', 'BRAM0', 'LOGIC0', 'LOGIC0', 'LOGIC0', 'LOGIC0', 'LOGIC0',   'LOGIC0', 'BRAM1', 'LOGIC0', 'LOGIC0', 'ROGIC0',
@@ -240,4 +243,88 @@ Chip('AG1KLP', 0x00120010, 10, 14, [
     ],
 }, [
     ConfigChainIO, ConfigChainPLL
-])
+]))
+
+AddChip(Chip('AG10K', 0x01000001, 41, 25, [
+    None, 'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   'IO',   None,    'IO',   'IO',   'IO',   'IO',   'IO',   None,  'IO',   'IO',   'IO',   'IO',   'IO',   None,  'IO',   'IO',   'IO',   'IO',   'IO',   None,   None, 
+    'PLL','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'IO', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    'UFM','UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    None, 'UFM',  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IO', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','PLL',
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'IO',   'IO',   'IO',   'IO',   'IO',   'Clkdis','IO',   'IO',   'IO',   'IO',   'IO',   None,  'IO',   'IO',   'IO',   'IO',   'IO',   None,  'IO',   'IO',   'IO',   'IO',   'IO',   None,   None, 
+], {
+    # aliases
+	'Logic':   'ALTA_TILE_SRAM_DIST',
+    'Bram':    'alta_bram9k',
+    'Mult':    'alta_multiplier',
+}, {
+    # packages
+    'AG10KSDE176': [
+        
+    ]
+}, [
+    # config chain
+]))
+
+AddChip(Chip('AG15K', 0x01500010, 50, 30, [
+    None, 'UFM',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,  'IOS',  'IOS',  'IOS',  'IOS',  None,    'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,    'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'UFM',  None,   None, 
+    'PLL','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','PLL',
+    'UFM','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','UFM',
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'IOE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'PLL','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    'UFM','UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, 'UFM',  'UFM',  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'UFM',  'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'UFM',  'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'UFM',  'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW', 
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','PLL',
+    None, None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'ION',  'ION',  None,  'ION',  'ION',  'ION',  'ION',  'Clkdis','ION',  'ION',  'ION',  'ION',  'ION',  'ION',  'ION',  None,  'ION',  'ION',  'ION',  'ION',  'ION',  'ION',  'ION',  'ION',  'ION',  'Clkdis','ION',  'ION',  'ION',  'ION',  'UFM',  'UFM',  None,   None, 
+], {
+    # aliases
+	'Logic':   'ALTA_TILE_SRAM_DIST',
+    'Bram':    'alta_bram9k',
+    'Mult':    'alta_multiplier',
+}, {
+    # packages
+    'AG16KSDE176': [        
+    ] # end AG16KSDE176
+}, [
+    # config chain
+]))
