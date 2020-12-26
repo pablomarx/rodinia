@@ -129,9 +129,10 @@ class ConfigChainPLL:
         return result
         
 class ConfigChainIO:
-    def __init__(self, chip):
-        package_name = list(chip.packages)[0]
-        package = chip.packages[package_name]
+    def __init__(self, chip, package=None):
+        if package == None:
+            package_name = list(chip.packages)[0]
+            package = chip.packages[package_name]
         pins = [pin for pin in package if 'configChainIndex' in pin]
         pins = sorted(pins, key=itemgetter('configChainIndex'))
         
