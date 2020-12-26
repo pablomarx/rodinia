@@ -126,7 +126,9 @@ for line in lines:
                 print("%sdevice %s" % ( "# " if emit_fasm else ".", hex(chip.device_id)))
             elif comps[0] == ".config_chain":
                 chain_id = int(comps[1])
-                chain = chip.configChain[chain_id]
+                chain = None
+                if chain_id < len(chip.configChain):
+                    chain = chip.configChain[chain_id]
                 data = { 'bits': [], 'owner': chain, 'header': line, 'args': { 'chain_id': chain_id } }
         if len(comps) == 3:
             if chip != None:
