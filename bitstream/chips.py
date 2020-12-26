@@ -246,7 +246,7 @@ AddChip(Chip('AG1200LP', 0x00120010, 10, 14, [
     ConfigChainIO, ConfigChainPLL
 ]))
 
-AddChip(Chip('AG10K', 0x01000001, 41, 25, [
+AddChip(Chip('AG10K', 0x01000001, 25, 41, [
     None,  'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,    'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', None,   None,
     'PLL' ,'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
@@ -301,7 +301,7 @@ AddChip(Chip('AG10K', 0x01000001, 41, 25, [
     # config chain
 ], lzwCompressed=True))
 
-AddChip(Chip('AG15K', 0x01500010, 50, 30, [
+AddChip(Chip('AG15K', 0x01500010, 30, 50, [
     None, 'UFM',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,  'IOS',  'IOS',  'IOS',  'IOS',  None,    'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,    'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'UFM',  None,   None, 
     'PLL','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','PLL',
     'UFM','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','UFM',
