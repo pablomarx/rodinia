@@ -283,7 +283,7 @@ AddChip(Chip('AG10K', 0x01000001, 41, 25, [
     ]
 }, [
     # config chain
-]))
+], lzwCompressed=True))
 
 AddChip(Chip('AG15K', 0x01500010, 50, 30, [
     None, 'UFM',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,  'IOS',  'IOS',  'IOS',  'IOS',  None,    'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  None,    'IOS',  'IOS',  'IOS',  'IOS',  'IOS',  'UFM',  None,   None, 
@@ -510,4 +510,4 @@ AddChip(Chip('AG15K', 0x01500010, 50, 30, [
     ] # end AG16KSDE176
 }, [
     # config chain
-]))
+], lzwCompressed=True))
