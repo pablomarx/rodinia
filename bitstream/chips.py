@@ -65,10 +65,11 @@ class Chip:
         
     def tile_at(self, x, y): 
         index = (y * self.columns) + x
-        alias = self.floorplan[index]
-        if alias is None:
+        name = self.floorplan[index]
+        if name is None:
             return None
-        name = self.aliases[alias]
+        if name in self.aliases:
+            name = self.aliases[name]
         return TileNamed(name)
 
     def column_width(self, column):
