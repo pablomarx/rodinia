@@ -113,7 +113,7 @@ def lzw_decode(bytes):
             result += prev
             continue
         elif cur == 17:
-            raise "Unexpected code 17"
+            raise BaseException("Unexpected code 17")
         else:    
             cur -= 18
             if cur < len(table):
