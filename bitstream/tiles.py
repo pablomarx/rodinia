@@ -1128,6 +1128,7 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
 	'TileWeRenMUX01':'WeRenB',
 }))
 
+# This is a pseudo tile.  The bits are handled in a ConfigChain.  Here for wire/routing purposes.
 InstallTile(Tile('ALTA_PLLX', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
 
 InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices=16, values={
@@ -2643,3 +2644,20 @@ InstallTile(Tile('alta_io_W6', 'IOTILE', columns=20, rows=68, slices=0, values={
     'SEAMMUX':[492,493,494,495,496,497,491,490,489,488,487,486,552,553,554,555,556,557,551,550,549,548,547,546,572,573,574,575,576,577,571,570,569,568,567,566,792,793,794,795,796,797,791,790,789,788,787,786,812,813,814,815,816,817,811,810,809,808,807,806,872,873,874,875,876,877,871,870,869,868,867,866],
     'TILECLKMUX':[482,483,484,502,503,485,522,523,545,542,543,544,562,563,564,582,583,565,762,763,785,782,783,784,802,803,804,822,823,805,842,843,865,862,863,864],
 }))
+
+InstallTile(Tile('UFM', 'UFMTILE', columns=34, rows=8, slices=0, values={
+    'BBMUXN0':[139,173,138,172,137,136,171,170,105],
+    'BBMUXN1':[37,3,36,2,35,34,1,0,71],
+    'BBMUXN2':[142,176,143,177,144,145,178,179,108],
+    'BBMUXN3':[40,6,41,7,42,43,8,9,74],
+    'BBMUXN4':[149,183,148,182,147,146,181,180,115],
+    'BBMUXN5':[47,13,46,12,45,44,11,10,81],
+    'BBMUXN6':[153,187,154,188,155,156,189,190,119],
+    'CONSTMUX':[254],
+    'GDRVMUX':[49,15,52,18,50,16,53,19,51,17,54,20],
+    'SeamMUX':[238,239,240,241,204,205,206,207,247,246,245,244,213,212,211,210,248,249,250,251,214,215,216,217,258,257,256,255],
+}))
+
+# These are pseudo tiles.  The bits are handled in ConfigChains.  Here for wire/routing purposes.
+InstallTile(Tile('Clkdis', 'ClkdisTILE', columns=0, rows=0, slices=0, values={}))
+InstallTile(Tile('PLL', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
