@@ -92,7 +92,7 @@ def nibbles_to_bytes(nibbles):
 # If the top two bits are clear, then it's a raw nibble.
 # Otherwise it's a lzw control.
 # 0x10 is CLEAR_CODE
-# 0x11 hasn't been seen and is unknown
+# 0x11 appears in AG16K bitstreams. Unknown purpose.
 # The rest are dictionary codes
 #
 def lzw_decode(bytes):
