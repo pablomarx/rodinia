@@ -145,7 +145,7 @@ Chip('AG1KLP', 0x00120010, 10, 14, [
 	'ION1':     'AG1200_IOTILE_N4_G1',
 	'ION2':     'AG1200_IOTILE_N4',
 }, {
-    'QFN48': [
+    'AG1KLPQ48': [
         { 'name': 'PIN_1',    'type': 'IO', 'tile': (2,9),  'index': 0, 'configChainIndex': 24},
         { 'name': 'PIN_2',    'type': 'IO', 'tile': (1,9),  'index': 3, 'configChainIndex': 25},
         { 'name': 'PIN_3',    'type': 'IO', 'tile': (0,9),  'index': 2, 'configChainIndex': 27},
@@ -194,7 +194,50 @@ Chip('AG1KLP', 0x00120010, 10, 14, [
         { 'name': 'PIN_46',   'type': 'IO', 'tile': (4,9),  'index': 0, 'configChainIndex': 22}, 
         { 'name': 'VDDIO',    'type': 'POWER' },
         { 'name': 'PIN_48',   'type': 'IO', 'tile': (2,9),  'index': 2, 'configChainIndex': 23}
-    ]
+    ],
+    'AG1280Q48': [
+        { 'name' :'PIN_1',     'type': 'IO', 'tile': (2,9),  'index': 0 },
+        { 'name' :'PIN_2',     'type': 'IO', 'tile': (1,9),  'index': 3 },
+        { 'name' :'PIN_3',     'type': 'IO', 'tile': (0,9),  'index': 2 },
+        { 'name' :'PIN_4',     'type': 'IO', 'tile': (0,9),  'index': 0 },
+        { 'name' :'PIN_5',     'type': 'IO', 'tile': (1,9),  'index': 1 },
+        { 'name' :'PIN_6',     'type': 'IO', 'tile': (6,9),  'index': 2 },
+        { 'name' :'PIN_9',     'type': 'IO', 'tile': (7,1),  'index': 0 },
+        { 'name' :'PIN_11',    'type': 'IO', 'tile': (2,1),  'index': 0 },
+        { 'name' :'PIN_12',    'type': 'IO', 'tile': (2,1),  'index': 2 },
+        { 'name' :'PIN_13',    'type': 'IO', 'tile': (4,1),  'index': 0 },
+        { 'name' :'PIN_14',    'type': 'IO', 'tile': (4,1),  'index': 2 },
+        { 'name' :'PIN_15',    'type': 'IO', 'tile': (5,1),  'index': 0 },
+        { 'name' :'PIN_16',    'type': 'IO', 'tile': (5,1),  'index': 1 },
+        { 'name' :'PIN_17',    'type': 'IO', 'tile': (5,1),  'index': 2 },
+        { 'name' :'PIN_18',    'type': 'IO', 'tile': (5,1),  'index': 3 },
+        { 'name' :'PIN_19',    'type': 'IO', 'tile': (6,1),  'index': 0 },
+        { 'name' :'PIN_20',    'type': 'IO', 'tile': (6,1),  'index': 1 },
+        { 'name' :'PIN_22',    'type': 'IO', 'tile': (6,1),  'index': 2 },
+        { 'name' :'PIN_23',    'type': 'IO', 'tile': (6,1),  'index': 3 },
+        { 'name' :'PIN_25',    'type': 'IO', 'tile': (9,0),  'index': 3 },
+        { 'name' :'PIN_41',    'type': 'IO', 'tile': (6,9),  'index': 0 },
+        { 'name' :'PIN_42',    'type': 'IO', 'tile': (5,9),  'index': 2 },
+        { 'name' :'PIN_43',    'type': 'IO', 'tile': (5,9),  'index': 1 },
+        { 'name' :'PIN_44',    'type': 'IO', 'tile': (5,9),  'index': 0 },
+        { 'name' :'PIN_45',    'type': 'IO', 'tile': (4,9),  'index': 2 },
+        { 'name' :'PIN_46',    'type': 'IO', 'tile': (4,9),  'index': 0 },
+        { 'name' :'PIN_48',    'type': 'IO', 'tile': (2,9),  'index': 2 },
+    ],
+    'AG1280Q32': [
+        { 'name' :'PIN_1',        'type': 'IO', 'tile': (0,9),  'index': 2 },
+        { 'name' :'PIN_2',        'type': 'IO', 'tile': (0,9),  'index': 0 },
+        { 'name' :'PIN_3',        'type': 'IO', 'tile': (1,9),  'index': 1 },
+        { 'name' :'PIN_6',        'type': 'IO', 'tile': (7,1),  'index': 0 },
+        { 'name' :'PIN_8',        'type': 'IO', 'tile': (2,1),  'index': 0 },
+        { 'name' :'PIN_9',        'type': 'IO', 'tile': (2,1),  'index': 2 },
+        { 'name' :'PIN_10',       'type': 'IO', 'tile': (4,1),  'index': 0 },
+        { 'name' :'PIN_11',       'type': 'IO', 'tile': (4,1),  'index': 2 },
+        { 'name' :'PIN_12',       'type': 'IO', 'tile': (5,1),  'index': 0 },
+        { 'name' :'PIN_13',       'type': 'IO', 'tile': (6,1),  'index': 0 },
+        { 'name' :'PIN_14',       'type': 'IO', 'tile': (6,1),  'index': 1 },
+        { 'name' :'PIN_31',       'type': 'IO', 'tile': (5,9),  'index': 0 },
+    ],
 }, [
     ConfigChainIO, ConfigChainPLL
 ])
