@@ -95,7 +95,7 @@ if spi_mark != 0xffff:
 device_id = reader.read32()
 chip = ChipWithID(device_id)
 if chip is None:
-    print("Unexpected device id %s at pos %s" % (hex(device_id), pos - 4))
+    print("Unexpected device id %s at pos %s" % (hex(device_id), reader.pos - 4))
     sys.exit(-1);
 
 
