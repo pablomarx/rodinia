@@ -42,7 +42,7 @@ def decode_tile_bitstream(bits, length, bitstream_num):
         expected_size += rounded_row_width * row_height
 
     if expected_size != length:
-        print("Unexpected bitstream length %s (expected %s)" % (bit_len, expected_size))
+        sys.stderr.write("Unexpected bitstream length %s (expected %s)\n" % (bit_len, expected_size))
         return False
 
     offset = 0
@@ -170,4 +170,4 @@ while reader.endOfFile() == False:
             print(bits_to_string(bits[:bit_len]))
             print("");
     else:
-        print("Unhandled word %08x at position %i" % (word, reader.pos))
+        sys.stderr.write("Unhandled word %08x at position %i\n" % (word, reader.pos))
