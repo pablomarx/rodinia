@@ -40,7 +40,7 @@ def decode_tile_bitstream(bits, length, bitstream_num):
 
     if expected_size != length:
         print("Unexpected bitstream length %s (expected %s)" % (bit_len, expected_size))
-        return;
+        return False
 
     offset = 0
     for tile_row in range(chip.rows - 1,-1,-1):
@@ -67,7 +67,7 @@ def decode_tile_bitstream(bits, length, bitstream_num):
             row_trailer = bytes_to_num(row_trailer)
             if row_trailer != 0:
                 print("Unexpected trailer after row bits: %s" % (hex(row_trailer)))
-                return;
+                return False
     
         for tile_col in range(0, chip.columns):
             tile = chip.tile_at(tile_col, tile_row)
@@ -120,7 +120,8 @@ if chip.lzwCompressed is True:
         bitstream_bytes = lzw_decode(lzw_data)
         reader = BinaryReader(None, bitstream_bytes)
 
-
+last_bits = None
+last_bit_len = 0
 while reader.endOfFile() == False:
     word = reader.read32()
     if word & 0xff000000 == 0x22000000:
@@ -145,10 +146,17 @@ while reader.endOfFile() == False:
 
         bytes = reader.readN(int(aligned_len / 8))
         bits = bytes_to_bits(bytes)
+        if last_bits != None:
+            bits = last_bits + bits
+            bit_len = last_bit_len + bit_len
+            last_bits = None
     
         dest = word & 0xff
         if dest & 0xf0 == 0x00:
-            decode_tile_bitstream(bits, bit_len, (dest & 0xf))
+            success = decode_tile_bitstream(bits, bit_len, (dest & 0xf))
+            if success == False:
+                last_bits = bits
+                last_bit_len = bit_len
         elif dest & 0xf0 == 0x20:
             print(".config_chain %s" % (dest & 0xf))
             print(bits_to_string(bits[:bit_len]))
