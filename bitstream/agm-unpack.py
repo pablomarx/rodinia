@@ -33,10 +33,13 @@ chip = None
 #
 def decode_tile_bitstream(bits, length, bitstream_num):
     row_width = round_up(chip.max_row_width(), 8)
+    rounded_row_width = ((row_width / 32) + 1) * 32
+    row_padding = rounded_row_width - row_width
+    
     expected_size = 0
     for tile_row in range(0, chip.rows):
         row_height = chip.max_row_height(tile_row)
-        expected_size += (row_width + 32) * row_height
+        expected_size += rounded_row_width * row_height
 
     if expected_size != length:
         print("Unexpected bitstream length %s (expected %s)" % (bit_len, expected_size))
@@ -61,8 +64,9 @@ def decode_tile_bitstream(bits, length, bitstream_num):
                 row_offset = row_offset + col_len
 
             offset += row_width
-            row_trailer = bits[offset:offset+32]
-            offset += 32
+            row_trailer = bits[offset:offset+row_padding]
+            offset += row_padding
+            
             row_trailer = bits_to_bytes(row_trailer)
             row_trailer = bytes_to_num(row_trailer)
             if row_trailer != 0:
@@ -165,3 +169,5 @@ while reader.endOfFile() == False:
             print(".unknown_%s -1 -1" % hex(dest))
             print(bits_to_string(bits[:bit_len]))
             print("");
+    else:
+        print("Unhandled word %08x at position %i" % (word, reader.pos))
