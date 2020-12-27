@@ -2585,6 +2585,9 @@ InstallTile(Tile('alta_io_E6_T2', 'IOTILE', columns=20, rows=68, slices=6, value
 	'TileClkMUX09': [822,823,805],
 	'TileClkMUX10': [842,843,865],
 	'TileClkMUX11': [862,863,864],
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('alta_io_E6', 'IOTILE', columns=20, rows=68, slices=6, values={
@@ -2825,6 +2828,9 @@ InstallTile(Tile('alta_io_E6', 'IOTILE', columns=20, rows=68, slices=6, values={
 	'TileClkMUX09': [822,823,805],
 	'TileClkMUX10': [842,843,865],
 	'TileClkMUX11': [862,863,864],
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('alta_io_N4_T2', 'IOTILE', columns=34, rows=22, slices=4, values={
@@ -2995,6 +3001,9 @@ InstallTile(Tile('alta_io_N4_T2', 'IOTILE', columns=34, rows=22, slices=4, value
 	'TileClkMUX05': [503,504,440],
 	'TileClkMUX06': [339,338,372],
 	'TileClkMUX07': [509,508,474],
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('alta_io_N4', 'IOTILE', columns=34, rows=22, slices=4, values={
@@ -3163,6 +3172,9 @@ InstallTile(Tile('alta_io_N4', 'IOTILE', columns=34, rows=22, slices=4, values={
 	'TileClkMUX05': [503,504,440],
 	'TileClkMUX06': [339,338,372],
 	'TileClkMUX07': [509,508,474],
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('alta_io_S4_T2', 'IOTILE', columns=34, rows=22, slices=4, values={
@@ -3333,6 +3345,9 @@ InstallTile(Tile('alta_io_S4_T2', 'IOTILE', columns=34, rows=22, slices=4, value
 	'TileClkMUX05': [265,266,338],
 	'TileClkMUX06': [441,440,406],
 	'TileClkMUX07': [271,270,304],
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('alta_io_S4', 'IOTILE', columns=34, rows=22, slices=4, values={
@@ -3501,6 +3516,9 @@ InstallTile(Tile('alta_io_S4', 'IOTILE', columns=34, rows=22, slices=4, values={
 	'TileClkMUX05': [265,266,338],
 	'TileClkMUX06': [441,440,406],
 	'TileClkMUX07': [271,270,304],
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('alta_io_W4_G5', 'IOTILE', columns=20, rows=68, slices=5, values={
@@ -3795,6 +3813,9 @@ InstallTile(Tile('alta_io_W6_T2', 'IOTILE', columns=20, rows=68, slices=6, value
 	'TileClkMUX09': [822,823,805],
 	'TileClkMUX10': [842,843,865],
 	'TileClkMUX11': [862,863,864],
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('alta_io_W6', 'IOTILE', columns=20, rows=68, slices=6, values={
@@ -4035,6 +4056,9 @@ InstallTile(Tile('alta_io_W6', 'IOTILE', columns=20, rows=68, slices=6, values={
 	'TileClkMUX09': [822,823,805],
 	'TileClkMUX10': [842,843,865],
 	'TileClkMUX11': [862,863,864],
+}, defaults={
+	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
 InstallTile(Tile('UFM', 'UFMTILE', columns=34, rows=8, slices=0, values={
