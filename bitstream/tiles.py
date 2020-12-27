@@ -2665,7 +2665,7 @@ InstallTile(Tile('PLL', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
 #
 # For AG16K
 # 
-InstallTile(Tile('alta_io_N4_G5', 'IOTILE', columns=40, rows=24, values={
+InstallTile(Tile('alta_io_N4_G5', 'IOTILE', columns=40, rows=24, slices=0, values={
     'ENA_REG_MODE':[116,117,436,437,756],
     'GCLKDMUX':[276,277,316,317,596,597,636,637,916,917],
     'INDA_DELAY':[157,36,37,156,77,76,32,31,71,33,73,72],
@@ -2682,7 +2682,7 @@ InstallTile(Tile('alta_io_N4_G5', 'IOTILE', columns=40, rows=24, values={
     'SEAMMUX4':[840,841,842,843,844,845,846,847,848,849,850,851,880,881,882,883,884,885],
 }))
 
-InstallTile(Tile('alta_io_S4_G5', 'IOTILE', columns=40, rows=24, values={
+InstallTile(Tile('alta_io_S4_G5', 'IOTILE', columns=40, rows=24, slices=0, values={
     'ENA_REG_MODE':[876,877,556,557,236],
     'GCLKDMUX':[716,717,676,677,396,397,356,357,76,77],
     'INDA_DELAY':[837,956,957,836,917,916,952,951,911,953,913,912],
