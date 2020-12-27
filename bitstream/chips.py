@@ -243,7 +243,7 @@ AddChip(Chip('AG1200LP', 0x00120010, 10, 14, [
         { 'name' :'PIN_31',       'type': 'IO', 'tile': (5,9),  'index': 0 },
     ],
 }, [
-    ConfigChainIO, ConfigChainPLL
+    ConfigChainIO, ConfigChainPLLX
 ]))
 
 AddChip(Chip('AG10K', 0x01000001, 25, 41, [

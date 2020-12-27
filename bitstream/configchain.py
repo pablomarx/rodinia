@@ -24,7 +24,7 @@ from operator import itemgetter
 import re
 from utils import bits_to_string, bits_invert
 
-class ConfigChainPLL:
+class ConfigChainPLLX:
     def __init__(self, chip):
         self.fields = [
             ('PLL_EN_FLAG',    1),
