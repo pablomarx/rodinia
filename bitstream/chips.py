@@ -337,6 +337,22 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, [
 	'Logic':   'ALTA_TILE_SRAM_DIST',
     'Bram':    'alta_bram9k',
     'Mult':    'alta_multiplier',
+
+    'IOS2':    'alta_io_S4_G5',
+    'IOS1':    'alta_io_S4_T2',
+    'IOS0':    'alta_io_S4',
+    
+    'ION2':    'alta_io_N4_G5',
+    'ION1':    'alta_io_N4_T2',
+    'ION0':    'alta_io_N4',
+    
+    'IOW0':    'alta_io_W6',
+    'IOW1':    'alta_io_W6_T2',
+    'IOW2':    'alta_io_W4_G5',
+
+    'IOE0':    'alta_io_E6',
+    'IOE1':    'alta_io_E6_T2',
+    'IOE2':    'alta_io_E4_G5',
 }, {
     # packages
     'AG16KSDE176': [        
