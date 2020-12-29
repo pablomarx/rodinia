@@ -33,7 +33,7 @@ chip = None
 #
 def decode_tile_bitstream(bits, length, bitstream_num):
     row_width = round_up(chip.max_row_width(), 8)
-    rounded_row_width = ((row_width / 32) + 1) * 32
+    rounded_row_width = int(((row_width / 32) + 1) * 32)
     row_padding = rounded_row_width - row_width
     
     expected_size = 0
