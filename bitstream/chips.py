@@ -278,6 +278,7 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, [
     'Bram':    'alta_bram9k',
     'Mult':    'alta_multiplier',
     'Rogic':   'IOTILE_ROUTE',
+    'PLL':     'ALTA_PLLV',
     
     'IOS1':    'alta_io_S4_T2',
     'IOS0':    'alta_io_S4',
@@ -520,6 +521,7 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, [
 	'Logic':   'ALTA_TILE_SRAM_DIST',
     'Bram':    'alta_bram9k',
     'Mult':    'alta_multiplier',
+    'PLL':     'ALTA_PLLV',
 
     'ION0':    'alta_io_N4',
     'ION1':    'alta_io_N4_T2',

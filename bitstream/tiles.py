@@ -4076,7 +4076,7 @@ InstallTile(Tile('UFM', 'UFMTILE', columns=34, rows=8, slices=0, values={
 
 # These are pseudo tiles.  The bits are handled in ConfigChains.  Here for wire/routing purposes.
 InstallTile(Tile('Clkdis', 'ClkdisTILE', columns=0, rows=0, slices=0, values={}))
-InstallTile(Tile('PLL', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
+InstallTile(Tile('ALTA_PLLV', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
 
 #
 # For AG16K
