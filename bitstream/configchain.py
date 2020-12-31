@@ -409,7 +409,8 @@ class ConfigChainDIO(ConfigChain):
         io_order = chip.extra['chain_io_order']
         
         packages = chip.packages
-        package = packages[packages.keys()[0]]
+        package_names = list(packages.keys())
+        package = packages[package_names[0]]
         
         attrs = {
             'DIFFN_IN': [
