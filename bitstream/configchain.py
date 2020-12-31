@@ -412,62 +412,7 @@ class ConfigChainDIO(ConfigChain):
         package_names = list(packages.keys())
         package = packages[package_names[0]]
         
-        attrs = {
-            'DIFFN_IN': [
-                ('CFG_TRI_INPUT', 1)
-            ],
-            'DIFFP_IN': [
-                ('CFG_LVDS_SEL_CUA', 2),
-                ('CFG_LVDS_IN_EN', 1),
-                ('CFG_TRI_INPUT', 1)
-            ],
-            'DIFFN': [
-                ('CFG_KEEP', 2),
-                ('CFG_PDRCTRL', 4),
-                ('CFG_OPEN_DRAIN', 1),
-                ('CFG_SLR', 1),
-                ('CFG_PULL_UP', 1),
-                ('CFG_TRI_INPUT', 1),
-            ],
-            'DIFFP': [
-                ('CFG_LVDS_IN_EN', 1),
-                ('CFG_LVDS_IREF', 10),
-                ('CFG_LVDS_SEL_CUA', 2),
-                ('CFG_LVDS_OUT_EN', 1),
-                ('CFG_KEEP', 2),
-                ('CFG_PDRCTRL', 4),
-                ('CFG_OPEN_DRAIN', 1),
-                ('CFG_SLR', 1),
-                ('CFG_PULL_UP', 1),
-                ('CFG_TRI_INPUT', 1),
-            ],
-            'PSEUDO_DIFFN': [
-                ('CFG_KEEP', 2),
-                ('CFG_PDRCTRL', 4),
-                ('CFG_OPEN_DRAIN', 1),
-                ('CFG_SLR', 1),
-                ('CFG_PULL_UP', 1),
-                ('CFG_TRI_INPUT', 1),
-            ],
-            'PSEUDO_DIFFP': [
-                ('CFG_LVDS_SEL_CUA', 2),
-                ('CFG_LVDS_IN_EN', 1),
-                ('CFG_KEEP', 2),
-                ('CFG_PDRCTRL', 4),
-                ('CFG_OPEN_DRAIN', 1),
-                ('CFG_SLR', 1),
-                ('CFG_PULL_UP', 1),
-                ('CFG_TRI_INPUT', 1),
-            ],
-            'SINGLE': [
-                ('CFG_KEEP', 2),
-                ('CFG_PDRCTRL', 4),
-                ('CFG_OPEN_DRAIN', 1),
-                ('CFG_SLR', 1),
-                ('CFG_PULL_UP', 1),
-                ('CFG_TRI_INPUT', 1),
-            ],
-        }
+        attrs = chip.extra['dio_types_fields']
         
         fields = []
         for io_coord in io_order:
