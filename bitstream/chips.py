@@ -592,7 +592,7 @@ extra={
     ]
 }))
 
-AddChip(Chip('AG15K', 0x01500010, 30, 50, [
+AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
     None,  'UFM',  'IOS0', 'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS1', 'IOS0', 'IOS1', 'IOS0', None,    'IOS0', 'IOS0', 'IOS2', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,    'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'UFM',  None,   None, 
     'PLL', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','PLL',
     'UFM', 'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','UFM',
@@ -623,8 +623,7 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, [
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW1', 
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','PLL',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'ION0', 'ION1', None,  'ION0', 'ION0', 'ION0', 'ION0', 'Clkdis','ION1', 'ION0', 'ION0', 'ION1', 'ION0', 'ION2', 'ION1', None,  'ION0', 'ION0', 'ION1', 'ION0', 'ION0', 'ION0', 'ION0', 'ION0', 'ION0', 'Clkdis','ION0', 'ION0', 'ION1', 'ION0', 'UFM',  'UFM',  None,   None, 
-], {
-    # aliases
+], aliases={
 	'Logic':   'ALTA_TILE_SRAM_DIST',
     'Bram':    'alta_bram9k',
     'Mult':    'alta_multiplier',
@@ -645,8 +644,7 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, [
     'IOE0':    'alta_io_E6',
     'IOE1':    'alta_io_E6_T2',
     'IOE2':    'alta_io_E4_G5',
-}, {
-    # packages
+}, packages={
     'AG16KSDE176': [        
         { 'name': 'PIN_1',     'type': 'IO','tile': (16,29),'index': 0,},
         { 'name': 'PIN_2',     'type': 'IO','tile': (0, 16),'index': 1,},
@@ -832,7 +830,7 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, [
         { 'name': 'SDRAM_RAS', 'type': 'IO','tile': (27,0), 'index': 1,},
         { 'name': 'SDRAM_WE',  'type': 'IO','tile': (25,0), 'index': 0,},
     ] # end AG16KSDE176
-}, [
+}, configChainClasses=[
     None, # ConfigChainDIO
     ConfigChainPLLVE,
     ConfigChainPLLVE,
@@ -841,4 +839,24 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, [
     ConfigChainClkDis_29x60,
     ConfigChainClkDis_29x60,
     ConfigChainMCU2,
-], lzwCompressed=True))
+], lzwCompressed=True,
+extra={
+    'chain_io_order': [
+        (0,16,4) (0,16,5) (0,15,0) (0,15,1) (0,15,2) (0,15,3) (0,15,4) (0,14,0) (0,14,1) (0,14,2) (0,14,3) (0,14,4) (0,14,5) (0,13,1) (0,13,2) (0,13,3)
+        (0,13,4) (0,13,5) (0,12,0) (0,12,1) (0,12,2) (0,12,3) (0,11,2) (0,11,3) (0,10,0) (0,10,1) (0,10,2) (0,10,3) (0,9,0) (0,9,2) (0,9,3) (0,8,1)
+        (0,8,2) (0,6,0) (0,5,0) (0,5,1) (0,5,5) (0,4,0) (0,4,2) (0,4,3) (0,3,2) (0,3,3) (2,0,0) (2,0,1) (3,0,0) (3,0,1) (3,0,3) (5,0,2)
+        (5,0,3) (6,0,0) (6,0,1) (6,0,2) (6,0,3) (11,0,0) (11,0,1) (15,0,0) (15,0,1) (15,0,2) (15,0,3) (19,0,0) (19,0,1) (19,0,2) (20,0,0) (20,0,1)
+        (20,0,2) (20,0,3) (21,0,0) (21,0,1) (21,0,2) (21,0,3) (22,0,0) (22,0,1) (24,0,0) (24,0,1) (24,0,2) (24,0,3) (25,0,0) (25,0,1) (25,0,2) (25,0,3)
+        (26,0,0) (26,0,1) (26,0,2) (26,0,3) (27,0,0) (27,0,1) (28,0,0) (28,0,1) (28,0,2) (28,0,3) (32,0,2) (32,0,3) (33,0,0) (33,0,1) (33,0,2) (33,0,3)
+        (34,0,0) (34,0,1) (34,0,2) (34,0,3) (36,0,2) (36,0,3) (37,0,0) (39,0,0) (39,0,1) (39,0,2) (39,0,3) (40,0,0) (40,0,1) (40,0,2) (40,0,3) (42,0,2)
+        (42,0,3) (43,0,0) (43,0,1) (43,0,2) (43,0,3) (44,0,0) (44,0,1) (45,0,2) (45,0,3) (49,3,3) (49,3,2) (49,3,1) (49,3,0) (49,4,5) (49,4,4) (49,4,2)
+        (49,4,1) (49,5,3) (49,5,2) (49,5,1) (49,5,0) (49,6,0) (49,7,3) (49,7,2) (49,9,3) (49,9,2) (49,10,0) (49,11,3) (49,11,2) (49,13,3) (49,13,2) (49,13,1)
+        (49,13,0) (49,14,5) (49,14,4) (49,14,3) (49,14,2) (49,15,3) (49,15,2) (49,15,1) (49,15,0) (49,17,5) (49,17,4) (49,18,5) (49,18,4) (49,18,0) (49,19,3) (49,19,2)
+        (49,19,1) (49,19,0) (49,20,2) (49,20,1) (49,23,5) (49,24,5) (49,24,4) (49,26,5) (49,26,4) (49,27,2) (49,27,1) (45,29,2) (45,29,1) (44,29,3) (44,29,2) (44,29,1)
+        (43,29,1) (43,29,0) (42,29,3) (42,29,2) (42,29,1) (42,29,0) (39,29,3) (39,29,2) (39,29,1) (39,29,0) (38,29,3) (38,29,2) (37,29,3) (37,29,2) (37,29,1) (37,29,0)
+        (35,29,3) (34,29,3) (34,29,2) (34,29,1) (34,29,0) (33,29,3) (33,29,2) (33,29,1) (33,29,0) (32,29,3) (32,29,2) (30,29,3) (30,29,2) (30,29,1) (30,29,0) (29,29,3)
+        (29,29,2) (29,29,1) (29,29,0) (28,29,3) (28,29,2) (27,29,2) (27,29,1) (26,29,3) (26,29,2) (26,29,1) (26,29,0) (25,29,3) (25,29,2) (25,29,1) (25,29,0) (24,29,3)
+        (24,29,2) (24,29,1) (22,29,3) (22,29,2) (22,29,1) (22,29,0) (21,29,3) (21,29,2) (21,29,1) (21,29,0) (20,29,3) (20,29,2) (20,29,1) (20,29,0) (19,29,2) (19,29,1)
+        (19,29,0) (17,29,3) (17,29,2) (16,29,3) (16,29,2) (16,29,1) (16,29,0) (0,16,0) (0,16,1) (0,16,2) (0,16,3)
+    ]
+}))
