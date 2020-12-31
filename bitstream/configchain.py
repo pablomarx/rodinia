@@ -24,9 +24,58 @@ from operator import itemgetter
 import re
 from utils import bits_to_string, bits_invert
 
-class ConfigChainPLLX:
+class ConfigChain:
+    def __init__(self, chip, name, fields, aliases={}):
+        self.chip = chip
+        self.name = name
+        self.fields = fields
+        self.aliases = aliases
+        
+    def empty_bits(self):
+        length = 0
+        for field in self.fields:
+            length += field[1]
+        return [0] * length
+    
+    def format(self, name, bits, chain_id):
+        return bits_to_string(bits)
+    
+    def offset_for_field_named(self, name):
+        offset = 0
+        for field in self.fields:
+            if field[0] == name:
+                return offset
+            offset += field[1]
+        return None
+
+    def encode(self, chip, tile, row, col, key, value, bits):
+        if key in self.aliases:
+            key = self.aliases[key]
+        
+        offset = self.offset_for_field_named(key)
+        if offset == None:
+            return False
+        
+        for idx in range(len(value)):
+            bits[offset] = value[idx]
+            offset += 1
+        return True
+    
+    def decode(self, bits):
+        result = { '__NAME': self.name }
+        idx = 0
+        for field in self.fields:
+            name = field[0]
+            length = field[1]
+            value = bits[idx:idx+length]
+            result[name] = bits_to_string(value, prefix=True)
+            idx += length
+        
+        return result
+        
+class ConfigChainPLLX(ConfigChain):
     def __init__(self, chip):
-        self.fields = [
+        fields = [
             ('PLL_EN_FLAG',    1),
             ('RLPF',           2),  # ???
             ('PllClkInMUX00',  2),
@@ -56,7 +105,7 @@ class ConfigChainPLLX:
             ('SELCLK_G3',      3),
             ('PllClkFbMUX00',  1),
         ]
-        self.aliases = {
+        aliases = {
             'SinkMUXPseudo00': 'PLL_EN_FLAG', # pllen
             # XXX: 1 is resetn. Where to hook up??
             'SinkMUXPseudo02': 'CLK_EN1',     # clkout0en
@@ -82,60 +131,194 @@ class ConfigChainPLLX:
             'CLKIN_DIV': 'M_N',
             'CLKFB_DIV': 'M_M',
         }
-    
-    def empty_bits(self):
-        length = 0
-        for field in self.fields:
-            length += field[1]
-        return [0] * length
-    
-    def format(self, name, bits, chain_id):
-        return bits_to_string(bits)
-    
-    def offset_for_field_named(self, name):
-        offset = 0
-        for field in self.fields:
-            if field[0] == name:
-                return offset
-            offset += field[1]
-        return None
+        ConfigChain.__init__(self, chip, 'PLLX', fields, aliases)
     
     def encode(self, chip, tile, row, col, key, value, bits):
-        if key in self.aliases:
-            # XXX: ugly hack. router emits 0 to hook up to I0
-            # but we need a 1 to activate 
-            if key.startswith("SinkMUXPseudo"):
-                value = bits_invert(value)
-            key = self.aliases[key]
-        offset = self.offset_for_field_named(key)
-        if offset == None:
-            return False
-        
-        for idx in range(len(value)):
-            bits[offset] = value[idx]
-            offset += 1
-        return True
-    
-    def decode(self, bits):
-        result = { '__NAME': 'PLL' }
-        idx = 0
-        for field in self.fields:
-            name = field[0]
-            length = field[1]
-            value = bits[idx:idx+length]
-            result[name] = bits_to_string(value, prefix=True)
-            idx += length
-        
-        return result
-        
-class ConfigChainIO:
+        # XXX: ugly hack. router emits 0 to hook up to I0
+        # but we need a 1 to activate 
+        if key.startswith("SinkMUXPseudo"):
+            value = bits_invert(value)
+        key = self.aliases[key]
+        super().encode(chip, tile, row, col, key, value, bits)
+
+class ConfigChainPLLV(ConfigChain):
+    def __init__(self, chip, package=None):
+        fields = [
+            ('CFG_PLL_EN_FLAG', 1), 
+            ('CFG_RLPF', 2),      
+            ('CFG_RVI', 2),       
+            ('CFG_RREF', 2),      
+            ('CFG_CP', 3),        
+            ('CFG_P', 3),
+            ('CFG_P', 3),
+            ('CFG_SELCLK_G1', 3), 
+            ('CFG_SELCLK_G2', 3), 
+            ('CFG_SELCLK_G3', 3), 
+            ('CFG_SELCLK_G4', 3), 
+            ('CFG_SELCLK_G5', 3), 
+            ('CFG_SELCLK_M', 3),  
+            ('CFG_PLLFB_DLY', 3), 
+            ('CFG_FEEDBACK_MODE', 1),
+            ('CFG_P', 2),
+            ('CFG_CLK_EN1', 1),   
+            ('CFG_CLK_EN2', 1),   
+            ('CFG_CLK_EN3', 1),   
+            ('CFG_CLK_EN4', 1),   
+            ('CFG_CLK_EN5', 1),   
+            ('CFG_CASCADE', 4),   
+            ('CFG_BYPASS', 5),    
+            ('CFG_EN_DUTYTRIM', 5), 
+            ('CFG_DIVNUM_HG1', 8),
+            ('CFG_DIVNUM_LG1', 8),
+            ('CFG_DIVNUM_HG2', 8),
+            ('CFG_DIVNUM_LG2', 8),
+            ('CFG_DIVNUM_HG3', 8),
+            ('CFG_DIVNUM_LG3', 8),
+            ('CFG_DIVNUM_HG4', 8),
+            ('CFG_DIVNUM_LG4', 8),
+            ('CFG_DIVNUM_HG5', 8),
+            ('CFG_DIVNUM_LG5', 8),
+            ('CFG_DLYNUM_G1', 8), 
+            ('CFG_DLYNUM_G2', 8), 
+            ('CFG_DLYNUM_G3', 8), 
+            ('CFG_DLYNUM_G4', 8), 
+            ('CFG_DLYNUM_G5', 8), 
+            ('CFG_DLYNUM_M', 8),  
+            ('CFG_DIVNUM_M', 9),  
+            ('CFG_DIVNUM_N', 9),  
+            ('CFG_EN_DUTYTRIM_M', 1),
+            ('CFG_EN_PLLOUTP', 1),
+            ('CFG_EN_PLLOUTN', 1),
+        ]
+        ConfigChain.__init__(self, chip, 'PLLV', fields)
+
+class ConfigChainPLLVE(ConfigChain):
+    def __init__(self, chip, package=None):
+        fields = [
+            ('CFG_REG_CTRL', 2),
+            ('CFG_PLL_EN_FLAG', 2),
+            ('CFG_PllClkFbMUX', 2),
+            ('CFG_PLLFB_DLY', 2),
+            ('CFG_PllClkInMUX', 2),
+            ('CFG_PllSeamMUX', 2),
+            ('CFG_FEEDBACK_MODE', 2),
+            ('CFG_ENB_PLLOUTN', 2),
+            ('CFG_ENB_PLLOUTP', 2),
+            ('CFG_SELCLK_M', 2),
+            ('CFG_DLYNUM_M', 2),
+            ('CFG_SELCLK_G0', 2),
+            ('CFG_CLK_EN0', 2),
+            ('CFG_DLYNUM_G0', 2),
+            ('CFG_CASCADE0', 2),
+            ('CFG_SELCLK_G1', 2),
+            ('CFG_CLK_EN1', 2),
+            ('CFG_DLYNUM_G1', 2),
+            ('CFG_CASCADE1', 2),
+            ('CFG_SELCLK_G2', 2),
+            ('CFG_CLK_EN2', 2),
+            ('CFG_DLYNUM_G2', 2),
+            ('CFG_CASCADE2', 2),
+            ('CFG_SELCLK_G3', 2),
+            ('CFG_CLK_EN3', 2),
+            ('CFG_DLYNUM_G3', 2),
+            ('CFG_CASCADE3', 2),
+            ('CFG_SELCLK_G4', 2),
+            ('CFG_CLK_EN4', 2),
+            ('CFG_DLYNUM_G4', 2),
+            ('CFG_DIVNUM_LG4', 2),
+            ('CFG_EN_DUTYTRIM_G4', 2),
+            ('CFG_DIVNUM_HG4', 2),
+            ('CFG_BYPASS_G4', 2),
+            ('CFG_DIVNUM_LG3', 2),
+            ('CFG_EN_DUTYTRIM_G3', 2),
+            ('CFG_DIVNUM_HG3', 2),
+            ('CFG_BYPASS_G3', 2),
+            ('CFG_DIVNUM_LG2', 2),
+            ('CFG_EN_DUTYTRIM_G2', 2),
+            ('CFG_DIVNUM_HG2', 2),
+            ('CFG_BYPASS_G2', 2),
+            ('CFG_DIVNUM_LG1', 2),
+            ('CFG_EN_DUTYTRIM_G1', 2),
+            ('CFG_DIVNUM_HG1', 2),
+            ('CFG_BYPASS_G1', 2),
+            ('CFG_DIVNUM_LG0', 2),
+            ('CFG_EN_DUTYTRIM_G0', 2),
+            ('CFG_DIVNUM_HG0', 2),
+            ('CFG_BYPASS_G0', 2),
+            ('CFG_DIVNUM_LM', 2),
+            ('CFG_EN_DUTYTRIM_M', 2),
+            ('CFG_DIVNUM_HM', 2),
+            ('CFG_BYPASS_M', 2),
+            ('CFG_DIVNUM_LN', 2),
+            ('CFG_EN_DUTYTRIM_N', 2),
+            ('CFG_DIVNUM_HN', 2),
+            ('CFG_BYPASS_N', 2),
+            ('CFG_ICP', 2),
+            ('CFG_DUMMY', 2),
+            ('CFG_POST_SCALE_COUNTER', 2),
+            ('CFG_RLPF', 2),
+            ('CFG_RREF', 2),
+            ('CFG_RVI', 2),
+            ('CFG_IVCO', 2),
+        ]
+        ConfigChain.__init__(self, chip, 'PLLVE', fields)
+
+# Seen in AG10K bitstreams
+class ConfigChainMCU1(ConfigChain):
+    def __init__(self, chip, package=None):
+        fields = [
+            ('CFG_MCU_EN_FLAG', 1),
+            ('CFG_MCU_ADDR', 24),
+        ]
+        ConfigChain.__init__(self, chip, 'MCU1', fields)
+
+# Seen in AG16K bitstreams
+class ConfigChainMCU2(ConfigChain):
+    def __init__(self, chip, package=None):
+        fields = [
+            ('CFG_MCU_EN_FLAG', 1),
+            ('CFG_MCU_CLK_FREQ', 8),
+            ('CFG_MCU_ADDR', 24),
+            ('CFG_BOOT_DELAY', 1),
+        ]
+        ConfigChain.__init__(self, chip, 'MCU2', fields)
+
+# Seen in AG10K bitstreams
+class ConfigChainClkDis_25x48(ConfigChain):
+    def __init__(self, chip, package=None):
+        fields = []
+        for num in range(11, -1, -1):
+            fields.append(('CFG_GclkDMUX%02i' % num, 48))
+        for num in range(24, 11, -1):
+            fields.append(('CFG_GclkDMUX%02i' % num, 48))
+        ConfigChain.__init__(self, chip, 'zCLKDIS', fields)
+
+# Seen in AG16K bitstreams
+class ConfigChainClkDis_29x60(ConfigChain):
+    def __init__(self, chip, package=None):
+        fields = []
+        for num in range(14, -1, -1):
+            fields.append(('CFG_GclkDMUX%02i' % num, 48))
+        for num in range(28, 14, -1):
+            fields.append(('CFG_GclkDMUX%02i' % num, 48))
+        ConfigChain.__init__(self, chip, 'zCLKDIS', fields)
+
+class ConfigChainRIO:
     def __init__(self, chip, package=None):
         if package == None:
-            package_name = list(chip.packages)[0]
-            package = chip.packages[package_name]
+            packages = chip.packages
+            for package_name in packages:
+                package = packages[package_name]
+                found = False
+                for pin in package:
+                    if 'configChainIndex' in pin:
+                        found = True
+                        break
+                if found:
+                    break
+
         pins = [pin for pin in package if 'configChainIndex' in pin]
         pins = sorted(pins, key=itemgetter('configChainIndex'))
-        
         # CFG_KEEP appers to be direction? After changing bank3 to input:
         # 33 _CFG_KEEP: 00
         #  7 _CFG_KEEP: 01
@@ -202,7 +385,7 @@ class ConfigChainIO:
         return True
     
     def decode(self, bits):
-        result = { '__NAME': 'I/O' }
+        result = { '__NAME': 'ALTA_RIO' }
         idx = 0
         for field in self.fields:
             name = field[0]

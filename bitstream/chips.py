@@ -50,7 +50,10 @@ class Chip:
         
         configChain = []
         for ccClass in configChainClasses:
-            configChain.append(ccClass(self))
+            if ccClass is None:
+                configChain.append(None)
+            else:
+                configChain.append(ccClass(self))
         self.configChain = configChain
         self.lzwCompressed = lzwCompressed
     
@@ -243,7 +246,7 @@ AddChip(Chip('AG1200LP', 0x00120010, 10, 14, [
         { 'name' :'PIN_31',       'type': 'IO', 'tile': (5,9),  'index': 0 },
     ],
 }, [
-    ConfigChainIO, ConfigChainPLLX
+    ConfigChainRIO, ConfigChainPLLX
 ]))
 
 AddChip(Chip('AG10K', 0x01000001, 25, 41, [
@@ -482,7 +485,11 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, [
         {'name':'SDRAM_WE',         'type':'IO','tile':(14,0), 'index':0,'iobank':3,     'attrs':['PSEUDO_DIFFN']},   
     ]
 }, [
-    # config chain
+    None, # ConfigChainRIO
+    ConfigChainPLLV,
+    ConfigChainPLLV,
+    ConfigChainClkDis_25x48,
+    ConfigChainMCU1,
 ], lzwCompressed=True))
 
 AddChip(Chip('AG15K', 0x01500010, 30, 50, [
@@ -726,5 +733,12 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, [
         { 'name': 'SDRAM_WE',  'type': 'IO','tile': (25,0), 'index': 0,},
     ] # end AG16KSDE176
 }, [
-    # config chain
+    None, # ConfigChainDIO
+    ConfigChainPLLVE,
+    ConfigChainPLLVE,
+    ConfigChainPLLVE,
+    ConfigChainPLLVE,
+    ConfigChainClkDis_29x60,
+    ConfigChainClkDis_29x60,
+    ConfigChainMCU2,
 ], lzwCompressed=True))
