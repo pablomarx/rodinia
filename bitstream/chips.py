@@ -312,13 +312,13 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
         {'name':'PIN_3',            'type':'IO','tile':(0, 15),'index':2,'iobank':1,     'attrs':['SINGLE']},
         {'name':'PIN_4',            'type':'IO','tile':(0, 15),'index':3,'iobank':1,     'attrs':['SINGLE']},
         {'name':'PIN_6',            'type':'IO','tile':(0, 14),'index':1,'iobank':1,     'attrs':['DIFFP']},
-        {'name':'PIN_8',            'type':'IO','tile':(0, 14),'index':0,'iobank':1,     'attrs':['DIFFN_D1']},
-        {'name':'PIN_9',            'type':'IO','tile':(0, 14),'index':5,'iobank':1,     'attrs':['DIFFP_D1']},
+        {'name':'PIN_8',            'type':'IO','tile':(0, 14),'index':0,'iobank':1,     'attrs':['DIFFN']}, #D1
+        {'name':'PIN_9',            'type':'IO','tile':(0, 14),'index':5,'iobank':1,     'attrs':['DIFFP']}, #D1
         {'name':'PIN_10',           'type':'IO','tile':(0, 14),'index':4,'iobank':1,     'attrs':['DIFFN']},
         {'name':'PIN_13',           'type':'IO','tile':(0, 13),'index':5,'iobank':1,     'attrs':['DIFFP']},
         {'name':'PIN_14',           'type':'IO','tile':(0, 13),'index':4,'iobank':1,     'attrs':['DIFFN']},
-        {'name':'PIN_15',           'type':'IO','tile':(0, 12),'index':3,'iobank':1,     'attrs':['SINGLE_D2']},
-        {'name':'PIN_16',           'type':'IO','tile':(0, 12),'index':4,'iobank':1,     'attrs':['SINGLE_D0']},
+        {'name':'PIN_15',           'type':'IO','tile':(0, 12),'index':3,'iobank':1,     'attrs':['SINGLE']}, #D2
+        {'name':'PIN_16',           'type':'IO','tile':(0, 12),'index':4,'iobank':1,     'attrs':['SINGLE']}, #D0
         {'name':'PIN_23',           'type':'IO','tile':(0, 11),'index':0,'iobank':1,     'attrs':['DIFFN_IN']},
         {'name':'PIN_24',           'type':'IO','tile':(0, 11),'index':3,'iobank':2,     'attrs':['DIFFP_IN']},
         {'name':'PIN_25',           'type':'IO','tile':(0, 11),'index':2,'iobank':2,     'attrs':['DIFFN_IN']},
@@ -392,7 +392,7 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
         {'name':'PIN_114',          'type':'IO','tile':(40,12),'index':1,'iobank':6,     'attrs':['DIFFN_IN']},
         {'name':'PIN_115',          'type':'IO','tile':(40,12),'index':0,'iobank':6,     'attrs':['DIFFP_IN']},
         {'name':'PIN_119',          'type':'IO','tile':(40,17),'index':1,'iobank':6,     'attrs':['DIFFP']},
-        {'name':'PIN_120',          'type':'IO','tile':(40,18),'index':5,'iobank':6,     'attrs':['DIFFN_D3']},
+        {'name':'PIN_120',          'type':'IO','tile':(40,18),'index':5,'iobank':6,     'attrs':['DIFFN']}, # D3
         {'name':'PIN_122',          'type':'IO','tile':(40,18),'index':4,'iobank':6,     'attrs':['DIFFP']},
         {'name':'PIN_124',          'type':'IO','tile':(40,18),'index':2,'iobank':6,     'attrs':['SINGLE']},
         {'name':'PIN_125',          'type':'IO','tile':(40,19),'index':2,'iobank':6,     'attrs':['SINGLE']},
@@ -497,7 +497,7 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
         {'name':'TMS',              'type':'IO','tile':(0, 17),'index':3,'iobank':1,     'attrs':['DEDICATE_IN']},
         {'name':'TDO',              'type':'IO','tile':(0, 17),'index':4,'iobank':1,     'attrs':['DEDICATE_OUT']},
         {'name':'NC_10',            'type':'IO','tile':(0, 13),'index':2,'iobank':1,     'attrs':['SINGLE']},
-        {'name':'NC_119N_INIT_DONE','type':'IO','tile':(40,17),'index':2,'iobank':6,     'attrs':['DIFFN_D3']},
+        {'name':'NC_119N_INIT_DONE','type':'IO','tile':(40,17),'index':2,'iobank':6,     'attrs':['DIFFN']}, # D3
         {'name':'NC_13P_DPCLK0',    'type':'IO','tile':(0, 12),'index':2,'iobank':1,     'attrs':['DIFFP']},
         {'name':'NC_17P_CLK0',      'type':'IO','tile':(0, 11),'index':1,'iobank':1,     'attrs':['DIFFP_IN']},
         {'name':'PIN_PLLOUT_FBN0',  'type':'IO','tile':(5, 0), 'index':2,'iobank':3,     'attrs':['PSEUDO_DIFFN']},
@@ -510,7 +510,7 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
         {'name':'nSTATUS',          'type':'IO','tile':(0, 13),'index':0,'iobank':1,     'attrs':['DEDICATE_OPENDRAIN']}, 
     ]
 }, configChainClasses=[
-    None, # ConfigChainRIO
+    ConfigChainDIO,
     ConfigChainPLLV,
     ConfigChainPLLV,
     ConfigChainClkDis_25x48,

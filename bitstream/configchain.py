@@ -403,3 +403,86 @@ class ConfigChainRIO:
             idx += length
         
         return result
+
+class ConfigChainDIO(ConfigChain):
+    def __init__(self, chip, package=None):
+        io_order = chip.extra['chain_io_order']
+        
+        packages = chip.packages
+        package = packages[packages.keys()[0]]
+        
+        attrs = {
+            'DIFFN_IN': [
+                ('CFG_TRI_INPUT', 1)
+            ],
+            'DIFFP_IN': [
+                ('CFG_LVDS_SEL_CUA', 2),
+                ('CFG_LVDS_IN_EN', 1),
+                ('CFG_TRI_INPUT', 1)
+            ],
+            'DIFFN': [
+                ('CFG_KEEP', 2),
+                ('CFG_PDRCTRL', 4),
+                ('CFG_OPEN_DRAIN', 1),
+                ('CFG_SLR', 1),
+                ('CFG_PULL_UP', 1),
+                ('CFG_TRI_INPUT', 1),
+            ],
+            'DIFFP': [
+                ('CFG_LVDS_IN_EN', 1),
+                ('CFG_LVDS_IREF', 10),
+                ('CFG_LVDS_SEL_CUA', 2),
+                ('CFG_LVDS_OUT_EN', 1),
+                ('CFG_KEEP', 2),
+                ('CFG_PDRCTRL', 4),
+                ('CFG_OPEN_DRAIN', 1),
+                ('CFG_SLR', 1),
+                ('CFG_PULL_UP', 1),
+                ('CFG_TRI_INPUT', 1),
+            ],
+            'PSEUDO_DIFFN': [
+                ('CFG_KEEP', 2),
+                ('CFG_PDRCTRL', 4),
+                ('CFG_OPEN_DRAIN', 1),
+                ('CFG_SLR', 1),
+                ('CFG_PULL_UP', 1),
+                ('CFG_TRI_INPUT', 1),
+            ],
+            'PSEUDO_DIFFP': [
+                ('CFG_LVDS_SEL_CUA', 2),
+                ('CFG_LVDS_IN_EN', 1),
+                ('CFG_KEEP', 2),
+                ('CFG_PDRCTRL', 4),
+                ('CFG_OPEN_DRAIN', 1),
+                ('CFG_SLR', 1),
+                ('CFG_PULL_UP', 1),
+                ('CFG_TRI_INPUT', 1),
+            ],
+            'SINGLE': [
+                ('CFG_KEEP', 2),
+                ('CFG_PDRCTRL', 4),
+                ('CFG_OPEN_DRAIN', 1),
+                ('CFG_SLR', 1),
+                ('CFG_PULL_UP', 1),
+                ('CFG_TRI_INPUT', 1),
+            ],
+        }
+        
+        fields = []
+        for io_coord in io_order:
+            matched = False
+            for pin in package:
+                if 'tile' in pin and pin['tile'] == io_coord[:2] and pin['index'] == io_coord[2]:
+                    for attr_name in attrs:
+                        if attr_name in pin['attrs']:
+                            for field_pair in attrs[attr_name]:
+                                chain_name = field_pair[0]
+                                chain_length = field_pair[1]
+                                fields.append((pin['name'] + '_' + chain_name, chain_length))
+                            matched = True
+                            break
+                    if matched:
+                        break
+            assert(matched)
+        
+        ConfigChain.__init__(self, chip, 'ALTA_DIO', fields)
