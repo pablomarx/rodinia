@@ -305,20 +305,19 @@ class ConfigChainClkDis_29x60(ConfigChain):
 
 class ConfigChainRIO:
     def __init__(self, chip, package=None):
+        io_order = chip.extra['chain_io_order']
+        
+        # Kludge... use the package with the most external pins...
         if package == None:
             packages = chip.packages
+            most_ext_pins = 0
             for package_name in packages:
-                package = packages[package_name]
-                found = False
-                for pin in package:
-                    if 'configChainIndex' in pin:
-                        found = True
-                        break
-                if found:
-                    break
+                a_package = packages[package_name]
+                ext_pins = [pin for pin in a_package if pin['name'].startswith('PIN_')]
+                if len(ext_pins) > most_ext_pins:
+                    package = a_package
+                    most_ext_pins = len(ext_pins)
 
-        pins = [pin for pin in package if 'configChainIndex' in pin]
-        pins = sorted(pins, key=itemgetter('configChainIndex'))
         # CFG_KEEP appers to be direction? After changing bank3 to input:
         # 33 _CFG_KEEP: 00
         #  7 _CFG_KEEP: 01
@@ -331,11 +330,20 @@ class ConfigChainRIO:
         # > PIN_41_CFG_OPEN_DRAIN: 1
         base = [ ('KEEP', 2), ('PDRCTRL', 2), ('OPEN_DRAIN', 1)]
         fields = []
-        for pin in pins:
+        for io_coord in io_order:
+            name = None
+            for pin in package:
+                if 'tile' in pin and pin['tile'] == io_coord[:2] and pin['index'] == io_coord[2]:
+                    name = pin['name']
+                    break
+            if name == None:
+                name = 'IO%i_%i_%i' % io_coord
+            
             for value in base:
-                name = value[0]
-                length = value[1]
-                fields.append((pin['name'] + '_' + name, length))
+                chain_name = value[0]
+                chain_length = value[1]
+                fields.append((name + '_' + chain_name, chain_length))
+        
         self.fields = fields
         
     def empty_bits(self):
