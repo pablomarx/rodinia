@@ -122,15 +122,18 @@ for tile_row in range(chip.rows - 1,-1,-1):
         row_bits = []
         for tile_col in range(chip.columns - 1,-1,-1):
             column_width = chip.column_width(tile_col)
+            tile = chip.tile_at(tile_col, tile_row)
+            
             entry = tile_at_coord(tile_col, tile_row)
             if entry is None:
                 bits = [1] * column_width
             else:
-                offset = column_width * row
-                bits = entry['bits'][offset:offset+column_width]
+                offset = tile.columns * row
+                bits = entry['bits'][offset:offset+tile.columns]
                 if len(bits) < column_width:
-                    bits += [1] * (column_width - len(bits))
-
+                    padding = [1] * (column_width - len(bits))
+                    bits = padding + bits
+            
             row_bits += bits[::-1]
         
         assert(chip.max_row_width() == len(row_bits))
