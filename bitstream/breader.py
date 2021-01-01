@@ -39,6 +39,9 @@ class BinaryReader:
     def reset(self):
         self.pos = 0
         
+    def seek(self, pos):
+        self.pos = pos
+        
     def rest(self):
         return self.readN(len(self.data) - self.pos)
 
@@ -50,6 +53,9 @@ class BinaryReader:
     
     def read16(self):
         return bytes_to_num(self.readN(2))
+
+    def read8(self):
+        return bytes_to_num(self.readN(1))
     
     def readN(self, n):
         pos = self.pos

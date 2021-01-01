@@ -91,16 +91,27 @@ reader = BinaryReader(sys.argv[1]);
 
 spi_mark = reader.read16()
 
-# _master.bin is identical to .bin, except
-# it comes with 0xffff at the start.
-if spi_mark != 0xffff:
+if spi_mark == 0xff55 or spi_mark == 0x5555:
+    # ff55 is observed on AG16K spi flash bitstreams
+    # 5555 is observed on AG10K spi flash bitstreams
+    # After these series of bits they appear identical to non-spi flash bitstreams
+    prefix = [ 0x00,0x00,0x0e,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ]
+    for byte in prefix:
+        if reader.read8() != byte:
+            reader.reset()
+            break
+elif spi_mark != 0xffff:
+    # ffff is observed on AG1K spi flash bitstreams
+    # _master.bin is identical to .bin, except
+    # it comes with 0xffff at the start.
     reader.reset()
 
+cur_pos = reader.pos
 unknown_mark = reader.read32()
 if unknown_mark != 0x967e3c5a:
     # This is seen on the AG16K bitstreams. 
     # It's purpose is unknown
-    reader.reset()
+    reader.seek(cur_pos)
     
 device_id = reader.read32()
 chip = ChipWithID(device_id)
