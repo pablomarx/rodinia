@@ -96,7 +96,12 @@ spi_mark = reader.read16()
 if spi_mark != 0xffff:
     reader.reset()
 
-
+unknown_mark = reader.read32()
+if unknown_mark != 0x967e3c5a:
+    # This is seen on the AG16K bitstreams. 
+    # It's purpose is unknown
+    reader.reset()
+    
 device_id = reader.read32()
 chip = ChipWithID(device_id)
 if chip is None:
