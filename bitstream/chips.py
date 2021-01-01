@@ -320,7 +320,7 @@ AddChip(Chip('AG1200LP', 0x00120010, 10, 14, floorplan=[
 
 AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     None,  'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,    'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', None,   None,
-    'PLL' ,'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
+    'PLL0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     'IOE1','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
@@ -342,14 +342,15 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
-    None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','PLL',
+    None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','PLL1',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'ION1', 'ION0', 'ION0', 'ION0', 'ION0', 'Clkdis','ION0', 'ION0', 'ION0', 'ION0', 'ION0', None,  'ION0', 'ION0', 'ION0', 'ION0', 'ION0', None,  'ION0', 'ION0', 'ION1', 'ION0', 'ION0', None,   None,
 ], aliases={
 	'Logic':   'ALTA_TILE_SRAM_DIST',
     'Bram':    'alta_bram9k',
     'Mult':    'alta_multiplier',
     'Rogic':   'IOTILE_ROUTE',
-    'PLL':     'ALTA_PLLV',
+    'PLL0':    'ALTA_PLLV_E',
+    'PLL1':    'ALTA_PLLV_W',
     
     'UFM1':    'alta_mcu',
     'UFM2':    'alta_boot',

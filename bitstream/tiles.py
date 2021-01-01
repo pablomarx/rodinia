@@ -4100,11 +4100,46 @@ InstallTile(Tile('UFM', 'UFMTILE', columns=34, rows=68, slices=0, values={
     'SEAMMUX11':[2264,2263,2262,2261,2260,2259],
 }))
 
+InstallTile(Tile('ALTA_PLLV_E', 'PLLTILE', columns=20, rows=68, slices=0, values={
+    'BBMUXE00':[484,504,485,505,486,506,487,507,510],
+    'BBMUXE01':[524,544,525,545,526,546,527,547,550],
+    'BBMUXE02':[564,584,565,585,566,586,567,587,590],
+    'BBMUXE03':[604,624,605,625,606,626,607,627,630],
+    'BBMUXE04':[724,744,725,745,726,746,727,747,750],
+    'BBMUXE05':[764,784,765,785,766,786,767,787,790],
+    'BBMUXE06':[804,824,805,825,806,826,807,827,830],
+    'BBMUXE07':[844,864,845,865,846,866,847,867,870],
+    'SeamMUX00':[492,493,494,495,496,497],
+    'SeamMUX01':[532,533,534,535,536,537],
+    'SeamMUX02':[572,573,574,575,576,577],
+    'SeamMUX03':[612,613,614,615,616,617],
+    'SeamMUX04':[732,733,734,735,736,737],
+    'SeamMUX05':[772,773,774,775,776,777],
+    'SeamMUX06':[812,813,814,815,816,817],
+    'SeamMUX07':[852,853,854,855,856,857],
+}))
+
+InstallTile(Tile('ALTA_PLLV_W', 'PLLTILE', columns=20, rows=68, slices=0, values={
+    'BBMUXW00':[484,504,485,505,486,506,487,507,510],
+    'BBMUXW01':[524,544,525,545,526,546,527,547,550],
+    'BBMUXW02':[564,584,565,585,566,586,567,587,590],
+    'BBMUXW03':[604,624,605,625,606,626,607,627,630],
+    'BBMUXW04':[724,744,725,745,726,746,727,747,750],
+    'BBMUXW05':[764,784,765,785,766,786,767,787,790],
+    'BBMUXW06':[804,824,805,825,806,826,807,827,830],
+    'BBMUXW07':[844,864,845,865,846,866,847,867,870],
+    'SeamMUX00':[492,493,494,495,496,497],
+    'SeamMUX01':[532,533,534,535,536,537],
+    'SeamMUX02':[572,573,574,575,576,577],
+    'SeamMUX03':[612,613,614,615,616,617],
+    'SeamMUX04':[732,733,734,735,736,737],
+    'SeamMUX05':[772,773,774,775,776,777],
+    'SeamMUX06':[812,813,814,815,816,817],
+    'SeamMUX07':[852,853,854,855,856,857],
+}))
 
 # These are pseudo tiles.  The bits are handled in ConfigChains.  Here for wire/routing purposes.
 InstallTile(Tile('Clkdis', 'ClkdisTILE', columns=0, rows=0, slices=0, values={}))
-InstallTile(Tile('ALTA_PLLV', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
-
 InstallTile(Tile('alta_mcu', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
 InstallTile(Tile('alta_jtag', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
 InstallTile(Tile('alta_boot', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
