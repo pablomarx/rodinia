@@ -335,8 +335,8 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
-    'UFM', 'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
-    None,  'UFM',  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
+    'UFM1','UFM2', 'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'UFM',  'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
+    None,  'UFM3', None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW1',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
@@ -350,6 +350,10 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     'Mult':    'alta_multiplier',
     'Rogic':   'IOTILE_ROUTE',
     'PLL':     'ALTA_PLLV',
+    
+    'UFM1':    'alta_mcu',
+    'UFM2':    'alta_boot',
+    'UFM3':    'alta_jtag',
     
     'IOS1':    'alta_io_S4_T2',
     'IOS0':    'alta_io_S4',

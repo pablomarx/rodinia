@@ -4105,6 +4105,10 @@ InstallTile(Tile('UFM', 'UFMTILE', columns=34, rows=68, slices=0, values={
 InstallTile(Tile('Clkdis', 'ClkdisTILE', columns=0, rows=0, slices=0, values={}))
 InstallTile(Tile('ALTA_PLLV', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
 
+InstallTile(Tile('alta_mcu', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
+InstallTile(Tile('alta_jtag', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
+InstallTile(Tile('alta_boot', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
+
 #
 # For AG16K
 # 
