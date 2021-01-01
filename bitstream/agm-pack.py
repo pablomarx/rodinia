@@ -133,8 +133,13 @@ for tile_row in range(chip.rows - 1,-1,-1):
 
             row_bits += bits[::-1]
         
-        num_padding_bits = round_up(len(row_bits), 8) - len(row_bits)
-        num_padding_bits += 32
+        assert(chip.max_row_width() == len(row_bits))
+
+        row_width = round_up(len(row_bits), 8)        
+        rounded_row_width = int(((row_width / 32) + 1) * 32)
+        
+        num_padding_bits = rounded_row_width - len(row_bits)
+        
         row_bits += [0] * num_padding_bits
         bitstream += row_bits
 
