@@ -345,10 +345,10 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Logic','Logic','Logic','Bram',  'Logic','Logic','Logic','Logic','Logic','Mult','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Rogic','PLL1',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'ION1', 'ION0', 'ION0', 'ION0', 'ION0', 'Clkdis','ION0', 'ION0', 'ION0', 'ION0', 'ION0', None,  'ION0', 'ION0', 'ION0', 'ION0', 'ION0', None,  'ION0', 'ION0', 'ION1', 'ION0', 'ION0', None,   None,
 ], aliases={
-	'Logic':   'ALTA_TILE_SRAM_DIST',
-    'Bram':    'alta_bram9k',
+	'Logic':   'agx_tile_logic',
+    'Bram':    'agx_tile_bram9k',
     'Mult':    'agx_multiplier',
-    'Rogic':   'IOTILE_ROUTE',
+    'Rogic':   'agx_tile_route',
 
     'PLL0':    'agx_pll_E',
     'PLL1':    'agx_pll_W',
@@ -692,7 +692,7 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
 ], aliases={
 	'Logic':   'agm_tile_logic',
     'Rogic':   'agm_tile_route',
-    'Bram':    'agm_tile_bram',
+    'Bram':    'agm_tile_bram9k',
     'Mult':    'agm_tile_mult',
 
     'IOW0':    'agm_io_W6',
