@@ -347,29 +347,30 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
 ], aliases={
 	'Logic':   'ALTA_TILE_SRAM_DIST',
     'Bram':    'alta_bram9k',
-    'Mult':    'alta_multiplier',
+    'Mult':    'agx_multiplier',
     'Rogic':   'IOTILE_ROUTE',
-    'PLL0':    'ALTA_PLLV_E',
-    'PLL1':    'ALTA_PLLV_W',
-    
-    'UFM':     'ag_UFM_S',
-    'UFM1':    'alta_mcu',
-    'UFM2':    'alta_boot',
-    'UFM3':    'alta_jtag',
-    
-    'IOS1':    'alta_io_S4_T2',
-    'IOS0':    'alta_io_S4',
-    
-    'ION1':    'alta_io_N4_T2',
-    'ION0':    'alta_io_N4',
-    
-    'IOW0':    'alta_io_W6',
-    'IOW1':    'alta_io_W6_T2',
-    'IOW2':    'alta_io_W4_G5',
 
-    'IOE0':    'alta_io_E6',
-    'IOE1':    'alta_io_E6_T2',
-    'IOE2':    'alta_io_E4_G5',
+    'PLL0':    'agx_pll_E',
+    'PLL1':    'agx_pll_W',
+        
+    'IOS1':    'agx_io_S4_T2',
+    'IOS0':    'agx_io_S4',
+    
+    'ION1':    'agx_io_N4_T2',
+    'ION0':    'agx_io_N4',
+    
+    'IOW0':    'agx_io_W6',
+    'IOW1':    'agx_io_W6_T2',
+    'IOW2':    'agx_io_W4_G5',
+
+    'IOE0':    'agx_io_E6',
+    'IOE1':    'agx_io_E6_T2',
+    'IOE2':    'agx_io_E4_G5',
+
+    'UFM':     'ag_UFM_S',
+    'UFM1':    'agm_empty_ufm', # alta_mcu00
+    'UFM2':    'ag_UFM_S',      # alta_boot00
+    'UFM3':    'agm_empty_ufm', # alta_jtag00
 }, packages={
     'AG10KSDE176': [
         {'name':'PIN_1',            'type':'IO','tile':(0, 15),'index':0,'iobank':1,     'attrs':['SINGLE']},

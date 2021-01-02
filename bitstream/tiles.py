@@ -1729,9 +1729,9 @@ InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', columns=16, rows=68, slices=0, val
 
 
 #
-# For AG10K & AG16K
+# For AG10K
 #
-InstallTile(Tile('alta_multiplier', 'MultTILE', columns=26, rows=68, slices=0, values={
+InstallTile(Tile('agx_multiplier', 'MultTILE', columns=26, rows=68, slices=0, values={
     "CtrlMUX00":[847,873,848,874,849,875,876,851,877,850],
     "CtrlMUX01":[856,882,855,881,854,880,879,852,878,853],
     "CtrlMUX02":[925,899,926,900,927,901,902,929,903,928],
@@ -2297,7 +2297,7 @@ InstallTile(Tile('alta_bram9k', 'BramTILE', columns=180, rows=68, slices=0, valu
 }))
 
 
-InstallTile(Tile('alta_io_E4_G5', 'IOTILE', columns=20, rows=68, slices=5, values={
+InstallTile(Tile('agx_io_E4_G5', 'IOTILE', columns=20, rows=68, slices=5, values={
     # SLICE_GCLKGEN##
     'ENA_REG_MODE':[300,380,540,740,860],
 	# 1 per slice
@@ -2345,7 +2345,7 @@ InstallTile(Tile('alta_io_E4_G5', 'IOTILE', columns=20, rows=68, slices=5, value
 	'SeamMUX14': [972,973,974,975,976,977],
 }))
 
-InstallTile(Tile('alta_io_E6_T2', 'IOTILE', columns=20, rows=68, slices=6, values={
+InstallTile(Tile('agx_io_E6_T2', 'IOTILE', columns=20, rows=68, slices=6, values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -2590,7 +2590,7 @@ InstallTile(Tile('alta_io_E6_T2', 'IOTILE', columns=20, rows=68, slices=6, value
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('alta_io_E6', 'IOTILE', columns=20, rows=68, slices=6, values={
+InstallTile(Tile('agx_io_E6', 'IOTILE', columns=20, rows=68, slices=6, values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -2833,7 +2833,7 @@ InstallTile(Tile('alta_io_E6', 'IOTILE', columns=20, rows=68, slices=6, values={
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('alta_io_N4_T2', 'IOTILE', columns=34, rows=22, slices=4, values={
+InstallTile(Tile('agx_io_N4_T2', 'IOTILE', columns=34, rows=22, slices=4, values={
 	# 2 per slice
 	'CtrlMUX00': [342,376,341,375,340,374],
 	'CtrlMUX01': [410,444,409,443,408,442],
@@ -3006,7 +3006,7 @@ InstallTile(Tile('alta_io_N4_T2', 'IOTILE', columns=34, rows=22, slices=4, value
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('alta_io_N4', 'IOTILE', columns=34, rows=22, slices=4, values={
+InstallTile(Tile('agx_io_N4', 'IOTILE', columns=34, rows=22, slices=4, values={
 	# 2 per slice
 	'CtrlMUX00': [342,376,341,375,340,374],
 	'CtrlMUX01': [410,444,409,443,408,442],
@@ -3177,7 +3177,7 @@ InstallTile(Tile('alta_io_N4', 'IOTILE', columns=34, rows=22, slices=4, values={
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('alta_io_S4_T2', 'IOTILE', columns=34, rows=22, slices=4, values={
+InstallTile(Tile('agx_io_S4_T2', 'IOTILE', columns=34, rows=22, slices=4, values={
 	# 2 per slice
 	'CtrlMUX00': [376,342,375,341,374,340],
 	'CtrlMUX01': [308,274,307,273,306,272],
@@ -3350,7 +3350,7 @@ InstallTile(Tile('alta_io_S4_T2', 'IOTILE', columns=34, rows=22, slices=4, value
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('alta_io_S4', 'IOTILE', columns=34, rows=22, slices=4, values={
+InstallTile(Tile('agx_io_S4', 'IOTILE', columns=34, rows=22, slices=4, values={
 	# 2 per slice
 	'CtrlMUX00': [376,342,375,341,374,340],
 	'CtrlMUX01': [308,274,307,273,306,272],
@@ -3521,7 +3521,7 @@ InstallTile(Tile('alta_io_S4', 'IOTILE', columns=34, rows=22, slices=4, values={
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('alta_io_W4_G5', 'IOTILE', columns=20, rows=68, slices=5, values={
+InstallTile(Tile('agx_io_W4_G5', 'IOTILE', columns=20, rows=68, slices=5, values={
     # SLICE_GCLKGEN##
     'ENA_REG_MODE00':[300],
     'ENA_REG_MODE01':[380],
@@ -3573,7 +3573,7 @@ InstallTile(Tile('alta_io_W4_G5', 'IOTILE', columns=20, rows=68, slices=5, value
 	'SeamMUX14': [972,973,974,975,976,977],
 }))
 
-InstallTile(Tile('alta_io_W6_T2', 'IOTILE', columns=20, rows=68, slices=6, values={
+InstallTile(Tile('agx_io_W6_T2', 'IOTILE', columns=20, rows=68, slices=6, values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -3818,7 +3818,7 @@ InstallTile(Tile('alta_io_W6_T2', 'IOTILE', columns=20, rows=68, slices=6, value
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('alta_io_W6', 'IOTILE', columns=20, rows=68, slices=6, values={
+InstallTile(Tile('agx_io_W6', 'IOTILE', columns=20, rows=68, slices=6, values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -4100,7 +4100,8 @@ InstallTile(Tile('ag_UFM_S', 'UFMTILE', columns=34, rows=68, slices=0, values={
     'SEAMMUX11':[2264,2263,2262,2261,2260,2259],
 }))
 
-InstallTile(Tile('ALTA_PLLV_E', 'PLLTILE', columns=20, rows=68, slices=0, values={
+# The two PLL tiles appear identical other than E vs W in the BBMUX names
+InstallTile(Tile('agx_pll_E', 'PLLTILE', columns=20, rows=68, slices=0, values={
     'BBMUXE00':[484,504,485,505,486,506,487,507,510],
     'BBMUXE01':[524,544,525,545,526,546,527,547,550],
     'BBMUXE02':[564,584,565,585,566,586,567,587,590],
@@ -4119,7 +4120,7 @@ InstallTile(Tile('ALTA_PLLV_E', 'PLLTILE', columns=20, rows=68, slices=0, values
     'SeamMUX07':[852,853,854,855,856,857],
 }))
 
-InstallTile(Tile('ALTA_PLLV_W', 'PLLTILE', columns=20, rows=68, slices=0, values={
+InstallTile(Tile('agx_pll_W', 'PLLTILE', columns=20, rows=68, slices=0, values={
     'BBMUXW00':[484,504,485,505,486,506,487,507,510],
     'BBMUXW01':[524,544,525,545,526,546,527,547,550],
     'BBMUXW02':[564,584,565,585,566,586,567,587,590],
@@ -4138,50 +4139,9 @@ InstallTile(Tile('ALTA_PLLV_W', 'PLLTILE', columns=20, rows=68, slices=0, values
     'SeamMUX07':[852,853,854,855,856,857],
 }))
 
-# MCU boot? 
-InstallTile(Tile('alta_boot', 'UFMTILE', columns=34, rows=68, slices=0, values={
-    'BBMUXS00':[1836,1870,1837,1871,1838,1872,1839,1873,1876],
-    'BBMUXS01':[1904,1938,1905,1939,1906,1940,1907,1941,1944],
-    'BBMUXS02':[1972,2006,1973,2007,1974,2008,1975,2009,2012],
-    'BBMUXS03':[2108,2142,2109,2143,2110,2144,2111,2145,2148],
-    'BBMUXS04':[2176,2210,2177,2211,2178,2212,2179,2213,2216],
-    'BBMUXS05':[2244,2278,2245,2279,2246,2280,2247,2281,2284],
-    'BBMUXS06':[1865,1899,1864,1898,1863,1897,1862,1896,1893],
-    'BBMUXS07':[1933,1967,1932,1966,1931,1965,1930,1964,1961],
-    'BBMUXS08':[2001,2035,2000,2034,1999,2033,1998,2032,2029],
-    'BBMUXS09':[2137,2171,2136,2170,2135,2169,2134,2168,2165],
-    'BBMUXS10':[2205,2239,2204,2238,2203,2237,2202,2236,2233],
-    'BBMUXS11':[2273,2307,2272,2306,2271,2305,2270,2304,2301],
-    'INPUTMUX00':[1866],
-    'INPUTMUX01':[1934],
-    'INPUTMUX02':[2002],
-    'INPUTMUX03':[2138],
-    'INPUTMUX04':[2206],
-    'INPUTMUX05':[2274],
-    'INPUTMUX06':[1868],
-    'INPUTMUX07':[1936],
-    'INPUTMUX08':[2004],
-    'INPUTMUX09':[2140],
-    'INPUTMUX10':[2208],
-    'INPUTMUX11':[2276],
-    'SEAMMUX00':[1845,1846,1847,1848,1849,1850],
-    'SEAMMUX01':[1913,1914,1915,1916,1917,1918],
-    'SEAMMUX02':[1981,1982,1983,1984,1985,1986],
-    'SEAMMUX03':[2117,2118,2119,2120,2121,2122],
-    'SEAMMUX04':[2185,2186,2187,2188,2189,2190],
-    'SEAMMUX05':[2253,2254,2255,2256,2257,2258],
-    'SEAMMUX06':[1856,1855,1854,1853,1852,1851],
-    'SEAMMUX07':[1924,1923,1922,1921,1920,1919],
-    'SEAMMUX08':[1992,1991,1990,1989,1988,1987],
-    'SEAMMUX09':[2128,2127,2126,2125,2124,2123],
-    'SEAMMUX10':[2196,2195,2194,2193,2192,2191],
-    'SEAMMUX11':[2264,2263,2262,2261,2260,2259],
-}))
 
 # These are pseudo tiles.  The bits are handled in ConfigChains.  Here for wire/routing purposes.
 InstallTile(Tile('Clkdis', 'ClkdisTILE', columns=0, rows=0, slices=0, values={}))
-InstallTile(Tile('alta_mcu', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
-InstallTile(Tile('alta_jtag', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
 
 
 #
