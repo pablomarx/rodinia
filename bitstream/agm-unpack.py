@@ -136,7 +136,7 @@ if chip.lzwCompressed is True:
         reader.reset()
         reader.skip(pos)
     else:
-        reader.skip(20)
+        reader.skip(round_up(reader.pos, 32) - reader.pos)
         lzw_data = reader.rest()
         bitstream_bytes = lzw_decode(lzw_data)
         reader = BinaryReader(None, bitstream_bytes)
