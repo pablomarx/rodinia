@@ -95,8 +95,12 @@ def nibbles_to_bytes(nibbles):
 # 0x11 appears in AG16K bitstreams. Unknown purpose.
 # The rest are dictionary codes
 #
-def lzw_decode(bytes):
-    reader = bitslice(bytes, 6)
+def lzw_decode(bytes, lzw_length=6, variable_width=False):
+    if variable_width == False:
+        reader = bitslice(bytes, lzw_length)
+    else:
+        # Read four for the nibble, additional one for control 
+        reader = bitslice(bytes, 5)
     
     result = []
     table = []

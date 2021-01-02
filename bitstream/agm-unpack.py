@@ -134,7 +134,7 @@ if lzw_marker != 0x55:
 else:
     reader.skip(round_up(reader.pos, 32) - reader.pos)
     lzw_data = reader.rest()
-    bitstream_bytes = lzw_decode(lzw_data)
+    bitstream_bytes = lzw_decode(lzw_data, **chip.lzw_info)
     reader = BinaryReader(None, bitstream_bytes)
 
 last_bits = None

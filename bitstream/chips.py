@@ -38,7 +38,7 @@ class Chip:
     extra = {}
     lzwCompressed = False
     
-    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages, configChainClasses, lzwCompressed = False, extra={}):
+    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages, configChainClasses, lzw_info = None, extra={}):
         global chips
         assert len(floorplan) == rows * columns
         self.name = name
@@ -49,6 +49,7 @@ class Chip:
         self.aliases = aliases
         self.packages = packages
         self.extra = extra
+        self.lzw_info = lzw_info
         
         configChain = []
         for ccClass in configChainClasses:
@@ -57,7 +58,6 @@ class Chip:
             else:
                 configChain.append(ccClass(self))
         self.configChain = configChain
-        self.lzwCompressed = lzwCompressed
     
     def pins_in_tile_at(self, x, y):
         result = []
@@ -579,7 +579,10 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     ConfigChainPLLV,
     ConfigChainClkDis_25x48,
     ConfigChainMCU1,
-], lzwCompressed=True,
+], lzw_info={
+    'lzw_length': 6,
+    'variable_width': False,
+},
 extra={
     'chain_io_order': [
         (0,11,2), (0,11,3), (0,9,0), (0,9,1), (0,9,3), (0,7,0), (0,7,1), (0,5,0), (0,5,1), (0,4,1), (0,4,2), (0,3,0), (0,3,1), (0,3,2), (0,3,4), (0,3,5),
@@ -972,7 +975,10 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
     ConfigChainClkDis_29x60,
     ConfigChainClkDis_29x60,
     ConfigChainMCU2,
-], lzwCompressed=True,
+], lzw_info={
+    'lzw_length': 8,
+    'variable_width': True,
+},
 extra={
     'chain_io_order': [
         (0,16,4), (0,16,5), (0,15,0), (0,15,1), (0,15,2), (0,15,3), (0,15,4), (0,14,0), (0,14,1), (0,14,2), (0,14,3), (0,14,4), (0,14,5), (0,13,1), (0,13,2), (0,13,3),
