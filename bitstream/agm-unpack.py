@@ -125,21 +125,17 @@ print(".device %s" % hex(device_id))
 # ????
 reader.require32(0x0000FFFF)
 
+pos = reader.pos
 
-if chip.lzwCompressed is True:
-    pos = reader.pos
-    word = reader.read32()
-    # Not sure the meaning of 0x55030000,
-    # Just that it exists here for lzw compressed
-    # bitstreams
-    if word != 0x55030000:
-        reader.reset()
-        reader.skip(pos)
-    else:
-        reader.skip(round_up(reader.pos, 32) - reader.pos)
-        lzw_data = reader.rest()
-        bitstream_bytes = lzw_decode(lzw_data)
-        reader = BinaryReader(None, bitstream_bytes)
+lzw_marker = reader.read8()
+if lzw_marker != 0x55:
+    # Not lzw, roll-back the reader
+    reader.seek(pos)
+else:
+    reader.skip(round_up(reader.pos, 32) - reader.pos)
+    lzw_data = reader.rest()
+    bitstream_bytes = lzw_decode(lzw_data)
+    reader = BinaryReader(None, bitstream_bytes)
 
 last_bits = None
 last_bit_len = 0
