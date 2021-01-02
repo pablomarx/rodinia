@@ -31,8 +31,8 @@ tiles = {}
 class Tile:
     name = None
     type = None
-    columns = 0
-    rows = 0
+    bitstream_width = 0
+    bitstream_height = 0
     slices = 0
     values = {}
     formatters = {}
@@ -42,11 +42,11 @@ class Tile:
     defaults = {}
     bitmapTable = None
     
-    def __init__(self, name, type, columns, rows, slices, values, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
+    def __init__(self, name, type, bitstream_width, bitstream_height, slices, values, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
         self.name = name
         self.type = type
-        self.columns = columns
-        self.rows = rows
+        self.bitstream_width = bitstream_width
+        self.bitstream_height = bitstream_height
         self.slices = slices
         self.values = values
         self.formatters = formatters
@@ -58,7 +58,7 @@ class Tile:
     
     def buildBitmapTable(self):
         bitmapTable = [];
-        for bit in range(0, self.columns * self.rows):
+        for bit in range(0, self.bitstream_width * self.bitstream_height):
             matched = False
             for name in self.values:
                 if bit in self.values[name]:
@@ -149,7 +149,7 @@ class Tile:
         return values
         
     def empty_bits(self):
-        bits = [1] * (self.columns * self.rows)
+        bits = [1] * (self.bitstream_width * self.bitstream_height)
         for key in self.values:
             for bit_idx in self.values[key]:
                 bits[bit_idx] = 0
@@ -234,7 +234,7 @@ def TileNamed(name):
     global tiles
     return tiles[name]
 
-InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', columns=34, rows=20, slices=0, values={
+InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstream_height=20, slices=0, values={
 	# Each BBMUXE0 contains 1 entry of 9 bits each
 	'BBMUXE00': [ 498, 532, 497, 531, 496, 530, 495, 529, 526 ],
 	'BBMUXE01': [ 506, 540, 505, 539, 504, 538, 503, 537, 534 ],
@@ -266,7 +266,7 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', columns=34, rows=20, slice
     'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2),
 }))
 
-InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4, values={
+InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
 	# Tile is identical to AG1200_IOTILE_N4, with the addition of CFG_GclkDMUX00
 
 	# Each CtrlMUX contains 2 entries of 6 bits each
@@ -393,7 +393,7 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=4, values={
+InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 274, 308, 273, 307, 272, 306, 342, 376, 341, 375, 340, 374 ],
 	'CtrlMUX01': [ 280, 314, 279, 313, 278, 312, 348, 382, 347, 381, 346, 380 ],
@@ -514,7 +514,7 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', columns=34, rows=20, slices=4, va
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4, values={
+InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
 	# Tile is identical to AG1200_TILE_S4, with the addition of CFG_GclkDMUX00
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340, 308, 274, 307, 273, 306, 272 ],
@@ -640,7 +640,7 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', columns=34, rows=20, slices=4,
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', columns=34, rows=20, slices=4, values={
+InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
 	# Each CtrlMUX contains 2 entries of 6 bits each
 	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340, 308, 274, 307, 273, 306, 272 ],
 	'CtrlMUX01': [ 382, 348, 381, 347, 380, 346, 314, 280, 313, 279, 312, 278 ],
@@ -762,7 +762,7 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', columns=34, rows=20, slices=4, va
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, values={
+InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_height=68, slices=0, values={
 	'BramClkMUX00': [ 3489, 3490, 3491, 3488 ], # alta_bram00:Clk0
 	'BramClkMUX01': [ 3813, 3814, 3815, 3812 ], # alta_bram00:Clk1
 
@@ -1129,9 +1129,9 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', columns=108, rows=68, slices=0, valu
 }))
 
 # This is a pseudo tile.  The bits are handled in a ConfigChain.  Here for wire/routing purposes.
-InstallTile(Tile('ALTA_PLLX', 'PLLTILE', columns=0, rows=0, slices=0, values={}))
+InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}))
 
-InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices=16, values={
+InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstream_height=68, slices=16, values={
 	# 16 slices per tile
 
     # Presumably selects between alta_asyncctrl00:Dout/TileAsyncMUX00 
@@ -1604,7 +1604,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', columns=34, rows=68, slices
 	'alta_slice15_IMUX63':'D',
 }))
 
-InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', columns=16, rows=68, slices=0, values={
+InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', bitstream_width=16, bitstream_height=68, slices=0, values={
 	'OMUX00': [ 15 ],
 	'OMUX01': [ 79 ],
 	'OMUX02': [ 143 ],
@@ -2069,7 +2069,7 @@ InstallTile(Tile('agx_tile_logic', 'LogicTILE', columns=34, rows=68, slices=16, 
     'TileSyncMUX1': [1154,1153],
 }))
 
-InstallTile(Tile('agx_tile_route', 'RogicTILE', columns=16, rows=68, slices=0, values={
+InstallTile(Tile('agx_tile_route', 'RogicTILE', bitstream_width=16, bitstream_height=68, slices=0, values={
     'OMUX00':[15],
     'OMUX01':[79],
     'OMUX02':[143],
@@ -2105,7 +2105,7 @@ InstallTile(Tile('agx_tile_route', 'RogicTILE', columns=16, rows=68, slices=0, v
     'SEAMMUX':[514,515,516,517,518,519,562,563,564,565,566,567,520,521,522,523,524,525,568,569,570,571,572,573],
 }))
 
-InstallTile(Tile('agx_multiplier', 'MultTILE', columns=26, rows=68, slices=0, values={
+InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_height=68, slices=0, values={
     "CtrlMUX00":[847,873,848,874,849,875,876,851,877,850],
     "CtrlMUX01":[856,882,855,881,854,880,879,852,878,853],
     "CtrlMUX02":[925,899,926,900,927,901,902,929,903,928],
@@ -2268,7 +2268,7 @@ InstallTile(Tile('agx_multiplier', 'MultTILE', columns=26, rows=68, slices=0, va
     "TileClkMUX00":[830,829,828,827],
 }))
 
-InstallTile(Tile('agx_tile_bram9k', 'BramTILE', columns=180, rows=68, slices=0, values={
+InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_height=68, slices=0, values={
     "CLKMODE":[8855,8854],
 
     "CtrlMUX00":[5776,5956,5777,5957,5778,5958,5779,5959,5961,5960,5781,5780],
@@ -2671,7 +2671,7 @@ InstallTile(Tile('agx_tile_bram9k', 'BramTILE', columns=180, rows=68, slices=0, 
 }))
 
 
-InstallTile(Tile('agx_io_E4_G5', 'IOTILE', columns=20, rows=68, slices=5, values={
+InstallTile(Tile('agx_io_E4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, values={
     # SLICE_GCLKGEN##
     'ENA_REG_MODE':[300,380,540,740,860],
 	# 1 per slice
@@ -2719,7 +2719,7 @@ InstallTile(Tile('agx_io_E4_G5', 'IOTILE', columns=20, rows=68, slices=5, values
 	'SeamMUX14': [972,973,974,975,976,977],
 }))
 
-InstallTile(Tile('agx_io_E6_T2', 'IOTILE', columns=20, rows=68, slices=6, values={
+InstallTile(Tile('agx_io_E6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -2964,7 +2964,7 @@ InstallTile(Tile('agx_io_E6_T2', 'IOTILE', columns=20, rows=68, slices=6, values
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('agx_io_E6', 'IOTILE', columns=20, rows=68, slices=6, values={
+InstallTile(Tile('agx_io_E6', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -3207,7 +3207,7 @@ InstallTile(Tile('agx_io_E6', 'IOTILE', columns=20, rows=68, slices=6, values={
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('agx_io_N4_T2', 'IOTILE', columns=34, rows=22, slices=4, values={
+InstallTile(Tile('agx_io_N4_T2', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, values={
 	# 2 per slice
 	'CtrlMUX00': [342,376,341,375,340,374],
 	'CtrlMUX01': [410,444,409,443,408,442],
@@ -3380,7 +3380,7 @@ InstallTile(Tile('agx_io_N4_T2', 'IOTILE', columns=34, rows=22, slices=4, values
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('agx_io_N4', 'IOTILE', columns=34, rows=22, slices=4, values={
+InstallTile(Tile('agx_io_N4', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, values={
 	# 2 per slice
 	'CtrlMUX00': [342,376,341,375,340,374],
 	'CtrlMUX01': [410,444,409,443,408,442],
@@ -3551,7 +3551,7 @@ InstallTile(Tile('agx_io_N4', 'IOTILE', columns=34, rows=22, slices=4, values={
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('agx_io_S4_T2', 'IOTILE', columns=34, rows=22, slices=4, values={
+InstallTile(Tile('agx_io_S4_T2', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, values={
 	# 2 per slice
 	'CtrlMUX00': [376,342,375,341,374,340],
 	'CtrlMUX01': [308,274,307,273,306,272],
@@ -3724,7 +3724,7 @@ InstallTile(Tile('agx_io_S4_T2', 'IOTILE', columns=34, rows=22, slices=4, values
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('agx_io_S4', 'IOTILE', columns=34, rows=22, slices=4, values={
+InstallTile(Tile('agx_io_S4', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, values={
 	# 2 per slice
 	'CtrlMUX00': [376,342,375,341,374,340],
 	'CtrlMUX01': [308,274,307,273,306,272],
@@ -3895,7 +3895,7 @@ InstallTile(Tile('agx_io_S4', 'IOTILE', columns=34, rows=22, slices=4, values={
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('agx_io_W4_G5', 'IOTILE', columns=20, rows=68, slices=5, values={
+InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, values={
     # SLICE_GCLKGEN##
     'ENA_REG_MODE00':[300],
     'ENA_REG_MODE01':[380],
@@ -3947,7 +3947,7 @@ InstallTile(Tile('agx_io_W4_G5', 'IOTILE', columns=20, rows=68, slices=5, values
 	'SeamMUX14': [972,973,974,975,976,977],
 }))
 
-InstallTile(Tile('agx_io_W6_T2', 'IOTILE', columns=20, rows=68, slices=6, values={
+InstallTile(Tile('agx_io_W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -4192,7 +4192,7 @@ InstallTile(Tile('agx_io_W6_T2', 'IOTILE', columns=20, rows=68, slices=6, values
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('agx_io_W6', 'IOTILE', columns=20, rows=68, slices=6, values={
+InstallTile(Tile('agx_io_W6', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -4435,7 +4435,7 @@ InstallTile(Tile('agx_io_W6', 'IOTILE', columns=20, rows=68, slices=6, values={
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('ag_UFM_S', 'UFMTILE', columns=34, rows=68, slices=0, values={
+InstallTile(Tile('ag_UFM_S', 'UFMTILE', bitstream_width=34, bitstream_height=68, slices=0, values={
     'BBMUXS00':[1836,1870,1837,1871,1838,1872,1839,1873,1876],
     'BBMUXS01':[1904,1938,1905,1939,1906,1940,1907,1941,1944],
     'BBMUXS02':[1972,2006,1973,2007,1974,2008,1975,2009,2012],
@@ -4475,7 +4475,7 @@ InstallTile(Tile('ag_UFM_S', 'UFMTILE', columns=34, rows=68, slices=0, values={
 }))
 
 # The two PLL tiles appear identical other than E vs W in the BBMUX names
-InstallTile(Tile('agx_pll_E', 'PLLTILE', columns=20, rows=68, slices=0, values={
+InstallTile(Tile('agx_pll_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
     'BBMUXE00':[484,504,485,505,486,506,487,507,510],
     'BBMUXE01':[524,544,525,545,526,546,527,547,550],
     'BBMUXE02':[564,584,565,585,566,586,567,587,590],
@@ -4494,7 +4494,7 @@ InstallTile(Tile('agx_pll_E', 'PLLTILE', columns=20, rows=68, slices=0, values={
     'SeamMUX07':[852,853,854,855,856,857],
 }))
 
-InstallTile(Tile('agx_pll_W', 'PLLTILE', columns=20, rows=68, slices=0, values={
+InstallTile(Tile('agx_pll_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
     'BBMUXW00':[484,504,485,505,486,506,487,507,510],
     'BBMUXW01':[524,544,525,545,526,546,527,547,550],
     'BBMUXW02':[564,584,565,585,566,586,567,587,590],
@@ -4515,14 +4515,14 @@ InstallTile(Tile('agx_pll_W', 'PLLTILE', columns=20, rows=68, slices=0, values={
 
 
 # These are pseudo tiles.  The bits are handled in ConfigChains.  Here for wire/routing purposes.
-InstallTile(Tile('Clkdis', 'ClkdisTILE', columns=0, rows=0, slices=0, values={}))
+InstallTile(Tile('Clkdis', 'ClkdisTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}))
 
 
 #
 # For AG16K
 # 
 
-InstallTile(Tile("agm_ADC_N", "UFMTILE", columns=40, rows=24, slices=0, values={
+InstallTile(Tile("agm_ADC_N", "UFMTILE", bitstream_width=40, bitstream_height=24, slices=0, values={
 	'BBMUXN0':[656,696,657,697,658,698,659,699,702],
 	'BBMUXN1':[576,616,577,617,578,618,579,619,622],
 	'BBMUXN2':[496,536,497,537,498,538,499,539,542],
@@ -4536,7 +4536,7 @@ InstallTile(Tile("agm_ADC_N", "UFMTILE", columns=40, rows=24, slices=0, values={
 	'SEAMMUX':[689,690,691,692,693,694,609,610,611,612,613,614,529,530,531,532,533,534,449,450,451,452,453,454,369,370,371,372,373,374,289,290,291,292,293,294,209,210,211,212,213,214,129,130,131,132,133,134,49,50,51,52,53,54],
 }))
 
-InstallTile(Tile("agm_ADC_S", "UFMTILE", columns=40, rows=24, slices=0, values={
+InstallTile(Tile("agm_ADC_S", "UFMTILE", bitstream_width=40, bitstream_height=24, slices=0, values={
 	'BBMUXS0':[296,256,297,257,298,258,299,259,262],
 	'BBMUXS1':[376,336,377,337,378,338,379,339,342],
 	'BBMUXS2':[456,416,457,417,458,418,459,419,422],
@@ -4550,7 +4550,7 @@ InstallTile(Tile("agm_ADC_S", "UFMTILE", columns=40, rows=24, slices=0, values={
 	'SEAMMUX':[249,250,251,252,253,254,329,330,331,332,333,334,409,410,411,412,413,414,489,490,491,492,493,494,569,570,571,572,573,574,649,650,651,652,653,654,729,730,731,732,733,734,809,810,811,812,813,814,889,890,891,892,893,894],
 }))
 
-InstallTile(Tile("agm_MCU_PINR", "UFMTILE", columns=40, rows=68, slices=0, values={
+InstallTile(Tile("agm_MCU_PINR", "UFMTILE", bitstream_width=40, bitstream_height=68, slices=0, values={
 	'BBMUXE0':[431,351,430,350,428,429,349,348,347,427],
 	'BBMUXE1':[471,551,470,550,468,469,549,548,547,467],
 	'BBMUXE2':[671,591,670,590,668,669,589,588,587,667],
@@ -4571,7 +4571,7 @@ InstallTile(Tile("agm_MCU_PINR", "UFMTILE", columns=40, rows=68, slices=0, value
 	'SEAMMUX':[352,353,354,355,356,357,552,553,554,555,556,557,592,593,594,595,596,597,792,793,794,795,796,797,832,833,834,835,836,837,1032,1033,1034,1035,1036,1037,1072,1073,1074,1075,1076,1077,1272,1273,1274,1275,1276,1277,1472,1473,1474,1475,1476,1477,1672,1673,1674,1675,1676,1677,1712,1713,1714,1715,1716,1717,1912,1913,1914,1915,1916,1917,1952,1953,1954,1955,1956,1957,2152,2153,2154,2155,2156,2157,2192,2193,2194,2195,2196,2197,2392,2393,2394,2395,2396,2397],
 }))
 
-InstallTile(Tile("agm_MCU_PIN", "UFMTILE", columns=40, rows=68, slices=0, values={
+InstallTile(Tile("agm_MCU_PIN", "UFMTILE", bitstream_width=40, bitstream_height=68, slices=0, values={
 	'BBMUXS0':[2219,2179,2220,2180,2221,2181,2222,2182,2183],
 	'BBMUXS1':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
 	'BBMUXS2':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
@@ -4589,20 +4589,20 @@ InstallTile(Tile("agm_MCU_PIN", "UFMTILE", columns=40, rows=68, slices=0, values
 }))
 
 # Two OCTs appear identical other than E vs W in BBMUX name
-InstallTile(Tile("agm_OCT_E", "UFMTILE", columns=20, rows=68, slices=0, values={
+InstallTile(Tile("agm_OCT_E", "UFMTILE", bitstream_width=20, bitstream_height=68, slices=0, values={
 	'BBMUXE0':[510,550,509,549,507,508,548,547,546,506],
 	'BBMUXE1':[610,570,609,569,607,608,568,567,566,606],
 	'SEAMMUX':[552,553,554,555,556,557,572,573,574,575,576,577],
 }))
 
-InstallTile(Tile("agm_OCT_W", "UFMTILE", columns=20, rows=68, slices=0, values={
+InstallTile(Tile("agm_OCT_W", "UFMTILE", bitstream_width=20, bitstream_height=68, slices=0, values={
 	'BBMUXW0':[510,550,509,549,507,508,548,547,546,506],
 	'BBMUXW1':[610,570,609,569,607,608,568,567,566,606],
 	'SEAMMUX':[552,553,554,555,556,557,572,573,574,575,576,577],
 }))
 
 # Two PLLs appear identical other than E vs W in BBMUX name
-InstallTile(Tile("agm_PLL_E", "PLLTILE", columns=20, rows=68, slices=0, values={
+InstallTile(Tile("agm_PLL_E", "PLLTILE", bitstream_width=20, bitstream_height=68, slices=0, values={
 	'BBMUXE0':[270,310,269,309,267,268,308,307,306,266],
 	'BBMUXE1':[370,330,369,329,367,368,328,327,326,366],
 	'BBMUXE2':[390,430,389,429,387,388,428,427,426,386],
@@ -4618,7 +4618,7 @@ InstallTile(Tile("agm_PLL_E", "PLLTILE", columns=20, rows=68, slices=0, values={
 	'SEAMMUX':[312,313,314,315,316,317,332,333,334,335,336,337,432,433,434,435,436,437,452,453,454,455,456,457,552,553,554,555,556,557,572,573,574,575,576,577,792,793,794,795,796,797,812,813,814,815,816,817,912,913,914,915,916,917,932,933,934,935,936,937,1032,1033,1034,1035,1036,1037,1052,1053,1054,1055,1056,1057],
 }))
 
-InstallTile(Tile("agm_PLL_W", "PLLTILE", columns=20, rows=68, slices=0, values={
+InstallTile(Tile("agm_PLL_W", "PLLTILE", bitstream_width=20, bitstream_height=68, slices=0, values={
 	'BBMUXW0':[270,310,269,309,267,268,308,307,306,266],
 	'BBMUXW1':[370,330,369,329,367,368,328,327,326,366],
 	'BBMUXW2':[390,430,389,429,387,388,428,427,426,386],
@@ -4635,7 +4635,7 @@ InstallTile(Tile("agm_PLL_W", "PLLTILE", columns=20, rows=68, slices=0, values={
 }))
 
 
-InstallTile(Tile("agm_io_N4_G5", "IOTILE", columns=40, rows=24, slices=5, values={
+InstallTile(Tile("agm_io_N4_G5", "IOTILE", bitstream_width=40, bitstream_height=24, slices=5, values={
 	'ENA_REG_MODE':[116,117,436,437,756],
 	'GCLKDMUX':[276,277,316,317,596,597,636,637,916,917],
 	'INDA_DELAY':[157,36,37,156,77,76,32,31,71,33,73,72],
@@ -4652,7 +4652,7 @@ InstallTile(Tile("agm_io_N4_G5", "IOTILE", columns=40, rows=24, slices=5, values
 	'SEAMMUX4':[840,841,842,843,844,845,846,847,848,849,850,851,880,881,882,883,884,885],
 }))
 
-InstallTile(Tile("agm_io_N4_T2", "IOTILE", columns=40, rows=24, slices=4, values={
+InstallTile(Tile("agm_io_N4_T2", "IOTILE", bitstream_width=40, bitstream_height=24, slices=4, values={
 	'CTRLMUX0':[563,603,562,561,601,643,683,642,641,681],
 	'CTRLMUX1':[564,604,565,566,606,644,684,645,646,686],
 	'CTRLMUX2':[571,611,570,569,609,651,691,650,649,689],
@@ -4698,7 +4698,7 @@ InstallTile(Tile("agm_io_N4_T2", "IOTILE", columns=40, rows=24, slices=4, values
 	'TILECLKMUX':[593,594,592,713,714,712,633,634,632,673,674,672,597,596,591,717,716,711,637,636,631,677,676,671],
 }))
 
-InstallTile(Tile("agm_io_N4", "IOTILE", columns=40, rows=24, slices=4, values={
+InstallTile(Tile("agm_io_N4", "IOTILE", bitstream_width=40, bitstream_height=24, slices=4, values={
 	'CTRLMUX0':[563,603,562,561,601,643,683,642,641,681],
 	'CTRLMUX1':[564,604,565,566,606,644,684,645,646,686],
 	'CTRLMUX2':[571,611,570,569,609,651,691,650,649,689],
@@ -4743,7 +4743,7 @@ InstallTile(Tile("agm_io_N4", "IOTILE", columns=40, rows=24, slices=4, values={
 	'TILECLKMUX':[593,594,592,713,714,712,633,634,632,673,674,672,597,596,591,717,716,711,637,636,631,677,676,671],
 }))
 
-InstallTile(Tile("agm_io_S4_G5", "IOTILE", columns=40, rows=24, slices=5, values={
+InstallTile(Tile("agm_io_S4_G5", "IOTILE", bitstream_width=40, bitstream_height=24, slices=5, values={
 	'ENA_REG_MODE':[876,877,556,557,236],
 	'GCLKDMUX':[716,717,676,677,396,397,356,357,76,77],
 	'INDA_DELAY':[837,956,957,836,917,916,952,951,911,953,913,912],
@@ -4760,7 +4760,7 @@ InstallTile(Tile("agm_io_S4_G5", "IOTILE", columns=40, rows=24, slices=5, values
 	'SEAMMUX4':[80,81,82,83,84,85,86,87,88,89,90,91,40,41,42,43,44,45],
 }))
 
-InstallTile(Tile("agm_io_S4_T2", "IOTILE", columns=40, rows=24, slices=4, values={
+InstallTile(Tile("agm_io_S4_T2", "IOTILE", bitstream_width=40, bitstream_height=24, slices=4, values={
 	'CTRLMUX0':[363,323,362,361,321,283,243,282,281,241],
 	'CTRLMUX1':[364,324,365,366,326,284,244,285,286,246],
 	'CTRLMUX2':[371,331,370,369,329,291,251,290,289,249],
@@ -4806,7 +4806,7 @@ InstallTile(Tile("agm_io_S4_T2", "IOTILE", columns=40, rows=24, slices=4, values
 	'TILECLKMUX':[393,394,392,273,274,272,353,354,352,313,314,312,397,396,391,277,276,271,357,356,351,317,316,311],
 }))
 
-InstallTile(Tile("agm_io_S4", "IOTILE", columns=40, rows=24, slices=4, values={
+InstallTile(Tile("agm_io_S4", "IOTILE", bitstream_width=40, bitstream_height=24, slices=4, values={
 	'CTRLMUX0':[363,323,362,361,321,283,243,282,281,241],
 	'CTRLMUX1':[364,324,365,366,326,284,244,285,286,246],
 	'CTRLMUX2':[371,331,370,369,329,291,251,290,289,249],
@@ -4852,7 +4852,7 @@ InstallTile(Tile("agm_io_S4", "IOTILE", columns=40, rows=24, slices=4, values={
 }))
 
 # The east and west pairs are identical...
-InstallTile(Tile("agm_io_E4_G5", "IOTILE", columns=20, rows=68, slices=5, values={
+InstallTile(Tile("agm_io_E4_G5", "IOTILE", bitstream_width=20, bitstream_height=68, slices=5, values={
 	'ENA_REG_MODE':[300,380,540,740,860],
 	'GCLKDMUX':[360,320,520,480,720,620,840,800,1000,960],
 	'INDA_DELAY':[461,441,401,481,521,541,821,801,761,881,901,900],
@@ -4869,7 +4869,7 @@ InstallTile(Tile("agm_io_E4_G5", "IOTILE", columns=20, rows=68, slices=5, values
 	'SEAMMUX4':[892,893,894,895,896,897,952,953,954,955,956,957,972,973,974,975,976,977],
 }))
 
-InstallTile(Tile("agm_io_W4_G5", "IOTILE", columns=20, rows=68, slices=5, values={
+InstallTile(Tile("agm_io_W4_G5", "IOTILE", bitstream_width=20, bitstream_height=68, slices=5, values={
 	'ENA_REG_MODE':[300,380,540,740,860],
 	'GCLKDMUX':[360,320,520,480,720,620,840,800,1000,960],
 	'INDA_DELAY':[461,441,401,481,521,541,821,801,761,881,901,900],
@@ -4886,7 +4886,7 @@ InstallTile(Tile("agm_io_W4_G5", "IOTILE", columns=20, rows=68, slices=5, values
 	'SEAMMUX4':[892,893,894,895,896,897,952,953,954,955,956,957,972,973,974,975,976,977],
 }))
 
-InstallTile(Tile("agm_io_E6_T2", "IOTILE", columns=20, rows=68, slices=6, values={
+InstallTile(Tile("agm_io_E6_T2", "IOTILE", bitstream_width=20, bitstream_height=68, slices=6, values={
 	'CTRLMUX0':[368,388,369,370,390,389,408,428,409,410,430,429],
 	'CTRLMUX1':[448,468,449,450,470,469,367,387,366,365,385,386],
 	'CTRLMUX2':[407,427,406,405,425,426,447,467,446,445,465,466],
@@ -4940,7 +4940,7 @@ InstallTile(Tile("agm_io_E6_T2", "IOTILE", columns=20, rows=68, slices=6, values
 	'TILECLKMUX':[503,583,625,502,523,485,602,603,601,642,643,641,702,703,701,722,723,721,562,563,565,483,543,545,622,623,621,662,663,661,682,683,681,742,743,741],
 }))
 
-InstallTile(Tile("agm_io_W6_T2", "IOTILE", columns=20, rows=68, slices=6, values={
+InstallTile(Tile("agm_io_W6_T2", "IOTILE", bitstream_width=20, bitstream_height=68, slices=6, values={
 	'CTRLMUX0':[368,388,369,370,390,389,408,428,409,410,430,429],
 	'CTRLMUX1':[448,468,449,450,470,469,367,387,366,365,385,386],
 	'CTRLMUX2':[407,427,406,405,425,426,447,467,446,445,465,466],
@@ -4994,7 +4994,7 @@ InstallTile(Tile("agm_io_W6_T2", "IOTILE", columns=20, rows=68, slices=6, values
 	'TILECLKMUX':[503,583,625,502,523,485,602,603,601,642,643,641,702,703,701,722,723,721,562,563,565,483,543,545,622,623,621,662,663,661,682,683,681,742,743,741],
 }))
 
-InstallTile(Tile("agm_io_E6", "IOTILE", columns=20, rows=68, slices=6, values={
+InstallTile(Tile("agm_io_E6", "IOTILE", bitstream_width=20, bitstream_height=68, slices=6, values={
 	'CTRLMUX0':[368,388,369,370,390,389,408,428,409,410,430,429],
 	'CTRLMUX1':[448,468,449,450,470,469,367,387,366,365,385,386],
 	'CTRLMUX2':[407,427,406,405,425,426,447,467,446,445,465,466],
@@ -5047,7 +5047,7 @@ InstallTile(Tile("agm_io_E6", "IOTILE", columns=20, rows=68, slices=6, values={
 	'TILECLKMUX':[503,583,625,502,523,485,602,603,601,642,643,641,702,703,701,722,723,721,562,563,565,483,543,545,622,623,621,662,663,661,682,683,681,742,743,741],
 }))
 
-InstallTile(Tile("agm_io_W6", "IOTILE", columns=20, rows=68, slices=6, values={
+InstallTile(Tile("agm_io_W6", "IOTILE", bitstream_width=20, bitstream_height=68, slices=6, values={
 	'CTRLMUX0':[368,388,369,370,390,389,408,428,409,410,430,429],
 	'CTRLMUX1':[448,468,449,450,470,469,367,387,366,365,385,386],
 	'CTRLMUX2':[407,427,406,405,425,426,447,467,446,445,465,466],
@@ -5100,7 +5100,7 @@ InstallTile(Tile("agm_io_W6", "IOTILE", columns=20, rows=68, slices=6, values={
 	'TILECLKMUX':[503,583,625,502,523,485,602,603,601,642,643,641,702,703,701,722,723,721,562,563,565,483,543,545,622,623,621,662,663,661,682,683,681,742,743,741],
 }))
 
-InstallTile(Tile("agm_tile_logic", "LogicTILE", columns=40, rows=68, slices=16, values={
+InstallTile(Tile("agm_tile_logic", "LogicTILE", bitstream_width=40, bitstream_height=68, slices=16, values={
     'ASYNCMUX00': [37],
     'ASYNCMUX01': [197],
     'ASYNCMUX02': [357],
@@ -5443,7 +5443,7 @@ InstallTile(Tile("agm_tile_logic", "LogicTILE", columns=40, rows=68, slices=16, 
     'TILESYNCMUX1': [1356,1357,1355],
 }))
 
-InstallTile(Tile("agm_tile_bram9k", "BramTILE", columns=184, rows=68, slices=0, values={
+InstallTile(Tile("agm_tile_bram9k", "BramTILE", bitstream_width=184, bitstream_height=68, slices=0, values={
     'CLKMODE':[9054,8870],
     'CTRLMUX00': [5907,6091,5908,6092,5909,6093,5910,6094,5911,6095,5912,6096],
     'CTRLMUX01': [5913,6097,5914,6098,5915,6099,5916,6100,5917,6101,5918,6102],
@@ -5977,7 +5977,7 @@ InstallTile(Tile("agm_tile_bram9k", "BramTILE", columns=184, rows=68, slices=0, 
     'TMUX31': [12175,12359,12176,12177,12361,12360],
 }))
 
-InstallTile(Tile("agm_tile_mult", "MultTILE", columns=32, rows=68, slices=0, values={
+InstallTile(Tile("agm_tile_mult", "MultTILE", bitstream_width=32, bitstream_height=68, slices=0, values={
     'CTRLMUX00': [1043,1075,1044,1076,1045,1077,1078,1047,1079,1046],
     'CTRLMUX01': [1052,1084,1051,1083,1050,1082,1081,1048,1080,1049],
     'CTRLMUX02': [1139,1107,1140,1108,1141,1109,1110,1143,1111,1142],
@@ -6138,7 +6138,7 @@ InstallTile(Tile("agm_tile_mult", "MultTILE", columns=32, rows=68, slices=0, val
     'TILECLKMUX':[1020,1019,1018,1017],
 }))
 
-InstallTile(Tile("agm_tile_route", "RogicTILE", columns=20, rows=68, slices=0, values={
+InstallTile(Tile("agm_tile_route", "RogicTILE", bitstream_width=20, bitstream_height=68, slices=0, values={
     'LMUX00': [0,20,40,60,80,100,120,140,160,180,200,220,280,260,240],
     'LMUX01': [320,340,360,380,400,420,440,460,480,500,520,540,600,580,560],
     'LMUX02': [720,740,760,780,800,820,840,860,880,900,920,940,1000,980,960],
@@ -6245,4 +6245,4 @@ InstallTile(Tile("agm_tile_route", "RogicTILE", columns=20, rows=68, slices=0, v
     'SEAMMUX03': [713,714,715,716,717,718],
 }))
 
-InstallTile(Tile('agm_empty_ufm', 'UFMTILE', columns=0, rows=0, slices=0, values={}))
+InstallTile(Tile('agm_empty_ufm', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}))

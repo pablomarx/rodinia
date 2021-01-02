@@ -161,9 +161,9 @@ for tile_col in range(0, chip.columns):
         asc.write(".%s %i %i\n" % (tile.type, tile_col, tile_row))
         bits = bits_by_tile[tile_col][tile_row]
         bit_idx = 0
-        for bit_row in range(0, tile.rows):
+        for bit_row in range(0, tile.bitstream_height):
             row_str = ""
-            for bit_col in range(0, tile.columns):
+            for bit_col in range(0, tile.bitstream_width):
                 row_str += str(bits[bit_idx])
                 bit_idx += 1
             asc.write(row_str)

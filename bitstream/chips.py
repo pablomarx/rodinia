@@ -82,7 +82,7 @@ class Chip:
         for row in range(0, self.rows):
             tile = self.tile_at(column, row)
             if tile is not None:
-                size = max(size, tile.columns)
+                size = max(size, tile.bitstream_width)
         return size
 
     def max_row_height(self, row):
@@ -90,7 +90,7 @@ class Chip:
         for column in range(0, self.columns):
             tile = self.tile_at(column, row)
             if tile is not None:
-                result = max(result, tile.rows)
+                result = max(result, tile.bitstream_height)
         return result
 
     def max_row_width(self):

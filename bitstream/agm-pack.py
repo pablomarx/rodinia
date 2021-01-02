@@ -139,8 +139,8 @@ for tile_row in range(chip.rows - 1,-1,-1):
             if entry is None:
                 bits = [1] * column_width
             else:
-                offset = tile.columns * row
-                bits = entry['bits'][offset:offset+tile.columns]
+                offset = tile.bitstream_width * row
+                bits = entry['bits'][offset:offset+tile.bitstream_width]
                 if len(bits) < column_width:
                     padding = [1] * (column_width - len(bits))
                     bits = padding + bits
