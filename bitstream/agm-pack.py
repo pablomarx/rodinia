@@ -94,6 +94,17 @@ writer = BinaryWriter()
 writer.write32(chip.device_id)
 writer.write32(0x0000FFFF)
 
+if chip.device_id == 0x01000001:
+    # 0x55030000 appears on lzw bitstreams
+    # 0x00030000 appears when lzw is disabled
+    writer.write32(0x00030000)
+    while writer.length() < 32:
+        writer.write32(0x00000000)
+    # Register header, write address 6
+    writer.write32(0x2200FC06)
+    # Reg data: 00000022
+    writer.write32(0x00000022)
+
 def write_register_data(reg, len, data):
     writer.write32(0xA2000000 | reg)
     writer.write32(((len - 1) << 8) | 0x20)
