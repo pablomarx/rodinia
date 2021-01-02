@@ -4061,7 +4061,7 @@ InstallTile(Tile('alta_io_W6', 'IOTILE', columns=20, rows=68, slices=6, values={
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('UFM', 'UFMTILE', columns=34, rows=68, slices=0, values={
+InstallTile(Tile('ag_UFM_S', 'UFMTILE', columns=34, rows=68, slices=0, values={
     'BBMUXS00':[1836,1870,1837,1871,1838,1872,1839,1873,1876],
     'BBMUXS01':[1904,1938,1905,1939,1906,1940,1907,1941,1944],
     'BBMUXS02':[1972,2006,1973,2007,1974,2008,1975,2009,2012],
@@ -4255,13 +4255,13 @@ InstallTile(Tile("agm_MCU_PIN", "UFMTILE", columns=40, rows=68, slices=0, values
 }))
 
 # Two OCTs appear identical other than E vs W in BBMUX name
-InstallTile(Tile("agm_OCT1", "UFMTILE", columns=20, rows=68, slices=0, values={
+InstallTile(Tile("agm_OCT_E", "UFMTILE", columns=20, rows=68, slices=0, values={
 	'BBMUXE0':[510,550,509,549,507,508,548,547,546,506],
 	'BBMUXE1':[610,570,609,569,607,608,568,567,566,606],
 	'SEAMMUX':[552,553,554,555,556,557,572,573,574,575,576,577],
 }))
 
-InstallTile(Tile("agm_OCT3", "UFMTILE", columns=20, rows=68, slices=0, values={
+InstallTile(Tile("agm_OCT_W", "UFMTILE", columns=20, rows=68, slices=0, values={
 	'BBMUXW0':[510,550,509,549,507,508,548,547,546,506],
 	'BBMUXW1':[610,570,609,569,607,608,568,567,566,606],
 	'SEAMMUX':[552,553,554,555,556,557,572,573,574,575,576,577],
