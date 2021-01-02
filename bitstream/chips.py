@@ -695,12 +695,14 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
     'Bram':    'agm_tile_bram9k',
     'Mult':    'agm_tile_mult',
 
-    'IOW0':    'agm_io_W6',
-    'IOW1':    'agm_io_W6_T2',
-    'IOW2':    'agm_io_W4_G5',
-    'IOE0':    'agm_io_E6',
-    'IOE1':    'agm_io_E6_T2',
-    'IOE2':    'agm_io_E4_G5',
+    'IOW0':    'agm_io_E|W6',
+    'IOW1':    'agm_io_E|W6_T2',
+    'IOW2':    'agm_io_E|W4_G5',
+
+    'IOE0':    'agm_io_E|W6',
+    'IOE1':    'agm_io_E|W6_T2',
+    'IOE2':    'agm_io_E|W4_G5',
+
     'ION0':    'agm_io_N4',
     'ION1':    'agm_io_N4_T2',
     'ION2':    'agm_io_N4_G5',
