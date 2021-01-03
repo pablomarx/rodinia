@@ -1,4 +1,4 @@
-set_location_assignment -to clk PIN_111
+set_location_assignment -to clk PIN_112
 
 set_location_assignment -to bank0[0] PIN_1
 set_location_assignment -to bank0[1] PIN_2
@@ -23,9 +23,9 @@ set_location_assignment -to bank2[1] PIN_34
 set_location_assignment -to bank2[2] PIN_35
 set_location_assignment -to bank2[3] PIN_36
 set_location_assignment -to bank2[4] PIN_37
-set_location_assignment -to bank2[5] PIN_38
-set_location_assignment -to bank2[6] PIN_39
-set_location_assignment -to bank2[7] PIN_40
+set_location_assignment -to bank2[5] PIN_87
+set_location_assignment -to bank2[6] PIN_88
+set_location_assignment -to bank2[7] PIN_89
 
 set_location_assignment -to bank3[0] PIN_42
 set_location_assignment -to bank3[1] PIN_46
