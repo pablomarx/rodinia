@@ -22,7 +22,6 @@
 #
 
 from utils import bits_to_string, bits_to_bytes, bytes_to_num, bits_invert, num_to_bits, bits_to_num
-import wires
 from math import log
 import re
 
@@ -83,7 +82,7 @@ class Tile:
                 return self.formatters[pattern](name,bits)
         return bits_to_string(bits, 0, True)
     
-    def format(self, name, bits, x, y, routing=None):
+    def format(self, name, bits, x, y, routing=None, chip=None):
         result = self.bit_format(name, bits)
         if name in self.annotations:
             result += "\t; "+self.annotations[name]
@@ -96,10 +95,11 @@ class Tile:
         if name.lower().find("mux") != -1:
             value = mux_decode(bits)
             if value != -1:
-                wire = wires.input_for_tile_config(self.type, x, y, name, value)
-                if wire is not None:
-                    source = "%s(%s,%s):%s:%s %s %s" % (wire['tile'], wire['x'], wire['y'], wire['config'], wire['index'], wire['wire'], wire['timing'])
-                    result += "\t; <= " + source
+                if chip != None and chip.wire_db != None:
+                    wire = chip.wire_db.input_for_tile_config(self.type, x, y, name, value)
+                    if wire is not None:
+                        source = "%s(%s,%s):%s:%s %s %s" % (wire['tile'], wire['x'], wire['y'], wire['config'], wire['index'], wire['wire'], wire['timing'])
+                        result += "\t; <= " + source
         if routing != None:
             net = routing.net_for_tile_config(x, y, name)
             if net is not None:

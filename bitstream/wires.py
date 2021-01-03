@@ -70,80 +70,93 @@ class Wire:
         
         self.name = name
 
-filename = os.path.dirname(os.path.abspath(__file__))
-filename = os.path.join(filename, "ag1k-wires.json.gz")
-with gzip.open(filename, 'rb') as file:
-	wires_by_tile = json.loads(file.read())
-
-def enumerate_all_wires(callback):
-    global wires_by_tile
-    # e.g. LogicTILE, IOTILE
-    for dest_tile in wires_by_tile:
-        dest_configs = wires_by_tile[dest_tile]
-        # e.g. IMUX34, IMUX35
-        for dest_config in dest_configs:           
-            dest_bits = dest_configs[dest_config]
-            # e.g. I0, I1, I2
-            for dest_bit in dest_bits:        
-                src_tiles = dest_bits[dest_bit]
-                # e.g. LogicTILE, IOTILE
-                for src_tile in src_tiles:     
-                    src_configs = src_tiles[src_tile]
-                    # e.g. OMUX01, OMX07
-                    for src_config in src_configs:
-                        src_bits = src_configs[src_config]
-                        # e.g. O0, O1
-                        for src_bit in src_bits:
-                            connections = src_bits[src_bit]
-                            # e.g. [9, 1, 9, 1, "T0", 0.867]
-                            last = []
-                            for connection in connections: 
-                                dest_col = connection[0]
-                                dest_row = connection[1]
-                                src_col = connection[2]
-                                src_row = connection[3]
-                                wire_type = connection[4]
-                                delay = connection[5]
-                                
-                                # There seems to be ~ 4222 duplicates in the json
-                                if last == connection[0:4]:
-                                    continue
-                                    
-                                last = connection[0:4]
-                                
-                                dest = WireEnd(dest_tile, dest_row, dest_col, dest_config, dest_bit)
-                                source = WireEnd(src_tile, src_row, src_col, src_config, src_bit)
-                                wire = Wire(source, dest, wire_type, delay)
-                                callback(wire)
-
-
-def input_for_tile_config(tile, x, y, config, value):
-    global wires_by_tile
-
-    if tile not in wires_by_tile:
-        return None
+class WireDatabase:
+    def __init__(self, filename):
+        self.filename = filename 
+        self.wires_by_tile = None
     
-    if config.startswith("alta_slice"):
-        config = config[13:]
-    
-    configs = wires_by_tile[tile]
-    if config not in configs:
-        return None
+    def load_wire_db(self):
+        abs_path = os.path.dirname(os.path.abspath(__file__))
+        abs_path = os.path.join(abs_path, self.filename)
+        with gzip.open(abs_path, 'rb') as file:
+        	wires_by_tile = json.loads(file.read())
+        self.wires_by_tile = wires_by_tile
+        return wires_by_tile
+
+    def enumerate_all_wires(self, callback):
+        wires_by_tile = self.wires_by_tile
+        if wires_by_tile == None:
+            wires_by_tile = self.load_wire_db()
         
-    values = configs[config]
-    val_str = 'I%s' % value
-    if val_str not in values:
-        return None
-    
-    output_tiles = values[val_str]
-    for output_tile_name in output_tiles:
-        output_configs = output_tiles[output_tile_name]
-        for output_config_name in output_configs:
-            output_config = output_configs[output_config_name]
-            for output_index in output_config:
-                tile_pairs = output_config[output_index]
-                for tile_pair in tile_pairs:
-                    if tile_pair[0] == x and tile_pair[1] == y:
-                        return {'tile': output_tile_name, 'x': tile_pair[2], 'y': tile_pair[3], 'config': output_config_name, 'index': output_index, 'wire': tile_pair[4], 'timing': tile_pair[5] }
+        # e.g. LogicTILE, IOTILE
+        for dest_tile in wires_by_tile:
+            dest_configs = wires_by_tile[dest_tile]
+            # e.g. IMUX34, IMUX35
+            for dest_config in dest_configs:           
+                dest_bits = dest_configs[dest_config]
+                # e.g. I0, I1, I2
+                for dest_bit in dest_bits:        
+                    src_tiles = dest_bits[dest_bit]
+                    # e.g. LogicTILE, IOTILE
+                    for src_tile in src_tiles:     
+                        src_configs = src_tiles[src_tile]
+                        # e.g. OMUX01, OMX07
+                        for src_config in src_configs:
+                            src_bits = src_configs[src_config]
+                            # e.g. O0, O1
+                            for src_bit in src_bits:
+                                connections = src_bits[src_bit]
+                                # e.g. [9, 1, 9, 1, "T0", 0.867]
+                                last = []
+                                for connection in connections: 
+                                    dest_col = connection[0]
+                                    dest_row = connection[1]
+                                    src_col = connection[2]
+                                    src_row = connection[3]
+                                    wire_type = connection[4]
+                                    delay = connection[5]
+                                
+                                    # There seems to be ~ 4222 duplicates in the json
+                                    if last == connection[0:4]:
+                                        continue
+                                    
+                                    last = connection[0:4]
+                                
+                                    dest = WireEnd(dest_tile, dest_row, dest_col, dest_config, dest_bit)
+                                    source = WireEnd(src_tile, src_row, src_col, src_config, src_bit)
+                                    wire = Wire(source, dest, wire_type, delay)
+                                    callback(wire)
 
-    return None
+
+    def input_for_tile_config(self, tile, x, y, config, value):
+        wires_by_tile = self.wires_by_tile
+        if wires_by_tile == None:
+            wires_by_tile = self.load_wire_db()
+
+        if tile not in wires_by_tile:
+            return None
+    
+        if config.startswith("alta_slice"):
+            config = config[13:]
+    
+        configs = wires_by_tile[tile]
+        if config not in configs:
+            return None
+        
+        values = configs[config]
+        val_str = 'I%s' % value
+        if val_str not in values:
+            return None
+    
+        output_tiles = values[val_str]
+        for output_tile_name in output_tiles:
+            output_configs = output_tiles[output_tile_name]
+            for output_config_name in output_configs:
+                output_config = output_configs[output_config_name]
+                for output_index in output_config:
+                    tile_pairs = output_config[output_index]
+                    for tile_pair in tile_pairs:
+                        if tile_pair[0] == x and tile_pair[1] == y:
+                            return {'tile': output_tile_name, 'x': tile_pair[2], 'y': tile_pair[3], 'config': output_config_name, 'index': output_index, 'wire': tile_pair[4], 'timing': tile_pair[5] }
+
+        return None

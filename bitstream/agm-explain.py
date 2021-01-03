@@ -134,7 +134,7 @@ for line in lines:
                 chain = None
                 if chain_id < len(chip.configChain):
                     chain = chip.configChain[chain_id]
-                data = { 'bits': [], 'owner': chain, 'header': line, 'args': { 'chain_id': chain_id } }
+                data = { 'bits': [], 'owner': chain, 'header': line, 'args': { 'chain_id': chain_id, 'chip': chip, } }
         if len(comps) == 3:
             if chip != None:
                 x = int(comps[1])
@@ -142,7 +142,7 @@ for line in lines:
                 if x >= 0 and y >= 0:
                     tile = chip.tile_at(x, y)
                     if tile != None:
-                        data = {'owner': tile, 'header': line, 'bits': [], 'args': {'x': x, 'y': y, 'routing': routing }}
+                        data = {'owner': tile, 'header': line, 'bits': [], 'args': {'x': x, 'y': y, 'chip': chip, 'routing': routing }}
     elif len(line) > 0:
         if data != None:
             for char in line:

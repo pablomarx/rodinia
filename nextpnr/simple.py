@@ -25,7 +25,6 @@ import os
 sys.path.append(os.path.join('..', 'bitstream'))
 
 from chips import ChipWithID
-from wires import enumerate_all_wires
 
 chip = ChipWithID(0x00120010)
 
@@ -302,5 +301,5 @@ def wire_enumerator(wire):
     addWire(dest.row, dest.col, dest.name, dest.config)
     addWire(source.row, source.col, source.name, source.config)
     createPIP(wire.name, wire.wire_type, source.name, dest.name, wire.delay, dest.row, dest.col)
-                                
-enumerate_all_wires(wire_enumerator)
+
+chip.wire_db.enumerate_all_wires(wire_enumerator)

@@ -25,6 +25,7 @@ chips = []
 
 from tiles import TileNamed
 from configchain import *
+from wires import WireDatabase
 
 class Chip:
     name = None
@@ -37,8 +38,9 @@ class Chip:
     configChain = []
     extra = {}
     lzwCompressed = False
+    wire_db = None
     
-    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages, configChainClasses, lzw_info = None, extra={}):
+    def __init__(self, name, device_id, rows, columns, floorplan, aliases, packages, configChainClasses, lzw_info=None, wires_file=None, extra={}):
         global chips
         assert len(floorplan) == rows * columns
         self.name = name
@@ -58,6 +60,8 @@ class Chip:
             else:
                 configChain.append(ccClass(self))
         self.configChain = configChain
+        if wires_file != None:
+            self.wire_db = WireDatabase(wires_file)
     
     def pins_in_tile_at(self, x, y):
         result = []
@@ -306,9 +310,12 @@ AddChip(Chip('AG1200LP', 0x00120010, 10, 14, floorplan=[
         {'name':'TMS',         'type':'IO','tile':(8, 9),'index':0,'iobank':'0','attrs':['NC_SINGLE']},
         {'name':'nCS',         'type':'IO','tile':(11,9),'index':1,'iobank':'0','attrs':['SINGLE']},
     ],
-}, configChainClasses=[
+}, 
+configChainClasses=[
     ConfigChainRIO, ConfigChainPLLX
-], extra={
+], 
+wires_file='ag1k-wires.json.gz',
+extra={
     'chain_io_order': [
         (6, 1, 3), (7, 1, 0), (9, 0, 1), (9, 0, 3), (11, 0, 1), (11, 0, 3), (12, 0, 0), (12, 0, 2),
         (11, 9, 1), (9, 9, 3), (9, 9, 1), (8, 9, 3), (8, 9, 0), (7, 9, 3), (7, 9, 0), (6, 9, 2),

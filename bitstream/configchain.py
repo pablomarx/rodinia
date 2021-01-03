@@ -37,7 +37,7 @@ class ConfigChain:
             length += field[1]
         return [0] * length
     
-    def format(self, name, bits, chain_id):
+    def format(self, name, bits, chain_id, chip=None):
         return bits_to_string(bits)
     
     def offset_for_field_named(self, name):
@@ -355,7 +355,7 @@ class ConfigChainRIO:
                 bits[-1] = 1
         return bits
         
-    def format(self, name, bits, chain_id):
+    def format(self, name, bits, chain_id, chip=None):
         return bits_to_string(bits)
         
     def offset_for_field_named(self, name):
