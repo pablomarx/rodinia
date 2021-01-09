@@ -139,7 +139,7 @@ class ConfigChainPLLX(ConfigChain):
         if key.startswith("SinkMUXPseudo"):
             value = bits_invert(value)
         key = self.aliases[key]
-        super().encode(chip, tile, row, col, key, value, bits)
+        return super().encode(chip, tile, row, col, key, value, bits)
 
 class ConfigChainPLLV(ConfigChain):
     def __init__(self, chip, package=None):
