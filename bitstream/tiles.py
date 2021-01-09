@@ -269,11 +269,14 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstr
 InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
 	# Tile is identical to AG1200_IOTILE_N4, with the addition of CFG_GclkDMUX00
 
-	# Each CtrlMUX contains 2 entries of 6 bits each
-	'CtrlMUX00': [ 274, 308, 273, 307, 272, 306, 342, 376, 341, 375, 340, 374 ],
-	'CtrlMUX01': [ 280, 314, 279, 313, 278, 312, 348, 382, 347, 381, 346, 380 ],
-	'CtrlMUX02': [ 275, 309, 276, 310, 277, 311, 343, 377, 344, 378, 345, 379 ],
-	'CtrlMUX03': [ 281, 315, 282, 316, 283, 317, 349, 383, 350, 384, 351, 385 ],
+	'CtrlMUX00': [ 274, 308, 273, 307, 272, 306 ],
+	'CtrlMUX01': [ 342, 376, 341, 375, 340, 374 ],
+	'CtrlMUX02': [ 280, 314, 279, 313, 278, 312 ],
+	'CtrlMUX03': [ 348, 382, 347, 381, 346, 380 ],
+	'CtrlMUX04': [ 275, 309, 276, 310, 277, 311 ],
+	'CtrlMUX05': [ 343, 377, 344, 378, 345, 379 ],
+	'CtrlMUX06': [ 281, 315, 282, 316, 283, 317 ],
+	'CtrlMUX07': [ 349, 383, 350, 384, 351, 385 ],
 
 	'GclkDMUX00': [ 235, 474, 473, 236 ],
 
@@ -394,11 +397,14 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_
 }))
 
 InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
-	# Each CtrlMUX contains 2 entries of 6 bits each
-	'CtrlMUX00': [ 274, 308, 273, 307, 272, 306, 342, 376, 341, 375, 340, 374 ],
-	'CtrlMUX01': [ 280, 314, 279, 313, 278, 312, 348, 382, 347, 381, 346, 380 ],
-	'CtrlMUX02': [ 275, 309, 276, 310, 277, 311, 343, 377, 344, 378, 345, 379 ],
-	'CtrlMUX03': [ 281, 315, 282, 316, 283, 317, 349, 383, 350, 384, 351, 385 ],
+	'CtrlMUX00': [ 274, 308, 273, 307, 272, 306 ],
+	'CtrlMUX01': [ 342, 376, 341, 375, 340, 374 ],
+	'CtrlMUX02': [ 280, 314, 279, 313, 278, 312 ],
+	'CtrlMUX03': [ 348, 382, 347, 381, 346, 380 ],
+	'CtrlMUX04': [ 275, 309, 276, 310, 277, 311 ],
+	'CtrlMUX05': [ 343, 377, 344, 378, 345, 379 ],
+	'CtrlMUX06': [ 281, 315, 282, 316, 283, 317 ],
+	'CtrlMUX07': [ 349, 383, 350, 384, 351, 385 ],
 
 	'InputMUX00':[33],
 	'InputMUX01':[135],
@@ -516,11 +522,14 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_hei
 
 InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
 	# Tile is identical to AG1200_TILE_S4, with the addition of CFG_GclkDMUX00
-	# Each CtrlMUX contains 2 entries of 6 bits each
-	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340, 308, 274, 307, 273, 306, 272 ],
-	'CtrlMUX01': [ 382, 348, 381, 347, 380, 346, 314, 280, 313, 279, 312, 278 ],
-	'CtrlMUX02': [ 377, 343, 378, 344, 379, 345, 309, 275, 310, 276, 311, 277 ],
-	'CtrlMUX03': [ 383, 349, 384, 350, 385, 351, 315, 281, 316, 282, 317, 283 ],
+	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340 ],
+	'CtrlMUX01': [ 308, 274, 307, 273, 306, 272 ],
+	'CtrlMUX02': [ 382, 348, 381, 347, 380, 346 ],
+	'CtrlMUX03': [ 314, 280, 313, 279, 312, 278 ],
+	'CtrlMUX04': [ 377, 343, 378, 344, 379, 345 ],
+	'CtrlMUX05': [ 309, 275, 310, 276, 311, 277 ],
+	'CtrlMUX06': [ 383, 349, 384, 350, 385, 351 ],
+	'CtrlMUX07': [ 315, 281, 316, 282, 317, 283 ],
 
 	'GclkDMUX00': [ 473, 236, 235, 474 ],
 
@@ -641,11 +650,14 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_
 }))
 
 InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
-	# Each CtrlMUX contains 2 entries of 6 bits each
-	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340, 308, 274, 307, 273, 306, 272 ],
-	'CtrlMUX01': [ 382, 348, 381, 347, 380, 346, 314, 280, 313, 279, 312, 278 ],
-	'CtrlMUX02': [ 377, 343, 378, 344, 379, 345, 309, 275, 310, 276, 311, 277 ],
-	'CtrlMUX03': [ 383, 349, 384, 350, 385, 351, 315, 281, 316, 282, 317, 283 ],
+	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340 ],
+	'CtrlMUX01': [ 308, 274, 307, 273, 306, 272 ],
+	'CtrlMUX02': [ 382, 348, 381, 347, 380, 346 ],
+	'CtrlMUX03': [ 314, 280, 313, 279, 312, 278 ],
+	'CtrlMUX04': [ 377, 343, 378, 344, 379, 345 ],
+	'CtrlMUX05': [ 309, 275, 310, 276, 311, 277 ],
+	'CtrlMUX06': [ 383, 349, 384, 350, 385, 351 ],
+	'CtrlMUX07': [ 315, 281, 316, 282, 317, 283 ],
 
 	'InputMUX00':[679],
 	'InputMUX01':[577],
