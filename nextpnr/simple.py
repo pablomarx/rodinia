@@ -21,7 +21,6 @@
 #
 import sys
 import os
-
 sys.path.append(os.path.join('..', 'bitstream'))
 
 from chips import ChipWithID
@@ -112,20 +111,20 @@ def createIOTile(chip, tile, row, col):
         ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=gb)
         
         regs = ['combout', 'regout', 'paddataout']
+        oname = None
         for reg_name in regs:
             name = "alta_ioreg%02i:%s" % (z, reg_name)
             wire = "%s:%s" % (tile_name, name)
             addWire(row, col, wire)
+            if reg_name == 'combout':
+                oname = wire
             
         ios = ['combout']
-        iname = None
         for io_name in ios:
             name = "alta_io%02i:%s" % (z, io_name)
             wire = "%s:%s" % (tile_name, name)
-            iname = wire
             addWire(row, col, wire)
         
-        oname = "%s:InputMUX%02i" % (tile_name, (z*2)+1)
         iname = "%s:IOMUX%02i" % (tile_name, z)
         oename = "%s:oe%02i" % (tile_name, z)
         
