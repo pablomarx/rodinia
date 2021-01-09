@@ -39,9 +39,10 @@ class Tile:
     encoders = {}
     key_transformers = {}
     defaults = {}
+    pseudos = {}
     bitmapTable = None
     
-    def __init__(self, name, type, bitstream_width, bitstream_height, slices, values, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
+    def __init__(self, name, type, bitstream_width, bitstream_height, slices, values, pseudos={}, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
         self.name = name
         self.type = type
         self.bitstream_width = bitstream_width
@@ -54,6 +55,7 @@ class Tile:
         self.encoders = encoders
         self.key_transformers = key_transformers
         self.defaults = defaults
+        self.pseudos = pseudos
     
     def buildBitmapTable(self):
         bitmapTable = [];
@@ -261,6 +263,8 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstr
 	'SeamMUX07':[363,364,365,366,367,368,369,370],
 	'SeamMUX08':[329,330,331,332,333,334,335,336],
 	'SeamMUX09':[295,296,297,298,299,300,301,302],
+}, pseudos={
+	'SinkMUXPseudo': 1,
 }, encoders={
 	'BBMUXN[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2),
     'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2),
@@ -377,6 +381,10 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_
 	'TileClkMUX05':[406,407,440],
 	'TileClkMUX06':[338,339,271],
 	'TileClkMUX07':[372,373,441],
+}, pseudos={
+	'IsoMUXPseudo': 8,
+	'GateMUX': 1,
+	'BufMUX': 2,
 }, formatters={
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
@@ -503,6 +511,10 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_hei
 	'TileClkMUX05':[406,407,440],
 	'TileClkMUX06':[338,339,271],
 	'TileClkMUX07':[372,373,441],
+}, pseudos={
+	'IsoMUXPseudo': 8,
+	'GateMUX': 1,
+	'BufMUX': 2,
 }, formatters={
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
@@ -630,6 +642,10 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_
 	'TileClkMUX05':[304,305,270],
 	'TileClkMUX06':[372,373,441],
 	'TileClkMUX07':[338,339,271],
+}, pseudos={
+	'IsoMUXPseudo': 8,
+	'GateMUX': 1,
+	'BufMUX': 2,
 }, formatters={
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
@@ -756,6 +772,10 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', bitstream_width=34, bitstream_hei
 	'TileClkMUX05':[304,305,270],
 	'TileClkMUX06':[372,373,441],
 	'TileClkMUX07':[338,339,271],
+}, pseudos={
+	'IsoMUXPseudo': 8,
+	'GateMUX': 1,
+	'BufMUX': 2,
 }, formatters={
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
@@ -1050,6 +1070,9 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
         7228, 7232, 7165, 7169, 7173, 7177, 7181, 7185, 7189, 7193, 7197, 7201, 7205, 7209, 7213, 7217, 7221, 7225, 7229, 7233, 7166, 7170, 7174, 7178, 7182, 7186, 7190, 7194, 7198, 7202, 7206, 7210, 7214, 7218, 7222, 7226, 7230, 7234, 7167, 7171, 7175, 7179, 7183, 7187, 7191, 7195, 7199, 7203, 7207, 7211, 7215, 7219, 7223, 7227, 7231, 7235, 7272, 7276, 7280, 7284, 7288, 7292, 7296, 7300, 
         7304, 7308, 7312, 7316, 7320, 7324, 7328, 7332, 7336, 7340, 7273, 7277, 7281, 7285, 7289, 7293, 7297, 7301, 7305, 7309, 7313, 7317, 7321, 7325, 7329, 7333, 7337, 7341, 7274, 7278, 7282, 7286, 7290, 7294, 7298, 7302, 7306, 7310, 7314, 7318, 7322, 7326, 7330, 7334, 7338, 7342, 7275, 7279, 7283, 7287, 7291, 7295, 7299, 7303, 7307, 7311, 7315, 7319, 7323, 7327, 7331, 7335, 7339, 7343,
     ], # end INIT_VAL
+}, pseudos={
+	'BufMUX': 36,
+	'IsoMUXPseudo': 4,
 }, formatters={
 	'INIT_VAL': lambda key,val: str(len(val)) + "'h" + "".join([format(bit, '02x') for bit in bits_to_bytes(val[::-1])]),
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
@@ -1141,7 +1164,13 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
 }))
 
 # This is a pseudo tile.  The bits are handled in a ConfigChain.  Here for wire/routing purposes.
-InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}))
+InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
+	'PllClkFbMUX': 1,
+	'PllClkInMUX': 1,
+	'PllIntFbMUX': 1,
+	'PllSeamMUX': 2,
+	'SinkMUXPseudo': 6,
+}))
 
 InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstream_height=68, slices=16, values={
 	# 16 slices per tile
@@ -1525,6 +1554,10 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstre
 	'OMUX45':[2209],
 	'OMUX46':[2277],
 	'OMUX47':[2311],
+}, pseudos={
+	'IsoMUXPseudo': 4,
+	'BufMUX': 2,
+	'SinkMUXPseudo': 32,
 }, formatters={
 	'LUT[0-9][0-9]': lambda key,val: '16\'h'+format(bytes_to_num(bits_to_bytes(lut_decode(key,val))), '04x'),
 	'IMUX[0-9][0-9]': lambda key,val: mux_format(val, 9, 'I'),
@@ -1732,6 +1765,9 @@ InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', bitstream_width=16, bitstream_heig
 	'SeamMUX01':[560,561,562,563,564,565,566,567],
 	'SeamMUX02':[520,521,541,522,523,524,525,526],
 	'SeamMUX03':[568,569,557,570,571,572,573,574],
+}, pseudos={
+	'BufMUX': 16,
+	'IsoMUXPseudo': 4,
 }, formatters={
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
 }))
