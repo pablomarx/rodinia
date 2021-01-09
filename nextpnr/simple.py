@@ -65,7 +65,7 @@ def createLogicTile(chip, tile, row, col):
             outname = base + output
             dest = tile_name+":"+outname
             addWire(row, col, dest, outname)
-            createPIP("%s <= %s" % (src, dest), "???", src, dest, 0, row, col)
+            createAlias(src, dest, row, col)
 
             for index in range(3, len(a_pair)):
                 remainder = a_pair[index]
@@ -143,7 +143,7 @@ def createIOTile(chip, tile, row, col):
         outname = "alta_io_gclk00:outclk" 
         dest = tile_name+":"+outname
         addWire(row, col, dest, outname)
-        createPIP("%s <= %s" % (src, dest), "???", src, dest, 0, row, col)
+        createAlias(src, dest, row, col)
 
 def createRogicTile(chip, tile, row, col):
     assert row < chip.rows
@@ -212,7 +212,7 @@ def createUFMTile(chip, tile, row, col):
         outname = "out" 
         dest = wire_prefix+":"+outname
         addWire(row, col, dest, outname)
-        createPIP("%s <= %s" % (src, dest), "???", src, dest, 0, row, col)
+        createAlias(src, dest, row, col)
         
     wire_prefix = "%s:alta_io_gclk00" % (belname)
     inname = "in" 
@@ -222,7 +222,7 @@ def createUFMTile(chip, tile, row, col):
     outname = "out" 
     dest = wire_prefix+":"+outname
     addWire(row, col, dest, outname)
-    createPIP("%s <= %s" % (src, dest), "???", src, dest, 0, row, col)
+    createAlias(src, dest, row, col)
 
 
 def createBRAMTile(chip, tile, row, col):
@@ -280,6 +280,10 @@ def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
     except AssertionError as e:
         print("createPIP: name=%s => %s" % (pip_name, e))
         pass
+
+def createAlias(src, dest, row, col):
+    createPIP("%s <= %s" % (src, dest), "alias", src, dest, 0, row, col)
+    
 
 def addWire(row, col, name, typ=""):
     #print("addWire(%s, %s, %s, %s)" % (row, col, name, typ))
