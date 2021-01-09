@@ -138,7 +138,8 @@ class ConfigChainPLLX(ConfigChain):
         # but we need a 1 to activate 
         if key.startswith("SinkMUXPseudo"):
             value = bits_invert(value)
-        key = self.aliases[key]
+        if key in self.aliases:
+            key = self.aliases[key]
         return super().encode(chip, tile, row, col, key, value, bits)
 
 class ConfigChainPLLV(ConfigChain):
