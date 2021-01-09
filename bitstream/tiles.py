@@ -389,12 +389,12 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
 	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 6, True),
+	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 4, True),
 	'GclkDMUX00': lambda key,val: bits_to_string(bits_invert(val), 6, True),
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
+	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
@@ -518,11 +518,11 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_hei
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
 	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 6, True)
+	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 4, True)
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
+	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
@@ -649,12 +649,12 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
 	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 6, True),
+	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 4, True),
 	'GclkDMUX00': lambda key,val: bits_to_string(bits_invert(val), 6, True),
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
+	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
@@ -779,11 +779,11 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', bitstream_width=34, bitstream_hei
 	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
 	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
 	'SeamMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 8, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 6, True)
+	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 4, True)
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
+	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
 	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
 	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
