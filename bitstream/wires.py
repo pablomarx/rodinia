@@ -38,8 +38,7 @@ class WireEnd:
         self.col = col
         self.config = config
         self.bit = bit
-        # XXX: alta_ioreg exclusion is due to breaking current nextpnr impl
-        if config.startswith("alta_") and not config.startswith("alta_ioreg"):
+        if config.startswith("alta_"):
             self.name = "%s(%02i,%02i):%s:%s" % (tile, col, row, config, bit)
         else:
             self.name = "%s(%02i,%02i):%s" % (tile, col, row, config)
