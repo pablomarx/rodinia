@@ -513,7 +513,6 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_hei
 	'TileClkMUX07':[372,373,441],
 }, pseudos={
 	'IsoMUXPseudo': 8,
-	'GateMUX': 1,
 	'BufMUX': 2,
 }, formatters={
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
@@ -774,7 +773,6 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', bitstream_width=34, bitstream_hei
 	'TileClkMUX07':[338,339,271],
 }, pseudos={
 	'IsoMUXPseudo': 8,
-	'GateMUX': 1,
 	'BufMUX': 2,
 }, formatters={
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
