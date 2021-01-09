@@ -30,19 +30,22 @@ def bel_transform(input):
     return "%s_Y%sX%s.%s" % (comps[0][0], comps[2], comps[1], comps[4])
 
 def pip_transform(input):
-    match = re.match("^(.*):([^ ]*) <=.*$", input)
+    match = re.match("^([^:]*):([^:]*):([^ ]*) <=.*$", input)
     assert match != None
     
     comps = match.groups()
-    assert len(comps) == 2
+    assert len(comps) == 3
     
-    if comps[1][0] != "I":
+    if comps[2][0] != "I":
         # Probably alta_slice##:[ABCD] or such
         # which is explicitly wired up to the 
         # corresponding IMUX
         return None
+    if comps[1].startswith("BufMUX"):
+        # Pseudo mux
+        return None
         
-    return "%s = %s" % (bel_transform(comps[0]), comps[1][1:])
+    return "%s = %s" % (bel_transform(comps[0]+":"+comps[1]), comps[2][1:])
 
 """
 Write a design as FASM

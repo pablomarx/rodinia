@@ -192,37 +192,39 @@ def createBRAMTile(chip, tile, row, col):
     #print("Creating %s" % (belname))
     ctx.addBel(name=belname, type="GENERIC_BRAM", loc=Loc(col, row, 0), gb=False)
     
+    wire_base = belname + ":alta_bram00:"
     for base in ("Clk", "ClkEn", "AsyncReset"):
         for port in range(0, 2):
             pin = "%s%i"  % (base, port)
-            wire = "%s:alta_bram00:%s" % (belname, pin)
+            wire = wire_base + pin
             addWire(row, col, wire)
             ctx.addBelInput(bel=belname, name=pin, wire=wire)
     
-    for base in ("WeRenA", "WeRenB"):
-        wire = "%s:alta_bram00:%s" % (belname, base)
+    for pin in ("WeRenA", "WeRenB"):
+        wire = wire_base + pin
         addWire(row, col, wire)
-        ctx.addBelInput(bel=belname, name=base, wire=wire)
+        ctx.addBelInput(bel=belname, name=pin, wire=wire)
     
-    for inputs in ("AddressA", range(0, 12)), ("AddressB", range(63, 51, -1)), ("DataInA", range(12, 30)), ("DataInB", range(51, 33, -1)):
-        bit = 0
-        prefix = inputs[0]
-        for imux in inputs[1]:
-            pin = "%s[%i]" % (prefix, bit)
-            wire = "%s:IMUX%02i" % (belname, imux)
+    for address in ("AddressA", "AddressB"):
+        for bit in range(0, 12):
+            pin = "%s[%i]" % (address, bit)
+            wire = wire_base + pin
             addWire(row, col, wire)
             ctx.addBelInput(bel=belname, name=pin, wire=wire)
-            bit += 1
-    
-    for outputs in ("DataOutA", range(0, 18)), ("DataOutB", range(35, 17, -1)):
-        bit = 0
-        prefix = outputs[0]
-        for bufmux in outputs[1]:
-            pin = "%s[%i]" % (prefix, bit)
-            wire = "%s:BufMUX%02i" % (belname, bufmux)
+            
+    for data in ('DataOutA', 'DataOutB'):
+        for bit in range(0, 18):
+            pin = "%s[%i]" % (data, bit)
+            wire = wire_base + pin
             addWire(row, col, wire)
             ctx.addBelOutput(bel=belname, name=pin, wire=wire)
-            bit += 1
+
+    for data in ('DataInA', 'DataInB'):
+        for bit in range(0, 18):
+            pin = "%s[%i]" % (data, bit)
+            wire = wire_base + pin
+            addWire(row, col, wire)
+            ctx.addBelOutput(bel=belname, name=pin, wire=wire)
 
 def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
     assert row < chip.rows
@@ -289,14 +291,6 @@ def wire_enumerator(wire):
     assert dest.row < chip.rows
     assert source.col < chip.columns
     assert dest.col < chip.columns
-    
-    if source.row == dest.row and source.col == dest.col and source.tile == "BramTILE":
-        if source.config.startswith("alta_bram00"):
-            if source.bit.startswith("Data") or source.bit.startswith("Address"):
-                return
-        elif dest.config.startswith("alta_bram00"):
-            if dest.bit.startswith("Data") or dest.bit.startswith("Address"):
-                return
     
     addWire(dest.row, dest.col, dest.name, dest.config)
     addWire(source.row, source.col, source.name, source.config)
