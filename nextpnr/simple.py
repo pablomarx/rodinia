@@ -26,7 +26,21 @@ sys.path.append(os.path.join('..', 'bitstream'))
 
 from chips import ChipWithID
 
-chip = ChipWithID(0x00120010)
+chip_id = None
+chip_id_env = 'AGM_DEVICE'
+
+if chip_id_env in os.environ:
+    chip_id = os.environ[chip_id_env]
+    if chip_id != None:
+        try:
+            chip_id = int(chip_id, 16)
+        except ValueError:
+            chip_id = None
+        
+if chip_id == None:
+    chip_id = 0x00120010
+
+chip = ChipWithID(chip_id)
 
 def nameForTile(tile, row, col):
     return "%s(%02i,%02i)" % (tile.type, col, row)
