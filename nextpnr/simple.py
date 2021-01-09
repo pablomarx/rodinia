@@ -248,11 +248,11 @@ def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
         ctx.addPip(
             name=pip_name, type=pip_type, srcWire=wire_src, dstWire=wire_dest,
             delay=ctx.getDelayFromNS(delay), loc=Loc(col, row, 0))
-    except IndexError:
-        print("createPIP: Wire not found", wire_src, wire_dest)
+    except IndexError as e:
+        print("createPIP: name=%s => %s" % (pip_name, e))
         pass
-    except AssertionError:
-        #print("createPIP: Wire already exists", wire_src, wire_dest)
+    except AssertionError as e:
+        print("createPIP: name=%s => %s" % (pip_name, e))
         pass
 
 def addWire(row, col, name, typ=""):
@@ -261,8 +261,8 @@ def addWire(row, col, name, typ=""):
     assert col < chip.columns 
     try:
         ctx.addWire(name=name, type=typ, y=row, x=col)
-    except AssertionError:
-        #print("addWire: duplicate wire name=%s, type=%s, y=%i, x=%i" % (name, typ, row, col))
+    except AssertionError as e:
+        #print("addWire: name=%s, y=%i, x=%i => %s" % (name, row, col, e))
         pass
 
 #
