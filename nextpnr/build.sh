@@ -21,7 +21,7 @@ else
 	mv ${SOURCE}.dot ${OUTDIR}
 	mv ${SOURCE}.png ${OUTDIR}
 	mv nextpnr.fasm ${OUTDIR}/${SOURCE}.fasm
-	python3 fasm_pack.py ${OUTDIR}/${SOURCE}.fasm ${OUTDIR}/${SOURCE}.asc
+	python3 fasm_pack.py ${OUTDIR}/${SOURCE}.fasm ${OUTDIR}/${SOURCE}.asc ${AGM_DEVICE}
 	python3 ../bitstream/agm-pack.py ${OUTDIR}/${SOURCE}.asc ${OUTDIR}/${SOURCE}.bin
 	python3 ../bitstream/agm-unpack.py ${OUTDIR}/${SOURCE}.bin > ${OUTDIR}/${SOURCE}-unpack.txt
 	python3 ../bitstream/agm-explain.py ${OUTDIR}/${SOURCE}-unpack.txt > ${OUTDIR}/${SOURCE}-explain.txt 
