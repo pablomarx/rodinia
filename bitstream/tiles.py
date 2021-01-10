@@ -117,7 +117,13 @@ class Tile:
                 break
         
         if key not in self.values:
-            print("Can't find key:%s in %s values" % (key, self.type))
+            matched = False
+            for pseudo_key in self.pseudos:
+                if key.startswith(pseudo_key):
+                    matched = True
+                    break
+            if not matched:
+                print("Can't find key:%s in %s values" % (key, self.type))
             return None    
         
         if use_encoder:
