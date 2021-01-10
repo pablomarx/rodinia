@@ -133,7 +133,7 @@ class Tile:
                     break
                 
         indices = self.values[key]
-        assert len(indices) == len(value)
+        assert len(indices) == len(value), "Expected %s bits, got %s" % (len(indices), len(value))
 
         val_index = 0
         for bit_index in indices:
