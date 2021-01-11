@@ -89,6 +89,53 @@ def createLogicTile(chip, tile, row, col):
         addWire(row, col, fname, "LutOut")
         ctx.addBelOutput(bel=belname, name="F", wire=fname)
 
+def createClockIOTile(chip, tile, row, col):
+    assert row < chip.rows
+    assert col < chip.columns 
+    tile_name = nameForTile(tile, row, col)
+
+    for z in range(0, tile.slices):
+        belname = "%s:alta_rio%02i" % (tile_name, z)
+        ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=True)
+
+        name = "alta_io%02i:combout" % (z)
+        wire = "%s:%s" % (tile_name, name)
+        addWire(row, col, wire)
+        ctx.addBelOutput(bel=belname, name="O", wire=wire)
+    
+    num_clocks = 5
+
+    for clock in range(0, num_clocks):
+        # alta_io_gclk
+        inname = "alta_io_gclk%02i:inclk" % clock
+        src = tile_name+":"+inname
+        addWire(row, col, src, inname)
+    
+        outname = "alta_io_gclk%02i:outclk" % clock
+        dest = tile_name+":"+outname
+        addWire(row, col, dest, outname)
+        createAlias(src, dest, row, col)
+        
+        # alta_gclkgen
+        inname = "alta_gclkgen%02i:clkin" % clock
+        src = tile_name+":"+inname
+        addWire(row, col, src, inname)
+    
+        outname = "alta_gclkgen%02i:clkout" % clock
+        dest = tile_name+":"+outname
+        addWire(row, col, dest, outname)
+        createAlias(src, dest, row, col)
+
+        # alta_gclksel
+        inname = "alta_gclksel%02i:clkin" % clock
+        src = tile_name+":"+inname
+        addWire(row, col, src, inname)
+    
+        outname = "alta_gclksel%02i:clkout" % clock
+        dest = tile_name+":"+outname
+        addWire(row, col, dest, outname)
+        createAlias(src, dest, row, col)
+
 # This would be an alta_rio in AGM speak
 def createIOTile(chip, tile, row, col):
     assert row < chip.rows
@@ -146,25 +193,6 @@ def createIOTile(chip, tile, row, col):
         outname = "alta_dpclkdel00:clkout"
         src = tile_name+":"+outname
         addWire(row, col, src, outname)
-    elif "G5" in tile.name:
-        for count in range(0, 5):
-            inname = "alta_gclkgen%02i:clkin" % count
-            src = tile_name+":"+inname
-            addWire(row, col, src, inname)
-        
-            outname = "alta_gclkgen%02i:clkout" % count
-            dest = tile_name+":"+outname
-            addWire(row, col, dest, outname)
-            createAlias(src, dest, row, col)
-
-            inname = "alta_gclksel%02i:clkin" % count
-            src = tile_name+":"+inname
-            addWire(row, col, src, inname)
-        
-            outname = "alta_gclksel%02i:clkout" % count
-            dest = tile_name+":"+outname
-            addWire(row, col, dest, outname)
-            createAlias(src, dest, row, col)
 
 def createMultTile(chip, tile, row, col):
     assert row < chip.rows
@@ -418,7 +446,10 @@ for row in range(0, chip.rows):
             addWire(row, col, "%s(%02i,%02i):%s" % (ttype, col, row, key), "O0")
         
         if ttype == "IOTILE":
-            createIOTile(chip, tile, row, col)
+            if "G5" in tile.name:
+                createClockIOTile(chip, tile, row, col)
+            else:
+                createIOTile(chip, tile, row, col)
         elif ttype == "LogicTILE":
             createLogicTile(chip, tile, row, col)
         elif ttype == "MultTILE":
