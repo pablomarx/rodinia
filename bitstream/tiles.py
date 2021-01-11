@@ -2887,10 +2887,7 @@ InstallTile(Tile('agx_io_E4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2),
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
 }))
 
 InstallTile(Tile('agx_io_E6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
@@ -3760,7 +3757,7 @@ InstallTile(Tile('agx_io_N4', 'IOTILE', bitstream_width=34, bitstream_height=22,
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
     'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2),
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
 }))
@@ -3944,7 +3941,7 @@ InstallTile(Tile('agx_io_S4_T2', 'IOTILE', bitstream_width=34, bitstream_height=
 }, encoders={
     'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
     'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
+    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2),
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
 }))
 
@@ -4184,10 +4181,7 @@ InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2),
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
 }))
 
 InstallTile(Tile('agx_io_W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
