@@ -431,5 +431,56 @@ class ConfigChainDIO(ConfigChain):
                     if matched:
                         break
             assert(matched)
-        
         ConfigChain.__init__(self, chip, 'ALTA_DIO', fields)
+
+    def empty_bits(self):
+        bits = []
+        for field in self.fields:
+            length = field[1]
+            field_bits = [0] * length
+            if field[0].endswith("PDRCTRL"):
+                field_bits = [0,1,0,0]
+            elif field[0].endswith("PULL_UP"):
+                field_bits = [1]
+            bits += field_bits
+        return bits
+
+    def encode(self, chip, tile, row, col, key, value, bits):
+        if not tile and not row and not col:
+            offset = self.offset_for_field_named(key)
+            for idx in range(len(value)):
+                bits[offset] = value[idx]
+                offset += 1
+            return True
+            
+        match = re.match("^alta_rio([0-9]*)\.(INPUT|OUTPUT)_USED$", key)
+        if not match:
+            print("failed to match")
+            return None
+        
+        comps = match.groups()
+        slice = int(comps[0])
+        output = (comps[1] == "OUTPUT")
+        pin = chip.pin_at(row, col, slice)
+        if not pin:
+            print("What pin corresponds to tile:%s row:%i col:%i slice:%i ??" % (tile, row, col, slice))
+            return None
+
+        offset = self.offset_for_field_named(pin["name"] + "_PULL_UP")
+        if input and offset:
+            bits[offset] = 0
+
+        offset = self.offset_for_field_named(pin["name"] + "_LVDS_IREF")
+        if input and offset:
+            bits[offset+0] = 0
+            bits[offset+1] = 0
+            bits[offset+2] = 0
+            bits[offset+3] = 0
+            bits[offset+4] = 0
+            bits[offset+5] = 0
+            bits[offset+6] = 0
+            bits[offset+7] = 1
+            bits[offset+8] = 1
+            bits[offset+9] = 0
+                
+        return True
