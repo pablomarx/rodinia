@@ -123,6 +123,15 @@ def ChipNamed(name):
             return chip
     return None
     
+def ChipOrPackageNamed(name):
+    for chip in chips:
+        if chip.name == name:
+            return chip
+        for package_name in chip.packages:
+            if package_name == name:
+                return chip
+    return None
+    
 def ChipWithID(id):
     for chip in chips:
         if chip.device_id == id:

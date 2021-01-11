@@ -25,7 +25,7 @@ import os
 import re
 
 sys.path.append(os.path.join(os.path.join(sys.path[0], '..'), 'bitstream'))
-from chips import ChipWithID
+from chips import ChipWithID, ChipOrPackageNamed
 from utils import string_to_bits, bits_to_string
 
 if len(sys.argv) < 3:
@@ -36,10 +36,10 @@ if len(sys.argv) < 3:
 #
 # Create bits for the bitstream
 #
-chip_id = 0x00120010
-if len(sys.argv) >= 4:
-    chip_id = int(sys.argv[3], 16)
-chip = ChipWithID(chip_id)
+if len(sys.argv) < 4:
+    chip = ChipWithID(0x00120010)
+else:
+    chip = ChipOrPackageNamed(sys.argv[3])
 
 bits_by_tile = []
 for col in range(0, chip.columns):
