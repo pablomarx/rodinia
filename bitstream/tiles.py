@@ -3135,7 +3135,6 @@ InstallTile(Tile('agx_io_E6_T2', 'IOTILE', bitstream_width=20, bitstream_height=
     'BufMUX': 1,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
-	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -3388,7 +3387,6 @@ InstallTile(Tile('agx_io_E6', 'IOTILE', bitstream_width=20, bitstream_height=68,
     'BufMUX': 1,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
-	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -3571,7 +3569,6 @@ InstallTile(Tile('agx_io_N4_T2', 'IOTILE', bitstream_width=34, bitstream_height=
     'BufMUX': 1,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
-	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -3752,7 +3749,6 @@ InstallTile(Tile('agx_io_N4', 'IOTILE', bitstream_width=34, bitstream_height=22,
     'BufMUX': 1,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
-	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -3935,7 +3931,6 @@ InstallTile(Tile('agx_io_S4_T2', 'IOTILE', bitstream_width=34, bitstream_height=
     'BufMUX': 1,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
-	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -4116,7 +4111,6 @@ InstallTile(Tile('agx_io_S4', 'IOTILE', bitstream_width=34, bitstream_height=22,
     'BufMUX': 1,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
-	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -4429,7 +4423,6 @@ InstallTile(Tile('agx_io_W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=
     'BufMUX': 1,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
-	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -4682,7 +4675,6 @@ InstallTile(Tile('agx_io_W6', 'IOTILE', bitstream_width=20, bitstream_height=68,
     'BufMUX': 1,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
-	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
