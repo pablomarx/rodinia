@@ -601,6 +601,7 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     'lzw_length': 6,
     'variable_width': False,
 },
+wires_file='ag10k-wires.json.gz',
 extra={
     'chain_io_order': [
         (0,11,2), (0,11,3), (0,9,0), (0,9,1), (0,9,3), (0,7,0), (0,7,1), (0,5,0), (0,5,1), (0,4,1), (0,4,2), (0,3,0), (0,3,1), (0,3,2), (0,3,4), (0,3,5),
