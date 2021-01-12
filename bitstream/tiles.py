@@ -2833,6 +2833,20 @@ InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_h
 }, pseudos={
     'BufMUX': 36,
     'IsoMUXPseudo': 6,
+}, encoders={
+    'INIT_VAL': lambda key,val: val[::-1],
+    'TMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 3),
+    'KMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 4),
+
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
+    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
+
+    'BramClkMUX0[0-9]': lambda key, val: mux_encode(val, 3, 1),
+    'SeamMUX[0-9][0-9]': lambda key, val: mux_encode(val, 5, 1),
+    'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
+    'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
+    'TileClkMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
 }))
 
 
