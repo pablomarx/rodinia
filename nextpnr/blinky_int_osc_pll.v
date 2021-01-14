@@ -20,13 +20,22 @@ module top;
 
 reg [31:0] ctr;
 wire clk_pll;
+wire locked;
+wire clk;
+
+alta_boot boot(
+	.i_osc_enb(1'b0),
+	.o_osc(clk),
+);
 
 GENERIC_PLL pll(
+	.clkin(clk),
 	.clkout0(clk_pll),
 	.clkout0en(1'b1),
 	.resetn(1'b1),
 	.pllen(1'b1),
-	.clkfb(clk_pll)
+	.clkfb(clk_pll),
+	.lock(locked)
 );
 defparam pll.CLKOUT0_DIV = 6'b000010;
 
