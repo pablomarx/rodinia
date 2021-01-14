@@ -11,7 +11,16 @@ param_map = {
 	("GENERIC_IOB", "OUTPUT_USED"): ParameterConfig(write=True, numeric=True, width=1),
 	("GENERIC_IOB", "ENABLE_USED"): ParameterConfig(write=True, numeric=True, width=1),
 
-	("GENERIC_BRAM", "INIT_VAL"): ParameterConfig(write=True, numeric=True, width=4608),
+	("alta_bram", "INIT_VAL"): ParameterConfig(write=True, numeric=True, width=4608),
+	("alta_bram", "PORTA_WRITEMODE"): ParameterConfig(write=True, numeric=True, width=1),
+	("alta_bram", "PORTB_WRITEMODE"): ParameterConfig(write=True, numeric=True, width=1),
+	("alta_bram", "PORTA_WRITETHRU"): ParameterConfig(write=True, numeric=True, width=1),
+	("alta_bram", "PORTB_WRITETHRU"): ParameterConfig(write=True, numeric=True, width=1),
+	("alta_bram", "PORTA_OUTREG"): ParameterConfig(write=True, numeric=True, width=1),
+	("alta_bram", "PORTB_OUTREG"): ParameterConfig(write=True, numeric=True, width=1),
+	("alta_bram", "PORTA_WIDTH"): ParameterConfig(write=True, numeric=True, width=4),
+	("alta_bram", "PORTB_WIDTH"): ParameterConfig(write=True, numeric=True, width=4),
+	("alta_bram", "PORTB_READONLY"): ParameterConfig(write=True, numeric=True, width=1),
         
     ("GENERIC_PLL", "CLKOUT0_DIV"): ParameterConfig(write=True, numeric=True, width=6),
     ("GENERIC_PLL", "CLKOUT1_DIV"): ParameterConfig(write=True, numeric=True, width=6),

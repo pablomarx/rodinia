@@ -345,20 +345,22 @@ def createBRAMTile(chip, tile, row, col):
     assert col < chip.columns 
     belname = nameForTile(tile, row, col)
     #print("Creating %s" % (belname))
-    ctx.addBel(name=belname, type="GENERIC_BRAM", loc=Loc(col, row, 0), gb=False)
-    # alta_bram9k00
     
     if tile.name == "ALTA_EMB4K5":
         wire_base = belname + ":alta_bram00:"
         addr_len = 12
         data_len = 18
         configs = ["WeRenA", "WeRenB"]
+        type = "alta_bram"
     else:
         wire_base = belname + ":alta_bram9k00:"
         addr_len = 13
         data_len = 18
-        configs = ['WeA', 'WeB', 'ReA', 'ReB', 'ByteEnA', 'ByteEnB', 'AddressStallA', 'AddressStallB']        
+        configs = ['WeA', 'WeB', 'ReA', 'ReB', 'ByteEnA', 'ByteEnB', 'AddressStallA', 'AddressStallB']  
+        type = "alta_bram9k"      
         
+    ctx.addBel(name=belname, type=type, loc=Loc(col, row, 0), gb=False)
+    
     for base in ["Clk", "ClkEn", "AsyncReset"]:
         for port in range(0, 2):
             pin = "%s%i"  % (base, port)

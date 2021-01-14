@@ -1084,6 +1084,15 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
 	'CtrlMUX[0-9][0-9]': lambda key,val: mux_format(val, 8, 'I'),
 }, key_transformers={
     'INIT_VAL\[[^\]]*]': lambda x: 'INIT_VAL',
+    'PORTA_WRITEMODE': lambda x: 'SEL_WKMODE_A',
+    'PORTB_WRITEMODE': lambda x: 'SEL_WKMODE_B',
+    'PORTA_WRITETHRU': lambda x: 'SEL_WRTHU_A',
+    'PORTB_WRITETHRU': lambda x: 'SEL_WRTHU_B',
+    'PORTA_OUTREG': lambda x: 'SELOUT_A',
+    'PORTB_OUTREG': lambda x: 'SELOUT_B',
+    'PORTA_WIDTH': lambda x: 'DWSEL_A0',
+    'PORTB_WIDTH': lambda x: 'DWSEL_B0',
+    'PORTB_READONLY': lambda x: 'SEL_PORTMODE',
 }, encoders={
     'INIT_VAL': lambda key,val: val[::-1],
 	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),

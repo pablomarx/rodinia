@@ -28,7 +28,7 @@ always @(posedge clk)
 
 //assign leds = ctr[25:18];
 
-GENERIC_BRAM ram_inst(
+alta_bram ram_inst(
 	.AddressA(ctr[24:13]),
 	.DataOutA(leds),
 	.WeRenA(1'b0),
