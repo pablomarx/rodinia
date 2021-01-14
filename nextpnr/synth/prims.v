@@ -57,8 +57,21 @@ module GENERIC_IOB #(
 	endgenerate
 endmodule
 
-module GENERIC_BRAM #(
+(* blackbox *)
+module alta_bram #(
 	parameter INIT_VAL        = 4608'b0,
+	parameter CLKMODE         = 1'b0,
+	parameter PORTA_WIDTH     = 4'b0000,
+	parameter PORTB_WIDTH     = 4'b0000,
+	parameter PORTA_WRITEMODE = 1'b0,
+	parameter PORTB_WRITEMODE = 1'b0,
+	parameter PORTA_WRITETHRU = 1'b0,
+	parameter PORTB_WRITETHRU = 1'b0,
+	parameter PORTA_OUTREG    = 1'b0,
+	parameter PORTB_OUTREG    = 1'b0,
+	parameter PORTB_READONLY  = 1'b0,
+	parameter Clk0CFG         = 2'b00,
+	parameter Clk1CFG         = 2'b00
 ) (
 	input  [17:0]  DataInA,  DataInB,
 	input  [11:0] AddressA, AddressB,
