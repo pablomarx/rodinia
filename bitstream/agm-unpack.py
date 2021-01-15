@@ -32,13 +32,13 @@ chip = None
 # Tile bitstream
 #
 def decode_tile_bitstream(bits, length, bitstream_num):
-    row_width = round_up(chip.max_row_width(), 8)
+    row_width = round_up(chip.bitstream_row_width(), 8)
     rounded_row_width = int(((row_width / 32) + 1) * 32)
     row_padding = rounded_row_width - row_width
     
     expected_size = 0
     for tile_row in range(0, chip.rows):
-        row_height = chip.max_row_height(tile_row)
+        row_height = chip.bitstream_height_for_row(tile_row)
         expected_size += rounded_row_width * row_height
 
     if expected_size != length:
@@ -47,7 +47,7 @@ def decode_tile_bitstream(bits, length, bitstream_num):
 
     offset = 0
     for tile_row in range(chip.rows - 1,-1,-1):
-        row_height = chip.max_row_height(tile_row)
+        row_height = chip.bitstream_height_for_row(tile_row)
         
         columns = [''] * chip.columns
 
@@ -56,7 +56,7 @@ def decode_tile_bitstream(bits, length, bitstream_num):
             for tile_col in range(chip.columns - 1,-1,-1):
                 #print("row %s col %s pos %s" % (row, tile_col, row_offset))
                 tile = chip.tile_at(tile_col, tile_row)
-                col_len = chip.column_width(tile_col)
+                col_len = chip.bitstream_width_for_column(tile_col)
                 if tile is not None and tile.bitstream_height > row:
                     tile_width = tile.bitstream_width
                     col_bits = bits[row_offset:row_offset+tile_width]

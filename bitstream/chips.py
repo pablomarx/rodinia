@@ -62,16 +62,7 @@ class Chip:
         self.configChain = configChain
         if wires_file != None:
             self.wire_db = WireDatabase(wires_file)
-    
-    def pins_in_tile_at(self, x, y):
-        result = []
-        for pin in self.packages['QFN48']:
-            if 'tile' in pin:
-                tile = pin['tile']
-                if tile[0] == x and tile[1] == y:
-                    result.append(pin)
-        return result
-        
+            
     def tile_at(self, x, y): 
         index = (y * self.columns) + x
         name = self.floorplan[index]
@@ -81,7 +72,7 @@ class Chip:
             name = self.aliases[name]
         return TileNamed(name)
 
-    def column_width(self, column):
+    def bitstream_width_for_column(self, column):
         size = 0
         for row in range(0, self.rows):
             tile = self.tile_at(column, row)
@@ -89,7 +80,7 @@ class Chip:
                 size = max(size, tile.bitstream_width)
         return size
 
-    def max_row_height(self, row):
+    def bitstream_height_for_row(self, row):
         result = 0
         for column in range(0, self.columns):
             tile = self.tile_at(column, row)
@@ -97,12 +88,12 @@ class Chip:
                 result = max(result, tile.bitstream_height)
         return result
 
-    def max_row_width(self):
+    def bitstream_row_width(self):
         result = 0
         for column in range(0, self.columns):
-            result = result + self.column_width(column)
+            result = result + self.bitstream_width_for_column(column)
         return result
-        
+
     def pin_at(self, row, col, slice):
         # XXX: Need to support packages...
         for pkg_name in self.packages:

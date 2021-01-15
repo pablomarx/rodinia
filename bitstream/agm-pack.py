@@ -127,12 +127,12 @@ for chain_id in range(0, len(chip.configChain)):
 #
 bitstream = []
 for tile_row in range(chip.rows - 1,-1,-1):
-    row_height = chip.max_row_height(tile_row)
+    row_height = chip.bitstream_height_for_row(tile_row)
     
     for row in range(0, row_height):    
         row_bits = []
         for tile_col in range(chip.columns - 1,-1,-1):
-            column_width = chip.column_width(tile_col)
+            column_width = chip.bitstream_width_for_column(tile_col)
             tile = chip.tile_at(tile_col, tile_row)
             
             entry = tile_at_coord(tile_col, tile_row)
@@ -147,7 +147,7 @@ for tile_row in range(chip.rows - 1,-1,-1):
             
             row_bits += bits[::-1]
         
-        assert(chip.max_row_width() == len(row_bits))
+        assert(chip.bitstream_row_width() == len(row_bits))
 
         row_width = round_up(len(row_bits), 8)        
         rounded_row_width = int(((row_width / 32) + 1) * 32)
