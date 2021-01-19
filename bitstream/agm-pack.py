@@ -22,17 +22,25 @@
 #
 
 import sys
+import argparse
+
 from bwriter import BinaryWriter
 from crc import crc
 from chips import ChipWithID, chips
 from utils import round_up
 
-if len(sys.argv) != 3:
-    print("usage: %s <asc file input> <bin file output>" % sys.argv[0])
-    sys.exit(-1)
+parser = argparse.ArgumentParser(description='Creates AltaGate binary bitstreams from textual bitstreams')
+parser.add_argument('input', metavar='input', type=str,
+                    help='The input textual bitstream file')
+parser.add_argument('output', metavar='output', type=str,
+                    help='The output binary bitstream file')
+parser.add_argument('--spi', dest='spi_flash', action='store_true',
+                    help="Outputs binary suitable for SPI flash memory")
+                    
 
-filename = sys.argv[1]
-with open(filename, "r") as file:
+args = parser.parse_args()
+
+with open(args.input, "r") as file:
     lines = file.readlines()
 
 #
@@ -174,6 +182,9 @@ writer.write32(0x2A00FC02)
 writer.write32(0x00000F8F)
 writer.write32(crc(writer.getBytes()))
 
-binfile = open(sys.argv[2], 'wb')
-binfile.write(writer.getBytes())
-binfile.close()
+with open(args.output, "wb") as binfile:
+    if args.spi_flash:
+        spi_flash_header = [0x55,0x55,0x00,0x00,0x0E,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00]
+        binfile.write(bytearray(spi_flash_header))
+
+    binfile.write(writer.getBytes())
