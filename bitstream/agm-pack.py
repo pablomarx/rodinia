@@ -169,12 +169,17 @@ for tile_row in range(chip.rows - 1,-1,-1):
         row_bits += [0] * num_padding_bits
         bitstream += row_bits
 
+
 index = 0
 while len(bitstream) > 0:
     # The AG10K bitstream comes in two chunks, one 
     # with 1394432 bits, the other with 1281280 bits
     # This is to emulate that behavior
-    max_len = 1394432
+    if chip.device_id == 0x01500010:
+        max_len = 2186240
+    else:
+        max_len = 1394432
+    
     write_register_data(index, min(max_len, len(bitstream)), bitstream[:max_len])
     bitstream = bitstream[max_len:]
     index += 1
