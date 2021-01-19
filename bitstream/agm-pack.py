@@ -99,10 +99,14 @@ def tile_at_coord(x,y):
 # Writing...
 #
 writer = BinaryWriter()
+if chip.device_id == 0x01500010:
+    # Unsure what this does, but it appears to be important...
+    writer.write32(0x967E3C5A)
+
 writer.write32(chip.device_id)
 writer.write32(0x0000FFFF)
 
-if chip.device_id == 0x01000001:
+if chip.device_id == 0x01000001 or chip.device_id == 0x01500010:
     # 0x55030000 appears on lzw bitstreams
     # 0x00030000 appears when lzw is disabled
     writer.write32(0x00030000)
