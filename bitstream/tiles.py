@@ -4970,7 +4970,7 @@ InstallTile(Tile('agx_pll_W', 'PLLTILE', bitstream_width=20, bitstream_height=68
 }))
 
 # These are pseudo tiles.  The bits are handled in ConfigChains.  Here for wire/routing purposes.
-InstallTile(Tile('Clkdis', 'ClkdisTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
+InstallTile(Tile('agx_clk_dis', 'ClkdisTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
     'GclkDMUX': 300,
     'BufMUX': 2,
 }))
@@ -5102,6 +5102,8 @@ InstallTile(Tile('agm_MCU_PINR', 'UFMTILE', bitstream_width=40, bitstream_height
     'SeamMUX13': [2152,2153,2154,2155,2156,2157],
     'SeamMUX14': [2192,2193,2194,2195,2196,2197],
     'SeamMUX15': [2392,2393,2394,2395,2396,2397],
+}, pseudos={
+    'BufMUX': 16,
 }))
 
 InstallTile(Tile('agm_MCU_PIN', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, values={
@@ -5127,6 +5129,8 @@ InstallTile(Tile('agm_OCT_E', 'UFMTILE', bitstream_width=20, bitstream_height=68
     'BBMUXE01': [610,570,609,569,607,608,568,567,566,606],
     'SeamMUX00': [552,553,554,555,556,557],
     'SeamMUX01': [572,573,574,575,576,577],
+}, pseudos={
+    'BufMUX': 1
 }))
 
 InstallTile(Tile('agm_OCT_W', 'UFMTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
@@ -5134,6 +5138,8 @@ InstallTile(Tile('agm_OCT_W', 'UFMTILE', bitstream_width=20, bitstream_height=68
     'BBMUXW01': [610,570,609,569,607,608,568,567,566,606],
     'SeamMUX00': [552,553,554,555,556,557],
     'SeamMUX01': [572,573,574,575,576,577],
+}, pseudos={
+    'BufMUX': 1
 }))
 
 # Two PLLs appear identical other than E vs W in BBMUX name
@@ -5162,6 +5168,10 @@ InstallTile(Tile('agm_PLL_E', 'PLLTILE', bitstream_width=20, bitstream_height=68
     'SeamMUX09': [932,933,934,935,936,937],
     'SeamMUX10': [1032,1033,1034,1035,1036,1037],
     'SeamMUX11': [1052,1053,1054,1055,1056,1057],
+}, pseudos={
+    'PllClkFbMUX': 1,
+    'PllClkInMUX': 2,
+    'PllSeamMUX': 1,
 }))
 
 InstallTile(Tile('agm_PLL_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
@@ -5189,8 +5199,11 @@ InstallTile(Tile('agm_PLL_W', 'PLLTILE', bitstream_width=20, bitstream_height=68
     'SeamMUX09': [932,933,934,935,936,937],
     'SeamMUX10': [1032,1033,1034,1035,1036,1037],
     'SeamMUX11': [1052,1053,1054,1055,1056,1057],
+}, pseudos={
+    'PllClkFbMUX': 1,
+    'PllClkInMUX': 2,
+    'PllSeamMUX': 1,
 }))
-
 
 InstallTile(Tile('agm_io_N4_G5', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=5, values={
     'ENA_REG_MODE':[116,117,436,437,756],
@@ -5237,6 +5250,9 @@ InstallTile(Tile('agm_io_N4_G5', 'IOTILE', bitstream_width=40, bitstream_height=
     'SeamMUX12': [840,841,842,843,844,845],
     'SeamMUX13': [846,847,848,849,850,851],
     'SeamMUX14': [880,881,882,883,884,885],
+}, pseudos={
+    'BufMUX': 1,
+    'SinkMUXPseudo': 30,
 }))
 
 InstallTile(Tile('agm_io_N4_T2', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, values={
@@ -5433,6 +5449,9 @@ InstallTile(Tile('agm_io_N4_T2', 'IOTILE', bitstream_width=40, bitstream_height=
     'TileClkMUX05': [717,716,711],
     'TileClkMUX06': [637,636,631],
     'TileClkMUX07': [677,676,671],
+}, pseudos={
+    'BufMUX': 1,
+    'IsoMUXPseudo': 8,
 }))
 
 InstallTile(Tile('agm_io_N4', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, values={
@@ -5628,6 +5647,9 @@ InstallTile(Tile('agm_io_N4', 'IOTILE', bitstream_width=40, bitstream_height=24,
     'TileClkMUX05': [717,716,711],
     'TileClkMUX06': [637,636,631],
     'TileClkMUX07': [677,676,671],
+}, pseudos={
+    'BufMUX': 1,
+    'IsoMUXPseudo': 8,
 }))
 
 InstallTile(Tile('agm_io_S4_G5', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=5, values={
@@ -5675,6 +5697,9 @@ InstallTile(Tile('agm_io_S4_G5', 'IOTILE', bitstream_width=40, bitstream_height=
     'SeamMUX12': [80,81,82,83,84,85],
     'SeamMUX13': [86,87,88,89,90,91],
     'SeamMUX14': [40,41,42,43,44,45],
+}, pseudos={
+    'BufMUX': 1,
+    'SinkMUXPseudo': 30,
 }))
 
 InstallTile(Tile('agm_io_S4_T2', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, values={
@@ -5874,6 +5899,9 @@ InstallTile(Tile('agm_io_S4_T2', 'IOTILE', bitstream_width=40, bitstream_height=
     'TileClkMUX05': [277,276,271],
     'TileClkMUX06': [357,356,351],
     'TileClkMUX07': [317,316,311],
+}, pseudos={
+    'BufMUX': 1,
+    'IsoMUXPseudo': 8,
 }))
 
 InstallTile(Tile('agm_io_S4', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, values={
@@ -6069,6 +6097,9 @@ InstallTile(Tile('agm_io_S4', 'IOTILE', bitstream_width=40, bitstream_height=24,
     'TileClkMUX05': [277,276,271],
     'TileClkMUX06': [357,356,351],
     'TileClkMUX07': [317,316,311],
+}, pseudos={
+    'BufMUX': 1,
+    'IsoMUXPseudo': 8,
 }))
 
 # The east and west pairs are identical...
@@ -6121,6 +6152,9 @@ InstallTile(Tile('agm_io_E|W4_G5', 'IOTILE', bitstream_width=20, bitstream_heigh
     'SeamMUX12': [892,893,894,895,896,897],
     'SeamMUX13': [952,953,954,955,956,957],
     'SeamMUX14': [972,973,974,975,976,977],
+}, pseudos={
+    'BufMUX': 1,
+    'SinkMUXPseudo': 30,
 }))
 
 InstallTile(Tile('agm_io_E|W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
@@ -6411,6 +6445,10 @@ InstallTile(Tile('agm_io_E|W6_T2', 'IOTILE', bitstream_width=20, bitstream_heigh
     'TileClkMUX09': [662,663,661],
     'TileClkMUX10': [682,683,681],
     'TileClkMUX11': [742,743,741],
+}, pseudos={
+    'BufMUX': 1,
+    'SeamMUX': 1, 
+    'IsoMUXPseudo': 12,
 }))
 
 InstallTile(Tile('agm_io_E|W6', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
@@ -6700,6 +6738,10 @@ InstallTile(Tile('agm_io_E|W6', 'IOTILE', bitstream_width=20, bitstream_height=6
     'TileClkMUX09': [662,663,661],
     'TileClkMUX10': [682,683,681],
     'TileClkMUX11': [742,743,741],
+}, pseudos={
+    'BufMUX': 1,
+    'SeamMUX': 1, 
+    'IsoMUXPseudo': 12,
 }))
 
 InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_height=68, slices=16, values={
@@ -7035,14 +7077,18 @@ InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_he
     'SHIFTMUX13': [2355],
     'SHIFTMUX14': [2515],
     'SHIFTMUX15': [2675],
-    'TILEASYNCMUX0': [1354,1352,1351,1353],
-    'TILEASYNCMUX1': [1394,1392,1391,1393],
-    'TILECLKENMUX0': [1436,1437,1435],
-    'TILECLKENMUX1': [1316,1317,1315],
-    'TileClkMUX0': [1314,1312,1311,1313],
-    'TileClkMUX1': [1434,1432,1431,1433],
-    'TILESYNCMUX0': [1396,1397,1395],
-    'TILESYNCMUX1': [1356,1357,1355],
+    'TileAsyncMUX00': [1354,1352,1351,1353],
+    'TileAsyncMUX01': [1394,1392,1391,1393],
+    'TileClkEnMUX00': [1436,1437,1435],
+    'TileClkEnMUX01': [1316,1317,1315],
+    'TileClkMUX00': [1314,1312,1311,1313],
+    'TileClkMUX01': [1434,1432,1431,1433],
+    'TileSyncMUX00': [1396,1397,1395],
+    'TileSyncMUX01': [1356,1357,1355],
+}, pseudos={
+    'BufMUX': 16,
+    'IsoMUXPseudo': 4,
+    'SinkMUXPseudo': 32,
 }))
 
 InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_height=68, slices=0, values={
@@ -7544,10 +7590,10 @@ InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_h
     'SELOUT_B':[6662],
     'SEL_WRITHU_A':[1142],
     'SEL_WRITHU_B':[10710],
-    'TILEASYNCMUX00': [5921,6105,6106,5922],
-    'TILEASYNCMUX01': [6109,6108,6107,6110],
-    'TILECLKENMUX00': [6293,6292,6291,6294],
-    'TILECLKENMUX01': [6473,6289,6290,6474],
+    'TileAsyncMUX00': [5921,6105,6106,5922],
+    'TileAsyncMUX01': [6109,6108,6107,6110],
+    'TileClkEnMUX00': [6293,6292,6291,6294],
+    'TileClkEnMUX01': [6473,6289,6290,6474],
     'TileClkMUX00': [5925,5924,5923,5926],
     'TileClkMUX01': [6477,6476,6475,6478],
     'TMUX00': [31,215,32,33,217,216],
@@ -7582,6 +7628,9 @@ InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_h
     'TMUX29': [11439,11623,11440,11441,11625,11624],
     'TMUX30': [11807,11991,11808,11809,11993,11992],
     'TMUX31': [12175,12359,12176,12177,12361,12360],
+}, pseudos={
+    'BufMUX': 36,
+    'IsoMUXPseudo': 6,
 }))
 
 InstallTile(Tile('agm_tile_mult', 'MultTILE', bitstream_width=32, bitstream_height=68, slices=0, values={
@@ -7740,9 +7789,12 @@ InstallTile(Tile('agm_tile_mult', 'MultTILE', bitstream_width=32, bitstream_heig
     'SEL_DB1_REG':[1593],
     'SEL_SIGNA_REG':[668],
     'SEL_SIGNB_REG':[667],
-    'TILEASYNCMUX':[1180,1179,1178,1177],
-    'TILECLKENMUX':[1176,1016,1175,1015,1174],
-    'TileClkMUX':[1020,1019,1018,1017],
+    'TileAsyncMUX00':[1180,1179,1178,1177],
+    'TileClkEnMUX00':[1176,1016,1175,1015,1174],
+    'TileClkMUX00':[1020,1019,1018,1017],
+}, pseudos={
+    'BufMUX': 36,
+    'IsoMUXPseudo': 4,
 }))
 
 InstallTile(Tile('agm_tile_route', 'RogicTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
@@ -7850,6 +7902,15 @@ InstallTile(Tile('agm_tile_route', 'RogicTILE', bitstream_width=20, bitstream_he
     'SeamMUX01': [707,708,709,710,711,712],
     'SeamMUX02': [653,654,655,656,657,658],
     'SeamMUX03': [713,714,715,716,717,718],
+}, pseudos={
+    'BufMUX': 16,
+    'IsoMUXPseudo': 4,
+}))
+
+InstallTile(Tile('agm_clk_dis', 'ClkdisTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
+    'GclkDMUX': 348,
+    'BufMUX': 2,
 }))
 
 InstallTile(Tile('agm_empty_ufm', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}))
+

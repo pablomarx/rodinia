@@ -356,6 +356,7 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     'Bram':    'agx_tile_bram9k',
     'Mult':    'agx_multiplier',
     'Rogic':   'agx_tile_route',
+    'Clkdis':  'agx_clk_dis',
 
     'PLL0':    'agx_pll_E',
     'PLL1':    'agx_pll_W',
@@ -702,6 +703,7 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
     'Rogic':   'agm_tile_route',
     'Bram':    'agm_tile_bram9k',
     'Mult':    'agm_tile_mult',
+    'Clkdis':  'agm_clk_dis',
 
     'IOW0':    'agm_io_E|W6',
     'IOW1':    'agm_io_E|W6_T2',
