@@ -7311,6 +7311,8 @@ InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_he
     'alta_slice[0-9][0-9].FF_USED': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
 }, encoders={
+  'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
+  'LUTCMUX[0-9][0-9]': lambda key,val: [val[0], 0],
   'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
   'TileSyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
   'TileAsyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
@@ -7877,6 +7879,7 @@ InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_h
     'BufMUX': 36,
     'IsoMUXPseudo': 6,
 }, encoders={
+  'INIT_VAL': lambda key,val: val[::-1],
   'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
   'TileAsyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
   'TMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=9
