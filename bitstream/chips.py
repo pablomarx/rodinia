@@ -358,8 +358,8 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     'Rogic':   'agx_tile_route',
     'Clkdis':  'agx_clk_dis',
 
-    'PLL0':    'agx_pll_E',
-    'PLL1':    'agx_pll_W',
+    'PLL0':    'agx_pllv_E',
+    'PLL1':    'agx_pllv_W',
         
     'IOS1':    'agx_io_S4_T2',
     'IOS0':    'agx_io_S4',
@@ -375,7 +375,7 @@ AddChip(Chip('AG10K', 0x01000001, 25, 41, floorplan=[
     'IOE1':    'agx_io_E6_T2',
     'IOE2':    'agx_io_E4_G5',
 
-    'UFM':     'ag_UFM_S',
+    'UFM':     'agx_UFM_S',
     'UFM1':    'agx_MCU', 
     'UFM2':    'agx_tile_boot',
     'UFM3':    'agx_JTAG'
@@ -668,9 +668,9 @@ extra={
 }))
 
 AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
-    None,  'UFM0', 'IOS0', 'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS1', 'IOS0', 'IOS1', 'IOS0', None,    'IOS0', 'IOS0', 'IOS2', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,    'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'UFM1', None,   None,
+    None,  'ADC0', 'IOS0', 'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS1', 'IOS0', 'IOS1', 'IOS0', None,    'IOS0', 'IOS0', 'IOS2', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,  'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', None,    'IOS1', 'IOS0', 'IOS0', 'IOS0', 'IOS0', 'OCT3', None,   None,
     'PLLE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','PLLW',
-    'UFM2','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','UFM3',
+    'OCT1','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','OCT2',
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     'IOE1','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW1',
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
@@ -686,10 +686,10 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
     'IOE0','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW2',
     'IOE1','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     'PLLE','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
-    'UFM4','UFM5', 'UFM6', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'UFM7', 'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
-    None,  'UFM8', 'UFM9', None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'UFM13','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
-    None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'UFM10','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW1',
-    None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'UFM10','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
+    'MCU0','JTAG', 'OSC0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'PIN0', 'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
+    None,  'UFM0', 'REM0', None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'PIN1', 'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
+    None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'PIN1', 'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW1',
+    None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'PIN1', 'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
@@ -697,7 +697,7 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW0',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','IOW1',
     None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'Logic','Logic','Bram','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Logic','Bram','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Logic','Mult',  'Logic','Logic','Logic','Logic','Logic','Logic','Rogic','PLLW',
-    None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'ION0', 'ION1', None,  'ION0', 'ION0', 'ION0', 'ION0', 'Clkdis','ION1', 'ION0', 'ION0', 'ION1', 'ION0', 'ION2', 'ION1', None,  'ION0', 'ION0', 'ION1', 'ION0', 'ION0', 'ION0', 'ION0', 'ION0', 'ION0', 'Clkdis','ION0', 'ION0', 'ION1', 'ION0', 'UFM11','UFM12', None,   None,
+    None,  None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   None,   'ION0', 'ION1', None,  'ION0', 'ION0', 'ION0', 'ION0', 'Clkdis','ION1', 'ION0', 'ION0', 'ION1', 'ION0', 'ION2', 'ION1', None,  'ION0', 'ION0', 'ION1', 'ION0', 'ION0', 'ION0', 'ION0', 'ION0', 'ION0', 'Clkdis','ION0', 'ION0', 'ION1', 'ION0', 'OCT4', 'ADC1',  None,   None,
 ], aliases={
 	'Logic':   'agm_tile_logic',
     'Rogic':   'agm_tile_route',
@@ -716,27 +716,29 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
     'ION0':    'agm_io_N4',
     'ION1':    'agm_io_N4_T2',
     'ION2':    'agm_io_N4_G5',
+    
     'IOS0':    'agm_io_S4',
     'IOS1':    'agm_io_S4_T2',
     'IOS2':    'agm_io_S4_G5',
 
-    'PLLE':    'agm_PLL_E',
-    'PLLW':    'agm_PLL_W',
+    'PLLE':    'agm_PLLVE_E',
+    'PLLW':    'agm_PLLVE_W',
     
-    'UFM0':    'agm_ADC_N', # alta_saradc00
-    'UFM1':    'agm_empty_ufm',  # should be alta_oct00, causes bitstream length
-    'UFM2':    'agm_OCT_E', # alta_oct00
-    'UFM3':    'agm_OCT_W', # alta_oct00
-    'UFM4':    'agm_empty_ufm', # alta_mcu_m300
-    'UFM5':    'ag_UFM_S', # alta_jtag00
-    'UFM6':    'ag_UFM_S', # alta_osc00
-    'UFM7':    'ag_UFM_S', # south
-    'UFM8':    'agm_empty_ufm', # alta_ufml00
-    'UFM9':    'agm_empty_ufm', # alta_remote00
-    'UFM10':   'ag_UFM_S', # should be east...
-    'UFM11':   'agm_empty_ufm', # should be alta_oct00, causes bitstream length
-    'UFM12':   'agm_ADC_S', # alta_saradc00
-    'UFM13':   'agm_MCU_PINR', 
+    'ADC0':    'agm_ADC_N',
+    'ADC1':    'agm_ADC_S',
+    'OCT1':    'agm_OCT_E',
+    'OCT2':    'agm_OCT_W', 
+    'OCT3':    'agm_OCT_S',
+    'OCT4':    'agm_OCT_N',
+    
+    'JTAG':    'agm_JTAG_S',
+    'MCU0':    'agm_MCU',
+    'PIN0':    'agm_MCU_PIN_S', 
+    'PIN1':    'agm_MCU_PIN_E', 
+
+    'OSC0':    'agm_OSC_S',
+    'UFM0':    'agm_ufm',
+    'REM0':    'agm_remote', 
 }, packages={
     'AG16KSDE176': [        
         {'name':'PIN_1',               'tile':(16,29),'index':0,'type':'ION15_4_0',   'attrs':['PSEUDO_DIFFP']},

@@ -40,9 +40,10 @@ class Tile:
     key_transformers = {}
     defaults = {}
     pseudos = {}
+    bels = None
     bitmapTable = None
     
-    def __init__(self, name, type, bitstream_width, bitstream_height, slices, values, pseudos={}, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
+    def __init__(self, name, type, bitstream_width, bitstream_height, slices, values, pseudos={}, bels=None, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
         self.name = name
         self.type = type
         self.bitstream_width = bitstream_width
@@ -56,6 +57,7 @@ class Tile:
         self.key_transformers = key_transformers
         self.defaults = defaults
         self.pseudos = pseudos
+        self.bels = bels
     
     def buildBitmapTable(self):
         bitmapTable = [];
@@ -242,7 +244,22 @@ def TileNamed(name):
     global tiles
     return tiles[name]
 
-InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstream_height=20, slices=0, values={
+InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstream_height=20, slices=0, bels=[
+    {
+        'name': 'alta_boot',
+        'count': 1,
+        'bad_wires': ['im_vector_sel'],
+        'inputs': [ 'i_boot', 'im_vector_sel[1:0]', 'i_osc_enb' ],
+        'outputs': [ 'o_osc' ],
+    },
+    {
+        'name': 'alta_ufm_gddd',
+        'count': 8,
+        'pseudo': True,
+        'inputs': ['in'],
+        'outputs': ['out'],
+    }
+], values={
 	# Each BBMUXE0 contains 1 entry of 9 bits each
 	'BBMUXE00': [ 498, 532, 497, 531, 496, 530, 495, 529, 526 ],
 	'BBMUXE01': [ 506, 540, 505, 539, 504, 538, 503, 537, 534 ],
@@ -930,7 +947,20 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', bitstream_width=34, bitstream_hei
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_height=68, slices=0, values={
+InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_bram',
+        'count': 1,
+        'inputs': [
+            'DataInA[17:0]', 'DataInB[17:0]', 'AddressA[11:0]', 'AddressB[11:0]',  
+            'Clk0', 'Clk1', 'ClkEn0', 'ClkEn1', 'AsyncReset0', 'AsyncReset1',
+            'WeRenA', 'WeRenB',
+        ],
+        'outputs': [
+            'DataOutA[17:0]', 'DataOutB[17:0]', 
+        ],
+    }
+], values={
 	'BramClkMUX00': [ 3489, 3490, 3491, 3488 ], # alta_bram00:Clk0
 	'BramClkMUX01': [ 3813, 3814, 3815, 3812 ], # alta_bram00:Clk1
 
@@ -1309,7 +1339,15 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
 }))
 
 # This is a pseudo tile.  The bits are handled in a ConfigChain.  Here for wire/routing purposes.
-InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
+InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
+    {
+        'name': 'alta_pllx',
+        'type': 'GENERIC_PLL',
+        'count': 1,
+        'inputs': [ 'clkin', 'clkfb', 'pllen', 'resetn', 'clkout0en', 'clkout1en', 'clkout2en', 'clkout3en' ],
+        'outputs': [ 'clkout0', 'clkout1', 'clkout2', 'clkout3', 'lock' ],
+    }
+],values={}, pseudos={
 	'PllClkFbMUX': 1,
 	'PllClkInMUX': 1,
 	'PllIntFbMUX': 1,
@@ -2421,7 +2459,19 @@ InstallTile(Tile('agx_tile_route', 'RogicTILE', bitstream_width=16, bitstream_he
     'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
 }))
 
-InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_mult',
+        'count': 1,
+        'inputs': [
+            'SignA', 'SignB', 'Clk', 'ClkEn', 'AsyncReset',
+            'DataInA0[8:0]', 'DataInA1[8:0]', 'DataInB0[8:0]', 'DataInB1[8:0]', 
+        ],
+        'outputs': [
+            'DataOut0[17:0]', 'DataOut1[17:0]', 
+        ],
+    }
+], values={
     'CtrlMUX00':[847,873,848,874,849,875,876,851,877,850],
     'CtrlMUX01':[856,882,855,881,854,880,879,852,878,853],
     'CtrlMUX02':[925,899,926,900,927,901,902,929,903,928],
@@ -2587,7 +2637,21 @@ InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_hei
     'IsoMUXPseudo': 4,
 }))
 
-InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_bram9k',
+        'count': 1,
+        'bad_wires': ['ByteEnA', 'ByteEnB'],
+        'inputs': [
+            'DataInA[17:0]', 'DataInB[17:0]', 'AddressA[12:0]', 'AddressB[12:0]', 'ByteEnA[1:0]', 'ByteEnB[1:0]', 
+            'Clk0', 'Clk1', 'ClkEn0', 'ClkEn1', 'AsyncReset0', 'AsyncReset1', 'AddressStallA', 'AddressStallB',
+            'WeA', 'WeB', 'ReA', 'ReB'
+        ],
+        'outputs': [
+            'DataOutA[17:0]', 'DataOutB[17:0]', 
+        ],
+    }
+], values={
     'CLKMODE':[8855,8854],
 
     'CtrlMUX00':[5776,5956,5777,5957,5778,5958,5779,5959,5961,5960,5781,5780],
@@ -4839,7 +4903,7 @@ InstallTile(Tile('agx_io_W6', 'IOTILE', bitstream_width=20, bitstream_height=68,
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
 }))
 
-InstallTile(Tile('ag_UFM_S', 'UFMTILE', bitstream_width=34, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agx_UFM_S', 'UFMTILE', bitstream_width=34, bitstream_height=68, slices=0, values={
     'BBMUXS00':[1836,1870,1837,1871,1838,1872,1839,1873,1876],
     'BBMUXS01':[1904,1938,1905,1939,1906,1940,1907,1941,1944],
     'BBMUXS02':[1972,2006,1973,2007,1974,2008,1975,2009,2012],
@@ -4880,8 +4944,16 @@ InstallTile(Tile('ag_UFM_S', 'UFMTILE', bitstream_width=34, bitstream_height=68,
     'BufMUX': 12,
 }))
 
-# Same as above...
-InstallTile(Tile('agx_tile_boot', 'UFMTILE', bitstream_width=34, bitstream_height=68, slices=0, values={
+# Same bitstream as above...
+InstallTile(Tile('agx_tile_boot', 'UFMTILE', bitstream_width=34, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_boot',
+        'count': 1,
+        'bad_wires': ['im_vector_sel'],
+        'inputs': [ 'i_boot', 'im_vector_sel[1:0]', 'i_osc_enb' ],
+        'outputs': [ 'o_osc' ],
+    },
+], values={
     'BBMUXS00':[1836,1870,1837,1871,1838,1872,1839,1873,1876],
     'BBMUXS01':[1904,1938,1905,1939,1906,1940,1907,1941,1944],
     'BBMUXS02':[1972,2006,1973,2007,1974,2008,1975,2009,2012],
@@ -4923,7 +4995,14 @@ InstallTile(Tile('agx_tile_boot', 'UFMTILE', bitstream_width=34, bitstream_heigh
 }))
 
 # The two PLL tiles appear identical other than E vs W in the BBMUX names
-InstallTile(Tile('agx_pll_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agx_pllv_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_pllv',
+        'count': 1,
+        'inputs': [ 'clkin', 'clkfb', 'pllen', 'resetn', 'clkout0en', 'clkout1en', 'clkout2en', 'clkout3en', 'clkout4en' ],
+        'outputs': [ 'clkout0', 'clkout1', 'clkout2', 'clkout3', 'clkout4', 'clkfbout', 'lock' ],
+    }
+], values={
     'BBMUXE00':[484,504,485,505,486,506,487,507,510],
     'BBMUXE01':[524,544,525,545,526,546,527,547,550],
     'BBMUXE02':[564,584,565,585,566,586,567,587,590],
@@ -4946,7 +5025,14 @@ InstallTile(Tile('agx_pll_E', 'PLLTILE', bitstream_width=20, bitstream_height=68
     'PllSeamMUX': 1,
 }))
 
-InstallTile(Tile('agx_pll_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agx_pllv_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_pllv',
+        'count': 1,
+        'inputs': [ 'clkin', 'clkfb', 'pllen', 'resetn', 'clkout0en', 'clkout1en', 'clkout2en', 'clkout3en', 'clkout4en' ],
+        'outputs': [ 'clkout0', 'clkout1', 'clkout2', 'clkout3', 'clkout4', 'clkfbout', 'lock' ],
+    }
+], values={
     'BBMUXW00':[484,504,485,505,486,506,487,507,510],
     'BBMUXW01':[524,544,525,545,526,546,527,547,550],
     'BBMUXW02':[564,584,565,585,566,586,567,587,590],
@@ -4975,11 +5061,37 @@ InstallTile(Tile('agx_clk_dis', 'ClkdisTILE', bitstream_width=0, bitstream_heigh
     'BufMUX': 2,
 }))
 
-InstallTile(Tile('agx_JTAG', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
+InstallTile(Tile('agx_JTAG', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
+    {
+        'name': 'alta_jtag',
+        'count': 1,
+        'inputs': ['tdouser'],
+        'outputs': ['tmsutap', 'tckutap', 'tdiutap', 'shiftuser', 'clkdruser', 'updateuser', 'runidleuser', 'usr1user'],
+    }
+], values={}, pseudos={
     'SinkMUXPseudo': 1,
 }))
 
-InstallTile(Tile('agx_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
+InstallTile(Tile('agx_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
+    {
+        'name': 'alta_mcu',
+        'count': 1,
+        'bad_wires': True,
+        'inputs': [
+            'CLK', 'EXT_CPU_RST_n', 'EXT_RAM_EN', 'EXT_RAM_WR', 'FLASH_IO0_SI_i', 'FLASH_IO1_SO_i', 'FLASH_IO2_WPn_i', 'FLASH_IO3_HOLDn_i',
+            'HREADY_OUT_EXT', 'JTCK', 'JTDI', 'JTMS', 'JTRST_n', 'POR_n', 'UART_CTS_n', 'UART_RXD',
+            'EXT_RAM_ADDR[13:0]', 'HRESP_EXT[1:0]', 'EXT_RAM_WDATA[31:0]', 'HRDATA_EXT[31:0]', 'EXT_RAM_BYTE_EN[3:0]',
+            'GPIO0_I[7:0]', 'GPIO1_I[7:0]', 'GPIO2_I[7:0]'
+        ],
+        'outputs': [
+            'FLASH_CS_n', 'FLASH_IO0_SI', 'FLASH_IO1_SO', 'FLASH_IO2_WPn', 'FLASH_IO3_HOLDn', 'FLASH_SCK', 
+            'FLASH_SI_OE', 'FLASH_SO_OE', 'HOLDn_IO3_OE', 'HREADY_IN_EXT', 'HSEL_EXT', 'HWRITE_EXT', 'JTDO',
+            'UART_RTS_n', 'UART_TXD', 'WPn_IO2_OE', 
+            'HTRANS_EXT[1:0]', 'HSIZE_EXT[2:0]', 'EXT_RAM_RDATA[31:0]', 'HADDR_EXT[31:0]', 'HWDATA_EXT[31:0]',
+            'GPIO0_O[7:0]', 'GPIO1_O[7:0]', 'GPIO2_O[7:0]', 'nGPEN0[7:0]', 'nGPEN1[7:0]', 'nGPEN2[7:0]',
+        ],
+    }
+], values={}, pseudos={
     'SinkMUXPseudo': 124,
 }))
 
@@ -4987,7 +5099,20 @@ InstallTile(Tile('agx_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, sl
 # For AG16K
 # 
 
-InstallTile(Tile('agm_ADC_N', 'UFMTILE', bitstream_width=40, bitstream_height=24, slices=0, values={
+InstallTile(Tile('agm_ADC_N', 'UFMTILE', bitstream_width=40, bitstream_height=24, slices=0, bels=[
+    {
+        'name': 'alta_saradc',
+        'count': 1,
+        'bad_wires': ['insel', 'ain', 'db'],
+        'inputs': [
+            'adcenb', 'bgenb', 'divvi8', 'refsel', 'refin', 'sclk', 
+            'insel[3:0]', 'ain[8:0]', 
+        ],
+        'outputs': [
+            'eoc', 'db[11:0]', 
+        ],
+    }
+], values={
     'BBMUXN00': [656,696,657,697,658,698,659,699,702],
     'BBMUXN01': [576,616,577,617,578,618,579,619,622],
     'BBMUXN02': [496,536,497,537,498,538,499,539,542],
@@ -5020,7 +5145,20 @@ InstallTile(Tile('agm_ADC_N', 'UFMTILE', bitstream_width=40, bitstream_height=24
     'SeamMUX08': [49,50,51,52,53,54],
 }))
 
-InstallTile(Tile('agm_ADC_S', 'UFMTILE', bitstream_width=40, bitstream_height=24, slices=0, values={
+InstallTile(Tile('agm_ADC_S', 'UFMTILE', bitstream_width=40, bitstream_height=24, slices=0, bels=[
+    {
+        'name': 'alta_saradc',
+        'count': 1,
+        'bad_wires': ['insel', 'ain', 'db'],
+        'inputs': [
+            'adcenb', 'bgenb', 'divvi8', 'refsel', 'refin', 'sclk', 
+            'insel[3:0]', 'ain[8:0]', 
+        ],
+        'outputs': [
+            'eoc', 'db[11:0]', 
+        ],
+    }
+], values={
     'BBMUXS00': [296,256,297,257,298,258,299,259,262],
     'BBMUXS01': [376,336,377,337,378,338,379,339,342],
     'BBMUXS02': [456,416,457,417,458,418,459,419,422],
@@ -5053,78 +5191,15 @@ InstallTile(Tile('agm_ADC_S', 'UFMTILE', bitstream_width=40, bitstream_height=24
     'SeamMUX08': [889,890,891,892,893,894],
 }))
 
-InstallTile(Tile('agm_MCU_PINR', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, values={
-    'BBMUXE00': [431,351,430,350,428,429,349,348,347,427],
-    'BBMUXE01': [471,551,470,550,468,469,549,548,547,467],
-    'BBMUXE02': [671,591,670,590,668,669,589,588,587,667],
-    'BBMUXE03': [711,791,710,790,708,709,789,788,787,707],
-    'BBMUXE04': [911,831,910,830,908,909,829,828,827,907],
-    'BBMUXE05': [951,1031,950,1030,948,949,1029,1028,1027,947],
-    'BBMUXE06': [1151,1071,1150,1070,1148,1149,1069,1068,1067,1147],
-    'BBMUXE07': [1191,1271,1190,1270,1188,1189,1269,1268,1267,1187],
-    'BBMUXE08': [1551,1471,1550,1470,1548,1549,1469,1468,1467,1547],
-    'BBMUXE09': [1591,1671,1590,1670,1588,1589,1669,1668,1667,1587],
-    'BBMUXE10': [1791,1711,1790,1710,1788,1789,1709,1708,1707,1787],
-    'BBMUXE11': [1831,1911,1830,1910,1828,1829,1909,1908,1907,1827],
-    'BBMUXE12': [2031,1951,2030,1950,2028,2029,1949,1948,1947,2027],
-    'BBMUXE13': [2071,2151,2070,2150,2068,2069,2149,2148,2147,2067],
-    'BBMUXE14': [2271,2191,2270,2190,2268,2269,2189,2188,2187,2267],
-    'BBMUXE15': [2311,2391,2310,2390,2308,2309,2389,2388,2387,2307],
-    'InputMUX00': [37],
-    'InputMUX01': [117],
-    'InputMUX02': [197],
-    'InputMUX03': [277],
-    'InputMUX04': [437],
-    'InputMUX05': [677],
-    'InputMUX06': [917],
-    'InputMUX07': [1157],
-    'InputMUX08': [1557],
-    'InputMUX09': [1797],
-    'InputMUX10': [2037],
-    'InputMUX11': [2277],
-    'InputMUX12': [2437],
-    'InputMUX13': [2517],
-    'InputMUX14': [2597],
-    'InputMUX15': [2677],
-    'SeamMUX00': [352,353,354,355,356,357],
-    'SeamMUX01': [552,553,554,555,556,557],
-    'SeamMUX02': [592,593,594,595,596,597],
-    'SeamMUX03': [792,793,794,795,796,797],
-    'SeamMUX04': [832,833,834,835,836,837],
-    'SeamMUX05': [1032,1033,1034,1035,1036,1037],
-    'SeamMUX06': [1072,1073,1074,1075,1076,1077],
-    'SeamMUX07': [1272,1273,1274,1275,1276,1277],
-    'SeamMUX08': [1472,1473,1474,1475,1476,1477],
-    'SeamMUX09': [1672,1673,1674,1675,1676,1677],
-    'SeamMUX10': [1712,1713,1714,1715,1716,1717],
-    'SeamMUX11': [1912,1913,1914,1915,1916,1917],
-    'SeamMUX12': [1952,1953,1954,1955,1956,1957],
-    'SeamMUX13': [2152,2153,2154,2155,2156,2157],
-    'SeamMUX14': [2192,2193,2194,2195,2196,2197],
-    'SeamMUX15': [2392,2393,2394,2395,2396,2397],
-}, pseudos={
-    'BufMUX': 16,
-}))
-
-InstallTile(Tile('agm_MCU_PIN', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, values={
-	'BBMUXS0':[2219,2179,2220,2180,2221,2181,2222,2182,2183],
-	'BBMUXS1':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
-	'BBMUXS2':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
-	'BBMUXS3':[2459,2419,2460,2420,2461,2421,2462,2422,2423],
-	'BBMUXS4':[2539,2499,2540,2500,2541,2501,2542,2502,2503],
-	'BBMUXS5':[2619,2579,2620,2580,2621,2581,2622,2582,2583],
-	'BBMUXS6':[2206,2166,2205,2165,2204,2164,2203,2163,2162],
-	'BBMUXS7':[2286,2246,2285,2245,2284,2244,2283,2243,2242],
-	'BBMUXS8':[2366,2326,2365,2325,2364,2324,2363,2323,2322],
-	'BBMUXS9':[2446,2406,2445,2405,2444,2404,2443,2403,2402],
-	'BBMUXS10':[2526,2486,2525,2485,2524,2484,2523,2483,2482],
-	'BBMUXS11':[2606,2566,2605,2565,2604,2564,2603,2563,2562],
-	'InputMUX':[2235,2315,2395,2475,2232,2312,2392,2472,2229,2309,2389,2469],
-	'SeamMUX':[2213,2214,2215,2216,2217,2218,2293,2294,2295,2296,2297,2298,2373,2374,2375,2376,2377,2378,2453,2454,2455,2456,2457,2458,2533,2534,2535,2536,2537,2538,2613,2614,2615,2616,2617,2618,2207,2208,2209,2210,2211,2212,2287,2288,2289,2290,2291,2292,2367,2368,2369,2370,2371,2372,2447,2448,2449,2450,2451,2452,2527,2528,2529,2530,2531,2532,2607,2608,2609,2610,2611,2612],
-}))
-
 # Two OCTs appear identical other than E vs W in BBMUX name
-InstallTile(Tile('agm_OCT_E', 'UFMTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_OCT_E', 'UFMTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_oct',
+        'count': 1,
+        'inputs': ['clkusr', 'rstnusr'],
+        'outputs': ['octdone', 'octdoneuser', 'rupcompout', 'rdncompout', 'rupoctcalnout', 'rdnoctcalnout'],
+    }
+], values={
     'BBMUXE00': [510,550,509,549,507,508,548,547,546,506],
     'BBMUXE01': [610,570,609,569,607,608,568,567,566,606],
     'SeamMUX00': [552,553,554,555,556,557],
@@ -5133,7 +5208,14 @@ InstallTile(Tile('agm_OCT_E', 'UFMTILE', bitstream_width=20, bitstream_height=68
     'BufMUX': 1
 }))
 
-InstallTile(Tile('agm_OCT_W', 'UFMTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_OCT_W', 'UFMTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_oct',
+        'count': 1,
+        'inputs': ['clkusr', 'rstnusr'],
+        'outputs': ['octdone', 'octdoneuser', 'rupcompout', 'rdncompout', 'rupoctcalnout', 'rdnoctcalnout'],
+    }
+], values={
     'BBMUXW00': [510,550,509,549,507,508,548,547,546,506],
     'BBMUXW01': [610,570,609,569,607,608,568,567,566,606],
     'SeamMUX00': [552,553,554,555,556,557],
@@ -5142,8 +5224,50 @@ InstallTile(Tile('agm_OCT_W', 'UFMTILE', bitstream_width=20, bitstream_height=68
     'BufMUX': 1
 }))
 
+InstallTile(Tile('agm_OCT_N', 'UFMTILE', bitstream_width=20, bitstream_height=24, slices=0, bels=[
+    {
+        'name': 'alta_oct',
+        'count': 1,
+        'inputs': ['clkusr', 'rstnusr'],
+        'outputs': ['octdone', 'octdoneuser', 'rupcompout', 'rdncompout', 'rupoctcalnout', 'rdnoctcalnout'],
+    }
+], values={}, pseudos={
+    'InputMUX': 12,  # XXX: not really pseudo
+    'BBMUXS': 9,     # XXX: not really pseudo
+    'BufMUX': 1,
+    'SeamMUX': 9,
+}))
+
+InstallTile(Tile('agm_OCT_S', 'UFMTILE', bitstream_width=20, bitstream_height=24, slices=0, bels=[
+    {
+        'name': 'alta_oct',
+        'count': 1,
+        'inputs': ['clkusr', 'rstnusr'],
+        'outputs': ['octdone', 'octdoneuser', 'rupcompout', 'rdncompout', 'rupoctcalnout', 'rdnoctcalnout'],
+    }
+], values={}, pseudos={
+    'InputMUX': 16,   # XXX: not really pseudo
+    'BBMUXN': 9,      # XXX: not really pseudo
+    'BufMUX': 1,
+    'SeamMUX': 9,
+}))
+
+
 # Two PLLs appear identical other than E vs W in BBMUX name
-InstallTile(Tile('agm_PLL_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_PLLVE_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_pllve',
+        'count': 1,
+        'bad_wires': ['phasecounterselect'],
+        'inputs': [
+            'clkin', 'clkfb', 'pfden', 'resetn', 'phaseupdown', 'phasestep', 'scanclk', 'scanclkena', 'scandata', 'configupdate',
+            'phasecounterselect[2:0]',
+        ],
+        'outputs': [
+            'clkout0', 'clkout1', 'clkout2', 'clkout3', 'clkout4', 'clkfbout', 'lock', 'scandataout', 'scandone', 'phasedone'
+        ],
+    }
+], values={
     'BBMUXE00': [270,310,269,309,267,268,308,307,306,266],
     'BBMUXE01': [370,330,369,329,367,368,328,327,326,366],
     'BBMUXE02': [390,430,389,429,387,388,428,427,426,386],
@@ -5174,7 +5298,20 @@ InstallTile(Tile('agm_PLL_E', 'PLLTILE', bitstream_width=20, bitstream_height=68
     'PllSeamMUX': 1,
 }))
 
-InstallTile(Tile('agm_PLL_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_PLLVE_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_pllve',
+        'count': 1,
+        'bad_wires': ['phasecounterselect'],
+        'inputs': [
+            'clkin', 'clkfb', 'pfden', 'resetn', 'phaseupdown', 'phasestep', 'scanclk', 'scanclkena', 'scandata', 'configupdate',
+            'phasecounterselect[2:0]',
+        ],
+        'outputs': [
+            'clkout0', 'clkout1', 'clkout2', 'clkout3', 'clkout4', 'clkfbout', 'lock', 'scandataout', 'scandone', 'phasedone'
+        ],
+    }
+], values={
     'BBMUXW00': [270,310,269,309,267,268,308,307,306,266],
     'BBMUXW01': [370,330,369,329,367,368,328,327,326,366],
     'BBMUXW02': [390,430,389,429,387,388,428,427,426,386],
@@ -7091,7 +7228,21 @@ InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_he
     'SinkMUXPseudo': 32,
 }))
 
-InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_bram9k',
+        'count': 1,
+        'bad_wires': ['ByteEnA', 'ByteEnB'],
+        'inputs': [
+            'DataInA[17:0]', 'DataInB[17:0]', 'AddressA[12:0]', 'AddressB[12:0]', 'ByteEnA[1:0]', 'ByteEnB[1:0]', 
+            'Clk0', 'Clk1', 'ClkEn0', 'ClkEn1', 'AsyncReset0', 'AsyncReset1', 'AddressStallA', 'AddressStallB',
+            'WeA', 'WeB', 'ReA', 'ReB'
+        ],
+        'outputs': [
+            'DataOutA[17:0]', 'DataOutB[17:0]', 
+        ],
+    }
+], values={
     'CLKMODE':[9054,8870],
     'CtrlMUX00': [5907,6091,5908,6092,5909,6093,5910,6094,5911,6095,5912,6096],
     'CtrlMUX01': [5913,6097,5914,6098,5915,6099,5916,6100,5917,6101,5918,6102],
@@ -7633,7 +7784,19 @@ InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_h
     'IsoMUXPseudo': 6,
 }))
 
-InstallTile(Tile('agm_tile_mult', 'MultTILE', bitstream_width=32, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_tile_mult', 'MultTILE', bitstream_width=32, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_mult',
+        'count': 1,
+        'inputs': [
+            'SignA', 'SignB', 'Clk', 'ClkEn', 'AsyncReset',
+            'DataInA0[8:0]', 'DataInA1[8:0]', 'DataInB0[8:0]', 'DataInB1[8:0]', 
+        ],
+        'outputs': [
+            'DataOut0[17:0]', 'DataOut1[17:0]', 
+        ],
+    }
+], values={
     'CtrlMUX00': [1043,1075,1044,1076,1045,1077,1078,1047,1079,1046],
     'CtrlMUX01': [1052,1084,1051,1083,1050,1082,1081,1048,1080,1049],
     'CtrlMUX02': [1139,1107,1140,1108,1141,1109,1110,1143,1111,1142],
@@ -7912,5 +8075,255 @@ InstallTile(Tile('agm_clk_dis', 'ClkdisTILE', bitstream_width=0, bitstream_heigh
     'BufMUX': 2,
 }))
 
-InstallTile(Tile('agm_empty_ufm', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}))
+InstallTile(Tile('agm_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
+    {
+        'name': 'alta_mcu_m3',
+        'count': 1,
+        'bad_wires': True,
+        'inputs': [
+            'CLK', 'EXT_CPU_RST_n', 'EXT_RAM_EN', 'EXT_RAM_WR', 'FLASH_IO0_SI_i', 'FLASH_IO1_SO_i', 'FLASH_IO2_WPn_i', 'FLASH_IO3_HOLDn_i',
+            'HREADY_OUT_EXT', 'JTCK', 'JTDI', 'JTMS', 'JTRST_n', 'POR_n', 'UART_CTS_n', 'UART_RXD',
+            'EXT_RAM_ADDR[13:0]', 'HRESP_EXT[1:0]', 'EXT_RAM_WDATA[31:0]', 'HRDATA_EXT[31:0]', 'EXT_RAM_BYTE_EN[3:0]',
+            'GPIO0_I[7:0]', 'GPIO1_I[7:0]', 'GPIO2_I[7:0]',
+            'HSEL_EXTM', 'HSIZE_EXTM[2:0]', 'HTRANS_EXTM[1:0]', 'HWDATA_EXTM[31:0]', 'HWRITE_EXTM', 'HADDR_EXTM[31:0]', 'HBURSTM[2:0]', 'HPROTM[3:0]',
+            'HREADY_IN_EXTM'
+        ],
+        'outputs': [
+            'FLASH_CS_n', 'FLASH_IO0_SI', 'FLASH_IO1_SO', 'FLASH_IO2_WPn', 'FLASH_IO3_HOLDn', 'FLASH_SCK', 
+            'FLASH_SI_OE', 'FLASH_SO_OE', 'HOLDn_IO3_OE', 'HREADY_IN_EXT', 'HSEL_EXT', 'HWRITE_EXT', 'JTDO',
+            'UART_RTS_n', 'UART_TXD', 'WPn_IO2_OE', 
+            'HTRANS_EXT[1:0]', 'HSIZE_EXT[2:0]', 'EXT_RAM_RDATA[31:0]', 'HADDR_EXT[31:0]', 'HWDATA_EXT[31:0]',
+            'GPIO0_O[7:0]', 'GPIO1_O[7:0]', 'GPIO2_O[7:0]', 'nGPEN0[7:0]', 'nGPEN1[7:0]', 'nGPEN2[7:0]',
+            'HRDATA_EXTM[31:0]', 'HREADY_OUT_EXTM', 'HRESP_EXTM[1:0]', 'SWDO', 'SWDOEN',
+        ],
+    }
+], values={}, pseudos={
+    'SinkMUXPseudo': 204,
+}))
 
+
+InstallTile(Tile('agm_MCU_PIN_E', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, values={
+    'BBMUXE00': [431,351,430,350,428,429,349,348,347,427],
+    'BBMUXE01': [471,551,470,550,468,469,549,548,547,467],
+    'BBMUXE02': [671,591,670,590,668,669,589,588,587,667],
+    'BBMUXE03': [711,791,710,790,708,709,789,788,787,707],
+    'BBMUXE04': [911,831,910,830,908,909,829,828,827,907],
+    'BBMUXE05': [951,1031,950,1030,948,949,1029,1028,1027,947],
+    'BBMUXE06': [1151,1071,1150,1070,1148,1149,1069,1068,1067,1147],
+    'BBMUXE07': [1191,1271,1190,1270,1188,1189,1269,1268,1267,1187],
+    'BBMUXE08': [1551,1471,1550,1470,1548,1549,1469,1468,1467,1547],
+    'BBMUXE09': [1591,1671,1590,1670,1588,1589,1669,1668,1667,1587],
+    'BBMUXE10': [1791,1711,1790,1710,1788,1789,1709,1708,1707,1787],
+    'BBMUXE11': [1831,1911,1830,1910,1828,1829,1909,1908,1907,1827],
+    'BBMUXE12': [2031,1951,2030,1950,2028,2029,1949,1948,1947,2027],
+    'BBMUXE13': [2071,2151,2070,2150,2068,2069,2149,2148,2147,2067],
+    'BBMUXE14': [2271,2191,2270,2190,2268,2269,2189,2188,2187,2267],
+    'BBMUXE15': [2311,2391,2310,2390,2308,2309,2389,2388,2387,2307],
+    'InputMUX00': [37],
+    'InputMUX01': [117],
+    'InputMUX02': [197],
+    'InputMUX03': [277],
+    'InputMUX04': [437],
+    'InputMUX05': [677],
+    'InputMUX06': [917],
+    'InputMUX07': [1157],
+    'InputMUX08': [1557],
+    'InputMUX09': [1797],
+    'InputMUX10': [2037],
+    'InputMUX11': [2277],
+    'InputMUX12': [2437],
+    'InputMUX13': [2517],
+    'InputMUX14': [2597],
+    'InputMUX15': [2677],
+    'SeamMUX00': [352,353,354,355,356,357],
+    'SeamMUX01': [552,553,554,555,556,557],
+    'SeamMUX02': [592,593,594,595,596,597],
+    'SeamMUX03': [792,793,794,795,796,797],
+    'SeamMUX04': [832,833,834,835,836,837],
+    'SeamMUX05': [1032,1033,1034,1035,1036,1037],
+    'SeamMUX06': [1072,1073,1074,1075,1076,1077],
+    'SeamMUX07': [1272,1273,1274,1275,1276,1277],
+    'SeamMUX08': [1472,1473,1474,1475,1476,1477],
+    'SeamMUX09': [1672,1673,1674,1675,1676,1677],
+    'SeamMUX10': [1712,1713,1714,1715,1716,1717],
+    'SeamMUX11': [1912,1913,1914,1915,1916,1917],
+    'SeamMUX12': [1952,1953,1954,1955,1956,1957],
+    'SeamMUX13': [2152,2153,2154,2155,2156,2157],
+    'SeamMUX14': [2192,2193,2194,2195,2196,2197],
+    'SeamMUX15': [2392,2393,2394,2395,2396,2397],
+}, pseudos={
+    'BufMUX': 16,
+}))
+
+InstallTile(Tile('agm_MCU_PIN_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, values={
+    'BBMUXS00':[2219,2179,2220,2180,2221,2181,2222,2182,2183],
+    'BBMUXS01':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
+    'BBMUXS02':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
+    'BBMUXS03':[2459,2419,2460,2420,2461,2421,2462,2422,2423],
+    'BBMUXS04':[2539,2499,2540,2500,2541,2501,2542,2502,2503],
+    'BBMUXS05':[2619,2579,2620,2580,2621,2581,2622,2582,2583],
+    'BBMUXS06':[2206,2166,2205,2165,2204,2164,2203,2163,2162],
+    'BBMUXS07':[2286,2246,2285,2245,2284,2244,2283,2243,2242],
+    'BBMUXS08':[2366,2326,2365,2325,2364,2324,2363,2323,2322],
+    'BBMUXS09':[2446,2406,2445,2405,2444,2404,2443,2403,2402],
+    'BBMUXS10':[2526,2486,2525,2485,2524,2484,2523,2483,2482],
+    'BBMUXS11':[2606,2566,2605,2565,2604,2564,2603,2563,2562],
+    'InputMUX00': [2235],
+    'InputMUX01': [2315],
+    'InputMUX02': [2395],
+    'InputMUX03': [2475],
+    'InputMUX04': [2232],
+    'InputMUX05': [2312],
+    'InputMUX06': [2392],
+    'InputMUX07': [2472],
+    'InputMUX08': [2229],
+    'InputMUX09': [2309],
+    'InputMUX10': [2389],
+    'InputMUX11': [2469],
+    'SeamMUX00': [2213,2214,2215,2216,2217,2218],
+    'SeamMUX01': [2293,2294,2295,2296,2297,2298],
+    'SeamMUX02': [2373,2374,2375,2376,2377,2378],
+    'SeamMUX03': [2453,2454,2455,2456,2457,2458],
+    'SeamMUX04': [2533,2534,2535,2536,2537,2538],
+    'SeamMUX05': [2613,2614,2615,2616,2617,2618],
+    'SeamMUX06': [2207,2208,2209,2210,2211,2212],
+    'SeamMUX07': [2287,2288,2289,2290,2291,2292],
+    'SeamMUX08': [2367,2368,2369,2370,2371,2372],
+    'SeamMUX09': [2447,2448,2449,2450,2451,2452],
+    'SeamMUX10': [2527,2528,2529,2530,2531,2532],
+    'SeamMUX11': [2607,2608,2609,2610,2611,2612],
+}))
+
+# Same bitstream as above... 
+InstallTile(Tile('agm_JTAG_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_jtag',
+        'count': 1,
+        'inputs': ['tdouser'],
+        'outputs': ['tmsutap', 'tckutap', 'tdiutap', 'shiftuser', 'clkdruser', 'updateuser', 'runidleuser', 'usr1user'],
+    }
+], values={
+    'BBMUXS00':[2219,2179,2220,2180,2221,2181,2222,2182,2183],
+    'BBMUXS01':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
+    'BBMUXS02':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
+    'BBMUXS03':[2459,2419,2460,2420,2461,2421,2462,2422,2423],
+    'BBMUXS04':[2539,2499,2540,2500,2541,2501,2542,2502,2503],
+    'BBMUXS05':[2619,2579,2620,2580,2621,2581,2622,2582,2583],
+    'BBMUXS06':[2206,2166,2205,2165,2204,2164,2203,2163,2162],
+    'BBMUXS07':[2286,2246,2285,2245,2284,2244,2283,2243,2242],
+    'BBMUXS08':[2366,2326,2365,2325,2364,2324,2363,2323,2322],
+    'BBMUXS09':[2446,2406,2445,2405,2444,2404,2443,2403,2402],
+    'BBMUXS10':[2526,2486,2525,2485,2524,2484,2523,2483,2482],
+    'BBMUXS11':[2606,2566,2605,2565,2604,2564,2603,2563,2562],
+    'InputMUX00': [2235],
+    'InputMUX01': [2315],
+    'InputMUX02': [2395],
+    'InputMUX03': [2475],
+    'InputMUX04': [2232],
+    'InputMUX05': [2312],
+    'InputMUX06': [2392],
+    'InputMUX07': [2472],
+    'InputMUX08': [2229],
+    'InputMUX09': [2309],
+    'InputMUX10': [2389],
+    'InputMUX11': [2469],
+    'SeamMUX00': [2213,2214,2215,2216,2217,2218],
+    'SeamMUX01': [2293,2294,2295,2296,2297,2298],
+    'SeamMUX02': [2373,2374,2375,2376,2377,2378],
+    'SeamMUX03': [2453,2454,2455,2456,2457,2458],
+    'SeamMUX04': [2533,2534,2535,2536,2537,2538],
+    'SeamMUX05': [2613,2614,2615,2616,2617,2618],
+    'SeamMUX06': [2207,2208,2209,2210,2211,2212],
+    'SeamMUX07': [2287,2288,2289,2290,2291,2292],
+    'SeamMUX08': [2367,2368,2369,2370,2371,2372],
+    'SeamMUX09': [2447,2448,2449,2450,2451,2452],
+    'SeamMUX10': [2527,2528,2529,2530,2531,2532],
+    'SeamMUX11': [2607,2608,2609,2610,2611,2612],
+}, pseudos={
+    'BufMUX': 12,
+}))
+
+# Same bitstream as above... again... 
+InstallTile(Tile('agm_OSC_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_osc',
+        'count': 1,
+        'inputs': ['i_osc_enb'],
+        'outputs': ['o_osc'],
+    }
+], values={
+    'BBMUXS00':[2219,2179,2220,2180,2221,2181,2222,2182,2183],
+    'BBMUXS01':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
+    'BBMUXS02':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
+    'BBMUXS03':[2459,2419,2460,2420,2461,2421,2462,2422,2423],
+    'BBMUXS04':[2539,2499,2540,2500,2541,2501,2542,2502,2503],
+    'BBMUXS05':[2619,2579,2620,2580,2621,2581,2622,2582,2583],
+    'BBMUXS06':[2206,2166,2205,2165,2204,2164,2203,2163,2162],
+    'BBMUXS07':[2286,2246,2285,2245,2284,2244,2283,2243,2242],
+    'BBMUXS08':[2366,2326,2365,2325,2364,2324,2363,2323,2322],
+    'BBMUXS09':[2446,2406,2445,2405,2444,2404,2443,2403,2402],
+    'BBMUXS10':[2526,2486,2525,2485,2524,2484,2523,2483,2482],
+    'BBMUXS11':[2606,2566,2605,2565,2604,2564,2603,2563,2562],
+    'InputMUX00': [2235],
+    'InputMUX01': [2315],
+    'InputMUX02': [2395],
+    'InputMUX03': [2475],
+    'InputMUX04': [2232],
+    'InputMUX05': [2312],
+    'InputMUX06': [2392],
+    'InputMUX07': [2472],
+    'InputMUX08': [2229],
+    'InputMUX09': [2309],
+    'InputMUX10': [2389],
+    'InputMUX11': [2469],
+    'SeamMUX00': [2213,2214,2215,2216,2217,2218],
+    'SeamMUX01': [2293,2294,2295,2296,2297,2298],
+    'SeamMUX02': [2373,2374,2375,2376,2377,2378],
+    'SeamMUX03': [2453,2454,2455,2456,2457,2458],
+    'SeamMUX04': [2533,2534,2535,2536,2537,2538],
+    'SeamMUX05': [2613,2614,2615,2616,2617,2618],
+    'SeamMUX06': [2207,2208,2209,2210,2211,2212],
+    'SeamMUX07': [2287,2288,2289,2290,2291,2292],
+    'SeamMUX08': [2367,2368,2369,2370,2371,2372],
+    'SeamMUX09': [2447,2448,2449,2450,2451,2452],
+    'SeamMUX10': [2527,2528,2529,2530,2531,2532],
+    'SeamMUX11': [2607,2608,2609,2610,2611,2612],
+}, pseudos={
+    'BufMUX': 12,
+}))
+
+InstallTile(Tile('agm_remote', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_remote',
+        'count': 1,
+        'bad_wires': True,
+        'inputs': ['clk', 'shift', 'update', 'din', 'reconfig'],
+        'outputs': ['dout'],
+    }
+] ,values={
+    'BBMUXS01':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
+    'BBMUXS02':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
+    'BBMUXS03':[2459,2419,2460,2420,2461,2421,2462,2422,2423],
+    'BBMUXS04':[2539,2499,2540,2500,2541,2501,2542,2502,2503],
+    'BBMUXS05':[2619,2579,2620,2580,2621,2581,2622,2582,2583],
+}, pseudos={
+    'SinkMUXPseudo': 5,
+    'BufMUX': 1,
+}))
+
+InstallTile(Tile('agm_ufm', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, bels=[
+    {
+        'name': 'alta_ufml',
+        'count': 1,
+        'bad_wires': True,
+        'inputs': ['ufm_csn', 'ufm_sck', 'ufm_sdi'],
+        'outputs': ['ufm_sdo'],
+    }
+] ,values={
+    'BBMUXS01':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
+    'BBMUXS02':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
+    'BBMUXS03':[2459,2419,2460,2420,2461,2421,2462,2422,2423],
+}, pseudos={
+    'SinkMUXPseudo': 3,
+    'BufMUX': 1,
+}))

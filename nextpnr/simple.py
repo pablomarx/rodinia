@@ -35,6 +35,90 @@ else:
 def nameForTile(tile, row, col):
     return "%s(%02i,%02i)" % (tile.type, col, row)
 
+def createTileBELs(chip, tile, row, col):
+    tile_name = nameForTile(tile, row, col)
+    def io_str_parse(str, bad_wires):
+        if str[-1] != ']':
+            return (str, 0)
+        openb = str.rfind("[")
+        bits = str[openb+1:-1]
+        colon = bits.find(":")
+        high = int(bits[:colon])
+        low = int(bits[colon+1])
+        name = str[:openb]
+        if bad_wires:
+            if type(bad_wires) == bool:
+                return (name, 0)
+            elif type(bad_wires) == list and name in bad_wires:
+                return (name, 0)
+        return (name, high)
+    
+    for bel_info in tile.bels:
+        name = bel_info['name']
+        btype = bel_info.get('type', name)
+        num_slices = bel_info['count']
+        inputs = bel_info['inputs']
+        outputs = bel_info['outputs']
+        aliases = bel_info.get('aliases',{})
+        pseudo = bel_info.get('pseudo', False)
+        # Wire DB isn't correct for everything yet...
+        bad_wires = bel_info.get('bad_wires', None)
+        
+        for slice in range(0, num_slices):
+            if num_slices > 1:
+                bel_name = "%s:%s%02i" % (tile_name, name, slice)
+            else:
+                bel_name = tile_name
+            
+            if not pseudo:
+                #print("Adding bel:%s type:%s x:%s y:%s z:%s" % (bel_name, btype, col, row, slice))
+                ctx.addBel(name=bel_name, type=btype, loc=Loc(col, row, slice), gb=False)
+            wire_base = "%s:%s%02i" % (tile_name, name, slice)
+            
+            #
+            # Inputs
+            #
+            for an_input in inputs:
+                (name_base, count) = io_str_parse(an_input, bad_wires)
+                for idx in range(0, count+1):
+                    if count == 0:
+                        pin_name = name_base
+                    else:
+                        pin_name = "%s[%i]" % (name_base, idx)
+                    
+                    wire = "%s:%s" % (wire_base, pin_name)
+                    #print("input wire %s" % (wire))
+                    addWire(row, col, wire)
+                    if not pseudo:
+                        ctx.addBelInput(bel=bel_name, name=aliases.get(pin_name, pin_name), wire=wire)
+            
+            #
+            # Outputs
+            #
+            for an_output in outputs:
+                (name_base, count) = io_str_parse(an_output, bad_wires)
+                for idx in range(0, count+1):
+                    if count == 0:
+                        pin_name = name_base
+                    else:
+                        pin_name = "%s[%i]" % (name_base, idx)
+                    
+                    wire = "%s:%s" % (wire_base, pin_name)
+                    #print("output wire %s" % (wire))
+                    addWire(row, col, wire)
+                    if not pseudo:
+                        ctx.addBelOutput(bel=bel_name, name=aliases.get(pin_name, pin_name), wire=wire)
+                    #
+                    # Automatically connect pseudo in+outs
+                    #
+                    elif name_base.lower().endswith("out"):
+                        base = name_base[:-3]
+                        for an_input in inputs:
+                            if an_input.startswith(base):
+                                sink = "%s:%s" % (wire_base, an_input)
+                                createAlias(sink, wire, row, col)
+                                break
+
 # This would be an alta_slice in AGM speak
 def createLogicTile(chip, tile, row, col):
     assert row < chip.rows
@@ -135,6 +219,18 @@ def createClockIOTile(chip, tile, row, col):
         dest = tile_name+":"+outname
         addWire(row, col, dest, outname)
         createAlias(src, dest, row, col)
+        
+    if tile.name.startswith('agm'):
+        for num in range(0, 4):
+            inname = "alta_indel%02i:in" % num
+            src = tile_name+":"+inname
+            addWire(row, col, src, inname)
+    
+            outname = "alta_indel%02i:out" % num
+            dest = tile_name+":"+outname
+            addWire(row, col, dest, outname)
+            createAlias(src, dest, row, col)
+    
 
 # This would be an alta_rio in AGM speak
 def createIOTile(chip, tile, row, col):
@@ -151,7 +247,10 @@ def createIOTile(chip, tile, row, col):
         regs = ['combout', 'regout', 'paddataout']
         oname = None
         for reg_name in regs:
-            name = "alta_ioreg%02i:%s" % (z, reg_name)
+            if tile.name.startswith('agm'):
+                name = "alta_dioreg%02i:%s" % (z, reg_name)
+            else:
+                name = "alta_ioreg%02i:%s" % (z, reg_name)
             wire = "%s:%s" % (tile_name, name)
             addWire(row, col, wire)
             if reg_name == 'combout':
@@ -193,207 +292,8 @@ def createIOTile(chip, tile, row, col):
         outname = "alta_dpclkdel00:clkout"
         src = tile_name+":"+outname
         addWire(row, col, src, outname)
-
-def createMultTile(chip, tile, row, col):
-    assert row < chip.rows
-    assert col < chip.columns 
-    belname = nameForTile(tile, row, col)
-    ctx.addBel(name=belname, type="alta_mult", loc=Loc(col, row, 0), gb=False)
-    
-    wire_base = belname + ":alta_mult00:"
-    inputs = ['DataInA0', 'DataInA1', 'DataInB0', 'DataInB1']
-    for an_input in inputs:
-        for bit in range(0, 9):
-            pin = "%s[%i]" % (an_input, bit)
-            wire = wire_base + pin
-            addWire(row, col, wire)
-            ctx.addBelInput(bel=belname, name=pin, wire=wire)
-    
-    outputs = ['DataOut0', 'DataOut1']
-    for an_output in outputs:
-        for bit in range(0, 18):
-            pin = "%s[%i]" % (an_output, bit)
-            wire = wire_base + pin
-            addWire(row, col, wire)
-            ctx.addBelOutput(bel=belname, name=pin, wire=wire)
         
-    inputs = ['AsyncReset', 'Clk', 'ClkEn', 'SignA', 'SignB']
-    for pin in inputs:
-        wire = wire_base + pin
-        addWire(row, col, wire)
-        ctx.addBelInput(bel=belname, name=pin, wire=wire)
         
-def createPLLTile(chip, tile, row, col):
-    assert row < chip.rows
-    assert col < chip.columns 
-    belname = nameForTile(tile, row, col)
-    #print("Creating %s" % (belname))
-    ctx.addBel(name=belname, type="GENERIC_PLL", loc=Loc(col, row, 0), gb=False)
-    
-    if tile.name.endswith('PLLX'):
-        wire_base = "%s:alta_pllx00" % (belname)
-        num_clocks = 4
-    else:
-        wire_base = "%s:alta_pllv00" % (belname)
-        num_clocks = 5
-        
-    for clock in range(0, num_clocks):
-        output = "clkout%i" % (clock)
-        input = "clkout%ien" % (clock)
-
-        out_wire = "%s:%s" % (wire_base, output)
-        addWire(row, col, out_wire)
-        
-        in_wire = "%s:%s" % (wire_base, input)
-        addWire(row, col, in_wire)
-
-        ctx.addBelOutput(bel=belname, name=output, wire=out_wire)
-        ctx.addBelInput(bel=belname, name=input, wire=in_wire)
-    
-    inputs = ['clkin', 'pllen', 'resetn']
-    if tile.name.endswith('PLLX'):
-        inputs.append('clkfb')
-    
-    for an_input in inputs:
-        wire = "%s:%s" % (wire_base, an_input)
-        addWire(row, col, wire)
-        ctx.addBelInput(bel=belname, name=an_input, wire=wire)
-
-    for an_output in ['lock']:
-        wire = "%s:%s" % (wire_base, an_output)
-        addWire(row, col, wire)
-        ctx.addBelOutput(bel=belname, name=an_output, wire=wire)
-
-def createBootTile(chip, tile, row, col):
-    assert row < chip.rows
-    assert col < chip.columns 
-    belname = nameForTile(tile, row, col)
-    #print("Creating %s" % (belname))
-
-    ctx.addBel(name=belname, type="alta_boot", loc=Loc(col, row, 0), gb=False)
-    wire_prefix = "%s:alta_boot00" % (belname)
-    
-    inputs = ["i_osc_enb", "i_boot", "im_vector_sel"]
-    for an_input in inputs:
-        wire = "%s:%s" % (wire_prefix, an_input)
-        addWire(row, col, wire)
-        ctx.addBelInput(bel=belname, name=an_input, wire=wire)
-    
-    outputs = ["o_osc"]
-    for an_output in outputs:
-        wire = "%s:%s" % (wire_prefix, an_output)
-        addWire(row, col, wire)
-        ctx.addBelOutput(bel=belname, name=an_output, wire=wire)
-
-    for gdd in range(0, 8):
-        wire_prefix = "%s:alta_ufm_gddd%02i" % (belname, gdd)
-        inname = "in" 
-        src = wire_prefix+":"+inname
-        addWire(row, col, src, inname)
-    
-        outname = "out" 
-        dest = wire_prefix+":"+outname
-        addWire(row, col, dest, outname)
-        createAlias(src, dest, row, col)
-        
-    wire_prefix = "%s:alta_io_gclk00" % (belname)
-    inname = "in" 
-    src = wire_prefix+":"+inname
-    addWire(row, col, src, inname)
-    
-    outname = "out" 
-    dest = wire_prefix+":"+outname
-    addWire(row, col, dest, outname)
-    createAlias(src, dest, row, col)
-
-def createMCUTile(chip, tile, row, col):
-    assert row < chip.rows
-    assert col < chip.columns 
-    belname = nameForTile(tile, row, col)
-    #print("Creating %s" % (belname))
-    #ctx.addBel(name=belname, type="alta_mcu00", loc=Loc(col, row, 0), gb=False)
-    
-    wires = {
-        'CLK': 1, 'EXT_CPU_RST_n': 1, 'EXT_RAM_ADDR': 14, 'EXT_RAM_BYTE_EN': 4, 'EXT_RAM_EN': 1, 'EXT_RAM_RDATA': 32, 'EXT_RAM_WDATA': 32, 'EXT_RAM_WR': 1,
-        'FLASH_CS_n': 1, 'FLASH_IO0_SI': 1, 'FLASH_IO0_SI_i': 1, 'FLASH_IO1_SO': 1, 'FLASH_IO1_SO_i': 1, 'FLASH_IO2_WPn': 1, 'FLASH_IO2_WPn_i': 1, 'FLASH_IO3_HOLDn': 1,
-        'FLASH_IO3_HOLDn_i': 1, 'FLASH_SCK': 1, 'FLASH_SI_OE': 1, 'FLASH_SO_OE': 1, 'GPIO0_I': 8, 'GPIO0_O': 8, 'GPIO1_I': 8, 'GPIO1_O': 8,
-        'GPIO2_I': 8, 'GPIO2_O': 8, 'HADDR_EXT': 32, 'HOLDn_IO3_OE': 1, 'HRDATA_EXT': 32, 'HREADY_IN_EXT': 1, 'HREADY_OUT_EXT': 1, 'HRESP_EXT': 2,
-        'HSEL_EXT': 1, 'HSIZE_EXT': 3, 'HTRANS_EXT': 2, 'HWDATA_EXT': 32, 'HWRITE_EXT': 1, 'JTCK': 1, 'JTDI': 1, 'JTDO': 1,
-        'JTMS': 1, 'JTRST_n': 1, 'POR_n': 1, 'UART_CTS_n': 1, 'UART_RTS_n': 1, 'UART_RXD': 1, 'UART_TXD': 1, 'WPn_IO2_OE': 1,
-        'nGPEN0': 8, 'nGPEN1': 8, 'nGPEN2': 8,
-    }
-    wire_base = belname + ":alta_mcu00:"
-    for key in wires:
-        wire = wire_base + key
-        addWire(row, col, wire)
-
-def createJTAGTile(chip, tile, row, col):
-    assert row < chip.rows
-    assert col < chip.columns 
-    belname = nameForTile(tile, row, col)
-    #print("Creating %s" % (belname))
-    #ctx.addBel(name=belname, type="alta_jtag", loc=Loc(col, row, 0), gb=False)
-
-    wire_base = belname + ":alta_jtag00:"
-    inputs = ['clkdruser', 'runidleuser', 'shiftuser', 'tckutap', 'tdiutap', 'tdouser', 'tmsutap', 'updateuser', 'usr1user']
-    for an_input in inputs:
-        wire = wire_base + an_input
-        addWire(row, col, wire)
-
-def createBRAMTile(chip, tile, row, col):
-    assert row < chip.rows
-    assert col < chip.columns 
-    belname = nameForTile(tile, row, col)
-    #print("Creating %s" % (belname))
-    
-    if tile.name == "ALTA_EMB4K5":
-        wire_base = belname + ":alta_bram00:"
-        addr_len = 12
-        data_len = 18
-        configs = ["WeRenA", "WeRenB"]
-        type = "alta_bram"
-    else:
-        wire_base = belname + ":alta_bram9k00:"
-        addr_len = 13
-        data_len = 18
-        configs = ['WeA', 'WeB', 'ReA', 'ReB', 'ByteEnA', 'ByteEnB', 'AddressStallA', 'AddressStallB']  
-        type = "alta_bram9k"      
-        
-    ctx.addBel(name=belname, type=type, loc=Loc(col, row, 0), gb=False)
-    
-    for base in ["Clk", "ClkEn", "AsyncReset"]:
-        for port in range(0, 2):
-            pin = "%s%i"  % (base, port)
-            wire = wire_base + pin
-            addWire(row, col, wire)
-            ctx.addBelInput(bel=belname, name=pin, wire=wire)
-    
-    for pin in configs:
-        wire = wire_base + pin
-        addWire(row, col, wire)
-        ctx.addBelInput(bel=belname, name=pin, wire=wire)
-    
-    for address in ["AddressA", "AddressB"]:
-        for bit in range(0, addr_len):
-            pin = "%s[%i]" % (address, bit)
-            wire = wire_base + pin
-            addWire(row, col, wire)
-            ctx.addBelInput(bel=belname, name=pin, wire=wire)
-            
-    for data in ['DataOutA', 'DataOutB']:
-        for bit in range(0, data_len):
-            pin = "%s[%i]" % (data, bit)
-            wire = wire_base + pin
-            addWire(row, col, wire)
-            ctx.addBelOutput(bel=belname, name=pin, wire=wire)
-
-    for data in ['DataInA', 'DataInB']:
-        for bit in range(0, data_len):
-            pin = "%s[%i]" % (data, bit)
-            wire = wire_base + pin
-            addWire(row, col, wire)
-            ctx.addBelOutput(bel=belname, name=pin, wire=wire)
-
 def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
     assert row < chip.rows
     assert col < chip.columns 
@@ -447,26 +347,15 @@ for row in range(0, chip.rows):
 
             addWire(row, col, "%s(%02i,%02i):%s" % (ttype, col, row, key), "O0")
         
-        if ttype == "IOTILE":
+        if tile.bels:
+            createTileBELs(chip, tile, row, col)
+        elif ttype == "IOTILE":
             if "G5" in tile.name:
                 createClockIOTile(chip, tile, row, col)
             else:
                 createIOTile(chip, tile, row, col)
         elif ttype == "LogicTILE":
             createLogicTile(chip, tile, row, col)
-        elif ttype == "MultTILE":
-            createMultTile(chip, tile, row, col)
-        elif ttype == "BramTILE":
-            createBRAMTile(chip, tile, row, col)
-        elif ttype == "PLLTILE":
-            createPLLTile(chip, tile, row, col)
-        elif ttype == "UFMTILE":
-            if "MCU" in tile.name:
-                createMCUTile(chip, tile, row, col)
-            elif "JTAG" in tile.name:
-                createJTAGTile(chip, tile, row, col)
-            elif "BOOT" in tile.name or "boot" in tile.name:
-                createBootTile(chip, tile, row, col)
 
 #
 # Create Programmable Interconnect Points and Wires
