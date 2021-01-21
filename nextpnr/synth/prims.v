@@ -82,7 +82,7 @@ module alta_bram #(
 );
 endmodule
 
-module GENERIC_PLL #(
+module alta_pllx #(
   parameter CLKOUT0_DIV = 6'b000000,
   parameter CLKOUT1_DIV = 6'b000000,
   parameter CLKOUT2_DIV = 6'b000000,
@@ -97,7 +97,8 @@ module GENERIC_PLL #(
 	output clkout0, clkout1, clkout2, clkout3,
 	input pllen,
 	input resetn,
-	input clkfb
+	input clkfb,
+	output lock,
 );
 
 endmodule

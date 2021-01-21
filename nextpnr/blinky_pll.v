@@ -24,7 +24,7 @@ module top;
 
 wire clk_pll;
 
-GENERIC_PLL pll(
+alta_pllx pll(
 	.clkin(clk),
 	.clkout0(clk_pll),
 	.clkout0en(1'b1),

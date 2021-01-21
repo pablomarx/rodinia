@@ -1342,7 +1342,6 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
 InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
     {
         'name': 'alta_pllx',
-        'type': 'GENERIC_PLL',
         'count': 1,
         'inputs': [ 'clkin', 'clkfb', 'pllen', 'resetn', 'clkout0en', 'clkout1en', 'clkout2en', 'clkout3en' ],
         'outputs': [ 'clkout0', 'clkout1', 'clkout2', 'clkout3', 'lock' ],
