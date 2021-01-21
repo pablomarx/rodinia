@@ -216,11 +216,6 @@ def mux_format(bits, length, type):
     index = mux_decode(bits, length)
     return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
 
-def lut_slice_from_key(key):
-    if key.startswith("alta_slice") and key.endswith("_LUT"):
-        return int(key[10:-4])
-    return None
-
 def lut_encode(key, inbits):
     outbits = bits_invert(inbits)
     return outbits[::-1]
