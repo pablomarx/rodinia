@@ -284,8 +284,8 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstr
 }, pseudos={
 	'SinkMUXPseudo': 1,
 }, encoders={
-	'BBMUXN[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2),
-    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2),
+    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
+    'BBMUXN[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
 }))
 
 InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
@@ -444,11 +444,11 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
-	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=8
     'GclkDMUX00': lambda key,val: bits_invert(([0] * (4 - len(val))) + val),
+    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=8
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=7
+    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -604,10 +604,10 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_hei
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
-	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=8
+    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=8
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=7
+    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -768,11 +768,11 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
-	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=8
     'GclkDMUX00': lambda key,val: bits_invert(([0] * (4 - len(val))) + val),
+    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=8
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=7
+    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -933,10 +933,10 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', bitstream_width=34, bitstream_hei
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
-	'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=8
+    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=8
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=7
+    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -1252,15 +1252,15 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
     'PORTB_READONLY': lambda x: 'SEL_PORTMODE',
 }, encoders={
     'INIT_VAL': lambda key,val: val[::-1],
-	'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
-	'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
-    # XXX: Haven't verified...
-    'BramClkMUX0[0-9]': lambda key, val: mux_encode(val, 3, 1),
+
+    'BramClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
+    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=26
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
     'SeamMUX[0-9][0-9]': lambda key, val: mux_encode(val, 7, 1),
-    'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
-    'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 3, 0), 
-    'TileWeRenMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
+    'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
+    'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 3, 0), # bits=3, inputs=2
+    'TileWeRenMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
 }, annotations={
 	'BramClkMUX00': 'Clk0',
 	'BramClkMUX01': 'Clk1',
@@ -1749,13 +1749,16 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstre
     'alta_slice[0-9][0-9].FF_USED': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
 }, encoders={
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
     'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
     'LUTCMUX[0-9][0-9]': lambda key,val: [val[0], 0],
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
-	'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0),
-	'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 1),
+    
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
+    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=27
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
+    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 1),
+    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 0), # bits=3, inputs=2
+    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0),  # bits=4, inputs=3
+    'TileSyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 0), # bits=3, inputs=2
 }, annotations={
 	'IMUX00':'alta_slice00:A',
 	'IMUX01':'alta_slice00:B',
@@ -1947,6 +1950,8 @@ InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', bitstream_width=16, bitstream_heig
 	'IsoMUXPseudo': 4,
 }, formatters={
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
+}, encoders={
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
 }))
 
 
