@@ -2324,13 +2324,16 @@ InstallTile(Tile('agx_tile_logic', 'LogicTILE', bitstream_width=34, bitstream_he
     'alta_slice[0-9][0-9].FF_USED': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
 }, encoders={
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
     'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
     'LUTCMUX[0-9][0-9]': lambda key,val: [val[0], 0],
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1),
+    
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
+    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=27
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
+    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
+    'TileSyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }))
 
 InstallTile(Tile('agx_tile_route', 'RogicTILE', bitstream_width=16, bitstream_height=68, slices=0, values={
@@ -2456,7 +2459,7 @@ InstallTile(Tile('agx_tile_route', 'RogicTILE', bitstream_width=16, bitstream_he
     'IsoMUXPseudo': 4,
     'BufMUX': 16,
 }, encoders={
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
 }))
 
 InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_height=68, slices=0, bels=[
@@ -2635,6 +2638,13 @@ InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_hei
 }, pseudos={
     'BufMUX': 36,
     'IsoMUXPseudo': 4,
+}, encoders={
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 6, 4), # bits=10, inputs=24
+    'KMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 3), # bits=11, inputs=20
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
+    'TileAsyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
+    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 1), # bits=5, inputs=4
+    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
 }))
 
 InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_height=68, slices=0, bels=[
@@ -3040,18 +3050,17 @@ InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_h
     'IsoMUXPseudo': 6,
 }, encoders={
     'INIT_VAL': lambda key,val: val[::-1],
-    'TMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 3),
-    'KMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 4),
-
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3),
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3),
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4),
-
+    
     'BramClkMUX0[0-9]': lambda key, val: mux_encode(val, 3, 1),
+    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
+    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=26
+    'KMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 4),
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
     'SeamMUX[0-9][0-9]': lambda key, val: mux_encode(val, 5, 1),
-    'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
-    'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
-    'TileClkMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0),
+    'TMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 3), # bits=8, inputs=15
+    'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
+    'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
+    'TileClkMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
 }))
 
 
@@ -3106,7 +3115,7 @@ InstallTile(Tile('agx_io_E4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
+    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
 }))
 
 InstallTile(Tile('agx_io_E6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
@@ -4394,7 +4403,7 @@ InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
+    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
 }))
 
 InstallTile(Tile('agx_io_W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
@@ -4942,6 +4951,8 @@ InstallTile(Tile('agx_UFM_S', 'UFMTILE', bitstream_width=34, bitstream_height=68
     'SeamMUX11':[2264,2263,2262,2261,2260,2259],
 }, pseudos={
     'BufMUX': 12,
+}, encoders={
+    'BBMUXS[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
 }))
 
 # Same bitstream as above...
@@ -4992,6 +5003,8 @@ InstallTile(Tile('agx_tile_boot', 'UFMTILE', bitstream_width=34, bitstream_heigh
     'SeamMUX11':[2264,2263,2262,2261,2260,2259],
 }, pseudos={
     'BufMUX': 12,
+}, encoders={
+    'BBMUXS[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
 }))
 
 # The two PLL tiles appear identical other than E vs W in the BBMUX names
@@ -5023,6 +5036,8 @@ InstallTile(Tile('agx_pllv_E', 'PLLTILE', bitstream_width=20, bitstream_height=6
     'PllClkFbMUX': 1,
     'PllClkInMUX': 1,
     'PllSeamMUX': 1,
+}, encoders={
+    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
 }))
 
 InstallTile(Tile('agx_pllv_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
@@ -5053,6 +5068,8 @@ InstallTile(Tile('agx_pllv_W', 'PLLTILE', bitstream_width=20, bitstream_height=6
     'PllClkFbMUX': 1,
     'PllClkInMUX': 1,
     'PllSeamMUX': 1,
+}, encoders={
+    'BBMUXW[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
 }))
 
 # These are pseudo tiles.  The bits are handled in ConfigChains.  Here for wire/routing purposes.
