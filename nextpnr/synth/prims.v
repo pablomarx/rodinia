@@ -82,6 +82,53 @@ module alta_bram #(
 );
 endmodule
 
+(* blackbox *)
+module alta_bram9k #(
+	parameter CLKMODE = 2'b00,
+	parameter PACKEDMODE = 1'b0,
+	parameter PORTA_CLKIN_EN = 1'b0,
+	parameter PORTA_CLKOUT_EN = 1'b0,
+	parameter PORTB_CLKIN_EN = 1'b0,
+	parameter PORTB_CLKOUT_EN = 1'b0,
+	parameter PORTA_RSTIN_EN = 1'b0,
+	parameter PORTA_RSTOUT_EN = 1'b0,
+	parameter PORTB_RSTIN_EN = 1'b0,
+	parameter PORTB_RSTOUT_EN = 1'b0,
+	parameter PORTA_WIDTH = 5'b0,
+	parameter PORTB_WIDTH = 5'b00000,
+	parameter PORTA_WRITETHRU = 1'b0,
+	parameter PORTB_WRITETHRU = 1'b0,
+	parameter PORTA_OUTREG = 1'b0,
+	parameter PORTB_OUTREG = 1'b0,
+	parameter RSEN_DLY = 2'b00,
+	parameter DLYTIME = 2'b00,
+	parameter INIT_VAL = 9216'b0,
+	parameter Clk0CFG = 2'b00,
+	parameter Clk1CFG = 2'b00,
+)(
+	input [17:0] DataInA,
+	input [17:0] DataInB,
+	input [12:0] AddressA,
+	input [12:0] AddressB,
+	input [1:0] ByteEnA,
+	input [1:0] ByteEnB,
+	input Clk0,
+	input Clk1,
+	input ClkEn0,
+	input ClkEn1,
+	input AsyncReset0,
+	input AsyncReset1,
+	input AddressStallA,
+	input AddressStallB, 
+	input WeA,
+	input ReA,
+	input WeB,
+	input ReB,
+	output [17:0] DataOutA,
+	output [17:0] DataOutB,
+);
+endmodule
+
 module alta_pllx #(
   parameter CLKOUT0_DIV = 6'b000000,
   parameter CLKOUT1_DIV = 6'b000000,

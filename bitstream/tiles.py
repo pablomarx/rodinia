@@ -3060,6 +3060,13 @@ InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_h
     'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
     'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
     'TileClkMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
+}, key_transformers={
+    'PORTA_OUTREG': lambda x: 'SELOUT_A',
+    'PORTB_OUTREG': lambda x: 'SELOUT_B',
+    'PORTA_WIDTH': lambda x: 'DWSEL_A',
+    'PORTB_WIDTH': lambda x: 'DWSEL_B',
+    'PORTA_WRITETHRU': lambda x: 'SEL_WRITHU_A',
+    'PORTB_WRITETHRU': lambda x: 'SEL_WRITHU_A', 
 }))
 
 
