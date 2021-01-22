@@ -140,7 +140,9 @@ for line in lines:
             slice = int(key[8:10])
             if slice < 4:
                 for x in range (1, 4):
-                    tile.encode("IOMUX%02i" % (slice + (4 * x)), [0,0,0,0, 0,0,0], bits, False)
+                    name = "IOMUX%02i" % (slice + (4 * x))
+                    bit_len = len(tile.values[name])
+                    tile.encode(name, [0] * bit_len, bits, False)
 
 
 #
