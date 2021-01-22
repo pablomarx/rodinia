@@ -21,7 +21,7 @@
 # DEALINGS IN THE SOFTWARE.
 #
 import sys
-from chips import chips, ChipWithID
+from chips import ChipWithID
 from utils import *
 from breader import BinaryReader
 from lzw import lzw_decode
@@ -175,8 +175,14 @@ while reader.endOfFile() == False:
                 last_bits = bits
                 last_bit_len = bit_len
         elif dest & 0xf0 == 0x20:
-            print(".config_chain %s" % (dest & 0xf))
-            print(bits_to_string(bits[:bit_len]))
+            chain_id = dest & 0xf
+            chain = chip.configChain[chain_id]
+            exp_len = len(chain.empty_bits())
+            chain_bits = bits[:bit_len]
+            if chip.device_id == 0x01500010 and exp_len * 4 == bit_len:
+                chain_bits = [chain_bits[x] for x in range(0, len(chain_bits), 4)]
+            print(".config_chain %s" % (chain_id))
+            print(bits_to_string(chain_bits))
             print("");
         else: 
             print(".unknown_%s -1 -1" % hex(dest))

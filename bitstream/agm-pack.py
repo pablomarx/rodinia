@@ -129,6 +129,11 @@ for chain_id in range(0, len(chip.configChain)):
     chain = chain_with_id(chain_id)
     chain_bits = chain['bits']
     chain_len = len(chain_bits)
+    exp_len = len(chip.configChain[chain_id].empty_bits())
+    
+    if chip.device_id == 0x01500010 and exp_len == chain_len:
+        chain_bits = [chain_bits[x/4] for x in range(0, len(chain_bits) * 4)]
+        chain_len = len(chain_bits)
 
     num_padding_bits = round_up(chain_len, 32) - chain_len
 
