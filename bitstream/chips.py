@@ -1010,6 +1010,7 @@ AddChip(Chip('AG15K', 0x01500010, 30, 50, floorplan=[
     'lzw_length': 8,
     'variable_width': True,
 },
+wires_file='ag16k-wires.json.gz',
 extra={
     'chain_io_order': [
         (0,16,4), (0,16,5), (0,15,0), (0,15,1), (0,15,2), (0,15,3), (0,15,4), (0,14,0), (0,14,1), (0,14,2), (0,14,3), (0,14,4), (0,14,5), (0,13,1), (0,13,2), (0,13,3),
@@ -1030,75 +1031,75 @@ extra={
         (19,29,0), (17,29,3), (17,29,2), (16,29,3), (16,29,2), (16,29,1), (16,29,0), (0,16,0), (0,16,1), (0,16,2), (0,16,3),
     ],
     'dio_types_fields': {
-        "SINGLE": [
-            ("CFG_KEEP",2),
-            ("CFG_OPEN_DRAIN",1),
-            ("CFG_PULL_UP",1),
-            ("CFG_TRI_INPUT",1),
-            ("CFG_SSTL_SEL_CUA",3),
-            ("CFG_SSTL_INPUT_EN",1),
-            ("CFG_SSTL_OUT_EN",1),
-            ("CFG_PDRV",7),
-            ("CFG_NDRV",7),
-            ("CFG_ROCT_CAL_EN",1)
+        'SINGLE': [
+            ('KEEP',2),
+            ('OPEN_DRAIN',1),
+            ('PULL_UP',1),
+            ('TRI_INPUT',1),
+            ('SSTL_SEL_CUA',3),
+            ('SSTL_INPUT_EN',1),
+            ('SSTL_OUT_EN',1),
+            ('PDRV',7),
+            ('NDRV',7),
+            ('ROCT_CAL_EN',1)
         ],
-        "DIFFP": [
-            ("CFG_LVDS_IN_EN",1),
-            ("CFG_LVDS_IREF",10),
-            ("CFG_LVDS_SEL_CUA",3),
-            ("CFG_LVDS_OUT_EN",1),
-            ("CFG_KEEP",2),
-            ("CFG_OPEN_DRAIN",1),
-            ("CFG_PULL_UP",1),
-            ("CFG_TRI_INPUT",1),
-            ("CFG_SSTL_SEL_CUA",3),
-            ("CFG_SSTL_INPUT_EN",1),
-            ("CFG_SSTL_OUT_EN",1),
-            ("CFG_PDRV",7),
-            ("CFG_NDRV",7),
-            ("CFG_ROCT_CAL_EN",1)
+        'DIFFP': [
+            ('LVDS_IN_EN',1),
+            ('LVDS_IREF',10),
+            ('LVDS_SEL_CUA',3),
+            ('LVDS_OUT_EN',1),
+            ('KEEP',2),
+            ('OPEN_DRAIN',1),
+            ('PULL_UP',1),
+            ('TRI_INPUT',1),
+            ('SSTL_SEL_CUA',3),
+            ('SSTL_INPUT_EN',1),
+            ('SSTL_OUT_EN',1),
+            ('PDRV',7),
+            ('NDRV',7),
+            ('ROCT_CAL_EN',1)
         ],
-        "PSEUDO_DIFFP": [ 
-            ("CFG_LVDS_SEL_CUA",3),
-            ("CFG_LVDS_IN_EN",1),
-            ("CFG_KEEP",2),
-            ("CFG_OPEN_DRAIN",1),
-            ("CFG_PULL_UP",1),
-            ("CFG_TRI_INPUT",1),
-            ("CFG_SSTL_SEL_CUA",3),
-            ("CFG_SSTL_INPUT_EN",1),
-            ("CFG_SSTL_OUT_EN",1),
-            ("CFG_PDRV",7),
-            ("CFG_NDRV",7),
-            ("CFG_ROCT_CAL_EN",1)
+        'PSEUDO_DIFFP': [ 
+            ('LVDS_SEL_CUA',3),
+            ('LVDS_IN_EN',1),
+            ('KEEP',2),
+            ('OPEN_DRAIN',1),
+            ('PULL_UP',1),
+            ('TRI_INPUT',1),
+            ('SSTL_SEL_CUA',3),
+            ('SSTL_INPUT_EN',1),
+            ('SSTL_OUT_EN',1),
+            ('PDRV',7),
+            ('NDRV',7),
+            ('ROCT_CAL_EN',1)
         ],
-        "DIFFP_IN": [
-            ("CFG_LVDS_SEL_CUA",3),
-            ("CFG_LVDS_IN_EN",1),
-            ("CFG_TRI_INPUT",1),
-            ("CFG_SSTL_INPUT_EN",1),
-            ("CFG_SSTL_SEL_CUA",3)
+        'DIFFP_IN': [
+            ('LVDS_SEL_CUA',3),
+            ('LVDS_IN_EN',1),
+            ('TRI_INPUT',1),
+            ('SSTL_INPUT_EN',1),
+            ('SSTL_SEL_CUA',3)
         ],
-        "OCT_RDN": [
-            ("CFG_ROCT_EN",1),
-            ("CFG_SEL_CUA",1),
-            ("CFG_ROCTUSR",1),
-            ("CFG_OSCDIV",2),
-            ("CFG_KEEP",2),
-            ("CFG_OPEN_DRAIN",1),
-            ("CFG_PULL_UP",1),
-            ("CFG_TRI_INPUT",1),
-            ("CFG_SSTL_SEL_CUA",3),
-            ("CFG_SSTL_INPUT_EN",1),
-            ("CFG_SSTL_OUT_EN",1),
-            ("CFG_PDRV",7),
-            ("CFG_NDRV",7),
-            ("CFG_ROCT_CAL_EN",1)
+        'OCT_RDN': [
+            ('ROCT_EN',1),
+            ('SEL_CUA',1),
+            ('ROCTUSR',1),
+            ('OSCDIV',2),
+            ('KEEP',2),
+            ('OPEN_DRAIN',1),
+            ('PULL_UP',1),
+            ('TRI_INPUT',1),
+            ('SSTL_SEL_CUA',3),
+            ('SSTL_INPUT_EN',1),
+            ('SSTL_OUT_EN',1),
+            ('PDRV',7),
+            ('NDRV',7),
+            ('ROCT_CAL_EN',1)
         ],
-        "DIFFN_IN": [
-            ("CFG_TRI_INPUT",1),
-            ("CFG_SSTL_INPUT_EN",1),
-            ("CFG_SSTL_SEL_CUA",3)
+        'DIFFN_IN': [
+            ('TRI_INPUT',1),
+            ('SSTL_INPUT_EN',1),
+            ('SSTL_SEL_CUA',3)
         ],
     }
 }))
