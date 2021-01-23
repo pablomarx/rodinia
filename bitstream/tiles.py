@@ -8222,7 +8222,7 @@ InstallTile(Tile('agm_tile_route', 'RogicTILE', bitstream_width=20, bitstream_he
     'IsoMUXPseudo': 4,
 }, encoders={
     'LMUX[0-9][0-9]': lambda key,val: mux_encode(val, 12, 3), # bits=15, inputs=36
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 3), # bits=11, inputs=22
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 4), # bits=11, inputs=22
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
 }))
 
