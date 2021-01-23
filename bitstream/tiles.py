@@ -5637,6 +5637,7 @@ InstallTile(Tile('agm_io_N4_T2', 'IOTILE', bitstream_width=40, bitstream_height=
     'IsoMUXPseudo': 8,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -6112,6 +6113,7 @@ InstallTile(Tile('agm_io_S4_T2', 'IOTILE', bitstream_width=40, bitstream_height=
     'IsoMUXPseudo': 8,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -6319,6 +6321,7 @@ InstallTile(Tile('agm_io_S4', 'IOTILE', bitstream_width=40, bitstream_height=24,
     'BufMUX': 1,
     'IsoMUXPseudo': 8,
 }, defaults={
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 1],
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
@@ -6684,6 +6687,7 @@ InstallTile(Tile('agm_io_E|W6_T2', 'IOTILE', bitstream_width=20, bitstream_heigh
     'IsoMUXPseudo': 12,
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
+	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
@@ -8476,6 +8480,8 @@ InstallTile(Tile('agm_remote', 'UFMTILE', bitstream_width=40, bitstream_height=6
     'BBMUXS03':[2459,2419,2460,2420,2461,2421,2462,2422,2423],
     'BBMUXS04':[2539,2499,2540,2500,2541,2501,2542,2502,2503],
     'BBMUXS05':[2619,2579,2620,2580,2621,2581,2622,2582,2583],
+}, defaults={
+    'BBMUXS[0-9][0-9]': [1,1,1,1,1,1,1,1,1],
 }, pseudos={
     'SinkMUXPseudo': 5,
     'BufMUX': 1,
@@ -8493,6 +8499,8 @@ InstallTile(Tile('agm_ufm', 'UFMTILE', bitstream_width=40, bitstream_height=68, 
     'BBMUXS01':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
     'BBMUXS02':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
     'BBMUXS03':[2459,2419,2460,2420,2461,2421,2462,2422,2423],
+}, defaults={
+    'BBMUXS[0-9][0-9]': [1,1,1,1,1,1,1,1,1],
 }, pseudos={
     'SinkMUXPseudo': 3,
     'BufMUX': 1,
