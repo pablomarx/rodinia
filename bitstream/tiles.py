@@ -5850,7 +5850,7 @@ InstallTile(Tile('agm_io_N4', 'IOTILE', bitstream_width=40, bitstream_height=24,
 }, encoders={
     'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 2), # bits=5, inputs=6
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=6
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2), # bits=7, inputs=9
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=9
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }))
@@ -6325,7 +6325,7 @@ InstallTile(Tile('agm_io_S4', 'IOTILE', bitstream_width=40, bitstream_height=24,
 }, encoders={
     'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 2), # bits=5, inputs=6
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=6
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2), # bits=7, inputs=9
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=9
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }))
@@ -6689,7 +6689,7 @@ InstallTile(Tile('agm_io_E|W6_T2', 'IOTILE', bitstream_width=20, bitstream_heigh
 }, encoders={
     'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=9
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 4), # bits=7, inputs=9
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2), # bits=7, inputs=10
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 4), # bits=7, inputs=10
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }))
@@ -6992,7 +6992,7 @@ InstallTile(Tile('agm_io_E|W6', 'IOTILE', bitstream_width=20, bitstream_height=6
 }, encoders={
     'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=9
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 4), # bits=7, inputs=9
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2), # bits=7, inputs=10
+    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 4), # bits=7, inputs=10
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }))

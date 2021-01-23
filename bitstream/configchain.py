@@ -482,5 +482,31 @@ class ConfigChainDIO(ConfigChain):
             bits[offset+7] = 1
             bits[offset+8] = 1
             bits[offset+9] = 0
+
+        offset = self.offset_for_field_named(pin["name"] + "_NDRV")
+        if output and offset:
+            bits[offset+0] = 0
+            bits[offset+1] = 0
+            bits[offset+2] = 0
+            bits[offset+3] = 0
+            bits[offset+4] = 1
+            bits[offset+5] = 0
+            bits[offset+6] = 0
+
+        offset = self.offset_for_field_named(pin["name"] + "_PDRV")
+        if output and offset:
+            bits[offset+0] = 0
+            bits[offset+1] = 0
+            bits[offset+2] = 0
+            bits[offset+3] = 0
+            bits[offset+4] = 1
+            bits[offset+5] = 0
+            bits[offset+6] = 0
+            
+        offset = self.offset_for_field_named(pin["name"] + "_SSTL_SEL_CUA")
+        if offset:
+            bits[offset+0] = 1
+            bits[offset+1] = 1
+            bits[offset+2] = 0
                 
         return True
