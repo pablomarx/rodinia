@@ -130,60 +130,6 @@ def createTileBELs(chip, tile, row, col):
                                 createAlias(sink, wire, row, col)
                                 break
 
-# This would be an alta_slice in AGM speak
-def createLogicTile(chip, tile, row, col):
-    assert row < chip.rows
-    assert col < chip.columns 
-    tile_name = nameForTile(tile, row, col)
-    #print("Creating %s" % (tile_name))
-
-    for z in [0,1]:
-        pairs = [('alta_clkenctrl', 'ClkIn', 'ClkOut', 'ClkEn'), ('alta_asyncctrl', 'Din', 'Dout'), ('alta_syncctrl', 'Din', 'Dout')]
-        for a_pair in pairs:
-            base = "%s%02i:" % (a_pair[0], z)
-            input = a_pair[1]
-            output = a_pair[2]
-            
-            inname = base + input
-            src = tile_name+":"+inname
-            addWire(row, col, src, inname)
-        
-            outname = base + output
-            dest = tile_name+":"+outname
-            addWire(row, col, dest, outname)
-            createAlias(src, dest, row, col)
-
-            for index in range(3, len(a_pair)):
-                remainder = a_pair[index]
-                aname = base + remainder
-                dest = tile_name+":"+aname
-                addWire(row, col, dest, aname)
-    
-    for z in range(0, tile.slices):
-        slice_name = "alta_slice%02i" % z
-        
-        belname = tile_name + ":" + slice_name
-        ctx.addBel(name=belname, type="GENERIC_SLICE", loc=Loc(col, row, z), gb=False)
-
-        clkinstance = "ClkMUX%02i" % (z)
-        clkname = tile_name + ":" + clkinstance
-        #addWire(row, col, clkname, clkinstance) # should've been created in new wire creator
-        ctx.addBelInput(bel=belname, name="CLK", wire=clkname)
-
-        for k, n in [('A', 'I[0]'), ('B', 'I[1]'),
-                       ('C', 'I[2]'), ('D', 'I[3]')]:
-            inpname = "%s:%s" % (belname, k)
-            addWire(row, col, inpname, k)
-            ctx.addBelInput(bel=belname, name=n, wire=inpname)
-
-        qname = belname + ":Q"
-        addWire(row, col, qname, "Q")
-        ctx.addBelOutput(bel=belname, name="Q", wire=qname)
-
-        fname = belname + ":LutOut"
-        addWire(row, col, fname, "LutOut")
-        ctx.addBelOutput(bel=belname, name="F", wire=fname)
-
 def createClockIOTile(chip, tile, row, col):
     assert row < chip.rows
     assert col < chip.columns 
@@ -365,8 +311,6 @@ for row in range(0, chip.rows):
                 createClockIOTile(chip, tile, row, col)
             else:
                 createIOTile(chip, tile, row, col)
-        elif ttype == "LogicTILE":
-            createLogicTile(chip, tile, row, col)
 
 #
 # Create Programmable Interconnect Points and Wires

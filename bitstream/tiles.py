@@ -1997,7 +1997,47 @@ InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', bitstream_width=16, bitstream_heig
 #
 # For AG10K
 #
-InstallTile(Tile('agx_tile_logic', 'LogicTILE', bitstream_width=34, bitstream_height=68, slices=16, values={
+InstallTile(Tile('agx_tile_logic', 'LogicTILE', bitstream_width=34, bitstream_height=68, slices=16, bels=[
+    {
+        'name': 'alta_clkenctrl',
+        'count': 2,
+        'inputs': ['ClkIn', 'ClkEn'],
+        'outputs': ['ClkOut'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_asyncctrl',
+        'count': 2,
+        'inputs': ['Din'],
+        'outputs': ['Dout'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_syncctrl',
+        'count': 2,
+        'inputs': ['Din'],
+        'outputs': ['Dout'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_slice',
+        'type': 'GENERIC_SLICE',
+        'count': 16,
+        'inputs': ['A','B','C','D','Cin', 'SyncReset', 'SyncLoad', 'Clk', 'AsyncReset', 'Qin', 'ShiftData'],
+        'outputs': ['LutOut', 'Q', 'Cout'],
+        'parameters': {
+            'ClkMux': 2, 'AsyncResetMux': 2, 'SyncResetMux': 2, 'SyncLoadMux': 2, 'modeMux': 1,
+            'FeedbackMux': 1, 'ShiftMux': 1, 'BypassEn': 1, 'CarryEnb': 1
+        },
+        'aliases': {
+            'A': 'I[0]', 'B': 'I[1]', 'C': 'I[2]', 'D': 'I[3]', 'LutOut': 'F', 'Clk': 'CLK'
+        },
+        'wire_map': {
+            'Clk': 'ClkMUX', 'AsyncReset': 'AsyncMUX', 'ShiftData': 'ShiftMUX'
+            # 'SyncReset': 'SyncMUX', 
+        }
+    }
+], values={
     # Slice 0
     'AsyncMUX00': [32],
     'BYPASSEN00': [134],
@@ -7040,7 +7080,47 @@ InstallTile(Tile('agm_io_E|W6', 'IOTILE', bitstream_width=20, bitstream_height=6
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }))
 
-InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_height=68, slices=16, values={
+InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_height=68, slices=16, bels=[
+    {
+        'name': 'alta_clkenctrl',
+        'count': 2,
+        'inputs': ['ClkIn', 'ClkEn'],
+        'outputs': ['ClkOut'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_asyncctrl',
+        'count': 2,
+        'inputs': ['Din'],
+        'outputs': ['Dout'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_syncctrl',
+        'count': 2,
+        'inputs': ['Din'],
+        'outputs': ['Dout'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_slice',
+        'type': 'GENERIC_SLICE',
+        'count': 16,
+        'inputs': ['A','B','C','D','Cin', 'SyncReset', 'SyncLoad', 'Clk', 'AsyncReset', 'Qin', 'ShiftData'],
+        'outputs': ['LutOut', 'Q', 'Cout'],
+        'parameters': {
+            'ClkMux': 2, 'AsyncResetMux': 2, 'SyncResetMux': 2, 'SyncLoadMux': 2, 'modeMux': 1,
+            'FeedbackMux': 1, 'ShiftMux': 1, 'BypassEn': 1, 'CarryEnb': 1
+        },
+        'aliases': {
+            'A': 'I[0]', 'B': 'I[1]', 'C': 'I[2]', 'D': 'I[3]', 'LutOut': 'F', 'Clk': 'CLK'
+        },
+        'wire_map': {
+            'Clk': 'ClkMUX', 'AsyncReset': 'AsyncMUX', 'ShiftData': 'SHIFTMUX'
+            # 'SyncReset': 'SyncMUX', 
+        }
+    }
+], values={
     'AsyncMUX00': [37],
     'AsyncMUX01': [197],
     'AsyncMUX02': [357],
