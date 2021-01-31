@@ -453,7 +453,7 @@ class ConfigChainDIO(ConfigChain):
                 offset += 1
             return True
             
-        match = re.match("^alta_rio([0-9]*)\.(INPUT|OUTPUT)_USED$", key)
+        match = re.match("^alta_r?io([0-9]*)\.(INPUT|OUTPUT)_USED$", key)
         if not match:
             print("failed to match")
             return None

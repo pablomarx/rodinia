@@ -3149,9 +3149,45 @@ InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_h
 }))
 
 
-InstallTile(Tile('agx_io_E4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, values={
+InstallTile(Tile('agx_io_E4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, bels=[
+    {
+        'name': 'alta_io',
+        'type': 'GENERIC_IOB',
+        'gb': True,
+        'count': 4,
+        'inputs': [],
+        'outputs': ['combout'],
+        'aliases': {'combout': 'O'}
+    },
+    {
+        'name': 'alta_io_gclk',
+        'count': 5,
+        'inputs': ['inclk'],
+        'outputs': ['outclk'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclkgen',
+        'count': 5,
+        'inputs': ['clkin','ena'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclksel',
+        'count': 5,
+        'bad_wires': ['clkin','select'],
+        'inputs': ['clkin[3:0]','select[1:0]'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+], values={
     # SLICE_GCLKGEN##
-    'ENA_REG_MODE':[300,380,540,740,860],
+    'ENA_REG_MODE00':[300],
+    'ENA_REG_MODE01':[380],
+    'ENA_REG_MODE02':[540],
+    'ENA_REG_MODE03':[740],
+    'ENA_REG_MODE04':[860],
 	# 1 per slice
 	'GclkDMUX00': [360,320],
 	'GclkDMUX01': [520,480],
@@ -3198,7 +3234,7 @@ InstallTile(Tile('agx_io_E4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
 }, pseudos={
     'SinkMUXPseudo': 30
 }, key_transformers={
-    'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
+    'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
 }))
@@ -4433,7 +4469,39 @@ InstallTile(Tile('agx_io_S4', 'IOTILE', bitstream_width=34, bitstream_height=22,
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
 }))
 
-InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, values={
+InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, bels=[
+    {
+        'name': 'alta_io',
+        'type': 'GENERIC_IOB',
+        'gb': True,
+        'count': 4,
+        'inputs': [],
+        'outputs': ['combout'],
+        'aliases': {'combout': 'O'}
+    },
+    {
+        'name': 'alta_io_gclk',
+        'count': 5,
+        'inputs': ['inclk'],
+        'outputs': ['outclk'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclkgen',
+        'count': 5,
+        'inputs': ['clkin','ena'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclksel',
+        'count': 5,
+        'bad_wires': ['clkin','select'],
+        'inputs': ['clkin[3:0]','select[1:0]'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+],  values={
     # SLICE_GCLKGEN##
     'ENA_REG_MODE00':[300],
     'ENA_REG_MODE01':[380],
@@ -4486,7 +4554,7 @@ InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
 }, pseudos={
     'SinkMUXPseudo': 30
 }, key_transformers={
-    'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
+    'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
 }))
@@ -5462,8 +5530,51 @@ InstallTile(Tile('agm_PLLVE_W', 'PLLTILE', bitstream_width=20, bitstream_height=
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_io_N4_G5', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=5, values={
-    'ENA_REG_MODE':[116,117,436,437,756],
+InstallTile(Tile('agm_io_N4_G5', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=5, bels=[
+    {
+        'name': 'alta_io',
+        'type': 'GENERIC_IOB',
+        'gb': True,
+        'count': 4,
+        'inputs': [],
+        'outputs': ['combout'],
+        'aliases': {'combout': 'O'}
+    },
+    {
+        'name': 'alta_io_gclk',
+        'count': 5,
+        'inputs': ['inclk'],
+        'outputs': ['outclk'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclkgen',
+        'count': 5,
+        'inputs': ['clkin','ena'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclksel',
+        'count': 5,
+        'bad_wires': ['clkin','select'],
+        'inputs': ['clkin[3:0]','select[1:0]'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_indel',
+        'count': 4,
+        'inputs': ['in'],
+        'outputs': ['out'],
+        'pseudo': True
+    }
+],  values={
+    'ENA_REG_MODE00':[116],
+    'ENA_REG_MODE01':[117],
+    'ENA_REG_MODE02':[436],
+    'ENA_REG_MODE03':[437],
+    'ENA_REG_MODE04':[756],
     'GclkDMUX00': [276,277],
     'GclkDMUX01': [316,317],
     'GclkDMUX02': [596,597],
@@ -5511,7 +5622,7 @@ InstallTile(Tile('agm_io_N4_G5', 'IOTILE', bitstream_width=40, bitstream_height=
     'BufMUX': 1,
     'SinkMUXPseudo': 30,
 }, key_transformers={
-    'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
+    'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
@@ -5935,8 +6046,51 @@ InstallTile(Tile('agm_io_N4', 'IOTILE', bitstream_width=40, bitstream_height=24,
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
 }))
 
-InstallTile(Tile('agm_io_S4_G5', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=5, values={
-    'ENA_REG_MODE':[876,877,556,557,236],
+InstallTile(Tile('agm_io_S4_G5', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=5, bels=[
+    {
+        'name': 'alta_io',
+        'type': 'GENERIC_IOB',
+        'gb': True,
+        'count': 4,
+        'inputs': [],
+        'outputs': ['combout'],
+        'aliases': {'combout': 'O'}
+    },
+    {
+        'name': 'alta_io_gclk',
+        'count': 5,
+        'inputs': ['inclk'],
+        'outputs': ['outclk'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclkgen',
+        'count': 5,
+        'inputs': ['clkin','ena'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclksel',
+        'count': 5,
+        'bad_wires': ['clkin','select'],
+        'inputs': ['clkin[3:0]','select[1:0]'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_indel',
+        'count': 4,
+        'inputs': ['in'],
+        'outputs': ['out'],
+        'pseudo': True
+    }
+], values={
+    'ENA_REG_MODE00':[876],
+    'ENA_REG_MODE01':[877],
+    'ENA_REG_MODE02':[556],
+    'ENA_REG_MODE03':[557],
+    'ENA_REG_MODE04':[236],
     'GclkDMUX00': [716,717],
     'GclkDMUX01': [676,677],
     'GclkDMUX02': [396,397],
@@ -5984,7 +6138,7 @@ InstallTile(Tile('agm_io_S4_G5', 'IOTILE', bitstream_width=40, bitstream_height=
     'BufMUX': 1,
     'SinkMUXPseudo': 30,
 }, key_transformers={
-    'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
+    'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
@@ -6413,7 +6567,46 @@ InstallTile(Tile('agm_io_S4', 'IOTILE', bitstream_width=40, bitstream_height=24,
 }))
 
 # The east and west pairs are identical...
-InstallTile(Tile('agm_io_E|W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, values={
+InstallTile(Tile('agm_io_E|W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, bels=[
+    {
+        'name': 'alta_io',
+        'type': 'GENERIC_IOB',
+        'gb': True,
+        'count': 4,
+        'inputs': [],
+        'outputs': ['combout'],
+        'aliases': {'combout': 'O'}
+    },
+    {
+        'name': 'alta_io_gclk',
+        'count': 5,
+        'inputs': ['inclk'],
+        'outputs': ['outclk'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclkgen',
+        'count': 5,
+        'inputs': ['clkin','ena'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_gclksel',
+        'count': 5,
+        'bad_wires': ['clkin','select'],
+        'inputs': ['clkin[3:0]','select[1:0]'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    },
+    {
+        'name': 'alta_indel',
+        'count': 4,
+        'inputs': ['in'],
+        'outputs': ['out'],
+        'pseudo': True
+    }
+], values={
     'ENA_REG_MODE00': [300],
     'ENA_REG_MODE01': [380],
     'ENA_REG_MODE02': [540],
@@ -6466,7 +6659,7 @@ InstallTile(Tile('agm_io_E|W4_G5', 'IOTILE', bitstream_width=20, bitstream_heigh
     'BufMUX': 1,
     'SinkMUXPseudo': 30,
 }, key_transformers={
-    'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
+    'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
 }, encoders={
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6

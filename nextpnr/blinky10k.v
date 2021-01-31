@@ -1,7 +1,7 @@
 module top;
 
 	wire clk;
-	(* BEL="IOTILE(40,12):alta_rio02", keep *) /* PIN_112 */
+	(* BEL="IOTILE(40,12):alta_io02", keep *) /* PIN_112 */
 	GENERIC_IOB #(.INPUT_USED(1), .OUTPUT_USED(0)) clk_ibuf (.O(clk));
 //	(* BEL="IOTILE(40,05):alta_rio01", keep *) /* PIN_95 */
 //	GENERIC_IOB #(.INPUT_USED(1), .OUTPUT_USED(0)) clk_ibuf (.O(clk));

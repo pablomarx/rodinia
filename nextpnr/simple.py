@@ -62,6 +62,7 @@ def createTileBELs(chip, tile, row, col):
         aliases = bel_info.get('aliases',{})
         mappings = bel_info.get('wire_map',{})
         pseudo = bel_info.get('pseudo', False)
+        gb = bel_info.get('gb', False)
         # Wire DB isn't correct for everything yet...
         bad_wires = bel_info.get('bad_wires', None)
         
@@ -73,7 +74,7 @@ def createTileBELs(chip, tile, row, col):
             
             if not pseudo:
                 #print("Adding bel:%s type:%s x:%s y:%s z:%s" % (bel_name, btype, col, row, slice))
-                ctx.addBel(name=bel_name, type=btype, loc=Loc(col, row, slice), gb=False)
+                ctx.addBel(name=bel_name, type=btype, loc=Loc(col, row, slice), gb=gb)
             wire_base = "%s:%s%02i" % (tile_name, name, slice)
             
             #
@@ -122,73 +123,26 @@ def createTileBELs(chip, tile, row, col):
                     #
                     # Automatically connect pseudo in+outs
                     #
-                    elif name_base.lower().endswith("out"):
-                        base = name_base[:-3]
+                    else:
+                        base = None
+                        head = None
+                        if name_base.lower().endswith("out"):
+                            base = name_base[:-3]
+                            head = True
+                        elif name_base.lower().startswith("out"):
+                            base = name_base[3:]
+                            head = False
+                        if head == None:
+                            continue
+                        
                         for an_input in inputs:
-                            if an_input.startswith(base):
+                            if (head and an_input.startswith(base)) or (not head and an_input.endswith(base)):
+                                if an_input[-1] == ']':
+                                    an_input = an_input[0:an_input.index('[')]
                                 sink = "%s:%s" % (wire_base, an_input)
                                 createAlias(sink, wire, row, col)
                                 break
-
-def createClockIOTile(chip, tile, row, col):
-    assert row < chip.rows
-    assert col < chip.columns 
-    tile_name = nameForTile(tile, row, col)
-
-    for z in range(0, tile.slices):
-        belname = "%s:alta_rio%02i" % (tile_name, z)
-        ctx.addBel(name=belname, type="GENERIC_IOB", loc=Loc(col, row, z), gb=True)
-
-        name = "alta_io%02i:combout" % (z)
-        wire = "%s:%s" % (tile_name, name)
-        addWire(row, col, wire)
-        ctx.addBelOutput(bel=belname, name="O", wire=wire)
     
-    num_clocks = 5
-
-    for clock in range(0, num_clocks):
-        # alta_io_gclk
-        inname = "alta_io_gclk%02i:inclk" % clock
-        src = tile_name+":"+inname
-        addWire(row, col, src, inname)
-    
-        outname = "alta_io_gclk%02i:outclk" % clock
-        dest = tile_name+":"+outname
-        addWire(row, col, dest, outname)
-        createAlias(src, dest, row, col)
-        
-        # alta_gclkgen
-        inname = "alta_gclkgen%02i:clkin" % clock
-        src = tile_name+":"+inname
-        addWire(row, col, src, inname)
-    
-        outname = "alta_gclkgen%02i:clkout" % clock
-        dest = tile_name+":"+outname
-        addWire(row, col, dest, outname)
-        createAlias(src, dest, row, col)
-
-        # alta_gclksel
-        inname = "alta_gclksel%02i:clkin" % clock
-        src = tile_name+":"+inname
-        addWire(row, col, src, inname)
-    
-        outname = "alta_gclksel%02i:clkout" % clock
-        dest = tile_name+":"+outname
-        addWire(row, col, dest, outname)
-        createAlias(src, dest, row, col)
-        
-    if tile.name.startswith('agm'):
-        for num in range(0, 4):
-            inname = "alta_indel%02i:in" % num
-            src = tile_name+":"+inname
-            addWire(row, col, src, inname)
-    
-            outname = "alta_indel%02i:out" % num
-            dest = tile_name+":"+outname
-            addWire(row, col, dest, outname)
-            createAlias(src, dest, row, col)
-    
-
 # This would be an alta_rio in AGM speak
 def createIOTile(chip, tile, row, col):
     assert row < chip.rows
@@ -307,10 +261,7 @@ for row in range(0, chip.rows):
         if tile.bels:
             createTileBELs(chip, tile, row, col)
         elif ttype == "IOTILE":
-            if "G5" in tile.name:
-                createClockIOTile(chip, tile, row, col)
-            else:
-                createIOTile(chip, tile, row, col)
+            createIOTile(chip, tile, row, col)
 
 #
 # Create Programmable Interconnect Points and Wires
