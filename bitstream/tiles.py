@@ -243,7 +243,6 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstr
     {
         'name': 'alta_boot',
         'count': 1,
-        'bad_wires': ['im_vector_sel'],
         'inputs': [ 'i_boot', 'im_vector_sel[1:0]', 'i_osc_enb' ],
         'outputs': [ 'o_osc' ],
     },
