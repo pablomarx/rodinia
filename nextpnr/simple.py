@@ -60,6 +60,7 @@ def createTileBELs(chip, tile, row, col):
         inputs = bel_info['inputs']
         outputs = bel_info['outputs']
         aliases = bel_info.get('aliases',{})
+        mappings = bel_info.get('wire_map',{})
         pseudo = bel_info.get('pseudo', False)
         # Wire DB isn't correct for everything yet...
         bad_wires = bel_info.get('bad_wires', None)
@@ -86,9 +87,14 @@ def createTileBELs(chip, tile, row, col):
                     else:
                         pin_name = "%s[%i]" % (name_base, idx)
                     
-                    wire = "%s:%s" % (wire_base, pin_name)
-                    #print("input wire %s" % (wire))
-                    addWire(row, col, wire)
+                    if pin_name in mappings:
+                        wire = "%s:%s%02i" % (tile_name, mappings[pin_name], slice)
+                    else:
+                        wire = "%s:%s" % (wire_base, pin_name)
+
+                    if not "MUX" in wire:
+                        #print("input wire %s" % (wire))
+                        addWire(row, col, wire)
                     if not pseudo:
                         ctx.addBelInput(bel=bel_name, name=aliases.get(pin_name, pin_name), wire=wire)
             
@@ -103,9 +109,14 @@ def createTileBELs(chip, tile, row, col):
                     else:
                         pin_name = "%s[%i]" % (name_base, idx)
                     
-                    wire = "%s:%s" % (wire_base, pin_name)
-                    #print("output wire %s" % (wire))
-                    addWire(row, col, wire)
+                    if pin_name in mappings:
+                        wire = "%s:%s%02i" % (tile_name, mappings[pin_name], slice)
+                    else:
+                        wire = "%s:%s" % (wire_base, pin_name)
+
+                    if not "MUX" in wire:
+                        #print("output wire %s" % (wire))
+                        addWire(row, col, wire)
                     if not pseudo:
                         ctx.addBelOutput(bel=bel_name, name=aliases.get(pin_name, pin_name), wire=wire)
                     #

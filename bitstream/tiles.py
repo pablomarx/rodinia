@@ -1348,7 +1348,47 @@ InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, 
 	'SinkMUXPseudo': 6,
 }))
 
-InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstream_height=68, slices=16, values={
+InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstream_height=68, slices=16, bels=[
+    {
+        'name': 'alta_clkenctrl',
+        'count': 2,
+        'inputs': ['ClkIn', 'ClkEn'],
+        'outputs': ['ClkOut'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_asyncctrl',
+        'count': 2,
+        'inputs': ['Din'],
+        'outputs': ['Dout'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_syncctrl',
+        'count': 2,
+        'inputs': ['Din'],
+        'outputs': ['Dout'],
+        'pseudo': True,
+    },
+    {
+        'name': 'alta_slice',
+        'type': 'GENERIC_SLICE',
+        'count': 16,
+        'inputs': ['A','B','C','D','Cin', 'SyncReset', 'SyncLoad', 'Clk', 'AsyncReset', 'Qin', 'ShiftData'],
+        'outputs': ['LutOut', 'Q', 'Cout'],
+        'parameters': {
+            'ClkMux': 2, 'AsyncResetMux': 2, 'SyncResetMux': 2, 'SyncLoadMux': 2, 'modeMux': 1,
+            'FeedbackMux': 1, 'ShiftMux': 1, 'BypassEn': 1, 'CarryEnb': 1
+        },
+        'aliases': {
+            'A': 'I[0]', 'B': 'I[1]', 'C': 'I[2]', 'D': 'I[3]', 'LutOut': 'F', 'Clk': 'CLK'
+        },
+        'wire_map': {
+            'Clk': 'ClkMUX', 'AsyncReset': 'AsyncMUX', 'ShiftData': 'SHIFTMUX'
+            # 'SyncReset': 'SyncMUX', 
+        }
+    }
+], values={
 	# 16 slices per tile
 
     # Presumably selects between alta_asyncctrl00:Dout/TileAsyncMUX00 
