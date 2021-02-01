@@ -953,20 +953,31 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
         'outputs': [
             'DataOutA[17:0]', 'DataOutB[17:0]', 
         ],
+        'parameters': {
+            'INIT_VAL': 4608, 'CLKMODE': 1, 
+            'PORTA_WIDTH': 4, 'PORTA_WRITEMODE': 1, 'PORTA_WRITETHRU': 1, 'PORTA_OUTREG': 1,
+            'PORTB_WIDTH': 4, 'PORTB_WRITEMODE': 1, 'PORTB_WRITETHRU': 1, 'PORTB_OUTREG': 1, 'PORTB_READONLY': 1
+        }
     }
 ], values={
+	'CLKMODE': [ 3703 ],
+	'PORTA_WIDTH': [ 1542, 462, 1326, 570 ],   # was DWSEL_A0
+	'PORTB_WIDTH': [ 5754, 6834, 5970, 6726 ], # was DWSEL_B0
+	'PORTA_OUTREG': [ 30 ],                    # was SELOUT_A
+	'PORTB_OUTREG': [ 7266 ],                  # was SELOUT_B
+	'PORTA_WRITEMODE': [ 1866 ],               # was SEL_WKMODE_A
+	'PORTB_WRITEMODE': [ 5430 ],               # was SEL_WKMODE_B
+	'PORTA_WRITETHRU': [ 3270 ],               # was SEL_WRTHU_A
+	'PORTB_WRITETHRU': [ 4026 ],               # was SEL_WRTHU_B
+	'PORTB_READONLY': [ 3918 ],                # was SEL_PORTMODE
+
 	'BramClkMUX00': [ 3489, 3490, 3491, 3488 ], # alta_bram00:Clk0
 	'BramClkMUX01': [ 3813, 3814, 3815, 3812 ], # alta_bram00:Clk1
-
-	'CLKMODE': [ 3703 ],
 
 	'CtrlMUX00':[3472,3580,3473,3581,3474,3582,3475,3583,3585,3584,3477,3476],   # BramClkMUX00 | TileWeRenMUX00
 	'CtrlMUX01':[3483,3591,3482,3590,3481,3589,3480,3588,3586,3587,3478,3479],   # BramClkMUX01 | TileWeRenMUX01
 	'CtrlMUX02':[3796,3688,3797,3689,3798,3690,3799,3691,3693,3692,3801,3800],   # TileAsyncMUX00 | TileClkEnMUX00
 	'CtrlMUX03':[3807,3699,3806,3698,3805,3697,3804,3696,3694,3695,3802,3803],   # TileAsyncMUX01 | TileClkEnMUX01
-
-	'DWSEL_A0': [ 1542, 462, 1326, 570 ],
-	'DWSEL_B0': [ 5754, 6834, 5970, 6726 ],
 
 	'IMUX00':[16,124,17,125,18,126,19,127,20,21,129,128],       # AddressA[0]
 	'IMUX01':[27,135,26,134,25,133,24,132,23,22,130,131],       # AddressA[1]
@@ -1137,14 +1148,6 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
 	'SeamMUX04':[2592,2700,2808,2916,3024,3132,3240,3348],   # TileWeRenMUX00 
 	'SeamMUX05':[4644,4536,4428,4320,4212,4104,3996,3888],   # TileWeRenMUX01
 
-	'SELOUT_A': [ 30 ],
-	'SELOUT_B': [ 7266 ],
-	'SEL_PORTMODE': [ 3918 ],
-	'SEL_WKMODE_A': [ 1866 ],
-	'SEL_WKMODE_B': [ 5430 ],
-	'SEL_WRTHU_A': [ 3270 ],
-	'SEL_WRTHU_B': [ 4026 ],
-
 	'TileAsyncMUX00':[3486,3485,3484,3487],  # alta_bram00:AsyncReset0
 	'TileAsyncMUX01':[3810,3809,3808,3811],  # alta_bram00:AsyncReset1
 
@@ -1238,17 +1241,6 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
 	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
 	'IMUX[0-9][0-9]': lambda key,val: mux_format(val, 9, 'I'),
 	'CtrlMUX[0-9][0-9]': lambda key,val: mux_format(val, 8, 'I'),
-}, key_transformers={
-    'INIT_VAL\[[^\]]*]': lambda x: 'INIT_VAL',
-    'PORTA_WRITEMODE': lambda x: 'SEL_WKMODE_A',
-    'PORTB_WRITEMODE': lambda x: 'SEL_WKMODE_B',
-    'PORTA_WRITETHRU': lambda x: 'SEL_WRTHU_A',
-    'PORTB_WRITETHRU': lambda x: 'SEL_WRTHU_B',
-    'PORTA_OUTREG': lambda x: 'SELOUT_A',
-    'PORTB_OUTREG': lambda x: 'SELOUT_B',
-    'PORTA_WIDTH': lambda x: 'DWSEL_A0',
-    'PORTB_WIDTH': lambda x: 'DWSEL_B0',
-    'PORTB_READONLY': lambda x: 'SEL_PORTMODE',
 }, encoders={
     'INIT_VAL': lambda key,val: val[::-1],
 
