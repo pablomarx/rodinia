@@ -5,7 +5,7 @@ from write_fasm import *
 param_map = {
 	("GENERIC_SLICE", "K"): ParameterConfig(write=False),
 	("GENERIC_SLICE", "INIT"): ParameterConfig(write=True, numeric=True, width=2**4),
-	("GENERIC_SLICE", "FF_USED"): ParameterConfig(write=True, numeric=True, width=1),
+	("GENERIC_SLICE", "FF_USED"): ParameterConfig(write=True, numeric=True, width=1, alias="CARRY_CRL"),
 
 	("GENERIC_IOB", "INPUT_USED"): ParameterConfig(write=True, numeric=True, width=1),
 	("GENERIC_IOB", "OUTPUT_USED"): ParameterConfig(write=True, numeric=True, width=1),

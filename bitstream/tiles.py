@@ -1777,7 +1777,7 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstre
 	'TileClkMUX0[01]': lambda key,val: bits_to_string(val, 4, True),
 	'TileSyncMUX0[01]': lambda key,val: bits_to_string(val, 3, True),
 }, key_transformers={
-    'alta_slice[0-9][0-9].FF_USED': lambda x: "CARRY_CRL"+x[10:12],
+    'alta_slice[0-9][0-9].CARRY_CRL': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
 }, encoders={
     'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
@@ -2391,7 +2391,7 @@ InstallTile(Tile('agx_tile_logic', 'LogicTILE', bitstream_width=34, bitstream_he
     'SinkMUXPseudo': 32,
     'IsoMUXPseudo': 4,
 }, key_transformers={
-    'alta_slice[0-9][0-9].FF_USED': lambda x: "CARRY_CRL"+x[10:12],
+    'alta_slice[0-9][0-9].CARRY_CRL': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
 }, encoders={
     'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
@@ -7651,7 +7651,7 @@ InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_he
     'IsoMUXPseudo': 4,
     'SinkMUXPseudo': 32,
 }, key_transformers={
-    'alta_slice[0-9][0-9].FF_USED': lambda x: "CARRY_CRL"+x[10:12],
+    'alta_slice[0-9][0-9].CARRY_CRL': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
 }, encoders={
     'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
