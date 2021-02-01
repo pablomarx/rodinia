@@ -287,7 +287,15 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstr
     'BBMUXN[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
 }))
 
-InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
+InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, bels=[
+    {
+        'name': 'alta_io_gclk',
+        'count': 1,
+        'inputs': ['inclk'],
+        'outputs': ['outclk'],
+        'pseudo': True
+    }
+], values={
 	# Tile is identical to AG1200_IOTILE_N4, with the addition of CFG_GclkDMUX00
 
 	'CtrlMUX00': [ 274, 308, 273, 307, 272, 306 ],
@@ -612,7 +620,15 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_hei
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, values={
+InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, bels=[
+    {
+        'name': 'alta_io_gclk',
+        'count': 1,
+        'inputs': ['inclk'],
+        'outputs': ['outclk'],
+        'pseudo': True
+    }
+], values={
 	# Tile is identical to AG1200_TILE_S4, with the addition of CFG_GclkDMUX00
 	'CtrlMUX00': [ 376, 342, 375, 341, 374, 340 ],
 	'CtrlMUX01': [ 308, 274, 307, 273, 306, 272 ],
@@ -3231,7 +3247,15 @@ InstallTile(Tile('agx_io_E4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
 }))
 
-InstallTile(Tile('agx_io_E6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
+InstallTile(Tile('agx_io_E6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, bels=[
+    {
+        'name': 'alta_dpclkdel',
+        'count': 1,
+        'inputs': ['clkin'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+], values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -3737,7 +3761,15 @@ InstallTile(Tile('agx_io_E6', 'IOTILE', bitstream_width=20, bitstream_height=68,
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
 }))
 
-InstallTile(Tile('agx_io_N4_T2', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, values={
+InstallTile(Tile('agx_io_N4_T2', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, bels=[
+    {
+        'name': 'alta_dpclkdel',
+        'count': 1,
+        'inputs': ['clkin'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+], values={
 	# 2 per slice
 	'CtrlMUX00': [342,376,341,375,340,374],
 	'CtrlMUX01': [410,444,409,443,408,442],
@@ -4099,7 +4131,15 @@ InstallTile(Tile('agx_io_N4', 'IOTILE', bitstream_width=34, bitstream_height=22,
     'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
 }))
 
-InstallTile(Tile('agx_io_S4_T2', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, values={
+InstallTile(Tile('agx_io_S4_T2', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, bels=[
+    {
+        'name': 'alta_dpclkdel',
+        'count': 1,
+        'inputs': ['clkin'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+], values={
 	# 2 per slice
 	'CtrlMUX00': [376,342,375,341,374,340],
 	'CtrlMUX01': [308,274,307,273,306,272],
@@ -4551,7 +4591,15 @@ InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
     'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
 }))
 
-InstallTile(Tile('agx_io_W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
+InstallTile(Tile('agx_io_W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, bels=[
+    {
+        'name': 'alta_dpclkdel',
+        'count': 1,
+        'inputs': ['clkin'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+], values={
 	# 2 per slice
 	'CtrlMUX00': [328,348,329,349,330,350],
 	'CtrlMUX01': [368,388,369,389,370,390],
@@ -5620,7 +5668,15 @@ InstallTile(Tile('agm_io_N4_G5', 'IOTILE', bitstream_width=40, bitstream_height=
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_io_N4_T2', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, values={
+InstallTile(Tile('agm_io_N4_T2', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, bels=[
+    {
+        'name': 'alta_dpclkdel',
+        'count': 1,
+        'inputs': ['clkin'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+], values={
     'CtrlMUX00': [563,603,562,561,601],
     'CtrlMUX01': [643,683,642,641,681],
     'CtrlMUX02': [564,604,565,566,606],
@@ -6136,7 +6192,15 @@ InstallTile(Tile('agm_io_S4_G5', 'IOTILE', bitstream_width=40, bitstream_height=
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_io_S4_T2', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, values={
+InstallTile(Tile('agm_io_S4_T2', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, bels=[
+    {
+        'name': 'alta_dpclkdel',
+        'count': 1,
+        'inputs': ['clkin'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+], values={
     'CtrlMUX00': [363,323,362,361,321],
     'CtrlMUX01': [283,243,282,281,241],
     'CtrlMUX02': [364,324,365,366,326],
@@ -6657,7 +6721,15 @@ InstallTile(Tile('agm_io_E|W4_G5', 'IOTILE', bitstream_width=20, bitstream_heigh
     'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_io_E|W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
+InstallTile(Tile('agm_io_E|W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, bels=[
+    {
+        'name': 'alta_dpclkdel',
+        'count': 1,
+        'inputs': ['clkin'],
+        'outputs': ['clkout'],
+        'pseudo': True
+    }
+], values={
     'CtrlMUX00': [368,388,369,370,390,389],
     'CtrlMUX01': [408,428,409,410,430,429],
     'CtrlMUX02': [448,468,449,450,470,469],

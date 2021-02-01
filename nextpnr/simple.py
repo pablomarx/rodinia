@@ -149,6 +149,13 @@ def createIOTile(chip, tile, row, col):
     assert col < chip.columns 
     tile_name = nameForTile(tile, row, col)
     
+    # Temporary kludge while IO tile BELs are
+    # being migrated into tiles.py
+    existing_bels = ctx.getBels()
+    for bel_id in existing_bels:
+        if bel_id.startswith(tile_name):
+            return
+
     for z in range(0, tile.slices):
         belname = "%s:alta_rio%02i" % (tile_name, z)
         gb = "GclkDMUX00" in tile.values
@@ -181,29 +188,7 @@ def createIOTile(chip, tile, row, col):
         
         ctx.addBelInput(bel=belname, name="I", wire=iname)
         ctx.addBelInput(bel=belname, name="EN", wire=oename)
-        ctx.addBelOutput(bel=belname, name="O", wire=oname)
-        
-    if "GclkDMUX00" in tile.values:
-        if tile.name.startswith('AG1200_'):
-            count = 1
-        else:
-            count = 5
-        
-        for num in range(0, count):
-            inname = "alta_io_gclk%02i:inclk" % num
-            src = tile_name+":"+inname
-            addWire(row, col, src, inname)
-        
-            outname = "alta_io_gclk%02i:outclk" % num
-            dest = tile_name+":"+outname
-            addWire(row, col, dest, outname)
-            createAlias(src, dest, row, col)
-    
-    if "T2" in tile.name:
-        outname = "alta_dpclkdel00:clkout"
-        src = tile_name+":"+outname
-        addWire(row, col, src, outname)
-        
+        ctx.addBelOutput(bel=belname, name="O", wire=oname)    
         
 def createPIP(pip_name, pip_type, wire_src, wire_dest, delay, row, col):
     assert row < chip.rows
@@ -260,7 +245,7 @@ for row in range(0, chip.rows):
         
         if tile.bels:
             createTileBELs(chip, tile, row, col)
-        elif ttype == "IOTILE":
+        if ttype == "IOTILE":
             createIOTile(chip, tile, row, col)
 
 #
