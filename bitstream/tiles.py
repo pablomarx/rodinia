@@ -210,9 +210,14 @@ def reverse_transform(operation, value):
 
 def mux_transform(operation, value, mux_len, base_len):
     if operation == 'format':
+        result = mux_transform('decode', value, mux_len, base_len)
+        if result != -1:
+            return str(result)
         return bits_to_string(value, base_len, True)
     elif operation == 'encode':
         if type(value) != int:
+            if len(value) == mux_len:
+                return value
             value = bits_to_num(value)
     
         if value == -1:
