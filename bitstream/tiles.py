@@ -244,7 +244,10 @@ def mux_transform(operation, value, mux_len, base_len):
         if mux_len == base_len:
             if num == 0:
                 return num
-            return int(log(num, 2))
+            x = log(num, 2)
+            if int(x) == x:
+                return int(x)
+            return -1
         x = num >> base_len
         y = num & ((1<<base_len) - 1)
         if x == 0 or y == 0:
