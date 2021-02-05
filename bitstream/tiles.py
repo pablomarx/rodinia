@@ -32,32 +32,31 @@ class Tile:
     type = None
     bitstream_width = 0
     bitstream_height = 0
-    slices = 0
     values = {}
-    formatters = {}
-    annotations = {}
-    encoders = {}
     key_transformers = {}
+    value_transformers = {}
     defaults = {}
     pseudos = {}
     bels = None
     bitmapTable = None
     
-    def __init__(self, name, type, bitstream_width, bitstream_height, slices, values, pseudos={}, bels=None, formatters={}, annotations={}, encoders={}, key_transformers={}, defaults={}):
+    slices = 0
+    
+    def __init__(self, name, type, bitstream_width, bitstream_height, values, pseudos={}, slices=None, bels=None, value_transformers={}, key_transformers={}, defaults={}):
         self.name = name
         self.type = type
         self.bitstream_width = bitstream_width
         self.bitstream_height = bitstream_height
-        self.slices = slices
         self.values = values
-        self.formatters = formatters
-        self.formatters['__NAME'] = lambda key,val: val
-        self.annotations = annotations
-        self.encoders = encoders
-        self.key_transformers = key_transformers
         self.defaults = defaults
         self.pseudos = pseudos
         self.bels = bels
+        self.value_transformers = value_transformers
+        self.key_transformers = key_transformers
+        
+        # XXX: Remove once IO tiles gain proper BELs
+        self.slices = slices
+        
     
     def buildBitmapTable(self):
         bitmapTable = [];
@@ -79,31 +78,31 @@ class Tile:
         return self.bitmapTable[bit]
     
     def bit_format(self, name, bits):
-        if name in self.formatters:
-            return self.formatters[name](name,bits)
-        for pattern in self.formatters:
+        for pattern in self.value_transformers:
             if re.match(pattern, name):
-                return self.formatters[pattern](name,bits)
+                args = self.value_transformers[pattern]
+                return self.value_transform('format', bits, args)
+        
         return bits_to_string(bits, 0, True)
     
     def format(self, name, bits, x, y, routing=None, chip=None):
         result = self.bit_format(name, bits)
-        if name in self.annotations:
-            result += "\t; "+self.annotations[name]
-        else:
-            for pattern in self.annotations:
+
+        if name.lower().find("mux") != -1:
+            args = None
+            for pattern in self.value_transformers:
                 if re.match(pattern, name):
-                    result += "\t; "+self.annotations[pattern]
+                    args = self.value_transformers[pattern]
                     break
             
-        if name.lower().find("mux") != -1:
-            value = mux_decode(bits)
-            if value != -1:
-                if chip != None and chip.wire_db != None:
-                    wire = chip.wire_db.input_for_tile_config(self.type, x, y, name, value)
-                    if wire is not None:
-                        source = "%s(%s,%s):%s:%s %s %s" % (wire['tile'], wire['x'], wire['y'], wire['config'], wire['index'], wire['wire'], wire['timing'])
-                        result += "\t; <= " + source
+            if args:
+                value = self.value_transform('decode', bits, args)
+                if value != -1:
+                    if chip != None and chip.wire_db != None:
+                        wire = chip.wire_db.input_for_tile_config(self.type, x, y, name, value)
+                        if wire is not None:
+                            source = "%s(%s,%s):%s:%s %s %s" % (wire['tile'], wire['x'], wire['y'], wire['config'], wire['index'], wire['wire'], wire['timing'])
+                            result += "\t; <= " + source
         if routing != None:
             net = routing.net_for_tile_config(x, y, name)
             if net is not None:
@@ -129,9 +128,10 @@ class Tile:
             return None    
         
         if use_encoder:
-            for pattern in self.encoders:
+            for pattern in self.value_transformers:
                 if re.match(pattern, key):
-                    value = self.encoders[pattern](key,value)
+                    args = self.value_transformers[pattern]
+                    value = self.value_transform('encode', value, args)
                     break
                 
         indices = self.values[key]
@@ -172,64 +172,71 @@ class Tile:
                         src_idx += 1
                     break
         return bits
-
-def mux_encode(val, bit_len, val_len):
-    if type(val) != int:
-        val = bits_to_num(val)
-    if val_len > 0:
-        length = bit_len * val_len
-        assert(val <= length)
-        if val == -1:
-            result = [0] * (bit_len + val_len)
+        
+    def value_transform(self, operation, value, args):
+        if args[0] == 'mux':
+            return mux_transform(operation, value, *args[1:])
+        elif args[0] == 'lut':
+            return lut_transform(operation, value, *args[1:])
+        elif args[0] == 'reverse':
+            return reverse_transform(operation, value, *args[1:])
         else:
-            bottom = 1 << (val_len - 1 - int(val / bit_len))
-            top = 1 << (bit_len - 1 - (val % bit_len))
-            result = num_to_bits((top << val_len) | bottom, bit_len + val_len)
-        assert val == mux_decode(result, bit_len)
-    else:
-        length = bit_len
-        assert(val <= length)
-        result = num_to_bits(1 << (bit_len-1-val), bit_len)
-    return result
+            assert(false)
 
-def mux_decode(bits, length=None):
-    if length:
-        X = len(bits) - length
-    else:
-        X = 3
-        length = len(bits) - X
+def lut_transform(operation, value):
+    bits = bits_invert(value)
+    bits = bits[::-1] 
+    if operation != 'format':
+        return bits
+    return "16'h%04x" % (bits_to_num(bits))
+
+def reverse_transform(operation, value):
+    bits = value[::-1]
+    if operation != 'format':
+        return bits
+    return bits_to_string(bits, 0, True)
+
+def mux_transform(operation, value, mux_len, base_len):
+    if operation == 'format':
+        return bits_to_string(value, base_len, True)
+    elif operation == 'encode':
+        if type(value) != int:
+            value = bits_to_num(value)
     
-    strval = bits_to_string(bits)
-    val = int(strval, 2)
-    if val == 0:
-        return -1
+        if value == -1:
+            bits = num_to_bits(1<<(mux_len-1), mux_len)
+        elif mux_len == base_len:
+            bits = num_to_bits(1<<value, mux_len)
+        else:
+            assert(value < base_len * (mux_len - base_len))
+            x = 1<<(base_len+int(value / base_len))
+            y = 1<<(value % base_len)
+            bits = num_to_bits(x | y, mux_len)
+        return bits[::-1]
+    elif operation == 'decode':
+        if mux_len == None:
+            mux_len = len(value)
+        if base_len == None:
+            base_len = mux_len - 3
     
-    top = val >> X
-    bottom = val & ((1<<X)-1)
-    
-    if top == 0 or bottom == 0:
-        return -1
-
-    return int(((length-1) - log(top, 2)) + (length * (X - 1 - log(bottom, 2))))
-    
-def mux_format(bits, length, type):
-    index = mux_decode(bits, length)
-    return '%s\'b%s_%s\t; %s:%s' % (len(bits), bits_to_string(bits[0:length]), bits_to_string(bits[length:]), type, int(index)) 
-
-def lut_encode(key, inbits):
-    outbits = bits_invert(inbits)
-    return outbits[::-1]
-
-def lut_decode(key, inbits):
-    outbits = bits_invert(inbits)
-    return outbits[::-1]
-
-def slice_omux_format(bits):
-    if bits[0] == 0:
-        name = 'LutOut'
-    else:
-        name = 'Q'
-    return '1\'b%s\t; %s' % (bits[0], name)
+        bits = value[::-1]
+        num = bits_to_num(bits)
+        if mux_len <= 2:
+            return num
+        
+        if mux_len == base_len:
+            if num == 0:
+                return num
+            return int(log(num, 2))
+        x = num >> base_len
+        y = num & ((1<<base_len) - 1)
+        if x == 0 or y == 0:
+            return -1
+        x = log(x, 2) * base_len
+        y = log(y, 2)
+        if int(x) != x or int(y) != y:
+            return -1
+        return int(x + y)
 
 def InstallTile(tile):
     global tiles
@@ -239,7 +246,7 @@ def TileNamed(name):
     global tiles
     return tiles[name]
 
-InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstream_height=20, slices=0, bels=[
+InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstream_height=20, bels=[
     {
         'name': 'alta_boot',
         'count': 1,
@@ -282,9 +289,9 @@ InstallTile(Tile('AG1200_IOTILE_BOOT_PLL', 'UFMTILE', bitstream_width=34, bitstr
 	'SeamMUX09':[295,296,297,298,299,300,301,302],
 }, pseudos={
 	'SinkMUXPseudo': 1,
-}, encoders={
-    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
-    'BBMUXN[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
+}, value_transformers={
+    'BBMUXE[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
+    'BBMUXN[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
 }))
 
 InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_height=20, slices=4, bels=[
@@ -442,20 +449,14 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_
 	'IsoMUXPseudo': 8,
 	'GateMUX': 1,
 	'BufMUX': 2,
-}, formatters={
-	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
-	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
-	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 4, True),
-	'GclkDMUX00': lambda key,val: bits_to_string(bits_invert(val), 6, True),
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=8
-    'GclkDMUX00': lambda key,val: bits_invert(([0] * (4 - len(val))) + val),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=8
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=7
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=8
+    'IOMUX[0-9][0-9]': ['mux', 7, 4], # bits=7, inputs=8
+    'RMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=7
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
+    'GclkDMUX00': ['mux', 4, 4],
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -603,18 +604,13 @@ InstallTile(Tile('AG1200_IOTILE_N4', 'IOTILE', bitstream_width=34, bitstream_hei
 }, pseudos={
 	'IsoMUXPseudo': 8,
 	'BufMUX': 2,
-}, formatters={
-	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
-	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
-	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 4, True)
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=8
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=8
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=7
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=8
+    'IOMUX[0-9][0-9]': ['mux', 7, 4], # bits=7, inputs=8
+    'RMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=7
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -774,20 +770,14 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_
 	'IsoMUXPseudo': 8,
 	'GateMUX': 1,
 	'BufMUX': 2,
-}, formatters={
-	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
-	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
-	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 4, True),
-	'GclkDMUX00': lambda key,val: bits_to_string(bits_invert(val), 6, True),
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=8
-    'GclkDMUX00': lambda key,val: bits_invert(([0] * (4 - len(val))) + val),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=8
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=7
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=8
+    'IOMUX[0-9][0-9]': ['mux', 7, 4], # bits=7, inputs=8
+    'RMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=7
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
+    'GclkDMUX00': ['mux', 4, 4],
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -939,25 +929,19 @@ InstallTile(Tile('AG1200_IOTILE_S4', 'IOTILE', bitstream_width=34, bitstream_hei
 }, pseudos={
 	'IsoMUXPseudo': 8,
 	'BufMUX': 2,
-}, formatters={
-	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 3, 'I'),
-	'IOMUX[0-9][0-9]': lambda key,val: mux_format(val, 4, 'I'),
-	'TileClkMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 3, True),
-	'SeamMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 8, True),
-	'CtrlMUX[0-9][0-9]': lambda key,val: bits_to_string(val, 4, True)
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=8
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=8
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=7
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=8
+    'IOMUX[0-9][0-9]': ['mux', 7, 4], # bits=7, inputs=8
+    'RMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=7
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }))
 
-InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_height=68, bels=[
     {
         'name': 'alta_bram',
         'count': 1,
@@ -1252,96 +1236,20 @@ InstallTile(Tile('ALTA_EMB4K5', 'BramTILE', bitstream_width=108, bitstream_heigh
 }, pseudos={
 	'BufMUX': 36,
 	'IsoMUXPseudo': 4,
-}, formatters={
-	'INIT_VAL': lambda key,val: str(len(val)) + "'h" + "".join([format(bit, '02x') for bit in bits_to_bytes(val[::-1])]),
-	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
-	'IMUX[0-9][0-9]': lambda key,val: mux_format(val, 9, 'I'),
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_format(val, 8, 'I'),
-}, encoders={
-    'INIT_VAL': lambda key,val: val[::-1],
-
-    'BramClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=26
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
-    'SeamMUX[0-9][0-9]': lambda key, val: mux_encode(val, 7, 1),
-    'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
-    'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 3, 0), # bits=3, inputs=2
-    'TileWeRenMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
-}, annotations={
-	'BramClkMUX00': 'Clk0',
-	'BramClkMUX01': 'Clk1',
-	'IMUX00': 'AddressA[0]',
-	'IMUX01': 'AddressA[1]',
-	'IMUX02': 'AddressA[2]',
-	'IMUX03': 'AddressA[3]',
-	'IMUX04': 'AddressA[4]',
-	'IMUX05': 'AddressA[5]',
-	'IMUX06': 'AddressA[6]',
-	'IMUX07': 'AddressA[7]',
-	'IMUX08': 'AddressA[8]',
-	'IMUX09': 'AddressA[9]',
-	'IMUX10': 'AddressA[10]',
-	'IMUX11': 'AddressA[11]',
-	'IMUX12': 'DataInA[0]',
-	'IMUX13': 'DataInA[1]',
-	'IMUX14': 'DataInA[2]',
-	'IMUX15': 'DataInA[3]',
-	'IMUX16': 'DataInA[4]',
-	'IMUX17': 'DataInA[5]',
-	'IMUX18': 'DataInA[6]',
-	'IMUX19': 'DataInA[7]',
-	'IMUX20': 'DataInA[8]',
-	'IMUX21': 'DataInA[9]',
-	'IMUX22': 'DataInA[10]',
-	'IMUX23': 'DataInA[11]',
-	'IMUX24': 'DataInA[12]',
-	'IMUX25': 'DataInA[13]',
-	'IMUX26': 'DataInA[14]',
-	'IMUX27': 'DataInA[15]',
-	'IMUX28': 'DataInA[16]',
-	'IMUX29': 'DataInA[17]',
-	'IMUX29': 'DataInA[17]',
-	'IMUX34': 'DataInB[17]',
-	'IMUX35': 'DataInB[16]',
-	'IMUX36': 'DataInB[15]',
-	'IMUX37': 'DataInB[14]',
-	'IMUX38': 'DataInB[13]',
-	'IMUX39': 'DataInB[12]',
-	'IMUX40': 'DataInB[11]',
-	'IMUX41': 'DataInB[10]',
-	'IMUX42': 'DataInB[9]',
-	'IMUX43': 'DataInB[8]',
-	'IMUX44': 'DataInB[7]',
-	'IMUX45': 'DataInB[6]',
-	'IMUX46': 'DataInB[5]',
-	'IMUX47': 'DataInB[4]',
-	'IMUX48': 'DataInB[3]',
-	'IMUX49': 'DataInB[2]',
-	'IMUX50': 'DataInB[1]',
-	'IMUX51': 'DataInB[0]',
-	'IMUX52': 'AddressB[11]',
-	'IMUX53': 'AddressB[10]',
-	'IMUX54': 'AddressB[9]',
-	'IMUX55': 'AddressB[8]',
-	'IMUX56': 'AddressB[7]',
-	'IMUX57': 'AddressB[6]',
-	'IMUX58': 'AddressB[5]',
-	'IMUX59': 'AddressB[4]',
-	'IMUX60': 'AddressB[3]',
-	'IMUX61': 'AddressB[2]',
-	'IMUX62': 'AddressB[1]',
-	'IMUX63': 'AddressB[0]',
-	'TileAsyncMUX00':'AsyncReset0',
-	'TileAsyncMUX01':'AsyncReset1',
-	'TileClkEnMUX00':'ClkEn0',
-	'TileClkEnMUX01':'ClkEn1',
-	'TileWeRenMUX00':'WeRenA',
-	'TileWeRenMUX01':'WeRenB',
+}, value_transformers={
+    'BramClkMUX[0-9][0-9]': ['mux', 4, 3], # bits=4, inputs=3
+    'CtrlMUX[0-9][0-9]': ['mux', 12, 8], # bits=12, inputs=32
+    'IMUX[0-9][0-9]': ['mux', 12, 9], # bits=12, inputs=26
+    'RMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=21
+    'SeamMUX[0-9][0-9]': ['mux', 7, 6],
+    'TileAsyncMUX0[0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'TileClkEnMUX0[0-9]': ['mux', 3, 3], # bits=3, inputs=2
+    'TileWeRenMUX0[0-9]': ['mux', 4, 4], # bits=4, inputs=3,
+    'INIT_VAL': ['reverse'],
 }))
 
 # This is a pseudo tile.  The bits are handled in a ConfigChain.  Here for wire/routing purposes.
-InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
+InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, bels=[
     {
         'name': 'alta_pllx',
         'count': 1,
@@ -1356,7 +1264,7 @@ InstallTile(Tile('ALTA_PLLX', 'PLLTILE', bitstream_width=0, bitstream_height=0, 
 	'SinkMUXPseudo': 6,
 }))
 
-InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstream_height=68, slices=16, bels=[
+InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstream_height=68, bels=[
     {
         'name': 'alta_clkenctrl',
         'count': 2,
@@ -1782,98 +1690,21 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstre
 	'IsoMUXPseudo': 4,
 	'BufMUX': 2,
 	'SinkMUXPseudo': 32,
-}, formatters={
-	'LUT[0-9][0-9]': lambda key,val: '16\'h'+format(bytes_to_num(bits_to_bytes(lut_decode(key,val))), '04x'),
-	'IMUX[0-9][0-9]': lambda key,val: mux_format(val, 9, 'I'),
-	'OMUX[0-9][0-9]': lambda key,val: slice_omux_format(val), 
-	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
-	'CtrlMUX[0-9][0-9]': lambda key,val: mux_format(val, 8, 'I'),
-	'TileAsyncMUX0[01]': lambda key,val: bits_to_string(val, 4, True),
-	'TileClkEnMUX0[01]': lambda key,val: bits_to_string(val, 3, True),
-	'TileClkMUX0[01]': lambda key,val: bits_to_string(val, 4, True),
-	'TileSyncMUX0[01]': lambda key,val: bits_to_string(val, 3, True),
 }, key_transformers={
     'alta_slice[0-9][0-9].CARRY_CRL': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
-}, encoders={
-    'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
-    'LUTCMUX[0-9][0-9]': lambda key,val: [val[0], 0],
-    
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=27
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 1),
-    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 0), # bits=3, inputs=2
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0),  # bits=4, inputs=3
-    'TileSyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 0), # bits=3, inputs=2
-}, annotations={
-	'IMUX00':'alta_slice00:A',
-	'IMUX01':'alta_slice00:B',
-	'IMUX02':'alta_slice00:C',
-	'IMUX03':'alta_slice00:D',
-	'IMUX04':'alta_slice01:A',
-	'IMUX05':'alta_slice01:B',
-	'IMUX06':'alta_slice01:C',
-	'IMUX07':'alta_slice01:D',
-	'IMUX08':'alta_slice02:A',
-	'IMUX09':'alta_slice02:B',
-	'IMUX10':'alta_slice02:C',
-	'IMUX11':'alta_slice02:D',
-	'IMUX12':'alta_slice03:A',
-	'IMUX13':'alta_slice03:B',
-	'IMUX14':'alta_slice03:C',
-	'IMUX15':'alta_slice03:D',
-	'IMUX16':'alta_slice04:A',
-	'IMUX17':'alta_slice04:B',
-	'IMUX18':'alta_slice04:C',
-	'IMUX19':'alta_slice04:D',
-	'IMUX20':'alta_slice05:A',
-	'IMUX21':'alta_slice05:B',
-	'IMUX22':'alta_slice05:C',
-	'IMUX23':'alta_slice05:D',
-	'IMUX24':'alta_slice06:A',
-	'IMUX25':'alta_slice06:B',
-	'IMUX26':'alta_slice06:C',
-	'IMUX27':'alta_slice06:D',
-	'IMUX28':'alta_slice07:A',
-	'IMUX29':'alta_slice07:B',
-	'IMUX30':'alta_slice07:C',
-	'IMUX31':'alta_slice07:D',
-	'IMUX32':'alta_slice08:A',
-	'IMUX33':'alta_slice08:B',
-	'IMUX34':'alta_slice08:C',
-	'IMUX35':'alta_slice08:D',
-	'IMUX36':'alta_slice09:A',
-	'IMUX37':'alta_slice09:B',
-	'IMUX38':'alta_slice09:C',
-	'IMUX39':'alta_slice09:D',
-	'IMUX40':'alta_slice10:A',
-	'IMUX41':'alta_slice10:B',
-	'IMUX42':'alta_slice10:C',
-	'IMUX43':'alta_slice10:D',
-	'IMUX44':'alta_slice11:A',
-	'IMUX45':'alta_slice11:B',
-	'IMUX46':'alta_slice11:C',
-	'IMUX47':'alta_slice11:D',
-	'IMUX48':'alta_slice12:A',
-	'IMUX49':'alta_slice12:B',
-	'IMUX50':'alta_slice12:C',
-	'IMUX51':'alta_slice12:D',
-	'IMUX52':'alta_slice13:A',
-	'IMUX53':'alta_slice13:B',
-	'IMUX54':'alta_slice13:C',
-	'IMUX55':'alta_slice13:D',
-	'IMUX56':'alta_slice14:A',
-	'IMUX57':'alta_slice14:B',
-	'IMUX58':'alta_slice14:C',
-	'IMUX59':'alta_slice14:D',
-	'IMUX60':'alta_slice15:A',
-	'IMUX61':'alta_slice15:B',
-	'IMUX62':'alta_slice15:C',
-	'IMUX63':'alta_slice15:D',
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 12, 8], # bits=12, inputs=32
+    'IMUX[0-9][0-9]': ['mux', 12, 9], # bits=12, inputs=27
+    'RMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=21
+    'SeamMUX[0-9][0-9]': ['mux', 8, 7],
+    'TileClkEnMUX[0-9][0-9]': ['mux', 3, 3], # bits=3, inputs=2
+    'TileClkMUX[0-9][0-9]': ['mux', 4, 4],  # bits=4, inputs=3
+    'TileSyncMUX[0-9][0-9]': ['mux', 3, 3], # bits=3, inputs=2
+    'LUT[0-9][0-9]': ['lut'],
 }))
 
-InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', bitstream_width=16, bitstream_height=68, slices=0, values={
+InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', bitstream_width=16, bitstream_height=68, values={
 	'OMUX00': [ 15 ],
 	'OMUX01': [ 79 ],
 	'OMUX02': [ 143 ],
@@ -1995,17 +1826,15 @@ InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', bitstream_width=16, bitstream_heig
 }, pseudos={
 	'BufMUX': 16,
 	'IsoMUXPseudo': 4,
-}, formatters={
-	'RMUX[0-9][0-9]': lambda key,val: mux_format(val, 7, 'I'),
-}, encoders={
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
+}, value_transformers={
+    'RMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=21
 }))
 
 
 #
 # For AG10K
 #
-InstallTile(Tile('agx_tile_logic', 'LogicTILE', bitstream_width=34, bitstream_height=68, slices=16, bels=[
+InstallTile(Tile('agx_tile_logic', 'LogicTILE', bitstream_width=34, bitstream_height=68, bels=[
     {
         'name': 'alta_clkenctrl',
         'count': 2,
@@ -2409,20 +2238,18 @@ InstallTile(Tile('agx_tile_logic', 'LogicTILE', bitstream_width=34, bitstream_he
 }, key_transformers={
     'alta_slice[0-9][0-9].CARRY_CRL': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
-}, encoders={
-    'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
-    'LUTCMUX[0-9][0-9]': lambda key,val: [val[0], 0],
-    
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=27
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
-    'TileSyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 12, 8], # bits=12, inputs=32
+    'IMUX[0-9][0-9]': ['mux', 12, 9], # bits=12, inputs=27
+    'RMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=21
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4],
+    'TileClkEnMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
+    'TileClkMUX[0-9][0-9]': ['mux', 4, 3], # bits=4, inputs=3
+    'TileSyncMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
+    'LUT[0-9][0-9]': ['lut'],
 }))
 
-InstallTile(Tile('agx_tile_route', 'RogicTILE', bitstream_width=16, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agx_tile_route', 'RogicTILE', bitstream_width=16, bitstream_height=68, values={
     'OMUX00':[15],
     'OMUX01':[79],
     'OMUX02':[143],
@@ -2544,11 +2371,11 @@ InstallTile(Tile('agx_tile_route', 'RogicTILE', bitstream_width=16, bitstream_he
 }, pseudos={
     'IsoMUXPseudo': 4,
     'BufMUX': 16,
-}, encoders={
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
+}, value_transformers={
+    'RMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=21
 }))
 
-InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_height=68, bels=[
     {
         'name': 'alta_mult',
         'count': 1,
@@ -2724,16 +2551,16 @@ InstallTile(Tile('agx_multiplier', 'MultTILE', bitstream_width=26, bitstream_hei
 }, pseudos={
     'BufMUX': 36,
     'IsoMUXPseudo': 4,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 6, 4), # bits=10, inputs=24
-    'KMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 3), # bits=11, inputs=20
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
-    'TileAsyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
-    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 1), # bits=5, inputs=4
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 1), # bits=4, inputs=3
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 10, 6], # bits=10, inputs=24
+    'KMUX[0-9][0-9]': ['mux', 11, 8], # bits=11, inputs=20
+    'RMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=21
+    'TileAsyncMUX[0-9][0-9]': ['mux', 4, 3], # bits=4, inputs=3
+    'TileClkEnMUX[0-9][0-9]': ['mux', 5, 4], # bits=5, inputs=4
+    'TileClkMUX[0-9][0-9]': ['mux', 4, 3], # bits=4, inputs=3
 }))
 
-InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_height=68, bels=[
     {
         'name': 'alta_bram9k',
         'count': 1,
@@ -3134,19 +2961,18 @@ InstallTile(Tile('agx_tile_bram9k', 'BramTILE', bitstream_width=180, bitstream_h
 }, pseudos={
     'BufMUX': 36,
     'IsoMUXPseudo': 6,
-}, encoders={
-    'INIT_VAL': lambda key,val: val[::-1],
-    
-    'BramClkMUX0[0-9]': lambda key, val: mux_encode(val, 3, 1),
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=26
-    'KMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 4),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=21
-    'SeamMUX[0-9][0-9]': lambda key, val: mux_encode(val, 5, 1),
-    'TMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 3), # bits=8, inputs=15
-    'TileAsyncMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
-    'TileClkEnMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
-    'TileClkMUX0[0-9]': lambda key, val: mux_encode(val, 4, 0), # bits=4, inputs=3
+}, value_transformers={
+    'BramClkMUX0[0-9]': ['mux', 3, 1],
+    'CtrlMUX[0-9][0-9]': ['mux', 12, 8], # bits=12, inputs=32
+    'IMUX[0-9][0-9]': ['mux', 12, 9], # bits=12, inputs=26
+    'KMUX[0-9][0-9]': ['mux', 9, 5],
+    'RMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=21
+    'SeamMUX[0-9][0-9]': ['mux', 5, 4],
+    'TMUX[0-9][0-9]': ['mux', 8, 5], # bits=8, inputs=15
+    'TileAsyncMUX0[0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'TileClkEnMUX0[0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'TileClkMUX0[0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'INIT_VAL': ['reverse'],
 }, key_transformers={
     'PORTA_OUTREG': lambda x: 'SELOUT_A',
     'PORTB_OUTREG': lambda x: 'SELOUT_B',
@@ -3243,8 +3069,8 @@ InstallTile(Tile('agx_io_E4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
     'SinkMUXPseudo': 30
 }, key_transformers={
     'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
+}, value_transformers={
+    'IOMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
 }))
 
 InstallTile(Tile('agx_io_E6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, bels=[
@@ -3502,11 +3328,11 @@ InstallTile(Tile('agx_io_E6_T2', 'IOTILE', bitstream_width=20, bitstream_height=
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4],
+    'IOMUX[0-9][0-9]': ['mux', 7, 4],
+    'RMUX[0-9][0-9]': ['mux', 7, 4],
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2],
 }))
 
 InstallTile(Tile('agx_io_E6', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
@@ -3754,11 +3580,11 @@ InstallTile(Tile('agx_io_E6', 'IOTILE', bitstream_width=20, bitstream_height=68,
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4],
+    'RMUX[0-9][0-9]': ['mux', 7, 4],
+    'IOMUX[0-9][0-9]': ['mux', 7, 4],
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2],
 }))
 
 InstallTile(Tile('agx_io_N4_T2', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, bels=[
@@ -3944,11 +3770,11 @@ InstallTile(Tile('agx_io_N4_T2', 'IOTILE', bitstream_width=34, bitstream_height=
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4],
+    'IOMUX[0-9][0-9]': ['mux', 7, 4],
+    'RMUX[0-9][0-9]': ['mux', 7, 4],
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2],
 }))
 
 InstallTile(Tile('agx_io_N4', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, values={
@@ -4124,11 +3950,11 @@ InstallTile(Tile('agx_io_N4', 'IOTILE', bitstream_width=34, bitstream_height=22,
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4],
+    'IOMUX[0-9][0-9]': ['mux', 7, 4],
+    'RMUX[0-9][0-9]': ['mux', 6, 3],
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2],
 }))
 
 InstallTile(Tile('agx_io_S4_T2', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, bels=[
@@ -4314,11 +4140,11 @@ InstallTile(Tile('agx_io_S4_T2', 'IOTILE', bitstream_width=34, bitstream_height=
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4],
+    'IOMUX[0-9][0-9]': ['mux', 7, 4],
+    'RMUX[0-9][0-9]': ['mux', 6, 3],
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2],
 }))
 
 InstallTile(Tile('agx_io_S4', 'IOTILE', bitstream_width=34, bitstream_height=22, slices=4, values={
@@ -4494,11 +4320,11 @@ InstallTile(Tile('agx_io_S4', 'IOTILE', bitstream_width=34, bitstream_height=22,
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4],
+    'IOMUX[0-9][0-9]': ['mux', 7, 4],
+    'RMUX[0-9][0-9]': ['mux', 6, 3],
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2],
 }))
 
 InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=5, bels=[
@@ -4587,8 +4413,8 @@ InstallTile(Tile('agx_io_W4_G5', 'IOTILE', bitstream_width=20, bitstream_height=
     'SinkMUXPseudo': 30
 }, key_transformers={
     'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
+}, value_transformers={
+    'IOMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
 }))
 
 InstallTile(Tile('agx_io_W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, bels=[
@@ -4846,11 +4672,11 @@ InstallTile(Tile('agx_io_W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4],
+    'IOMUX[0-9][0-9]': ['mux', 7, 4],
+    'RMUX[0-9][0-9]': ['mux', 7, 4],
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2],
 }))
 
 InstallTile(Tile('agx_io_W6', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
@@ -5098,14 +4924,14 @@ InstallTile(Tile('agx_io_W6', 'IOTILE', bitstream_width=20, bitstream_height=68,
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2),
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3),
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1),
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 4],
+    'IOMUX[0-9][0-9]': ['mux', 7, 4],
+    'RMUX[0-9][0-9]': ['mux', 7, 4],
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2],
 }))
 
-InstallTile(Tile('agx_UFM_S', 'UFMTILE', bitstream_width=34, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agx_UFM_S', 'UFMTILE', bitstream_width=34, bitstream_height=68, values={
     'BBMUXS00':[1836,1870,1837,1871,1838,1872,1839,1873,1876],
     'BBMUXS01':[1904,1938,1905,1939,1906,1940,1907,1941,1944],
     'BBMUXS02':[1972,2006,1973,2007,1974,2008,1975,2009,2012],
@@ -5144,12 +4970,12 @@ InstallTile(Tile('agx_UFM_S', 'UFMTILE', bitstream_width=34, bitstream_height=68
     'SeamMUX11':[2264,2263,2262,2261,2260,2259],
 }, pseudos={
     'BufMUX': 12,
-}, encoders={
-    'BBMUXS[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
+}, value_transformers={
+    'BBMUXS[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
 }))
 
 # Same bitstream as above...
-InstallTile(Tile('agx_tile_boot', 'UFMTILE', bitstream_width=34, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agx_tile_boot', 'UFMTILE', bitstream_width=34, bitstream_height=68, bels=[
     {
         'name': 'alta_boot',
         'count': 1,
@@ -5196,12 +5022,12 @@ InstallTile(Tile('agx_tile_boot', 'UFMTILE', bitstream_width=34, bitstream_heigh
     'SeamMUX11':[2264,2263,2262,2261,2260,2259],
 }, pseudos={
     'BufMUX': 12,
-}, encoders={
-    'BBMUXS[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
+}, value_transformers={
+    'BBMUXS[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
 }))
 
 # The two PLL tiles appear identical other than E vs W in the BBMUX names
-InstallTile(Tile('agx_pllv_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agx_pllv_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, bels=[
     {
         'name': 'alta_pllv',
         'count': 1,
@@ -5229,11 +5055,11 @@ InstallTile(Tile('agx_pllv_E', 'PLLTILE', bitstream_width=20, bitstream_height=6
     'PllClkFbMUX': 1,
     'PllClkInMUX': 1,
     'PllSeamMUX': 1,
-}, encoders={
-    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
+}, value_transformers={
+    'BBMUXE[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
 }))
 
-InstallTile(Tile('agx_pllv_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agx_pllv_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, bels=[
     {
         'name': 'alta_pllv',
         'count': 1,
@@ -5261,17 +5087,17 @@ InstallTile(Tile('agx_pllv_W', 'PLLTILE', bitstream_width=20, bitstream_height=6
     'PllClkFbMUX': 1,
     'PllClkInMUX': 1,
     'PllSeamMUX': 1,
-}, encoders={
-    'BBMUXW[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
+}, value_transformers={
+    'BBMUXW[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
 }))
 
 # These are pseudo tiles.  The bits are handled in ConfigChains.  Here for wire/routing purposes.
-InstallTile(Tile('agx_clk_dis', 'ClkdisTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
+InstallTile(Tile('agx_clk_dis', 'ClkdisTILE', bitstream_width=0, bitstream_height=0, values={}, pseudos={
     'GclkDMUX': 300,
     'BufMUX': 2,
 }))
 
-InstallTile(Tile('agx_JTAG', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
+InstallTile(Tile('agx_JTAG', 'UFMTILE', bitstream_width=0, bitstream_height=0, bels=[
     {
         'name': 'alta_jtag',
         'count': 1,
@@ -5282,7 +5108,7 @@ InstallTile(Tile('agx_JTAG', 'UFMTILE', bitstream_width=0, bitstream_height=0, s
     'SinkMUXPseudo': 1,
 }))
 
-InstallTile(Tile('agx_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
+InstallTile(Tile('agx_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, bels=[
     {
         'name': 'alta_mcu',
         'count': 1,
@@ -5309,7 +5135,7 @@ InstallTile(Tile('agx_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, sl
 # For AG16K
 # 
 
-InstallTile(Tile('agm_ADC_N', 'UFMTILE', bitstream_width=40, bitstream_height=24, slices=0, bels=[
+InstallTile(Tile('agm_ADC_N', 'UFMTILE', bitstream_width=40, bitstream_height=24, bels=[
     {
         'name': 'alta_saradc',
         'count': 1,
@@ -5353,12 +5179,12 @@ InstallTile(Tile('agm_ADC_N', 'UFMTILE', bitstream_width=40, bitstream_height=24
     'SeamMUX06': [209,210,211,212,213,214],
     'SeamMUX07': [129,130,131,132,133,134],
     'SeamMUX08': [49,50,51,52,53,54],
-}, encoders={
-    'BBMUXN[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXN[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_ADC_S', 'UFMTILE', bitstream_width=40, bitstream_height=24, slices=0, bels=[
+InstallTile(Tile('agm_ADC_S', 'UFMTILE', bitstream_width=40, bitstream_height=24, bels=[
     {
         'name': 'alta_saradc',
         'count': 1,
@@ -5402,13 +5228,13 @@ InstallTile(Tile('agm_ADC_S', 'UFMTILE', bitstream_width=40, bitstream_height=24
     'SeamMUX06': [729,730,731,732,733,734],
     'SeamMUX07': [809,810,811,812,813,814],
     'SeamMUX08': [889,890,891,892,893,894],
-}, encoders={
-    'BBMUXS[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXS[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
 # Two OCTs appear identical other than E vs W in BBMUX name
-InstallTile(Tile('agm_OCT_E', 'UFMTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_OCT_E', 'UFMTILE', bitstream_width=20, bitstream_height=68, bels=[
     {
         'name': 'alta_oct',
         'count': 1,
@@ -5422,12 +5248,12 @@ InstallTile(Tile('agm_OCT_E', 'UFMTILE', bitstream_width=20, bitstream_height=68
     'SeamMUX01': [572,573,574,575,576,577],
 }, pseudos={
     'BufMUX': 1
-}, encoders={
-    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXE[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_OCT_W', 'UFMTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_OCT_W', 'UFMTILE', bitstream_width=20, bitstream_height=68, bels=[
     {
         'name': 'alta_oct',
         'count': 1,
@@ -5441,12 +5267,12 @@ InstallTile(Tile('agm_OCT_W', 'UFMTILE', bitstream_width=20, bitstream_height=68
     'SeamMUX01': [572,573,574,575,576,577],
 }, pseudos={
     'BufMUX': 1
-}, encoders={
-    'BBMUXW[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXW[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_OCT_N', 'UFMTILE', bitstream_width=20, bitstream_height=24, slices=0, bels=[
+InstallTile(Tile('agm_OCT_N', 'UFMTILE', bitstream_width=20, bitstream_height=24, bels=[
     {
         'name': 'alta_oct',
         'count': 1,
@@ -5460,7 +5286,7 @@ InstallTile(Tile('agm_OCT_N', 'UFMTILE', bitstream_width=20, bitstream_height=24
     'SeamMUX': 9,
 }))
 
-InstallTile(Tile('agm_OCT_S', 'UFMTILE', bitstream_width=20, bitstream_height=24, slices=0, bels=[
+InstallTile(Tile('agm_OCT_S', 'UFMTILE', bitstream_width=20, bitstream_height=24, bels=[
     {
         'name': 'alta_oct',
         'count': 1,
@@ -5476,7 +5302,7 @@ InstallTile(Tile('agm_OCT_S', 'UFMTILE', bitstream_width=20, bitstream_height=24
 
 
 # Two PLLs appear identical other than E vs W in BBMUX name
-InstallTile(Tile('agm_PLLVE_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_PLLVE_E', 'PLLTILE', bitstream_width=20, bitstream_height=68, bels=[
     {
         'name': 'alta_pllve',
         'count': 1,
@@ -5518,12 +5344,12 @@ InstallTile(Tile('agm_PLLVE_E', 'PLLTILE', bitstream_width=20, bitstream_height=
     'PllClkFbMUX': 1,
     'PllClkInMUX': 2,
     'PllSeamMUX': 1,
-}, encoders={
-    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXE[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_PLLVE_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_PLLVE_W', 'PLLTILE', bitstream_width=20, bitstream_height=68, bels=[
     {
         'name': 'alta_pllve',
         'count': 1,
@@ -5565,9 +5391,9 @@ InstallTile(Tile('agm_PLLVE_W', 'PLLTILE', bitstream_width=20, bitstream_height=
     'PllClkFbMUX': 1,
     'PllClkInMUX': 2,
     'PllSeamMUX': 1,
-}, encoders={
-    'BBMUXW[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXW[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
 InstallTile(Tile('agm_io_N4_G5', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=5, bels=[
@@ -5663,9 +5489,9 @@ InstallTile(Tile('agm_io_N4_G5', 'IOTILE', bitstream_width=40, bitstream_height=
     'SinkMUXPseudo': 30,
 }, key_transformers={
     'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'IOMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
 InstallTile(Tile('agm_io_N4_T2', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, bels=[
@@ -5878,12 +5704,12 @@ InstallTile(Tile('agm_io_N4_T2', 'IOTILE', bitstream_width=40, bitstream_height=
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 2), # bits=5, inputs=6
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=6
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2), # bits=7, inputs=9
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 5, 3], # bits=5, inputs=6
+    'IOMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=6
+    'RMUX[0-9][0-9]': ['mux', 7, 5], # bits=7, inputs=9
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
 }))
 
 InstallTile(Tile('agm_io_N4', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, values={
@@ -6086,12 +5912,12 @@ InstallTile(Tile('agm_io_N4', 'IOTILE', bitstream_width=40, bitstream_height=24,
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 2), # bits=5, inputs=6
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=6
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=9
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 5, 3], # bits=5, inputs=6
+    'IOMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=6
+    'RMUX[0-9][0-9]': ['mux', 7, 4], # bits=7, inputs=9
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
 }))
 
 InstallTile(Tile('agm_io_S4_G5', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=5, bels=[
@@ -6187,9 +6013,9 @@ InstallTile(Tile('agm_io_S4_G5', 'IOTILE', bitstream_width=40, bitstream_height=
     'SinkMUXPseudo': 30,
 }, key_transformers={
     'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'IOMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
 InstallTile(Tile('agm_io_S4_T2', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, bels=[
@@ -6405,12 +6231,12 @@ InstallTile(Tile('agm_io_S4_T2', 'IOTILE', bitstream_width=40, bitstream_height=
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 2), # bits=5, inputs=6
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=6
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 2), # bits=7, inputs=9
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 5, 3], # bits=5, inputs=6
+    'IOMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=6
+    'RMUX[0-9][0-9]': ['mux', 7, 5], # bits=7, inputs=9
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
 }))
 
 InstallTile(Tile('agm_io_S4', 'IOTILE', bitstream_width=40, bitstream_height=24, slices=4, values={
@@ -6614,12 +6440,12 @@ InstallTile(Tile('agm_io_S4', 'IOTILE', bitstream_width=40, bitstream_height=24,
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 2), # bits=5, inputs=6
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=6
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 3), # bits=7, inputs=9
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 5, 3], # bits=5, inputs=6
+    'IOMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=6
+    'RMUX[0-9][0-9]': ['mux', 7, 4], # bits=7, inputs=9
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
 }))
 
 # The east and west pairs are identical...
@@ -6716,9 +6542,9 @@ InstallTile(Tile('agm_io_E|W4_G5', 'IOTILE', bitstream_width=20, bitstream_heigh
     'SinkMUXPseudo': 30,
 }, key_transformers={
     'alta_io[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'IOMUX[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
 InstallTile(Tile('agm_io_E|W6_T2', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, bels=[
@@ -7026,12 +6852,12 @@ InstallTile(Tile('agm_io_E|W6_T2', 'IOTILE', bitstream_width=20, bitstream_heigh
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=9
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 4), # bits=7, inputs=9
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 4), # bits=7, inputs=10
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=9
+    'IOMUX[0-9][0-9]': ['mux', 7, 3], # bits=7, inputs=9
+    'RMUX[0-9][0-9]': ['mux', 7, 3], # bits=7, inputs=10
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
 }))
 
 InstallTile(Tile('agm_io_E|W6', 'IOTILE', bitstream_width=20, bitstream_height=68, slices=6, values={
@@ -7329,15 +7155,15 @@ InstallTile(Tile('agm_io_E|W6', 'IOTILE', bitstream_width=20, bitstream_height=6
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 }, key_transformers={
     'alta_rio[0-9][0-9].[A-Z]*_USED': lambda x: None,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=9
-    'IOMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 4), # bits=7, inputs=9
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 4), # bits=7, inputs=10
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 2, 1), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=9
+    'IOMUX[0-9][0-9]': ['mux', 7, 3], # bits=7, inputs=9
+    'RMUX[0-9][0-9]': ['mux', 7, 3], # bits=7, inputs=10
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
 }))
 
-InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_height=68, slices=16, bels=[
+InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_height=68, bels=[
     {
         'name': 'alta_clkenctrl',
         'count': 2,
@@ -7725,21 +7551,20 @@ InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_he
 }, key_transformers={
     'alta_slice[0-9][0-9].CARRY_CRL': lambda x: "CARRY_CRL"+x[10:12],
     'alta_slice[0-9][0-9].INIT': lambda x: "LUT"+x[10:12],
-}, encoders={
-    'LUT[0-9][0-9]': lambda key,val: lut_encode(key,val),
-    'LUTCMUX[0-9][0-9]': lambda key,val: [val[0], 0],
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=27
-    'LMUX[0-9][0-9]': lambda key,val: mux_encode(val, 12, 3), # bits=15, inputs=36
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 4), # bits=11, inputs=22
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    #'TileAsyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0), # bits=4, inputs=3
-    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 0), # bits=3, inputs=2
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0), # bits=4, inputs=3
-    'TileSyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 0), # bits=3, inputs=2
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 12, 8], # bits=12, inputs=32
+    'IMUX[0-9][0-9]': ['mux', 12, 9], # bits=12, inputs=27
+    'LMUX[0-9][0-9]': ['mux', 15, 12], # bits=15, inputs=36
+    'RMUX[0-9][0-9]': ['mux', 11, 7], # bits=11, inputs=22
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    #'TileAsyncMUX[0-9][0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'TileClkEnMUX[0-9][0-9]': ['mux', 3, 3], # bits=3, inputs=2
+    'TileClkMUX[0-9][0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'TileSyncMUX[0-9][0-9]': ['mux', 3, 3], # bits=3, inputs=2
+    'LUT[0-9][0-9]': ['lut'],
 }))
 
-InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_height=68, bels=[
     {
         'name': 'alta_bram9k',
         'count': 1,
@@ -8293,21 +8118,21 @@ InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_h
 }, pseudos={
     'BufMUX': 36,
     'IsoMUXPseudo': 6,
-}, encoders={
-    'INIT_VAL': lambda key,val: val[::-1],
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 4), # bits=12, inputs=32
-    'IMUX[0-9][0-9]': lambda key,val: mux_encode(val, 9, 3), # bits=12, inputs=27
-    'KMUX[0-9][0-9]': lambda key,val: mux_encode(val, 6, 3), # bits=9, inputs=16
-    'LMUX[0-9][0-9]': lambda key,val: mux_encode(val, 12, 3), # bits=15, inputs=36
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 3), # bits=11, inputs=22
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    'TMUX[0-9][0-9]': lambda key,val: mux_encode(val, 3, 3), # bits=6, inputs=9
-    'TileAsyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0), # bits=4, inputs=3
-    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0), # bits=4, inputs=3
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0), # bits=4, inputs=3
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 12, 8], # bits=12, inputs=32
+    'IMUX[0-9][0-9]': ['mux', 12, 9], # bits=12, inputs=27
+    'KMUX[0-9][0-9]': ['mux', 9, 6], # bits=9, inputs=16
+    'LMUX[0-9][0-9]': ['mux', 15, 12], # bits=15, inputs=36
+    'RMUX[0-9][0-9]': ['mux', 11, 8], # bits=11, inputs=22
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    'TMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=9
+    'TileAsyncMUX[0-9][0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'TileClkEnMUX[0-9][0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'TileClkMUX[0-9][0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'INIT_VAL': ['reverse'],
 }))
 
-InstallTile(Tile('agm_tile_mult', 'MultTILE', bitstream_width=32, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_tile_mult', 'MultTILE', bitstream_width=32, bitstream_height=68, bels=[
     {
         'name': 'alta_mult',
         'count': 1,
@@ -8481,18 +8306,18 @@ InstallTile(Tile('agm_tile_mult', 'MultTILE', bitstream_width=32, bitstream_heig
 }, pseudos={
     'BufMUX': 36,
     'IsoMUXPseudo': 4,
-}, encoders={
-    'CtrlMUX[0-9][0-9]': lambda key,val: mux_encode(val, 6, 4), # bits=10, inputs=24
-    'KMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 3), # bits=11, inputs=21
-    'LMUX[0-9][0-9]': lambda key,val: mux_encode(val, 12, 3), # bits=15, inputs=36
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 8, 3), # bits=11, inputs=22
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
-    'TileAsyncMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0), # bits=4, inputs=3
-    'TileClkEnMUX[0-9][0-9]': lambda key,val: mux_encode(val, 5, 0), # bits=5, inputs=4
-    'TileClkMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 0), # bits=4, inputs=3
+}, value_transformers={
+    'CtrlMUX[0-9][0-9]': ['mux', 10, 6], # bits=10, inputs=24
+    'KMUX[0-9][0-9]': ['mux', 11, 8], # bits=11, inputs=21
+    'LMUX[0-9][0-9]': ['mux', 15, 12], # bits=15, inputs=36
+    'RMUX[0-9][0-9]': ['mux', 11, 8], # bits=11, inputs=22
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
+    'TileAsyncMUX[0-9][0-9]': ['mux', 4, 4], # bits=4, inputs=3
+    'TileClkEnMUX[0-9][0-9]': ['mux', 5, 5], # bits=5, inputs=4
+    'TileClkMUX[0-9][0-9]': ['mux', 4, 4], # bits=4, inputs=3
 }))
 
-InstallTile(Tile('agm_tile_route', 'RogicTILE', bitstream_width=20, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_tile_route', 'RogicTILE', bitstream_width=20, bitstream_height=68, values={
     'LMUX00': [0,20,40,60,80,100,120,140,160,180,200,220,280,260,240],
     'LMUX01': [320,340,360,380,400,420,440,460,480,500,520,540,600,580,560],
     'LMUX02': [720,740,760,780,800,820,840,860,880,900,920,940,1000,980,960],
@@ -8600,18 +8425,18 @@ InstallTile(Tile('agm_tile_route', 'RogicTILE', bitstream_width=20, bitstream_he
 }, pseudos={
     'BufMUX': 16,
     'IsoMUXPseudo': 4,
-}, encoders={
-    'LMUX[0-9][0-9]': lambda key,val: mux_encode(val, 12, 3), # bits=15, inputs=36
-    'RMUX[0-9][0-9]': lambda key,val: mux_encode(val, 7, 4), # bits=11, inputs=22
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'LMUX[0-9][0-9]': ['mux', 15, 12], # bits=15, inputs=36
+    'RMUX[0-9][0-9]': ['mux', 11, 7], # bits=11, inputs=22
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_clk_dis', 'ClkdisTILE', bitstream_width=0, bitstream_height=0, slices=0, values={}, pseudos={
+InstallTile(Tile('agm_clk_dis', 'ClkdisTILE', bitstream_width=0, bitstream_height=0, values={}, pseudos={
     'GclkDMUX': 348,
     'BufMUX': 2,
 }))
 
-InstallTile(Tile('agm_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, slices=0, bels=[
+InstallTile(Tile('agm_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, bels=[
     {
         'name': 'alta_mcu_m3',
         'count': 1,
@@ -8638,7 +8463,7 @@ InstallTile(Tile('agm_MCU', 'UFMTILE', bitstream_width=0, bitstream_height=0, sl
 }))
 
 
-InstallTile(Tile('agm_MCU_PIN_E', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_MCU_PIN_E', 'UFMTILE', bitstream_width=40, bitstream_height=68, values={
     'BBMUXE00': [431,351,430,350,428,429,349,348,347,427],
     'BBMUXE01': [471,551,470,550,468,469,549,548,547,467],
     'BBMUXE02': [671,591,670,590,668,669,589,588,587,667],
@@ -8689,12 +8514,12 @@ InstallTile(Tile('agm_MCU_PIN_E', 'UFMTILE', bitstream_width=40, bitstream_heigh
     'SeamMUX15': [2392,2393,2394,2395,2396,2397],
 }, pseudos={
     'BufMUX': 16,
-}, encoders={
-    'BBMUXE[0-9][0-9]': lambda key,val: mux_encode(val, 7, 3), # bits=10, inputs=17
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXE[0-9][0-9]': ['mux', 10, 7], # bits=10, inputs=17
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_MCU_PIN_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, values={
+InstallTile(Tile('agm_MCU_PIN_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, values={
     'BBMUXS00':[2219,2179,2220,2180,2221,2181,2222,2182,2183],
     'BBMUXS01':[2299,2259,2300,2260,2301,2261,2302,2262,2263],
     'BBMUXS02':[2379,2339,2380,2340,2381,2341,2382,2342,2343],
@@ -8731,15 +8556,15 @@ InstallTile(Tile('agm_MCU_PIN_S', 'UFMTILE', bitstream_width=40, bitstream_heigh
     'SeamMUX09': [2447,2448,2449,2450,2451,2452],
     'SeamMUX10': [2527,2528,2529,2530,2531,2532],
     'SeamMUX11': [2607,2608,2609,2610,2611,2612],
-}, encoders={
-    'BBMUXS[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXS[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }, pseudos={
     'BufMUX': 12,
 }))
 
 # Same bitstream as above... 
-InstallTile(Tile('agm_JTAG_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_JTAG_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, bels=[
     {
         'name': 'alta_jtag',
         'count': 1,
@@ -8785,13 +8610,13 @@ InstallTile(Tile('agm_JTAG_S', 'UFMTILE', bitstream_width=40, bitstream_height=6
     'SeamMUX11': [2607,2608,2609,2610,2611,2612],
 }, pseudos={
     'BufMUX': 12,
-}, encoders={
-    'BBMUXS[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXS[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
 # Same bitstream as above... again... 
-InstallTile(Tile('agm_OSC_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_OSC_S', 'UFMTILE', bitstream_width=40, bitstream_height=68, bels=[
     {
         'name': 'alta_osc',
         'count': 1,
@@ -8837,12 +8662,12 @@ InstallTile(Tile('agm_OSC_S', 'UFMTILE', bitstream_width=40, bitstream_height=68
     'SeamMUX11': [2607,2608,2609,2610,2611,2612],
 }, pseudos={
     'BufMUX': 12,
-}, encoders={
-    'BBMUXS[0-9][0-9]': lambda key,val: mux_encode(val, 7, 2), # bits=9, inputs=13
-    'SeamMUX[0-9][0-9]': lambda key,val: mux_encode(val, 4, 2), # bits=6, inputs=6
+}, value_transformers={
+    'BBMUXS[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
+    'SeamMUX[0-9][0-9]': ['mux', 6, 4], # bits=6, inputs=6
 }))
 
-InstallTile(Tile('agm_remote', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_remote', 'UFMTILE', bitstream_width=40, bitstream_height=68, bels=[
     {
         'name': 'alta_remote',
         'count': 1,
@@ -8863,7 +8688,7 @@ InstallTile(Tile('agm_remote', 'UFMTILE', bitstream_width=40, bitstream_height=6
     'BufMUX': 1,
 }))
 
-InstallTile(Tile('agm_ufm', 'UFMTILE', bitstream_width=40, bitstream_height=68, slices=0, bels=[
+InstallTile(Tile('agm_ufm', 'UFMTILE', bitstream_width=40, bitstream_height=68, bels=[
     {
         'name': 'alta_ufml',
         'count': 1,
