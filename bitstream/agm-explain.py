@@ -45,8 +45,6 @@ if args.route != None:
     routing = RouteFile(args.route)
 
 emit_fasm = args.output == 'fasm'
-if emit_fasm:
-    print("#nofmt!")
 
 def print_fasm_data(data):
     owner = data['owner']
@@ -82,12 +80,7 @@ def print_fasm_data(data):
             if len(comps) > 1:
                 print("# %s" % ";".join(comps[1:]))
                 
-            # XXX: May be an issue with bram init_val too...
-            if key.endswith("_LUT"):
-                print("#fmt!")
             print("%s%s = %s" % (prefix, key, comps[0].strip()))
-            if key.endswith("_LUT"):
-                print("#nofmt!")
             print("")
 
 def print_explain_data(data):
