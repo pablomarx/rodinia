@@ -148,9 +148,10 @@ class WireDatabase:
             for output_config_name in output_configs:
                 output_config = output_configs[output_config_name]
                 for output_index in output_config:
-                    tile_pairs = output_config[output_index]
-                    for tile_pair in tile_pairs:
-                        if tile_pair[0] == x and tile_pair[1] == y:
-                            return {'tile': output_tile_name, 'x': tile_pair[2], 'y': tile_pair[3], 'config': output_config_name, 'index': output_index, 'wire': tile_pair[4], 'timing': tile_pair[5] }
-
+                    tile_coords = output_config[output_index]
+                    for tile_coord in tile_coords:
+                        for offset in range(2, len(tile_coord), 2):
+                            if tile_coord[offset] == x and tile_coord[offset+1] == y:
+                                return {'tile': output_tile_name, 'x': x, 'y': y, 'config': output_config_name, 'index': output_index, 'wire': tile_coord[0], 'timing': tile_coord[1] }
+        
         return None
