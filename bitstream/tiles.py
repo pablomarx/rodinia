@@ -180,8 +180,20 @@ class Tile:
             return lut_transform(operation, value, *args[1:])
         elif args[0] == 'reverse':
             return reverse_transform(operation, value, *args[1:])
+        elif args[0] == 'num':
+            return num_transform(operation, value, *args[1:])
         else:
             assert(false)
+
+def num_transform(operation, value, bit_len=1):
+    if operation == 'format':
+        return str(bits_to_num(value))
+    elif operation == 'encode':
+        if type(value) == list:
+            value = bits_to_num(value)
+        return num_to_bits(value, bit_len)
+    elif operation == 'decode':
+        return bits_to_num(value)
 
 def lut_transform(operation, value):
     bits = bits_invert(value)
@@ -1702,6 +1714,9 @@ InstallTile(Tile('ALTA_TILE_SRAM_DIST', 'LogicTILE', bitstream_width=34, bitstre
     'TileClkMUX[0-9][0-9]': ['mux', 4, 4],  # bits=4, inputs=3
     'TileSyncMUX[0-9][0-9]': ['mux', 3, 3], # bits=3, inputs=2
     'LUT[0-9][0-9]': ['lut'],
+    'LUTCMUX[0-9][0-9]': ['num', 2],
+    'OMUX[0-9][0-9]': ['num', 1],
+    'CARRY_CRL[0-9][0-9]': ['num', 1],
 }))
 
 InstallTile(Tile('IOTILE_ROUTE', 'RogicTILE', bitstream_width=16, bitstream_height=68, values={
@@ -2247,6 +2262,9 @@ InstallTile(Tile('agx_tile_logic', 'LogicTILE', bitstream_width=34, bitstream_he
     'TileClkMUX[0-9][0-9]': ['mux', 4, 3], # bits=4, inputs=3
     'TileSyncMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
     'LUT[0-9][0-9]': ['lut'],
+    'LUTCMUX[0-9][0-9]': ['num', 2],
+    'OMUX[0-9][0-9]': ['num', 1],
+    'CARRY_CRL[0-9][0-9]': ['num', 1],
 }))
 
 InstallTile(Tile('agx_tile_route', 'RogicTILE', bitstream_width=16, bitstream_height=68, values={
@@ -7562,6 +7580,9 @@ InstallTile(Tile('agm_tile_logic', 'LogicTILE', bitstream_width=40, bitstream_he
     'TileClkMUX[0-9][0-9]': ['mux', 4, 4], # bits=4, inputs=3
     'TileSyncMUX[0-9][0-9]': ['mux', 3, 3], # bits=3, inputs=2
     'LUT[0-9][0-9]': ['lut'],
+    'LUTCMUX[0-9][0-9]': ['num', 2],
+    'OMUX[0-9][0-9]': ['num', 1],
+    'CARRY_CRL[0-9][0-9]': ['num', 1],
 }))
 
 InstallTile(Tile('agm_tile_bram9k', 'BramTILE', bitstream_width=184, bitstream_height=68, bels=[
