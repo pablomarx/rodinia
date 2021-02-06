@@ -135,7 +135,7 @@ class Tile:
                     break
                 
         indices = self.values[key]
-        assert len(indices) == len(value), "Expected %s bits, got %s" % (len(indices), len(value))
+        assert len(indices) == len(value), "Expected %s bits, got %s for key:%s on tile:%s" % (len(indices), len(value), key, self.name)
 
         val_index = 0
         for bit_index in indices:
@@ -185,15 +185,24 @@ class Tile:
         else:
             assert(false)
 
-def num_transform(operation, value, bit_len=1):
+def num_transform(operation, value, bit_len=1, invert=False):
     if operation == 'format':
-        return str(bits_to_num(value))
+        bits = value
+        if invert:
+            bits = bits_invert(bits)
+        return str(bits_to_num(bits))
     elif operation == 'encode':
         if type(value) == list:
             value = bits_to_num(value)
-        return num_to_bits(value, bit_len)
+        bits = num_to_bits(value, bit_len)
+        if invert:
+            bits = bits_invert(bits)
+        return bits
     elif operation == 'decode':
-        return bits_to_num(value)
+        bits = value
+        if invert:
+            bits = bits_invert(bits)
+        return bits_to_num(bits)
 
 def lut_transform(operation, value):
     bits = bits_invert(value)
@@ -476,7 +485,7 @@ InstallTile(Tile('AG1200_IOTILE_N4_G1', 'IOTILE', bitstream_width=34, bitstream_
     'IOMUX[0-9][0-9]': ['mux', 7, 4], # bits=7, inputs=8
     'RMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=7
     'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
-    'GclkDMUX00': ['mux', 4, 4],
+    'GclkDMUX00': ['num', 4, True],
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
@@ -797,7 +806,7 @@ InstallTile(Tile('AG1200_IOTILE_S4_G1', 'IOTILE', bitstream_width=34, bitstream_
     'IOMUX[0-9][0-9]': ['mux', 7, 4], # bits=7, inputs=8
     'RMUX[0-9][0-9]': ['mux', 6, 3], # bits=6, inputs=7
     'TileClkMUX[0-9][0-9]': ['mux', 3, 2], # bits=3, inputs=2
-    'GclkDMUX00': ['mux', 4, 4],
+    'GclkDMUX00': ['num', 4, True],
 }, defaults={
 	'TileClkMUX[0-9][0-9]': [0,0,1],
 	'IOMUX[0-9][0-9]': [0, 0, 0, 0, 0, 0, 1],
