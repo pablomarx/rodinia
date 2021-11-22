@@ -1,6 +1,5 @@
 ### Status
 Running `build.sh` results in a complete flow from Verilog to binary bitstream. 
-(Note: This likely requires an older version of yosys to synthesize.  `371af7da3` is known to work)
 
 * [simple.v](simple.v) sets LED outputs to 1'b0, 1'b1 and clk.  When uploaded to the FPGA it executes as expected.
 * [blinky.v](blinky.v) Sets up a clock driven counter, blinks 8 LEDs 
