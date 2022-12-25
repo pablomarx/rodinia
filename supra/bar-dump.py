@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # Copyright 2019 Steve White
 #
@@ -43,24 +43,25 @@ def read_float(file):
 
 def read_string(file):
     len = read16(file)
-    return file.read(len)
+    return file.read(len).decode('ascii')
 
 # Came from at a table in af at 0x00a9fea0.
 # Referenced by a function at 0x00419ff0.
 # That in turn was called by the remnants of
 # dump_route_table at 0x008319f0.
 types = [
-    'RMUX', 'LMUX', 'TMUX', 'OMUX', 'IMUX', 'WMUX', 'KMUX', 'CtrlMUX',
-    'PllSeamMUX', 'TileClkEnMUX', 'TileClkMUX', 'TileSyncMUX', 'TileAsyncMUX', 'TileWeRenMUX', 'BramClkMUX', 'TileClkMUX',
-    'TileAsyncMUX', 'LoopMUX', 'IOMUX', 'GclkMUX', 'GclkDMUX', 'GdrvMUX', 'BBMUXE', 'BBMUXN',
-    'BBMUXW', 'BBMUXS', 'ConstMUX', 'InputMUX', 'PllClkInMUX', 'CFG_PllClkFbMUX', 'CFG_PllIntFbMUX', 'PllSeamMUX',
-    'BufMUX', 'GateMUX', 'IsoMUXPseudo', 'SinkMUXPseudo', 'SLICE_LOGIC', 'SLICE_SRAMCTRL', 'SLICE_SRAM', 'SLICE_WRAMCTRL',
-    'SLICE_WRAM', 'SLICE_CLKENCTRL', 'SLICE_ASYNCCTRL', 'SLICE_SYNCCTRL', 'SLICE_IO', 'SLICE_RIO', 'SLICE_DIO', 'SLICE_IOREG',
-    'SLICE_DIOREG', 'SLICE_INDEL', 'SLICE_UFM', 'SLICE_UFMS', 'SLICE_UFML', 'SLICE_BOOT', 'SLICE_OSC', 'SLICE_REMOTE',
-    'SLICE_JTAG', 'SLICE_IRDA', 'SLICE_MCU', 'SLICE_MCU_M3', 'SLICE_PLL', 'SLICE_PLLX', 'SLICE_PLLV', 'SLICE_PLLVE',
-    'SLICE_SARADC', 'SLICE_OCT', 'SLICE_BRAM', 'SLICE_BRAM9K', 'SLICE_MULT', 'SLICE_MULTM', 'SLICE_I2C', 'SLICE_SPI',
-    'SLICE_GCLKSEL', 'SLICE_GCLKGEN', 'SLICE_GCLKGEN0', 'SLICE_GCLKGEN2', 'SLICE_DPCLKDEL', 'SLICE_IO_GCLK', 'SLICE_UFM_GDDD', None,
-    'OMUXR', 'OMUXI', 'OMUXL', None, 
+    'RMUX', 'LMUX', 'TMUX', 'OMUX', 'IMUX', 'WMUX', 'KMUX', 'CtrlMUX', 
+    'SeamMUX', 'TileClkEnMUX', 'TileClkMUX', 'TileSyncMUX', 'TileAsyncMUX', 'TileWeRenMUX', 'BramClkMUX', 'ClkMUX', 
+    'AsyncMUX', 'LoopMUX', 'IOMUX', 'GclkMUX', 'GclkDMUX', 'GdrvMUX', 'BBMUXE', 'BBMUXN', 
+    'BBMUXW', 'BBMUXS', 'ConstMUX', 'InputMUX', 'PllClkInMUX', 'PllClkFbMUX', 'PllIntFbMUX', 'PllSeamMUX', 
+    'BufMUX', 'GateMUX', 'IsoMUXPseudo', 'SinkMUXPseudo', 'SLICE_LOGIC', 'SLICE_SRAMCTRL', 'SLICE_SRAM', 'SLICE_WRAMCTRL', 
+    'SLICE_WRAM', 'SLICE_CLKENCTRL', 'SLICE_ASYNCCTRL', 'SLICE_SYNCCTRL', 'SLICE_IO', 'SLICE_RIO', 'SLICE_DIO', 'SLICE_IOREG', 
+    'SLICE_DIOREG', 'SLICE_INDEL', 'SLICE_BUF', 'SLICE_UFM', 'SLICE_UFMS', 'SLICE_UFML', 'SLICE_BOOT', 'SLICE_OSC', 'SLICE_REMOTE', 
+    'SLICE_JTAG', 'SLICE_IRDA', 'SLICE_MCU', 'SLICE_MCU_M3', 'SLICE_RV32', 'SLICE_PLL', 'SLICE_PLLX', 'SLICE_PLLV', 'SLICE_PLLVE', 
+    'SLICE_SARADC', 'SLICE_OCT', 'SLICE_BRAM', 'SLICE_BRAM9K', 'SLICE_MULT', 'SLICE_MULTM', 'SLICE_I2C', 'SLICE_SPI', 
+    'SLICE_GCLKSEL', 'SLICE_GCLKGEN', 'SLICE_GCLKGEN0', 'SLICE_GCLKGEN2', 'SLICE_DPCLKDEL', 'SLICE_GCLKSW', 'SLICE_ADC', 'SLICE_DAC', 
+    'SLICE_CMP', 'SLICE_MIPI_RX2', 'SLICE_MIPI_TX2', 'SLICE_IO_GCLK', 'SLICE_UFM_GDDD', None, 
+    'OMUXR', 'OMUXI', 'OMUXL'
 ]
 
 def print_text_format(fields):
