@@ -609,6 +609,7 @@ SLICE alta_rio
     inclkCFG : 2'bx;
     outclkCFG : 2'bx;
     CFG_TRI_INPUT : 1'bx;
+    CFG_INPUT_EN : 1'bx;
     CFG_PULL_UP : 1'bx;
     CFG_SLR : 1'bx;
     CFG_OPEN_DRAIN : 1'bx;

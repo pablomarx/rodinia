@@ -1137,7 +1137,7 @@ module cycloneive_clkctrl (
                         outclk
                         );
    
-parameter lpm_type = "cycloneii_clkctrl";
+parameter lpm_type = "cycloneive_clkctrl";
 parameter clock_type = "auto";
 parameter ena_register_mode = "falling edge";
 
@@ -1268,3 +1268,30 @@ module  cycloneive_oscillator
     
     output clkout;
 endmodule
+
+module  cycloneive_pseudo_diff_out (
+    i,
+    o,
+    obar);
+
+input i;
+
+output o;
+output obar;
+
+parameter lpm_type = "cycloneive_pseudo_diff_out";
+
+endmodule
+
+module  cycloneive_routing_wire  (
+    datain,
+    dataout);
+
+input datain;
+
+output dataout;
+
+parameter lpm_type = "cycloneive_routing_wire";
+
+endmodule
+

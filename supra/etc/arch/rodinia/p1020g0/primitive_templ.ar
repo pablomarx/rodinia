@@ -262,4 +262,20 @@ SLICE cycloneive_oscillator
 // END_SLICE_TIMING
 END_SLICE
 
+SLICE cycloneive_pseudo_diff_out
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_routing_wire
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
 

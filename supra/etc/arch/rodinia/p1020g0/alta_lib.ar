@@ -1856,6 +1856,7 @@ SLICE alta_rio
     inclkCFG : 2'bx;
     outclkCFG : 2'bx;
     CFG_TRI_INPUT : 1'bx;
+    CFG_INPUT_EN : 1'bx;
     CFG_PULL_UP : 1'bx;
     CFG_SLR : 1'bx;
     CFG_OPEN_DRAIN : 1'bx;
@@ -2179,24 +2180,6 @@ SLICE alta_dio
     VALUE : WORST 4.298 4.298 4.392 4.392;
   END_TIMING
   TIMING
-    TYPE: CELL; FROM : areset; TO : padio; SENSE : FROM_RISING;
-    CONFIG
-      OUT_REG_MODE : 1'b1;
-      OUT_DELAY    : 1'b0;
-    END_CONFIG
-    VALUE : BEST 2.808 2.808 2.801 2.801;
-    VALUE : WORST 3.724 3.724 3.726 3.726;
-  END_TIMING
-  TIMING
-    TYPE: CELL; FROM : areset; TO : padio; SENSE : FROM_RISING;
-    CONFIG
-      OUT_REG_MODE : 1'b1;
-      OUT_DELAY    : 1'b1;
-    END_CONFIG
-    VALUE : BEST 3.359 3.359 3.352 3.352;
-    VALUE : WORST 4.479 4.479 4.481 4.481;
-  END_TIMING
-  TIMING
     TYPE: CELL; FROM : oe; TO : padio; SENSE : POSEDGE;
     CONFIG
       OE_REG_MODE  : 1'b0;
@@ -2407,13 +2390,6 @@ SLICE alta_dio
     VALUE : WORST -3.269 -3.269 -3.312 -3.312;
   END_TIMING
   TIMING
-    TYPE: CELL; FROM : areset; TO : regout; SENSE : FROM_RISING;
-    CONFIG
-    END_CONFIG
-    VALUE : BEST 0.250 0.250 0.256 0.256;
-    VALUE : WORST 0.325 0.325 0.332 0.332;
-  END_TIMING
-  TIMING
     TYPE: CELL; FROM : inclk; TO : regout; SENSE : FROM_RISING;
     CONFIG
     END_CONFIG
@@ -2568,6 +2544,27 @@ SLICE alta_indel
   END_PIN
   PIN out
     //TYPE : INDEL_OUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_buf
+// SLICE_INFO
+  //TYPE : BUF;
+  CONFIG
+  END_CONFIG
+  PIN in
+    //TYPE : BUF_IN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN out
+    //TYPE : BUF_OUT;
     //SIZE : 1;
     //DIR  : output;
   END_PIN
@@ -2936,10 +2933,12 @@ SLICE alta_pllve
     CLKOUT3_CASCADE : 1'bx;
     CLKOUT4_CASCADE : 1'bx;
     VCO_POST_DIV : 1'bx;
-    REG_CTRL    : 2'bx;
+    REG_CTRL : 2'bx;
     CP : 3'bx;
     RREF : 2'bx;
     RVI : 2'bx;
+    IVCO : 3'bx;
+    PLL_EN_FLAG : 1'bx;
   END_CONFIG
   PIN clkin
     //TYPE : PLLVE_CLKIN;
@@ -10838,6 +10837,444 @@ SLICE alta_dpclkdel
 // END_SLICE_TIMING
 END_SLICE
 
+SLICE alta_gclksw
+// SLICE_INFO
+  //TYPE : GCLKSW;
+  CONFIG
+  END_CONFIG
+  PIN resetn
+    //TYPE : GCLKSW_RESETN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clkin0
+    //TYPE : GCLKSW_CLKIN0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clkin1
+    //TYPE : GCLKSW_CLKIN1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clkin2
+    //TYPE : GCLKSW_CLKIN2;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clkin3
+    //TYPE : GCLKSW_CLKIN3;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN select
+    //TYPE : GCLKSW_SELECT;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN clkout
+    //TYPE : GCLKSW_CLKOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_adc
+// SLICE_INFO
+  //TYPE : ADC;
+  CONFIG
+    sclkCFG : 2'bx;
+  END_CONFIG
+  PIN enb
+    //TYPE : ADC_ENB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sclk
+    //TYPE : ADC_SCLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN insel
+    //TYPE : ADC_INSEL;
+    //SIZE : 5;
+    //DIR  : input;
+  END_PIN
+  PIN stop
+    //TYPE : ADC_STOP;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN db
+    //TYPE : ADC_DB;
+    //SIZE : 12;
+    //DIR  : output;
+  END_PIN
+  PIN eoc
+    //TYPE : ADC_EOC;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_dac
+// SLICE_INFO
+  //TYPE : DAC;
+  CONFIG
+  END_CONFIG
+  PIN enb
+    //TYPE : DAC_ENB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN bufenb
+    //TYPE : DAC_BUFENB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN din
+    //TYPE : DAC_DIN;
+    //SIZE : 10;
+    //DIR  : input;
+  END_PIN
+  PIN stop
+    //TYPE : DAC_STOP;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_cmp
+// SLICE_INFO
+  //TYPE : CMP;
+  CONFIG
+  END_CONFIG
+  PIN enb1
+    //TYPE : CMP_ENB1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN enb2
+    //TYPE : CMP_ENB2;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN imsel1
+    //TYPE : CMP_IMSEL1;
+    //SIZE : 3;
+    //DIR  : input;
+  END_PIN
+  PIN imsel2
+    //TYPE : CMP_IMSEL2;
+    //SIZE : 3;
+    //DIR  : input;
+  END_PIN
+  PIN ipsel1
+    //TYPE : CMP_IPSEL1;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN ipsel2
+    //TYPE : CMP_IPSEL2;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN hyst1
+    //TYPE : CMP_HYST1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN hyst2
+    //TYPE : CMP_HYST2;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN mode1
+    //TYPE : CMP_MODE1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN mode2
+    //TYPE : CMP_MODE2;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN stop
+    //TYPE : CMP_STOP;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN out1
+    //TYPE : CMP_OUT1;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN out2
+    //TYPE : CMP_OUT2;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_mipi_rx2
+// SLICE_INFO
+  //TYPE : MIPI_RX2;
+  CONFIG
+    LPSRC : 2'bx;
+    HSRX_CUA : 2'bx;
+    DLY_CK : 3'bx;
+    DLY_DA0 : 3'bx;
+    DLY_DA1 : 3'bx;
+  END_CONFIG
+  PIN RX_HS_ENB
+    //TYPE : MIPI_RX2_RX_HS_ENB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN RX_HS_TERMENB
+    //TYPE : MIPI_RX2_RX_HS_TERMENB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_ENB
+    //TYPE : MIPI_RX2_TX_LP_ENB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN RX_PD
+    //TYPE : MIPI_RX2_RX_PD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_PD
+    //TYPE : MIPI_RX2_TX_PD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_DAP
+    //TYPE : MIPI_RX2_TX_LP_DAP;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_DAN
+    //TYPE : MIPI_RX2_TX_LP_DAN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN LP_CD_P
+    //TYPE : MIPI_RX2_LP_CD_P;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN LP_CD_N
+    //TYPE : MIPI_RX2_LP_CD_N;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_CKDP
+    //TYPE : MIPI_RX2_RX_LP_CKDP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_CKDN
+    //TYPE : MIPI_RX2_RX_LP_CKDN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA0CLK
+    //TYPE : MIPI_RX2_RX_LP_DA0CLK;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA0DP
+    //TYPE : MIPI_RX2_RX_LP_DA0DP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA0DN
+    //TYPE : MIPI_RX2_RX_LP_DA0DN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_HS_DA0CLKDIV4
+    //TYPE : MIPI_RX2_RX_HS_DA0CLKDIV4;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_HS_DA1CLKDIV4
+    //TYPE : MIPI_RX2_RX_HS_DA1CLKDIV4;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA1CLK
+    //TYPE : MIPI_RX2_RX_LP_DA1CLK;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA1DP
+    //TYPE : MIPI_RX2_RX_LP_DA1DP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA1DN
+    //TYPE : MIPI_RX2_RX_LP_DA1DN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_HS_DA0
+    //TYPE : MIPI_RX2_RX_HS_DA0;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN RX_HS_DA1
+    //TYPE : MIPI_RX2_RX_HS_DA1;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_mipi_tx2
+// SLICE_INFO
+  //TYPE : MIPI_TX2;
+  CONFIG
+    TX_VREF : 3'bx;
+    LPSRC : 2'bx;
+    RPU : 2'bx;
+    RPD : 2'bx;
+    DLY_CKCLK : 3'bx;
+    DLY_DACLK : 3'bx;
+  END_CONFIG
+  PIN TX_HS_ENB
+    //TYPE : MIPI_TX2_TX_HS_ENB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_ENB
+    //TYPE : MIPI_TX2_TX_LP_ENB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_PD
+    //TYPE : MIPI_TX2_TX_PD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN RX_PD
+    //TYPE : MIPI_TX2_RX_PD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_HS_CKCLK
+    //TYPE : MIPI_TX2_TX_HS_CKCLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_HS_DACLK
+    //TYPE : MIPI_TX2_TX_HS_DACLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_HS_DACLKDIV4
+    //TYPE : MIPI_TX2_TX_HS_DACLKDIV4;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_DCKP
+    //TYPE : MIPI_TX2_TX_LP_DCKP;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_DCKN
+    //TYPE : MIPI_TX2_TX_LP_DCKN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_DA0P
+    //TYPE : MIPI_TX2_TX_LP_DA0P;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_DA0N
+    //TYPE : MIPI_TX2_TX_LP_DA0N;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_DA1P
+    //TYPE : MIPI_TX2_TX_LP_DA1P;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_LP_DA1N
+    //TYPE : MIPI_TX2_TX_LP_DA1N;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_HS_DCK
+    //TYPE : MIPI_TX2_TX_HS_DCK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN TX_HS_DA0
+    //TYPE : MIPI_TX2_TX_HS_DA0;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN TX_HS_DA1
+    //TYPE : MIPI_TX2_TX_HS_DA1;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN LP_CD_P
+    //TYPE : MIPI_TX2_LP_CD_P;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN LP_CD_N
+    //TYPE : MIPI_TX2_LP_CD_N;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA0CLK
+    //TYPE : MIPI_TX2_RX_LP_DA0CLK;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA0DP
+    //TYPE : MIPI_TX2_RX_LP_DA0DP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN RX_LP_DA0DN
+    //TYPE : MIPI_TX2_RX_LP_DA0DN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
 SLICE alta_ufm
 // SLICE_INFO
   //TYPE : UFM;
@@ -12310,6 +12747,832 @@ SLICE alta_mcu_m3
     VALUE : BEST 0.223 0.223 0.223 0.223;
     VALUE : WORST 0.572 0.572 0.572 0.572;
   END_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_rv32
+// SLICE_INFO
+  //TYPE : RV32;
+  CONFIG
+  END_CONFIG
+  PIN mem_ahb_hready
+    //TYPE : RV32_MEM_AHB_HREADY;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN mem_ahb_hreadyout
+    //TYPE : RV32_MEM_AHB_HREADYOUT;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN mem_ahb_htrans
+    //TYPE : RV32_MEM_AHB_HTRANS;
+    //SIZE : 2;
+    //DIR  : output;
+  END_PIN
+  PIN mem_ahb_hsize
+    //TYPE : RV32_MEM_AHB_HSIZE;
+    //SIZE : 3;
+    //DIR  : output;
+  END_PIN
+  PIN mem_ahb_hburst
+    //TYPE : RV32_MEM_AHB_HBURST;
+    //SIZE : 3;
+    //DIR  : output;
+  END_PIN
+  PIN mem_ahb_hwrite
+    //TYPE : RV32_MEM_AHB_HWRITE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN mem_ahb_haddr
+    //TYPE : RV32_MEM_AHB_HADDR;
+    //SIZE : 32;
+    //DIR  : output;
+  END_PIN
+  PIN mem_ahb_hwdata
+    //TYPE : RV32_MEM_AHB_HWDATA;
+    //SIZE : 32;
+    //DIR  : output;
+  END_PIN
+  PIN mem_ahb_hresp
+    //TYPE : RV32_MEM_AHB_HRESP;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN mem_ahb_hrdata
+    //TYPE : RV32_MEM_AHB_HRDATA;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_hsel
+    //TYPE : RV32_SLAVE_AHB_HSEL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_hready
+    //TYPE : RV32_SLAVE_AHB_HREADY;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_hreadyout
+    //TYPE : RV32_SLAVE_AHB_HREADYOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN slave_ahb_htrans
+    //TYPE : RV32_SLAVE_AHB_HTRANS;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_hsize
+    //TYPE : RV32_SLAVE_AHB_HSIZE;
+    //SIZE : 3;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_hburst
+    //TYPE : RV32_SLAVE_AHB_HBURST;
+    //SIZE : 3;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_hwrite
+    //TYPE : RV32_SLAVE_AHB_HWRITE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_haddr
+    //TYPE : RV32_SLAVE_AHB_HADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_hwdata
+    //TYPE : RV32_SLAVE_AHB_HWDATA;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN slave_ahb_hresp
+    //TYPE : RV32_SLAVE_AHB_HRESP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN slave_ahb_hrdata
+    //TYPE : RV32_SLAVE_AHB_HRDATA;
+    //SIZE : 32;
+    //DIR  : output;
+  END_PIN
+  PIN gpio0_io_in
+    //TYPE : RV32_GPIO0_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio0_io_out_data
+    //TYPE : RV32_GPIO0_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio0_io_out_en
+    //TYPE : RV32_GPIO0_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio1_io_in
+    //TYPE : RV32_GPIO1_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio1_io_out_data
+    //TYPE : RV32_GPIO1_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio1_io_out_en
+    //TYPE : RV32_GPIO1_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_bootLoadn
+    //TYPE : RV32_SYS_CTRL_BOOTLOADN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_swjConfig
+    //TYPE : RV32_SYS_CTRL_SWJCONFIG;
+    //SIZE : 5;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_clkSource
+    //TYPE : RV32_SYS_CTRL_CLKSOURCE;
+    //SIZE : 2;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_hseEnable
+    //TYPE : RV32_SYS_CTRL_HSEENABLE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_hseBypass
+    //TYPE : RV32_SYS_CTRL_HSEBYPASS;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_hseReady
+    //TYPE : RV32_SYS_CTRL_HSEREADY;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sys_ctrl_pllEnable
+    //TYPE : RV32_SYS_CTRL_PLLENABLE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_pllReady
+    //TYPE : RV32_SYS_CTRL_PLLREADY;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sys_ctrl_oscFreq
+    //TYPE : RV32_SYS_CTRL_OSCFREQ;
+    //SIZE : 4;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_volCtrl
+    //TYPE : RV32_SYS_CTRL_VOLCTRL;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_iwdgStop
+    //TYPE : RV32_SYS_CTRL_IWDGSTOP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_rtcStop
+    //TYPE : RV32_SYS_CTRL_RTCSTOP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_sleep
+    //TYPE : RV32_SYS_CTRL_SLEEP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_stop
+    //TYPE : RV32_SYS_CTRL_STOP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN sys_ctrl_standby
+    //TYPE : RV32_SYS_CTRL_STANDBY;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN gpio2_io_in
+    //TYPE : RV32_GPIO2_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio2_io_out_data
+    //TYPE : RV32_GPIO2_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio2_io_out_en
+    //TYPE : RV32_GPIO2_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio3_io_in
+    //TYPE : RV32_GPIO3_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio3_io_out_data
+    //TYPE : RV32_GPIO3_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio3_io_out_en
+    //TYPE : RV32_GPIO3_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio4_io_in
+    //TYPE : RV32_GPIO4_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio4_io_out_data
+    //TYPE : RV32_GPIO4_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio4_io_out_en
+    //TYPE : RV32_GPIO4_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio5_io_in
+    //TYPE : RV32_GPIO5_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio5_io_out_data
+    //TYPE : RV32_GPIO5_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio5_io_out_en
+    //TYPE : RV32_GPIO5_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio6_io_in
+    //TYPE : RV32_GPIO6_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio6_io_out_data
+    //TYPE : RV32_GPIO6_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio6_io_out_en
+    //TYPE : RV32_GPIO6_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio7_io_in
+    //TYPE : RV32_GPIO7_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio7_io_out_data
+    //TYPE : RV32_GPIO7_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio7_io_out_en
+    //TYPE : RV32_GPIO7_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio8_io_in
+    //TYPE : RV32_GPIO8_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio8_io_out_data
+    //TYPE : RV32_GPIO8_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio8_io_out_en
+    //TYPE : RV32_GPIO8_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio9_io_in
+    //TYPE : RV32_GPIO9_IO_IN;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN gpio9_io_out_data
+    //TYPE : RV32_GPIO9_IO_OUT_DATA;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN gpio9_io_out_en
+    //TYPE : RV32_GPIO9_IO_OUT_EN;
+    //SIZE : 8;
+    //DIR  : output;
+  END_PIN
+  PIN boot_mode
+    //TYPE : RV32_BOOT_MODE;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN sys_clk
+    //TYPE : RV32_SYS_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sys_resetn
+    //TYPE : RV32_SYS_RESETN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN por_resetn
+    //TYPE : RV32_POR_RESETN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ext_resetn
+    //TYPE : RV32_EXT_RESETN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN resetn_out
+    //TYPE : RV32_RESETN_OUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN dmactive
+    //TYPE : RV32_DMACTIVE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN boot_cfg_0_UARTRXD
+    //TYPE : RV32_BOOT_CFG_0_UARTRXD;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN boot_cfg_0_UARTTXD
+    //TYPE : RV32_BOOT_CFG_0_UARTTXD;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN swj_jtag_TRSTn
+    //TYPE : RV32_SWJ_JTAG_TRSTN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN swj_jtag_TCK
+    //TYPE : RV32_SWJ_JTAG_TCK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN swj_jtag_TMS
+    //TYPE : RV32_SWJ_JTAG_TMS;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN swj_jtag_TDI
+    //TYPE : RV32_SWJ_JTAG_TDI;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN swj_jtag_TDO_data
+    //TYPE : RV32_SWJ_JTAG_TDO_DATA;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN swj_jtag_TDO_driven
+    //TYPE : RV32_SWJ_JTAG_TDO_DRIVEN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN swj_SWDO_data
+    //TYPE : RV32_SWJ_SWDO_DATA;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN swj_SWDO_driven
+    //TYPE : RV32_SWJ_SWDO_DRIVEN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN swj_JTAGNSW
+    //TYPE : RV32_SWJ_JTAGNSW;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN swj_JTAGSTATE
+    //TYPE : RV32_SWJ_JTAGSTATE;
+    //SIZE : 4;
+    //DIR  : output;
+  END_PIN
+  PIN swj_JTAGIR
+    //TYPE : RV32_SWJ_JTAGIR;
+    //SIZE : 4;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_SCK
+    //TYPE : RV32_XSPI_FLASH_SCK;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_CSn
+    //TYPE : RV32_XSPI_FLASH_CSN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_SI_IO0_in
+    //TYPE : RV32_XSPI_FLASH_SI_IO0_IN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN xspi_FLASH_SI_IO0_out_data
+    //TYPE : RV32_XSPI_FLASH_SI_IO0_OUT_DATA;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_SI_IO0_out_en
+    //TYPE : RV32_XSPI_FLASH_SI_IO0_OUT_EN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_SO_IO1_in
+    //TYPE : RV32_XSPI_FLASH_SO_IO1_IN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN xspi_FLASH_SO_IO1_out_data
+    //TYPE : RV32_XSPI_FLASH_SO_IO1_OUT_DATA;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_SO_IO1_out_en
+    //TYPE : RV32_XSPI_FLASH_SO_IO1_OUT_EN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_WPn_IO2_in
+    //TYPE : RV32_XSPI_FLASH_WPN_IO2_IN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN xspi_FLASH_WPn_IO2_out_data
+    //TYPE : RV32_XSPI_FLASH_WPN_IO2_OUT_DATA;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_WPn_IO2_out_en
+    //TYPE : RV32_XSPI_FLASH_WPN_IO2_OUT_EN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_HOLDn_IO3_in
+    //TYPE : RV32_XSPI_FLASH_HOLDN_IO3_IN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN xspi_FLASH_HOLDn_IO3_out_data
+    //TYPE : RV32_XSPI_FLASH_HOLDN_IO3_OUT_DATA;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_FLASH_HOLDn_IO3_out_en
+    //TYPE : RV32_XSPI_FLASH_HOLDN_IO3_OUT_EN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN xspi_EXT_FLASH_SCK_I
+    //TYPE : RV32_XSPI_EXT_FLASH_SCK_I;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN xspi_EXT_FLASH_SREG
+    //TYPE : RV32_XSPI_EXT_FLASH_SREG;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aon_io_apb_reset
+    //TYPE : RV32_AON_IO_APB_RESET;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN aon_io_apb_pwaddr
+    //TYPE : RV32_AON_IO_APB_PWADDR;
+    //SIZE : 5;
+    //DIR  : output;
+  END_PIN
+  PIN aon_io_apb_pwdata
+    //TYPE : RV32_AON_IO_APB_PWDATA;
+    //SIZE : 16;
+    //DIR  : output;
+  END_PIN
+  PIN aon_io_apb_pwrite
+    //TYPE : RV32_AON_IO_APB_PWRITE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN aon_io_apb_wready
+    //TYPE : RV32_AON_IO_APB_WREADY;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aon_io_apb_praddr
+    //TYPE : RV32_AON_IO_APB_PRADDR;
+    //SIZE : 5;
+    //DIR  : output;
+  END_PIN
+  PIN aon_io_apb_pread
+    //TYPE : RV32_AON_IO_APB_PREAD;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN aon_io_apb_prdata
+    //TYPE : RV32_AON_IO_APB_PRDATA;
+    //SIZE : 16;
+    //DIR  : input;
+  END_PIN
+  PIN aon_io_rtc_second
+    //TYPE : RV32_AON_IO_RTC_SECOND;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aon_io_rtc_overflow
+    //TYPE : RV32_AON_IO_RTC_OVERFLOW;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aon_io_rtc_alarm
+    //TYPE : RV32_AON_IO_RTC_ALARM;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aon_io_iwdg_rst
+    //TYPE : RV32_AON_IO_IWDG_RST;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ext_int
+    //TYPE : RV32_EXT_INT;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN ext_dma_DMACBREQ
+    //TYPE : RV32_EXT_DMA_DMACBREQ;
+    //SIZE : 4;
+    //DIR  : input;
+  END_PIN
+  PIN ext_dma_DMACLBREQ
+    //TYPE : RV32_EXT_DMA_DMACLBREQ;
+    //SIZE : 4;
+    //DIR  : input;
+  END_PIN
+  PIN ext_dma_DMACSREQ
+    //TYPE : RV32_EXT_DMA_DMACSREQ;
+    //SIZE : 4;
+    //DIR  : input;
+  END_PIN
+  PIN ext_dma_DMACLSREQ
+    //TYPE : RV32_EXT_DMA_DMACLSREQ;
+    //SIZE : 4;
+    //DIR  : input;
+  END_PIN
+  PIN ext_dma_DMACCLR
+    //TYPE : RV32_EXT_DMA_DMACCLR;
+    //SIZE : 4;
+    //DIR  : output;
+  END_PIN
+  PIN ext_dma_DMACTC
+    //TYPE : RV32_EXT_DMA_DMACTC;
+    //SIZE : 4;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_global_initb
+    //TYPE : RV32_FCB0_GLOBAL_INITB;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_global_cfgdone
+    //TYPE : RV32_FCB0_GLOBAL_CFGDONE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_global_chip_rstb
+    //TYPE : RV32_FCB0_GLOBAL_CHIP_RSTB;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_global_devoe
+    //TYPE : RV32_FCB0_GLOBAL_DEVOE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_global_init_emb
+    //TYPE : RV32_FCB0_GLOBAL_INIT_EMB;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_global_porb_init
+    //TYPE : RV32_FCB0_GLOBAL_PORB_INIT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_cfgaddr
+    //TYPE : RV32_FCB0_DECODER_CFGADDR;
+    //SIZE : 10;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_porb_bl
+    //TYPE : RV32_FCB0_DECODER_PORB_BL;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_bleq
+    //TYPE : RV32_FCB0_DECODER_BLEQ;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_cread
+    //TYPE : RV32_FCB0_DECODER_CREAD;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_cshift
+    //TYPE : RV32_FCB0_DECODER_CSHIFT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_cwrite
+    //TYPE : RV32_FCB0_DECODER_CWRITE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_cf_clk
+    //TYPE : RV32_FCB0_DECODER_CF_CLK;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_wl_porb
+    //TYPE : RV32_FCB0_DECODER_WL_PORB;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_wl_ena
+    //TYPE : RV32_FCB0_DECODER_WL_ENA;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_bl_ena
+    //TYPE : RV32_FCB0_DECODER_BL_ENA;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_bl_cfgin
+    //TYPE : RV32_FCB0_DECODER_BL_CFGIN;
+    //SIZE : 4;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_decoder_bl_cfgout
+    //TYPE : RV32_FCB0_DECODER_BL_CFGOUT;
+    //SIZE : 4;
+    //DIR  : input;
+  END_PIN
+  PIN fcb0_chain_shift
+    //TYPE : RV32_FCB0_CHAIN_SHIFT;
+    //SIZE : 2;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_chain_shiftin
+    //TYPE : RV32_FCB0_CHAIN_SHIFTIN;
+    //SIZE : 2;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_chain_read_en
+    //TYPE : RV32_FCB0_CHAIN_READ_EN;
+    //SIZE : 2;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_chain_update
+    //TYPE : RV32_FCB0_CHAIN_UPDATE;
+    //SIZE : 2;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_chain_cf_clk
+    //TYPE : RV32_FCB0_CHAIN_CF_CLK;
+    //SIZE : 2;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_chain_porb
+    //TYPE : RV32_FCB0_CHAIN_PORB;
+    //SIZE : 2;
+    //DIR  : output;
+  END_PIN
+  PIN fcb0_chain_rdata
+    //TYPE : RV32_FCB0_CHAIN_RDATA;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN local_int
+    //TYPE : RV32_LOCAL_INT;
+    //SIZE : 4;
+    //DIR  : input;
+  END_PIN
+  PIN test_en
+    //TYPE : RV32_TEST_EN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN test_se
+    //TYPE : RV32_TEST_SE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN test_mode
+    //TYPE : RV32_TEST_MODE;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN usb0_xcvr_clk
+    //TYPE : RV32_USB0_XCVR_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN usb0_enable
+    //TYPE : RV32_USB0_ENABLE;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN usb0_tx_en
+    //TYPE : RV32_USB0_TX_EN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN usb0_tx_dat
+    //TYPE : RV32_USB0_TX_DAT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN usb0_tx_se0
+    //TYPE : RV32_USB0_TX_SE0;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN usb0_rx_rcv
+    //TYPE : RV32_USB0_RX_RCV;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN usb0_rx_dm
+    //TYPE : RV32_USB0_RX_DM;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN usb0_rx_dp
+    //TYPE : RV32_USB0_RX_DP;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN usb0_speed
+    //TYPE : RV32_USB0_SPEED;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN usb0_id
+    //TYPE : RV32_USB0_ID;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN usb0_dppullup
+    //TYPE : RV32_USB0_DPPULLUP;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN usb0_dppulldn
+    //TYPE : RV32_USB0_DPPULLDN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN usb0_dmpulldn
+    //TYPE : RV32_USB0_DMPULLDN;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
 // END_SLICE_TIMING
 END_SLICE
 

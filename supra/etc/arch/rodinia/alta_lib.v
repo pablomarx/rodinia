@@ -118,7 +118,7 @@ endmodule
 module alta_gclkgen(clkin, ena, clkout);
 input  clkin, ena;
 output clkout;
-parameter ena_reg_mode = 1'b0;
+parameter ENA_REG_MODE = 1'b0;
 endmodule
 
 module alta_gclkgen2(clkin, ena, mode, clkout);
@@ -1254,6 +1254,7 @@ output clkfbout;
 output lock;
 input devpor, devclrn, devoe;
 
+parameter CLKIN_FREQ      = "20.0";
 parameter CLKIN_DIV       = 9'b0;
 parameter CLKFB_DIV       = 9'b0;
 parameter CLKDIV0_EN      = 1'b0;
@@ -1336,6 +1337,7 @@ output clkfbout;
 output lock;
 input devpor, devclrn, devoe;
 
+parameter CLKIN_FREQ      = "20.0";
 parameter CLKIN_HIGH      = 8'b0;
 parameter CLKIN_LOW       = 8'b0;
 parameter CLKIN_TRIM      = 1'b0;
@@ -1390,10 +1392,11 @@ parameter CLKOUT2_CASCADE = 1'b0;
 parameter CLKOUT3_CASCADE = 1'b0;
 parameter CLKOUT4_CASCADE = 1'b0;
 parameter VCO_POST_DIV    = 1'b0;
-parameter REG_CTRL        = 2'b10;
-parameter CP              = 3'b010;
-parameter RREF            = 2'b01;
-parameter RVI             = 2'b01;
+parameter REG_CTRL        = 2'bxx;
+parameter CP              = 3'bxxx;
+parameter RREF            = 2'bxx;
+parameter RVI             = 2'bxx;
+parameter IVCO            = 3'bxxx;
 
 endmodule
 
@@ -1687,6 +1690,187 @@ parameter BOOT_DELAY = 1'b0;
 parameter CLKCFG     = 2'b0;
 endmodule
 
+module alta_gclksw (
+  resetn,
+  ena,
+  clkin0,
+  clkin1,
+  clkin2,
+  clkin3,
+  select,
+  clkout,
+  devpor,
+  devclrn,
+  devoe
+);
+input  devclrn, devpor, devoe;
+input  resetn, ena, clkin0, clkin1, clkin2, clkin3;
+input  [1:0] select;
+output clkout;
+endmodule
+
+module alta_rv32 (
+  sys_clk,
+  mem_ahb_hready,
+  mem_ahb_hreadyout,
+  mem_ahb_htrans,
+  mem_ahb_hsize,
+  mem_ahb_hburst,
+  mem_ahb_hwrite,
+  mem_ahb_haddr,
+  mem_ahb_hwdata,
+  mem_ahb_hresp,
+  mem_ahb_hrdata,
+  slave_ahb_hsel,
+  slave_ahb_hready,
+  slave_ahb_hreadyout,
+  slave_ahb_htrans,
+  slave_ahb_hsize,
+  slave_ahb_hburst,
+  slave_ahb_hwrite,
+  slave_ahb_haddr,
+  slave_ahb_hwdata,
+  slave_ahb_hresp,
+  slave_ahb_hrdata,
+  gpio0_io_in,
+  gpio0_io_out_data,
+  gpio0_io_out_en,
+  gpio1_io_in,
+  gpio1_io_out_data,
+  gpio1_io_out_en,
+  sys_ctrl_clkSource,
+  sys_ctrl_hseEnable,
+  sys_ctrl_hseBypass,
+  sys_ctrl_pllEnable,
+  sys_ctrl_pllReady,
+  sys_ctrl_sleep,
+  sys_ctrl_stop,
+  sys_ctrl_standby,
+  gpio2_io_in,
+  gpio2_io_out_data,
+  gpio2_io_out_en,
+  gpio3_io_in,
+  gpio3_io_out_data,
+  gpio3_io_out_en,
+  gpio4_io_in,
+  gpio4_io_out_data,
+  gpio4_io_out_en,
+  gpio5_io_in,
+  gpio5_io_out_data,
+  gpio5_io_out_en,
+  gpio6_io_in,
+  gpio6_io_out_data,
+  gpio6_io_out_en,
+  gpio7_io_in,
+  gpio7_io_out_data,
+  gpio7_io_out_en,
+  gpio8_io_in,
+  gpio8_io_out_data,
+  gpio8_io_out_en,
+  gpio9_io_in,
+  gpio9_io_out_data,
+  gpio9_io_out_en,
+  ext_resetn,
+  resetn_out,
+  dmactive,
+  swj_JTAGNSW,
+  swj_JTAGSTATE,
+  swj_JTAGIR,
+  ext_int,
+  ext_dma_DMACBREQ,
+  ext_dma_DMACLBREQ,
+  ext_dma_DMACSREQ,
+  ext_dma_DMACLSREQ,
+  ext_dma_DMACCLR,
+  ext_dma_DMACTC,
+  local_int,
+  test_mode,
+  usb0_xcvr_clk,
+  usb0_id,
+  devpor,
+  devclrn,
+  devoe
+);
+input  devclrn, devpor, devoe;
+input         sys_clk;
+output        mem_ahb_hready;
+input         mem_ahb_hreadyout;
+output [1:0]  mem_ahb_htrans;
+output [2:0]  mem_ahb_hsize;
+output [2:0]  mem_ahb_hburst;
+output        mem_ahb_hwrite;
+output [31:0] mem_ahb_haddr;
+output [31:0] mem_ahb_hwdata;
+input         mem_ahb_hresp;
+input  [31:0] mem_ahb_hrdata;
+input         slave_ahb_hsel;
+input         slave_ahb_hready;
+output        slave_ahb_hreadyout;
+input  [1:0]  slave_ahb_htrans;
+input  [2:0]  slave_ahb_hsize;
+input  [2:0]  slave_ahb_hburst;
+input         slave_ahb_hwrite;
+input  [31:0] slave_ahb_haddr;
+input  [31:0] slave_ahb_hwdata;
+output        slave_ahb_hresp;
+output [31:0] slave_ahb_hrdata;
+input  [7:0]  gpio0_io_in;
+output [7:0]  gpio0_io_out_data;
+output [7:0]  gpio0_io_out_en;
+input  [7:0]  gpio1_io_in;
+output [7:0]  gpio1_io_out_data;
+output [7:0]  gpio1_io_out_en;
+output [1:0]  sys_ctrl_clkSource;
+output        sys_ctrl_hseEnable;
+output        sys_ctrl_hseBypass;
+output        sys_ctrl_pllEnable;
+input         sys_ctrl_pllReady;
+output        sys_ctrl_sleep;
+output        sys_ctrl_stop;
+output        sys_ctrl_standby;
+input  [7:0]  gpio2_io_in;
+output [7:0]  gpio2_io_out_data;
+output [7:0]  gpio2_io_out_en;
+input  [7:0]  gpio3_io_in;
+output [7:0]  gpio3_io_out_data;
+output [7:0]  gpio3_io_out_en;
+input  [7:0]  gpio4_io_in;
+output [7:0]  gpio4_io_out_data;
+output [7:0]  gpio4_io_out_en;
+input  [7:0]  gpio5_io_in;
+output [7:0]  gpio5_io_out_data;
+output [7:0]  gpio5_io_out_en;
+input  [7:0]  gpio6_io_in;
+output [7:0]  gpio6_io_out_data;
+output [7:0]  gpio6_io_out_en;
+input  [7:0]  gpio7_io_in;
+output [7:0]  gpio7_io_out_data;
+output [7:0]  gpio7_io_out_en;
+input  [7:0]  gpio8_io_in;
+output [7:0]  gpio8_io_out_data;
+output [7:0]  gpio8_io_out_en;
+input  [7:0]  gpio9_io_in;
+output [7:0]  gpio9_io_out_data;
+output [7:0]  gpio9_io_out_en;
+input         ext_resetn;
+output        resetn_out;
+output        dmactive;
+output        swj_JTAGNSW;
+output [3:0]  swj_JTAGSTATE;
+output [3:0]  swj_JTAGIR;
+input  [7:0]  ext_int;
+input  [3:0]  ext_dma_DMACBREQ;
+input  [3:0]  ext_dma_DMACLBREQ;
+input  [3:0]  ext_dma_DMACSREQ;
+input  [3:0]  ext_dma_DMACLSREQ;
+output [3:0]  ext_dma_DMACCLR;
+output [3:0]  ext_dma_DMACTC;
+input  [3:0]  local_int;
+input  [1:0]  test_mode;
+input         usb0_xcvr_clk;
+input         usb0_id;
+endmodule
+
 module alta_remote (
   clk, shift, update, din, reconfig, dout,
   devpor, devclrn, devoe
@@ -1712,5 +1896,41 @@ module alta_ufml (
 input  ufm_csn, ufm_sck, ufm_sdi;
 output ufm_sdo;
 input  devclrn, devpor, devoe;
+endmodule
+
+module alta_adc (
+  devpor, devclrn, devoe,
+  enb, sclk, insel, stop,
+  db, eoc
+);
+input  devclrn, devpor, devoe;
+input enb, sclk, stop;
+input [4:0] insel;
+output [11:0] db;
+output eoc;
+endmodule
+
+module alta_dac (
+  devpor, devclrn, devoe,
+  enb, bufenb, din, dout, stop
+);
+input  devclrn, devpor, devoe;
+input enb, bufenb, stop;
+input [9:0] din;
+output dout;
+endmodule
+
+module alta_cmp (
+  devpor, devclrn, devoe,
+  enb1, imsel1, ipsel1, hyst1, mode1,
+  enb2, imsel2, ipsel2, hyst2, mode2,
+  out1, out2,
+  stop
+);
+input  devclrn, devpor, devoe;
+input enb1, enb2, hyst1, hyst2, mode1, mode2, stop;
+input [2:0] imsel1, imsel2;
+input [1:0] ipsel1, ipsel2;
+output out1, out2;
 endmodule
 

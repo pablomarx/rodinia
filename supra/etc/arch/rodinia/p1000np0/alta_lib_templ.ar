@@ -214,6 +214,22 @@ SLICE alta_mcu
 // END_SLICE_TIMING
 END_SLICE
 
+SLICE alta_rv32
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_gclksw
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
 
 /////////////////////////////////////////////////////////////////////////////
 
