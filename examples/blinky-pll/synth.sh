@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 SUPRA_DIR=/opt/agm/Supra-2019.10.b0
 
