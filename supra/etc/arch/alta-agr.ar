@@ -11,6 +11,7 @@ CHIP AGRV2K
   FlashPrgIdle : 0.0002;
   FlashSimIdle : 600;
   FlashPrgSize : 256;
+  LzwInfo      : 8 16 1023 true;
   SEAM_COUNT   : 6;
   GCLK_COUNT   : 6;
   SEAM_REGIONS : 1;
