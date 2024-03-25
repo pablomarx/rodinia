@@ -431,7 +431,6 @@ class ConfigChainAltaIO(ConfigChain):
                         chain_name = attr[0]
                         chain_length = attr[1]
                         fields.append((pin['name'] + '_' + chain_name, chain_length))
-        print(fields)
         ConfigChain.__init__(self, chip, 'ALTA_IO', fields)
 
 class ConfigChainDIO(ConfigChain):
