@@ -405,6 +405,35 @@ class ConfigChainRIO:
         
         return result
 
+class ConfigChainAltaIO(ConfigChain):
+    def __init__(self, chip, package=None):
+        io_order = chip.extra['chain_io_order']
+        
+        packages = chip.packages
+        package_names = list(packages.keys())
+        package = packages[package_names[0]]
+        
+        attrs = [
+            ('CFG_KEEP', 2),
+            ('PRG_SLR', 1),
+            ('NDCNTL', 2),
+            ('PDCNTL', 2),
+            ('PU', 4),
+            ('RX_SEL', 1),
+            ('PRG_DELAYB', 1)
+        ]
+        
+        fields = []
+        for io_coord in io_order:
+            for pin in package:
+                if 'tile' in pin and pin['tile'] == io_coord[:2] and pin['index'] == io_coord[2]:
+                    for attr in attrs:
+                        chain_name = attr[0]
+                        chain_length = attr[1]
+                        fields.append((pin['name'] + '_' + chain_name, chain_length))
+        print(fields)
+        ConfigChain.__init__(self, chip, 'ALTA_IO', fields)
+
 class ConfigChainDIO(ConfigChain):
     def __init__(self, chip, package=None):
         io_order = chip.extra['chain_io_order']
