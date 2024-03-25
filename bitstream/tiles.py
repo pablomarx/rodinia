@@ -21,7 +21,7 @@
 # DEALINGS IN THE SOFTWARE.
 #
 
-from utils import bits_to_string, bits_to_bytes, bytes_to_num, bits_invert, num_to_bits, bits_to_num
+from utils import bits_to_string, bits_invert, num_to_bits, bits_to_num
 from math import log
 import re
 
