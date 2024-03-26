@@ -700,10 +700,24 @@ InstallTile(Tile('config_iomux_s6', 'IOTILE', bitstream_width=34, bitstream_heig
 }, pseudos={
 
 }, value_transformers={
+
 }))
 
 # alta_UFM_PLL_cfg.csv
 InstallTile(Tile('config_ufm_pll', 'UFMTILE', bitstream_width=34, bitstream_height=8, bels=[
+    {
+        'name': 'alta_ufms',
+        'count': 1,
+        'inputs': [ 'i_osc_ena', 'i_ufm_flash_csn', 'i_ufm_flash_sclk', 'i_ufm_flash_sdi' ],
+        'outputs': [ 'o_osc', 'o_ufm_flash_sdo' ],
+    },
+    {
+        'name': 'alta_ufm_gddd',
+        'count': 5,
+        'pseudo': True,
+        'inputs': ['in'],
+        'outputs': ['out'],
+    }
 ], values={
     'BBMUXN00': [106, 72, 105, 71, 104, 103, 70, 69, 102],
     'BBMUXN01': [107, 73, 108, 74, 109, 110, 75, 76, 111],
@@ -724,6 +738,7 @@ InstallTile(Tile('config_ufm_pll', 'UFMTILE', bitstream_width=34, bitstream_heig
 }, pseudos={
 
 }, value_transformers={
+    'BBMUXN[0-9][0-9]': ['mux', 9, 7], # bits=9, inputs=13
 }))
 
 # alta_tile_cfg.csv
@@ -736,9 +751,9 @@ InstallTile(Tile('config_tile', 'LogicTILE', bitstream_width=34, bitstream_heigh
     'ClkMUX00': [100],
     'CtrlMUX00': [1103, 1137, 1104],
     'SHIFTMUX00': [32],
-    'IMUX00': [15, 49, 16, 50, 17, 51, 18, 52, 19, 20, 54, 53,],
-    'IMUX01': [26, 60, 25, 59, 24, 58, 23, 57, 22, 21, 55, 56,],
-    'IMUX02': [83, 117, 84, 118, 85, 119, 86, 120, 87, 88, 122, 121,],
+    'IMUX00': [15, 49, 16, 50, 17, 51, 18, 52, 19, 20, 54, 53],
+    'IMUX01': [26, 60, 25, 59, 24, 58, 23, 57, 22, 21, 55, 56],
+    'IMUX02': [83, 117, 84, 118, 85, 119, 86, 120, 87, 88, 122, 121],
     'IMUX03': [94, 128, 93, 127, 92, 126, 91, 125, 90, 89, 123, 124],
     'OMUX00': [33],
     'OMUX01': [67],
@@ -960,7 +975,7 @@ InstallTile(Tile('config_tile', 'LogicTILE', bitstream_width=34, bitstream_heigh
     'RMUX64': [1636, 1670, 1635, 1669, 1634, 1668, 1633, 1632, 1666, 1667],
     'RMUX65': [1364, 1398, 1363, 1397, 1362, 1396, 1361, 1360, 1394, 1395],
 
-    'LUT11': [1727, 1728, 1761, 1762, 1696, 1697, 1731, 1730, 1694, 1693, 1659, 1660, 1695, 1661, 1662, 1663,],
+    'LUT11': [1727, 1728, 1761, 1762, 1696, 1697, 1731, 1730, 1694, 1693, 1659, 1660, 1695, 1661, 1662, 1663],
     'LUTCMUX11': [1763, 1729], 
     'AsyncMUX11': [1766],
     'BYPASSEN11': [1698],
