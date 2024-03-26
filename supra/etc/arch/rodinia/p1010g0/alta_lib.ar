@@ -5284,6 +5284,7 @@ SLICE alta_dio
     CFG_ROCTUSR : 1'bx;
     CFG_SEL_CUA : 1'bx;
     CFG_ROCT_EN : 1'bx;
+    INPUT_ONLY : 1'bx;
     DPCLK_DELAY : 4'bx;
     OUT_DELAY : 1'bx;
     IN_DATA_DELAY : 3'bx;
@@ -5359,8 +5360,7 @@ SLICE alta_indel
 // SLICE_INFO
   //TYPE : INDEL;
   CONFIG
-    I : N;
-    3 : ';
+    IN_DATA_DELAY : 3'bx;
   END_CONFIG
   PIN in
     //TYPE : INDEL_IN;

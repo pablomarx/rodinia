@@ -132,6 +132,11 @@ input  clkin;
 output clkout;
 endmodule
 
+module alta_indel(in, out);
+input  in;
+output out;
+endmodule
+
 module alta_clkctrl(
     inclk, 
     clkselect, 
@@ -997,6 +1002,7 @@ parameter CFG_ROCTUSR       = 1'b0;
 parameter CFG_SEL_CUA       = 1'b0;
 parameter CFG_ROCT_EN       = 1'b0;
 
+parameter INPUT_ONLY     = 1'b0;
 parameter OUT_DELAY      = 1'b0;
 parameter IN_DATA_DELAY  = 3'b0;
 parameter IN_REG_DELAY   = 3'b0;
@@ -1869,6 +1875,20 @@ input  [3:0]  local_int;
 input  [1:0]  test_mode;
 input         usb0_xcvr_clk;
 input         usb0_id;
+endmodule
+
+module alta_mipi_clk(
+  tx_hs_ckclk,
+  tx_hs_daclk,
+  tx_hs_daclkdiv4,
+  tx_hs_ckclk_out,
+  tx_hs_daclk_out,
+  tx_hs_daclkdiv4_out,
+  devpor, devclrn, devoe
+);
+input  tx_hs_ckclk, tx_hs_daclk, tx_hs_daclkdiv4;
+output tx_hs_ckclk_out, tx_hs_daclk_out, tx_hs_daclkdiv4_out;
+input  devclrn, devpor, devoe;
 endmodule
 
 module alta_remote (

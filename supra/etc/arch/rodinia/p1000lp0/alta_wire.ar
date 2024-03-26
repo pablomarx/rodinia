@@ -1,53 +1,81 @@
 // WIRE_TIMING
 WIRE T0
   TIMING
-    FROM   : *:BBMUXW:-;
+    FROM   : *:AsyncMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
-    IsMissing : YES;
     TABLE BEST
-      0.150 0.150 0.150 0.150;
+      0.105 0.105 0.109 0.109;
     END_TABLE
     TABLE WORST
-      0.300 0.300 0.300 0.300;
+      0.135 0.135 0.139 0.139;
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:PllClkInMUX:-;
+    FROM   : *:BBMUXE:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
     TABLE BEST
-      0.142 0.284 0.161 0.310;
+      0.251 0.384 0.288 0.412;
     END_TABLE
     TABLE WORST
-      0.193 0.400 0.213 0.429;
+      0.335 0.483 0.380 0.514;
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:BufMUX:-;
+    FROM   : *:BBMUXN:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
-    IsMissing : YES;
     TABLE BEST
-      0.150 0.150 0.150 0.150;
+      0.251 0.384 0.288 0.412;
     END_TABLE
     TABLE WORST
-      0.300 0.300 0.300 0.300;
+      0.335 0.483 0.380 0.514;
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:TileClkEnMUX:-;
+    FROM   : *:ClkMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
     TABLE BEST
-      0.285 2.920 -0.930 0.226;
+      0.105 0.105 0.111 0.111;
     END_TABLE
     TABLE WORST
-      0.347 2.978 -0.850 0.306;
+      0.132 0.132 0.142 0.142;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:CtrlMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 4;
+    TABLE BEST
+      0.261 0.261 0.193 0.193;
+      0.269 0.269 0.196 0.196;
+      0.278 0.278 0.198 0.198;
+      0.289 0.289 0.202 0.202;
+    END_TABLE
+    TABLE WORST
+      0.315 0.315 0.252 0.252;
+      0.325 0.325 0.257 0.257;
+      0.337 0.337 0.261 0.261;
+      0.349 0.349 0.267 0.267;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:GclkDMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.391 0.518 0.388 0.532;
+    END_TABLE
+    TABLE WORST
+      0.522 0.697 0.520 0.708;
     END_TABLE
   END_TIMING
   TIMING
@@ -63,16 +91,27 @@ WIRE T0
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:SLICE_BRAM:-;
+    FROM   : *:IMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
-    IsMissing : YES;
     TABLE BEST
-      0.000 0.000 0.000 0.000;
+      0.244 0.257 0.178 0.200;
     END_TABLE
     TABLE WORST
-      0.000 0.000 0.000 0.000;
+      0.291 0.307 0.232 0.259;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:IOMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.287 0.396 0.304 0.393;
+    END_TABLE
+    TABLE WORST
+      0.379 0.496 0.404 0.487;
     END_TABLE
   END_TIMING
   TIMING
@@ -110,28 +149,37 @@ WIRE T0
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:SLICE_ASYNCCTRL:-;
-    TO     : *:*:-;
+    FROM   : *:IsoMUXPseudo:-;
+    TO     : *:RMUX:-;
     SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
+    FANOUT : 12;
     TABLE BEST
-      0.000 0.000 0.000 0.000;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
+      0.115 0.120 0.157 0.161;
     END_TABLE
     TABLE WORST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:IOMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.287 0.396 0.304 0.393;
-    END_TABLE
-    TABLE WORST
-      0.379 0.496 0.404 0.487;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
+      0.153 0.158 0.213 0.219;
     END_TABLE
   END_TIMING
   TIMING
@@ -215,42 +263,77 @@ WIRE T0
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:SLICE_SPI:-;
+    FROM   : *:OMUXL:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
+    FANOUT : 12;
     TABLE BEST
-      0.150 0.150 0.150 0.150;
+      0.143 0.143 0.141 0.141;
+      0.146 0.146 0.143 0.143;
+      0.152 0.152 0.144 0.144;
+      0.158 0.158 0.143 0.143;
+      0.165 0.165 0.144 0.144;
+      0.171 0.171 0.144 0.144;
+      0.178 0.178 0.145 0.145;
+      0.184 0.184 0.146 0.146;
+      0.191 0.191 0.146 0.146;
+      0.197 0.197 0.145 0.145;
+      0.205 0.205 0.147 0.147;
+      0.212 0.212 0.147 0.147;
     END_TABLE
     TABLE WORST
-      0.300 0.300 0.300 0.300;
+      0.191 0.191 0.196 0.196;
+      0.196 0.196 0.197 0.197;
+      0.202 0.202 0.198 0.198;
+      0.209 0.209 0.199 0.199;
+      0.217 0.217 0.200 0.200;
+      0.225 0.225 0.201 0.201;
+      0.233 0.233 0.202 0.202;
+      0.242 0.242 0.203 0.203;
+      0.251 0.251 0.204 0.204;
+      0.261 0.261 0.205 0.205;
+      0.270 0.270 0.206 0.206;
+      0.279 0.279 0.207 0.207;
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:SLICE_SYNCCTRL:-;
+    FROM   : *:PllClkFbMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
-    IsMissing : YES;
     TABLE BEST
+      0.218 0.274 0.236 0.291;
+    END_TABLE
+    TABLE WORST
+      0.306 0.379 0.330 0.405;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:PllClkInMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.142 0.284 0.161 0.310;
+    END_TABLE
+    TABLE WORST
+      0.193 0.400 0.213 0.429;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_LOGIC:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 3;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
       0.000 0.000 0.000 0.000;
     END_TABLE
     TABLE WORST
       0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_I2C:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.150 0.150 0.150 0.150;
-    END_TABLE
-    TABLE WORST
-      0.300 0.300 0.300 0.300;
+      0.000 0.000 0.000 0.000;
+      0.000 0.000 0.000 0.000;
     END_TABLE
   END_TIMING
   TIMING
@@ -268,16 +351,83 @@ WIRE T0
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:SLICE_IO:-;
+    FROM   : *:SeamMUX:-;
+    TO     : *:TileClkMUX:-;
+    SENSE  : POSEDGE;
+    FANOUT : 2;
+    TABLE BEST
+      0.441 0.443 0.392 0.393;
+      0.441 0.443 0.392 0.393;
+    END_TABLE
+    TABLE WORST
+      0.530 0.530 0.520 0.529;
+      0.530 0.530 0.520 0.529;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:TileAsyncMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 16;
+    TABLE BEST
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+      0.413 0.416 0.360 0.365;
+    END_TABLE
+    TABLE WORST
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+      0.509 0.515 0.486 0.493;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:TileClkEnMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
-    IsMissing : YES;
     TABLE BEST
-      0.150 0.150 0.150 0.150;
+      0.285 2.920 -0.930 0.226;
     END_TABLE
     TABLE WORST
-      0.300 0.300 0.300 0.300;
+      0.347 2.978 -0.850 0.306;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:TileClkMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.296 0.302 0.238 0.242;
+    END_TABLE
+    TABLE WORST
+      0.364 0.368 0.325 0.326;
     END_TABLE
   END_TIMING
   TIMING
@@ -323,323 +473,6 @@ WIRE T0
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:ClkMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.105 0.105 0.111 0.111;
-    END_TABLE
-    TABLE WORST
-      0.132 0.132 0.142 0.142;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:CtrlMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 4;
-    TABLE BEST
-      0.261 0.261 0.193 0.193;
-      0.269 0.269 0.196 0.196;
-      0.278 0.278 0.198 0.198;
-      0.289 0.289 0.202 0.202;
-    END_TABLE
-    TABLE WORST
-      0.315 0.315 0.252 0.252;
-      0.325 0.325 0.257 0.257;
-      0.337 0.337 0.261 0.261;
-      0.349 0.349 0.267 0.267;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SinkMUXPseudo:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-    TABLE WORST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_MULT:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-    TABLE WORST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:GclkDMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.391 0.518 0.388 0.532;
-    END_TABLE
-    TABLE WORST
-      0.522 0.697 0.520 0.708;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_LOGIC:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 3;
-    TABLE BEST
-      0.000 0.000 0.000 0.000;
-      0.000 0.000 0.000 0.000;
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-    TABLE WORST
-      0.000 0.000 0.000 0.000;
-      0.000 0.000 0.000 0.000;
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:IsoMUXPseudo:-;
-    TO     : *:RMUX:-;
-    SENSE  : POSEDGE;
-    FANOUT : 12;
-    TABLE BEST
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-      0.115 0.120 0.157 0.161;
-    END_TABLE
-    TABLE WORST
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-      0.153 0.158 0.213 0.219;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:AsyncMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.105 0.105 0.109 0.109;
-    END_TABLE
-    TABLE WORST
-      0.135 0.135 0.139 0.139;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_CLKENCTRL:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-    TABLE WORST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:BBMUXN:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.251 0.384 0.288 0.412;
-    END_TABLE
-    TABLE WORST
-      0.335 0.483 0.380 0.514;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:OMUXL:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 12;
-    TABLE BEST
-      0.143 0.143 0.141 0.141;
-      0.146 0.146 0.143 0.143;
-      0.152 0.152 0.144 0.144;
-      0.158 0.158 0.143 0.143;
-      0.165 0.165 0.144 0.144;
-      0.171 0.171 0.144 0.144;
-      0.178 0.178 0.145 0.145;
-      0.184 0.184 0.146 0.146;
-      0.191 0.191 0.146 0.146;
-      0.197 0.197 0.145 0.145;
-      0.205 0.205 0.147 0.147;
-      0.212 0.212 0.147 0.147;
-    END_TABLE
-    TABLE WORST
-      0.191 0.191 0.196 0.196;
-      0.196 0.196 0.197 0.197;
-      0.202 0.202 0.198 0.198;
-      0.209 0.209 0.199 0.199;
-      0.217 0.217 0.200 0.200;
-      0.225 0.225 0.201 0.201;
-      0.233 0.233 0.202 0.202;
-      0.242 0.242 0.203 0.203;
-      0.251 0.251 0.204 0.204;
-      0.261 0.261 0.205 0.205;
-      0.270 0.270 0.206 0.206;
-      0.279 0.279 0.207 0.207;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:BramClkMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.150 0.150 0.150 0.150;
-    END_TABLE
-    TABLE WORST
-      0.300 0.300 0.300 0.300;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_IOREG:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.150 0.150 0.150 0.150;
-    END_TABLE
-    TABLE WORST
-      0.300 0.300 0.300 0.300;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:GateMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.150 0.150 0.150 0.150;
-    END_TABLE
-    TABLE WORST
-      0.300 0.300 0.300 0.300;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:PllSeamMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.150 0.150 0.150 0.150;
-    END_TABLE
-    TABLE WORST
-      0.300 0.300 0.300 0.300;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SeamMUX:-;
-    TO     : *:TileClkMUX:-;
-    SENSE  : POSEDGE;
-    FANOUT : 2;
-    TABLE BEST
-      0.441 0.443 0.392 0.393;
-      0.441 0.443 0.392 0.393;
-    END_TABLE
-    TABLE WORST
-      0.530 0.530 0.520 0.529;
-      0.530 0.530 0.520 0.529;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:BBMUXE:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.251 0.384 0.288 0.412;
-    END_TABLE
-    TABLE WORST
-      0.335 0.483 0.380 0.514;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:PllClkFbMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.218 0.274 0.236 0.291;
-    END_TABLE
-    TABLE WORST
-      0.306 0.379 0.330 0.405;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:IMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.244 0.257 0.178 0.200;
-    END_TABLE
-    TABLE WORST
-      0.291 0.307 0.232 0.259;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_PLLX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.150 0.150 0.150 0.150;
-    END_TABLE
-    TABLE WORST
-      0.300 0.300 0.300 0.300;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:PllIntFbMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.150 0.150 0.150 0.150;
-    END_TABLE
-    TABLE WORST
-      0.300 0.300 0.300 0.300;
-    END_TABLE
-  END_TIMING
-  TIMING
     FROM   : *:TileWeRenMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
@@ -649,19 +482,6 @@ WIRE T0
     END_TABLE
     TABLE WORST
       0.339 0.402 0.362 0.393;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:BBMUXS:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.150 0.150 0.150 0.150;
-    END_TABLE
-    TABLE WORST
-      0.300 0.300 0.300 0.300;
     END_TABLE
   END_TIMING
   TIMING
@@ -744,57 +564,159 @@ WIRE T0
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:TileClkMUX:-;
+    FROM   : *:BramClkMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
+    IsMissing : YES;
     TABLE BEST
-      0.296 0.302 0.238 0.242;
+      0.150 0.150 0.150 0.150;
     END_TABLE
     TABLE WORST
-      0.364 0.368 0.325 0.326;
+      0.300 0.300 0.300 0.300;
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:TileAsyncMUX:-;
+    FROM   : *:BufMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
-    FANOUT : 16;
+    FANOUT : 1;
+    IsMissing : YES;
     TABLE BEST
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
-      0.413 0.416 0.360 0.365;
+      0.150 0.150 0.150 0.150;
     END_TABLE
     TABLE WORST
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
-      0.509 0.515 0.486 0.493;
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:GateMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:PllIntFbMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:PllSeamMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_ASYNCCTRL:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+    TABLE WORST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_CLKENCTRL:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+    TABLE WORST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_SYNCCTRL:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+    TABLE WORST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_BRAM:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+    TABLE WORST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_IO:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_IOREG:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_PLLX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
     END_TABLE
   END_TIMING
   TIMING
@@ -810,70 +732,86 @@ WIRE T0
       0.487 0.492 0.535 0.540;
     END_TABLE
   END_TIMING
+  TIMING
+    FROM   : *:SinkMUXPseudo:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+    TABLE WORST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:BBMUXS:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:BBMUXW:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_I2C:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_MULT:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+    TABLE WORST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_SPI:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.150 0.150 0.150 0.150;
+    END_TABLE
+    TABLE WORST
+      0.300 0.300 0.300 0.300;
+    END_TABLE
+  END_TIMING
 END_WIRE
 WIRE T1
-  TIMING
-    OFFSET : (1,0);
-    FROM   : *:RMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 10;
-    TABLE BEST
-      0.322 0.322 0.275 0.275;
-      0.326 0.326 0.276 0.276;
-      0.332 0.332 0.276 0.276;
-      0.339 0.339 0.277 0.277;
-      0.347 0.347 0.277 0.277;
-      0.353 0.353 0.277 0.277;
-      0.360 0.360 0.278 0.278;
-      0.367 0.367 0.279 0.279;
-      0.374 0.374 0.279 0.279;
-      0.381 0.381 0.279 0.279;
-    END_TABLE
-    TABLE WORST
-      0.381 0.381 0.379 0.379;
-      0.388 0.388 0.381 0.381;
-      0.396 0.396 0.382 0.382;
-      0.404 0.404 0.383 0.383;
-      0.413 0.413 0.385 0.385;
-      0.422 0.422 0.385 0.385;
-      0.431 0.431 0.387 0.387;
-      0.440 0.440 0.388 0.388;
-      0.448 0.448 0.389 0.389;
-      0.459 0.459 0.390 0.390;
-    END_TABLE
-  END_TIMING
-  TIMING
-    OFFSET : (0,0);
-    FROM   : *:RMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 10;
-    TABLE BEST
-      0.322 0.322 0.275 0.275;
-      0.326 0.326 0.276 0.276;
-      0.332 0.332 0.276 0.276;
-      0.339 0.339 0.277 0.277;
-      0.347 0.347 0.277 0.277;
-      0.353 0.353 0.277 0.277;
-      0.360 0.360 0.278 0.278;
-      0.367 0.367 0.279 0.279;
-      0.374 0.374 0.279 0.279;
-      0.381 0.381 0.279 0.279;
-    END_TABLE
-    TABLE WORST
-      0.381 0.381 0.379 0.379;
-      0.388 0.388 0.381 0.381;
-      0.396 0.396 0.382 0.382;
-      0.404 0.404 0.383 0.383;
-      0.413 0.413 0.385 0.385;
-      0.422 0.422 0.385 0.385;
-      0.431 0.431 0.387 0.387;
-      0.440 0.440 0.388 0.388;
-      0.448 0.448 0.389 0.389;
-      0.459 0.459 0.390 0.390;
-    END_TABLE
-  END_TIMING
   TIMING
     FROM   : *:OMUXR:-;
     TO     : *:*:-;
@@ -909,6 +847,68 @@ WIRE T1
     END_TABLE
   END_TIMING
   TIMING
+    OFFSET : (0,0);
+    FROM   : *:RMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 10;
+    TABLE BEST
+      0.322 0.322 0.275 0.275;
+      0.326 0.326 0.276 0.276;
+      0.332 0.332 0.276 0.276;
+      0.339 0.339 0.277 0.277;
+      0.347 0.347 0.277 0.277;
+      0.353 0.353 0.277 0.277;
+      0.360 0.360 0.278 0.278;
+      0.367 0.367 0.279 0.279;
+      0.374 0.374 0.279 0.279;
+      0.381 0.381 0.279 0.279;
+    END_TABLE
+    TABLE WORST
+      0.381 0.381 0.379 0.379;
+      0.388 0.388 0.381 0.381;
+      0.396 0.396 0.382 0.382;
+      0.404 0.404 0.383 0.383;
+      0.413 0.413 0.385 0.385;
+      0.422 0.422 0.385 0.385;
+      0.431 0.431 0.387 0.387;
+      0.440 0.440 0.388 0.388;
+      0.448 0.448 0.389 0.389;
+      0.459 0.459 0.390 0.390;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET : (1,0);
+    FROM   : *:RMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 10;
+    TABLE BEST
+      0.322 0.322 0.275 0.275;
+      0.326 0.326 0.276 0.276;
+      0.332 0.332 0.276 0.276;
+      0.339 0.339 0.277 0.277;
+      0.347 0.347 0.277 0.277;
+      0.353 0.353 0.277 0.277;
+      0.360 0.360 0.278 0.278;
+      0.367 0.367 0.279 0.279;
+      0.374 0.374 0.279 0.279;
+      0.381 0.381 0.279 0.279;
+    END_TABLE
+    TABLE WORST
+      0.381 0.381 0.379 0.379;
+      0.388 0.388 0.381 0.381;
+      0.396 0.396 0.382 0.382;
+      0.404 0.404 0.383 0.383;
+      0.413 0.413 0.385 0.385;
+      0.422 0.422 0.385 0.385;
+      0.431 0.431 0.387 0.387;
+      0.440 0.440 0.388 0.388;
+      0.448 0.448 0.389 0.389;
+      0.459 0.459 0.390 0.390;
+    END_TABLE
+  END_TIMING
+  TIMING
     FROM   : *:BufMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
@@ -923,45 +923,6 @@ WIRE T1
   END_TIMING
 END_WIRE
 WIRE FEEDTHRU
-  TIMING
-    FROM   : *:SLICE_IO_GCLK:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-    TABLE WORST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_UFM_GDDD:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-    TABLE WORST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_IOREG:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-    TABLE WORST
-      0.000 0.000 0.000 0.000;
-    END_TABLE
-  END_TIMING
   TIMING
     FROM   : *:SLICE_LOGIC:-:O:0:I:0:;
     TO     : *:*:-;
@@ -995,6 +956,22 @@ WIRE FEEDTHRU
     END_TABLE
   END_TIMING
   TIMING
+    FROM   : *:SLICE_LOGIC:-:O:0:I:2:;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 3;
+    TABLE BEST
+      0.325 0.325 0.355 0.355;
+      0.325 0.325 0.355 0.355;
+      0.325 0.325 0.355 0.355;
+    END_TABLE
+    TABLE WORST
+      0.426 0.426 0.474 0.474;
+      0.426 0.426 0.474 0.474;
+      0.426 0.426 0.474 0.474;
+    END_TABLE
+  END_TIMING
+  TIMING
     FROM   : *:SLICE_LOGIC:-:O:0:I:3:;
     TO     : *:*:-;
     SENSE  : POSEDGE;
@@ -1011,76 +988,48 @@ WIRE FEEDTHRU
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:SLICE_LOGIC:-:O:0:I:2:;
+    FROM   : *:SLICE_IOREG:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
-    FANOUT : 3;
+    FANOUT : 1;
+    IsMissing : YES;
     TABLE BEST
-      0.325 0.325 0.355 0.355;
-      0.325 0.325 0.355 0.355;
-      0.325 0.325 0.355 0.355;
+      0.000 0.000 0.000 0.000;
     END_TABLE
     TABLE WORST
-      0.426 0.426 0.474 0.474;
-      0.426 0.426 0.474 0.474;
-      0.426 0.426 0.474 0.474;
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_IO_GCLK:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+    TABLE WORST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_UFM_GDDD:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.000 0.000 0.000 0.000;
+    END_TABLE
+    TABLE WORST
+      0.000 0.000 0.000 0.000;
     END_TABLE
   END_TIMING
 END_WIRE
 WIRE T4X
   TIMING
-    OFFSET : (4,0);
-    FROM   : *:RMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 20;
-    TABLE BEST
-      0.399 0.399 0.370 0.370;
-      0.403 0.403 0.374 0.374;
-      0.410 0.410 0.375 0.375;
-      0.416 0.416 0.377 0.377;
-      0.422 0.422 0.379 0.379;
-      0.428 0.428 0.381 0.381;
-      0.434 0.434 0.383 0.383;
-      0.440 0.440 0.388 0.388;
-      0.447 0.447 0.390 0.390;
-      0.455 0.455 0.389 0.389;
-      0.462 0.462 0.394 0.394;
-      0.471 0.471 0.396 0.396;
-      0.478 0.478 0.398 0.398;
-      0.486 0.486 0.400 0.400;
-      0.493 0.493 0.402 0.402;
-      0.502 0.502 0.406 0.406;
-      0.510 0.510 0.407 0.407;
-      0.518 0.518 0.410 0.410;
-      0.526 0.526 0.414 0.414;
-      0.536 0.536 0.419 0.419;
-    END_TABLE
-    TABLE WORST
-      0.475 0.475 0.482 0.482;
-      0.482 0.482 0.481 0.481;
-      0.489 0.489 0.488 0.488;
-      0.496 0.496 0.491 0.491;
-      0.503 0.503 0.492 0.492;
-      0.512 0.512 0.493 0.493;
-      0.521 0.521 0.498 0.498;
-      0.529 0.529 0.503 0.503;
-      0.538 0.538 0.495 0.495;
-      0.547 0.547 0.508 0.508;
-      0.556 0.556 0.502 0.502;
-      0.566 0.566 0.506 0.506;
-      0.575 0.575 0.509 0.509;
-      0.584 0.584 0.516 0.516;
-      0.594 0.594 0.517 0.517;
-      0.605 0.605 0.532 0.532;
-      0.615 0.615 0.536 0.536;
-      0.626 0.626 0.533 0.533;
-      0.635 0.635 0.540 0.540;
-      0.645 0.645 0.545 0.545;
-    END_TABLE
-  END_TIMING
-  TIMING
-    OFFSET : (1,0);
+    OFFSET : (0,0);
     FROM   : *:RMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
@@ -1131,83 +1080,7 @@ WIRE T4X
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:SLICE_IRDA:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.300 0.300 0.300 0.300;
-    END_TABLE
-    TABLE WORST
-      0.600 0.600 0.600 0.600;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:RMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.536 0.536 0.419 0.419;
-    END_TABLE
-    TABLE WORST
-      0.645 0.645 0.545 0.545;
-    END_TABLE
-  END_TIMING
-  TIMING
-    OFFSET : (3,0);
-    FROM   : *:RMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 20;
-    TABLE BEST
-      0.396 0.396 0.368 0.368;
-      0.400 0.400 0.371 0.371;
-      0.407 0.407 0.372 0.372;
-      0.413 0.413 0.374 0.374;
-      0.419 0.419 0.376 0.376;
-      0.426 0.426 0.379 0.379;
-      0.432 0.432 0.381 0.381;
-      0.437 0.437 0.385 0.385;
-      0.445 0.445 0.387 0.387;
-      0.452 0.452 0.387 0.387;
-      0.460 0.460 0.392 0.392;
-      0.468 0.468 0.394 0.394;
-      0.476 0.476 0.396 0.396;
-      0.484 0.484 0.397 0.397;
-      0.491 0.491 0.399 0.399;
-      0.500 0.500 0.402 0.402;
-      0.507 0.507 0.404 0.404;
-      0.515 0.515 0.407 0.407;
-      0.523 0.523 0.411 0.411;
-      0.533 0.533 0.415 0.415;
-    END_TABLE
-    TABLE WORST
-      0.473 0.473 0.479 0.479;
-      0.480 0.480 0.478 0.478;
-      0.487 0.487 0.485 0.485;
-      0.494 0.494 0.488 0.488;
-      0.501 0.501 0.489 0.489;
-      0.510 0.510 0.490 0.490;
-      0.518 0.518 0.495 0.495;
-      0.526 0.526 0.501 0.501;
-      0.535 0.535 0.492 0.492;
-      0.544 0.544 0.505 0.505;
-      0.554 0.554 0.499 0.499;
-      0.563 0.563 0.503 0.503;
-      0.572 0.572 0.507 0.507;
-      0.582 0.582 0.513 0.513;
-      0.592 0.592 0.515 0.515;
-      0.602 0.602 0.529 0.529;
-      0.613 0.613 0.534 0.534;
-      0.623 0.623 0.530 0.530;
-      0.632 0.632 0.537 0.537;
-      0.642 0.642 0.541 0.541;
-    END_TABLE
-  END_TIMING
-  TIMING
-    OFFSET : (0,0);
+    OFFSET : (1,0);
     FROM   : *:RMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
@@ -1308,147 +1181,118 @@ WIRE T4X
       0.632 0.632 0.525 0.525;
     END_TABLE
   END_TIMING
-END_WIRE
-WIRE T4Y
   TIMING
-    FROM   : *:SLICE_BOOT:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.450 0.450 0.450 0.450;
-    END_TABLE
-    TABLE WORST
-      0.900 0.900 0.900 0.900;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:SLICE_UFM_GDDD:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.450 0.450 0.450 0.450;
-    END_TABLE
-    TABLE WORST
-      0.900 0.900 0.900 0.900;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:BufMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    IsMissing : YES;
-    TABLE BEST
-      0.450 0.450 0.450 0.450;
-    END_TABLE
-    TABLE WORST
-      0.900 0.900 0.900 0.900;
-    END_TABLE
-  END_TIMING
-  TIMING
-    OFFSET : (0,4);
+    OFFSET : (3,0);
     FROM   : *:RMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 20;
     TABLE BEST
-      0.518 0.518 0.485 0.485;
-      0.528 0.528 0.487 0.487;
-      0.532 0.532 0.490 0.490;
-      0.539 0.539 0.489 0.489;
-      0.545 0.545 0.497 0.497;
-      0.553 0.553 0.499 0.499;
-      0.560 0.560 0.502 0.502;
-      0.567 0.567 0.504 0.504;
-      0.576 0.576 0.502 0.502;
-      0.584 0.584 0.504 0.504;
-      0.592 0.592 0.510 0.510;
-      0.600 0.600 0.513 0.513;
-      0.609 0.609 0.519 0.519;
-      0.617 0.617 0.514 0.514;
-      0.625 0.625 0.520 0.520;
-      0.633 0.633 0.520 0.520;
-      0.643 0.643 0.531 0.531;
-      0.652 0.652 0.535 0.535;
-      0.661 0.661 0.540 0.540;
-      0.670 0.670 0.546 0.546;
+      0.396 0.396 0.368 0.368;
+      0.400 0.400 0.371 0.371;
+      0.407 0.407 0.372 0.372;
+      0.413 0.413 0.374 0.374;
+      0.419 0.419 0.376 0.376;
+      0.426 0.426 0.379 0.379;
+      0.432 0.432 0.381 0.381;
+      0.437 0.437 0.385 0.385;
+      0.445 0.445 0.387 0.387;
+      0.452 0.452 0.387 0.387;
+      0.460 0.460 0.392 0.392;
+      0.468 0.468 0.394 0.394;
+      0.476 0.476 0.396 0.396;
+      0.484 0.484 0.397 0.397;
+      0.491 0.491 0.399 0.399;
+      0.500 0.500 0.402 0.402;
+      0.507 0.507 0.404 0.404;
+      0.515 0.515 0.407 0.407;
+      0.523 0.523 0.411 0.411;
+      0.533 0.533 0.415 0.415;
     END_TABLE
     TABLE WORST
-      0.610 0.610 0.619 0.619;
-      0.621 0.621 0.623 0.623;
-      0.627 0.627 0.627 0.627;
-      0.638 0.638 0.629 0.629;
-      0.643 0.643 0.634 0.634;
-      0.656 0.656 0.636 0.636;
-      0.672 0.672 0.640 0.640;
-      0.673 0.673 0.645 0.645;
-      0.682 0.682 0.650 0.650;
-      0.692 0.692 0.654 0.654;
-      0.703 0.703 0.658 0.658;
-      0.713 0.713 0.660 0.660;
-      0.723 0.723 0.667 0.667;
-      0.734 0.734 0.671 0.671;
-      0.743 0.743 0.675 0.675;
-      0.753 0.753 0.680 0.680;
-      0.766 0.766 0.683 0.683;
-      0.777 0.777 0.689 0.689;
-      0.786 0.786 0.700 0.700;
-      0.797 0.797 0.708 0.708;
+      0.473 0.473 0.479 0.479;
+      0.480 0.480 0.478 0.478;
+      0.487 0.487 0.485 0.485;
+      0.494 0.494 0.488 0.488;
+      0.501 0.501 0.489 0.489;
+      0.510 0.510 0.490 0.490;
+      0.518 0.518 0.495 0.495;
+      0.526 0.526 0.501 0.501;
+      0.535 0.535 0.492 0.492;
+      0.544 0.544 0.505 0.505;
+      0.554 0.554 0.499 0.499;
+      0.563 0.563 0.503 0.503;
+      0.572 0.572 0.507 0.507;
+      0.582 0.582 0.513 0.513;
+      0.592 0.592 0.515 0.515;
+      0.602 0.602 0.529 0.529;
+      0.613 0.613 0.534 0.534;
+      0.623 0.623 0.530 0.530;
+      0.632 0.632 0.537 0.537;
+      0.642 0.642 0.541 0.541;
     END_TABLE
   END_TIMING
   TIMING
-    OFFSET : (0,4);
-    FROM   : *:InputMUX:-;
+    OFFSET : (4,0);
+    FROM   : *:RMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 20;
     TABLE BEST
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
-      0.456 0.456 0.427 0.427;
+      0.399 0.399 0.370 0.370;
+      0.403 0.403 0.374 0.374;
+      0.410 0.410 0.375 0.375;
+      0.416 0.416 0.377 0.377;
+      0.422 0.422 0.379 0.379;
+      0.428 0.428 0.381 0.381;
+      0.434 0.434 0.383 0.383;
+      0.440 0.440 0.388 0.388;
+      0.447 0.447 0.390 0.390;
+      0.455 0.455 0.389 0.389;
+      0.462 0.462 0.394 0.394;
+      0.471 0.471 0.396 0.396;
+      0.478 0.478 0.398 0.398;
+      0.486 0.486 0.400 0.400;
+      0.493 0.493 0.402 0.402;
+      0.502 0.502 0.406 0.406;
+      0.510 0.510 0.407 0.407;
+      0.518 0.518 0.410 0.410;
+      0.526 0.526 0.414 0.414;
+      0.536 0.536 0.419 0.419;
     END_TABLE
     TABLE WORST
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
-      0.580 0.580 0.553 0.553;
+      0.475 0.475 0.482 0.482;
+      0.482 0.482 0.481 0.481;
+      0.489 0.489 0.488 0.488;
+      0.496 0.496 0.491 0.491;
+      0.503 0.503 0.492 0.492;
+      0.512 0.512 0.493 0.493;
+      0.521 0.521 0.498 0.498;
+      0.529 0.529 0.503 0.503;
+      0.538 0.538 0.495 0.495;
+      0.547 0.547 0.508 0.508;
+      0.556 0.556 0.502 0.502;
+      0.566 0.566 0.506 0.506;
+      0.575 0.575 0.509 0.509;
+      0.584 0.584 0.516 0.516;
+      0.594 0.594 0.517 0.517;
+      0.605 0.605 0.532 0.532;
+      0.615 0.615 0.536 0.536;
+      0.626 0.626 0.533 0.533;
+      0.635 0.635 0.540 0.540;
+      0.645 0.645 0.545 0.545;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:RMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.536 0.536 0.419 0.419;
+    END_TABLE
+    TABLE WORST
+      0.645 0.645 0.545 0.545;
     END_TABLE
   END_TIMING
   TIMING
@@ -1458,124 +1302,63 @@ WIRE T4Y
     FANOUT : 1;
     IsMissing : YES;
     TABLE BEST
-      0.450 0.450 0.450 0.450;
+      0.300 0.300 0.300 0.300;
     END_TABLE
     TABLE WORST
-      0.900 0.900 0.900 0.900;
+      0.600 0.600 0.600 0.600;
     END_TABLE
   END_TIMING
-  TIMING
-    OFFSET : (0,3);
-    FROM   : *:RMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 20;
-    TABLE BEST
-      0.501 0.501 0.469 0.469;
-      0.512 0.512 0.471 0.471;
-      0.515 0.515 0.473 0.473;
-      0.523 0.523 0.472 0.472;
-      0.529 0.529 0.479 0.479;
-      0.536 0.536 0.481 0.481;
-      0.543 0.543 0.484 0.484;
-      0.551 0.551 0.486 0.486;
-      0.560 0.560 0.484 0.484;
-      0.568 0.568 0.486 0.486;
-      0.576 0.576 0.491 0.491;
-      0.584 0.584 0.494 0.494;
-      0.592 0.592 0.500 0.500;
-      0.601 0.601 0.496 0.496;
-      0.609 0.609 0.502 0.502;
-      0.617 0.617 0.500 0.500;
-      0.626 0.626 0.508 0.508;
-      0.634 0.634 0.510 0.510;
-      0.641 0.641 0.512 0.512;
-      0.648 0.648 0.516 0.516;
-    END_TABLE
-    TABLE WORST
-      0.593 0.593 0.603 0.603;
-      0.605 0.605 0.606 0.606;
-      0.611 0.611 0.611 0.611;
-      0.622 0.622 0.612 0.612;
-      0.627 0.627 0.618 0.618;
-      0.639 0.639 0.619 0.619;
-      0.655 0.655 0.622 0.622;
-      0.655 0.655 0.628 0.628;
-      0.665 0.665 0.633 0.633;
-      0.675 0.675 0.636 0.636;
-      0.686 0.686 0.640 0.640;
-      0.697 0.697 0.640 0.640;
-      0.706 0.706 0.647 0.647;
-      0.718 0.718 0.653 0.653;
-      0.726 0.726 0.655 0.655;
-      0.737 0.737 0.659 0.659;
-      0.748 0.748 0.662 0.662;
-      0.758 0.758 0.665 0.665;
-      0.765 0.765 0.671 0.671;
-      0.775 0.775 0.676 0.676;
-    END_TABLE
-  END_TIMING
+END_WIRE
+WIRE T4Y
   TIMING
     OFFSET : (0,1);
-    FROM   : *:RMUX:-;
+    FROM   : *:InputMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 20;
     TABLE BEST
-      0.420 0.420 0.392 0.392;
-      0.429 0.429 0.391 0.391;
-      0.431 0.431 0.392 0.392;
-      0.437 0.437 0.389 0.389;
-      0.443 0.443 0.393 0.393;
-      0.449 0.449 0.394 0.394;
-      0.455 0.455 0.394 0.394;
-      0.460 0.460 0.394 0.394;
-      0.466 0.466 0.390 0.390;
-      0.471 0.471 0.390 0.390;
-      0.475 0.475 0.393 0.393;
-      0.479 0.479 0.393 0.393;
-      0.484 0.484 0.397 0.397;
-      0.488 0.488 0.390 0.390;
-      0.492 0.492 0.393 0.393;
-      0.496 0.496 0.390 0.390;
-      0.500 0.500 0.397 0.397;
-      0.504 0.504 0.397 0.397;
-      0.508 0.508 0.397 0.397;
-      0.511 0.511 0.397 0.397;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
+      0.329 0.329 0.303 0.303;
     END_TABLE
     TABLE WORST
-      0.507 0.507 0.526 0.526;
-      0.519 0.519 0.527 0.527;
-      0.526 0.526 0.530 0.530;
-      0.533 0.533 0.529 0.529;
-      0.541 0.541 0.532 0.532;
-      0.548 0.548 0.531 0.531;
-      0.566 0.566 0.532 0.532;
-      0.562 0.562 0.535 0.535;
-      0.568 0.568 0.535 0.535;
-      0.574 0.574 0.535 0.535;
-      0.580 0.580 0.536 0.536;
-      0.589 0.589 0.533 0.533;
-      0.593 0.593 0.536 0.536;
-      0.602 0.602 0.538 0.538;
-      0.605 0.605 0.537 0.537;
-      0.611 0.611 0.537 0.537;
-      0.621 0.621 0.535 0.535;
-      0.627 0.627 0.535 0.535;
-      0.627 0.627 0.537 0.537;
-      0.632 0.632 0.537 0.537;
-    END_TABLE
-  END_TIMING
-  TIMING
-    FROM   : *:RMUX:-;
-    TO     : *:*:-;
-    SENSE  : POSEDGE;
-    FANOUT : 1;
-    TABLE BEST
-      0.670 0.670 0.546 0.546;
-    END_TABLE
-    TABLE WORST
-      0.797 0.797 0.708 0.708;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
+      0.456 0.456 0.434 0.434;
     END_TABLE
   END_TIMING
   TIMING
@@ -1631,53 +1414,53 @@ WIRE T4Y
   END_TIMING
   TIMING
     OFFSET : (0,1);
-    FROM   : *:InputMUX:-;
+    FROM   : *:RMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 20;
     TABLE BEST
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
-      0.329 0.329 0.303 0.303;
+      0.420 0.420 0.392 0.392;
+      0.429 0.429 0.391 0.391;
+      0.431 0.431 0.392 0.392;
+      0.437 0.437 0.389 0.389;
+      0.443 0.443 0.393 0.393;
+      0.449 0.449 0.394 0.394;
+      0.455 0.455 0.394 0.394;
+      0.460 0.460 0.394 0.394;
+      0.466 0.466 0.390 0.390;
+      0.471 0.471 0.390 0.390;
+      0.475 0.475 0.393 0.393;
+      0.479 0.479 0.393 0.393;
+      0.484 0.484 0.397 0.397;
+      0.488 0.488 0.390 0.390;
+      0.492 0.492 0.393 0.393;
+      0.496 0.496 0.390 0.390;
+      0.500 0.500 0.397 0.397;
+      0.504 0.504 0.397 0.397;
+      0.508 0.508 0.397 0.397;
+      0.511 0.511 0.397 0.397;
     END_TABLE
     TABLE WORST
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
-      0.456 0.456 0.434 0.434;
+      0.507 0.507 0.526 0.526;
+      0.519 0.519 0.527 0.527;
+      0.526 0.526 0.530 0.530;
+      0.533 0.533 0.529 0.529;
+      0.541 0.541 0.532 0.532;
+      0.548 0.548 0.531 0.531;
+      0.566 0.566 0.532 0.532;
+      0.562 0.562 0.535 0.535;
+      0.568 0.568 0.535 0.535;
+      0.574 0.574 0.535 0.535;
+      0.580 0.580 0.536 0.536;
+      0.589 0.589 0.533 0.533;
+      0.593 0.593 0.536 0.536;
+      0.602 0.602 0.538 0.538;
+      0.605 0.605 0.537 0.537;
+      0.611 0.611 0.537 0.537;
+      0.621 0.621 0.535 0.535;
+      0.627 0.627 0.535 0.535;
+      0.627 0.627 0.537 0.537;
+      0.632 0.632 0.537 0.537;
     END_TABLE
   END_TIMING
   TIMING
@@ -1729,6 +1512,57 @@ WIRE T4Y
       0.524 0.524 0.498 0.498;
       0.524 0.524 0.498 0.498;
       0.524 0.524 0.498 0.498;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET : (0,2);
+    FROM   : *:RMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 20;
+    TABLE BEST
+      0.461 0.461 0.429 0.429;
+      0.472 0.472 0.431 0.431;
+      0.476 0.476 0.432 0.432;
+      0.483 0.483 0.430 0.430;
+      0.489 0.489 0.436 0.436;
+      0.497 0.497 0.438 0.438;
+      0.504 0.504 0.440 0.440;
+      0.511 0.511 0.441 0.441;
+      0.519 0.519 0.436 0.436;
+      0.525 0.525 0.436 0.436;
+      0.531 0.531 0.438 0.438;
+      0.537 0.537 0.438 0.438;
+      0.544 0.544 0.445 0.445;
+      0.550 0.550 0.437 0.437;
+      0.556 0.556 0.439 0.439;
+      0.562 0.562 0.437 0.437;
+      0.568 0.568 0.445 0.445;
+      0.574 0.574 0.446 0.446;
+      0.579 0.579 0.446 0.446;
+      0.584 0.584 0.446 0.446;
+    END_TABLE
+    TABLE WORST
+      0.552 0.552 0.564 0.564;
+      0.564 0.564 0.567 0.567;
+      0.571 0.571 0.571 0.571;
+      0.582 0.582 0.571 0.571;
+      0.588 0.588 0.576 0.576;
+      0.600 0.600 0.576 0.576;
+      0.616 0.616 0.579 0.579;
+      0.616 0.616 0.584 0.584;
+      0.624 0.624 0.586 0.586;
+      0.632 0.632 0.587 0.587;
+      0.640 0.640 0.588 0.588;
+      0.649 0.649 0.586 0.586;
+      0.655 0.655 0.590 0.590;
+      0.665 0.665 0.593 0.593;
+      0.671 0.671 0.593 0.593;
+      0.679 0.679 0.594 0.594;
+      0.690 0.690 0.591 0.591;
+      0.697 0.697 0.591 0.591;
+      0.702 0.702 0.599 0.599;
+      0.709 0.709 0.600 0.600;
     END_TABLE
   END_TIMING
   TIMING
@@ -1783,54 +1617,220 @@ WIRE T4Y
     END_TABLE
   END_TIMING
   TIMING
-    OFFSET : (0,2);
+    OFFSET : (0,3);
     FROM   : *:RMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 20;
     TABLE BEST
-      0.461 0.461 0.429 0.429;
-      0.472 0.472 0.431 0.431;
-      0.476 0.476 0.432 0.432;
-      0.483 0.483 0.430 0.430;
-      0.489 0.489 0.436 0.436;
-      0.497 0.497 0.438 0.438;
-      0.504 0.504 0.440 0.440;
-      0.511 0.511 0.441 0.441;
-      0.519 0.519 0.436 0.436;
-      0.525 0.525 0.436 0.436;
-      0.531 0.531 0.438 0.438;
-      0.537 0.537 0.438 0.438;
-      0.544 0.544 0.445 0.445;
-      0.550 0.550 0.437 0.437;
-      0.556 0.556 0.439 0.439;
-      0.562 0.562 0.437 0.437;
-      0.568 0.568 0.445 0.445;
-      0.574 0.574 0.446 0.446;
-      0.579 0.579 0.446 0.446;
-      0.584 0.584 0.446 0.446;
+      0.501 0.501 0.469 0.469;
+      0.512 0.512 0.471 0.471;
+      0.515 0.515 0.473 0.473;
+      0.523 0.523 0.472 0.472;
+      0.529 0.529 0.479 0.479;
+      0.536 0.536 0.481 0.481;
+      0.543 0.543 0.484 0.484;
+      0.551 0.551 0.486 0.486;
+      0.560 0.560 0.484 0.484;
+      0.568 0.568 0.486 0.486;
+      0.576 0.576 0.491 0.491;
+      0.584 0.584 0.494 0.494;
+      0.592 0.592 0.500 0.500;
+      0.601 0.601 0.496 0.496;
+      0.609 0.609 0.502 0.502;
+      0.617 0.617 0.500 0.500;
+      0.626 0.626 0.508 0.508;
+      0.634 0.634 0.510 0.510;
+      0.641 0.641 0.512 0.512;
+      0.648 0.648 0.516 0.516;
     END_TABLE
     TABLE WORST
-      0.552 0.552 0.564 0.564;
-      0.564 0.564 0.567 0.567;
-      0.571 0.571 0.571 0.571;
-      0.582 0.582 0.571 0.571;
-      0.588 0.588 0.576 0.576;
-      0.600 0.600 0.576 0.576;
-      0.616 0.616 0.579 0.579;
-      0.616 0.616 0.584 0.584;
-      0.624 0.624 0.586 0.586;
-      0.632 0.632 0.587 0.587;
-      0.640 0.640 0.588 0.588;
-      0.649 0.649 0.586 0.586;
-      0.655 0.655 0.590 0.590;
-      0.665 0.665 0.593 0.593;
-      0.671 0.671 0.593 0.593;
-      0.679 0.679 0.594 0.594;
-      0.690 0.690 0.591 0.591;
-      0.697 0.697 0.591 0.591;
-      0.702 0.702 0.599 0.599;
-      0.709 0.709 0.600 0.600;
+      0.593 0.593 0.603 0.603;
+      0.605 0.605 0.606 0.606;
+      0.611 0.611 0.611 0.611;
+      0.622 0.622 0.612 0.612;
+      0.627 0.627 0.618 0.618;
+      0.639 0.639 0.619 0.619;
+      0.655 0.655 0.622 0.622;
+      0.655 0.655 0.628 0.628;
+      0.665 0.665 0.633 0.633;
+      0.675 0.675 0.636 0.636;
+      0.686 0.686 0.640 0.640;
+      0.697 0.697 0.640 0.640;
+      0.706 0.706 0.647 0.647;
+      0.718 0.718 0.653 0.653;
+      0.726 0.726 0.655 0.655;
+      0.737 0.737 0.659 0.659;
+      0.748 0.748 0.662 0.662;
+      0.758 0.758 0.665 0.665;
+      0.765 0.765 0.671 0.671;
+      0.775 0.775 0.676 0.676;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET : (0,4);
+    FROM   : *:InputMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 20;
+    TABLE BEST
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+      0.456 0.456 0.427 0.427;
+    END_TABLE
+    TABLE WORST
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+      0.580 0.580 0.553 0.553;
+    END_TABLE
+  END_TIMING
+  TIMING
+    OFFSET : (0,4);
+    FROM   : *:RMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 20;
+    TABLE BEST
+      0.518 0.518 0.485 0.485;
+      0.528 0.528 0.487 0.487;
+      0.532 0.532 0.490 0.490;
+      0.539 0.539 0.489 0.489;
+      0.545 0.545 0.497 0.497;
+      0.553 0.553 0.499 0.499;
+      0.560 0.560 0.502 0.502;
+      0.567 0.567 0.504 0.504;
+      0.576 0.576 0.502 0.502;
+      0.584 0.584 0.504 0.504;
+      0.592 0.592 0.510 0.510;
+      0.600 0.600 0.513 0.513;
+      0.609 0.609 0.519 0.519;
+      0.617 0.617 0.514 0.514;
+      0.625 0.625 0.520 0.520;
+      0.633 0.633 0.520 0.520;
+      0.643 0.643 0.531 0.531;
+      0.652 0.652 0.535 0.535;
+      0.661 0.661 0.540 0.540;
+      0.670 0.670 0.546 0.546;
+    END_TABLE
+    TABLE WORST
+      0.610 0.610 0.619 0.619;
+      0.621 0.621 0.623 0.623;
+      0.627 0.627 0.627 0.627;
+      0.638 0.638 0.629 0.629;
+      0.643 0.643 0.634 0.634;
+      0.656 0.656 0.636 0.636;
+      0.672 0.672 0.640 0.640;
+      0.673 0.673 0.645 0.645;
+      0.682 0.682 0.650 0.650;
+      0.692 0.692 0.654 0.654;
+      0.703 0.703 0.658 0.658;
+      0.713 0.713 0.660 0.660;
+      0.723 0.723 0.667 0.667;
+      0.734 0.734 0.671 0.671;
+      0.743 0.743 0.675 0.675;
+      0.753 0.753 0.680 0.680;
+      0.766 0.766 0.683 0.683;
+      0.777 0.777 0.689 0.689;
+      0.786 0.786 0.700 0.700;
+      0.797 0.797 0.708 0.708;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:RMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    TABLE BEST
+      0.670 0.670 0.546 0.546;
+    END_TABLE
+    TABLE WORST
+      0.797 0.797 0.708 0.708;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:BufMUX:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.450 0.450 0.450 0.450;
+    END_TABLE
+    TABLE WORST
+      0.900 0.900 0.900 0.900;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_BOOT:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.450 0.450 0.450 0.450;
+    END_TABLE
+    TABLE WORST
+      0.900 0.900 0.900 0.900;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_UFM_GDDD:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.450 0.450 0.450 0.450;
+    END_TABLE
+    TABLE WORST
+      0.900 0.900 0.900 0.900;
+    END_TABLE
+  END_TIMING
+  TIMING
+    FROM   : *:SLICE_IRDA:-;
+    TO     : *:*:-;
+    SENSE  : POSEDGE;
+    FANOUT : 1;
+    IsMissing : YES;
+    TABLE BEST
+      0.450 0.450 0.450 0.450;
+    END_TABLE
+    TABLE WORST
+      0.900 0.900 0.900 0.900;
     END_TABLE
   END_TIMING
 END_WIRE
@@ -1848,7 +1848,7 @@ WIRE TG
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:SLICE_PLLX:-;
+    FROM   : *:GateMUX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;
@@ -1861,7 +1861,7 @@ WIRE TG
     END_TABLE
   END_TIMING
   TIMING
-    FROM   : *:GateMUX:-;
+    FROM   : *:SLICE_PLLX:-;
     TO     : *:*:-;
     SENSE  : POSEDGE;
     FANOUT : 1;

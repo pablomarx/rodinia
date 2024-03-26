@@ -2109,6 +2109,15 @@ SLICE alta_rio
   TIMING
     TYPE: CELL; FROM : datain; TO : padio; SENSE : POSEDGE;
     CONFIG
+      CFG_PDRCTRL  : 4'b0000;
+    END_CONFIG
+    VALUE : BEST 0.000 0.000 0.000 0.000;
+    VALUE : WORST 0.000 0.000 0.000 0.000;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datain; TO : padio; SENSE : POSEDGE;
+    CONFIG
+      CFG_PDRCTRL  : !4'b0000;
       OUT_REG_MODE : 1'b0;
       OUT_DELAY    : 1'b0;
     END_CONFIG
@@ -2118,6 +2127,7 @@ SLICE alta_rio
   TIMING
     TYPE: CELL; FROM : datain; TO : padio; SENSE : POSEDGE;
     CONFIG
+      CFG_PDRCTRL  : !4'b0000;
       OUT_REG_MODE : 1'b0;
       OUT_DELAY    : 1'b1;
     END_CONFIG
@@ -2340,6 +2350,7 @@ SLICE alta_dio
     CFG_ROCTUSR : 1'bx;
     CFG_SEL_CUA : 1'bx;
     CFG_ROCT_EN : 1'bx;
+    INPUT_ONLY : 1'bx;
     DPCLK_DELAY : 4'bx;
     OUT_DELAY : 1'bx;
     IN_DATA_DELAY : 3'bx;
@@ -2496,8 +2507,7 @@ SLICE alta_indel
 // SLICE_INFO
   //TYPE : INDEL;
   CONFIG
-    I : N;
-    3 : ';
+    IN_DATA_DELAY : 3'bx;
   END_CONFIG
   PIN in
     //TYPE : INDEL_IN;
@@ -8339,242 +8349,25 @@ SLICE alta_cmp
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE alta_mipi_rx2
+SLICE alta_mipi_clk
 // SLICE_INFO
-  //TYPE : MIPI_RX2;
+  //TYPE : MIPI_CLK;
   CONFIG
-    LPSRC : 2'bx;
-    HSRX_CUA : 2'bx;
-    DLY_CK : 3'bx;
-    DLY_DA0 : 3'bx;
-    DLY_DA1 : 3'bx;
   END_CONFIG
-  PIN RX_HS_ENB
-    //TYPE : MIPI_RX2_RX_HS_ENB;
+  PIN tx_hs_ckclk
+    //TYPE : MIPI_CLK_TX_HS_CKCLK;
     //SIZE : 1;
     //DIR  : input;
   END_PIN
-  PIN RX_HS_TERMENB
-    //TYPE : MIPI_RX2_RX_HS_TERMENB;
+  PIN tx_hs_daclk
+    //TYPE : MIPI_CLK_TX_HS_DACLK;
     //SIZE : 1;
     //DIR  : input;
   END_PIN
-  PIN TX_LP_ENB
-    //TYPE : MIPI_RX2_TX_LP_ENB;
+  PIN tx_hs_daclkdiv4
+    //TYPE : MIPI_CLK_TX_HS_DACLKDIV4;
     //SIZE : 1;
     //DIR  : input;
-  END_PIN
-  PIN RX_PD
-    //TYPE : MIPI_RX2_RX_PD;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_PD
-    //TYPE : MIPI_RX2_TX_PD;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_DAP
-    //TYPE : MIPI_RX2_TX_LP_DAP;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_DAN
-    //TYPE : MIPI_RX2_TX_LP_DAN;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN LP_CD_P
-    //TYPE : MIPI_RX2_LP_CD_P;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN LP_CD_N
-    //TYPE : MIPI_RX2_LP_CD_N;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_CKDP
-    //TYPE : MIPI_RX2_RX_LP_CKDP;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_CKDN
-    //TYPE : MIPI_RX2_RX_LP_CKDN;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA0CLK
-    //TYPE : MIPI_RX2_RX_LP_DA0CLK;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA0DP
-    //TYPE : MIPI_RX2_RX_LP_DA0DP;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA0DN
-    //TYPE : MIPI_RX2_RX_LP_DA0DN;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_HS_DA0CLKDIV4
-    //TYPE : MIPI_RX2_RX_HS_DA0CLKDIV4;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_HS_DA1CLKDIV4
-    //TYPE : MIPI_RX2_RX_HS_DA1CLKDIV4;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA1CLK
-    //TYPE : MIPI_RX2_RX_LP_DA1CLK;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA1DP
-    //TYPE : MIPI_RX2_RX_LP_DA1DP;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA1DN
-    //TYPE : MIPI_RX2_RX_LP_DA1DN;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_HS_DA0
-    //TYPE : MIPI_RX2_RX_HS_DA0;
-    //SIZE : 8;
-    //DIR  : output;
-  END_PIN
-  PIN RX_HS_DA1
-    //TYPE : MIPI_RX2_RX_HS_DA1;
-    //SIZE : 8;
-    //DIR  : output;
-  END_PIN
-// END_SLICE_INFO
-
-// SLICE_TIMING
-// END_SLICE_TIMING
-END_SLICE
-
-SLICE alta_mipi_tx2
-// SLICE_INFO
-  //TYPE : MIPI_TX2;
-  CONFIG
-    TX_VREF : 3'bx;
-    LPSRC : 2'bx;
-    RPU : 2'bx;
-    RPD : 2'bx;
-    DLY_CKCLK : 3'bx;
-    DLY_DACLK : 3'bx;
-  END_CONFIG
-  PIN TX_HS_ENB
-    //TYPE : MIPI_TX2_TX_HS_ENB;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_ENB
-    //TYPE : MIPI_TX2_TX_LP_ENB;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_PD
-    //TYPE : MIPI_TX2_TX_PD;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN RX_PD
-    //TYPE : MIPI_TX2_RX_PD;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_HS_CKCLK
-    //TYPE : MIPI_TX2_TX_HS_CKCLK;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_HS_DACLK
-    //TYPE : MIPI_TX2_TX_HS_DACLK;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_HS_DACLKDIV4
-    //TYPE : MIPI_TX2_TX_HS_DACLKDIV4;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_DCKP
-    //TYPE : MIPI_TX2_TX_LP_DCKP;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_DCKN
-    //TYPE : MIPI_TX2_TX_LP_DCKN;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_DA0P
-    //TYPE : MIPI_TX2_TX_LP_DA0P;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_DA0N
-    //TYPE : MIPI_TX2_TX_LP_DA0N;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_DA1P
-    //TYPE : MIPI_TX2_TX_LP_DA1P;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_LP_DA1N
-    //TYPE : MIPI_TX2_TX_LP_DA1N;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_HS_DCK
-    //TYPE : MIPI_TX2_TX_HS_DCK;
-    //SIZE : 1;
-    //DIR  : input;
-  END_PIN
-  PIN TX_HS_DA0
-    //TYPE : MIPI_TX2_TX_HS_DA0;
-    //SIZE : 8;
-    //DIR  : input;
-  END_PIN
-  PIN TX_HS_DA1
-    //TYPE : MIPI_TX2_TX_HS_DA1;
-    //SIZE : 8;
-    //DIR  : input;
-  END_PIN
-  PIN LP_CD_P
-    //TYPE : MIPI_TX2_LP_CD_P;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN LP_CD_N
-    //TYPE : MIPI_TX2_LP_CD_N;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA0CLK
-    //TYPE : MIPI_TX2_RX_LP_DA0CLK;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA0DP
-    //TYPE : MIPI_TX2_RX_LP_DA0DP;
-    //SIZE : 1;
-    //DIR  : output;
-  END_PIN
-  PIN RX_LP_DA0DN
-    //TYPE : MIPI_TX2_RX_LP_DA0DN;
-    //SIZE : 1;
-    //DIR  : output;
   END_PIN
 // END_SLICE_INFO
 

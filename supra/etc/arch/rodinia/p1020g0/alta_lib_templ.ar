@@ -286,15 +286,7 @@ SLICE alta_cmp
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE alta_mipi_rx2
-// SLICE_INFO
-// END_SLICE_INFO
-
-// SLICE_TIMING
-// END_SLICE_TIMING
-END_SLICE
-
-SLICE alta_mipi_tx2
+SLICE alta_mipi_clk
 // SLICE_INFO
 // END_SLICE_INFO
 
