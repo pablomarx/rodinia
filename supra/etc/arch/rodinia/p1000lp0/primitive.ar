@@ -481,6 +481,46 @@ SLICE cycloneii_mac_mult
   //TYPE : XMACMULT;
   CONFIG
   END_CONFIG
+  PIN dataa
+    //TYPE : XMACMULT_DATAA;
+    //SIZE : 18;
+    //DIR  : input;
+  END_PIN
+  PIN datab
+    //TYPE : XMACMULT_DATAB;
+    //SIZE : 18;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XMACMULT_DATAOUT;
+    //SIZE : 36;
+    //DIR  : output;
+  END_PIN
+  PIN clk
+    //TYPE : XMACMULT_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XMACMULT_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XMACMULT_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN signa
+    //TYPE : XMACMULT_SIGNA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN signb
+    //TYPE : XMACMULT_SIGNB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -492,6 +532,46 @@ SLICE cycloneii_pll
   //TYPE : XPLL;
   CONFIG
   END_CONFIG
+  PIN inclk
+    //TYPE : XPLL_INCLK;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN sbdin
+    //TYPE : XPLL_SBDIN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XPLL_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XPLL_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN pfdena
+    //TYPE : XPLL_PFDENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XPLL_CLK;
+    //SIZE : 3;
+    //DIR  : output;
+  END_PIN
+  PIN sbdout
+    //TYPE : XPLL_SBDOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN locked
+    //TYPE : XPLL_LOCKED;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -525,6 +605,96 @@ SLICE cycloneii_ram_block
   //TYPE : XRAM;
   CONFIG
   END_CONFIG
+  PIN portadatain
+    //TYPE : XRAM_PORTADATAIN;
+    //SIZE : 64;
+    //DIR  : input;
+  END_PIN
+  PIN portbdatain
+    //TYPE : XRAM_PORTBDATAIN;
+    //SIZE : 64;
+    //DIR  : input;
+  END_PIN
+  PIN portadataout
+    //TYPE : XRAM_PORTADATAOUT;
+    //SIZE : 64;
+    //DIR  : output;
+  END_PIN
+  PIN portbdataout
+    //TYPE : XRAM_PORTBDATAOUT;
+    //SIZE : 64;
+    //DIR  : output;
+  END_PIN
+  PIN portaaddr
+    //TYPE : XRAM_PORTAADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN portbaddr
+    //TYPE : XRAM_PORTBADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN portabyteenamasks
+    //TYPE : XRAM_PORTABYTEENAMASKS;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN portbbyteenamasks
+    //TYPE : XRAM_PORTBBYTEENAMASKS;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN clk0
+    //TYPE : XRAM_CLK0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk1
+    //TYPE : XRAM_CLK1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clr0
+    //TYPE : XRAM_CLR0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clr1
+    //TYPE : XRAM_CLR1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena0
+    //TYPE : XRAM_ENA0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena1
+    //TYPE : XRAM_ENA1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portawe
+    //TYPE : XRAM_PORTAWE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbrewe
+    //TYPE : XRAM_PORTBREWE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portaaddrstall
+    //TYPE : XRAM_PORTAADDRSTALL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbaddrstall
+    //TYPE : XRAM_PORTBADDRSTALL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -547,6 +717,31 @@ SLICE cycloneii_mac_out
   //TYPE : XMACOUT;
   CONFIG
   END_CONFIG
+  PIN dataa
+    //TYPE : XMACOUT_DATAA;
+    //SIZE : 36;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XMACOUT_DATAOUT;
+    //SIZE : 36;
+    //DIR  : output;
+  END_PIN
+  PIN clk
+    //TYPE : XMACOUT_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XMACOUT_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XMACOUT_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -733,6 +928,46 @@ SLICE cycloneive_pll
   //TYPE : XPLL4;
   CONFIG
   END_CONFIG
+  PIN inclk
+    //TYPE : XPLL4_INCLK;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN fbin
+    //TYPE : XPLL4_FBIN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XPLL4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XPLL4_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN pfdena
+    //TYPE : XPLL4_PFDENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XPLL4_CLK;
+    //SIZE : 5;
+    //DIR  : output;
+  END_PIN
+  PIN fbout
+    //TYPE : XPLL4_FBOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN locked
+    //TYPE : XPLL4_LOCKED;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -846,6 +1081,116 @@ SLICE cycloneive_ram_block
   //TYPE : XRAM4;
   CONFIG
   END_CONFIG
+  PIN portadatain
+    //TYPE : XRAM4_PORTADATAIN;
+    //SIZE : 64;
+    //DIR  : input;
+  END_PIN
+  PIN portbdatain
+    //TYPE : XRAM4_PORTBDATAIN;
+    //SIZE : 64;
+    //DIR  : input;
+  END_PIN
+  PIN portadataout
+    //TYPE : XRAM4_PORTADATAOUT;
+    //SIZE : 64;
+    //DIR  : output;
+  END_PIN
+  PIN portbdataout
+    //TYPE : XRAM4_PORTBDATAOUT;
+    //SIZE : 64;
+    //DIR  : output;
+  END_PIN
+  PIN portaaddr
+    //TYPE : XRAM4_PORTAADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN portbaddr
+    //TYPE : XRAM4_PORTBADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN portabyteenamasks
+    //TYPE : XRAM4_PORTABYTEENAMASKS;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN portbbyteenamasks
+    //TYPE : XRAM4_PORTBBYTEENAMASKS;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN clk0
+    //TYPE : XRAM4_CLK0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk1
+    //TYPE : XRAM4_CLK1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clr0
+    //TYPE : XRAM4_CLR0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clr1
+    //TYPE : XRAM4_CLR1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena0
+    //TYPE : XRAM4_ENA0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena1
+    //TYPE : XRAM4_ENA1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena2
+    //TYPE : XRAM4_ENA2;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena3
+    //TYPE : XRAM4_ENA3;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portawe
+    //TYPE : XRAM4_PORTAWE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portare
+    //TYPE : XRAM4_PORTARE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbwe
+    //TYPE : XRAM4_PORTBWE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbre
+    //TYPE : XRAM4_PORTBRE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portaaddrstall
+    //TYPE : XRAM4_PORTAADDRSTALL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbaddrstall
+    //TYPE : XRAM4_PORTBADDRSTALL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -857,6 +1202,46 @@ SLICE cycloneive_mac_mult
   //TYPE : XMACMULT4;
   CONFIG
   END_CONFIG
+  PIN dataa
+    //TYPE : XMACMULT4_DATAA;
+    //SIZE : 18;
+    //DIR  : input;
+  END_PIN
+  PIN datab
+    //TYPE : XMACMULT4_DATAB;
+    //SIZE : 18;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XMACMULT4_DATAOUT;
+    //SIZE : 36;
+    //DIR  : output;
+  END_PIN
+  PIN clk
+    //TYPE : XMACMULT4_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XMACMULT4_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XMACMULT4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN signa
+    //TYPE : XMACMULT4_SIGNA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN signb
+    //TYPE : XMACMULT4_SIGNB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -868,6 +1253,31 @@ SLICE cycloneive_mac_out
   //TYPE : XMACOUT4;
   CONFIG
   END_CONFIG
+  PIN dataa
+    //TYPE : XMACOUT4_DATAA;
+    //SIZE : 36;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XMACOUT4_DATAOUT;
+    //SIZE : 36;
+    //DIR  : output;
+  END_PIN
+  PIN clk
+    //TYPE : XMACOUT4_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XMACOUT4_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XMACOUT4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -936,6 +1346,56 @@ SLICE cycloneive_ddio_out
   //TYPE : XDDIOOUT;
   CONFIG
   END_CONFIG
+  PIN datainlo
+    //TYPE : XDDIOOUT_DATAINLO;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN datainhi
+    //TYPE : XDDIOOUT_DATAINHI;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clkhi
+    //TYPE : XDDIOOUT_CLKHI;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clklo
+    //TYPE : XDDIOOUT_CLKLO;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XDDIOOUT_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN muxsel
+    //TYPE : XDDIOOUT_MUXSEL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XDDIOOUT_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XDDIOOUT_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sreset
+    //TYPE : XDDIOOUT_SRESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XDDIOOUT_DATAOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -947,6 +1407,36 @@ SLICE cycloneive_ddio_oe
   //TYPE : XDDIOEN;
   CONFIG
   END_CONFIG
+  PIN oe
+    //TYPE : XDDIOEN_OE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XDDIOEN_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XDDIOEN_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XDDIOEN_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sreset
+    //TYPE : XDDIOEN_SRESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XDDIOEN_DATAOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING

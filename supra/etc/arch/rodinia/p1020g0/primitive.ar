@@ -550,6 +550,57 @@ SLICE cycloneii_io
 // END_SLICE_TIMING
 END_SLICE
 
+SLICE cycloneii_pll
+// SLICE_INFO
+  //TYPE : XPLL;
+  CONFIG
+  END_CONFIG
+  PIN inclk
+    //TYPE : XPLL_INCLK;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN sbdin
+    //TYPE : XPLL_SBDIN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XPLL_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XPLL_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN pfdena
+    //TYPE : XPLL_PFDENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XPLL_CLK;
+    //SIZE : 3;
+    //DIR  : output;
+  END_PIN
+  PIN sbdout
+    //TYPE : XPLL_SBDOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN locked
+    //TYPE : XPLL_LOCKED;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
 SLICE cycloneii_clkctrl
 // SLICE_INFO
   //TYPE : XCLKCTRL;
@@ -588,22 +639,51 @@ SLICE cycloneii_clkctrl
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_pll
-// SLICE_INFO
-  //TYPE : XPLL;
-  CONFIG
-  END_CONFIG
-// END_SLICE_INFO
-
-// SLICE_TIMING
-// END_SLICE_TIMING
-END_SLICE
-
 SLICE cycloneii_mac_mult
 // SLICE_INFO
   //TYPE : XMACMULT;
   CONFIG
   END_CONFIG
+  PIN dataa
+    //TYPE : XMACMULT_DATAA;
+    //SIZE : 18;
+    //DIR  : input;
+  END_PIN
+  PIN datab
+    //TYPE : XMACMULT_DATAB;
+    //SIZE : 18;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XMACMULT_DATAOUT;
+    //SIZE : 36;
+    //DIR  : output;
+  END_PIN
+  PIN clk
+    //TYPE : XMACMULT_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XMACMULT_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XMACMULT_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN signa
+    //TYPE : XMACMULT_SIGNA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN signb
+    //TYPE : XMACMULT_SIGNB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -613,6 +693,143 @@ END_SLICE
 SLICE cycloneii_mac_out
 // SLICE_INFO
   //TYPE : XMACOUT;
+  CONFIG
+  END_CONFIG
+  PIN dataa
+    //TYPE : XMACOUT_DATAA;
+    //SIZE : 36;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XMACOUT_DATAOUT;
+    //SIZE : 36;
+    //DIR  : output;
+  END_PIN
+  PIN clk
+    //TYPE : XMACOUT_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XMACOUT_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XMACOUT_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_ram_block
+// SLICE_INFO
+  //TYPE : XRAM;
+  CONFIG
+  END_CONFIG
+  PIN portadatain
+    //TYPE : XRAM_PORTADATAIN;
+    //SIZE : 64;
+    //DIR  : input;
+  END_PIN
+  PIN portbdatain
+    //TYPE : XRAM_PORTBDATAIN;
+    //SIZE : 64;
+    //DIR  : input;
+  END_PIN
+  PIN portadataout
+    //TYPE : XRAM_PORTADATAOUT;
+    //SIZE : 64;
+    //DIR  : output;
+  END_PIN
+  PIN portbdataout
+    //TYPE : XRAM_PORTBDATAOUT;
+    //SIZE : 64;
+    //DIR  : output;
+  END_PIN
+  PIN portaaddr
+    //TYPE : XRAM_PORTAADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN portbaddr
+    //TYPE : XRAM_PORTBADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN portabyteenamasks
+    //TYPE : XRAM_PORTABYTEENAMASKS;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN portbbyteenamasks
+    //TYPE : XRAM_PORTBBYTEENAMASKS;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN clk0
+    //TYPE : XRAM_CLK0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk1
+    //TYPE : XRAM_CLK1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clr0
+    //TYPE : XRAM_CLR0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clr1
+    //TYPE : XRAM_CLR1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena0
+    //TYPE : XRAM_ENA0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena1
+    //TYPE : XRAM_ENA1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portawe
+    //TYPE : XRAM_PORTAWE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbrewe
+    //TYPE : XRAM_PORTBREWE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portaaddrstall
+    //TYPE : XRAM_PORTAADDRSTALL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbaddrstall
+    //TYPE : XRAM_PORTBADDRSTALL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneii_clk_delay_ctrl
+// SLICE_INFO
+  //TYPE : XCLKDELAY;
   CONFIG
   END_CONFIG
 // END_SLICE_INFO
@@ -643,31 +860,9 @@ SLICE cycloneii_crcblock
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_ram_block
-// SLICE_INFO
-  //TYPE : XRAM;
-  CONFIG
-  END_CONFIG
-// END_SLICE_INFO
-
-// SLICE_TIMING
-// END_SLICE_TIMING
-END_SLICE
-
 SLICE cycloneii_jtag
 // SLICE_INFO
   //TYPE : XJTAG;
-  CONFIG
-  END_CONFIG
-// END_SLICE_INFO
-
-// SLICE_TIMING
-// END_SLICE_TIMING
-END_SLICE
-
-SLICE cycloneii_clk_delay_ctrl
-// SLICE_INFO
-  //TYPE : XCLKDELAY;
   CONFIG
   END_CONFIG
 // END_SLICE_INFO
@@ -752,6 +947,174 @@ SLICE cycloneive_lcell_comb
 // END_SLICE_INFO
 
 // SLICE_TIMING
+  TIMING
+    TYPE: CELL; FROM : cin; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.254 0.273 0.269 0.304;
+    VALUE : WORST 0.345 0.371 0.373 0.420;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : cin; TO : combout; SENSE : NEGEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.254 0.254 0.269 0.269;
+    VALUE : WORST 0.345 0.345 0.373 0.373;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : cin; TO : combout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.273 0.273 0.304 0.304;
+    VALUE : WORST 0.371 0.371 0.420 0.420;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : cin; TO : cout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.044 0.075 0.045 0.074;
+    VALUE : WORST 0.058 0.104 0.055 0.105;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : cin; TO : cout; SENSE : NEGEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.044 0.053 0.045 0.054;
+    VALUE : WORST 0.058 0.073 0.055 0.079;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : cin; TO : cout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.071 0.075 0.070 0.074;
+    VALUE : WORST 0.091 0.104 0.095 0.105;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : dataa; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.395 0.421 0.281 0.345;
+    VALUE : WORST 0.496 0.527 0.388 0.466;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : dataa; TO : combout; SENSE : NEGEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.421 0.421 0.281 0.281;
+    VALUE : WORST 0.527 0.527 0.388 0.388;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : dataa; TO : combout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.395 0.395 0.345 0.345;
+    VALUE : WORST 0.496 0.496 0.466 0.466;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : dataa; TO : cout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.416 0.442 0.283 0.348;
+    VALUE : WORST 0.523 0.554 0.390 0.468;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : dataa; TO : cout; SENSE : NEGEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.442 0.442 0.283 0.283;
+    VALUE : WORST 0.554 0.554 0.390 0.390;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : dataa; TO : cout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.416 0.416 0.348 0.348;
+    VALUE : WORST 0.523 0.523 0.468 0.468;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datab; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.387 0.406 0.266 0.318;
+    VALUE : WORST 0.489 0.505 0.363 0.431;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datab; TO : combout; SENSE : NEGEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.406 0.406 0.266 0.266;
+    VALUE : WORST 0.505 0.505 0.363 0.363;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datab; TO : combout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.387 0.387 0.318 0.318;
+    VALUE : WORST 0.489 0.489 0.431 0.431;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datab; TO : cout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.365 0.390 0.244 0.294;
+    VALUE : WORST 0.467 0.484 0.326 0.398;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datab; TO : cout; SENSE : NEGEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.390 0.390 0.244 0.244;
+    VALUE : WORST 0.484 0.484 0.326 0.326;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datab; TO : cout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.365 0.365 0.294 0.294;
+    VALUE : WORST 0.467 0.467 0.398 0.398;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datac; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.190 0.208 0.208 0.236;
+    VALUE : WORST 0.250 0.276 0.284 0.321;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datac; TO : combout; SENSE : NEGEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.190 0.190 0.208 0.208;
+    VALUE : WORST 0.250 0.250 0.284 0.284;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datac; TO : combout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.208 0.208 0.236 0.236;
+    VALUE : WORST 0.276 0.276 0.321 0.321;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datad; TO : combout; SENSE : NONUNATE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.075 0.079 0.069 0.082;
+    VALUE : WORST 0.095 0.097 0.089 0.103;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datad; TO : combout; SENSE : NEGEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.079 0.079 0.069 0.069;
+    VALUE : WORST 0.097 0.097 0.089 0.089;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : datad; TO : combout; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.075 0.075 0.082 0.082;
+    VALUE : WORST 0.095 0.095 0.103 0.103;
+  END_TIMING
 // END_SLICE_TIMING
 END_SLICE
 
@@ -927,6 +1290,55 @@ SLICE dffeas
     VALUE : BEST 0.000 0.000 0.000 0.000;
     VALUE : WORST 0.000 0.000 0.000 0.000;
   END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : clrn; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST -0.084 -0.084 -0.084 -0.084;
+    VALUE : WORST -0.108 -0.108 -0.108 -0.108;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : clrn; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.085 0.085 0.085 0.085;
+    VALUE : WORST 0.109 0.109 0.109 0.109;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : clk; TO : q; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.151 0.151 0.167 0.167;
+    VALUE : WORST 0.199 0.199 0.223 0.223;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : sclr; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST -0.132 -0.132 -0.128 -0.128;
+    VALUE : WORST -0.177 -0.177 -0.172 -0.172;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : sclr; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.133 0.133 0.129 0.129;
+    VALUE : WORST 0.178 0.178 0.173 0.173;
+  END_TIMING
+  TIMING
+    TYPE: HOLD; FROM : clk; TO : sload; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST -0.245 -0.245 -0.230 -0.230;
+    VALUE : WORST -0.335 -0.335 -0.312 -0.312;
+  END_TIMING
+  TIMING
+    TYPE: SETUP; FROM : clk; TO : sload; SENSE : FROM_RISING;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.246 0.246 0.231 0.231;
+    VALUE : WORST 0.336 0.336 0.313 0.313;
+  END_TIMING
 // END_SLICE_TIMING
 END_SLICE
 
@@ -953,6 +1365,13 @@ SLICE cycloneive_io_ibuf
 // END_SLICE_INFO
 
 // SLICE_TIMING
+  TIMING
+    TYPE: CELL; FROM : i; TO : o; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 0.508 0.508 0.546 0.546;
+    VALUE : WORST 0.748 0.748 0.773 0.773;
+  END_TIMING
 // END_SLICE_TIMING
 END_SLICE
 
@@ -978,6 +1397,71 @@ SLICE cycloneive_io_obuf
   END_PIN
   PIN obar
     //TYPE : XIOOUT4_OBAR;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+  TIMING
+    TYPE: CELL; FROM : i; TO : o; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 1.632 1.632 1.670 1.670;
+    VALUE : WORST 2.348 2.348 2.413 2.413;
+  END_TIMING
+  TIMING
+    TYPE: CELL; FROM : oe; TO : o; SENSE : POSEDGE;
+    CONFIG
+    END_CONFIG
+    VALUE : BEST 1.376 1.376 1.478 1.478;
+    VALUE : WORST 2.035 2.035 2.123 2.123;
+  END_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_pll
+// SLICE_INFO
+  //TYPE : XPLL4;
+  CONFIG
+  END_CONFIG
+  PIN inclk
+    //TYPE : XPLL4_INCLK;
+    //SIZE : 2;
+    //DIR  : input;
+  END_PIN
+  PIN fbin
+    //TYPE : XPLL4_FBIN;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XPLL4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XPLL4_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN pfdena
+    //TYPE : XPLL4_PFDENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XPLL4_CLK;
+    //SIZE : 5;
+    //DIR  : output;
+  END_PIN
+  PIN fbout
+    //TYPE : XPLL4_FBOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+  PIN locked
+    //TYPE : XPLL4_LOCKED;
     //SIZE : 1;
     //DIR  : output;
   END_PIN
@@ -1025,44 +1509,51 @@ SLICE cycloneive_clkctrl
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_latch
-// SLICE_INFO
-  //TYPE : XLATCH4;
-  CONFIG
-  END_CONFIG
-// END_SLICE_INFO
-
-// SLICE_TIMING
-// END_SLICE_TIMING
-END_SLICE
-
-SLICE cycloneive_pll
-// SLICE_INFO
-  //TYPE : XPLL4;
-  CONFIG
-  END_CONFIG
-// END_SLICE_INFO
-
-// SLICE_TIMING
-// END_SLICE_TIMING
-END_SLICE
-
-SLICE cycloneive_ram_block
-// SLICE_INFO
-  //TYPE : XRAM4;
-  CONFIG
-  END_CONFIG
-// END_SLICE_INFO
-
-// SLICE_TIMING
-// END_SLICE_TIMING
-END_SLICE
-
 SLICE cycloneive_mac_mult
 // SLICE_INFO
   //TYPE : XMACMULT4;
   CONFIG
   END_CONFIG
+  PIN dataa
+    //TYPE : XMACMULT4_DATAA;
+    //SIZE : 18;
+    //DIR  : input;
+  END_PIN
+  PIN datab
+    //TYPE : XMACMULT4_DATAB;
+    //SIZE : 18;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XMACMULT4_DATAOUT;
+    //SIZE : 36;
+    //DIR  : output;
+  END_PIN
+  PIN clk
+    //TYPE : XMACMULT4_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XMACMULT4_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XMACMULT4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN signa
+    //TYPE : XMACMULT4_SIGNA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN signb
+    //TYPE : XMACMULT4_SIGNB;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -1074,6 +1565,152 @@ SLICE cycloneive_mac_out
   //TYPE : XMACOUT4;
   CONFIG
   END_CONFIG
+  PIN dataa
+    //TYPE : XMACOUT4_DATAA;
+    //SIZE : 36;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XMACOUT4_DATAOUT;
+    //SIZE : 36;
+    //DIR  : output;
+  END_PIN
+  PIN clk
+    //TYPE : XMACOUT4_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN aclr
+    //TYPE : XMACOUT4_ACLR;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XMACOUT4_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_ram_block
+// SLICE_INFO
+  //TYPE : XRAM4;
+  CONFIG
+  END_CONFIG
+  PIN portadatain
+    //TYPE : XRAM4_PORTADATAIN;
+    //SIZE : 64;
+    //DIR  : input;
+  END_PIN
+  PIN portbdatain
+    //TYPE : XRAM4_PORTBDATAIN;
+    //SIZE : 64;
+    //DIR  : input;
+  END_PIN
+  PIN portadataout
+    //TYPE : XRAM4_PORTADATAOUT;
+    //SIZE : 64;
+    //DIR  : output;
+  END_PIN
+  PIN portbdataout
+    //TYPE : XRAM4_PORTBDATAOUT;
+    //SIZE : 64;
+    //DIR  : output;
+  END_PIN
+  PIN portaaddr
+    //TYPE : XRAM4_PORTAADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN portbaddr
+    //TYPE : XRAM4_PORTBADDR;
+    //SIZE : 32;
+    //DIR  : input;
+  END_PIN
+  PIN portabyteenamasks
+    //TYPE : XRAM4_PORTABYTEENAMASKS;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN portbbyteenamasks
+    //TYPE : XRAM4_PORTBBYTEENAMASKS;
+    //SIZE : 8;
+    //DIR  : input;
+  END_PIN
+  PIN clk0
+    //TYPE : XRAM4_CLK0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk1
+    //TYPE : XRAM4_CLK1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clr0
+    //TYPE : XRAM4_CLR0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clr1
+    //TYPE : XRAM4_CLR1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena0
+    //TYPE : XRAM4_ENA0;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena1
+    //TYPE : XRAM4_ENA1;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena2
+    //TYPE : XRAM4_ENA2;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena3
+    //TYPE : XRAM4_ENA3;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portawe
+    //TYPE : XRAM4_PORTAWE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portare
+    //TYPE : XRAM4_PORTARE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbwe
+    //TYPE : XRAM4_PORTBWE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbre
+    //TYPE : XRAM4_PORTBRE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portaaddrstall
+    //TYPE : XRAM4_PORTAADDRSTALL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN portbaddrstall
+    //TYPE : XRAM4_PORTBADDRSTALL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -1085,6 +1722,56 @@ SLICE cycloneive_ddio_out
   //TYPE : XDDIOOUT;
   CONFIG
   END_CONFIG
+  PIN datainlo
+    //TYPE : XDDIOOUT_DATAINLO;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN datainhi
+    //TYPE : XDDIOOUT_DATAINHI;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clkhi
+    //TYPE : XDDIOOUT_CLKHI;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clklo
+    //TYPE : XDDIOOUT_CLKLO;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XDDIOOUT_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN muxsel
+    //TYPE : XDDIOOUT_MUXSEL;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XDDIOOUT_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XDDIOOUT_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sreset
+    //TYPE : XDDIOOUT_SRESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XDDIOOUT_DATAOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
 // END_SLICE_INFO
 
 // SLICE_TIMING
@@ -1094,6 +1781,47 @@ END_SLICE
 SLICE cycloneive_ddio_oe
 // SLICE_INFO
   //TYPE : XDDIOEN;
+  CONFIG
+  END_CONFIG
+  PIN oe
+    //TYPE : XDDIOEN_OE;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN clk
+    //TYPE : XDDIOEN_CLK;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN ena
+    //TYPE : XDDIOEN_ENA;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN areset
+    //TYPE : XDDIOEN_ARESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN sreset
+    //TYPE : XDDIOEN_SRESET;
+    //SIZE : 1;
+    //DIR  : input;
+  END_PIN
+  PIN dataout
+    //TYPE : XDDIOEN_DATAOUT;
+    //SIZE : 1;
+    //DIR  : output;
+  END_PIN
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE cycloneive_latch
+// SLICE_INFO
+  //TYPE : XLATCH4;
   CONFIG
   END_CONFIG
 // END_SLICE_INFO

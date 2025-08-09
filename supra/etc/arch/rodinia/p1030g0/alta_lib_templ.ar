@@ -1,4 +1,4 @@
-SLICE cycloneii_lcell_ff
+SLICE alta_slice
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -6,7 +6,7 @@ SLICE cycloneii_lcell_ff
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_lcell_comb
+SLICE alta_sramctrl
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -14,7 +14,7 @@ SLICE cycloneii_lcell_comb
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_io
+SLICE alta_sram
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -22,7 +22,7 @@ SLICE cycloneii_io
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_pll
+SLICE alta_wramctrl
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -30,7 +30,7 @@ SLICE cycloneii_pll
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_clkctrl
+SLICE alta_wram
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -38,7 +38,7 @@ SLICE cycloneii_clkctrl
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_mac_mult
+SLICE alta_clkenctrl
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -46,7 +46,7 @@ SLICE cycloneii_mac_mult
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_mac_out
+SLICE alta_syncctrl
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -54,7 +54,7 @@ SLICE cycloneii_mac_out
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_ram_block
+SLICE alta_asyncctrl
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -62,7 +62,7 @@ SLICE cycloneii_ram_block
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_clk_delay_ctrl
+SLICE alta_io
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -70,7 +70,7 @@ SLICE cycloneii_clk_delay_ctrl
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_asmiblock
+SLICE alta_rio
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -78,7 +78,7 @@ SLICE cycloneii_asmiblock
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_crcblock
+SLICE alta_ioreg
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -86,7 +86,7 @@ SLICE cycloneii_crcblock
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneii_jtag
+SLICE alta_dio
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -94,7 +94,7 @@ SLICE cycloneii_jtag
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE LPM_LATCH
+SLICE alta_dioreg
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -102,7 +102,7 @@ SLICE LPM_LATCH
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE XAND2
+SLICE alta_indel
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -110,7 +110,7 @@ SLICE XAND2
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE XMUX1
+SLICE alta_buf
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -118,7 +118,7 @@ SLICE XMUX1
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_lcell_comb
+SLICE alta_pll
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -126,7 +126,7 @@ SLICE cycloneive_lcell_comb
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_ff
+SLICE alta_pllx
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -134,7 +134,7 @@ SLICE cycloneive_ff
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE dffeas
+SLICE alta_pllv
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -142,7 +142,7 @@ SLICE dffeas
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_io_ibuf
+SLICE alta_pllve
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -150,7 +150,7 @@ SLICE cycloneive_io_ibuf
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_io_obuf
+SLICE alta_saradc
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -158,7 +158,7 @@ SLICE cycloneive_io_obuf
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_pll
+SLICE alta_oct
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -166,7 +166,7 @@ SLICE cycloneive_pll
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_clkctrl
+SLICE alta_bram
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -174,7 +174,7 @@ SLICE cycloneive_clkctrl
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_mac_mult
+SLICE alta_bram9k
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -182,7 +182,7 @@ SLICE cycloneive_mac_mult
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_mac_out
+SLICE alta_mult
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -190,7 +190,7 @@ SLICE cycloneive_mac_out
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_ram_block
+SLICE alta_multm
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -198,7 +198,7 @@ SLICE cycloneive_ram_block
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_ddio_out
+SLICE alta_i2c
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -206,7 +206,7 @@ SLICE cycloneive_ddio_out
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_ddio_oe
+SLICE alta_spi
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -214,7 +214,7 @@ SLICE cycloneive_ddio_oe
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_latch
+SLICE alta_gclksel
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -222,7 +222,7 @@ SLICE cycloneive_latch
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_rublock
+SLICE alta_gclkgen
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -230,7 +230,7 @@ SLICE cycloneive_rublock
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_termination
+SLICE alta_gclkgen0
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -238,7 +238,7 @@ SLICE cycloneive_termination
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_jtag
+SLICE alta_gclkgen2
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -246,7 +246,7 @@ SLICE cycloneive_jtag
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_crcblock
+SLICE alta_dpclkdel
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -254,7 +254,7 @@ SLICE cycloneive_crcblock
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_oscillator
+SLICE alta_gclksw
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -262,7 +262,7 @@ SLICE cycloneive_oscillator
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_pseudo_diff_out
+SLICE alta_adc
 // SLICE_INFO
 // END_SLICE_INFO
 
@@ -270,7 +270,183 @@ SLICE cycloneive_pseudo_diff_out
 // END_SLICE_TIMING
 END_SLICE
 
-SLICE cycloneive_routing_wire
+SLICE alta_dac
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_cmp
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_mipi_clk
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_ufm
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_ufms
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_boot
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_osc
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_remote
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_ufml
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_irda
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_mcu
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_mcu_m3
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_rv32
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_io_gclk
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_ufm_gddd
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_jtag
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_clkctrl
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_clk_delay_ctrl
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_mac_out
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_mac_mult
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_ram_block
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_asmiblock
+// SLICE_INFO
+// END_SLICE_INFO
+
+// SLICE_TIMING
+// END_SLICE_TIMING
+END_SLICE
+
+SLICE alta_crcblock
 // SLICE_INFO
 // END_SLICE_INFO
 
